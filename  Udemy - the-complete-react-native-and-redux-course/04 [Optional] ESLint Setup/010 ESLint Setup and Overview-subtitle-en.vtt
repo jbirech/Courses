@@ -1,0 +1,391 @@
+WEBVTT
+
+00:01.020 --> 00:05.750
+Excellent is a tool for validating javascript code that you write in your code.
+
+00:06.180 --> 00:12.020
+Let's discuss what yes one is how it works and then set up inside of our code editor.
+
+00:12.030 --> 00:16.510
+First though let's do a quick demo just so we can figure out what your Slint really is and what is doing
+
+00:16.510 --> 00:17.770
+it doing for us.
+
+00:17.810 --> 00:22.290
+Now I want to convince you that this is an interesting tool that you should want to set up.
+
+00:22.320 --> 00:24.620
+So I've got some just arbitrary file here.
+
+00:24.630 --> 00:26.550
+You know just a single function.
+
+00:26.550 --> 00:29.040
+I declare the function and then I execute the function.
+
+00:29.040 --> 00:30.710
+So right now everything looks good.
+
+00:30.720 --> 00:33.620
+I don't appear to have any syntax errors.
+
+00:33.850 --> 00:35.700
+So OK this looks pretty good.
+
+00:36.060 --> 00:38.690
+I'm going to introduce an error now inside my code.
+
+00:38.690 --> 00:40.300
+Just a very subtle error.
+
+00:40.380 --> 00:45.430
+You'll notice that I am declaring a function called average and then I invoke it down here.
+
+00:45.600 --> 00:52.470
+So the subtle error and introduce is going to remain this thing too capitally average and the instant
+
+00:52.470 --> 00:58.260
+I do I get a whole bunch of red popping up inside my code editor and if I hover over this error right
+
+00:58.260 --> 01:04.420
+here I know the text is kind of small but I'll read it for you says average is defined but never used.
+
+01:04.560 --> 01:09.990
+And then down here average is not defined and so both these error messages are very helpful for helping
+
+01:09.990 --> 01:16.230
+me just kind of figure out how I just made a big type but within my code I declared average with a capital
+
+01:16.230 --> 01:16.660
+J.
+
+01:16.830 --> 01:19.760
+But then when I tried to use it I've got lowercase say so.
+
+01:19.770 --> 01:23.140
+This function is in theory not defined.
+
+01:23.520 --> 01:25.670
+So this is the purpose of excellent.
+
+01:25.680 --> 01:32.220
+It runs inside my code editor and it detects or recognizes whenever I make either a syntax error or
+
+01:32.250 --> 01:36.640
+an error like you know basically reference a variable that does not exist.
+
+01:36.810 --> 01:39.580
+So I can fix this error up by going back to lurking.
+
+01:39.570 --> 01:42.180
+Say And we're back to normal of course.
+
+01:42.210 --> 01:44.430
+Yes lint does not only do.
+
+01:44.730 --> 01:47.730
+Trying to figure out if you're referencing a variable it doesn't exist.
+
+01:47.730 --> 01:51.770
+It will also pick up on say you know a dangling operator like so.
+
+01:51.840 --> 01:58.050
+So I've got a dangling divisions division sign here and we get a nice error message that says it looks
+
+01:58.050 --> 02:03.720
+like something right here went a little bit wrong and we can you know reasonably easy figure out that.
+
+02:03.810 --> 02:05.740
+OK we probably made a mistake here.
+
+02:06.000 --> 02:11.750
+I also want to divide it by two or let's say I misspelled return.
+
+02:11.820 --> 02:16.050
+All right fantastic doing the same thing as well just letting me know that I made a very subtle mistake
+
+02:16.380 --> 02:19.150
+that I should fix before I move on with my application.
+
+02:19.490 --> 02:21.150
+OK so that's what Yeslam does.
+
+02:21.150 --> 02:26.160
+I hope that I've kind of given you an idea that yes this is something that's useful something you might
+
+02:26.160 --> 02:28.890
+want to use and set up inside your application.
+
+02:28.890 --> 02:31.200
+I used to look down on us a little bit.
+
+02:31.220 --> 02:36.300
+You know I always thought personally like well if I'm a real engineer I would be able to pick up type
+
+02:36.300 --> 02:41.730
+was like this before I try to run in the browser and that's not a very realistic attitude.
+
+02:41.730 --> 02:47.670
+You know and at the end of the day everybody makes mistakes some number of the time and the sooner you
+
+02:47.940 --> 02:51.880
+find and fix those mistakes it just means you're all the more productive.
+
+02:51.900 --> 02:57.180
+So personally I think that there's a lot of benefit to using yes lint and not a tremendous amount of
+
+02:57.180 --> 02:58.550
+downside.
+
+02:59.220 --> 03:02.660
+Let's change gears now and talk a little bit more about how.
+
+03:02.670 --> 03:04.990
+Yes lint works in how to set it up.
+
+03:05.100 --> 03:07.340
+So this is the one downside to Eastlink.
+
+03:07.350 --> 03:09.460
+I'll tell you that right now the one downside.
+
+03:09.600 --> 03:13.870
+Figuring out how the thing works and how to set it up is a little bit of a nightmare.
+
+03:14.090 --> 03:19.300
+And well that's kind of evidenced by this really scary looking diagram that I've got on the screen now.
+
+03:19.650 --> 03:24.860
+So we're going talk about exactly how Yeslam works at least on the kind of set up side of things.
+
+03:24.930 --> 03:30.630
+Do take note I'm going to frame this discussion for using Eastlink with our outer code editor so I use
+
+03:30.630 --> 03:31.220
+outta.
+
+03:31.380 --> 03:39.390
+You might use sublime or vs code or web storm or Vim whatever it might be the set for all those different
+
+03:39.390 --> 03:40.980
+headers is very similar.
+
+03:40.980 --> 03:48.070
+Just some very slight differences so again Les is no kind of frame the discussion in that regard with
+
+03:48.070 --> 03:48.570
+Yeslam.
+
+03:48.580 --> 03:50.770
+There's two phases of setup.
+
+03:50.770 --> 03:55.360
+There is Ed. specific setup which is kind of above this long line right here.
+
+03:55.510 --> 03:59.060
+And then there is project specific setup as well.
+
+03:59.290 --> 04:03.800
+Use So we're going to jump around on this diagram a little bit.
+
+04:03.820 --> 04:08.590
+We're going to start off first so to get out of Ed. up top and then we're gonna work our way down to
+
+04:08.590 --> 04:12.190
+the bottom here at this big box with all these rules things in here.
+
+04:12.190 --> 04:19.300
+So when we install Adam as our code editor Adam has a fantastic ecosystem of different packages that
+
+04:19.300 --> 04:24.250
+we can download and install inside of Adam to enhance the behavior of the editor.
+
+04:24.250 --> 04:28.620
+One such plugin that we can install is called simply Linter.
+
+04:28.660 --> 04:29.360
+That's all it's called.
+
+04:29.360 --> 04:30.230
+Not excellent.
+
+04:30.250 --> 04:36.700
+It's just Linter Linter is some underlying functionality inside of our code editor inside of atom in
+
+04:36.700 --> 04:39.780
+particular that allows us to plug in.
+
+04:39.790 --> 04:42.100
+And that's kind of what I'm trying to symbolize here by this.
+
+04:42.130 --> 04:45.140
+Yes lint going into this you know white box right here.
+
+04:45.310 --> 04:47.770
+We can plug in different lynchers.
+
+04:47.950 --> 04:51.250
+So E.S. lint is not the only limiting system out there.
+
+04:51.260 --> 04:56.700
+There are tons of other programming languages and many other languages have litters of their own.
+
+04:56.950 --> 05:04.630
+So for our we get we get this very generic very multi use case Linter plug in there just has some idea
+
+05:04.630 --> 05:09.300
+of how to show airs to the user on the screen and that's all it really does.
+
+05:10.690 --> 05:14.340
+So we have our Linter plug in on top of that we will install.
+
+05:14.380 --> 05:15.390
+Yes.
+
+05:15.790 --> 05:21.550
+Yes Lynn is the actual plug in is the actual module that parses our javascript code and applies some
+
+05:21.550 --> 05:26.510
+rules to it and tries to validate Hey did they you know make a mistake in here did something go wrong.
+
+05:26.620 --> 05:30.250
+If so I need to peruse some type of error message and show it to the user.
+
+05:30.430 --> 05:32.010
+So that's the purpose of excellent.
+
+05:32.020 --> 05:39.090
+It parses our javascript code and then its sources or creates the error messages to show to the user.
+
+05:39.160 --> 05:45.690
+So both the winter that we install and excellent are what I kind of refer to as ed. specific settings.
+
+05:45.880 --> 05:51.160
+You install them once like forever and you're done and you just install Linter once you install Yes
+
+05:51.370 --> 05:54.320
+once you're done that's it.
+
+05:54.340 --> 05:57.430
+On the flip side are project specific settings.
+
+05:57.580 --> 05:59.960
+So moving from project to project.
+
+06:00.010 --> 06:06.250
+You know maybe you've got a project at work and then you've also got a project at home like a side project
+
+06:06.640 --> 06:13.600
+and your work project might be very legacy like S-5 code but then the project you're working out at
+
+06:13.600 --> 06:15.390
+home might be cutting edge.
+
+06:15.550 --> 06:19.190
+Yes six Yes seven lots of really fancy syntax.
+
+06:19.600 --> 06:25.120
+So to accommodate for these different projects that you might have you can wire up what is what I can
+
+06:25.150 --> 06:30.550
+refer to and say this is an official terminology it's wired for Two-Eyes project specific configuration
+
+06:30.850 --> 06:38.410
+so we can configure Yes lint in the rules that it uses to validate our javascript code on a per project
+
+06:38.410 --> 06:39.340
+basis.
+
+06:41.480 --> 06:47.930
+To set up E.S. slant on a very specific project we will add in some amount of configuration for just
+
+06:47.930 --> 06:51.950
+a specific project and we'll talk about exactly what form that takes.
+
+06:51.960 --> 06:54.480
+We set this up inside of our code editor.
+
+06:54.500 --> 07:01.160
+The purpose of this config file is a file that we create is to tell each slant that we want to use some
+
+07:01.160 --> 07:03.790
+number of rules to validate our Javascript.
+
+07:04.010 --> 07:08.690
+So at the end of the day when yes lint runs Yes lint by default by itself.
+
+07:08.690 --> 07:12.500
+If you just install and run it it does absolutely nothing.
+
+07:12.500 --> 07:16.120
+There is no builtin validation inside of us yes.
+
+07:16.250 --> 07:21.680
+You have to specify some number of rules that you want to use to say to your Slint Hey when you're parsing
+
+07:21.680 --> 07:26.590
+everything and you're figuring out if you know anything is going wrong please reference these rules.
+
+07:26.590 --> 07:30.450
+I want to make sure that the developer is following all these different rules.
+
+07:30.740 --> 07:37.160
+So if I flip back to Adam really quick and let's say I remove a semi colon right your on line to I get
+
+07:37.220 --> 07:43.220
+an error message and the error message I know it's very small on the video but you can see here very
+
+07:43.220 --> 07:45.230
+small says semi right here.
+
+07:45.230 --> 07:53.210
+So if I click on semi it'll pop up in my browser and will take me to the rule called semi semi is all
+
+07:53.210 --> 07:57.170
+about making sure that you use semi colons within your code.
+
+07:57.170 --> 07:58.490
+So here is a good example right here.
+
+07:58.490 --> 08:03.740
+Hey please make sure that you use semi-colons and you can read all the documentation and hear all about
+
+08:03.740 --> 08:04.330
+it.
+
+08:04.730 --> 08:08.170
+So for any projects that we might be working on with excellent.
+
+08:08.210 --> 08:11.100
+We will need to specify some number of rules.
+
+08:11.150 --> 08:17.320
+Now of course as a kind of an line developer you don't have to specify all these rules one by one.
+
+08:17.330 --> 08:22.690
+There are a ton of preset configurations out there online that you can just download and install.
+
+08:22.730 --> 08:27.830
+They will kind of bundled together a reasonable rule set of different validation rules and you can just
+
+08:27.920 --> 08:33.440
+immediately start working without having to worry about you know adding in 30 rules before you start
+
+08:33.440 --> 08:34.680
+actually writing any code.
+
+08:34.790 --> 08:40.760
+So for the config side of things usually you will pull in some already pre bundled set of rules to validate
+
+08:40.760 --> 08:44.150
+your javascript code so that is how.
+
+08:44.170 --> 08:47.910
+Yes Slint works or at least the again the set up side works inside.
+
+08:47.920 --> 08:50.170
+In a nutshell let's continue.
+
+08:50.200 --> 08:55.930
+In another video and talk about how we set up Eastland with a number of different code editors

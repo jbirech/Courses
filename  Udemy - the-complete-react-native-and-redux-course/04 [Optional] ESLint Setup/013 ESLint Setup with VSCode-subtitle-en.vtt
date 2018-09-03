@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00.780 --> 00:05.690
+In this section we're going to go through the installation of E-wrestling lint on top of vs code.
+
+00:05.760 --> 00:09.170
+So if you're using Visual Studio code you're in the right place.
+
+00:09.210 --> 00:14.640
+Let's go through the installation I'm inside of my project directory and I've currently got to open
+
+00:14.640 --> 00:17.610
+the index dot Iowa dot J.S. file.
+
+00:17.610 --> 00:20.050
+Now we've only got this file open just to verify that.
+
+00:20.070 --> 00:21.050
+Yes that works.
+
+00:21.060 --> 00:22.690
+After we actually install it.
+
+00:22.920 --> 00:24.330
+So let's go through the installation.
+
+00:24.570 --> 00:29.610
+The first thing we're going to do is flip over to our terminal and I'm inside the project directory
+
+00:29.610 --> 00:30.330
+right now.
+
+00:30.420 --> 00:33.040
+And I'm going to install Yes lint globally.
+
+00:33.180 --> 00:38.320
+So I'll run NPM install d'Asti Yes lint.
+
+00:38.490 --> 00:40.090
+This is going to take a minute to install.
+
+00:40.110 --> 00:45.570
+So while this is going to flip back over to Visual Studio code and do a little bit more setup over here
+
+00:47.280 --> 00:53.350
+on the left hand side I'm going to find my packages button and I'm going to install an extension called
+
+00:53.660 --> 00:54.590
+Yes lint.
+
+00:54.650 --> 00:56.590
+So do a search for E.S. lint.
+
+00:56.640 --> 00:59.700
+I see it as the first and only results in here.
+
+00:59.820 --> 01:05.800
+And we can just click install after I install it I will enable the extension.
+
+01:05.880 --> 01:07.880
+I'm going to be prompted to restart my editor.
+
+01:07.920 --> 01:09.840
+No problem let's do it.
+
+01:13.330 --> 01:14.440
+And we're back.
+
+01:14.470 --> 01:16.320
+So here we go.
+
+01:16.450 --> 01:18.760
+I'm going to flip back over really quick to my terminal.
+
+01:18.760 --> 01:22.340
+It looks like that global installation of yes land is complete.
+
+01:22.480 --> 01:27.020
+This global installation of Ascelin is used to do the actual parsing of the code that we write.
+
+01:27.040 --> 01:29.020
+So that is why we installed that.
+
+01:29.020 --> 01:33.760
+The second package that we needed to install really quickly is the actual ruleset that we're going to
+
+01:33.760 --> 01:37.140
+use to validate the javascript that we actually write.
+
+01:37.180 --> 01:38.530
+So remember by default.
+
+01:38.650 --> 01:40.520
+Yes lint does nothing for us.
+
+01:40.600 --> 01:43.150
+We have to give it a default rule set.
+
+01:43.600 --> 01:50.080
+So I'm going to install a bundle of rules that's already been written for us using NPM all execute NPM
+
+01:50.110 --> 01:59.790
+install dash dash save Dev Yes limt config Rallye coding.
+
+01:59.840 --> 02:00.300
+So I've got.
+
+02:00.320 --> 02:06.160
+Yes Slint dash config dash rally coding and we'll let the install itself.
+
+02:06.170 --> 02:08.070
+This is also going to take a moment to install.
+
+02:08.090 --> 02:11.530
+So while it's doing that we'll do one last piece of startup.
+
+02:11.660 --> 02:14.870
+I'm going to flip back over to Visual Studio code really quick.
+
+02:14.990 --> 02:21.890
+Am going to make a new file inside of my project directory so I'm going to make a new file called Dot
+
+02:22.370 --> 02:23.960
+Slint RC.
+
+02:24.340 --> 02:25.200
+So Dot.
+
+02:25.270 --> 02:33.620
+Yes r RC and inside of your we are going to tell us land that we want to use that rule set that we just
+
+02:33.620 --> 02:35.180
+installed with NPM.
+
+02:35.360 --> 02:38.420
+So I will add in a new object.
+
+02:38.970 --> 02:39.600
+Oh boy.
+
+02:39.830 --> 02:40.490
+Well that's legible.
+
+02:40.490 --> 02:41.470
+There you go.
+
+02:41.540 --> 02:46.580
+And then inside this object and put a set of double quotes make sure you're using double quotes you
+
+02:46.580 --> 02:52.770
+can not use single quotes to use double extends Rallye coding.
+
+02:53.210 --> 03:00.340
+So both extends and key and rarely coding are wrapped with double quotes like so now I'll just save
+
+03:00.340 --> 03:01.520
+this.
+
+03:02.480 --> 03:05.150
+Let's see how our installation is going up.
+
+03:05.190 --> 03:07.400
+Looks like the installation is all done.
+
+03:07.490 --> 03:12.690
+So the last thing I'm going to do is test this out inside of that index.
+
+03:12.900 --> 03:14.140
+SJS file.
+
+03:14.400 --> 03:18.100
+Let's try by just taking on a semi-colon or two.
+
+03:18.210 --> 03:24.550
+Andy me I get an error message popping up and I can put the semi-colon back on and we're back in business.
+
+03:24.560 --> 03:29.330
+Or I can delete the entire first line and now I get a whole bunch of big errors popping up on the screen
+
+03:29.390 --> 03:34.430
+so it definitely looks like we've successfully got Yeslam working inside of the code.
+
+03:34.430 --> 03:36.570
+Let's continue in the next section.

@@ -1,0 +1,367 @@
+WEBVTT
+
+00:00.800 --> 00:05.870
+In this section we're going to go through the installation of yes land on Sublime Text 3.
+
+00:05.930 --> 00:10.510
+So specifically Sublime Text three Sublime Text two as far as I know is not supported.
+
+00:10.530 --> 00:11.230
+Excellent.
+
+00:11.240 --> 00:14.330
+So this is all going to be set up with Yeslam 3.
+
+00:14.960 --> 00:20.180
+So unfortunately yes Ursuline has a little bit of a hefty amount of setup here.
+
+00:20.180 --> 00:22.660
+So these are all the stuff we have to go through.
+
+00:22.940 --> 00:28.570
+And yes it is slightly painful to be honest with you this is a third time record of this section.
+
+00:28.570 --> 00:34.760
+So the last two times I made a tiny mistake hopefully no repeats this time no repeats are going to get
+
+00:34.760 --> 00:35.720
+through this in one go.
+
+00:35.720 --> 00:36.830
+All right.
+
+00:37.640 --> 00:38.330
+So first.
+
+00:38.360 --> 00:39.510
+Well you know what.
+
+00:39.520 --> 00:44.480
+I don't know how much sense there is to talk about all this installation here basically getting set
+
+00:44.480 --> 00:47.300
+up with subline just involves installing a bunch of junk.
+
+00:47.480 --> 00:50.760
+Let's just get started on it and go through the process.
+
+00:50.810 --> 00:54.930
+So first we are going to install Yeslam globally with NPM.
+
+00:55.190 --> 01:01.520
+So at my terminal I'm inside my project directory and I'm going to install the yes limt command line
+
+01:01.520 --> 01:02.160
+tool.
+
+01:02.220 --> 01:06.790
+OK so the command line tool is what actually parses and validates our code.
+
+01:07.100 --> 01:10.710
+We will execute NPM install DSG.
+
+01:10.820 --> 01:19.220
+Yes Lance is going to install the Yeslam package globally as indicated by the dash G right here.
+
+01:19.220 --> 01:20.600
+This is going to take a little bit to run.
+
+01:20.600 --> 01:24.050
+So let's continue with the rest of the installation while that goes.
+
+01:24.050 --> 01:30.010
+The next thing we're going to do is install package control package control as a package manager for
+
+01:30.020 --> 01:31.240
+Sublime Text 3.
+
+01:31.250 --> 01:37.550
+So it's just something that's going to allow us to easily install other packages to install package
+
+01:37.550 --> 01:49.130
+control 3 I to open up my browser and I'm going to navigate to package control dot IO slash installation
+
+01:51.860 --> 01:57.710
+then once here on the left side we're going to go through the simple installation process which really
+
+01:57.710 --> 01:59.670
+is pretty straightforward.
+
+02:00.620 --> 02:03.820
+I'm going to copy this big block of text right here.
+
+02:03.830 --> 02:07.990
+Everything from the import statement to the right by at the bottom.
+
+02:08.480 --> 02:10.910
+So I hit command C to copy it.
+
+02:10.910 --> 02:16.710
+Now we'll go back over to Sublime Text and I need to paste this into some blinds console.
+
+02:16.910 --> 02:24.300
+So I go up to the View tab at the top click Show console and then I will paste it all in here.
+
+02:24.350 --> 02:25.610
+Everything that we just copied.
+
+02:25.610 --> 02:32.630
+So the very last token in here will be right by when I enter and this will install package control for
+
+02:32.630 --> 02:33.260
+us.
+
+02:33.360 --> 02:38.720
+And I've already got package control installed so I am not really doing any additional insulation here.
+
+02:38.780 --> 02:41.290
+You'll want to make sure that it just completes installing.
+
+02:41.300 --> 02:43.510
+You only take a second or two.
+
+02:44.390 --> 02:48.670
+So next we've got our package control installed.
+
+02:48.740 --> 02:55.250
+We are going to install a configuration for yes lint within PM So this config part that we're about
+
+02:55.250 --> 03:03.450
+to do right here is all about this last half loops the last half on our diagram.
+
+03:03.450 --> 03:06.620
+Remember we have some per project set up that we have to do.
+
+03:06.620 --> 03:11.000
+So what we're about to do is the per project set up it's going to move the actual configuration that
+
+03:11.000 --> 03:16.220
+tells us and hey when you parse the code and make sure it's valid please use this set of rules to figure
+
+03:16.220 --> 03:17.700
+out what is going on.
+
+03:18.200 --> 03:25.450
+So back at my terminal all take note looks like gasoline is all done installing.
+
+03:25.670 --> 03:33.460
+We're going to install some configuration for it yes lint it run and install dash dash save dash dev.
+
+03:33.980 --> 03:39.750
+Yes Lintz Klein fig Rallye coding like so.
+
+03:39.980 --> 03:47.930
+So yes Slint dash config dash Rallye coding so we'll hit enter and let this thing do its little installation
+
+03:48.020 --> 03:54.750
+and it will keep working while that goes just installing that configuration inside of our project to
+
+03:54.770 --> 03:56.380
+that set of rules isn't enough.
+
+03:56.380 --> 04:01.590
+We have to actually tell ESPN to make use of that said approve of or that list of rules.
+
+04:01.630 --> 04:06.730
+So to tell excellent to use that set of rules we're going to create a new configuration file inside
+
+04:06.730 --> 04:08.620
+of our root project directory.
+
+04:08.980 --> 04:15.710
+So inside of my root project directory I'm going to make a new file called Daut.
+
+04:15.910 --> 04:17.120
+Yes lint.
+
+04:17.280 --> 04:19.240
+RC And I'll save it.
+
+04:21.490 --> 04:27.280
+So now I've got a new file inside my root project directory called Daut.
+
+04:27.300 --> 04:33.630
+Yes Lynn RC and it's completely empty inside if you're going to put just a little bit of configuration.
+
+04:33.630 --> 04:42.900
+I'm going to place a set of curly braces and then inside the curly braces all add in extends colon Raley
+
+04:42.900 --> 04:44.030
+coding.
+
+04:44.670 --> 04:45.610
+So again this tells.
+
+04:45.630 --> 04:46.430
+Excellent.
+
+04:46.560 --> 04:49.670
+Hey we just installed a set of configuration for you.
+
+04:49.740 --> 04:53.060
+Please use the configuration called Rallye coding.
+
+04:53.190 --> 05:00.810
+Do take note that you must use double quotes around each word here so double quotes around extends and
+
+05:00.810 --> 05:04.260
+double quotes around Raley coding as well.
+
+05:05.210 --> 05:05.570
+All right.
+
+05:05.580 --> 05:06.780
+So just two more steps.
+
+05:06.780 --> 05:09.770
+We're almost there almost there.
+
+05:10.020 --> 05:15.550
+We have now added in our config with NPM we have actually skipped to the bottom.
+
+05:15.570 --> 05:17.840
+We add in the config file to our project.
+
+05:17.970 --> 05:19.760
+So the last two things are to do.
+
+05:19.810 --> 05:25.770
+Are we going to use the package control module that we just installed to install Linter and excellent
+
+05:25.780 --> 05:28.580
+to sublime Tex.
+
+05:28.870 --> 05:36.270
+So back in sight of our project I'm going to install or use package control to install those two modules.
+
+05:36.270 --> 05:43.550
+First I'll open up the command palette by pressing command shift key and this opens up the command palette
+
+05:43.590 --> 05:52.330
+as a list of all things I can do with sublime text I'm going to search for install and then click on
+
+05:52.330 --> 05:55.990
+the install package section.
+
+05:56.270 --> 06:00.050
+This will do a little bit of loading and then show me a list of all the different packages that I can
+
+06:00.050 --> 06:01.070
+install.
+
+06:01.370 --> 06:08.720
+First we're going to look for sublime limiter and I'll find the first result right here is just sublime
+
+06:08.720 --> 06:09.240
+Linter.
+
+06:09.260 --> 06:13.960
+I will click it to install it and there we go nice and installed.
+
+06:14.510 --> 06:21.020
+And next I'll open up the command palette again with command shift P I will click on install package
+
+06:21.020 --> 06:31.950
+again and then this time around we are going to look for sublime Linter Dasch contrib dash Yes lint
+
+06:32.570 --> 06:37.030
+so subline Linter Dasch contrib dash Yes lint.
+
+06:37.040 --> 06:38.540
+So here's the result right here.
+
+06:38.570 --> 06:42.820
+And I'll click it to install it and I'll click out that message right there.
+
+06:43.160 --> 06:47.740
+OK so last step I'm going to close out sublime text entirely.
+
+06:49.060 --> 06:57.730
+So I just quit entirely from it and I started back up and I got my project folder still open right here.
+
+06:57.780 --> 07:01.180
+So last thing I have to do is just test this out make sure it works.
+
+07:01.230 --> 07:08.820
+I'm going to open up this index file and I'm going to delete a semi colon here at the end and I'm going
+
+07:08.820 --> 07:10.730
+to save the file.
+
+07:10.830 --> 07:11.810
+And you'll notice.
+
+07:11.860 --> 07:15.950
+Yup sure enough I get this error message popping up says here.
+
+07:15.950 --> 07:17.360
+Missing semi colon.
+
+07:17.400 --> 07:18.600
+The rule is semi-new.
+
+07:18.750 --> 07:24.300
+If you don't see the this little red dot over here and you know the Red Square pop up do you make sure
+
+07:24.300 --> 07:30.740
+that you save the file and also try changing the line that your cursor is on inside of Sublime Text
+
+07:30.770 --> 07:35.850
+the Linter is a little bit laggy and so sometimes it takes a second for it to realize oh hey you just
+
+07:35.850 --> 07:41.160
+fix the error so you'll notice that when I delete the semi-colon you know we're waiting we're waiting.
+
+07:41.180 --> 07:42.850
+Oh there's an error here.
+
+07:43.030 --> 07:45.390
+You know when I fix it we're waiting.
+
+07:45.420 --> 07:45.750
+OK.
+
+07:45.750 --> 07:46.960
+There it goes.
+
+07:47.520 --> 07:47.840
+OK.
+
+07:47.880 --> 07:50.970
+So here is yes let's set up a Sublime Text.
+
+07:50.970 --> 07:54.720
+I know not the easiest thing in the world to do in the future.
+
+07:54.720 --> 08:00.700
+Now whenever you want to use E.S. lint with Sublime Text You can create this dot.
+
+08:00.730 --> 08:01.290
+Yes.
+
+08:01.340 --> 08:03.050
+RC file right here.
+
+08:03.050 --> 08:09.030
+Paste in this rule and then make sure that you just run out the terminal that NPM installed.
+
+08:09.120 --> 08:12.740
+Dash dash save dev excellent config Raley coding.
+
+08:12.810 --> 08:13.700
+That's all you have to do.
+
+08:13.710 --> 08:16.040
+So in the future no more complicated set up.
+
+08:16.080 --> 08:17.520
+It's a one time thing.
+
+08:17.940 --> 08:18.810
+OK so we've got.
+
+08:18.810 --> 08:20.500
+Yes let's set up a sublime text.
+
+08:20.550 --> 08:22.770
+Let's continue in the next section.

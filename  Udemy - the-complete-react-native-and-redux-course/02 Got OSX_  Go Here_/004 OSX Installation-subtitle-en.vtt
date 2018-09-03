@@ -1,0 +1,274 @@
+WEBVTT
+
+00:00.810 --> 00:06.150
+In this section we're going to walk through installation of re-act native on OSX.
+
+00:06.150 --> 00:12.480
+So if you are not on a Mac or you do not want to install Iowas specifically if you instead want to go
+
+00:12.480 --> 00:17.880
+with Android you'll want to jump to the next section where we'll talk about the installation of Android
+
+00:18.210 --> 00:21.150
+on either OSX or on Windows.
+
+00:21.150 --> 00:25.800
+So just make sure that you're in the right place and you go to at least one of these set up tracks just
+
+00:25.800 --> 00:27.470
+one of them.
+
+00:27.540 --> 00:33.600
+So the setup that we're going to go through inside this section for Iowa on OSX is going to be identical
+
+00:33.660 --> 00:40.040
+nearly identical to the installation directions that are provided in the official re-act native documentation.
+
+00:40.050 --> 00:41.370
+Let's pull that documentation up.
+
+00:41.370 --> 00:49.310
+Just a start in my browser to make a new tab and search for reac native and I'll click on the Getting
+
+00:49.310 --> 00:50.700
+Started the link right here.
+
+00:52.140 --> 00:58.380
+So this is the documentation for getting started with Mack in Iowa s we will go through these instructions
+
+00:58.380 --> 00:58.850
+right here.
+
+00:58.850 --> 01:02.860
+So if you get lost any point in time you can always come back to these directions.
+
+01:02.910 --> 01:06.570
+But I will tell you right now that we're going to go through the set up with a lot more detail than
+
+01:06.570 --> 01:07.830
+what's listed right here.
+
+01:07.830 --> 01:13.710
+I just want you to know that these directions do exist so let's get started with the setup.
+
+01:13.850 --> 01:19.280
+I want you to know right now and this is going to hold true throughout the entire course with any tutorial
+
+01:19.280 --> 01:19.750
+I write.
+
+01:19.760 --> 01:25.280
+It is very important to me that you understand exactly why we are installing each tool and why we were
+
+01:25.280 --> 01:26.000
+left right.
+
+01:26.000 --> 01:27.310
+Each line of code.
+
+01:27.530 --> 01:31.850
+So before we started doing that installation we're going to just have a very quick discussion about
+
+01:31.850 --> 01:37.550
+the purpose of each of these dependencies and exactly what we are installing.
+
+01:37.550 --> 01:43.760
+The first dependency that we're going to install is X code x code is Apple's official ID for building
+
+01:43.760 --> 01:50.430
+software for nearly any official Apple device like iPhones eye watches or Mac laptops.
+
+01:50.500 --> 01:57.020
+We will be using X code to build our apps and install them on a mobile device X code also comes bundled
+
+01:57.020 --> 02:03.550
+with the iOS simulator which is a tool used to run mobile apps directly on your desktop or laptop.
+
+02:03.560 --> 02:10.730
+Second we'll be installing homebrew homebrew is a Mac OSX dependency management program which we're
+
+02:10.730 --> 02:14.500
+going to use for exactly one purpose just to install node.
+
+02:14.790 --> 02:19.250
+That's kind of the funny thing about the set up here you have to install programs just to install programs
+
+02:19.290 --> 02:22.560
+that kind struck me as all that funny.
+
+02:22.550 --> 02:29.990
+Anyways after we install homebrew we'll use it to install node and NPM node and PM are a package deal
+
+02:29.990 --> 02:32.990
+sorts then's are installed at the same time.
+
+02:33.260 --> 02:38.360
+Knodell we used to run javascript outside the browser which is what we're going to be doing well and
+
+02:38.380 --> 02:41.000
+Tim is used for dependency management.
+
+02:41.180 --> 02:47.030
+In our case we'll be using node to process some javascript files that will be creating the javascript
+
+02:47.030 --> 02:51.930
+that we write will be processed by node and then pumped into our re-act native application.
+
+02:52.010 --> 02:54.710
+But we'll talk all about that later on.
+
+02:55.010 --> 02:58.250
+Third excuse me fourth we'll be installing Watchmen.
+
+02:58.250 --> 03:02.530
+Watchmen is a program developed by Facebook for exactly one purpose.
+
+03:02.750 --> 03:08.570
+Watching files are a hard drive and noticing when they get changed Watchmen will be used by re-act native
+
+03:08.570 --> 03:15.560
+to automatically process changes to our code base and update the mobile app that we're working on.
+
+03:15.560 --> 03:19.560
+In practice we don't actually have to do anything with watchman besides install it.
+
+03:19.970 --> 03:24.590
+The Riak native package that irks me the native command line tool will take care of everything from
+
+03:24.590 --> 03:25.370
+there.
+
+03:25.370 --> 03:30.380
+Speaking of which the last thing that will install is the re-act native command line interface.
+
+03:30.380 --> 03:31.520
+This has two purposes.
+
+03:31.520 --> 03:37.820
+The first of which is to generate new reac native projects and the second is to run our projects in
+
+03:37.940 --> 03:39.790
+either the Iowa us or I.
+
+03:39.870 --> 03:43.160
+You mean iOS or Android simulator.
+
+03:43.430 --> 03:44.900
+So that's the purpose of each piece here.
+
+03:44.930 --> 03:47.910
+Couple of different items to install and we're going to get started right now.
+
+03:47.930 --> 03:49.370
+First with X code.
+
+03:49.520 --> 03:53.840
+So we're going to start off with installing X code and then we'll continue in the next section with
+
+03:53.840 --> 03:56.150
+everything else to try and solve as well.
+
+03:56.510 --> 04:01.670
+Let me tell you right now one thing about X code very important remark even if you already have X code
+
+04:01.670 --> 04:08.090
+installed I beg you please please please go through the x code installation process and make sure that
+
+04:08.090 --> 04:10.590
+you do not have any pending updates.
+
+04:10.700 --> 04:15.350
+And the words make sure you have the latest version of X code you would not believe the number of problems
+
+04:15.350 --> 04:20.330
+I have troubleshot that were caused by out of out of date versions of X code.
+
+04:20.330 --> 04:24.160
+So it's just as really low hanging fruit if you just do the update right now.
+
+04:24.170 --> 04:25.390
+You'll be good to go.
+
+04:25.850 --> 04:28.940
+So let's walk through the installation process.
+
+04:28.940 --> 04:31.070
+I'm going to first open up the app store.
+
+04:31.240 --> 04:36.170
+So I to hit command space to bring up the spotlight search and then look for AppStore
+
+04:39.570 --> 04:44.520
+the app store is kind of notoriously slow but once it actually boots up on the top right hand side I
+
+04:44.520 --> 04:53.170
+will search for X code and then we'll get our search results eventually.
+
+04:53.720 --> 04:54.660
+You know eventually.
+
+04:54.680 --> 04:55.630
+All right there we go.
+
+04:55.860 --> 05:03.860
+And on the very top left I have the X code result so opened up X code and I've already got X could installed
+
+05:03.870 --> 05:04.850
+myself.
+
+05:04.860 --> 05:08.580
+But go ahead if you do not have it installed this button will be green.
+
+05:08.610 --> 05:14.130
+Click install and go through the installation process like one or two windows will pop up and say hey
+
+05:14.130 --> 05:17.930
+you know except the license agreement or what have you.
+
+05:17.930 --> 05:21.760
+Just click accept accept and it will install X code for you.
+
+05:22.230 --> 05:24.390
+If you already have X code installed.
+
+05:24.420 --> 05:26.840
+So really important if you already have X code installed.
+
+05:26.850 --> 05:33.330
+Again I beg you please come up here to the top right to the Updates tab and just verify that you have
+
+05:33.330 --> 05:35.480
+the latest version of X code.
+
+05:35.940 --> 05:38.520
+Once it find there you go.
+
+05:38.760 --> 05:43.980
+So you can see that you know I've installed X code update couple of days ago version 7.3.
+
+05:43.980 --> 05:46.410
+If you have a newer version no problem whatsoever.
+
+05:46.410 --> 05:50.260
+Just make sure that you've got the lase latest version of Mexico installed.
+
+05:50.400 --> 05:50.660
+OK.
+
+05:50.670 --> 05:51.260
+So that's it.
+
+05:51.280 --> 05:51.860
+That's good.
+
+05:51.870 --> 05:52.880
+In a nutshell.
+
+05:53.130 --> 05:56.100
+If you are going through the installation right now continue with that.
+
+05:56.100 --> 06:00.870
+We're going to take a quick break and then come back in the next section and start walking through our
+
+06:00.920 --> 06:02.280
+node installation.

@@ -1,0 +1,328 @@
+WEBVTT
+
+00:01.090 --> 00:06.240
+In this section we are going to get started with re-act native on our windows development environment.
+
+00:06.240 --> 00:11.550
+So if you're running Mac OSX if you're on a Mac right now you can skip this section and go onto the
+
+00:11.550 --> 00:12.220
+next one.
+
+00:12.420 --> 00:14.800
+If you're on Windows stay here.
+
+00:14.790 --> 00:19.050
+You know you can tell because I got the big ole Windows logo on the screen here you know you're in the
+
+00:19.050 --> 00:22.050
+right spot if you're in Windows so to speak.
+
+00:22.050 --> 00:23.280
+All right let's go and get started.
+
+00:23.400 --> 00:27.100
+We need to install a lot of different software so I'm going to be honest with you.
+
+00:27.120 --> 00:33.120
+Set up of reac native on Android or excuse me on Windows is a little bit tough because there's a lot
+
+00:33.120 --> 00:34.230
+of stuff to install.
+
+00:34.260 --> 00:35.600
+So we're going to go through it.
+
+00:35.640 --> 00:38.360
+We're going to do our best to install just one thing at a time.
+
+00:38.460 --> 00:43.470
+But sometimes it's you know it might save us a little bit to install two things simultaneously because
+
+00:43.500 --> 00:45.730
+you know sometimes it's just a long download.
+
+00:46.060 --> 00:47.340
+Anyways let's get started.
+
+00:47.340 --> 00:55.260
+The first thing I'm going to do is open up my browser and just because I'm on Windows I'm going to use
+
+00:55.260 --> 00:56.080
+Internet Explorer.
+
+00:56.100 --> 01:01.390
+No reason in particular but I am going to use Google rather than being.
+
+01:01.890 --> 01:07.540
+All right so the first thing we're going to install is the java JDK or you know really STK But what
+
+01:07.540 --> 01:08.210
+are JDK.
+
+01:08.220 --> 01:09.730
+Sure.
+
+01:09.780 --> 01:11.260
+This is not a.
+
+01:11.450 --> 01:13.770
+So we're going to search for Java SDK.
+
+01:13.770 --> 01:16.620
+This is not necessarily a prerequisite for re-act native.
+
+01:16.620 --> 01:19.710
+This is really a prerequisite for running Java apps of any type.
+
+01:19.710 --> 01:21.870
+Or excuse me Android apps of any type.
+
+01:22.290 --> 01:24.320
+So I'm going to search for Java SDK.
+
+01:24.360 --> 01:25.940
+And then the first result.
+
+01:25.980 --> 01:30.090
+Java Sea dash downloads will go there.
+
+01:30.450 --> 01:35.860
+Now on this page there is a very prominent download button to download Java platform JDK.
+
+01:36.090 --> 01:37.340
+I'm currently in version 8.
+
+01:37.380 --> 01:40.920
+If there is a more recent version no problem go for it.
+
+01:41.220 --> 01:41.780
+So we are.
+
+01:41.820 --> 01:44.460
+We will download at the next page.
+
+01:44.460 --> 01:49.600
+We need to select the operating system that we are downloading this JDK for.
+
+01:49.800 --> 01:56.880
+So on the Java as the development kit right here I will first accept the license agreement and then
+
+01:56.880 --> 01:59.470
+I will find a selection for Windows 64.
+
+01:59.600 --> 02:04.840
+So sure right here let's install it and we get prompted to run this thing.
+
+02:04.860 --> 02:06.650
+Yep sounds great.
+
+02:07.860 --> 02:12.810
+And again I know we could start off another installation of all these things downloading but I really
+
+02:12.810 --> 02:14.900
+wanted to to as much as possible.
+
+02:14.900 --> 02:21.040
+Run one thing at a time because otherwise it gets confusing because of just clicking all over the place.
+
+02:21.150 --> 02:24.900
+So after the download is finished we all start up the installation
+
+02:30.030 --> 02:30.920
+and there we go.
+
+02:30.930 --> 02:33.190
+So next I mean you know the deal.
+
+02:33.210 --> 02:34.240
+You know the drill.
+
+02:34.320 --> 02:39.540
+Next next next next next and we are done with the installation
+
+02:42.990 --> 02:46.150
+if you see a destination folder pop up right here that's no problem.
+
+02:46.150 --> 02:46.930
+Just click next.
+
+02:46.950 --> 02:48.510
+All also.
+
+02:48.810 --> 02:53.800
+And finally we are actually installing the library and it should just take a moment or two.
+
+03:00.850 --> 03:02.160
+Like I said a moment or two.
+
+03:02.170 --> 03:02.770
+There you go.
+
+03:02.770 --> 03:03.740
+Fantastic.
+
+03:03.740 --> 03:09.270
+So now I've got the Java JDK installed on my system so we'll go ahead and close that.
+
+03:09.280 --> 03:11.450
+And we are down step one now.
+
+03:11.500 --> 03:12.950
+We still have a lot of steps to go through.
+
+03:12.970 --> 03:14.790
+So let's continue going.
+
+03:14.950 --> 03:20.800
+The next thing I'm going to install I'm going to first flip back over to Google and I need to go through
+
+03:20.830 --> 03:22.330
+the installation of Node.
+
+03:22.410 --> 03:23.420
+Yes.
+
+03:23.500 --> 03:24.150
+Note Yes.
+
+03:24.190 --> 03:29.920
+Is all about running Javascript outside of the browser environment so kind of running it in a desktop
+
+03:29.920 --> 03:31.050
+environment dead.
+
+03:31.240 --> 03:37.510
+We are installing node for two purposes first because we need to use node to generate our application
+
+03:37.510 --> 03:42.510
+bundles that kind of take all the javascript to be right and stuff it down all into one file to serve
+
+03:42.520 --> 03:43.990
+up on our mobile device.
+
+03:44.110 --> 03:49.230
+And we also use node for package management as well as where we will find just a second.
+
+03:49.510 --> 03:52.110
+So after a while I'm going to do a search for node.
+
+03:52.450 --> 03:56.080
+I will go click on the link and then you get prompted for a download.
+
+03:56.080 --> 04:01.270
+You can either go with the stable download or the current download current version is completely up
+
+04:01.270 --> 04:01.710
+to you.
+
+04:01.750 --> 04:07.210
+I usually just run with the current version because it has access to all the latest features.
+
+04:07.210 --> 04:12.370
+But you know what the heck I'll change things up and go with the current version instead.
+
+04:12.370 --> 04:19.090
+So I'm going to download the installer for Windows again Windows 64.
+
+04:19.180 --> 04:21.550
+It's a very quick download and.
+
+04:21.620 --> 04:26.330
+OK well you know I've already got no word installed here and it's a later version so I guess I already
+
+04:26.330 --> 04:30.140
+had 6.6 Sung's get hit OK and kind of be done with it.
+
+04:30.220 --> 04:34.930
+Of course if you do not have node installed certainly go through that process again.
+
+04:34.930 --> 04:35.970
+So that's it for now.
+
+04:35.980 --> 04:37.590
+Very quick install as well.
+
+04:37.630 --> 04:42.420
+We're going to move on to one last installation inside this video and then we'll continue in the next
+
+04:42.420 --> 04:42.790
+one.
+
+04:42.790 --> 04:46.910
+So the last thing we're going to look for is flip back over to Google again.
+
+04:47.320 --> 04:53.950
+And the last thing to look for is Python to search for Python 2.
+
+04:53.980 --> 04:58.640
+And here's my download link right here download Python Python dot org.
+
+04:59.650 --> 05:05.770
+And very promptly we are prompted for download the latest version for Windows we want version 2 of Python
+
+05:05.770 --> 05:07.610
+not version 3 version 2.
+
+05:08.080 --> 05:11.010
+So I will download Python run it.
+
+05:13.780 --> 05:19.690
+And just like node I believe I already have this installed on my system so it might just give me a quick
+
+05:19.690 --> 05:22.890
+air but we'll see what we'll see what the result is.
+
+05:25.010 --> 05:25.630
+And OK.
+
+05:25.650 --> 05:30.090
+Yeah I've already got Python installed so it's prompted me to change repair or move.
+
+05:30.140 --> 05:35.480
+If you do not have Python installed again are you going to have to do is hit that next next next and
+
+05:35.480 --> 05:36.660
+you're good to go.
+
+05:37.220 --> 05:41.690
+OK so I know that I said that this was the last thing we're going to install but there are it's just
+
+05:41.690 --> 05:46.350
+one last thing that I want to start up for installation because it's going to save us a lot of time
+
+05:46.350 --> 05:47.680
+in the next section.
+
+05:47.720 --> 05:57.970
+So again over at Google I'm going to do a search for Android studio download and they're very prominently.
+
+05:57.980 --> 05:59.690
+Again you know it's fantastic.
+
+05:59.710 --> 06:06.020
+Thank goodness these are all the first links that pop up we find download India Android studio and SDK
+
+06:06.020 --> 06:07.280
+tools.
+
+06:07.280 --> 06:12.110
+So we'll click on that link and then very prominently on here just a little bit down the page is download
+
+06:12.120 --> 06:13.350
+Android studio.
+
+06:13.640 --> 06:15.270
+So we'll start this download off.
+
+06:15.480 --> 06:21.410
+And as you see this is not an instant download this is 1.6 gigabytes large So there's a lot of stuff
+
+06:21.410 --> 06:23.210
+to have to pull in here.
+
+06:23.450 --> 06:28.730
+So we will start up the download process for the Android studio and let's continue in the next section
+
+06:28.850 --> 06:30.960
+and start installing the Android studio

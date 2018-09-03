@@ -1,0 +1,286 @@
+WEBVTT
+
+00:00.780 --> 00:05.980
+In this section we're going to walk through the set up of each Slint inside of the atom code editor.
+
+00:06.000 --> 00:10.950
+So if you're not using atom you'll want to skip on to the next video that covers your very particular
+
+00:10.950 --> 00:15.810
+code editor is set up for Eastland is different for each editor and that's why we've got a series of
+
+00:15.810 --> 00:20.720
+different videos to explore how to set up yes linked with different editor.
+
+00:20.790 --> 00:23.040
+So with Adam let's get started.
+
+00:23.190 --> 00:29.280
+I've opened up my Adam editor inside of a project directory here and in our case it is our reac native
+
+00:29.280 --> 00:29.900
+project.
+
+00:29.910 --> 00:36.180
+But it doesn't matter what type of project reason Heslin for with it can be re-act native Riak J.S.
+
+00:36.420 --> 00:40.380
+Amber angular whatever it wants to be doesn't matter.
+
+00:40.380 --> 00:44.880
+So inside this project directory I'm going to open up a single file called index.
+
+00:44.910 --> 00:45.650
+I went on.
+
+00:45.710 --> 00:46.440
+Yes.
+
+00:46.620 --> 00:51.410
+Now the only reason I'm opening up this file is so we can test out our Linter and make sure it's working
+
+00:51.420 --> 00:52.710
+after we install it.
+
+00:52.710 --> 00:56.780
+So let's get started with the installation up at the very top left hand side.
+
+00:56.790 --> 01:01.080
+I'm going to click on out them and open up my editor preferences
+
+01:03.950 --> 01:10.550
+then on the left hand nav bar inside the preferences pane I would click on the install section and then
+
+01:10.580 --> 01:16.330
+inside of install we're going to search for a very particular package called Linter dash.
+
+01:16.370 --> 01:17.180
+Yes lint
+
+01:21.040 --> 01:23.670
+the first result that I see here is the Linter dash.
+
+01:23.690 --> 01:26.980
+Yes lint package and I will install it on the right hand side.
+
+01:27.280 --> 01:30.070
+And I'm also going to find the next package right beneath it.
+
+01:30.070 --> 01:31.290
+That's called Linter.
+
+01:31.480 --> 01:33.900
+If you don't see the next one on here is being winter.
+
+01:33.910 --> 01:39.370
+If it's anything else then you can just do another search for the or package itself and find it and
+
+01:39.370 --> 01:39.980
+install it.
+
+01:40.030 --> 01:42.760
+So we're also going to install Linter as well.
+
+01:43.400 --> 01:43.770
+OK.
+
+01:43.780 --> 01:46.390
+So installing these is going to take just a moment of time.
+
+01:46.390 --> 01:51.860
+So while that's occurring we're going to flip over to our terminal and do another little bit of setup
+
+01:53.640 --> 01:56.750
+we're also going to pull up our diagram on how yes lint works right here.
+
+01:56.790 --> 02:03.330
+So at this point in time we just started the installation of the Linter attached to Adam and Eve Slint
+
+02:03.480 --> 02:06.750
+the plug in that's going to run inside the atom editor as well.
+
+02:06.780 --> 02:14.010
+So now we need to install our configuration some pre-built set of rules for our Linter installation
+
+02:14.010 --> 02:14.660
+to run.
+
+02:14.850 --> 02:17.060
+So we're not going to write a rule set from scratch.
+
+02:17.070 --> 02:20.650
+We're just going to use one that has already been put together for us.
+
+02:21.240 --> 02:29.730
+So to install a Already pre-generated pre-built list of excellent rules in my project directory I will
+
+02:29.730 --> 02:37.870
+install NPM modules so will install with NPM install dash dash save dash dev.
+
+02:38.010 --> 02:45.120
+We're going to install this as a developer dependency and then we're going to install Yes Slint dash
+
+02:45.240 --> 02:50.210
+config dash Rallye coding like so.
+
+02:50.420 --> 02:53.510
+All right so let's install this and just let it do its thing.
+
+02:55.640 --> 03:00.580
+And while that's going I'll also check out my item preferences and just verify.
+
+03:00.690 --> 03:01.110
+OK.
+
+03:01.140 --> 03:05.800
+Both of them appear to have been installed successfully so I don't need any more settings any more.
+
+03:05.800 --> 03:13.920
+So close the settings pane at the top and I go back over to my terminal and just verify this installation
+
+03:13.920 --> 03:15.610
+is going to wrap up here in just a second.
+
+03:22.170 --> 03:22.540
+OK.
+
+03:22.560 --> 03:24.090
+Well that's just going to take forever.
+
+03:24.090 --> 03:27.680
+So that's going to last up for set up that we have to do.
+
+03:27.840 --> 03:34.350
+So we have to make sure that yes lint knows to use that rule set up or that rule bundle that we just
+
+03:34.350 --> 03:39.960
+install via NPM to tell us lint that we want to use that bundle of rules.
+
+03:39.960 --> 03:43.460
+We're going to add a configuration file to our project.
+
+03:43.530 --> 03:49.420
+So inside of my project directory I'm going to create a new file called Dot.
+
+03:49.710 --> 03:50.680
+Yes lint.
+
+03:50.740 --> 03:54.890
+RC So Dot make sure you add that dot on the front lint.
+
+03:54.940 --> 04:03.790
+RC So any setup that we want to do for E.S. lint for this particular project we add to this file right
+
+04:03.790 --> 04:04.460
+here.
+
+04:04.470 --> 04:08.560
+Remember this is going into the realm of project specific settings.
+
+04:08.560 --> 04:14.710
+So on every project that I start off where I want to use E.S. Lent I will need to add yes excellent
+
+04:14.770 --> 04:16.130
+RC file.
+
+04:16.180 --> 04:19.080
+Again this is project specific set up.
+
+04:19.150 --> 04:26.170
+So inside if you will do a little bit of project specific setup us I'll add on a set of curly braces
+
+04:26.170 --> 04:32.590
+to specify an object and then we're going to put in an inside of very specifically double quotes.
+
+04:32.740 --> 04:40.450
+The word extends with the key of Raley coding like so make sure that you've got double quotes on both
+
+04:40.510 --> 04:43.360
+extensions and Raley coding.
+
+04:44.050 --> 04:50.320
+So what this tells us Lin is to go and find a installed dependency inside the node modules directory
+
+04:50.380 --> 04:54.160
+which is what we just installed called Rallye coding.
+
+04:54.190 --> 04:58.640
+So we just installed and it looks like it just wrapped up successfully.
+
+04:58.870 --> 05:03.890
+We just installed an excellent config called specifically Rallye coding.
+
+05:03.940 --> 05:04.890
+So we're just telling.
+
+05:04.930 --> 05:05.750
+Yes Slint.
+
+05:05.830 --> 05:07.550
+Hey go use that configuration.
+
+05:07.580 --> 05:09.790
+We just downloaded.
+
+05:09.790 --> 05:10.150
+All right.
+
+05:10.180 --> 05:16.810
+Now the last step I'm going to close out the excellent file and to close out the index file and then
+
+05:16.810 --> 05:19.360
+reopen it and then once I reopen it.
+
+05:19.360 --> 05:19.850
+My.
+
+05:19.870 --> 05:20.770
+Yes.
+
+05:21.140 --> 05:22.530
+My Linter should be active.
+
+05:22.540 --> 05:27.220
+So if I start deleting some code you'll see that I start getting some error messages popping up on the
+
+05:27.220 --> 05:28.980
+screen specifically in this case.
+
+05:28.990 --> 05:34.160
+You know I just delete the semi-colon so it says a year Miss missing a semi-colon he can't do that.
+
+05:34.390 --> 05:39.010
+But then we can also start doing weird stuff like I don't know have a plus plus plus plus plus.
+
+05:39.340 --> 05:44.990
+And yup that looks good says Persinger unexpected token because we did a bunch of pluses and a sign
+
+05:45.000 --> 05:49.070
+in a row of your OK so that's it with yes Slint inside of them.
+
+05:49.090 --> 05:50.650
+That's all the set up we have to do.
+
+05:50.770 --> 05:54.870
+The one thing to keep in mind is that on any future project where you want to use.
+
+05:54.880 --> 05:59.430
+Yes lint you have to create the Slint RC file.
+
+05:59.710 --> 06:06.800
+Paste in this configuration and then you also need to install the yes Slint config Rallye coding package
+
+06:06.800 --> 06:07.570
+as well.
+
+06:07.870 --> 06:12.790
+Remember this package right here just contains a list of different rules to tell excellent how it should
+
+06:12.790 --> 06:14.080
+validate our code.
+
+06:14.550 --> 06:16.200
+OK so that's our setup.
+
+06:16.210 --> 06:18.420
+Let's get continued in the next section.

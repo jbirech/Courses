@@ -1,0 +1,691 @@
+WEBVTT
+
+00:00.870 --> 00:06.240
+In the last section we generated our first re-act native project at the command line using the re-act
+
+00:06.240 --> 00:09.910
+native CLID tools at the end of that installation process.
+
+00:09.930 --> 00:11.890
+You should have seen some instructions like this.
+
+00:11.910 --> 00:16.430
+In other words how to run our app on iOS and how to run it on Android.
+
+00:16.440 --> 00:21.790
+Now let me be very clear here that the Riak need a team as being almost sadistic.
+
+00:21.870 --> 00:27.240
+I would say to Yazzie almost sadistic my making it sound like this is as easy as it as it is to get
+
+00:27.240 --> 00:28.090
+started with the android.
+
+00:28.090 --> 00:33.870
+No there is certainly without a doubt a lot more installation has to go on outside of just running a
+
+00:33.870 --> 00:35.220
+simple little command here.
+
+00:35.220 --> 00:40.910
+So in this section we're going to get at some that additional set up that kind of gets glossed over.
+
+00:41.160 --> 00:42.970
+All right so let's go ahead and get started.
+
+00:42.990 --> 00:46.270
+The first thing I'm going to do is open up the Android studio.
+
+00:46.320 --> 00:50.250
+So we just finished installing that in the next section or last section excuse me.
+
+00:50.760 --> 00:58.690
+I'm going to go ahead and pop open and then once it's open I'm going to open an existing Android studio
+
+00:58.700 --> 00:59.410
+project.
+
+00:59.420 --> 01:06.140
+So believe it or not when we created our re-act native project and the last section that gave us a starting
+
+01:06.170 --> 01:07.270
+Android project.
+
+01:07.310 --> 01:13.790
+So I'm going to open up an existing project and I'm going to navigate to the folder where I placed that
+
+01:13.790 --> 01:14.840
+project.
+
+01:14.840 --> 01:22.520
+So for me I placed it on my drive inside of the folder called Riak native that generated a project called
+
+01:22.580 --> 01:26.880
+albums and inside of there is a folder called Android.
+
+01:26.900 --> 01:28.900
+And this is our Android project right here.
+
+01:28.910 --> 01:30.560
+So I'm going go ahead and open it up
+
+01:35.130 --> 01:39.710
+and this is going to take just a moment to pop open.
+
+01:40.380 --> 01:42.050
+All right there we go.
+
+01:42.570 --> 01:47.990
+So when we first opened this up I get a nice big error message here.
+
+01:48.030 --> 01:51.840
+You might get a little bit of a different message you might see something that says like I don't know
+
+01:52.130 --> 01:56.200
+pay compiling gradiently or something like that down at the bottom.
+
+01:56.340 --> 01:59.760
+So if you see that message that is totally fine just let it do its thing.
+
+01:59.760 --> 02:04.550
+After a couple of seconds like 20 or 30 you'll see a tab pop up on the bottom.
+
+02:04.560 --> 02:06.160
+So says messages.
+
+02:06.360 --> 02:10.450
+So click on messages and you should see the message I see right here.
+
+02:10.740 --> 02:16.560
+Now I know that the text is a little bit smaller here but what it says is cause fail to find target
+
+02:16.560 --> 02:18.960
+with mastering Android 23.
+
+02:19.260 --> 02:25.140
+And then beneath that is a nice little link that says Install missing platforms and sync project this
+
+02:25.230 --> 02:26.960
+little button right here at this link.
+
+02:27.000 --> 02:28.090
+Oh you have no idea.
+
+02:28.140 --> 02:33.170
+No idea how much pain this thing is saving us from.
+
+02:33.210 --> 02:35.670
+It is saving us from a lot of hassle and a lot of trouble.
+
+02:35.670 --> 02:37.690
+So we're going to click this link right here.
+
+02:37.960 --> 02:39.240
+And thank goodness.
+
+02:39.240 --> 02:40.040
+Thank goodness.
+
+02:40.080 --> 02:45.900
+Android studio is going to automatically install download and install a little bit of software for us.
+
+02:45.960 --> 02:48.720
+So we're going to click accept on the license agreement.
+
+02:48.720 --> 02:54.540
+Next we'll download the SDK.
+
+02:54.540 --> 03:01.480
+It will unzip it for us and go through the installation.
+
+03:01.480 --> 03:05.350
+Now I certainly could puzzle video here but you know again it only takes a moment to finish up.
+
+03:05.350 --> 03:07.890
+So all done there a click Finish.
+
+03:08.020 --> 03:13.990
+And now again I get another error message pop up right away saying hey I've failed to find build tools
+
+03:14.110 --> 03:15.750
+revision 23.
+
+03:15.800 --> 03:18.350
+Again we will click on the very helpful link right here.
+
+03:18.370 --> 03:25.190
+Install build tools 23 and sync project and boom are good to go again.
+
+03:25.380 --> 03:26.520
+Give would you would.
+
+03:26.550 --> 03:29.550
+Oh man you won't believe how much trouble that does save for us.
+
+03:29.550 --> 03:31.500
+That just saved us a lot of trouble.
+
+03:31.710 --> 03:35.370
+By the way if you get a great old plug in pop up we are going to hit.
+
+03:35.370 --> 03:37.940
+Don't remind me again to this project and.
+
+03:38.010 --> 03:38.550
+OK.
+
+03:38.700 --> 03:40.180
+We're good to go.
+
+03:41.070 --> 03:41.330
+OK.
+
+03:41.340 --> 03:43.990
+So we still have a little bit of work to do here.
+
+03:44.100 --> 03:49.890
+What we just installed were some tools to set up an android emulator something something that can run
+
+03:49.890 --> 03:55.080
+our re-act native application on the desktop that we can debug against on the fly.
+
+03:55.410 --> 03:57.770
+So we still have a little bit of setup to do though.
+
+03:57.870 --> 04:03.090
+The next thing you want to do is create an android emulator that we can actually use for a debugging
+
+04:03.090 --> 04:04.440
+process.
+
+04:04.440 --> 04:12.810
+So at the very top I don't click on Tools Android and then HDD manager once they click on that we get
+
+04:12.810 --> 04:16.060
+a nice big pop up something about your virtual devices.
+
+04:16.230 --> 04:18.920
+So a virtual device is an android emulator.
+
+04:18.930 --> 04:24.020
+It has a window that lets us run the Android operating system inside of Windows.
+
+04:24.270 --> 04:29.190
+So we will create a virtual device by default.
+
+04:29.210 --> 04:31.250
+I have Nexus 5 selected.
+
+04:31.250 --> 04:34.260
+If you see another default selection that's totally fine.
+
+04:34.280 --> 04:37.610
+Just make sure that you get a screen size right around 5 inches.
+
+04:37.730 --> 04:39.960
+So the nexus 5 is 4.9 5.
+
+04:39.980 --> 04:41.350
+That's good enough for me.
+
+04:41.720 --> 04:43.000
+I'll click next.
+
+04:43.340 --> 04:46.300
+And then here is the next little troublesome bit.
+
+04:46.310 --> 04:53.570
+I guess you could say by default it tries to create a emulator with version 24 of Android.
+
+04:53.780 --> 04:57.950
+Right now re-act native is making use of re-act native version 23.
+
+04:57.950 --> 05:04.430
+So instead of going to select marshmallow download and go through the download process again
+
+05:09.090 --> 05:12.610
+so just like the others it's going to take a moment to get started.
+
+05:12.890 --> 05:19.560
+We'll go through the download the unzipping and installation.
+
+05:19.700 --> 05:20.870
+You know I had considered.
+
+05:21.080 --> 05:26.420
+I knew that there were some pauses here for downloading and unzipping and I'm kicking myself because
+
+05:26.420 --> 05:29.140
+I really wanted to like put together some jokes.
+
+05:29.180 --> 05:34.500
+You know I could tell you while the installation was going but I just completely forgot it.
+
+05:34.520 --> 05:38.070
+Maybe next time we'll do we'll do some funny jokes anyways.
+
+05:38.350 --> 05:39.390
+All right let's get finished.
+
+05:39.400 --> 05:47.810
+Download is all finished and now we can select that API level 23 then click next.
+
+05:48.890 --> 05:52.050
+This is some information about the device we're about to build.
+
+05:52.050 --> 05:53.890
+We don't have to configure anything else here.
+
+05:53.910 --> 05:55.050
+I'll just click next.
+
+05:55.110 --> 05:59.390
+Or in this case finish excuse me.
+
+05:59.790 --> 06:02.970
+And then finally I can find Nexus 5.
+
+06:02.970 --> 06:04.350
+This is now my emulator.
+
+06:04.350 --> 06:07.750
+This is my virtual device that I can launch on my desktop.
+
+06:07.750 --> 06:12.440
+So on the far right hand side is a play button underneath actions or click it.
+
+06:12.510 --> 06:15.960
+And this is going to start up our Android emulator.
+
+06:15.960 --> 06:17.750
+So I get spinner and wow.
+
+06:17.760 --> 06:20.360
+Yeah it really looks like an actual phone.
+
+06:21.810 --> 06:26.280
+So this is going to take a little bit of time to boot up initially but we still have a little bit of
+
+06:26.280 --> 06:27.300
+setup left to do.
+
+06:27.300 --> 06:30.020
+And this last little bit is certainly let me tell you.
+
+06:30.060 --> 06:31.690
+It is definitely the painful part.
+
+06:31.700 --> 06:37.830
+This is the part where you definitely made the right decision by checking on my course because otherwise
+
+06:37.830 --> 06:42.210
+there are not a lot of solutions online for troubleshooting this last little bit.
+
+06:42.420 --> 06:47.490
+So I'm not going to tell you exactly what the problem is we are just going to jump to the solution and
+
+06:47.580 --> 06:51.190
+what a solution it is at my start menu.
+
+06:51.240 --> 07:00.630
+You can open it up and then I'm going to search for system settings and the result I should get here
+
+07:00.630 --> 07:02.510
+is view advanced system settings.
+
+07:02.520 --> 07:07.060
+Go ahead and click it and then I get my system properties window right here.
+
+07:07.200 --> 07:10.900
+This my little bit familiar if ever you know mess around with Windows that much.
+
+07:10.920 --> 07:16.060
+I've got tabs like computer name hardware and advanced Zonday advanced window.
+
+07:16.080 --> 07:18.390
+I want to click on environment variables.
+
+07:18.420 --> 07:23.790
+So we're going to add to environment variables to Windows.
+
+07:23.850 --> 07:27.090
+The first one that we're going to add a click on new.
+
+07:27.660 --> 07:32.820
+And then I'm going to enter a name of Java home.
+
+07:32.970 --> 07:38.460
+So by default the react native package or the thing that kind of like builds or application expects
+
+07:38.460 --> 07:43.770
+to have access to this environment variable called Java home but by default it doesn't actually exist
+
+07:43.950 --> 07:46.020
+on a brand new operating system.
+
+07:46.020 --> 07:50.730
+One thing I want to mention is that if you already have a variable of Java home you do not need to add
+
+07:50.730 --> 07:51.290
+this one in.
+
+07:51.300 --> 07:56.670
+So if you scan over this list you'll see one that says Java home you don't need to go to this process.
+
+07:56.850 --> 08:01.110
+But if you do not see each other home go ahead and click on that new button and add the variable name
+
+08:01.110 --> 08:02.350
+of Java home.
+
+08:02.700 --> 08:10.440
+Then for a variable value we will click on browse directory and the window that pops up I'll click on
+
+08:10.530 --> 08:14.410
+this PC I'll click on the C-Drive.
+
+08:14.880 --> 08:24.380
+I click on program files all expand Java and finally I will select the JDK that we just installed.
+
+08:24.390 --> 08:31.360
+So JDK 1.8 and I'll click OK and then ok again.
+
+08:31.440 --> 08:38.850
+So now I have a environment variable of Java underscore home and the value of Seberg and philes Java
+
+08:39.120 --> 08:40.750
+JDK blah blah blah.
+
+08:41.260 --> 08:41.510
+All right.
+
+08:41.520 --> 08:42.880
+One other thing that we need to do.
+
+08:42.900 --> 08:47.310
+We also need to add in a nother directory to our path variable.
+
+08:47.340 --> 08:53.830
+So on this list of different environment variables you should already have one listed here called Path.
+
+08:53.850 --> 08:55.220
+So definitely scroll up and down.
+
+08:55.240 --> 09:03.750
+I guarantee you you have it I'll click on it because I want to edit my path and then I will click on
+
+09:03.870 --> 09:09.570
+new on the right hand side top right hand side and you can see right here we can enter in a path.
+
+09:09.570 --> 09:16.380
+So if you recall when we were going through the Android studio setup I said hey check out your user
+
+09:16.380 --> 09:17.400
+name right there right.
+
+09:17.450 --> 09:20.870
+And for me it was computer for you was whatever your username is.
+
+09:20.940 --> 09:22.280
+This is where that is relevant.
+
+09:22.300 --> 09:25.040
+OK so this is where we're going to make use of that.
+
+09:25.050 --> 09:28.530
+So I like to enter in my path.
+
+09:28.530 --> 09:34.260
+So I'll put in see a user's computer.
+
+09:34.260 --> 09:40.350
+So again for me it is computer for you is what it is whatever of your logon username is.
+
+09:40.350 --> 09:43.140
+For me it's computer for you it will be something different.
+
+09:43.620 --> 09:46.530
+And then we're going to point it to app data
+
+09:49.480 --> 09:49.990
+local
+
+09:53.860 --> 10:03.160
+Android SDK platform Dowst tools like so as a quick little check just to make sure that I have the right
+
+10:03.160 --> 10:03.870
+link.
+
+10:04.120 --> 10:08.080
+I'm going to copy this link so I select everything I'm going to copy it.
+
+10:08.320 --> 10:14.850
+I'm going to then open up windows explorer paste the link and just verify.
+
+10:14.860 --> 10:16.420
+Yes this directory exists here.
+
+10:16.450 --> 10:18.370
+So again just go ahead.
+
+10:18.370 --> 10:22.450
+Copy that link paste into Windows Explorer verify that it exists.
+
+10:22.510 --> 10:26.860
+If you get an error message popping up that says like hey the directory doesn't exist chances are you
+
+10:26.860 --> 10:28.820
+entered in the incorrect username.
+
+10:28.960 --> 10:34.100
+So make sure that you've got the correct use made for your log in on your particular machine.
+
+10:34.270 --> 10:34.650
+OK.
+
+10:34.700 --> 10:42.940
+Now that this is all done click OK I'll click OK click OK and the last Im going to do is restart my
+
+10:42.940 --> 10:44.180
+command prompt now.
+
+10:44.430 --> 10:47.440
+So I'm going to close the command prompt.
+
+10:47.440 --> 10:51.110
+I will open it back up by searching for Command.
+
+10:51.400 --> 10:54.560
+Right click on it run as an illustrator.
+
+10:56.500 --> 11:01.750
+And now we are finally ready to actually test our application inside of the emulator.
+
+11:01.930 --> 11:07.990
+So I'm going to change back to my project directory which for me is on my drive.
+
+11:11.890 --> 11:14.610
+So I'm now inside of my project directory.
+
+11:14.740 --> 11:19.060
+It'll be whatever your working directory is and wherever you put your projects for me I'm calling it
+
+11:19.060 --> 11:19.950
+Riak native.
+
+11:20.260 --> 11:23.920
+And then the name of the project that we just generated which is albums.
+
+11:24.130 --> 11:26.200
+So the very last step inside of your.
+
+11:26.230 --> 11:32.980
+I will write out re-act dash native run dash Android.
+
+11:33.570 --> 11:37.450
+This is all very telling us with you this is the absolute moment of truth right here.
+
+11:37.720 --> 11:43.330
+As to whether or not this is going to work when I run that command you'll see another window pop up.
+
+11:43.330 --> 11:44.970
+This is the re-act native packager.
+
+11:44.980 --> 11:50.890
+This is what takes all of our javascript code compresses it all down into a single javascript file and
+
+11:50.890 --> 11:55.510
+then makes it available to the device and then over here back to the original window.
+
+11:55.510 --> 12:01.180
+Our application is building for the Android device and it's then going to automatically install and
+
+12:01.240 --> 12:02.560
+open it on the device
+
+12:08.180 --> 12:08.870
+and there we go.
+
+12:08.870 --> 12:15.110
+So installing JPK on app debugger OK and then we can see everything pop up over your on the right hand
+
+12:15.110 --> 12:16.200
+side.
+
+12:16.640 --> 12:21.280
+Fetching javascript bundled that means that it is pulling that all the starter code and then eventually
+
+12:21.290 --> 12:22.400
+Yup there we go.
+
+12:22.400 --> 12:23.920
+Welcome to react native.
+
+12:24.170 --> 12:25.260
+So by default.
+
+12:25.400 --> 12:26.630
+To refresh any code.
+
+12:26.660 --> 12:30.260
+I know that I'm going to give you a little bit of instructions right now that are very particular to
+
+12:30.260 --> 12:34.490
+Android and I know they might not make a ton of sense until we start writing some code.
+
+12:34.490 --> 12:36.440
+I just want to mention them very quickly.
+
+12:36.440 --> 12:38.080
+First off by default.
+
+12:38.090 --> 12:44.810
+To refresh our simulator or to get any changes to our Kobasew we've made we can follow the directions
+
+12:44.810 --> 12:45.320
+right on here.
+
+12:45.320 --> 12:52.520
+So just double tap r to refresh and as you can see it makes another request for a javascript Lundell.
+
+12:52.520 --> 12:57.230
+The other thing I want to mention is shake or press menu button for dev menu.
+
+12:57.500 --> 12:58.620
+So looking down here.
+
+12:58.650 --> 13:04.760
+OK I don't really see any menu menu button like it makes reference to look in the right side.
+
+13:04.760 --> 13:05.890
+I also don't see any.
+
+13:06.080 --> 13:11.630
+So here's a little trick to open up this Desmond knew that it's talking about we can press control in
+
+13:12.130 --> 13:14.750
+and that opens up the development menu.
+
+13:14.990 --> 13:20.660
+So as I worked through the course I will be using the Iowas simulator bible many times say OK I'm going
+
+13:20.660 --> 13:24.110
+to open up my development menu right here.
+
+13:24.200 --> 13:31.730
+We are on Android do that by pressing control in and again just to be clear whenever I refer to refresh
+
+13:31.730 --> 13:32.600
+on the application.
+
+13:32.630 --> 13:36.240
+We will double tap our to refresh our simulator.
+
+13:36.620 --> 13:37.540
+OK so that's it.
+
+13:37.580 --> 13:42.710
+We got our Android emulator up and worked on the last thing I want to mention to you is hey we went
+
+13:42.710 --> 13:44.850
+through all this process just to get to your.
+
+13:44.990 --> 13:46.570
+What happens when I close everything.
+
+13:46.570 --> 13:48.630
+How do I get everything started back up.
+
+13:48.740 --> 13:53.270
+So once you close everything you know let's say you shut down your computer for the night or whatever
+
+13:53.270 --> 13:54.120
+it might be.
+
+13:54.170 --> 14:00.910
+You can get started again by opening up your Android studio again.
+
+14:00.920 --> 14:04.020
+You can open up your re-act native project again.
+
+14:04.130 --> 14:06.620
+You'll go back up to the tools menu.
+
+14:06.860 --> 14:13.550
+Android HDD manager and then click the play button on the right that will start up the emulator and
+
+14:13.550 --> 14:19.550
+then inside of our command line at the command prompt We will change into our project directory and
+
+14:19.610 --> 14:23.960
+run the same command again re-act dashed native run dashin Android.
+
+14:24.020 --> 14:26.520
+So those are the two steps for getting started back up.
+
+14:26.540 --> 14:30.860
+If you ever decide to take a break or shut down your computer for the night or whatever it might be
+
+14:31.340 --> 14:33.230
+Riak native running Android.
+
+14:33.350 --> 14:35.000
+And don't forget to start up the emulators.
+
+14:35.010 --> 14:35.640
+Well.
+
+14:36.360 --> 14:43.670
+OK so I hope this didn't seem that bad because trust me I spent a tremendous amount of time poring over
+
+14:43.700 --> 14:48.740
+Android's set up getting it down to like just the bare essentials of what you need to install to get
+
+14:48.740 --> 14:49.520
+started.
+
+14:49.850 --> 14:51.570
+So hopefully everything is working out.
+
+14:51.590 --> 14:55.760
+Let's continue and start working on our first application in the next section.

@@ -1,0 +1,253 @@
+WEBVTT
+
+00:00:00.860 --> 00:00:05.370
+In the last section we got started with our X code installation and now we're going to continue with
+
+00:00:05.370 --> 00:00:07.880
+everything else starting with homebrew.
+
+00:00:08.160 --> 00:00:10.840
+So homebrew again is used to install Nood.
+
+00:00:10.890 --> 00:00:16.330
+That's all we're going to use it for homebrew is also used to install many other OS X programs.
+
+00:00:16.470 --> 00:00:18.030
+You may already have it installed.
+
+00:00:18.120 --> 00:00:18.750
+If you do not.
+
+00:00:18.750 --> 00:00:19.570
+No problem.
+
+00:00:19.620 --> 00:00:21.430
+We're going to install it right now.
+
+00:00:21.730 --> 00:00:28.590
+So I going to open up my browser and we're going to navigate directly to brew dot SH
+
+00:00:31.260 --> 00:00:32.280
+once it Brooky.
+
+00:00:32.290 --> 00:00:35.550
+SH There's a fantastic link right in the middle here.
+
+00:00:35.550 --> 00:00:36.840
+Big text box.
+
+00:00:36.930 --> 00:00:43.140
+We're going to highlight everything inside of your skin and highlight all of it and I will copy it and
+
+00:00:43.140 --> 00:00:48.360
+then we're going to execute this script at our command line that script right there will automatically
+
+00:00:48.360 --> 00:00:51.290
+install and configure homebrewed for us.
+
+00:00:51.300 --> 00:00:53.150
+So I'll flip over to my terminal.
+
+00:00:53.220 --> 00:00:54.620
+I've already got my terminal open.
+
+00:00:54.630 --> 00:00:59.300
+If you do not have your eyes open you can open it right now by just running terminal like so.
+
+00:01:01.080 --> 00:01:05.310
+Once my terminal is open I'm going to paste that link in here and make sure that I've got the entire
+
+00:01:05.350 --> 00:01:11.230
+length series from user been all the way through the ending quotes with install over here.
+
+00:01:11.580 --> 00:01:14.460
+And then I will simply run it to install it.
+
+00:01:14.460 --> 00:01:18.830
+In my case I've already got homebrew installed so everything is good to go.
+
+00:01:19.020 --> 00:01:26.130
+If you already have homebrew installed you can update it by running through updates.
+
+00:01:26.970 --> 00:01:31.590
+And this will run through and install a bunch of or excuse me update your listing of all dependencies
+
+00:01:31.590 --> 00:01:32.340
+and packages.
+
+00:01:32.370 --> 00:01:33.930
+Who has access to.
+
+00:01:34.800 --> 00:01:38.000
+Is usually takes like a min or two to run.
+
+00:01:38.420 --> 00:01:42.590
+Will give it another second and then I'll just there we go.
+
+00:01:43.980 --> 00:01:45.660
+Hopefully yours runs a little bit faster than mine.
+
+00:01:45.660 --> 00:01:48.980
+I'm not on the fastest Internet connection here but no problem.
+
+00:01:49.080 --> 00:01:52.580
+Well while that runs will go ahead and go through the node installation as well.
+
+00:01:53.010 --> 00:02:00.240
+So I'm going to begin at the command line run the command Brue install node and this is all it takes
+
+00:02:00.240 --> 00:02:01.040
+to install no.
+
+00:02:01.270 --> 00:02:05.120
+Yes in my case I'm already running that update.
+
+00:02:05.130 --> 00:02:08.990
+In addition I actually already have Mode installed right now version 6.3.
+
+00:02:09.210 --> 00:02:13.330
+If you have an earlier version of node no problem no problem whatsoever.
+
+00:02:13.350 --> 00:02:16.790
+Just make sure that you have at least a version 4.5.
+
+00:02:16.800 --> 00:02:23.580
+That's kind of like the minimum cut off re-act native right now at least make sure the 4.5 this installation
+
+00:02:23.580 --> 00:02:26.250
+might take you a minute or two to run through so no problem.
+
+00:02:26.640 --> 00:02:31.380
+If you want to pause the video right now and let the installation finish up fantastic.
+
+00:02:32.550 --> 00:02:38.460
+Once the installation is complete I'm going to confirm that node is installed by at the command line
+
+00:02:38.520 --> 00:02:45.090
+running node dash V and when I run that you can see I get my version Pop up so fantastic that means
+
+00:02:45.090 --> 00:02:47.840
+everything's installed on raid to use mode.
+
+00:02:48.750 --> 00:02:55.710
+I can now also install the watchman program as well so I will run Brue install Watchmen.
+
+00:02:55.720 --> 00:03:01.290
+I remember is a program developed by Facebook for just watching our hard drive for file changes.
+
+00:03:01.290 --> 00:03:03.280
+That's all we're using it for.
+
+00:03:03.330 --> 00:03:04.910
+So I will install Watchmen.
+
+00:03:05.040 --> 00:03:09.060
+In my case again I think I've already got installed as you see right here.
+
+00:03:09.660 --> 00:03:14.010
+If you don't have install just go ahead and again let it do its thing and only take a minute or two
+
+00:03:14.010 --> 00:03:15.510
+to get set up.
+
+00:03:15.520 --> 00:03:21.270
+Then the very last thing that we need to install will be the re-act native CLID at the command line
+
+00:03:21.270 --> 00:03:21.750
+again.
+
+00:03:21.870 --> 00:03:30.930
+I will run NPM install Dasch G re-act native Seelye and make sure you got the dashes in between each
+
+00:03:30.930 --> 00:03:32.200
+of those.
+
+00:03:32.430 --> 00:03:37.560
+In my case again for the fourth time in a row I've already got this installed so it's either going to
+
+00:03:37.560 --> 00:03:41.080
+decide to try to do an update or just say hey you already got this going.
+
+00:03:41.100 --> 00:03:42.040
+OK.
+
+00:03:42.240 --> 00:03:45.280
+Looks like it just went ahead and did an update perhaps.
+
+00:03:45.930 --> 00:03:46.580
+So that's it.
+
+00:03:46.590 --> 00:03:50.930
+That's all we need to get started with Riak need of a lie at this point in time.
+
+00:03:50.970 --> 00:03:55.350
+We're now going to use re-act need of Selye to generate our first project.
+
+00:03:55.350 --> 00:04:00.480
+Once you generate a Riak need a project it really takes a minute to go through the installation.
+
+00:04:00.480 --> 00:04:03.720
+It downloads a lot of dependencies and does a lot of project setup.
+
+00:04:03.780 --> 00:04:07.450
+So when we generate this project this first one we're going to get started with.
+
+00:04:07.570 --> 00:04:09.630
+It's to taking a little bit of time to run through.
+
+00:04:09.630 --> 00:04:14.820
+We'll take a quick break and then continue development in the next section so let's get started with
+
+00:04:14.820 --> 00:04:17.820
+this startup process.
+
+00:04:17.820 --> 00:04:21.250
+I'm in a directory right now where I want to place my project.
+
+00:04:21.270 --> 00:04:25.430
+So if you're not in a good project directory a good place to try to place it.
+
+00:04:25.440 --> 00:04:32.850
+You'll want to change a directory for me right now I'm in a nice place called workspace workspace Prod.
+
+00:04:32.850 --> 00:04:37.260
+which is for me short for production it means this is the code that I'm going to be writing for the
+
+00:04:37.260 --> 00:04:38.850
+course and you know what I can kind of stuff.
+
+00:04:38.850 --> 00:04:45.060
+Anyways the point is that I'm in a great spot right here to get started at the project so we're going
+
+00:04:45.060 --> 00:04:48.710
+to generate our first project by running the command line interface.
+
+00:04:48.750 --> 00:04:57.780
+We'll type in re-act native init albums re-act native is a reference to the Riak native command line
+
+00:04:57.780 --> 00:04:58.390
+tool.
+
+00:04:58.390 --> 00:05:04.080
+Init means we want to initialize a new project and then the last term here albums is the name of the
+
+00:05:04.080 --> 00:05:05.910
+first application that we're going to build.
+
+00:05:05.910 --> 00:05:09.650
+So the name of this application is going to be albums.
+
+00:05:09.650 --> 00:05:11.430
+So let's go ahead and run this.
+
+00:05:11.490 --> 00:05:13.800
+Again this is going to take some amount of time to get through.
+
+00:05:13.830 --> 00:05:18.690
+So I'm going to pause the video right now and will continue in a little bit by getting started with
+
+00:05:18.690 --> 00:05:24.150
+our excellent setup and then we're going to start working on our first application so I will catch you
+
+00:05:24.240 --> 00:05:25.290
+in the next section.

@@ -1,0 +1,94 @@
+WEBVTT
+
+00:01.110 --> 00:06.030
+Let's talk a little bit about our roadmap to developing our first application the first thing I'm going
+
+00:06.030 --> 00:10.980
+to install do is install a couple of dependencies and these are going to be different depending on your
+
+00:10.980 --> 00:12.240
+operating system.
+
+00:12.390 --> 00:19.170
+So you might be taking this course on either a Mac or Windows or Linux machine depending on what machine
+
+00:19.170 --> 00:19.680
+you're on.
+
+00:19.680 --> 00:25.300
+We're going to go through a different set of installation directions to get started with couple of dependencies
+
+00:26.040 --> 00:27.720
+in this video or this me in this course.
+
+00:27.720 --> 00:36.420
+I've provided directions for getting started with Iowa apps on Mac Android on Mac and Android on Windows.
+
+00:36.420 --> 00:41.490
+Depending on your operating system you will take one of those tracks and go through to completion.
+
+00:41.490 --> 00:48.420
+SUSSMAN The first thing that we do after that we're going to install Yes Slint Yes lint is a system
+
+00:48.420 --> 00:53.270
+for automatically catching errors in the code that we write with javascript.
+
+00:53.400 --> 00:54.860
+This is optional insulation.
+
+00:54.870 --> 00:59.960
+You don't have to use Yeslam if you don't want to but I highly recommend going through it in this course
+
+00:59.970 --> 01:04.470
+I've provided e-wrestling installation directions for a couple of different common code editors and
+
+01:04.470 --> 01:09.480
+we'll walk through the installation one by one depending upon which code editor you use.
+
+01:09.930 --> 01:15.990
+After all that setup we will finally get started by generating a Riak native application and then boom
+
+01:16.080 --> 01:17.330
+we're going to start coding.
+
+01:17.640 --> 01:23.010
+So the one thing I want to just kind of temper expectations right now are set expectations with reac
+
+01:23.010 --> 01:23.430
+native.
+
+01:23.430 --> 01:27.130
+Unfortunately there really is a lot of set up to go through.
+
+01:27.300 --> 01:31.190
+I just I love starting off tutorials by working on example right away.
+
+01:31.200 --> 01:36.180
+Like in the first section or two but unfortunately with re-act native We have to do the set up ahead
+
+01:36.180 --> 01:39.180
+of time because we can't write any code without it.
+
+01:39.630 --> 01:43.860
+So I encourage you to stay strong we're going to take power through all of this set up and then we're
+
+01:43.860 --> 01:47.930
+going to start with the first application the first out that we're going to work on.
+
+01:47.940 --> 01:49.210
+It really looks awesome.
+
+01:49.230 --> 01:51.200
+I'm very happy with how it turned out.
+
+01:51.360 --> 01:55.500
+So I encourage you to tough it out through the installation and then we're going to start with the first
+
+01:55.500 --> 01:56.470
+application.
+
+01:56.850 --> 02:01.320
+Let's get started in the next section we're going to walking through installation directions.
+
+02:01.320 --> 02:07.230
+If you are on Mac with and you want to develop iOS applications so I will catch you in the next section

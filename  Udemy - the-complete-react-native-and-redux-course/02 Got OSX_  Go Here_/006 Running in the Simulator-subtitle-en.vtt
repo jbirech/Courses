@@ -1,0 +1,112 @@
+WEBVTT
+
+00:00:00.720 --> 00:00:05.180
+There actually is one last quick thing I want to do after generating our first project here.
+
+00:00:05.250 --> 00:00:09.690
+I want to make sure that we just go ahead and learn how to launch our project with Riak native and run
+
+00:00:09.690 --> 00:00:11.790
+it in the simulator.
+
+00:00:11.790 --> 00:00:16.690
+The simulator processor getting it set up for every platform is just a little bit different.
+
+00:00:16.890 --> 00:00:22.620
+So as we start working on our applications I'm not going to specifically say like hey startup your you
+
+00:00:22.630 --> 00:00:24.660
+know run this command to run on OSX.
+
+00:00:24.660 --> 00:00:27.150
+I'm just going to say hey start this up in the simulator.
+
+00:00:27.360 --> 00:00:33.300
+So if you are on OSX and you're running in iOS application when we get started we're going to use exactly
+
+00:00:33.300 --> 00:00:39.700
+one command to run our application on iOS and it's basically this right here.
+
+00:00:39.720 --> 00:00:41.370
+You probably heard already read it yourself.
+
+00:00:41.760 --> 00:00:49.170
+First I'm going to change into my project directory so albums and then going to run re-act native run
+
+00:00:49.290 --> 00:00:52.470
+Dasch iOS.
+
+00:00:52.520 --> 00:00:58.200
+So this is going to build our project launch the Iowa simulator and then show it.
+
+00:00:58.490 --> 00:01:01.940
+The build process takes the first time quite a good amount of time.
+
+00:01:01.940 --> 00:01:04.940
+So if it takes a little bit of time to get it spooled up don't sweat it.
+
+00:01:05.150 --> 00:01:10.250
+But once it gets going you should see the rock native application appear in the window.
+
+00:01:10.250 --> 00:01:11.540
+One last quick note here.
+
+00:01:11.570 --> 00:01:15.240
+When it launches the simulator and it looks like it will.
+
+00:01:15.270 --> 00:01:15.890
+Yep here it is.
+
+00:01:15.890 --> 00:01:20.180
+So this is a simulator running on our device or sitting on our desktop.
+
+00:01:20.190 --> 00:01:21.920
+Let me give us a better background here.
+
+00:01:21.990 --> 00:01:23.040
+Yeah there we go.
+
+00:01:23.410 --> 00:01:28.970
+Well one very quick note here something that I have occasional issues with is once the application starts
+
+00:01:28.970 --> 00:01:34.790
+up and we get the simulator here I get it for whatever reason decides not to automatically launch the
+
+00:01:34.790 --> 00:01:35.690
+out for us.
+
+00:01:35.690 --> 00:01:40.550
+So if that happens to you if you know this simulator starts up but like nothing actually happens and
+
+00:01:40.550 --> 00:01:42.600
+it looks like everything else is all done.
+
+00:01:42.800 --> 00:01:44.230
+You can drag here.
+
+00:01:44.240 --> 00:01:50.270
+So just click and drag over to the second tab and then you should have your application of albums on
+
+00:01:50.270 --> 00:01:52.690
+the screen you know just like I have these others on here.
+
+00:01:52.850 --> 00:01:55.550
+And you can just click directly on albums to get started.
+
+00:01:55.550 --> 00:02:01.640
+So again if it does not automatically dump you into the application you can just drag on over and click
+
+00:02:01.640 --> 00:02:02.770
+it to get started.
+
+00:02:03.080 --> 00:02:03.880
+Ok cool.
+
+00:02:03.890 --> 00:02:05.510
+So let this finish up.
+
+00:02:05.540 --> 00:02:10.790
+We'll make sure that it runs successfully and then we will continue in the next section and get started
+
+00:02:10.790 --> 00:02:12.300
+with our application.
