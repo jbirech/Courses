@@ -1,0 +1,229 @@
+WEBVTT
+
+00:00:01.070 --> 00:00:07.220
+Unless sexual and put together our card section component it's purpose was to wrap a single section
+
+00:00:07.220 --> 00:00:11.600
+of our card giving it enough margin and space seem to look nice.
+
+00:00:11.810 --> 00:00:16.670
+Now that we've got all the infrastructure we need we can focus on building up each part of the card
+
+00:00:16.700 --> 00:00:18.650
+inside of album detail.
+
+00:00:18.650 --> 00:00:24.500
+So the header with the Album Info the section with the image and the buy now button at the bottom.
+
+00:00:24.650 --> 00:00:27.610
+First we're going to start off with the header for each card.
+
+00:00:29.330 --> 00:00:33.380
+This right here is a diagram of what that header on each card should look like.
+
+00:00:33.380 --> 00:00:38.900
+Now I gotta tell ya a lot of the challenge and re-act native is figuring out just how to style all of
+
+00:00:38.900 --> 00:00:40.670
+our different components.
+
+00:00:40.670 --> 00:00:43.310
+I found styling for web to be a lot easier.
+
+00:00:43.340 --> 00:00:45.440
+Personally just my own personal thought.
+
+00:00:45.650 --> 00:00:51.020
+Whereas with re-act native You have to spend a little bit more time planning out how you construct each
+
+00:00:51.020 --> 00:00:53.870
+component and so that's exactly what we're going to do right now.
+
+00:00:53.870 --> 00:00:56.150
+We're going to plan exactly how we rebuild this.
+
+00:00:56.180 --> 00:01:02.300
+We will build this header so underneath the header is the GSX that will probably more or less end up
+
+00:01:02.300 --> 00:01:02.840
+using.
+
+00:01:02.870 --> 00:01:08.960
+This is kind of a bare minimum of what we want on the left hand side we're going to have the artist's
+
+00:01:08.990 --> 00:01:13.790
+image or there kind of their little headshot and we haven't spoken too much about the image tag with
+
+00:01:13.790 --> 00:01:15.920
+re-act native but you don't take my word for it.
+
+00:01:15.920 --> 00:01:20.900
+Basically there is a tag that we can use to show images so you know we'll figure that part out.
+
+00:01:21.020 --> 00:01:25.610
+And then beneath it we'll have one text tagged for the album name and then another one for the artist's
+
+00:01:25.610 --> 00:01:27.200
+name as well.
+
+00:01:27.980 --> 00:01:31.840
+So this means that we have kind of a little bit of a layout issue here.
+
+00:01:31.940 --> 00:01:37.700
+We need to figure out how to tell the image tag to show itself on the left and then the text tags to
+
+00:01:37.700 --> 00:01:38.900
+show itself to the right.
+
+00:01:38.930 --> 00:01:40.990
+But also those need to line up.
+
+00:01:41.000 --> 00:01:44.330
+So this is our big first layout challenge that we've come into.
+
+00:01:44.420 --> 00:01:48.320
+So we're going to spend a little bit of time to figure out the best way to get this lay out right here
+
+00:01:49.430 --> 00:01:53.060
+to solve our layout issues with re-act the best tool that we have.
+
+00:01:53.150 --> 00:01:57.720
+And perhaps the only one I should say is the flex box layout mechanism.
+
+00:01:57.860 --> 00:02:03.500
+We spent a little bit of time previously discussing fluxbox but it was all in the context of figuring
+
+00:02:03.500 --> 00:02:08.290
+out how to get some content to center or line up a single item in a container.
+
+00:02:08.660 --> 00:02:13.790
+Fluxbox is also used to layout multiple items within the container as well which is exactly what we
+
+00:02:13.790 --> 00:02:15.040
+need to do here.
+
+00:02:15.110 --> 00:02:19.940
+We're going to spend a little bit more time figuring out fluxbox and then immediately apply that knowledge
+
+00:02:19.970 --> 00:02:23.240
+to our Hetter.
+
+00:02:23.290 --> 00:02:26.710
+So here's kind of our default head right now.
+
+00:02:26.730 --> 00:02:32.280
+We just threw in the image tagged and then the two text tags we wouldn't have seen some content like
+
+00:02:32.280 --> 00:02:33.330
+this.
+
+00:02:33.330 --> 00:02:35.670
+Now the text tags wouldn't have the actual border to them.
+
+00:02:35.670 --> 00:02:39.750
+I just put the border on there to make it clear that hey you know this is one of the text tags.
+
+00:02:40.020 --> 00:02:40.950
+So it's reactive.
+
+00:02:40.950 --> 00:02:46.950
+If we absolutely ignore styling and just tossed tags into a container they're all going to be placed
+
+00:02:46.980 --> 00:02:50.940
+on the upper left hand side of the container and then line up vertically.
+
+00:02:50.940 --> 00:02:52.720
+That's how it works by default.
+
+00:02:53.790 --> 00:02:59.430
+Now we spoke about using Fluxbox in the context of working with a single item Previously we were talking
+
+00:02:59.430 --> 00:03:02.170
+about the actual Hetter component.
+
+00:03:02.180 --> 00:03:03.210
+This appear.
+
+00:03:03.600 --> 00:03:08.110
+But now we need to figure out how flex box works with multiple items as well.
+
+00:03:08.370 --> 00:03:12.250
+So all the properties we had previously previously discussed are still relevant.
+
+00:03:12.300 --> 00:03:19.140
+So we can still use justify content with flex and to move all these items to the bottom or center to
+
+00:03:19.140 --> 00:03:21.140
+center you know wherever we might want to do.
+
+00:03:21.570 --> 00:03:24.860
+Let's check out how some of these different properties would affect this header.
+
+00:03:26.790 --> 00:03:33.060
+So here's our flex and equivalent you know if we said on the View container or on a containing item
+
+00:03:33.120 --> 00:03:38.490
+if we gave it justify content flex and everything gets shoved down to the bottom.
+
+00:03:38.520 --> 00:03:44.040
+Likewise if we gave it center everything is centered up so largely behaves the same way as when we have
+
+00:03:44.040 --> 00:03:45.030
+a single item.
+
+00:03:45.240 --> 00:03:48.600
+But the difference is that you know we have multiple items within this container.
+
+00:03:48.600 --> 00:03:50.500
+They all get kind of centered up.
+
+00:03:50.610 --> 00:03:54.990
+Now the next two are where things start to get a little bit more interesting and only relevant when
+
+00:03:54.990 --> 00:03:57.720
+we have multiple items within a container.
+
+00:03:57.750 --> 00:04:06.720
+The first one is to fight content space between so its space between the container will take its list
+
+00:04:06.720 --> 00:04:13.110
+of internal items and it will maximize and equalize the amount of space between each item.
+
+00:04:13.110 --> 00:04:18.690
+So weve got the first time at the very top of the container and then the last item at the very bottom
+
+00:04:18.690 --> 00:04:24.570
+of the container and then all the space in between the intermediate items is equalized so they are completely
+
+00:04:24.570 --> 00:04:32.660
+equal in between their lastly space around space around as much like space between.
+
+00:04:32.760 --> 00:04:39.810
+But it also allocates item to the very the head of the very first item and after the very last item
+
+00:04:39.810 --> 00:04:40.470
+as well.
+
+00:04:40.470 --> 00:04:48.090
+So in theory each of these white spaces in here one two three and four should be completely equal whenever
+
+00:04:48.090 --> 00:04:50.300
+we're using space around.
+
+00:04:51.120 --> 00:04:56.370
+So as we've just seen there's a lot of different rules available for justify content and we'll certainly
+
+00:04:56.370 --> 00:04:58.690
+be using them or a couple of them over time.
+
+00:04:58.860 --> 00:05:03.370
+But right now let's focus exactly on how to apply them to styling this header.
+
+00:05:03.630 --> 00:05:08.550
+Let's take a quick break and then come back and figure out how we will use justify content properties
+
+00:05:08.550 --> 00:05:10.050
+to syle that herself.
+
+00:05:10.170 --> 00:05:12.440
+So let's take a quick break and then figure that out.

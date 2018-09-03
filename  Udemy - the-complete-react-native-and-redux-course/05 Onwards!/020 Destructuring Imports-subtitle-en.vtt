@@ -1,0 +1,241 @@
+WEBVTT
+
+00:01.180 --> 00:05.910
+In the last section we finished up with with Step number three which was to make sure that our component
+
+00:05.910 --> 00:08.000
+would show up on the device.
+
+00:08.010 --> 00:13.870
+The last thing we must make sure that we resolve is that we handle the declaration as a variable text.
+
+00:14.010 --> 00:17.870
+So remember the important thing here to remember about every single javascript file that we're going
+
+00:17.870 --> 00:22.620
+to create through our course is that there are no global variables that we can reference.
+
+00:22.620 --> 00:29.050
+There's no like magic code that is provided to us so this text right here is an undefined variable.
+
+00:29.070 --> 00:31.750
+And if we execute this code it would throw an error.
+
+00:31.830 --> 00:38.010
+We have to always make sure that every variable we reference is automatically defined for us.
+
+00:38.010 --> 00:44.940
+So this text tag right here is a primitive element that is provided to us by the react native library.
+
+00:45.000 --> 00:51.930
+So to get access to be able to use this text tag we must import it from the re-act native library to
+
+00:51.930 --> 00:56.070
+do so we're going to use a technique called import destructuring.
+
+00:56.240 --> 00:56.710
+OK.
+
+00:56.750 --> 00:59.500
+That's that's the name of this technique here.
+
+00:59.820 --> 01:00.770
+We're going to run again.
+
+01:00.810 --> 01:04.280
+We're going to lay out the code for it and we'll talk about exactly what it does.
+
+01:04.800 --> 01:12.180
+I'm going to delete re-activated right there and replace it with one opening and closing curly brace
+
+01:12.490 --> 01:13.460
+and side this.
+
+01:13.470 --> 01:14.040
+All right.
+
+01:14.070 --> 01:15.750
+Just text.
+
+01:15.750 --> 01:20.160
+You'll notice that the instant I do that the error message goes away from this line right here.
+
+01:20.160 --> 01:26.640
+So text is now defined what this line means right here is a means to say when you import the re-act
+
+01:26.640 --> 01:27.630
+native library.
+
+01:27.630 --> 01:29.940
+I don't actually want access to the whole library.
+
+01:29.940 --> 01:34.060
+I just want access to that text property out of that library.
+
+01:34.080 --> 01:39.900
+So this really depends on pretty intricate or detailed knowledge of what different properties or objects
+
+01:39.900 --> 01:41.800
+that react native library contains.
+
+01:41.910 --> 01:45.470
+And you'll learn about all the different objects that it contains over time.
+
+01:45.540 --> 01:49.790
+So this one that we've used right now right here so far is the text tag.
+
+01:50.100 --> 01:54.470
+Another library or another property in the library is one that we've already used down here.
+
+01:54.570 --> 01:55.730
+The app registry.
+
+01:56.100 --> 02:01.440
+So notice that when I replaced the re-act need of reference up here all of a sudden now this is giving
+
+02:01.440 --> 02:04.850
+us an error message saying we'll now react nativism defined.
+
+02:04.890 --> 02:10.930
+So to solve this we will also import the app registry function from re-act native as well.
+
+02:10.950 --> 02:19.810
+So after text we'll place a comma and then reference app registry and finally at the bottom because
+
+02:19.810 --> 02:25.990
+we're not making reference to react native anymore I'm going to delete the re-act native don like so
+
+02:26.890 --> 02:27.330
+cool.
+
+02:27.340 --> 02:32.850
+So now we've got we are importing text in app registry from the re-act native library.
+
+02:32.980 --> 02:38.350
+We are using the text tagging site of our component and we are using the app registry component at the
+
+02:38.350 --> 02:44.950
+very bottom of our file here to render our component to the device.
+
+02:44.950 --> 02:49.600
+The last thing I want to do is you might notice that our component we're getting a little bit of a complaint
+
+02:49.600 --> 02:57.310
+here from GSX about how you know the error message says unexpected block statements surrounding everybody.
+
+02:57.310 --> 03:02.470
+So like I mentioned just a minute ago if we are referencing just a single element or seeing if we've
+
+03:02.470 --> 03:09.250
+got just a single or return value from a federal function we can omit any return statement and the curly
+
+03:09.250 --> 03:09.820
+braces.
+
+03:09.820 --> 03:12.010
+And so that's what this error message here is about.
+
+03:12.220 --> 03:17.710
+Yes Linta saying hey all you're doing with this fado function is returning some variable or returning
+
+03:17.710 --> 03:24.340
+some object so for stylistic concerns I recommend you drop the return statement and you drop the curly
+
+03:24.340 --> 03:26.020
+braces as well.
+
+03:26.020 --> 03:28.930
+We're going to see this error message a lot throughout this course.
+
+03:28.960 --> 03:32.900
+It's totally up to you whether or not you want to do the refactor or not.
+
+03:32.920 --> 03:34.170
+This is not an error.
+
+03:34.210 --> 03:38.740
+It is really just something that Yeslam to saying you know your code would look a little bit better
+
+03:38.740 --> 03:40.060
+if you did it this way.
+
+03:40.450 --> 03:44.330
+So again I leave it up to you whether or not you want to do this or not.
+
+03:44.350 --> 03:46.250
+Just to give you an example the refactoring.
+
+03:46.270 --> 03:48.560
+I think I will go ahead and refactor it.
+
+03:48.640 --> 03:53.270
+So to get the air to go away I would delete the curly brace up here.
+
+03:53.620 --> 03:59.120
+I would delete the return statement right here and put the parentheses up on the line above it.
+
+03:59.500 --> 04:03.690
+I'll delete the curly brace at the bottom and then indent everything like so.
+
+04:03.760 --> 04:11.970
+So now I'm just left with Konst app federal function and this will return this block of GSX right here.
+
+04:12.590 --> 04:13.790
+Again totally up to you.
+
+04:13.840 --> 04:18.450
+Either way I'll go both fashions throughout the course.
+
+04:18.830 --> 04:19.110
+OK.
+
+04:19.120 --> 04:22.960
+So we've now got a full blown re-act native program ready to run.
+
+04:23.240 --> 04:28.990
+So if you recall we spoke much earlier about how to run and react native app in an earlier section and
+
+04:28.990 --> 04:34.420
+the methodology is different depending on what platform you're on either OSX or Windows.
+
+04:34.420 --> 04:37.960
+If you don't recall how to run the similar and with Windows then you'll want to go back a couple of
+
+04:37.960 --> 04:40.180
+videos and review that process.
+
+04:40.180 --> 04:48.580
+Otherwise if you're using iOS at the command line inside of our project directory we will run re-act
+
+04:48.640 --> 04:51.550
+native run IO like so.
+
+04:51.580 --> 04:55.320
+And this will start up our iOS simulator and launch the app.
+
+04:55.440 --> 05:01.610
+And I've already got the simulator running right here so I'm just going to refresh it and.
+
+05:01.620 --> 05:01.930
+OK.
+
+05:01.930 --> 05:04.750
+This is our app now as ugly as it looks.
+
+05:04.750 --> 05:06.710
+You'll notice that up on the very top left.
+
+05:06.790 --> 05:12.580
+I've got the text some text so it looks like it's up there but it's definitely overwriting the status
+
+05:12.580 --> 05:12.900
+bar.
+
+05:12.910 --> 05:18.010
+So this is you know hey like our content is showing up it looks like our component is being rendered
+
+05:18.340 --> 05:20.870
+but it's definitely does not look very good at all.
+
+05:21.130 --> 05:25.030
+So let's figure out how to fix this in the next section.

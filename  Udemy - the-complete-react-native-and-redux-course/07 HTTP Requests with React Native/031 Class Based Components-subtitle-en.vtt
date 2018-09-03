@@ -1,0 +1,304 @@
+WEBVTT
+
+00:00.930 --> 00:06.480
+We've now got a starting component put together for our album list which means we now need to figure
+
+00:06.480 --> 00:14.940
+out somehow an album list to make an age TGP request to go and fetch our list of albums to solve this
+
+00:14.940 --> 00:15.390
+problem.
+
+00:15.390 --> 00:18.800
+We're going to have to expand our knowledge of react in a pretty big way.
+
+00:18.810 --> 00:24.600
+So remember the big challenge here is how to make an 18 year request with react.
+
+00:24.690 --> 00:30.670
+Up until this point the components that we have made we referred to as functional components.
+
+00:30.690 --> 00:35.610
+So all the components we made we would refer to as functional components.
+
+00:35.790 --> 00:41.390
+That is they are functions that return some amount of GSX to be displayed on the device.
+
+00:41.460 --> 00:45.500
+And so as we look at album list right here it's a functional component.
+
+00:45.570 --> 00:49.240
+The only rule behind these is that they must return some amount of GSX.
+
+00:49.260 --> 00:53.240
+That's pretty much it to handle fetching of data.
+
+00:53.250 --> 00:59.160
+We're going to have to use a second type of component which is called a class based component.
+
+00:59.160 --> 01:03.740
+So we are now introducing a second type of component that we're going to be creating.
+
+01:04.200 --> 01:09.240
+Let's check out a diagram to look at some of the differences between functional components and class
+
+01:09.240 --> 01:10.500
+based components.
+
+01:10.980 --> 01:16.110
+As I mentioned we've been using functional components up to this point and I've done example one down
+
+01:16.110 --> 01:22.800
+here at the bottom functional components are great for introduction to react but their functionality
+
+01:22.890 --> 01:25.130
+so to speak is a little bit limited.
+
+01:25.230 --> 01:31.620
+You can kind of view them as an analogy of like a garden hose or a pipe you put data on one end and
+
+01:31.620 --> 01:33.960
+GSX comes out the other and that's it.
+
+01:33.960 --> 01:40.500
+There's no other ability for the component to fetch data or initiate more complicated operations.
+
+01:40.590 --> 01:45.230
+They will figure out later on it's just data goes in GSX comes out.
+
+01:45.330 --> 01:46.680
+That's it.
+
+01:46.680 --> 01:51.990
+We traditionally use functional components for presentational needs like just displaying some content
+
+01:51.990 --> 01:53.220
+to the user.
+
+01:53.220 --> 01:58.100
+A fantastic example of this would be the header component we put together earlier the header.
+
+01:58.140 --> 02:01.450
+All it has to do is take some header text and show a header.
+
+02:01.530 --> 02:02.990
+That's it.
+
+02:03.000 --> 02:06.600
+So that is a perfect use case for a functional component.
+
+02:06.600 --> 02:12.750
+The second type of component that we're going to use is the class based component classmates class based
+
+02:12.750 --> 02:19.380
+excuse me components are more complex and involve writing more code but they have a lot more functionality
+
+02:19.380 --> 02:21.680
+built to them a lot more capability.
+
+02:21.930 --> 02:24.000
+They can be used for fetching data.
+
+02:24.210 --> 02:26.790
+They're easier to use to write large components.
+
+02:26.850 --> 02:32.820
+And it's also easier to organize large amounts of code with them because we get a nice class type structure
+
+02:32.820 --> 02:35.950
+where we can add many helper methods in there.
+
+02:36.090 --> 02:44.100
+This type of component is called class based because it is based on six classes that extend a base class
+
+02:44.370 --> 02:49.100
+of component this component base class is provided by remapped.
+
+02:49.140 --> 02:52.230
+And we'll figure out how to wire that up.
+
+02:52.230 --> 02:58.410
+In short we're going to need to re factor this album list component from a functional component to a
+
+02:58.410 --> 03:03.800
+class based one because we want to use it to fetch some data with an age TTP request.
+
+03:03.930 --> 03:04.240
+OK.
+
+03:04.240 --> 03:05.940
+So that's our goal right now.
+
+03:05.940 --> 03:10.440
+We're going to do the Reflektor and we're going to find out exactly how to use a class based component
+
+03:10.440 --> 03:12.900
+to make an Ajax request.
+
+03:13.710 --> 03:16.440
+So time to do Ari factor.
+
+03:16.440 --> 03:24.090
+We're going from this functional component to a class based one therea factor of two in each six class
+
+03:24.690 --> 03:28.440
+we are going to delete the function declaration or at the top.
+
+03:28.440 --> 03:33.930
+So that step one is going to delete the entire thing and I can replace it with a class declaration instead
+
+03:34.560 --> 03:36.750
+to declared each six class.
+
+03:36.750 --> 03:39.560
+We first write the class keyword.
+
+03:39.630 --> 03:45.360
+Then the name of the class which for us is going to be album list and then the class we want to extend
+
+03:45.360 --> 03:46.410
+from.
+
+03:46.830 --> 03:54.210
+So extends component and then I'm going to put plays an opening curly brace.
+
+03:54.270 --> 04:01.080
+So I've got my opening curly brace up top and nice closing curly brace down here at the bottom by using
+
+04:01.110 --> 04:06.180
+extends component right here we are indicating that we want to borrow a bunch of functionality from
+
+04:06.180 --> 04:08.160
+this bass component class.
+
+04:08.250 --> 04:14.370
+So do recall that all files in a re-act native project are kind of like silos so I'm making a reference
+
+04:14.370 --> 04:19.650
+to component here but I don't have any declaration of component ahead of time so I need to make sure
+
+04:19.680 --> 04:27.360
+that I import component this component base class can be imported from the re-act library.
+
+04:28.170 --> 04:35.250
+Now unlike the destructuring that we used previously I don't want to replace this re-act declaration
+
+04:35.250 --> 04:38.570
+with just destructuring out component to get access to component.
+
+04:38.580 --> 04:44.760
+And the reason for that is keep in mind that whenever we write GSX like right here when babbel goes
+
+04:44.760 --> 04:50.850
+through this and converts the GSX to just raw javascript it's going to turn all this GSX into a series
+
+04:50.850 --> 04:53.630
+of re-act create element calls right.
+
+04:53.640 --> 04:56.050
+We saw that in the battle rebel.
+
+04:56.370 --> 05:02.670
+And so because it says specifically Riak does create element I have to keep react in the scope of this
+
+05:02.670 --> 05:03.110
+file.
+
+05:03.130 --> 05:04.840
+So there's just a little bit of trivia.
+
+05:05.280 --> 05:11.610
+So to both import react but also d structure the component class out of it are going to use a little
+
+05:11.610 --> 05:14.950
+bit a trick with import statements and to say import react.
+
+05:15.240 --> 05:21.850
+And by the way I also want this component property from the re-act library as well.
+
+05:22.200 --> 05:27.090
+So now we're both getting the re-act library and we're also receiving the component class out of it
+
+05:27.090 --> 05:27.690
+as well.
+
+05:29.190 --> 05:29.720
+OK.
+
+05:29.900 --> 05:32.570
+One last thing to do for to complete already factor.
+
+05:32.810 --> 05:35.080
+I placed my class declaration.
+
+05:35.090 --> 05:40.550
+I've got the closing curly brace but now I've just got this kind of loose chunk of code that's sitting
+
+05:40.550 --> 05:42.350
+in here right now.
+
+05:43.070 --> 05:50.030
+Whenever I write a class based component we must define exactly one method and that method is called
+
+05:50.120 --> 05:56.390
+the render method and the only requirement of the render method is that it returns some amount of GSX.
+
+05:56.390 --> 06:01.940
+So whereas before we had a functional component that returns some amount of GSX we're now going to have
+
+06:02.000 --> 06:05.470
+a render method that returns some amount of GSX.
+
+06:05.780 --> 06:13.820
+So I'm going to add in here a render method by typing out render an opening curly brace and I going
+
+06:13.820 --> 06:20.520
+to wrap all these GSX with the closing curly brace and then indent like so.
+
+06:20.670 --> 06:26.430
+Finally at the very bottom I'm going to remove the semi colon because classes do not require semi-colons.
+
+06:26.840 --> 06:28.310
+OK so that's it.
+
+06:28.310 --> 06:33.730
+So one more time we refactor this from a functional component to a glass based component.
+
+06:34.190 --> 06:39.740
+We use class based components whenever we want to use react to fetch data or whenever we want to have
+
+06:39.770 --> 06:44.280
+a large component that might require some helper methods.
+
+06:44.960 --> 06:50.990
+The only requirement of class based components is that we define a render method that returns some amount
+
+06:50.990 --> 06:57.770
+of GSX then whenever this component gets rendered to the device re-act is going to call the render method
+
+06:58.160 --> 07:02.560
+take whatever GSX gets returned and placed it on the screen of our device.
+
+07:02.810 --> 07:08.750
+So at this point in time we should be able to refresh the simulator and still see the text album list
+
+07:08.750 --> 07:09.920
+pop up on the screen.
+
+07:10.230 --> 07:14.920
+So I for fresh and hot dog we still got our album list popping up here.
+
+07:15.250 --> 07:15.690
+OK.
+
+07:15.740 --> 07:16.700
+So fantastic.
+
+07:16.700 --> 07:17.890
+We did already factor.
+
+07:17.960 --> 07:23.570
+Let's continue in the next section and figure out exactly how we use class based components to fetch
+
+07:23.570 --> 07:24.840
+data for our application

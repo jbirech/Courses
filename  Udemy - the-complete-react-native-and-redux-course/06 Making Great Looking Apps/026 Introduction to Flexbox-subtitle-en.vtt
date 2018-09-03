@@ -1,0 +1,205 @@
+WEBVTT
+
+00:01.080 --> 00:04.210
+In the last section we added some styling to our view tag.
+
+00:04.470 --> 00:09.210
+Remember the purpose of the tag was just to position the text element correctly on the screen.
+
+00:09.210 --> 00:11.840
+The text can't really position itself.
+
+00:11.850 --> 00:13.970
+We also set a background color on The View tag.
+
+00:14.070 --> 00:19.490
+And so now it's time to really make use of the view tag to position the album's text right and center
+
+00:19.500 --> 00:24.560
+middle here positioning elements in re-act native is a tricky little subject.
+
+00:24.600 --> 00:30.930
+And I normally wouldn't bring styling up so early in of course except for the fact that you know styling
+
+00:30.930 --> 00:32.900
+is really at the core of reac need.
+
+00:32.910 --> 00:38.680
+And for me personally one of the hardest challenges or most difficult aspects of Riak native.
+
+00:38.680 --> 00:41.420
+And so that's why we're tackling this nice and early.
+
+00:42.330 --> 00:49.170
+So by doing or to use positioning inside of reac native We use a technique called Flex box.
+
+00:49.200 --> 00:55.170
+Now the term flex box is a reference to how we will position elements it's kind of a CSSA positioning
+
+00:55.170 --> 00:56.430
+technology.
+
+00:56.610 --> 01:02.940
+If you've worked with flex flex box in normal CSSA before on standard web apps it mostly works the same
+
+01:02.940 --> 01:03.560
+way here.
+
+01:03.570 --> 01:07.060
+There's a couple of very small differences that I'll point out over time.
+
+01:07.120 --> 01:11.320
+So let me give you a plain text definition of flex box.
+
+01:11.370 --> 01:16.450
+Fluxbox is a system of positioning elements within the container.
+
+01:16.500 --> 01:26.010
+In our case we have a containing element of view and the child element of the text we can use fluxbox
+
+01:26.070 --> 01:33.270
+to tell a re-act native how we want to position the text tag within the overall view tag.
+
+01:33.600 --> 01:38.930
+So let's check out a couple of couple of diagrams to get a little bit better idea of how this works.
+
+01:38.940 --> 01:45.420
+So why do people want to first make it really clear everything and reac native gets positioned to the
+
+01:45.420 --> 01:49.420
+top left of its parent just as you would expect with normal age T.M..
+
+01:49.830 --> 01:55.440
+So if we do not finagle with that view or that text any point in time it's going to look exactly like
+
+01:55.440 --> 01:56.250
+this.
+
+01:56.340 --> 02:01.460
+The text albums is going to appear at the top left hand side of the overall view container.
+
+02:01.590 --> 02:06.600
+So it's kind of don't know orangy look and color right here is supposed to be the view container.
+
+02:06.720 --> 02:08.920
+And so if we look at the simulator right now.
+
+02:08.940 --> 02:16.000
+Yeah that's definitely the case that's appearing at the top left of the view so there are two properties
+
+02:16.000 --> 02:21.630
+that we need to be aware of to get our text to be centered in the very middle of the view.
+
+02:21.700 --> 02:27.250
+The first is justified content and the second is a line items.
+
+02:27.280 --> 02:33.370
+These are two property names that we'll use inside of our styling object to get the text tag to move
+
+02:33.370 --> 02:35.310
+to the center of the view tag.
+
+02:35.740 --> 02:37.720
+So let's examine both these properties.
+
+02:37.780 --> 02:44.740
+First we're going to start off with the justify content property that justified content property is
+
+02:44.740 --> 02:47.870
+used to position elements in the vertical direction.
+
+02:48.280 --> 02:53.350
+So to move something from the very top left you say downwards.
+
+02:53.680 --> 02:58.670
+Now I say let me let me throw out one small caveat here.
+
+02:59.080 --> 03:03.580
+Usually the justified content property is used to position elements in the vertical direction.
+
+03:03.580 --> 03:06.980
+There is one case where it behaves a little bit differently.
+
+03:07.240 --> 03:10.870
+That's all I want to say right now and I'm only saying that because if you're familiar with flex blocks
+
+03:10.870 --> 03:15.680
+you probably grit your teeth and say Stephen that's not the only thing justify content does.
+
+03:16.030 --> 03:22.090
+But again forget that let's just focus on in context right now what justified content does.
+
+03:22.360 --> 03:28.030
+So we can give justify content a couple of different values to change where it places our content.
+
+03:28.030 --> 03:34.860
+If we give it the string flex dash and it will push our text down to the very bottom.
+
+03:34.990 --> 03:42.100
+Likewise we can give it Center as a string and it will push the element to the very center middle but
+
+03:42.100 --> 03:47.320
+still all the way to the left hand side justify content right now is not moving our element from the
+
+03:47.320 --> 03:50.420
+left to the right.
+
+03:50.420 --> 03:52.960
+Finally the last one is really relevant right now.
+
+03:52.960 --> 03:58.690
+There's a couple of others that we'll cover later on in the course is justified content flex dash start
+
+03:59.010 --> 04:04.660
+and that behaves much the same as the default which is to not provide a justified content property at
+
+04:04.660 --> 04:09.330
+all in which case it will just appear on the very very top.
+
+04:09.680 --> 04:15.900
+So you won't find us using flex start too often because that's generally the default behavior anyways.
+
+04:16.060 --> 04:18.730
+So there's a couple of other items as well.
+
+04:18.730 --> 04:22.920
+Like I mentioned that we'll figure out later on as we move through the course.
+
+04:22.930 --> 04:28.180
+So this is justified content again has to move elements up and down the second property that we want
+
+04:28.180 --> 04:33.730
+to be aware of is the A line items property with a line items.
+
+04:33.880 --> 04:36.520
+We position elements in the horizontal direction.
+
+04:36.520 --> 04:39.680
+So we're talking about moving the text from left to right.
+
+04:39.760 --> 04:46.450
+We have much the same properties as with justified content we can say start and we'll start at the very
+
+04:46.450 --> 04:53.740
+left and we can use center to center it and we can use end to push it all the way to the far right hand
+
+04:53.740 --> 04:55.020
+side.
+
+04:55.090 --> 05:02.120
+So again whereas justify content is about manipulating items in the up and down direction a line item
+
+05:02.200 --> 05:05.990
+is about manipulating it in the left and right.
+
+05:06.040 --> 05:13.090
+So the idea here is that we can combine justified content and the line items to exactly Center an item
+
+05:13.090 --> 05:14.470
+in a container.
+
+05:14.470 --> 05:19.070
+Again that's not all there is to flex box but it is all we need to know for right now.
+
+05:19.320 --> 05:24.030
+So let's take what we've learned in this section and apply it to our head or component in the next section.

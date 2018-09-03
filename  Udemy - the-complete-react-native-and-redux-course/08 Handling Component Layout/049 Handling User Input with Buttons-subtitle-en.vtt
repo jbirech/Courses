@@ -1,0 +1,358 @@
+WEBVTT
+
+00:01.380 --> 00:07.380
+Just one last feature for this application we need to make a button that the user can press to buy the
+
+00:07.380 --> 00:08.880
+album off of amazon.
+
+00:08.910 --> 00:11.480
+So remember we're not going to like actually handle payments.
+
+00:11.550 --> 00:15.990
+We just want to open up the user's browser on their mobile device and point them over to the store page
+
+00:15.990 --> 00:18.680
+for this album so they could buy it.
+
+00:18.690 --> 00:20.640
+So there's two distinct challenges here.
+
+00:20.640 --> 00:26.490
+First we need to be able to receive some amount of feedback from the user like you're handling the actual
+
+00:26.490 --> 00:32.160
+button press here and we also need to figure out how to open the user's web browser on their device
+
+00:32.220 --> 00:35.140
+and point them at a very specific you are out.
+
+00:35.470 --> 00:41.070
+We will first make use of the button or we will first make the button and it will focus on how to open
+
+00:41.070 --> 00:42.020
+the user's browser.
+
+00:42.120 --> 00:44.340
+Guess that's the plan here.
+
+00:44.340 --> 00:48.660
+Now I mentioned a while ago that one of the big challenges of re-act native is dealing with styling
+
+00:48.660 --> 00:55.260
+components specifically the fact that there isn't really like a nice default set of nice looking components
+
+00:55.320 --> 00:56.840
+you can use right out the gate.
+
+00:57.120 --> 01:03.180
+So to deal with this will first be making every usable button component and then focus on customizing
+
+01:03.180 --> 01:04.150
+it for our needs.
+
+01:04.170 --> 01:08.830
+OK so we're going to make a reusable button that we can use on future projects as well.
+
+01:08.970 --> 01:11.490
+And then we're going to customize it for our needs.
+
+01:12.180 --> 01:18.710
+So you know you know what the next step is we need to make a new file to how is our button so I can
+
+01:18.720 --> 01:26.000
+be buttoned J.S. inside of our components directory and inside if we're going to place our boilerplate.
+
+01:26.180 --> 01:28.090
+What else do you think we're going to do.
+
+01:28.440 --> 01:28.670
+All right.
+
+01:28.670 --> 01:37.140
+So import re-act from react at the top we'll import our text tag because of course our button is going
+
+01:37.140 --> 01:41.180
+to need some text from Riak native.
+
+01:41.810 --> 01:49.650
+Next will declare our button component and inside of here all place.
+
+01:49.680 --> 01:58.230
+Just some GSX that says you know inside of a text tag click me.
+
+01:58.230 --> 02:05.910
+Finally at the bottom we will export default button like so now I want to be able to see this button
+
+02:05.940 --> 02:06.650
+immediately.
+
+02:06.660 --> 02:11.550
+You know I want to get it to show up on the simulator so we can actually make use of it and develop
+
+02:11.550 --> 02:12.510
+it on the fly.
+
+02:12.540 --> 02:18.900
+So I'm going to immediately import it into our album detail inside of album detail inside of album detail
+
+02:18.910 --> 02:19.700
+right now.
+
+02:19.710 --> 02:31.140
+I'm going to import it as Button from button and I'm going to create a new card section after both the
+
+02:31.140 --> 02:33.210
+existing two that we have to house the button.
+
+02:33.210 --> 02:37.440
+Remember that was the goal all along we're going to have three card sections in the last one is going
+
+02:37.440 --> 02:38.630
+to house that button.
+
+02:38.820 --> 02:41.320
+So I'll add on another card section here.
+
+02:44.420 --> 02:48.730
+And it's going to contain our button component like so.
+
+02:48.750 --> 02:54.830
+One quick aside I see kind of varying communi convention on this on whether or not you want to put a
+
+02:54.830 --> 02:58.820
+newline character between major sections in your GSX.
+
+02:58.820 --> 03:01.690
+So for us we have three distinct card sections.
+
+03:01.790 --> 03:06.800
+So maybe you want to put in like a new line here just to say hey this is kind of a distinct separate
+
+03:06.800 --> 03:09.440
+part of our render method it's totally up to you.
+
+03:09.440 --> 03:13.020
+I can waffle back and forth making use of it.
+
+03:13.190 --> 03:16.910
+But to be honest with you I also tried not to have components that look this large.
+
+03:16.910 --> 03:18.590
+So really you can go either way either way.
+
+03:18.800 --> 03:20.080
+To left you.
+
+03:20.800 --> 03:22.380
+OK let's flip back over to our button.
+
+03:22.400 --> 03:23.040
+Here it is.
+
+03:23.180 --> 03:27.650
+And I'm also going to open up my simulator and I'm going to refresh it just to make sure everything
+
+03:27.650 --> 03:29.100
+is hooked up correctly.
+
+03:29.690 --> 03:30.950
+So refresh.
+
+03:31.220 --> 03:32.530
+And all right there we go.
+
+03:32.600 --> 03:36.320
+Text left click me down there and of course clicking on it does absolutely nothing just yet.
+
+03:36.320 --> 03:38.770
+We haven't done anything at all to handle.
+
+03:38.780 --> 03:44.690
+Tapping on the thing one also a quick note here is that clicking in the simulator is equivalent to tapping
+
+03:44.690 --> 03:45.290
+with your finger.
+
+03:45.290 --> 03:50.570
+So you know whenever I say tap on the device or something like that for the simulator we can just click
+
+03:50.570 --> 03:50.880
+on it.
+
+03:50.980 --> 03:52.290
+The equivalent.
+
+03:53.170 --> 03:53.430
+OK.
+
+03:53.450 --> 03:59.300
+So let's continue with some of the basics of the button like how we deal with a user tapping on it and
+
+03:59.300 --> 04:00.020
+whatnot.
+
+04:00.370 --> 04:04.290
+For this this is kind of like a pretty big topic how we handle user feedback.
+
+04:04.430 --> 04:08.750
+So I'm going to open up the re-act native documentation and we're going to just look at the docs a little
+
+04:08.750 --> 04:10.740
+bit on the subject.
+
+04:10.760 --> 04:13.750
+So in my browser I've already got to react native documentation.
+
+04:13.760 --> 04:16.520
+Open if you want to follow along in your own browser.
+
+04:16.530 --> 04:19.460
+You know you can just do a google search for underreact native docs.
+
+04:19.520 --> 04:23.230
+Otherwise I'm going to point us directly at what we need to be looking at.
+
+04:23.570 --> 04:29.840
+So I can scroll down a little bit and the left hand side I'm going to go until I find the section here
+
+04:29.900 --> 04:36.310
+of touchable highlight touchable native feedback touchable opacity and touchable without feedback.
+
+04:36.320 --> 04:43.630
+So these these four things here the only two that we really care about right now are touchable highlight.
+
+04:43.650 --> 04:47.800
+There it is and touchable opacity as well.
+
+04:47.840 --> 04:52.080
+So I want to tell you right now do not let these names throw you off.
+
+04:52.100 --> 04:56.500
+They are fancy fancy names for Button.
+
+04:56.570 --> 05:02.060
+Like literally they are fancy names for a button a touchable highlight is a button a touchable opacity
+
+05:02.120 --> 05:04.910
+is a button that's all they are.
+
+05:05.870 --> 05:08.930
+These are all basic components for dealing with user presses.
+
+05:08.950 --> 05:14.660
+And the biggest difference between them is just how they deal with providing feedback to the user.
+
+05:14.810 --> 05:21.860
+So for example when a user taps on a touchable highlight the button has the option to very briefly turn
+
+05:21.860 --> 05:25.370
+a different color which kind of like highlights the button is being pressed.
+
+05:25.370 --> 05:29.030
+It is literally just about providing feedback to the user.
+
+05:29.270 --> 05:34.800
+So on the other hand like a touchable opacity mirror opacity means kind of like Faid or see through.
+
+05:34.820 --> 05:39.710
+So when a user taps on untouchable opacity the button is going to briefly fade away.
+
+05:39.740 --> 05:44.390
+Just to let the user know hey we registered that click like we know you just did something don't dungaree
+
+05:44.390 --> 05:49.400
+we're going to handle that click event you just you just are that Pressey that you just triggered.
+
+05:49.430 --> 05:55.310
+So for our app we are going to be using the touchable opacity But again we can use any of these things
+
+05:55.310 --> 05:59.920
+and we would do just fine because they're all just buttons that's all they are.
+
+06:00.710 --> 06:06.260
+So with a touch touchable opacity again it means that whenever a user taps on this thing the opacity
+
+06:06.260 --> 06:09.040
+of the rapt view is decreased kind of dimming it.
+
+06:09.260 --> 06:11.630
+That's all it is.
+
+06:11.720 --> 06:12.070
+All right.
+
+06:12.110 --> 06:17.760
+So we are going to add in the touch of opacity and then we're just going to add it to our render method.
+
+06:17.780 --> 06:20.500
+You add it to our component and just see what it looks like.
+
+06:20.510 --> 06:22.680
+You know what happens when we tap tap on it.
+
+06:23.000 --> 06:31.640
+So inside of my button I'm going to import my touchable opacity and then I'm going to treat it as though
+
+06:31.640 --> 06:33.140
+it were a view tag.
+
+06:33.140 --> 06:37.120
+So I use these touchable things to wrap other components.
+
+06:37.160 --> 06:42.390
+That's the entire idea behind we use them to wrap the things that we want to be able to like tap on.
+
+06:42.650 --> 06:46.860
+So in our case I want to be able to tap on this click that says Click me because it says you know clicking
+
+06:46.870 --> 06:48.870
+of course I want to tap on the thing.
+
+06:49.190 --> 07:01.100
+So I'm going to wrap this text tag with a touchable opacity.
+
+07:01.910 --> 07:02.340
+All right.
+
+07:02.360 --> 07:07.010
+So I'm going to now reverse the simulator and let's see how this thing behaves.
+
+07:07.010 --> 07:13.150
+So I'm going to go down the click me I'll tap on it and lo and behold it fades.
+
+07:13.200 --> 07:13.940
+Hooray.
+
+07:14.040 --> 07:18.560
+Remember the entire goal of this right here is just to provide the user with some amount of feedback
+
+07:18.560 --> 07:24.310
+to say hey don't worry the app is not like locked up like it's we're not frozen here something is happening.
+
+07:24.350 --> 07:27.470
+That's the entire point of these touchable objects.
+
+07:27.970 --> 07:28.390
+OK.
+
+07:28.430 --> 07:30.280
+There's one thing to be aware of though.
+
+07:30.410 --> 07:34.880
+They also give this give us the ability to listen for an actual press.
+
+07:34.880 --> 07:40.120
+And so when the user presses on this thing we have the option to execute some code.
+
+07:40.310 --> 07:45.680
+So let's continue in the next section and figure out how to wire up that kind of tap handler or that
+
+07:45.680 --> 07:48.670
+thing that's going to execute when the user presses on this thing.
+
+07:48.710 --> 07:49.700
+So let's take a quick break.
+
+07:49.710 --> 07:50.500
+See in the next section

@@ -1,0 +1,256 @@
+WEBVTT
+
+00:01.710 --> 00:07.050
+Unless section we started working on our first re-act component remember a component is something that
+
+00:07.050 --> 00:13.050
+produces some amount of text or content that we can render on the screen of our mobile device.
+
+00:13.050 --> 00:16.160
+We're going to continue working on this component in this section as well.
+
+00:16.590 --> 00:21.540
+As I said previously I'm a big fan of understanding every single line of code that we put into our code
+
+00:21.570 --> 00:22.350
+editor.
+
+00:22.350 --> 00:26.670
+So as we continue through the course we're going to have a lot of long discussions about every piece
+
+00:26.670 --> 00:31.950
+of code just like we didn't last section but as we cover each topic will significantly speed up the
+
+00:31.950 --> 00:33.250
+pace.
+
+00:33.270 --> 00:38.400
+One of my favorite aspects of react is that the library is just has a tiny API.
+
+00:38.430 --> 00:40.550
+There's not a lot of ways to work with it.
+
+00:40.560 --> 00:44.520
+So once you learn those ways you can make some pretty awesome apps without worrying about a whole bunch
+
+00:44.520 --> 00:45.610
+of complexity.
+
+00:45.670 --> 00:47.860
+Anyways just real quick aside.
+
+00:48.540 --> 00:53.670
+So Step two on our three part journey of making our first component is to actually create the components
+
+00:53.670 --> 00:58.780
+self we've already imported some amount of code to help create it and now we need to actually make the
+
+00:58.790 --> 01:04.560
+component remember that component is an object that produces something that can be placed on the screen
+
+01:04.560 --> 01:06.530
+of our mobile device.
+
+01:06.600 --> 01:12.030
+So to define a component we write out a javascript function.
+
+01:12.090 --> 01:18.090
+This function must return some object that describes what it should look like on our device.
+
+01:18.150 --> 01:22.770
+So we're going to write out our first component and it's going to be a function we're going to call
+
+01:22.770 --> 01:27.230
+this function app because we called it app right here.
+
+01:27.240 --> 01:31.940
+We will refer to it as the app component for our device.
+
+01:31.950 --> 01:36.740
+Next we're going to add a little bit of code in here that is going to look a little strange but we'll
+
+01:36.750 --> 01:38.420
+discuss its purpose immediately.
+
+01:38.520 --> 01:39.220
+OK.
+
+01:39.570 --> 01:46.800
+So right out return I'm going to place some parentheses and then in-between those two parentheses right
+
+01:46.800 --> 01:47.570
+here.
+
+01:47.610 --> 01:48.190
+All right.
+
+01:48.240 --> 01:50.420
+What looks like HVM out.
+
+01:50.670 --> 01:54.300
+We use what we refer to as the text tag.
+
+01:55.200 --> 02:01.480
+And then inside of that text tag placed the just the content some text right here.
+
+02:01.500 --> 02:03.650
+So let's now stop again.
+
+02:03.660 --> 02:07.070
+You know when you're writing a lot of single lines of code and and talk you know what they do.
+
+02:07.260 --> 02:09.520
+Let's talk about what is happening right here.
+
+02:09.930 --> 02:15.890
+So this bit of code tells re-act native that we want to render some text to the screen of our device.
+
+02:15.900 --> 02:18.000
+But you know that's not the weird part here.
+
+02:18.000 --> 02:23.430
+The weird part is that this certainly looks like H.T. mail that is being written inside of our javascript.
+
+02:23.430 --> 02:26.320
+Right we've got AIDS team looking TOG's right here.
+
+02:26.430 --> 02:32.080
+So you might be thinking Steven you know why are we writing CML in our javascript are mobile devices
+
+02:32.090 --> 02:33.770
+and even rendering HD you know.
+
+02:34.010 --> 02:34.950
+And that's totally correct.
+
+02:34.950 --> 02:37.320
+We are not writing a e-mail here.
+
+02:37.380 --> 02:45.570
+We are instead writing a dialect of javascript called GSX GSX is an extension to the javascript language
+
+02:45.600 --> 02:48.220
+that is used to write re-act components.
+
+02:48.480 --> 02:52.620
+In practice GSX follows the same semantics of HCM out.
+
+02:52.740 --> 03:01.440
+We have opening and closing tags so we have opening closing and the name of the text is used within
+
+03:01.500 --> 03:04.040
+a set of brackets.
+
+03:04.050 --> 03:08.710
+Finally some content is placed between the opening and closing tag.
+
+03:09.030 --> 03:14.900
+When we place one tag inside of another we refer to that as nesting or if we place some text within
+
+03:14.900 --> 03:15.570
+a tag.
+
+03:15.750 --> 03:23.940
+We also refer to this as nesting some content in here will be using GSX throughout this course as it
+
+03:23.940 --> 03:30.120
+is our one and only way to communicate with re-act native to of about what we want our app to look like
+
+03:30.180 --> 03:32.350
+on the screen of the mobile device.
+
+03:32.700 --> 03:37.380
+So the last thing I want to mention here about GSX is that even though it looks like each team it is
+
+03:37.380 --> 03:43.140
+still javascript that we're writing GSX exists only to make our lives easier.
+
+03:43.230 --> 03:48.630
+As a developer it's really just syntactic sugar to make our code a little bit more legible.
+
+03:48.630 --> 03:54.620
+To prove this to you I'm going to open up my browser and I'm going to navigate to Babel.
+
+03:54.690 --> 04:02.200
+J.S. IO battle is a tool that takes GSX and turns it into normal Javascript.
+
+04:02.430 --> 04:08.980
+So up at the top center here and click on try it out and this will take us to the battle of Ruppel.
+
+04:09.090 --> 04:15.410
+So if we place some amount of GSX on the left hand side it will turn it into raw javascript on the right
+
+04:15.410 --> 04:16.190
+hand side.
+
+04:16.380 --> 04:21.630
+So on the left hand side is the JSF So we might write inside of a component and on the right hand side
+
+04:21.720 --> 04:28.020
+is the compile javascript that is actually what is being executed on our mobile device.
+
+04:28.020 --> 04:32.250
+Notice how in this case I've already got some amount of GSX on the screen.
+
+04:32.250 --> 04:38.250
+I have a single text tag and within that I've got several other text tags and when this all gets converted
+
+04:38.250 --> 04:45.180
+into X it turns in a series into a series of calls to react Daut create element.
+
+04:45.300 --> 04:47.690
+So this is like the big surprise here.
+
+04:47.800 --> 04:51.810
+Jase X is really just a mask over normal function calls.
+
+04:52.080 --> 04:56.560
+As I said earlier we use GSX just to make our lives easier.
+
+04:56.640 --> 05:01.850
+So even though you know you might think to yourself well why don't we just write a series of re-act
+
+05:01.850 --> 05:07.250
+create element calls and the answer to that is as we start to get more tags on the screen you know as
+
+05:07.250 --> 05:12.910
+we add more tags to our component it starts to turn into a big mess to function calls.
+
+05:13.190 --> 05:19.280
+So the authors of the re-act library realized well nobody really wants to write a whole bunch of calls
+
+05:19.310 --> 05:21.490
+a function calls to react create element.
+
+05:21.650 --> 05:26.900
+It's a lot easier to read a whole bunch of nested H.T. now or you know what looks like is over here
+
+05:26.900 --> 05:28.010
+on the left hand side.
+
+05:28.220 --> 05:33.590
+So that is the sole purpose of GSX is just to make the code that we're working with appear a little
+
+05:33.590 --> 05:35.770
+bit more legible on the screen.
+
+05:36.550 --> 05:43.490
+OK so let's do a wrap up here and this in this section we wrote our first component a component is a
+
+05:43.490 --> 05:47.940
+javascript function that returns some amount of GSX in turn.
+
+05:47.950 --> 05:54.150
+GSX is a dialect of javascript that tells re-acclimate of what content we want to show on the screen.
+
+05:54.200 --> 06:02.750
+In this case we created a text tag and inside that text tag we placed just the string some text which
+
+06:02.750 --> 06:07.610
+presumably is going to tell Riak native to render like you just this text on the screen.
+
+06:07.610 --> 06:12.680
+So let's continue the next section and figure out how to render this component on our device or how
+
+06:12.680 --> 06:15.330
+to make it appear on the screen of our device.

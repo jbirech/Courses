@@ -1,0 +1,367 @@
+WEBVTT
+
+00:01.590 --> 00:06.210
+We're definitely picking up in this show with our header tag here so let's keep on rolling along and
+
+00:06.210 --> 00:08.340
+start fixing amps and the styling.
+
+00:08.340 --> 00:12.300
+When you look at the header in the style you'll see in the simulator excuse me you'll see that there
+
+00:12.300 --> 00:16.560
+is a little bit too little space right here and there we can definitely use a little bit more space
+
+00:16.560 --> 00:20.030
+between the image and the text to the right hand side.
+
+00:20.040 --> 00:25.740
+In addition it would be really nice if the first piece of text in here which was the album title was
+
+00:25.740 --> 00:31.530
+just a little bit larger at least or hopefully a little bit bolder as well just to make it stand out
+
+00:31.530 --> 00:33.630
+a little bit.
+
+00:33.630 --> 00:38.300
+So let's start by fixing some of the spacing with this image here.
+
+00:38.310 --> 00:43.650
+We'll achieve this by adding some styling to the view tag that is wrapping the image.
+
+00:43.650 --> 00:49.210
+So on this the tag right here will set up some margin on the left and right hand side.
+
+00:49.380 --> 00:52.510
+That means we're going to have to add another property to our styles object.
+
+00:52.560 --> 00:57.120
+So we'll go down to our styles object at the bottom and I'm going out on another property.
+
+00:57.130 --> 01:01.410
+They're going to call a thumbnail container style.
+
+01:02.220 --> 01:08.480
+So the thought process behind this name right here is that the container that is containing the thumbnails
+
+01:08.490 --> 01:11.280
+so you know thumbnail container style.
+
+01:11.850 --> 01:18.270
+So for this container right here I also want to kind of center the thumbnail in there right.
+
+01:18.280 --> 01:22.800
+I want to make sure this myson centered to make sure that sintered will give it the justify content
+
+01:23.280 --> 01:30.630
+of center and align items of center as well and will give it some left and right and spacing by giving
+
+01:30.630 --> 01:36.400
+it the margin left of 10 and a margin right of 10 as well.
+
+01:37.230 --> 01:44.540
+Now we can add this thumbnail container style to that view that we have up top so I'll scroll back up.
+
+01:44.610 --> 01:47.960
+I'm going to put in some new lines here.
+
+01:48.000 --> 01:52.610
+Now that I've got a pretty good number of things I need to restructure my styles object.
+
+01:52.800 --> 02:02.140
+And then I will pull in my thumbnail container style then we're going to take that style and just use
+
+02:02.140 --> 02:03.350
+it on the View tag.
+
+02:03.580 --> 02:10.140
+So hey view here you go use your style thumbnail container style cool.
+
+02:10.140 --> 02:15.040
+Now remember the other thing that I mentioned is I would really like if our header text you know so
+
+02:15.060 --> 02:21.610
+the text tag that has the artist title or the title was a little bit larger and maybe bolded as well.
+
+02:21.660 --> 02:26.170
+Let's start off by just making it larger and then we'll decide whether or not we want to build it.
+
+02:26.220 --> 02:31.470
+So I'm going to scroll back down and we're going to add a another text rule and here I'm going to put
+
+02:31.470 --> 02:37.130
+this one right underneath the header content style because this is the one that's holding the textile.
+
+02:37.740 --> 02:44.610
+Add a single rule to just add on to that text and call this one.
+
+02:44.670 --> 02:47.770
+Let's do Hetter text style.
+
+02:50.670 --> 02:58.830
+And I will give it a font size of 18 so now we'll place this textile as well.
+
+02:58.830 --> 03:07.730
+So I will scroll back up to restructure it and then add it to our first text tag.
+
+03:07.830 --> 03:09.450
+So here's the first text tag.
+
+03:09.600 --> 03:16.910
+It has the album title and I'll give it the style of header text style.
+
+03:17.170 --> 03:17.980
+All right.
+
+03:17.980 --> 03:19.480
+Time for the moment of truth how are we doing.
+
+03:19.480 --> 03:20.830
+How are we doing that check it out.
+
+03:20.890 --> 03:23.010
+Let's refresh the simulator.
+
+03:24.010 --> 03:24.470
+OK.
+
+03:24.490 --> 03:26.500
+Now this is starting to look pretty good right here.
+
+03:26.500 --> 03:28.100
+This is definitely coming along.
+
+03:28.120 --> 03:34.750
+We've got the nice slightly larger you know not too large but just slightly larger album title at the
+
+03:34.750 --> 03:35.290
+top.
+
+03:35.350 --> 03:40.360
+We've got some spacing to the left and right hand side of the image and the image is kind of centered
+
+03:40.600 --> 03:43.780
+vertically and horizontally inside of that container as well.
+
+03:43.810 --> 03:46.540
+So this is definitely getting towards where we want to be.
+
+03:49.290 --> 03:53.970
+So let's now continue and start working on the body of each card member of the body of each card we
+
+03:53.970 --> 04:01.100
+want it to have the album artwork and we've already got access to the album artwork on our album object.
+
+04:01.170 --> 04:05.880
+So if we go back to our album object you'll recall it's available as the image property.
+
+04:05.880 --> 04:10.840
+So your image image image each one has the artwork image.
+
+04:11.190 --> 04:17.250
+So we want to just add in a new card section right because this is a new section on the card and inside
+
+04:17.250 --> 04:23.940
+of that card section we just want to show this album cover just the album cover nothing else so shouldn't
+
+04:23.940 --> 04:24.550
+be too bad.
+
+04:24.550 --> 04:28.070
+Well in first the card section and then Image card.
+
+04:28.220 --> 04:29.970
+Is the image tag inside of it.
+
+04:30.450 --> 04:34.610
+So beneath our existing card section we'll add in another one
+
+04:38.410 --> 04:41.300
+and then we can add in an image tag as well.
+
+04:43.480 --> 04:48.900
+Again I'll give it the source property define you or I.
+
+04:49.140 --> 04:55.150
+And if you recall that Al or that image link you know the the actual thing we want to use here is available
+
+04:55.150 --> 04:58.210
+as props dot album dot image.
+
+04:58.300 --> 05:05.530
+But we are doing some destructuring so I'm going to reference just image and I'll scroll back up to
+
+05:05.530 --> 05:07.510
+my album destructuring right here.
+
+05:07.570 --> 05:09.720
+And I'm also going to need a structure out of my album.
+
+05:09.730 --> 05:12.830
+I'm going to structure out the image property as well.
+
+05:12.910 --> 05:20.540
+So I've got my title artist thumbnail image and image coming directly out of the album so I'll go back
+
+05:20.540 --> 05:21.090
+down.
+
+05:21.180 --> 05:23.140
+Yup we're all good to go.
+
+05:23.900 --> 05:26.090
+Let's refresh the simulator.
+
+05:28.550 --> 05:29.360
+And ok.
+
+05:29.370 --> 05:29.650
+Yup.
+
+05:29.660 --> 05:32.230
+It looks like we definitely have the additional section on here.
+
+05:32.240 --> 05:38.060
+But as you might expect we did not set a height or a width to the image right here.
+
+05:38.180 --> 05:41.280
+And so it didn't actually show up inside the simulator you know.
+
+05:41.300 --> 05:46.120
+Theoretically it's there theoretically the image is there but we did not give it a high or a with.
+
+05:46.130 --> 05:50.220
+So it gets condensed down to basically zero.
+
+05:50.300 --> 05:54.100
+This time around however we decide on the dimensions of our image.
+
+05:54.170 --> 05:57.320
+Things start to get a little bit interesting if you think about it.
+
+05:57.320 --> 06:01.640
+Remember I said that we have to specify the height and the width of the image.
+
+06:01.820 --> 06:06.830
+But this time we have an image that we want to stretch all the way from the left hand side all the way
+
+06:06.830 --> 06:08.030
+to the right hand side.
+
+06:08.210 --> 06:13.040
+And that with the right there that is not something that's very easy for us to hard code right.
+
+06:13.040 --> 06:16.210
+It's not easy for us to hard code that value and here's why.
+
+06:16.490 --> 06:21.920
+We do know in theory you know maybe we haven't really done this but in theory theory we know that with
+
+06:22.010 --> 06:23.850
+the device that we're on right.
+
+06:24.020 --> 06:29.040
+But then we will also have to add in like the margin over here the margin over here.
+
+06:29.120 --> 06:32.390
+And then any internal margin to the card section as well.
+
+06:32.390 --> 06:38.660
+In other words it's just really tough to calculate the width of our image we want it to span the entire
+
+06:38.660 --> 06:41.220
+width of this card section right here.
+
+06:41.510 --> 06:47.220
+So to solve this we're going to use just a little trick with re-act native styling images.
+
+06:47.370 --> 06:49.230
+Galleries a little trick.
+
+06:49.280 --> 06:55.220
+First we'll add in a new style to our styles object and I call this one just image style.
+
+06:55.700 --> 06:59.150
+So then here's the trick I am going to set a fixed height.
+
+06:59.140 --> 07:04.180
+Now I'm going to say that's going to be 300 which is a pretty respectable height.
+
+07:04.190 --> 07:06.140
+Now here's where it gets interesting.
+
+07:06.140 --> 07:11.030
+To make sure that the image takes up the full width available to it you know always from the left hand
+
+07:11.030 --> 07:18.590
+side of the card to the right hand side and you throw on a property of flex 1 and a with specifically
+
+07:18.590 --> 07:19.450
+of NULL.
+
+07:19.700 --> 07:24.110
+So I know you know your thing yourself Stephen Noal is basically like undefined Why do we even have
+
+07:24.110 --> 07:24.680
+to define it.
+
+07:24.680 --> 07:25.890
+Just trust me here.
+
+07:26.060 --> 07:29.220
+I'm going to provide a with of no.
+
+07:29.390 --> 07:32.760
+Now I will apply this image style to that image tag.
+
+07:33.080 --> 07:42.380
+So I go back up to the last image and I'm going to give it a style of image style and then we also need
+
+07:42.380 --> 07:45.200
+to structure this out of our style object.
+
+07:45.200 --> 07:51.970
+So scroll up a little bit more find my image or see my style's object right here and I'll also destructuring
+
+07:51.980 --> 07:53.750
+out the image style.
+
+07:54.890 --> 07:55.430
+OK.
+
+07:55.770 --> 07:59.720
+So let's give this a shot inside of our simulator now.
+
+08:00.450 --> 08:03.900
+I'll refresh our hot dog.
+
+08:03.900 --> 08:05.460
+That is exactly what we wanted.
+
+08:05.460 --> 08:11.370
+Our image is stretching all the way from the left hand side to the right hand side as well as perfect.
+
+08:11.400 --> 08:13.910
+So let's scroll down to see you.
+
+08:13.980 --> 08:20.220
+Wait a minute wait a minute I'm clicking and dragging here which is traditionally how you scroll in
+
+08:20.220 --> 08:24.180
+the simulator but it appears that there is no scrolling behavior whatsoever.
+
+08:24.180 --> 08:27.120
+So that is definitely not expected.
+
+08:27.120 --> 08:32.270
+We have five albums on this list though so I know there are Alban's further down the list but I apparently
+
+08:32.280 --> 08:33.390
+just cannot scroll to them.
+
+08:33.390 --> 08:36.170
+So we definitely have a little bit of an issue here.
+
+08:36.420 --> 08:40.140
+Let's continue in the next section in and explore this bug a little bit more.

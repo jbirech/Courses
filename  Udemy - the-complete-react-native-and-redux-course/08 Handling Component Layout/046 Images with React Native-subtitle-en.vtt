@@ -1,0 +1,316 @@
+WEBVTT
+
+00:00.890 --> 00:05.370
+Were almost complete with our header section to our card we just have to get our image thumbnail to
+
+00:05.370 --> 00:06.510
+render for now.
+
+00:06.510 --> 00:10.920
+So remember that image thumbnail is going to be just a little portrait of the artist who made this particular
+
+00:10.920 --> 00:17.430
+album re-act needed provides built in support for rendering images and it works mostly like how a normal
+
+00:17.460 --> 00:24.540
+image tags with each team l work the native library has an image image primitive just like the text
+
+00:24.630 --> 00:26.270
+in view primitives that we get.
+
+00:26.490 --> 00:34.110
+So in addition to text and view we're also going to import an image tag as well then to make use of
+
+00:34.110 --> 00:38.240
+an image or to actually place it will use it just like normal GSX.
+
+00:38.340 --> 00:44.700
+So inside of my existing view tag allowed a reference to image.
+
+00:45.090 --> 00:50.190
+And of course we also have to tell this image tagged exactly what image we want it to render.
+
+00:50.190 --> 00:57.660
+So to tell an image what we want it to render we need to pass it a source prop or a prop named source.
+
+00:57.730 --> 01:06.000
+So we'll say Source equals something to this source referenced right here we have to provide a object
+
+01:06.090 --> 01:12.000
+with a you are property and the you or I must be a link to an actual image that re-act native can reach
+
+01:12.000 --> 01:14.470
+out and download and show inside the application.
+
+01:14.940 --> 01:20.850
+So we'll play say object in here with a property of your eye and then right here this is where we have
+
+01:20.850 --> 01:26.370
+to specify the actual address of the image that we want to show on the screen.
+
+01:26.430 --> 01:30.020
+Now we need to figure out know of course what link is how we however to that link.
+
+01:30.180 --> 01:34.710
+If we go back over to our album data you know the data that we're actually working with for each individual
+
+01:34.710 --> 01:40.050
+album recall that the image that we want to show for just that little thumbnail is available on the
+
+01:40.050 --> 01:42.470
+property thumbnail image.
+
+01:42.540 --> 01:48.930
+That means if we have reference in here props dot album dot thumbnail image it will be the length that
+
+01:48.930 --> 01:50.000
+we want to show.
+
+01:50.430 --> 01:59.150
+So will reference prop's album dot thumbnail image like so cool.
+
+01:59.160 --> 02:03.630
+One thing I want to point out really quick here before we test this out in the browser I keep saying
+
+02:03.630 --> 02:04.740
+browser you know what I mean.
+
+02:04.740 --> 02:07.410
+The simulator before us is on the simulator.
+
+02:07.410 --> 02:12.420
+I want you take reference to the fact or take notice that at this point in time we've got three references
+
+02:12.420 --> 02:16.230
+to props start album throughout our code in this component right here.
+
+02:16.230 --> 02:21.030
+Whenever you start to get more than one reference to a prop out of our props object or you know something
+
+02:21.030 --> 02:22.410
+out of our props object.
+
+02:22.410 --> 02:28.650
+It's always good convention to structure that property out of our argument of props.
+
+02:28.650 --> 02:33.300
+So right now we're only making use of the album props from the props object.
+
+02:33.300 --> 02:35.830
+So I'm going to structure out of here.
+
+02:36.090 --> 02:39.070
+The album object.
+
+02:39.720 --> 02:44.990
+And then on top of that you'll notice that I'm referencing the album object three times as well.
+
+02:45.300 --> 02:51.400
+So it might make sense to also structure out thumbnail image title and artist.
+
+02:51.540 --> 02:56.760
+Now when I'm further destructuring out of an argument object like this I can do one of two ways I can
+
+02:56.760 --> 03:02.430
+either restructure directly from the argument itself and say like you know give me the title and the
+
+03:02.430 --> 03:06.870
+artist but that starts to get really long for my argument list up here.
+
+03:06.870 --> 03:08.780
+And so I take a different approach.
+
+03:08.910 --> 03:16.230
+I'm going to do structure inside of the function body so I'll say that I want my title my artist and
+
+03:16.230 --> 03:24.850
+my thumbnail image from the album object now inside of my GSX I'm going to remove all the references
+
+03:24.850 --> 03:26.580
+to props start album.
+
+03:26.590 --> 03:35.860
+So I go down to just thumbnail image just title and just artist like so OK.
+
+03:35.980 --> 03:38.430
+So that definitely cleans up our GSX a little bit.
+
+03:38.440 --> 03:41.710
+It certainly makes our method a little bit more top heavy.
+
+03:41.740 --> 03:47.230
+You might say but I find that this is usually a good approach whenever you start to make multiple references
+
+03:47.230 --> 03:49.550
+to your props object.
+
+03:50.200 --> 03:53.020
+OK little went off the beaten path or just a little bit.
+
+03:53.020 --> 03:55.240
+But anyways getting back on point.
+
+03:55.510 --> 03:59.770
+We've got our image tagged in place right now so we should be able to refresh our simulator and see
+
+03:59.770 --> 04:01.210
+the image pop up.
+
+04:01.810 --> 04:06.920
+So all refresh and high no success.
+
+04:07.190 --> 04:10.630
+Well that's too bad no image appears to pop up here.
+
+04:10.630 --> 04:17.710
+So this is a little Godso with Riak native and the images I mentioned earlier that images behave basically
+
+04:17.710 --> 04:19.640
+the same way as their HTL cousins.
+
+04:19.750 --> 04:26.650
+But that is really not quite true when we use an image in re-act native The image will not expand to
+
+04:26.650 --> 04:29.380
+fill the space available to it by default.
+
+04:29.380 --> 04:36.160
+Instead we have to manually add in a rule that tells the styling rule that is that Telzey image tag
+
+04:36.220 --> 04:39.330
+exactly how big the image should be.
+
+04:39.340 --> 04:45.370
+So again the image technically is rendering here right now but because we did not specify a height and
+
+04:45.370 --> 04:48.750
+width for it our image just appears to not exist.
+
+04:48.970 --> 04:53.010
+So to solve this we must add a style for our image.
+
+04:53.260 --> 04:58.360
+So we'll flip on down to our styles object towards the bottom and I'm going to add in another style
+
+04:58.360 --> 04:59.190
+property here.
+
+04:59.230 --> 05:08.450
+I'm going to call thumbnail style and for thumbnail style I'll give it a set height of 50 and a with
+
+05:08.590 --> 05:10.480
+50 as well.
+
+05:10.480 --> 05:14.060
+Now we're going to pass this thumbnail style directly to that image tag.
+
+05:14.170 --> 05:18.660
+And it should appear inside of our simulator as we would expect.
+
+05:19.460 --> 05:19.820
+OK.
+
+05:19.840 --> 05:21.480
+So here's my image tag.
+
+05:21.970 --> 05:26.470
+I'm going to give this thing a new line just to make it a little bit more legible.
+
+05:26.470 --> 05:31.900
+So now I've got the opening image some props and a closing tag right here as well.
+
+05:31.900 --> 05:34.810
+Make sure you did not lose the closing tag.
+
+05:35.200 --> 05:42.850
+Then we will pass in a style of styles Daut thumbnail style.
+
+05:42.860 --> 05:43.210
+All right.
+
+05:43.220 --> 05:47.420
+So let's test this in the simulator again or refresh.
+
+05:47.720 --> 05:51.560
+And now it appears that in fact we do have our image popping up perfect.
+
+05:51.560 --> 05:53.000
+So this is what we expected.
+
+05:53.000 --> 05:57.530
+It does look a little bit creepy right now having you know five images in a row but we'll fix it up
+
+05:57.590 --> 06:01.460
+as soon as we start adding in the other content for each card in here.
+
+06:01.460 --> 06:03.810
+Trust me it's going to start to look really nice.
+
+06:03.830 --> 06:10.280
+You also notice that our styling roles are the justified content rule of space around started to kick
+
+06:10.280 --> 06:10.780
+in.
+
+06:10.820 --> 06:13.220
+Now that the header has some additional with to it.
+
+06:13.400 --> 06:19.320
+So we've got some whitespace before between and after each text text tag.
+
+06:19.460 --> 06:22.130
+And it's all evenly distributed at this point.
+
+06:22.160 --> 06:26.490
+So that's our justified content rule in action.
+
+06:26.870 --> 06:33.110
+Okay one last little refactor I want to do in here along the same vains as destructuring from our prop's
+
+06:33.110 --> 06:36.380
+object to reduce the references to props and album.
+
+06:36.440 --> 06:40.110
+We're now making two references to the styles object in here as well.
+
+06:40.130 --> 06:43.160
+So this is an optional reactor it's totally up to you.
+
+06:43.280 --> 06:48.530
+It's something I personally like to do but it's not a necessity because we are referencing styles twice
+
+06:48.530 --> 06:49.100
+here.
+
+06:49.100 --> 06:57.200
+I might also choose to structure from the styles object as well so I can optionally do thumbnail style
+
+06:57.470 --> 07:08.390
+and header content style and structure those from styles and then inside of my style object or my style
+
+07:08.390 --> 07:12.310
+props I no longer need to reference the styles object.
+
+07:12.320 --> 07:17.520
+I can just say directly thumbnail style and also my header content style.
+
+07:17.900 --> 07:20.350
+So again an optional refactor.
+
+07:20.390 --> 07:24.380
+It's something I really like to do especially once I've got a lot of different styles floating around
+
+07:24.380 --> 07:25.410
+on the screen.
+
+07:25.860 --> 07:26.200
+OK.
+
+07:26.210 --> 07:31.460
+So we're definitely making progress here we've got our image popping up but you know the styling is
+
+07:31.460 --> 07:32.590
+still a little bit off.
+
+07:32.600 --> 07:35.570
+So let's finish up on the styling in the next section.

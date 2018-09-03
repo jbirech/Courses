@@ -1,0 +1,277 @@
+WEBVTT
+
+00:00.970 --> 00:05.130
+In the last section we spoke about how we're going to source our data for lists of albums we're going
+
+00:05.130 --> 00:12.240
+to make an Ajax request to that Roku app and point to grab a list of objects where each object represents
+
+00:12.240 --> 00:19.700
+one album that list of data will be pushed into this new component that we're going to call album list.
+
+00:19.700 --> 00:23.930
+So album list is going to be responsible for fetching that album data.
+
+00:24.200 --> 00:30.590
+And then once it fetches that data it will display one album detail a component per album that got fetched.
+
+00:31.070 --> 00:35.280
+The album list will be a child of the component and the app component.
+
+00:35.300 --> 00:37.990
+Also right now is showing the head or component as well.
+
+00:38.030 --> 00:42.020
+So I hope this is starting to give you a little bit better sense of how we start to nest and put views
+
+00:42.020 --> 00:47.770
+together or excuse me components to form a larger more complex application.
+
+00:47.870 --> 00:50.890
+So let's get started on our album list component.
+
+00:50.960 --> 00:55.520
+First thing we're going to do is make this component we're going to put some dummy text in there and
+
+00:55.520 --> 01:00.470
+then we're going to make sure that it renders inside the app after we put together some initial scaffold
+
+01:00.470 --> 01:01.970
+for the album list component.
+
+01:02.000 --> 01:06.170
+We're going to work on fetching our album data from that remote endpoint.
+
+01:06.230 --> 01:10.290
+So let's get to it inside of my project directory.
+
+01:10.310 --> 01:13.830
+I'm going to make a new file to my album list component.
+
+01:13.880 --> 01:15.710
+Remember one file.
+
+01:15.710 --> 01:17.420
+One component.
+
+01:17.420 --> 01:18.930
+So my components directory.
+
+01:19.040 --> 01:22.520
+I'll make a new file called album list.
+
+01:22.750 --> 01:23.460
+Yes.
+
+01:23.870 --> 01:26.740
+Take note here them using capitals for ALBUM AND list.
+
+01:26.750 --> 01:31.490
+I need a little bit of a mistake in the past when I used a lowercase letter here.
+
+01:31.580 --> 01:36.680
+So moving forward we're going to have capital letters for all of our component names if you want to
+
+01:36.680 --> 01:39.510
+go back and rename the header the capital H.
+
+01:39.560 --> 01:40.670
+Certainly go for it.
+
+01:40.670 --> 01:45.680
+I advocate that capitalization scheme but I'm not going to take the time right now to go back and fix
+
+01:45.680 --> 01:46.660
+it up.
+
+01:47.420 --> 01:48.940
+So here is our album list.
+
+01:49.090 --> 01:54.290
+So inside of here we'll put in some boiler plate and then to show it inside of our app component and
+
+01:54.290 --> 01:55.210
+call it good.
+
+01:55.580 --> 02:01.560
+So at the very top we'll do the two imports for what we need with every component We place.
+
+02:01.580 --> 02:05.070
+First we will import react from react.
+
+02:05.330 --> 02:11.780
+Then we will import and I'm going to just assume right now that I'm going to want a new tag in the text
+
+02:11.780 --> 02:15.410
+tag from reac native.
+
+02:15.470 --> 02:20.480
+Next we will create our actual component so Konst album list.
+
+02:20.900 --> 02:23.870
+And this is going to return some amount of GSX.
+
+02:23.870 --> 02:31.820
+So for right now I'm just going to return a new tag and inside of this new tag I'm going to place some
+
+02:31.820 --> 02:35.430
+text that just says album list.
+
+02:35.660 --> 02:37.280
+Just something to get us started.
+
+02:37.730 --> 02:42.030
+Finally at the bottom of the file I'll export this component that we just created.
+
+02:42.110 --> 02:47.240
+So export default album list.
+
+02:47.480 --> 02:51.680
+This right here referred to has our component component boilerplate.
+
+02:51.680 --> 02:55.830
+It's something that we're going to be typing out again and again and again.
+
+02:56.000 --> 03:00.590
+I guarantee you you are going to get this boilerplate down pat by the time you get through the end of
+
+03:00.590 --> 03:01.730
+this course because we're going to make.
+
+03:01.730 --> 03:02.530
+Probably.
+
+03:02.690 --> 03:06.240
+I don't know a dozen or two different components or did you write this out a lot.
+
+03:06.770 --> 03:07.030
+All right.
+
+03:07.040 --> 03:09.260
+So here's our album list component.
+
+03:09.260 --> 03:15.020
+We now want to show it inside of the app component so I'll save this file and we're going to flip back
+
+03:15.020 --> 03:17.280
+over to the file that has our app component.
+
+03:17.330 --> 03:19.860
+Which for me is index Iowa SJS.
+
+03:19.880 --> 03:24.940
+If you are on Android or developing for Android you will open up index Android.
+
+03:24.950 --> 03:33.770
+J.S. we will then import that component at the top so we will import album list from and then remember
+
+03:33.770 --> 03:37.730
+because this is a component that we wrote it's something that we authored.
+
+03:37.760 --> 03:41.040
+We are going to give the relative path to that file.
+
+03:41.090 --> 03:47.240
+So starting in the current directory which I represent with a dot slash go into the source directory
+
+03:47.600 --> 03:56.460
+go into components and then get album list so into source components album list.
+
+03:56.720 --> 03:59.910
+Because this is a javascript file ending in Dot.
+
+03:59.980 --> 04:05.050
+Yes I do not have to put on the file extension here so I do not have to put on the dot.
+
+04:05.150 --> 04:07.610
+Yes I can but I don't have to.
+
+04:08.120 --> 04:09.730
+OK so here's our album list.
+
+04:09.740 --> 04:12.520
+We now want to show it within the app component.
+
+04:12.890 --> 04:18.220
+Here's a little trick about GSX or maybe trick isn't the correct word we may need to say.
+
+04:18.290 --> 04:25.900
+Our requirement for any component that we create we must return a single top level GSX tag.
+
+04:26.090 --> 04:36.500
+So I can't just add in album list al bumm list like so this is not valid GSX because I'm trying to return
+
+04:36.830 --> 04:39.200
+two siblings at one time.
+
+04:39.230 --> 04:45.360
+This would be completely equivalent to returning something like no return 1 and then return to it just
+
+04:45.400 --> 04:46.290
+it doesn't work out.
+
+04:46.310 --> 04:51.240
+If you're just going to try to return one and you're never going to reach return statement 2.
+
+04:51.350 --> 04:54.550
+That's more or less what is happening here at the GSX.
+
+04:55.400 --> 04:58.490
+So whenever I have multiple tags I want to turn at the same time.
+
+04:58.520 --> 05:01.850
+I will instead wrap them with a single view tag.
+
+05:01.910 --> 05:07.160
+That means I will satisfy my requirement of returning a single top level tag.
+
+05:07.160 --> 05:12.830
+So let's do that up at the top and my import statement for me I need if I'm going to add in a value
+
+05:12.830 --> 05:13.560
+tag.
+
+05:14.210 --> 05:18.930
+And now I'm going to wrap my header and my album list with a single view tag.
+
+05:19.300 --> 05:20.410
+So it plays a view
+
+05:23.700 --> 05:27.560
+and then I'll close the view off like so cool.
+
+05:27.600 --> 05:32.420
+So I'm returning one top level tag that contains two components inside of it.
+
+05:32.460 --> 05:36.890
+Like I said previously view tags are without a doubt the Swiss Army knife of tags.
+
+05:36.900 --> 05:41.640
+We use them for all different types of utility and over time you'll definitely get more used to or at
+
+05:41.640 --> 05:45.060
+least more familiar with the different uses of the new tag.
+
+05:45.060 --> 05:45.320
+All right.
+
+05:45.330 --> 05:49.450
+Let's test this out in our simulator just to make sure that we didn't make a typo or anything.
+
+05:49.790 --> 05:51.700
+I'll pop over my simulator.
+
+05:51.870 --> 05:56.180
+All refresh and there is my album list text right here.
+
+05:56.310 --> 05:56.720
+OK.
+
+05:56.730 --> 05:58.220
+So off to a great start.
+
+05:58.410 --> 06:04.290
+Let's continue on the next section and work on making an Ajax request from our album list component
+
+06:04.320 --> 06:06.180
+to fetch our list of items.

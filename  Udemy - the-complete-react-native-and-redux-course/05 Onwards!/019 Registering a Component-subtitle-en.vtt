@@ -1,0 +1,172 @@
+WEBVTT
+
+00:00:01.380 --> 00:00:05.450
+In the last section we created our first component the app component.
+
+00:00:05.550 --> 00:00:08.790
+And I know I've said this four times my message just one more time.
+
+00:00:08.850 --> 00:00:15.480
+A component is a javascript function that returns some amount of GSX react native is going to take our
+
+00:00:15.480 --> 00:00:18.330
+component and render it to the screen.
+
+00:00:18.420 --> 00:00:23.680
+When I say render it to screen device I mean it will run our component right here.
+
+00:00:23.820 --> 00:00:30.660
+It will take the GSX that gets returned and it will decide based on the GSX returned what the content
+
+00:00:30.660 --> 00:00:32.200
+should appear on the screen.
+
+00:00:32.460 --> 00:00:38.580
+So if this was to run an inside of Riak native I would expect us to see the text on the screen some
+
+00:00:38.580 --> 00:00:45.650
+text just creating a component however doesn't actually do anything for us.
+
+00:00:45.830 --> 00:00:51.530
+We have to undergo Step number three down here which is to actually render it to our device when we
+
+00:00:51.530 --> 00:00:53.150
+create a component to react native.
+
+00:00:53.150 --> 00:00:54.890
+Nothing magic happens.
+
+00:00:54.890 --> 00:00:57.890
+You know there's nothing to say oh they need a component right here.
+
+00:00:57.890 --> 00:01:02.900
+I recognize that I'm going to try to arbitrarily rendered onto the screen one of the very important
+
+00:01:02.900 --> 00:01:07.070
+lessons of re-act is to learn that nothing really gets wired up for you.
+
+00:01:07.070 --> 00:01:12.590
+You have to very purposefully celeriac need of all the different ways that these different parts of
+
+00:01:12.590 --> 00:01:14.330
+our application fit together.
+
+00:01:14.330 --> 00:01:17.360
+And so this component is a fantastic example of that.
+
+00:01:17.510 --> 00:01:23.420
+We have to specifically tell re-act native that we wanted to take this component right here and render
+
+00:01:23.420 --> 00:01:25.100
+it to the screen of our device.
+
+00:01:25.100 --> 00:01:27.870
+So that's going to be step number three.
+
+00:01:27.980 --> 00:01:32.240
+So for Step number three we're going to write a little bit of code here to just tell re-act native hey
+
+00:01:32.240 --> 00:01:36.210
+please take this component and show it on the screen of our device.
+
+00:01:36.530 --> 00:01:39.760
+So let's write out the code and discuss exactly what it's doing.
+
+00:01:39.860 --> 00:01:51.070
+Alright re-act native datt app registry dot register component.
+
+00:01:51.830 --> 00:01:55.420
+And I'm going to pass in a string of albums.
+
+00:01:55.960 --> 00:02:00.570
+And I was getting the really interesting part as the second argument to this function in a place a factor
+
+00:02:00.570 --> 00:02:04.280
+of function and I can return app from it.
+
+00:02:04.280 --> 00:02:10.220
+Note that when I use a federal function without placing any curly braces there is an implicit return
+
+00:02:10.280 --> 00:02:11.490
+of app right here.
+
+00:02:11.510 --> 00:02:15.580
+So if we ran this function it would automatically return app.
+
+00:02:15.590 --> 00:02:18.330
+Even though I don't have the actual return key word in there.
+
+00:02:19.510 --> 00:02:22.280
+OK so let's talk about exactly what's happening here.
+
+00:02:22.340 --> 00:02:24.800
+In any re-act need of application that we create.
+
+00:02:24.860 --> 00:02:29.630
+We have to at least register one component to the application.
+
+00:02:29.630 --> 00:02:31.420
+And that's exactly what we're doing.
+
+00:02:31.490 --> 00:02:33.100
+We're saying hey reac need it.
+
+00:02:33.350 --> 00:02:36.410
+You're about to render an application called albums.
+
+00:02:36.590 --> 00:02:41.840
+So the name of the string right here must match up with our project name when we created our project
+
+00:02:41.840 --> 00:02:43.740
+you're using the re-act need a command line tool.
+
+00:02:43.760 --> 00:02:45.080
+We called it albums.
+
+00:02:45.320 --> 00:02:51.110
+And so therefore as the first argument to this function we passed the string albums second.
+
+00:02:51.260 --> 00:02:56.800
+We passed a function that returns the first component to render for our application.
+
+00:02:56.960 --> 00:02:58.580
+We only have one component right now.
+
+00:02:58.610 --> 00:03:06.080
+So we're just going to return the app component again for every reactive component or for every rock
+
+00:03:06.080 --> 00:03:07.460
+new application we create.
+
+00:03:07.580 --> 00:03:11.430
+We must register at least one component.
+
+00:03:11.500 --> 00:03:11.820
+OK.
+
+00:03:11.840 --> 00:03:12.860
+So this is pretty much it.
+
+00:03:12.860 --> 00:03:16.940
+This is all we need to get at least some amount of content on the screen.
+
+00:03:17.270 --> 00:03:21.440
+But before we run this in the simulator there's one last thing I want to do I want to do just a little
+
+00:03:21.440 --> 00:03:23.210
+bit of a refactored here.
+
+00:03:23.210 --> 00:03:29.390
+You'll notice that I am importing Riak native here and I'm using re-act native app registry which is
+
+00:03:29.410 --> 00:03:34.260
+OK and I've also got seemingly an error about the text tag that we're using right here.
+
+00:03:34.270 --> 00:03:38.600
+We look at the excellent It says that text is not defined.
+
+00:03:38.600 --> 00:03:41.950
+So looks like there's still a little bit of issue that we've got going on here.
+
+00:03:42.110 --> 00:03:44.340
+So let's resolve this air in the next section

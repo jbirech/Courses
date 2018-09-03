@@ -1,0 +1,121 @@
+WEBVTT
+
+00:00.990 --> 00:02.840
+I know this that took quite a while to build.
+
+00:02.850 --> 00:07.920
+But like I mentioned several times re-act native introduces many new topics.
+
+00:07.950 --> 00:12.320
+So for the first time through we took everything slow and from here we'll pick up the pace.
+
+00:12.360 --> 00:18.600
+Except of course when we cover any topic before we finish this out I want to discuss of the major things
+
+00:18.600 --> 00:20.550
+we learned as we worked our way through it.
+
+00:20.760 --> 00:24.390
+First we generate a project using the re-act me of CLID.
+
+00:24.510 --> 00:31.320
+This produced a new reac made of project capable of running in either the Android or iOS simulators.
+
+00:31.380 --> 00:38.430
+Next after we generate the project we started up the simulator using either re-act native run Iowa us
+
+00:38.490 --> 00:41.010
+or re-act native run Android at the command line.
+
+00:41.030 --> 00:43.850
+Remember that's how you start your application up in the simulator.
+
+00:45.620 --> 00:51.110
+Next once we had our app running we created quite a few different components.
+
+00:51.200 --> 00:55.090
+We found out that there were two different types of components inside of Riak native.
+
+00:55.190 --> 01:00.770
+We've got our class based components which are components that have access to component level state
+
+01:01.100 --> 01:02.790
+and life cycle methods.
+
+01:03.080 --> 01:08.660
+And then we also have access to functional components which are largely presentational components that
+
+01:08.660 --> 01:13.170
+just produce some amount of GSX and show some data back to the user.
+
+01:13.980 --> 01:22.410
+Speaking of state we use state inside of the album was a component state is a feature of re-act available
+
+01:22.440 --> 01:28.290
+only to class based components state is used to record and react to user interaction.
+
+01:28.290 --> 01:35.730
+So in our case we fetch a list of albums and then we assigned or updated our state using the set state
+
+01:35.760 --> 01:41.640
+call and or that we only ever update our state object with this data set state.
+
+01:41.640 --> 01:49.860
+We never do something like this dot state equals one because we call set state our component instantly
+
+01:49.860 --> 01:56.700
+rendered and show the list of albums that it had retrieved after we made our age TTP request.
+
+01:56.700 --> 02:02.890
+Next we created an album detail component by mapping over our list of items.
+
+02:02.910 --> 02:03.790
+Here it is.
+
+02:04.080 --> 02:10.860
+So we do have our list of items and for each album we had retrieved we produced one album detail a component
+
+02:12.720 --> 02:15.090
+passing this data or CD.
+
+02:15.090 --> 02:23.160
+We passed the album to the album D-Del. component by specifying by specifying a prop so prop is any
+
+02:23.160 --> 02:26.330
+type of data that we pass from a parent to a child component.
+
+02:26.370 --> 02:28.890
+That is the proper system.
+
+02:28.890 --> 02:34.400
+Finally we made extensive use of it of reusable components and science application.
+
+02:34.410 --> 02:36.270
+So we've got our button typed here.
+
+02:36.330 --> 02:37.790
+We've got our card.
+
+02:37.980 --> 02:39.320
+We've got our card section.
+
+02:39.330 --> 02:45.330
+And finally our head are all for these completely reusable components and they're serious in fact that
+
+02:45.330 --> 02:48.180
+we are going to make use of them on our next project.
+
+02:48.180 --> 02:52.970
+So we are going to copy and paste these directly over to our next project so please don't mess around
+
+02:52.980 --> 02:55.450
+them too much.
+
+02:55.500 --> 02:58.380
+So this is definitely a nice looking to start off with.
+
+02:58.380 --> 03:03.070
+We learned a lot but there's still a tremendous amount to learn about re-act native.
+
+03:03.180 --> 03:06.650
+So let's continue in the next section and start up our next.

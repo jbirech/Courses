@@ -1,0 +1,226 @@
+WEBVTT
+
+00:00:00.810 --> 00:00:05.390
+In the last section we got our album artwork to show up but now we've got another problem.
+
+00:00:05.430 --> 00:00:08.600
+It appears that we can actually skirl through our list at all here.
+
+00:00:08.610 --> 00:00:12.060
+So in this section we're going to fix up that bug a little bit.
+
+00:00:12.060 --> 00:00:17.460
+Even though re-act need it has a lot of similarities with its web based cousin you know like running
+
+00:00:17.520 --> 00:00:18.680
+react in the browser.
+
+00:00:18.840 --> 00:00:21.170
+We've also seen a couple of differences.
+
+00:00:21.390 --> 00:00:26.400
+The way in which re-act native decides to handle scrolling definitely fits into that list of differences
+
+00:00:26.400 --> 00:00:27.110
+as well.
+
+00:00:27.300 --> 00:00:33.030
+So by default when we make a really tall component re-act native It is not going to scroll.
+
+00:00:33.060 --> 00:00:38.850
+So by default no scrolling doesn't behave like the browser we must always be aware of when we are rendering
+
+00:00:38.850 --> 00:00:44.050
+a component that must require the user to scroll like up and down through our application.
+
+00:00:44.520 --> 00:00:50.460
+Fortunately fixing this scrolling issue is a straightforward fix so enabling scrolling just takes two
+
+00:00:50.460 --> 00:00:52.330
+steps.
+
+00:00:52.350 --> 00:00:57.120
+First we will identify the GSX tags that we expect to be scrollable.
+
+00:00:57.120 --> 00:01:01.380
+So kind of like the bulk section of content that we want to be scrollable.
+
+00:01:01.380 --> 00:01:07.350
+And then second we will import a re-act made of component called skirl of you and wrap our content with
+
+00:01:07.350 --> 00:01:07.670
+that.
+
+00:01:07.740 --> 00:01:09.100
+So let's give this a shot.
+
+00:01:09.330 --> 00:01:13.860
+So step one we need to identify the content that we expect to be scrollable.
+
+00:01:13.860 --> 00:01:16.810
+So you might think well is that the album detail.
+
+00:01:16.950 --> 00:01:18.510
+Not quite.
+
+00:01:18.510 --> 00:01:24.990
+It is really the album list the album list is what renders our big old list of albums.
+
+00:01:25.020 --> 00:01:27.200
+So its really this view right here.
+
+00:01:27.210 --> 00:01:30.680
+I expect everything inside of this view to be scrollable.
+
+00:01:30.870 --> 00:01:35.040
+So thats how we identify this we say what do I expect to be scrollable.
+
+00:01:35.730 --> 00:01:42.720
+So now Step 2 we need to import a component called scroll view and then replace our existing view with
+
+00:01:42.720 --> 00:01:44.360
+that scroll of tag.
+
+00:01:44.670 --> 00:01:51.000
+So up at the top I will find my re-act native new component and I was going to replace this because
+
+00:01:51.000 --> 00:01:55.470
+we're not going to use the tag anymore or replace it with scroll of view.
+
+00:01:56.750 --> 00:02:02.750
+I mean going back down to our render method I'll find my view tag and I'll replace it with the scroll
+
+00:02:02.750 --> 00:02:03.440
+view.
+
+00:02:06.300 --> 00:02:11.800
+So scroll view is just how we say hey you know what whatever is in here and I want it to scroll I'll
+
+00:02:11.800 --> 00:02:13.030
+just make it scroll.
+
+00:02:13.090 --> 00:02:14.660
+So not the worst thing in the world.
+
+00:02:16.070 --> 00:02:18.020
+Let's test the sentence simulator now.
+
+00:02:18.350 --> 00:02:21.080
+Open it back up refresh.
+
+00:02:21.170 --> 00:02:23.920
+And now I should be able to click and drag.
+
+00:02:23.930 --> 00:02:29.020
+But wait a minute wait a minute I can scroll.
+
+00:02:29.030 --> 00:02:33.890
+But it appears that even though I scroll down everything appears to just bounce back here.
+
+00:02:33.890 --> 00:02:37.870
+So still a little bit of a kind of weird thing here going on.
+
+00:02:38.030 --> 00:02:40.290
+So here's the next gotcha of Riak native.
+
+00:02:40.320 --> 00:02:43.070
+And yes I know this framework has a lot of gotchas.
+
+00:02:43.190 --> 00:02:44.860
+That's why you're taking the course with me right.
+
+00:02:44.870 --> 00:02:49.030
+So you can find all the crazy things I've found and I'll just explain them to you.
+
+00:02:49.040 --> 00:02:50.310
+Nice and easy.
+
+00:02:50.360 --> 00:02:51.260
+So here we go.
+
+00:02:51.350 --> 00:02:59.000
+Whenever you have a scroll of view you must add a style property of flex 1 to your root element.
+
+00:02:59.060 --> 00:03:02.410
+So let's do that and I'll talk about exactly what's going on.
+
+00:03:02.450 --> 00:03:07.480
+So I got to go back to my index view right here is my index container my app component.
+
+00:03:07.490 --> 00:03:09.110
+I'm going to find my root view.
+
+00:03:09.140 --> 00:03:09.970
+Here it is.
+
+00:03:10.100 --> 00:03:16.000
+And I add to it a style of flex one.
+
+00:03:16.090 --> 00:03:20.590
+And because I'm just adding this one single style I'm not going to bother with a separate styles object
+
+00:03:20.590 --> 00:03:22.450
+I was going to like passus in here.
+
+00:03:22.760 --> 00:03:28.640
+So with this flex one property does right as it says Please expand this component to fill the entire
+
+00:03:28.640 --> 00:03:30.300
+content area of the device.
+
+00:03:30.500 --> 00:03:33.460
+So yes I know that it looked like that was already the case here.
+
+00:03:33.560 --> 00:03:38.080
+But again this is just one of those gotcha things you know I know that it looks like that scroll view
+
+00:03:38.120 --> 00:03:41.770
+is taking up the entire width or area of the screen.
+
+00:03:41.780 --> 00:03:44.300
+But again it's one of those gotchas.
+
+00:03:44.300 --> 00:03:47.280
+So let's refresh this again.
+
+00:03:47.570 --> 00:03:49.070
+And now when I scroll.
+
+00:03:49.120 --> 00:03:52.730
+All right hot dog I'm scrolling through the entire list.
+
+00:03:52.790 --> 00:03:53.310
+Perfect.
+
+00:03:53.340 --> 00:03:54.480
+Just we want it.
+
+00:03:54.620 --> 00:04:00.020
+So as you're scrolling through I'm sure the video probably you can see it if it appears that it's laggy
+
+00:04:00.080 --> 00:04:00.710
+at all.
+
+00:04:00.740 --> 00:04:03.580
+I guarantee you that is a property of the simulator.
+
+00:04:03.620 --> 00:04:08.540
+If you ever tested it on your device everything is going to be just buttery smooth scrolling.
+
+00:04:08.540 --> 00:04:13.550
+It is just because we're on the simulator and in particular not the best laptop in the world.
+
+00:04:13.670 --> 00:04:17.540
+So when you put this unreal device everything is going to scroll very nicely.
+
+00:04:17.980 --> 00:04:18.310
+OK.
+
+00:04:18.320 --> 00:04:21.820
+So we now have just one feature left in this application.
+
+00:04:21.980 --> 00:04:27.680
+We need to add a button to the bottom of each card here that our users can click to buy an album.
+
+00:04:27.680 --> 00:04:30.340
+So let's start off with that feature in the next section.

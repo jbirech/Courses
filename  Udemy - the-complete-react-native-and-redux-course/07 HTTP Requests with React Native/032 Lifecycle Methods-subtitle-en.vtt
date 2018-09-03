@@ -1,0 +1,286 @@
+WEBVTT
+
+00:00.900 --> 00:06.060
+We've now got our class based component so it's time for us to figure out how to use this to fetch some
+
+00:06.060 --> 00:08.120
+data for our application.
+
+00:08.850 --> 00:15.400
+So the first question we must ask ourselves is when exactly do we want to fetch some data from the API.
+
+00:15.480 --> 00:21.300
+You know like when our program first boots up when are we going to decide hey this is now the time for
+
+00:21.300 --> 00:24.810
+me to fetch some data from the API and get that list of albums.
+
+00:25.080 --> 00:29.340
+Well you know we probably want to fetch that data as soon as our app boots up.
+
+00:29.340 --> 00:34.530
+There's no like buttons in this application for the user and press that says like OK now we want to
+
+00:34.530 --> 00:35.460
+load data here.
+
+00:35.580 --> 00:40.230
+We just want to say as soon as this thing is about to load up as soon as it's about to display on the
+
+00:40.230 --> 00:42.600
+screen I want to go and fetch some data.
+
+00:43.430 --> 00:50.610
+So to make that happen we need some type of like a hook or some event notification of when this component
+
+00:50.610 --> 00:54.160
+right here is about to be rendered onto the screen of our device.
+
+00:54.480 --> 01:00.810
+Fortunately re-act has discovered this is one of the benefits of class based components class based
+
+01:00.810 --> 01:06.260
+components have a unique advantage over functional components called life cycle methods.
+
+01:06.300 --> 01:09.490
+So keyword term their lifecycle methods.
+
+01:09.870 --> 01:14.040
+Remember earlier when I mentioned that functional components are like a hose right.
+
+01:14.040 --> 01:21.630
+Like some data goes in and GSX comes out in juxtaposition with that are kind of opposed to that are
+
+01:21.660 --> 01:27.480
+class based components which have a lot more knowledge of themselves like this class based component.
+
+01:27.570 --> 01:29.510
+It knows when it's about to be rendered.
+
+01:29.520 --> 01:34.680
+It knows when it's about to be removed from the screen has more sense about what's going on inside the
+
+01:34.680 --> 01:36.210
+application.
+
+01:36.330 --> 01:42.450
+So they know exactly when they are about to render to the screen and we can get notification of that
+
+01:42.480 --> 01:50.220
+by using a lifecycle method lifecycle methods are functions that will place on our class that will be
+
+01:50.280 --> 01:57.750
+automatically called at some point one such lifecycle method is called component will mount so we can
+
+01:57.750 --> 02:06.000
+define a method on the class called specifically component will amount any time that our component about
+
+02:06.000 --> 02:09.000
+to be rendered to the screen or screen of our device.
+
+02:09.000 --> 02:13.820
+This method will automatically be executed it will automatically be called for us.
+
+02:14.130 --> 02:22.380
+So I'll place component will mount on my class and now just because I defined a method specifically
+
+02:22.380 --> 02:27.270
+with this name it will automatically be executed as soon as this component is about to be rendered to
+
+02:27.270 --> 02:28.280
+the screen.
+
+02:28.290 --> 02:32.210
+So you say like I know maybe I'm telling the truth here right.
+
+02:32.220 --> 02:32.890
+Maybe on line.
+
+02:32.910 --> 02:33.490
+I don't know.
+
+02:33.600 --> 02:36.980
+Let's let's throw a console log in here just to verify that.
+
+02:36.980 --> 02:40.230
+Yup this thing is actually getting called automatically for us.
+
+02:40.290 --> 02:50.600
+So I to say a log and let's do you know cissé component will mount's in album list.
+
+02:50.670 --> 02:58.280
+So our expectation here is that when I refresh the simulator I should see this console log.
+
+02:58.380 --> 02:59.850
+You know I don't know somewhere right.
+
+02:59.880 --> 03:02.200
+I should see a console log pop up that says this right here.
+
+03:02.220 --> 03:03.900
+Just instantly.
+
+03:03.950 --> 03:07.710
+So let's flip over to the simulator and refresh.
+
+03:07.930 --> 03:12.200
+And where in the world the console logs pop up right.
+
+03:12.210 --> 03:13.550
+We haven't spoken about that at all.
+
+03:13.590 --> 03:17.310
+So we haven't really spoken about how we debug our application with re-act Navy at all.
+
+03:17.310 --> 03:18.990
+How do we debug this.
+
+03:18.990 --> 03:21.450
+How do we get any feedback from our application.
+
+03:21.470 --> 03:23.740
+Clearly there's no consulate here.
+
+03:23.790 --> 03:26.380
+There's no consulate in our terminal.
+
+03:26.670 --> 03:28.760
+Wherever the terminal might be here we go.
+
+03:28.950 --> 03:30.630
+So here is my package right here.
+
+03:30.630 --> 03:32.050
+There's no consul logs here.
+
+03:32.190 --> 03:36.240
+So somewhere we must be getting some debug feedback.
+
+03:36.240 --> 03:42.900
+So to get this debug feedback from re-act native we're going to use the builtin debugger with re-act
+
+03:42.900 --> 03:47.150
+native while having my simulator focused.
+
+03:47.160 --> 03:54.400
+I'm going to press Commandery on my keyboard to open up the re-act made a development Menil in the side
+
+03:54.400 --> 04:00.280
+of this menu I'm going to find debug J.S. remotely and then just go ahead and click it.
+
+04:00.300 --> 04:06.660
+When I click it a chrome window automatically picks up or whatever browser you might be using this chrome
+
+04:06.660 --> 04:12.330
+tab right here is automatically linked up to the simulator and you can kind of think of this as an extension
+
+04:12.330 --> 04:14.520
+of the re-act native application that's running.
+
+04:14.520 --> 04:19.550
+So I can use this chrome instance as chrome window to debug my re-act native code.
+
+04:19.620 --> 04:21.070
+Let's see how it works.
+
+04:21.130 --> 04:26.010
+I'm gonna open up the development console by just right clicking anywhere on the screen and then click
+
+04:26.010 --> 04:33.450
+on inspect and then if I select the console tab let me zoom in a little bit here just to make it nice
+
+04:33.450 --> 04:34.390
+and large.
+
+04:34.650 --> 04:38.620
+You can see the console log component will mount an album list.
+
+04:38.670 --> 04:44.550
+So clearly this chrome one right here is very cleverly with some god knows what magic.
+
+04:44.580 --> 04:46.150
+Honestly it is total magic.
+
+04:46.500 --> 04:53.460
+Hooked up to the Iowa simulator and any console logs or any warnings or any errors anything whatsoever
+
+04:53.460 --> 04:57.790
+that we place inside of our code is going to appear inside of this browser window here.
+
+04:58.080 --> 05:03.320
+So having your chrome window open hooked up to the re-activated of emulator or simulator I should say
+
+05:04.730 --> 05:07.250
+is a fantastic way to debug your code.
+
+05:07.280 --> 05:12.230
+We will be using console logs on and off throughout the rest of this course just to verify that things
+
+05:12.230 --> 05:14.110
+are running and do some debugging.
+
+05:14.120 --> 05:19.160
+The one thing I also want to mention that we won't really be doing too much is enough if I want I can
+
+05:19.160 --> 05:24.790
+also place debugger statements inside of my code so a place debugger right here.
+
+05:25.070 --> 05:32.720
+And then if I flip back over to Chrome flip back over to my emulator Skewes my simulator and if I refresh
+
+05:32.720 --> 05:40.710
+it Crome will automatically hit that debug breakpoints and enter into debug mode.
+
+05:40.760 --> 05:41.720
+So here we go.
+
+05:41.770 --> 05:45.670
+So I'm paused an execution right here on the debug statement.
+
+05:45.830 --> 05:50.890
+And so at this point time I can do some console logs you know inspect some variables like hey what's
+
+05:50.950 --> 05:52.860
+what's this what's the value of this right here.
+
+05:52.910 --> 05:54.490
+Oh kids album list.
+
+05:54.590 --> 06:00.060
+So using debugger statements absolutely fantastic for figuring out what is going on with their code.
+
+06:00.090 --> 06:01.590
+Highly recommended.
+
+06:02.300 --> 06:02.700
+OK.
+
+06:02.750 --> 06:06.170
+So a little bit of a quick aside there about debugging.
+
+06:06.560 --> 06:08.070
+Getting back on topic.
+
+06:08.570 --> 06:13.550
+And by the way I kind to flip back over a move that debugger statement and I'm also going to make sure
+
+06:13.550 --> 06:19.330
+I continue execution of my code by clicking the play button right here and I should now see.
+
+06:19.430 --> 06:21.020
+So the album list popped the up on the screen.
+
+06:21.020 --> 06:21.410
+Perfect.
+
+06:21.420 --> 06:26.840
+OK so getting back to where we were clearly component will mount right here is a fantastic location
+
+06:26.840 --> 06:33.020
+to initiate some loading of data or some HDTV a request to go and fetch our data and retrieve it for
+
+06:33.020 --> 06:34.220
+our application.
+
+06:34.250 --> 06:39.760
+So let's continue on the next section and figure out exactly how we are going to make that network request.

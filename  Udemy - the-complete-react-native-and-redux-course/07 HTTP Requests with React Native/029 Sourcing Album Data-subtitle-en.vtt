@@ -1,0 +1,217 @@
+WEBVTT
+
+00:00.920 --> 00:06.470
+We've now got our heads complete it looks fantastic and we can definitely use it again on future projects
+
+00:06.740 --> 00:07.890
+wherever we need a.
+
+00:08.030 --> 00:11.330
+And as a matter of fact I'll tell you right now that that's exactly what we're going to do.
+
+00:11.330 --> 00:15.590
+We're going to take a lot of components out of this application and use them on future components in
+
+00:15.590 --> 00:16.790
+the future.
+
+00:17.330 --> 00:20.710
+So we're now ready to move on to the main body of our application.
+
+00:20.720 --> 00:24.440
+The big list of albums that users will scroll through.
+
+00:24.440 --> 00:30.080
+Remember the whole point of our app we want to have a list of albums to show to the user in this markup
+
+00:30.080 --> 00:31.880
+right here I'm just showing the single album.
+
+00:31.880 --> 00:37.070
+But really there should be multiple albums that users should be able to scroll through.
+
+00:37.070 --> 00:40.400
+This means that we have two big challenges now lined up for us.
+
+00:40.400 --> 00:44.920
+Number one we need to figure out how to get a list of albums to show to the user.
+
+00:44.930 --> 00:50.890
+So literally a list of images with album images album name artist title.
+
+00:50.900 --> 00:51.470
+All that coming.
+
+00:51.470 --> 00:52.340
+Good stuff.
+
+00:52.340 --> 00:56.600
+We need a list of them to show to the user does challenge number one.
+
+00:56.600 --> 01:02.480
+Number two is once we figure out how we will get access to that list of data we need to figure out how
+
+01:02.480 --> 01:06.110
+we're going to kind of architect architect architect.
+
+01:06.110 --> 01:06.610
+There you go.
+
+01:06.620 --> 01:11.810
+Scuse me how are we going to architect our components to show a list of content to the users.
+
+01:11.840 --> 01:14.920
+So essentially we need to know how to build a list of content.
+
+01:14.990 --> 01:16.000
+That's the big challenge here.
+
+01:16.010 --> 01:17.700
+That's what we have to figure out how to do.
+
+01:18.170 --> 01:19.640
+So let's do this one step at a time.
+
+01:19.640 --> 01:24.260
+We're going to start off with talking about how we're going to get a list of albums to show to the user.
+
+01:24.260 --> 01:28.770
+Now we certainly could hardcoded a list of albums in our code base here.
+
+01:28.790 --> 01:33.520
+You know we can say here's a list of albums Here's where the images are all that kind of good stuff.
+
+01:33.800 --> 01:36.890
+But you know what that is not the best flow for our application.
+
+01:36.890 --> 01:42.590
+And here's the reason for that when we go and deploy the application to the App Store be it the Apple
+
+01:42.590 --> 01:44.960
+App Store or the Google Play store.
+
+01:44.990 --> 01:50.770
+It takes a while to deploy our application like as to go through a deploy process of several days.
+
+01:50.960 --> 01:55.710
+So if it turns out that one day we decide we want to update our list of albums on the fly.
+
+01:55.820 --> 01:56.780
+Well we're out of luck.
+
+01:56.780 --> 02:01.850
+We have to make an update to our app for him at polish the app store that can take several days.
+
+02:02.060 --> 02:08.240
+So instead I'm going to suggest that we make a our excuse me that we retrieve a list of elements to
+
+02:08.240 --> 02:12.990
+show to the user from some online endpoint from some API.
+
+02:13.640 --> 02:19.410
+I've already taken the liberty of setting up an API that will display a list of albums for us.
+
+02:19.700 --> 02:21.780
+Let's go check it out in my browser.
+
+02:21.830 --> 02:31.880
+I'm going to navigate to rally coding dot Heroku app dot com slash API slash music.
+
+02:31.910 --> 02:33.990
+Alban's one quick thing here.
+
+02:34.010 --> 02:38.650
+Make sure you're going to Heroku app dot com and not just Heroku.
+
+02:39.470 --> 02:40.560
+So let's check this up.
+
+02:42.250 --> 02:42.690
+OK.
+
+02:42.710 --> 02:50.570
+So here's our list of albums when we make a good requestors end point we get back a array of objects
+
+02:50.660 --> 02:54.610
+where each object represents one album that will show to the user.
+
+02:54.920 --> 03:00.750
+So in total we have 5 albums to show to our user with data from the center point.
+
+03:00.850 --> 03:05.740
+Note that if your song as it appears on the screen doesn't look as nice as this you know if it's just
+
+03:05.740 --> 03:07.990
+a big blob of text that's totally fine.
+
+03:07.990 --> 03:11.290
+I just plug in that format stays on nicely for me.
+
+03:11.380 --> 03:16.720
+So this is the data that we will want to somehow fetch to our application and show it to our user once
+
+03:16.720 --> 03:17.560
+we've loaded it.
+
+03:17.740 --> 03:25.150
+So we need to figure out how to make an Ajax request or an TTP request from our mobile application to
+
+03:25.150 --> 03:30.730
+fetch this list of data and then more critically once we have the list of data where all these different
+
+03:30.730 --> 03:36.070
+albums we need to figure out a way to build a list out of all these different albums all these different
+
+03:36.070 --> 03:36.990
+objects right here.
+
+03:37.000 --> 03:38.560
+So that's our goal.
+
+03:38.560 --> 03:42.420
+First step to once we fetch this data we need to build the list of albums.
+
+03:44.380 --> 03:50.120
+Let's do a quick discussion about how we might design some components to do this.
+
+03:50.170 --> 03:55.620
+I'm going to suggest that we make two separate components to show this list of albums to our user.
+
+03:55.690 --> 03:59.520
+First we'll make a single component called an album list.
+
+03:59.590 --> 04:05.350
+The purpose of album list will be to fetch the list of data or fetch the list of albums and then once
+
+04:05.350 --> 04:10.900
+it has been fetched it will render several album detailer components.
+
+04:10.900 --> 04:14.770
+So we'll have an album list and album detail.
+
+04:14.770 --> 04:19.510
+The purpose of album detail right here is just to show a single card to our user.
+
+04:19.690 --> 04:24.280
+You know the thing that has the album name the image and the buy now button at the bottom.
+
+04:24.280 --> 04:30.520
+So album details about just showing a single album whereas album list is about fetching that list of
+
+04:30.520 --> 04:33.770
+data and then rendering multiple album details.
+
+04:34.150 --> 04:34.690
+OK.
+
+04:34.720 --> 04:35.840
+So that's our plan.
+
+04:36.130 --> 04:40.960
+Let's take a quick break and then continue in the next section and start setting up the scaffold for
+
+04:40.960 --> 04:47.260
+this album list in album detail and also figure out exactly how we're going to fetch that list of albums
+
+04:47.560 --> 04:49.710
+via HTP request.

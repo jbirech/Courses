@@ -1,0 +1,211 @@
+WEBVTT
+
+00:01.280 --> 00:06.630
+In the last section we spoke a little bit more about Justified content with fluxbox and what it does
+
+00:06.630 --> 00:08.950
+to some elements within a container.
+
+00:09.150 --> 00:16.400
+We spoke about flex and center space between and then space around as well.
+
+00:16.410 --> 00:21.800
+So in the section where we're going to figure out how to actually apply these to our particular case
+
+00:21.900 --> 00:26.950
+you know styling our header it's going to go the next slide here.
+
+00:27.000 --> 00:29.010
+So back on track or focusing on the head.
+
+00:29.400 --> 00:34.200
+We have our profile image on the left which you know we still have to create these things so we all
+
+00:34.230 --> 00:38.950
+get to that and then we've also got some stacked content on the right hand side.
+
+00:38.970 --> 00:40.880
+You know the two lines of text.
+
+00:41.010 --> 00:46.440
+So the interesting dynamic here is that we want to line up the two lines of text so the stack on top
+
+00:46.440 --> 00:51.390
+of each other but both lines of text need to be next to the image.
+
+00:51.390 --> 00:55.460
+So as a solution I'm going to suggest we take the following approach.
+
+00:55.620 --> 01:03.000
+We'll wrap both the image and the text the two text tags with two separate views.
+
+01:03.000 --> 01:08.810
+So one of you to wrap the image and then one view to wrap the two text tags inside of here.
+
+01:09.510 --> 01:17.130
+Then we can use the justified content of flex start to get both these items to push up to the left hand
+
+01:17.130 --> 01:19.550
+side of the container here.
+
+01:19.590 --> 01:21.350
+Just one quick issue though.
+
+01:21.360 --> 01:22.350
+One quick issue.
+
+01:22.350 --> 01:27.180
+Everything we've been discussing about justify content has mentioned that we use it for positioning
+
+01:27.210 --> 01:31.020
+elements in the vertical or up and down direction.
+
+01:31.050 --> 01:36.030
+So how are we going to use justify Cancian right here to the lineup items on the left and right direction
+
+01:36.030 --> 01:41.880
+like I just suggested and that's basically my lead into one of the last confusing fluxbox items we need
+
+01:41.880 --> 01:46.140
+to discuss the idea of flex direction.
+
+01:46.140 --> 01:54.270
+So first I want to very quickly remind you that back in when the previous sections inside of our card
+
+01:54.270 --> 01:58.610
+section we added on a property flex direction of row right.
+
+01:58.620 --> 02:02.610
+So we've kind of already done the wire for this and now we're just kind of going back in discussing
+
+02:02.610 --> 02:04.490
+exactly why we did that.
+
+02:05.110 --> 02:05.430
+OK.
+
+02:05.460 --> 02:08.950
+So Flex direction property.
+
+02:08.970 --> 02:16.650
+So here's what flex direction does the justified content rule can be used to apply to either vertical
+
+02:17.160 --> 02:18.850
+or horizontal layout.
+
+02:18.870 --> 02:26.610
+So either direction the direction that it will apply to is determined by the flex direction rule with
+
+02:26.610 --> 02:30.610
+re-act native The Flex direction rule defaults to column.
+
+02:30.630 --> 02:37.470
+So by default all of the justified content rules we place all over the place applied to the vertical
+
+02:37.470 --> 02:44.940
+positioning of items if we wanted to make it apply to the horizontal layout of items however we can
+
+02:44.940 --> 02:47.230
+change flex direction to row.
+
+02:47.250 --> 02:55.950
+Instead when we change it to row it then turns flex direction to spacing items in the horizontal direction.
+
+02:56.190 --> 02:59.220
+So this is exactly how we're going to solve our layout issue.
+
+03:01.970 --> 03:02.950
+So here's the plan.
+
+03:03.080 --> 03:08.180
+We're going to create two separate views for the header like we previously discussed just a minute ago.
+
+03:08.360 --> 03:13.160
+One is going to wrap the image and the second one is going to wrap the two text tags.
+
+03:13.160 --> 03:19.160
+Then on the card section which we already created we will give it the properties flex direction of row
+
+03:19.370 --> 03:21.120
+and justify content.
+
+03:21.260 --> 03:26.910
+Flex start so flex direction row is going to say hey all of the items inside.
+
+03:26.910 --> 03:33.140
+Card section should lay themselves out going left to right instead of top down or top to bottom excuse
+
+03:33.140 --> 03:40.700
+me and then justify content of flex star will say will mean push those items all the way up to the start
+
+03:40.760 --> 03:44.170
+edge of the container which will be the left hand side in this case.
+
+03:44.180 --> 03:48.590
+So again we have already gone ahead and added these two properties to our card section.
+
+03:48.590 --> 03:53.970
+So that is completely done everything should work as we expect because we added these two properties
+
+03:55.760 --> 04:00.920
+one last thing we also need to make sure that we know how to lay out our two lines of text vertically
+
+04:00.920 --> 04:02.760
+within the view.
+
+04:02.840 --> 04:04.740
+So that's one more little challenge.
+
+04:04.740 --> 04:05.700
+We got to deal.
+
+04:06.170 --> 04:11.450
+So we're going to also introduce the idea of a tax container so that text containers are going to be
+
+04:11.450 --> 04:15.590
+just the view tag that we said we would use to wrap the two text tags.
+
+04:15.590 --> 04:20.980
+Then on the text container will say that should have a flex direction of column so it should layout
+
+04:21.020 --> 04:26.890
+its items top to bottom and it should have a justified content of space around.
+
+04:27.040 --> 04:33.020
+And remember that space round does it says layout equal spacing between all of the elements within the
+
+04:33.050 --> 04:33.860
+container.
+
+04:34.100 --> 04:36.380
+So we have two text tags in here.
+
+04:36.380 --> 04:43.130
+We will take some equal amount of whitespace and allocated between the top the middle and the bottom
+
+04:43.220 --> 04:44.660
+of those two text tags.
+
+04:44.720 --> 04:51.830
+So that's why we're going to use justify content of space around on that view container section.
+
+04:51.860 --> 04:52.660
+All right.
+
+04:52.790 --> 04:57.520
+So we've now spent a lot of time talking about fluxbox and how we're going to lay out this better.
+
+04:57.920 --> 05:03.920
+Again Fluxbox is really the one rule or the one great tool we have for doing it with Riak native.
+
+05:03.920 --> 05:09.500
+So it's very important that you have at least some reasonable idea of how flex blocks flex fluxbox layout
+
+05:09.510 --> 05:13.610
+works and that's why I wanted to have a little bit of an expanded lecture on it.
+
+05:13.610 --> 05:18.410
+So let's take all these rules all of these strategies that we've now looked at and apply them to our
+
+05:18.410 --> 05:19.760
+head or in the next section

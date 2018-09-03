@@ -1,0 +1,370 @@
+WEBVTT
+
+00:00.900 --> 00:06.750
+We now have a class based component which allows us access to lifecycle methods like component will
+
+00:06.750 --> 00:07.620
+mount.
+
+00:07.620 --> 00:11.010
+There's a couple other lifecycle methods that are going to learn about over time.
+
+00:11.010 --> 00:16.290
+But right now we just care about component will mount as a reminder component will mount is called the
+
+00:16.350 --> 00:21.840
+instant this component is about to be placed on the screen of the mobile device which makes it a fantastic
+
+00:21.840 --> 00:26.930
+location to start initiating some data loading process for application.
+
+00:26.940 --> 00:33.390
+So now we know where we want to make the Ajax request all that remains is actually making the Ajax request.
+
+00:33.390 --> 00:41.220
+So we need to somehow make an age TTP request and go fetch our data from this remote API to make the
+
+00:41.220 --> 00:42.000
+actual request.
+
+00:42.000 --> 00:44.360
+Fortunately it's not the worst thing in the world.
+
+00:44.370 --> 00:46.220
+It's kind of straightforward actually.
+
+00:46.230 --> 00:52.680
+Not a lot of code for us to write to do so we're going to install a library called X-ers.
+
+00:52.740 --> 00:56.300
+So over in my project directory I'm inside of albums right now.
+
+00:56.430 --> 01:05.040
+I'm going to install the X-ers library by using NPM so I'll right out and then install dash dash save
+
+01:05.570 --> 01:06.910
+axioms.
+
+01:07.020 --> 01:13.380
+So the sole purpose of X is for us is just to make an HDTV TTP request to fetch some data that is already
+
+01:13.380 --> 01:16.630
+using it for here.
+
+01:17.590 --> 01:20.260
+So after the installation is complete there we go.
+
+01:20.260 --> 01:21.640
+Fantastic.
+
+01:21.700 --> 01:27.320
+We'll flip back over to our component and we need to import that library into this file right here.
+
+01:27.340 --> 01:30.090
+Remember just installing it doesn't do anything for us.
+
+01:30.100 --> 01:32.430
+We actually have to import it into our file.
+
+01:32.740 --> 01:37.720
+So at the top we will import X-posts from access.
+
+01:38.260 --> 01:42.960
+Then inside of component will mount I'm going to take out the console log statement.
+
+01:42.980 --> 01:44.270
+We don't really need it anymore.
+
+01:44.590 --> 01:53.140
+And instead we will make our HTP request to make a request like a get type request which is going to
+
+01:53.140 --> 01:54.560
+be used to fetch our data.
+
+01:54.760 --> 01:57.570
+We will use accedes dot get.
+
+01:57.880 --> 02:01.990
+And then we just have to pass in the URL to our remote API.
+
+02:02.290 --> 02:05.640
+So if you recall it is age TTP s.
+
+02:05.680 --> 02:06.430
+Make sure.
+
+02:06.460 --> 02:15.090
+Please please please that you're you are using age TTB or not HTP slash slash.
+
+02:15.440 --> 02:17.680
+Was it course API.
+
+02:17.740 --> 02:18.360
+No.
+
+02:18.540 --> 02:23.320
+OK I need to I need to go doublecheck reli coding Dr. Hoku out daikon.
+
+02:23.320 --> 02:24.480
+I was way off there.
+
+02:24.730 --> 02:25.190
+OK.
+
+02:25.340 --> 02:28.550
+Raley coating dot Heroku app.
+
+02:28.660 --> 02:40.910
+Make sure that you have Heroku app and not just Heroku dot com slash API slash music albums go.
+
+02:41.110 --> 02:48.160
+So whenever we make an HDTV request with ASIO's making actual request or this function call right here
+
+02:48.190 --> 02:50.510
+returns a promise back to us.
+
+02:50.710 --> 02:56.350
+It returns a promise because making the HCV request isn't inherently asynchronous.
+
+02:56.470 --> 03:02.620
+So we need to use a promise to get some type of notification that oh hey like a you know Ajax request
+
+03:02.620 --> 03:05.200
+or HTB request is now complete our data is here.
+
+03:05.200 --> 03:06.010
+Here you go.
+
+03:06.340 --> 03:12.890
+So we will chain on a dot then statement and to this dot then we'll pass a function.
+
+03:12.910 --> 03:18.430
+And so the whole purpose of the promise here is that this function that we passed to then will be called
+
+03:18.520 --> 03:21.490
+once the HTB request is complete.
+
+03:21.880 --> 03:24.820
+So it'll be called with the response from that API.
+
+03:24.820 --> 03:29.100
+So let's put on response and for now we'll just cancel it.
+
+03:29.140 --> 03:33.690
+We'll see what we're working with all right.
+
+03:33.800 --> 03:39.480
+So I'm going to flip over to our debugger.
+
+03:39.500 --> 03:43.440
+So I did bugger and I'll refresh the simulator.
+
+03:43.460 --> 03:50.450
+So my expectation is that when I refresh our simulator it will automatically make our HTP request and
+
+03:50.450 --> 03:53.360
+I should see the data pop up in our console.
+
+03:53.630 --> 03:54.640
+So refresh
+
+03:58.880 --> 04:03.470
+and you know eventually something's going to happen.
+
+04:03.470 --> 04:04.030
+There we go.
+
+04:04.100 --> 04:05.180
+OK very good.
+
+04:05.560 --> 04:07.550
+So now here's my log.
+
+04:07.790 --> 04:09.230
+I can expand this.
+
+04:09.350 --> 04:14.050
+So this is the response object that was passed back to us from X-ers.
+
+04:14.060 --> 04:19.270
+So I see a status of 200 which means a request successful everything is good to go.
+
+04:19.610 --> 04:22.560
+And you'll notice I have this data property right here.
+
+04:22.760 --> 04:30.020
+So if I expand data I've got five entries and each one is an individual album.
+
+04:30.020 --> 04:30.970
+Fantastic.
+
+04:31.010 --> 04:31.420
+That's it.
+
+04:31.460 --> 04:34.250
+That's the data we need to show inside of our application.
+
+04:34.280 --> 04:36.080
+So this is exactly what we need.
+
+04:36.530 --> 04:38.970
+So it looks like we're all set.
+
+04:39.830 --> 04:47.600
+Oh you know I totally forgot we would be set if it wasn't for one tiny little problem just a tiny little
+
+04:47.600 --> 04:49.060
+problem here.
+
+04:49.250 --> 04:52.330
+And going to pull open a diagram really quick.
+
+04:52.330 --> 04:53.020
+All right.
+
+04:53.720 --> 04:57.290
+So we got one just tiny little issue that we're gonna have to figure out here.
+
+04:57.320 --> 05:00.740
+I want to walk through the timeline of our application right now.
+
+05:00.830 --> 05:03.380
+I want to walk through and figure out what's going on.
+
+05:03.890 --> 05:06.290
+So going down is time.
+
+05:06.290 --> 05:10.500
+So first we start up our application and then you know basically some stuff happens.
+
+05:10.550 --> 05:12.940
+Let's walk through it step by step.
+
+05:13.610 --> 05:19.160
+We refresh the simulator react native boots up and it says OK you know I'm booting up I need to show
+
+05:19.160 --> 05:20.840
+that app component on the screen.
+
+05:20.870 --> 05:27.590
+I'm going to go ahead and render it when we render the app component it renders itself it renders the
+
+05:27.590 --> 05:34.820
+header and it renders the album list when the album list gets rendered it says oh I'm a class based
+
+05:34.820 --> 05:35.330
+component.
+
+05:35.360 --> 05:40.820
+I'm about to be rendered to the screen and I have a life cycle method called component will mount.
+
+05:41.040 --> 05:42.280
+I'm supposed to call that.
+
+05:42.290 --> 05:44.740
+So I'm going to call it component will now.
+
+05:45.260 --> 05:47.400
+So a component will mount is executed.
+
+05:47.720 --> 05:52.700
+And inside of there we've got some amount of code that is going to issue NHTSA request.
+
+05:52.760 --> 05:56.530
+So we make the 8st request using X-posts.
+
+05:56.540 --> 06:02.570
+Now the key here the thing that I want to really keep your mind on is that when we make an age request
+
+06:02.930 --> 06:08.960
+that is inherently asynchronous and by asynchronous means it takes some amount of time to complete that
+
+06:08.960 --> 06:14.660
+network request and we have no idea how long it's going to take especially on a mobile device.
+
+06:14.660 --> 06:19.450
+It might take 50 milliseconds it might take 50 seconds on the mobile device.
+
+06:19.460 --> 06:22.350
+We have no idea.
+
+06:22.400 --> 06:25.940
+So the instant after we make that TTB request.
+
+06:25.940 --> 06:29.570
+The request is still pending it's still just kind of sitting out there on the wire.
+
+06:29.870 --> 06:35.450
+And immediately after that our app component our album lists component and our head component appear
+
+06:35.450 --> 06:36.150
+on the screen.
+
+06:36.410 --> 06:42.030
+And at that point in time the album list is completely empty it has no data whatsoever.
+
+06:42.070 --> 06:44.780
+Right of course we don't really have any JSA.
+
+06:44.870 --> 06:49.520
+We just have like the text in there but in theory if we had some logic in there to render a list of
+
+06:49.520 --> 06:56.040
+albums at the point in time that the album list first renders it has no data to show on the screen.
+
+06:56.580 --> 07:03.470
+OK so then that dot dot dot which means we're waiting for the requests to complete after some number
+
+07:03.470 --> 07:10.010
+of milliseconds are HDTV request completes and we get back some based on data and that data is the stuff
+
+07:10.040 --> 07:11.620
+we actually want to show on the screen.
+
+07:11.870 --> 07:13.350
+And so here's the key.
+
+07:13.360 --> 07:16.370
+Here's the big issue here is what's going wrong.
+
+07:16.970 --> 07:19.890
+We have an order of operations problem.
+
+07:19.970 --> 07:22.390
+We make our request.
+
+07:22.490 --> 07:24.560
+We try to render some stuff at the screen.
+
+07:24.560 --> 07:26.190
+We have no data to show.
+
+07:26.360 --> 07:28.870
+And then some time later we actually get our data.
+
+07:29.030 --> 07:36.950
+And right now as it stands right now we have absolutely no logic in there whatsoever to say oh our Ajax
+
+07:36.950 --> 07:42.020
+request just completed we need to like Re-Read for our components somehow we need to take this data
+
+07:42.050 --> 07:45.660
+and actually show on the screen we have zero logic for that whatsoever.
+
+07:45.680 --> 07:52.550
+So that is what the big problem is we need to figure out some way to make our album list re render a
+
+07:52.550 --> 07:58.630
+second time when our HDTV request completes and we've got some data to show on the screen.
+
+07:58.640 --> 08:00.280
+So that's that's essentially it.
+
+08:00.290 --> 08:05.100
+That's our big issue we need to figure out how to tell the album list to re-enter.
+
+08:05.480 --> 08:07.100
+So this is a big challenge.
+
+08:07.100 --> 08:11.020
+Let's continue on the next section and figure out how we're going to solve it.

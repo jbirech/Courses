@@ -1,0 +1,169 @@
+WEBVTT
+
+00:00:01.070 --> 00:00:06.050
+In the last section we spend some time to make sure that we had a very reusable buttoned component.
+
+00:00:06.150 --> 00:00:11.820
+So now we can place the button component pass in a of von press and then whenever the user presses on
+
+00:00:11.820 --> 00:00:15.750
+it boom something different is going to happen which is exactly what we want.
+
+00:00:15.750 --> 00:00:21.600
+So the next thing we need to do is figure out OK well when a user does press this thing how do we direct
+
+00:00:21.600 --> 00:00:26.050
+them over to their web browser and point them to a very specific key or l.
+
+00:00:26.400 --> 00:00:31.230
+So if you are in the browser environment you know we were doing react jazzier we could put an anchor
+
+00:00:31.230 --> 00:00:36.390
+tag or something like that just say okay anchor tag whenever someone clicks you take the user here.
+
+00:00:36.420 --> 00:00:37.390
+There you go.
+
+00:00:37.830 --> 00:00:41.790
+Well unfortunately with re-activated it's not quite as straightforward as that.
+
+00:00:41.940 --> 00:00:48.210
+There's no concept really of an anchor tag any way of telling our app to just say like oh yeah just
+
+00:00:48.360 --> 00:00:51.880
+automatically pop open browsers a little bit more complicated.
+
+00:00:51.930 --> 00:00:56.910
+Well you know it's not that let me tell you it's not that much more complicated but it's not an anchor
+
+00:00:56.910 --> 00:00:57.260
+tag.
+
+00:00:57.270 --> 00:01:02.010
+So whatever let's get to it let's just get to it inside my browser.
+
+00:01:02.040 --> 00:01:07.040
+I'm going to pop open the re-act native documentation so you know here we are.
+
+00:01:07.290 --> 00:01:14.420
+And unlove to incite all stroll down until I find the section that contains a price.
+
+00:01:14.430 --> 00:01:20.070
+So here's Abts right here and I'm looking for a very particular API called linking.
+
+00:01:20.100 --> 00:01:21.150
+So here's linking
+
+00:01:24.740 --> 00:01:31.690
+linking library which is provided by Riak native is how we can interface our application with other
+
+00:01:31.690 --> 00:01:37.300
+apps that are running on the user's mobile device included in their the user's browser.
+
+00:01:37.390 --> 00:01:43.960
+So whenever you want to kick a user over to their browser we can make use of this linking library.
+
+00:01:43.960 --> 00:01:48.490
+And again you can also read the documentation here in case you're curious and you can figure out how
+
+00:01:48.490 --> 00:01:51.590
+to kick the user over to other apps as well.
+
+00:01:51.610 --> 00:01:58.390
+So you might want to kick the user over to Oubre so that they can request a ride or their email client
+
+00:01:58.390 --> 00:02:03.060
+so they can write or email or whatever other app the user might have on their device.
+
+00:02:03.070 --> 00:02:07.320
+This is how you interface with it with the linking library.
+
+00:02:07.320 --> 00:02:12.340
+So for our use case just sending the user over to a browser is not going to be too bad.
+
+00:02:12.540 --> 00:02:18.900
+Let's check out one method in the docs for the saying I scroll back down and you can find on here.
+
+00:02:18.950 --> 00:02:21.750
+The linking library has a method called open you are out.
+
+00:02:22.080 --> 00:02:25.160
+And basically you know if you want to add a.
+
+00:02:25.170 --> 00:02:31.690
+Or open up a Web site that address we can just call open you URL with a plain text normal vanilla.
+
+00:02:31.890 --> 00:02:34.860
+You are like an age TTP type.
+
+00:02:35.070 --> 00:02:37.630
+And so that's exactly what we're going to do.
+
+00:02:37.650 --> 00:02:44.130
+Remember that in our album's object we've already got to you or L to the Amazon store available as the
+
+00:02:44.280 --> 00:02:45.440
+URL property.
+
+00:02:45.450 --> 00:02:51.530
+So basically we need to call linking dot open or L with this u r l and we should be good to go.
+
+00:02:51.720 --> 00:02:56.280
+So let's get a shot back in my album detail.
+
+00:02:56.310 --> 00:03:03.450
+I'm going to go back up to the top and I will import the library linking for Mac native and am where
+
+00:03:03.510 --> 00:03:05.860
+I am destructuring of my album object.
+
+00:03:05.880 --> 00:03:09.020
+I will also pull off the L property as well.
+
+00:03:09.030 --> 00:03:13.440
+So here's our Ural now inside of our button.
+
+00:03:13.440 --> 00:03:21.870
+We will replace the console log statement with linking dot hopin you are l and notice that it's capital
+
+00:03:21.900 --> 00:03:28.000
+U capital R and L and then we'll just say just open that one page right there.
+
+00:03:28.680 --> 00:03:31.830
+OK let's give this a shot in our simulator.
+
+00:03:35.600 --> 00:03:36.920
+And I will click the button
+
+00:03:41.810 --> 00:03:49.780
+oops and you'll notice that I got kicked over to Amazon.com and my simulator is a little bit lag right
+
+00:03:49.780 --> 00:03:50.950
+now but are you up.
+
+00:03:51.160 --> 00:03:57.010
+This music album and automatically on the top left hand side I can click back to albums and go back
+
+00:03:57.010 --> 00:04:04.730
+to my application and I can then go down to the next album and click that one and there we go.
+
+00:04:04.780 --> 00:04:05.340
+Perfect.
+
+00:04:05.350 --> 00:04:07.620
+So this is exactly what we wanted.
+
+00:04:07.630 --> 00:04:09.130
+This is looking really fantastic.
+
+00:04:09.130 --> 00:04:11.710
+I think there's just one last thing we need to do.
+
+00:04:11.710 --> 00:04:16.870
+We need to make sure that our button at the bottom of each card has a little bit better text than just
+
+00:04:16.870 --> 00:04:17.750
+click me.
+
+00:04:17.800 --> 00:04:20.290
+So let's take care of that in the next section.

@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00.840 --> 00:03.560
+We've now spent a lot of time discussing fluxbox.
+
+00:03.600 --> 00:07.030
+So it's time to apply that knowledge to our component.
+
+00:07.700 --> 00:13.430
+Recall that our goal that we established in the last section was to use a new view container.
+
+00:13.590 --> 00:18.660
+Two of them in fact one is going to wrap the image to the left hand side and then another one is going
+
+00:18.660 --> 00:20.820
+to wrap the text to the right hand side as well.
+
+00:20.820 --> 00:22.520
+So I call this text container.
+
+00:22.560 --> 00:29.180
+It is a view tag that is going to serve as a text container just to be clear with the terminology there
+
+00:29.760 --> 00:34.620
+that text container should have the rules flex direction column to make everything line up vertically
+
+00:34.890 --> 00:40.290
+and also justified content of space around to make sure that we get equal spacing of our whitespace
+
+00:40.650 --> 00:44.000
+above the text tags between them and below as well.
+
+00:44.010 --> 00:46.300
+So let's get started with this.
+
+00:46.350 --> 00:52.110
+I'm in my album detail can bring it right here and here is the card section with our existing single
+
+00:52.110 --> 00:52.990
+text tag.
+
+00:53.160 --> 00:59.430
+So it is to this card section right here that we're going to want to add two new tags one for the image
+
+00:59.520 --> 01:00.740
+and then one for the card.
+
+01:00.770 --> 01:02.580
+Seems to me that text as well.
+
+01:02.880 --> 01:10.250
+So we'll start off by importing view at the top from re-act native and then we'll also add in our two
+
+01:10.260 --> 01:11.610
+new tags in here.
+
+01:11.640 --> 01:17.940
+So one that will eventually house the image that we still need to add and then the second to wrap the
+
+01:17.940 --> 01:21.710
+two lines with text that we still need to place.
+
+01:21.750 --> 01:26.230
+So we've got the one existing text tag right here for our album title.
+
+01:26.270 --> 01:30.930
+We'll add in another text tag to show our artist name as well.
+
+01:31.590 --> 01:36.330
+If you recall the Jaison data that we got back from our album Here it is right here and I know it's
+
+01:36.420 --> 01:37.880
+kind of small I mean dial it up.
+
+01:37.890 --> 01:38.970
+There we go.
+
+01:38.970 --> 01:42.450
+So right now we're making use of the album title property.
+
+01:42.480 --> 01:47.940
+We also have access to the album artists property as well and that's how we get the artist's name.
+
+01:47.970 --> 01:54.810
+So inside of our composing right here if we reference props album artist that will give the artist's
+
+01:54.810 --> 01:56.640
+name inside of this text tag.
+
+01:56.880 --> 02:01.290
+So we'll say prop's album artist.
+
+02:01.810 --> 02:08.490
+And so now we would expect to have both our title of the album and the artist name in here as well.
+
+02:08.960 --> 02:09.290
+OK.
+
+02:09.340 --> 02:14.760
+Now last step right now we're going to out in some styling rules for this single view container right
+
+02:14.760 --> 02:20.460
+here in our sole purpose is to make sure that this text lines up vertically number one and then it uses
+
+02:20.460 --> 02:27.990
+that justified content of space around so that we get equal white space above between and below the
+
+02:27.990 --> 02:29.360
+two text tags.
+
+02:29.670 --> 02:36.660
+So we'll start off by adding in our styles object at the bottom and then I'm going to use a style name
+
+02:36.690 --> 02:39.990
+of header content style.
+
+02:40.890 --> 02:43.770
+If you can think of a better name and this right here definitely go for it.
+
+02:43.770 --> 02:48.660
+Remember that all the property names that we use are more or less arbitrary right.
+
+02:48.710 --> 02:53.010
+Is just something that has to make sense to ourselves as engineers when we come back and look at this
+
+02:53.010 --> 02:56.820
+component some number of you know weeks months years in the future.
+
+02:56.820 --> 02:59.650
+So it's just something that needs to make sense to ourselves.
+
+03:00.120 --> 03:12.300
+So inside of here we'll specify our flex direction of column and justified content of space around.
+
+03:12.300 --> 03:17.400
+Next we will apply this style to our view container right here.
+
+03:17.400 --> 03:25.680
+So we'll say Stiles style excuse me is Styles darte Hetter content style like so.
+
+03:26.580 --> 03:26.980
+OK.
+
+03:27.030 --> 03:33.210
+So let's now refresh our out and see how we're doing.
+
+03:33.880 --> 03:34.600
+So cool.
+
+03:34.600 --> 03:39.850
+We definitely have both the album name and the artist name right beneath it.
+
+03:39.850 --> 03:47.710
+You'll notice that right now the card that we have is kind of condensing down to just wrap or a phrase
+
+03:47.710 --> 03:48.420
+a different way.
+
+03:48.550 --> 03:52.640
+The Cards high is dictated by the amount of text that's sitting inside of it right now.
+
+03:52.810 --> 03:59.210
+So at this point in time these flex blocks rules we add specifically the justified content space around.
+
+03:59.320 --> 04:02.120
+It appears that it's not really doing anything at this point in time.
+
+04:02.230 --> 04:06.850
+It's when we start to resize the height of this thing you know the height of this section right here
+
+04:06.850 --> 04:11.860
+that we're going to see how that justified content of space around works the height of this section
+
+04:11.860 --> 04:15.220
+right here is going to start to change as soon as we add in that image tag.
+
+04:15.400 --> 04:19.770
+So let's continue on the next section and start working on getting that image tagged in here.
+
+04:19.870 --> 04:25.460
+So we have a current section with some measurable you know kind of non minimum height.
+
+04:25.650 --> 04:26.800
+So I'll see in the next section

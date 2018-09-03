@@ -1,0 +1,364 @@
+WEBVTT
+
+00:00.720 --> 00:05.350
+In the last section we use a little bit of a trick to make the card component into something really
+
+00:05.350 --> 00:09.390
+reusable first inside of our album detail component.
+
+00:09.390 --> 00:11.320
+So here is our album detail.
+
+00:11.460 --> 00:16.610
+We passed the text tag as a component to the card component that we wrote.
+
+00:16.740 --> 00:19.060
+So we passed it inside of the card tag.
+
+00:19.410 --> 00:25.340
+Next inside of the card component we took our props object and then we added in reference to prop stock.
+
+00:25.340 --> 00:32.220
+Children inside of our GSX because we added our children are component that we had inside of Oulton
+
+00:32.220 --> 00:36.310
+detail automatically showed what we passed to the card detail a component.
+
+00:36.330 --> 00:40.890
+So I don't use the word component I'm just throwing around like candy over here but I hope you get the
+
+00:40.890 --> 00:41.310
+idea.
+
+00:41.310 --> 00:47.250
+Basically if we pass one component to another it will show up in the parent as props not children.
+
+00:47.250 --> 00:54.330
+So we just have to provide a reference to Propst children somewhere and Boomer good to go also a little
+
+00:54.330 --> 00:57.710
+bit more importantly we definitely got our card company up on the screen.
+
+00:57.750 --> 00:59.360
+So that is fantastic.
+
+00:59.370 --> 01:05.280
+We're going to move ahead now onto our next component which will be the card item component.
+
+01:05.280 --> 01:11.400
+So the whole job of this thing is to make sure that we have some distinct sections within the card that
+
+01:11.400 --> 01:14.890
+make it you know just look a little bit better than what we've got right now.
+
+01:14.940 --> 01:20.550
+Certainly if we had just text inside of this card item I would at least expect it to be better formatted
+
+01:20.550 --> 01:21.830
+than what we've got right here.
+
+01:21.870 --> 01:24.390
+So that's the purpose of the card item.
+
+01:24.600 --> 01:29.590
+Again you know I had mentioned a couple of seconds ago that we might rename this thing the card section.
+
+01:29.710 --> 01:33.570
+I don't I don't know what it is but I just feel like I'd be a little bit happier if I called this the
+
+01:33.600 --> 01:34.730
+card section.
+
+01:34.760 --> 01:36.990
+There's absolutely no reason to go one way or the other.
+
+01:36.990 --> 01:40.330
+This is solely personal preference.
+
+01:40.590 --> 01:46.470
+So let's create this new card section component inside of our components directory or make a new file
+
+01:47.010 --> 01:50.400
+called card section.
+
+01:50.510 --> 01:52.170
+Yes.
+
+01:52.260 --> 01:55.150
+I mean inside if you're We will throw in our boilerplate.
+
+01:55.170 --> 02:06.480
+So import re-act from re-act import our view tag from re-act native and then we need to create our component.
+
+02:06.480 --> 02:10.510
+And again we have to ask ourselves as is our standard strategy right now.
+
+02:10.650 --> 02:14.080
+Should this be a class based or a functional component.
+
+02:14.400 --> 02:20.160
+So just like the card this is solely something that is going to show some you know basically a presentational
+
+02:20.160 --> 02:22.630
+component just showing some information to the user.
+
+02:22.740 --> 02:29.040
+It doesn't need to have any lifecycle events or any data fetching anything like that doesn't need access
+
+02:29.040 --> 02:29.830
+to state.
+
+02:29.850 --> 02:36.360
+So I think we're good to go with making this a functional component so we'll make our cards section
+
+02:36.360 --> 02:47.670
+component by default it will return a view tag and at the bottom ladder export statement.
+
+02:47.810 --> 02:50.120
+So there is our export statement at the bottom.
+
+02:50.600 --> 02:51.420
+Cool.
+
+02:51.440 --> 02:54.310
+So again this is just like our card component.
+
+02:54.320 --> 02:57.520
+It is primarily going to be used for some styling.
+
+02:57.530 --> 03:05.420
+So again we'll start off with adding some styling say Konst container style excuse me style.
+
+03:05.450 --> 03:10.900
+So here's our style object in the lab a container style to it.
+
+03:11.450 --> 03:18.320
+And again inside of here we'll pass in some styling definitely fewer fewer rules this time around.
+
+03:18.320 --> 03:22.400
+So not quite as much typing but definitely still a few.
+
+03:22.400 --> 03:26.510
+First off we'll put on our border bottom with one.
+
+03:26.540 --> 03:32.750
+So if you call back inside of our car component we specifically said I want a border bottom with zero.
+
+03:32.750 --> 03:34.470
+You know we like turn the thing off.
+
+03:34.580 --> 03:39.340
+And the reason for that was that our current component is going to have a lot of these card sections.
+
+03:39.440 --> 03:45.680
+So if we had a card section inside here and we had both a border bottom on the card section and the
+
+03:45.680 --> 03:51.920
+card we would be doubling up on the borders on the bottom but still we do have to have a border bottom
+
+03:51.920 --> 03:58.070
+on every card section to handle the case in which we've got you know maybe a single card section up
+
+03:58.070 --> 03:58.570
+here.
+
+03:58.790 --> 04:01.810
+This thing definitely still needs to have a border on the bottom of it.
+
+04:02.090 --> 04:08.360
+So this whole border bottom thing is just to reconcile the issue between either a card or a card section
+
+04:08.380 --> 04:10.880
+and having the border on the bottom.
+
+04:10.970 --> 04:13.470
+Next we'll give it a padding of five.
+
+04:13.520 --> 04:18.110
+This is just going to provide a little bit of spacing between whatever's inside the card section and
+
+04:18.110 --> 04:19.790
+the border around it.
+
+04:19.790 --> 04:25.660
+Next a background color and we're going to be very specific about the color that we want to so.
+
+04:26.210 --> 04:33.250
+And then we will add in some justified content rules or I should say fluxbox rules.
+
+04:33.380 --> 04:39.170
+So I don't want to talk too much exactly about the purpose of these particular to flex box rules that
+
+04:39.170 --> 04:40.440
+we're using right now.
+
+04:40.460 --> 04:45.320
+We are going to come back a little bit later and talk about exactly why we're specifically specifying
+
+04:45.410 --> 04:52.480
+like star and also in a line or sees me a flex direction of road.
+
+04:52.550 --> 04:58.640
+So again we will come back and discuss why we are adding on this flex direction property here and we'll
+
+04:58.640 --> 05:02.580
+do a border color of DDD.
+
+05:03.650 --> 05:06.310
+And I'm also going to give it a position of relative.
+
+05:06.320 --> 05:10.730
+And again I'm sorry one more property where we're just going to have to throw it on here and we're going
+
+05:10.730 --> 05:13.800
+to come back and talk why riding on relative later on.
+
+05:14.320 --> 05:14.640
+OK.
+
+05:14.650 --> 05:16.550
+So that's it for our styling this time round.
+
+05:16.800 --> 05:21.200
+Again I encourage you to maybe pause the video really quick and just double check your spelling and
+
+05:21.200 --> 05:22.840
+all these property names.
+
+05:24.250 --> 05:28.060
+After that we will add that style object to our view tag.
+
+05:28.060 --> 05:33.860
+So we'll say style should come from Styles dot container style.
+
+05:34.420 --> 05:40.060
+And you'll notice each slant has very helpfully let me know that I made a little bit of a typo.
+
+05:40.090 --> 05:43.730
+I really want this object in the bottom to be Stiles not just style.
+
+05:44.010 --> 05:46.750
+So I rename it to styles and we should be good to go.
+
+05:46.970 --> 05:47.830
+Good.
+
+05:48.310 --> 05:48.550
+All right.
+
+05:48.550 --> 05:52.260
+So just like the last component we made just like the card component.
+
+05:52.360 --> 05:59.320
+We also want this card section to contain some child components that we decide what they are on the
+
+05:59.320 --> 06:00.070
+fly right.
+
+06:00.070 --> 06:00.680
+For the header.
+
+06:00.700 --> 06:06.520
+I want to be an image and some text inside of the center section.
+
+06:06.520 --> 06:07.780
+I want to have an image.
+
+06:07.900 --> 06:10.480
+And at the bottom I want ampacity a button of sorts.
+
+06:10.480 --> 06:17.470
+So again we need to use that props dot children reference inside of this component so the cardstock
+
+06:17.530 --> 06:21.290
+section component will add on a reference to the props argument.
+
+06:21.640 --> 06:24.980
+And then inside of the view tag we will place props.
+
+06:25.000 --> 06:26.330
+Children.
+
+06:27.000 --> 06:27.510
+Awesome.
+
+06:29.380 --> 06:30.000
+OK.
+
+06:30.030 --> 06:34.140
+So let's give this thing a shot to make use of the card section.
+
+06:34.140 --> 06:36.830
+We will go over to all of them detail.
+
+06:36.930 --> 06:43.200
+So the thought process here is that inside of album detail we've got our card elements and we're going
+
+06:43.200 --> 06:48.870
+to give it a couple of different parts sections as well so we can add in immediately a card section
+
+06:48.870 --> 06:51.450
+to How's the text that we've got right here.
+
+06:51.450 --> 07:01.390
+So we will import a card section from card section and then we will wrap our existing text tag with
+
+07:01.390 --> 07:08.700
+the card section component so card section is going to wrap our text tag
+
+07:11.730 --> 07:13.290
+like so.
+
+07:13.610 --> 07:20.870
+And I think there were definitely had a good place to do a little test for our simulator so let's look
+
+07:20.870 --> 07:22.250
+over the simulator.
+
+07:22.260 --> 07:23.540
+All refresh it.
+
+07:28.150 --> 07:29.380
+And all right.
+
+07:29.440 --> 07:31.770
+This is definitely a little bit of an improvement here.
+
+07:31.770 --> 07:34.720
+We have some definite padding around each element.
+
+07:34.980 --> 07:39.620
+And you can see that now we've got a little bit more distinct bottom border on the section as well.
+
+07:39.700 --> 07:47.070
+If we wanted to just for fun I might copy and paste this card section to duplicate it.
+
+07:47.110 --> 07:48.890
+It's all just duplicate this thing.
+
+07:49.020 --> 07:52.580
+And let's see how it looks when we have multiple card sections.
+
+07:53.320 --> 07:53.790
+All right.
+
+07:53.800 --> 07:56.010
+So now you see the purpose of the card section.
+
+07:56.050 --> 08:01.270
+The purpose of the card section is just to make sure that we've got a nice little compact area within
+
+08:01.270 --> 08:04.770
+the card where we can add some content and be happy about it.
+
+08:04.780 --> 08:06.690
+So it's definitely starting to look good.
+
+08:06.700 --> 08:12.130
+We do not want to have the doubled up card section of course I'm just going to delete that but definitely
+
+08:12.130 --> 08:15.590
+our app is definitely Or it's really started come together on the styling side.
+
+08:15.670 --> 08:21.400
+So let's continue the next section and add a little bit more detail inside of our album detail a component

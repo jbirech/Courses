@@ -1,0 +1,250 @@
+WEBVTT
+
+00:00.920 --> 00:05.400
+In the last section we finished up our discussion on St. Just the one last thing I want to mention about
+
+00:05.400 --> 00:09.220
+it is that we only use state with class based components.
+
+00:09.270 --> 00:11.380
+So I've got a class based company right here.
+
+00:11.580 --> 00:17.880
+This has access to state any functional components we create like you know the header does not have
+
+00:17.880 --> 00:18.750
+access to state.
+
+00:18.780 --> 00:24.400
+So whenever you want the state you've got to be thinking class based component that last last thing
+
+00:24.400 --> 00:26.610
+I'm going to mention there about state.
+
+00:26.890 --> 00:27.800
+So this one time.
+
+00:27.820 --> 00:34.000
+Believe it or not we have probably covered about 85 percent of the entire re-act API like all the different
+
+00:34.000 --> 00:35.250
+methods you can call.
+
+00:35.290 --> 00:41.750
+We've talked about prop's state lifecycle methods functional components class based components.
+
+00:41.800 --> 00:44.740
+There's not a lot more to talk about regarding react.
+
+00:44.740 --> 00:50.500
+So we actually has a famously tiny library and it's certainly a subject I would say is quick to learn
+
+00:50.500 --> 00:51.630
+but long to master.
+
+00:51.670 --> 00:57.460
+So from as far as the re-act side of things go in this course we are really going to build out our knowledge
+
+00:57.490 --> 01:02.580
+of all the topics we've covered so far and figure out how to combine them in more complex ways.
+
+01:02.680 --> 01:09.190
+But there's not really a lot more many more topics like really brand new API calls or systems or anything
+
+01:09.190 --> 01:11.920
+like that having to do with re-act that we're going to discuss.
+
+01:12.060 --> 01:15.400
+So my favorite part of the library is without a doubt.
+
+01:15.580 --> 01:22.660
+Anyways we now have our list of albums they are available as this state albums.
+
+01:22.720 --> 01:24.480
+That is what they said too.
+
+01:24.490 --> 01:26.530
+That's how we're getting access to that list.
+
+01:26.560 --> 01:30.920
+So it is now time for us to build a list of albums to show the user.
+
+01:30.990 --> 01:38.160
+We want to show a list of components in particular because we loaded up five different albums.
+
+01:38.170 --> 01:42.040
+We should now have five different album detailed components.
+
+01:42.040 --> 01:46.930
+Remember we said of the album detail component was going to be the component that we would show just
+
+01:46.930 --> 01:49.450
+a single album.
+
+01:49.450 --> 01:52.490
+So in other words what we need to do now is make a list.
+
+01:52.540 --> 01:54.240
+So we've got to do.
+
+01:55.210 --> 02:00.250
+Let's pull up a diagram really quick that's going to help us understand how to build lists.
+
+02:00.490 --> 02:05.440
+So on the left hand side is a representation of the album's array that we have.
+
+02:05.440 --> 02:07.420
+So this statement albums.
+
+02:07.420 --> 02:10.520
+So each red box here represents one album.
+
+02:10.570 --> 02:17.040
+What we need to do is kind of transform each of these objects into a component.
+
+02:17.080 --> 02:24.070
+That's our goal for each album that we have loaded up we want to create one album detail component which
+
+02:24.070 --> 02:29.340
+we're going to create very shortly here that is the goal to do this transformation.
+
+02:29.360 --> 02:31.330
+We're going to use the map method.
+
+02:31.360 --> 02:39.250
+We're going to map over our array of albums and for each album we have loaded we will return one album
+
+02:39.250 --> 02:40.510
+detail a component.
+
+02:40.930 --> 02:43.780
+That's the that's the goal.
+
+02:44.140 --> 02:49.510
+Back over inside of my album list I'm going to make a helper method to generate this list of albums
+
+02:49.870 --> 02:56.890
+album details excuse me so I can add a method in here called render albums.
+
+02:57.550 --> 03:04.180
+Then I'm going to take my list of albums that we've now fetched which is available as this state albums
+
+03:04.540 --> 03:06.420
+and I'm going to map over it.
+
+03:06.790 --> 03:09.820
+If you're not familiar with the map function no problem.
+
+03:10.030 --> 03:11.870
+Map is an array helper.
+
+03:12.160 --> 03:18.910
+I get to call it on this outstate that albums because albums right here is an array the way that map
+
+03:18.910 --> 03:22.210
+works is that we passen a fat arrow function.
+
+03:22.600 --> 03:29.440
+Then inside of the federal function or exceedingly we rephrase that our federal function we called five
+
+03:29.440 --> 03:36.400
+times one for each album that we've loaded whatever we returned from that function will be entered into
+
+03:36.400 --> 03:41.300
+a new array that gets returned from the map function.
+
+03:41.330 --> 03:42.480
+But you know what I don't know.
+
+03:42.490 --> 03:46.990
+I can talk about this stuff for all day let's just put the code in and you'll be a little little bit
+
+03:46.990 --> 03:49.370
+more obvious what's going on.
+
+03:49.450 --> 03:55.810
+So I did my federal function the fat arrow function and he called with a single album out of the Alden's
+
+03:55.810 --> 03:56.350
+array.
+
+03:56.560 --> 04:07.980
+And then for each album I'm just going to turn a text tag that contains the album's title so album title.
+
+04:08.000 --> 04:13.610
+Notice that because I'm inside of some GSX here and I want to make reference to a javascript variable
+
+04:13.670 --> 04:18.060
+specifically album title I'm going to wrap it with curly braces.
+
+04:18.180 --> 04:23.930
+So remember whenever we want to reference a javascript variable within GSX we wrap it with curly braces
+
+04:23.960 --> 04:26.570
+otherwise react to things we're trying to show in text.
+
+04:28.180 --> 04:35.540
+And finally I'm going to make sure that I return this new array that I've now created.
+
+04:36.980 --> 04:38.300
+Get some more space here.
+
+04:38.290 --> 04:40.310
+There we go.
+
+04:40.460 --> 04:46.100
+Then the last step is I'm going to replace inside of my render method I can replace that text tag down
+
+04:46.100 --> 04:51.340
+here with a reference to this render albums.
+
+04:51.350 --> 04:57.320
+So again I am making reference to a javascript variable or a function within some within some GSX.
+
+04:57.470 --> 05:04.490
+So I'm going to replace or in a place my curly braces and then call this dot render albums.
+
+05:04.490 --> 05:04.760
+All right.
+
+05:04.790 --> 05:05.660
+So let's give this a shot.
+
+05:05.660 --> 05:08.760
+Now I am going to flip over to a simulator.
+
+05:09.020 --> 05:13.420
+Let's do our refresh and hot dog.
+
+05:13.540 --> 05:15.650
+I've got a list of all my album names.
+
+05:15.700 --> 05:23.640
+Taylor Swift I am not you know necessarily a tailor fair a muchness same a Taylor Swift fan but you
+
+05:23.640 --> 05:25.760
+know she's a nice neutral middle ground.
+
+05:25.810 --> 05:33.740
+I consider doing a lot of different albums for this app but you know Tasik works that song a say on
+
+05:33.760 --> 05:35.640
+Taylor Swift.
+
+05:36.040 --> 05:39.240
+So here's are we definitely are rendering the name of each album.
+
+05:39.490 --> 05:43.330
+We've got all five albums here but we also have a warning that just popped up on the screen at the bottom
+
+05:44.020 --> 05:49.090
+something about each child should have a unique key prop check the render method something something
+
+05:49.090 --> 05:49.920
+something.
+
+05:49.960 --> 05:54.880
+So let's take a quick break continue the next section and figure out exactly what this warning message
+
+05:54.880 --> 05:55.610
+is about.

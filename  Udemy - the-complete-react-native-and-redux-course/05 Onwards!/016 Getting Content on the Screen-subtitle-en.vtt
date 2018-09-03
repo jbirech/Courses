@@ -1,0 +1,130 @@
+WEBVTT
+
+00:00.440 --> 00:04.690
+In the less section we explored our project structure a little bit and clear out the contents of the
+
+00:04.690 --> 00:06.280
+index file.
+
+00:06.580 --> 00:11.290
+In this section we're going to start with the absolute basics which is to attempt to get some content
+
+00:11.350 --> 00:17.560
+on the screen of our mobile device whenever we want to place and content on the screen in any type of
+
+00:17.560 --> 00:18.430
+app we built.
+
+00:18.460 --> 00:24.470
+We are always going to do so by creating a component a component is a widget of sorts.
+
+00:24.490 --> 00:30.130
+It's a thing that produces some text or a shape or an image that can be rendered onto the screen of
+
+00:30.130 --> 00:31.840
+our mobile device.
+
+00:31.840 --> 00:37.090
+The apps that you and I build are going to be composed by collections of these different components
+
+00:37.090 --> 00:38.580
+that we are going to make.
+
+00:38.590 --> 00:46.220
+So our job right now inside of this index file is to create a component and then somehow render it onto
+
+00:46.240 --> 00:48.610
+the screen of our mobile device.
+
+00:48.610 --> 00:53.480
+So to help us in this first task we're going to add some comments to guide us along.
+
+00:53.590 --> 00:56.970
+So up on the first line here I'm going to add one comment.
+
+00:57.130 --> 01:04.570
+I'm going to say the first thing we need to do is to import a library to help create a component then
+
+01:04.570 --> 01:10.300
+a little bit underneath that I'm going to say that we are going to attempt to create a component and
+
+01:10.300 --> 01:13.930
+then a little bit further underneath that we're going to say that we are going to attempt to render
+
+01:13.930 --> 01:18.060
+that component to render it to the device.
+
+01:18.070 --> 01:21.610
+So let's talk about these three steps here and a little bit greater detail.
+
+01:21.730 --> 01:26.410
+So the first thing we're going to attempt to do is to create or see import a couple of libraries to
+
+01:26.410 --> 01:32.470
+help us make it component components or intelligent objects that have a lot of InnerWorkings associated
+
+01:32.470 --> 01:33.310
+with them.
+
+01:33.310 --> 01:38.820
+So we don't want to have to implement all that fancy pants code every time we make a component.
+
+01:39.160 --> 01:45.610
+So instead we use a few functions provided by reac native to make the process of generating a new component
+
+01:45.610 --> 01:48.150
+much easier for us.
+
+01:48.160 --> 01:53.920
+The next thing that we're going to do is use that library that we just imported to create a new component.
+
+01:53.920 --> 01:56.850
+Now I keep using this term component over and over again.
+
+01:56.860 --> 02:02.770
+Remember this is a thing for lack of a better term that produces some content that's going to appear
+
+02:02.770 --> 02:04.950
+on her mobile device.
+
+02:04.990 --> 02:09.970
+Finally the act of just creating an component doesn't actually do anything.
+
+02:09.970 --> 02:15.430
+We have to specifically tell Riak needed to take the component we just created and place it onto the
+
+02:15.430 --> 02:20.680
+screen in all of the different apps that we are going to create and of course we'll have to deal with
+
+02:20.740 --> 02:26.770
+a dozen or so different components and at every step along the way we always have to be very specific
+
+02:27.040 --> 02:33.250
+in telling our device exactly when to display each of these different components to our users.
+
+02:33.250 --> 02:36.070
+So let's begin with step one up here at the top.
+
+02:36.100 --> 02:40.280
+We're going to add a little bit of code to import to libraries into this file.
+
+02:40.450 --> 02:49.270
+So let's write it out and say import react Wouk's import re-act from react and import re-act native
+
+02:49.360 --> 02:53.800
+from re-act dash native like so.
+
+02:53.800 --> 02:59.590
+So already some crazy looking code because all this time we've been talking about this library called
+
+02:59.590 --> 03:04.910
+re-act native but now it appears that we are importing two separate libraries here.
+
+03:04.960 --> 03:09.090
+One that's called react and the other that's called re-act native.
+
+03:09.190 --> 03:14.260
+Let's take a short break right here and then we'll figure out exactly what the differences between these
+
+03:14.260 --> 03:16.030
+two libraries in the next section.

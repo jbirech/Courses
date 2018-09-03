@@ -1,0 +1,355 @@
+WEBVTT
+
+00:00.900 --> 00:06.090
+We've now got our list of that is rendered on screen all the albums we got back from the adjacent endpoint
+
+00:06.390 --> 00:11.400
+but we did get a little bit of a worry message down here something about a key property.
+
+00:11.400 --> 00:16.580
+So this is a little bit of a gotcha with react whenever we show components that are in an array.
+
+00:16.650 --> 00:21.270
+And that is exactly what we're doing here with the render Haldane's method we are producing an array
+
+00:21.570 --> 00:28.680
+and rendering it inside of our GSX here each property or that each component inside of that array must
+
+00:28.680 --> 00:31.370
+have a key property associated with it.
+
+00:31.410 --> 00:34.560
+The whole purpose of this is just for performance concerns.
+
+00:34.560 --> 00:40.530
+It's how re-act make sure that as it renders a list of components it is intelligently listing a or sees
+
+00:40.530 --> 00:44.040
+me rendering or updating a very particular component.
+
+00:44.040 --> 00:50.870
+So to fix it I place my GSX on a new line just to get myself a little bit of space.
+
+00:51.720 --> 00:58.830
+And then inside of the text tag I'm going to add on a key property and the key property here is what
+
+00:58.830 --> 01:02.310
+re-act is going to use to figure out which item in the list.
+
+01:02.310 --> 01:04.210
+It is updating at any given time.
+
+01:04.380 --> 01:10.800
+So the only requirement of this key property is that it must be unique against all of the other elements
+
+01:10.800 --> 01:11.630
+in the array.
+
+01:11.640 --> 01:17.460
+And number two we also must make sure that it is the same value across rebounders renders the list.
+
+01:17.460 --> 01:23.070
+So a common mistake to make is to say oh well I'll just use the index of this album with in the array
+
+01:23.460 --> 01:27.680
+that is not something that's guaranteed to be consistent across three renderers.
+
+01:27.690 --> 01:33.360
+And so it's not really appropriate for use as a key in this case we're working with the list of albums
+
+01:33.720 --> 01:38.430
+each title is actually kind of sufficiently randomized or axis to be unique.
+
+01:38.460 --> 01:44.040
+So I will use a key of the album's title on actual applications.
+
+01:44.040 --> 01:50.100
+By far the best property used for a key is if your resource has an ID associated with it and you can
+
+01:50.100 --> 01:53.530
+just use a key of the records ID right here.
+
+01:53.640 --> 01:58.100
+In this case our Allans do not have an ID so we don't get the benefit of that.
+
+01:58.110 --> 02:03.030
+All right let's refresh and it looks like the airwing way.
+
+02:03.030 --> 02:05.410
+So everything is fantastic now.
+
+02:05.910 --> 02:11.760
+So back to what we were working on right now we have the name property or excuse me title property of
+
+02:11.790 --> 02:16.020
+each album display and with that you know not too useful not at all.
+
+02:16.200 --> 02:19.780
+We want to see a lot more detail related to each album.
+
+02:19.830 --> 02:26.520
+So as I mentioned previously we will create a new component called album detail and album detail is
+
+02:26.520 --> 02:32.790
+going to take one album as a prop or property and it's going to render a lot of information about that
+
+02:32.790 --> 02:33.850
+single album.
+
+02:34.080 --> 02:38.940
+So in this section we're going to start working on this new album detail component.
+
+02:39.070 --> 02:44.980
+Remember the process we go through each time we make a new component we make a new file.
+
+02:45.210 --> 02:51.820
+So in my component's directory I will make a new file and I'm going to call it album detail.
+
+02:51.990 --> 02:53.160
+Yes.
+
+02:53.880 --> 02:58.560
+And then inside of here we will put down our boiler plate.
+
+02:58.680 --> 03:09.430
+So I will import re-act from react and I will import both view and text from re-act native.
+
+03:09.450 --> 03:13.880
+Now this is something we're going to start asking you had a time when every start creating a component
+
+03:13.950 --> 03:19.560
+whether or not this needs to be a class based component or a functional component.
+
+03:19.560 --> 03:24.780
+In this case for the album detail we have something that is just showing some data to the user.
+
+03:24.780 --> 03:27.870
+It is solely a presentational component.
+
+03:27.870 --> 03:33.360
+And so I think that this can stand to be just a functional component because we do not need lifecycle
+
+03:33.360 --> 03:36.410
+methods and we do not need to get access to state.
+
+03:37.050 --> 03:39.150
+So I will define my functional component
+
+03:43.120 --> 03:46.240
+and then I will export it as by default
+
+03:49.000 --> 03:53.300
+go it's now the last thing I want to do before we go too far here.
+
+03:53.350 --> 03:56.550
+I want to go back to my album list and just import over there.
+
+03:56.550 --> 03:59.400
+So we've got it nice and ready to make use of.
+
+03:59.410 --> 04:06.450
+So back inside of album list I will import the album detail.
+
+04:06.700 --> 04:11.400
+And now we need to consider what the rules are you see me what the relative path to that file is.
+
+04:11.560 --> 04:16.210
+What's in the same directory this time album list is in the same directory as album detail.
+
+04:16.330 --> 04:28.000
+So I will say in the current directory slash give me album detail go finally inside of render albums
+
+04:28.000 --> 04:28.710
+right here.
+
+04:28.750 --> 04:32.470
+I don't really want to be showing any text anymore.
+
+04:32.470 --> 04:34.830
+I want to show in album detail.
+
+04:35.050 --> 04:40.030
+So I'm going to replace the text tag with album detail
+
+04:42.800 --> 04:43.850
+like so.
+
+04:44.480 --> 04:45.730
+OK so this is looking good.
+
+04:45.770 --> 04:48.610
+But now let's consider it kind of like the next challenge here.
+
+04:48.640 --> 04:51.340
+I am showing many album details.
+
+04:51.350 --> 04:54.310
+I want to show one album detail per album.
+
+04:54.470 --> 05:03.490
+That means I need to somehow communicate somehow communicate from this parent component album list down
+
+05:03.490 --> 05:04.840
+into the child component.
+
+05:04.850 --> 05:06.090
+The album detail.
+
+05:06.290 --> 05:13.150
+Hey I want you to show this very particular album that I like to do some communication there.
+
+05:13.250 --> 05:20.460
+So if you recall to do communication from a parent to a child we make use of the props system and react.
+
+05:20.540 --> 05:29.060
+So I want to pass the album down to album detail as a prop so no longer do I want to try to show any
+
+05:29.120 --> 05:37.040
+album title here because this is no longer text and song and I'd take that out now that I am not passing
+
+05:37.040 --> 05:42.240
+in any text and hearing that I should be making this a self-closing component.
+
+05:42.290 --> 05:48.100
+So I'm going to remove the closing tag over here and I'm going to make this into a self-closing component
+
+05:48.530 --> 05:52.560
+by adding in a forward slash right before the closing bracket.
+
+05:52.580 --> 06:00.200
+Finally I need to pass down this album as a prop 2 album detail and to pass it down as a prop so whenever
+
+06:00.260 --> 06:10.400
+I want to pass the prop I'll write out the name of the prop equals and then inside of braces I will
+
+06:10.400 --> 06:13.140
+list the variables I want to pass down to the child.
+
+06:13.310 --> 06:17.960
+So album is album now on inside of the album detail.
+
+06:18.050 --> 06:23.710
+I will have a prop of props Daut album and that will be equal to my album.
+
+06:23.720 --> 06:26.380
+One thing I want to point out in great detail here.
+
+06:26.390 --> 06:32.210
+I'm going to point out several times is not the name of the props very much like the name of the state
+
+06:32.210 --> 06:36.000
+that we were working with earlier is completely arbitrary.
+
+06:36.020 --> 06:38.000
+I do not have to call this thing right here.
+
+06:38.000 --> 06:41.990
+I do not have to call this album just because the variable is also called album.
+
+06:41.990 --> 06:46.290
+There is absolutely no tie between the property name and the variable.
+
+06:46.370 --> 06:52.080
+So this instead of album I could call it like record and now inside of album detail I would refer to
+
+06:52.130 --> 06:53.570
+props not record.
+
+06:53.570 --> 06:56.450
+Or it can be prog could be like data.
+
+06:56.450 --> 07:01.760
+I don't know anything we want so just to make sure that its really clear the name of the variable up
+
+07:01.760 --> 07:06.380
+here does not have to match the name of the prop it just ever so happens that with a lot of the code
+
+07:06.380 --> 07:11.230
+that I write they generally end up as being the same good.
+
+07:11.300 --> 07:13.900
+So this is looking pretty darn good.
+
+07:14.120 --> 07:20.340
+I think that in this component album list we are no longer making use of the text tag anymore up top
+
+07:20.620 --> 07:26.030
+so I'm going to remove that text tag just to keep our imports nice and clean make sure we're not importing
+
+07:26.030 --> 07:31.920
+anything that we don't need then just to make sure that everything works ok.
+
+07:32.050 --> 07:36.960
+You know flip back over to the album detail and let us consume that prop that we just added.
+
+07:37.040 --> 07:40.370
+Let's make sure that we're actually making use of that album.
+
+07:40.820 --> 07:48.290
+So inside of my album detail component I'm going to return some amount of GSX I I suggest you return
+
+07:49.010 --> 07:54.340
+a view tag and it's cited that also some text.
+
+07:54.770 --> 08:00.800
+So I want to show again just to keep like you know the implementation we had before without the album
+
+08:00.800 --> 08:07.310
+detail equal to what it is now with the album detail on show just like the name or the title of the
+
+08:07.310 --> 08:08.410
+album.
+
+08:08.510 --> 08:15.260
+So I need to receive the prop that we passed down from album list inside of album detail so I'm going
+
+08:15.260 --> 08:19.760
+to receive my props object on that props object.
+
+08:19.760 --> 08:29.030
+I will have access to prop's album title and remember it is specifically album that I'm making reference
+
+08:29.030 --> 08:36.200
+to here because inside of album list when I rendered the album detail I said hey pass down this thing
+
+08:36.230 --> 08:39.260
+as a prop called album.
+
+08:39.260 --> 08:40.660
+All right.
+
+08:40.940 --> 08:45.710
+So this is looking pretty good at the only warning we have here again is because I've been returning
+
+08:45.710 --> 08:50.300
+some amount of JSA are all I'm doing out of this federal function is returning something so it's saying
+
+08:50.630 --> 08:55.970
+hey if you're just returning something don't use the curly braces with the return key word again purely
+
+08:55.970 --> 08:57.440
+stylistic.
+
+08:57.440 --> 09:01.460
+We are going to add in some other code inside of here and in the future section.
+
+09:01.460 --> 09:05.180
+So right now I'm just going to kind of leave it as it is.
+
+09:05.870 --> 09:08.860
+Let's refresh our simulator and make sure everything is still working.
+
+09:08.990 --> 09:15.590
+So refresh the simulator and yet we still got our list of albums appearing on the screen so it looks
+
+09:15.590 --> 09:16.300
+perfect.
+
+09:16.340 --> 09:23.330
+We have now refactored our text tag inside of the album list to instead use this album detailer component.
+
+09:23.720 --> 09:29.420
+Let's get to the next section and focus on making this album detail look a lot better than how it already
+
+09:29.420 --> 09:30.220
+looks.

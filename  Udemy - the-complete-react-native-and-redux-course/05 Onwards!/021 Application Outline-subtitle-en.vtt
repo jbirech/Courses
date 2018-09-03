@@ -1,0 +1,187 @@
+WEBVTT
+
+00:00.940 --> 00:05.110
+In the last section we got our first component to show up on the screen of our device.
+
+00:05.190 --> 00:10.870
+So I'm using iOS on Mac right here some using the iPhone simulator.
+
+00:11.040 --> 00:16.020
+If you're on Windows I'm developing for Android you'll see this in the Android simulator and as you
+
+00:16.020 --> 00:19.390
+can see you know you could kind of see that we got some text right there.
+
+00:19.440 --> 00:22.350
+But is does it look pretty ugly.
+
+00:22.350 --> 00:26.760
+At least though we got some content to show up on the screen of our device and we've got a better idea
+
+00:26.760 --> 00:32.650
+of what the import tags are what a component is and how we actually render to screen of our device.
+
+00:33.090 --> 00:36.230
+So we will fix this up in just a second.
+
+00:36.270 --> 00:40.950
+But before we do let's talk a little bit about the first application that we're going to be building.
+
+00:41.190 --> 00:44.430
+And then we can come back and start to improve how this thing looks right here.
+
+00:44.820 --> 00:52.920
+So let's open up a mockup of this first application that will be making this mock up of our app the
+
+00:52.920 --> 00:58.800
+app's purpose is going to be to display the user with a number of different music records that they
+
+00:58.800 --> 01:04.890
+can purchase like you know I say records I mean like actual CDs at the very top of the app will be a
+
+01:04.890 --> 01:09.190
+header that simply says albums which is the name of our application.
+
+01:09.390 --> 01:12.810
+Then below the header will be our list of albums right here.
+
+01:12.810 --> 01:17.760
+I'm only showing a single one but we should have support for showing many albums that the user can scroll
+
+01:17.760 --> 01:19.330
+through.
+
+01:19.560 --> 01:25.740
+Each album will be represented by this kind of a big rectangle right here which we refer to as a card
+
+01:26.730 --> 01:31.640
+on the header of the card should be a icon of the artist.
+
+01:31.650 --> 01:38.490
+So like the singer or whoever created the record it should display the album's name the artist name
+
+01:38.940 --> 01:40.410
+all inside the header.
+
+01:40.980 --> 01:47.160
+Then in the body of the card which is this big X right here this represents the album image.
+
+01:47.160 --> 01:53.790
+So like the actual album artwork it should be a nice very large image right in the center of the card.
+
+01:53.790 --> 02:00.150
+Finally at the very bottom of the card should be a button that says by now and whenever a user clicks
+
+02:00.150 --> 02:04.870
+this we should direct the user over to a page where they can purchase the album.
+
+02:04.920 --> 02:09.720
+So we're not going to be building that actual purchase page we're just going to kick the user over to
+
+02:10.070 --> 02:16.500
+an Amazon.com page inside their browser on the device where they can buy that album if they want to.
+
+02:17.250 --> 02:25.170
+So again we're going to have many different cards like you know on the card as this whole old unit right
+
+02:25.170 --> 02:26.380
+here is trying to say.
+
+02:26.610 --> 02:31.820
+And we'll have one unit or one card for each album that we've retrieved or fetched.
+
+02:32.550 --> 02:32.790
+OK.
+
+02:32.790 --> 02:37.470
+So this is basically the application of rebuilding is our first one and we're going to focus a lot on
+
+02:37.470 --> 02:42.990
+just the basics of react and how we use reac native to build an application like this at the start of
+
+02:42.990 --> 02:43.890
+each app that we build.
+
+02:43.890 --> 02:48.000
+We're also going to spend some amount of time to plan out exactly how we're going to tackle that project
+
+02:48.450 --> 02:49.200
+in particular.
+
+02:49.200 --> 02:52.900
+We're going to decide what different types of components we want to make.
+
+02:55.020 --> 03:02.800
+As a reminder a component is a function that returns some amount of GSX and GSX is what tells reac native
+
+03:02.820 --> 03:07.430
+What content we want to show on the screen whenever we build a re-act application.
+
+03:07.440 --> 03:13.500
+We attempt to make components that are generally as reusable as possible so we can write one component
+
+03:13.800 --> 03:16.490
+and then use it in several different locations throughout our app.
+
+03:16.560 --> 03:20.820
+It's all about reuse of code for this application.
+
+03:20.820 --> 03:25.240
+We're going to make several different components to build this application.
+
+03:25.830 --> 03:30.130
+Here's kind of a diagram of all the different components and what they might be called.
+
+03:30.330 --> 03:35.580
+We might make one component called Hetter component that will just sit at the very top of our application
+
+03:36.540 --> 03:38.880
+then represent a single album.
+
+03:38.880 --> 03:46.680
+We might make a car component so a car component has many card sections inside of it and each card section
+
+03:46.980 --> 03:48.380
+will have some amount of content.
+
+03:48.390 --> 03:53.970
+So the one at the very top will be you know the actual album or seeing the artist image with the name
+
+03:53.970 --> 03:56.800
+of the artist and the album name.
+
+03:56.970 --> 04:01.710
+And then another card section that shows the image and then another card section that shows the buy
+
+04:01.710 --> 04:02.880
+now button.
+
+04:02.880 --> 04:07.260
+In addition we might even make another component just to represent the buy now button.
+
+04:07.260 --> 04:12.000
+We'll talk more about all the different considerations of when we want to make a reusable component
+
+04:12.330 --> 04:20.070
+versus we want to make like a very kind of one off or custom component as we work throughout this application.
+
+04:20.070 --> 04:25.350
+So planning out our Capones ahead of time like this just makes it easier later on to have a very solid
+
+04:25.350 --> 04:30.030
+idea of the different parts of the application that we need to focus on when we're building it gives
+
+04:30.440 --> 04:34.820
+like it just makes it easier to build the application when we know we want to make ahead of time.
+
+04:35.250 --> 04:35.550
+Okay.
+
+04:35.570 --> 04:40.110
+So honestly this is a pretty ambitious out to scrotes to start off with but I'm confident that we're
+
+04:40.110 --> 04:44.930
+going to work through it and learn just a ton about re-act native along the way.
+
+04:45.180 --> 04:47.230
+So let's get started with it in the next section

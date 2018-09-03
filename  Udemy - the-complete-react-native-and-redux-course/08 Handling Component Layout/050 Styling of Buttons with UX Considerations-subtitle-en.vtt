@@ -1,0 +1,226 @@
+WEBVTT
+
+00:01.270 --> 00:07.300
+In the last section we created a new reuseable button component and hooked it up with the touchable
+
+00:07.300 --> 00:14.020
+opacity tied the touchable tag of all types are used for just two purposes remember providing some feedback
+
+00:14.020 --> 00:19.840
+to the user that their tap was registered and also giving us the ability to respond to these taps like
+
+00:19.840 --> 00:25.240
+to run a callback or run some code or we can do something whenever the user taps on the button.
+
+00:25.240 --> 00:28.460
+So at this point we haven't done anything around handling user input.
+
+00:28.510 --> 00:33.910
+So in this section we're going to hook up a click event handler that's going to watch and listen for
+
+00:33.910 --> 00:38.640
+whenever a user taps on our touchable capacity right here.
+
+00:38.750 --> 00:41.200
+I don't think you're prepared for some typing though.
+
+00:41.230 --> 00:44.230
+Really quick we're going to add on some styling to our button.
+
+00:44.290 --> 00:46.180
+It's pretty darn ugly right now.
+
+00:46.180 --> 00:49.200
+And in fact it looks absolutely nothing like a button.
+
+00:49.210 --> 00:53.110
+So we're going to take a little bit of time to add on some styling for our button and then we'll take
+
+00:53.110 --> 00:55.070
+care of that event handler.
+
+00:55.930 --> 01:00.890
+So you know what we do whenever we do styling we add a new object beneath our component.
+
+01:01.200 --> 01:02.800
+Collette styles.
+
+01:03.190 --> 01:09.070
+And I'm going to give it a property of button style so let's get started.
+
+01:09.070 --> 01:15.970
+First off we're going to add a rule of flex one firmer flex one needs I want this button to expand to
+
+01:15.970 --> 01:19.100
+fill as much content as it possibly can.
+
+01:19.150 --> 01:29.510
+Next fall I'll apply an a line self style of stretch aligned self is a property tied to flex blocks.
+
+01:29.650 --> 01:32.600
+So if you remember we have a line items on line items.
+
+01:32.620 --> 01:38.490
+When a container tells all of its children that it needs to position all those items in some fashion.
+
+01:38.560 --> 01:43.730
+The Aline's self-rule however is when we want this element to position itself.
+
+01:43.870 --> 01:50.020
+Using Fluxbox rules so aligned cells stretch is going to specifically say stretched to fill the limits
+
+01:50.020 --> 01:51.910
+of the container.
+
+01:51.910 --> 01:59.560
+Next we'll assign a background color and then we're going to do some borders.
+
+01:59.560 --> 02:01.390
+So do a border radius of five.
+
+02:01.390 --> 02:10.380
+This will give it nice very rounded borders will do a border with of one and a border color of and you
+
+02:10.400 --> 02:11.550
+have to write this one down.
+
+02:11.570 --> 02:16.030
+0 7 a f f this blue color right here.
+
+02:16.030 --> 02:18.270
+Maps up pretty nicely with the Eilis blue.
+
+02:18.310 --> 02:21.740
+So our button is going to look kind of like Iowa us button.
+
+02:22.360 --> 02:26.700
+Next we'll have a margin left of 5 in a margin right of 5.
+
+02:26.860 --> 02:30.820
+And again this is just to make sure that our button doesn't actually kind of butt up against any other
+
+02:30.820 --> 02:33.990
+borders or line work or text or anything like that.
+
+02:35.610 --> 02:42.360
+So let's structure that button style property into our component and then apply it to the touchable
+
+02:42.360 --> 02:43.750
+opacity tag.
+
+02:44.190 --> 02:52.610
+So inside of our component will the structure Button's style from styles.
+
+02:53.520 --> 03:02.840
+And we're going to apply it to our touchable opacity go next I want to do just one more quick property.
+
+03:02.840 --> 03:05.810
+I want to add on some better styling for text right here.
+
+03:05.820 --> 03:09.250
+You know as it stands right now the text is just black and white.
+
+03:09.380 --> 03:14.210
+Might as well just the Times New Roman right for what we saw in the simulator so it be really nice if
+
+03:14.210 --> 03:17.510
+the text also looked a little bit more button like.
+
+03:17.510 --> 03:27.320
+So I did a couple of properties for the text as well and our styles object to add a text style I'll
+
+03:27.370 --> 03:28.480
+give it again.
+
+03:28.510 --> 03:37.310
+And the line self that's going to center the text inside the button will give it the same color of Double-O
+
+03:37.320 --> 03:37.970
+7.
+
+03:38.020 --> 03:42.190
+Feth a font size of 16.
+
+03:42.910 --> 03:49.180
+And we're going to give it a font weight Funt way is for specifying the boldness or I suppose thickness
+
+03:49.270 --> 03:50.760
+of a text zone.
+
+03:50.830 --> 03:56.770
+So we will specify font weight of 600 that will be pretty deep on the edge of font when it comes to
+
+03:56.770 --> 03:57.450
+baldness.
+
+03:57.460 --> 04:00.790
+So it's definitely appear to be some pretty bold text.
+
+04:00.820 --> 04:07.380
+Next you want to make sure that the text is not really squished by the border on a touchable opacity.
+
+04:07.390 --> 04:11.500
+You know we want to have some space above and below the actual text element to make this thing really
+
+04:11.500 --> 04:12.510
+look like a button.
+
+04:12.670 --> 04:19.500
+So we'll give it a padding top of 10 and a padding bottom of 10 as well.
+
+04:20.590 --> 04:27.550
+And then just like we did with the button style We will also restructure the text file out and then
+
+04:27.550 --> 04:29.420
+we'll apply that to our text tag.
+
+04:29.500 --> 04:38.410
+So style of text style and as a final bit of a stylistic concern here for my code I'm going to New Line
+
+04:38.500 --> 04:42.740
+the text tag just to make it more legible.
+
+04:43.660 --> 04:49.750
+All right so let's refresh this in the simulator now and see if we can't do something better than this.
+
+04:49.840 --> 04:53.940
+Click the text so will refresh.
+
+04:53.980 --> 04:54.760
+And all right.
+
+04:54.760 --> 04:57.530
+Hot dog that is looking pretty darn good.
+
+04:57.760 --> 04:58.960
+That's definitely looking good.
+
+04:58.960 --> 05:03.680
+And you'll notice that when we click it I still get a little bit of lag in my simulator go.
+
+05:03.810 --> 05:05.850
+When we click it the button fades nicely.
+
+05:05.860 --> 05:09.970
+That means that whenever our user presses on the button when they're using the application they will
+
+05:09.970 --> 05:15.010
+know oh OK something like you know something is happening here my press was registered.
+
+05:15.040 --> 05:18.010
+I I expect my app to do something now.
+
+05:18.450 --> 05:18.830
+OK.
+
+05:18.850 --> 05:20.280
+This looks fantastic.
+
+05:20.290 --> 05:21.290
+I'm really happy with it.
+
+05:21.310 --> 05:26.210
+But we still need to make sure that we handle a press event on the touch of policy.
+
+05:26.230 --> 05:28.590
+So let's take care of that and see the next section.

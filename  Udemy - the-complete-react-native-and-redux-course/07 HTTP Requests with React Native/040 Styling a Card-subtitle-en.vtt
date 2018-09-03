@@ -1,0 +1,259 @@
+WEBVTT
+
+00:01.120 --> 00:04.970
+In the last section we put together a new component for showing a card.
+
+00:05.220 --> 00:10.410
+The current purpose is just to look nice and wrap some other existing component as well.
+
+00:10.410 --> 00:17.100
+So it's going to be enhancing our viewer to Hansing the style of our application in some fashion with
+
+00:17.190 --> 00:20.490
+re-access applications if you have any background with that.
+
+00:20.490 --> 00:23.990
+It's kind of rare to make a component that just adds some amount of styling.
+
+00:24.180 --> 00:29.400
+But in re-act native because we want to have some reuse of style throughout our codebase and we don't
+
+00:29.400 --> 00:31.750
+have the benefit of separate CSSA files.
+
+00:31.920 --> 00:37.530
+It's a little bit more common to make standalone components whose sole purpose is to add some styling
+
+00:37.530 --> 00:39.800
+into the application.
+
+00:39.900 --> 00:44.710
+So let's add in some sense let's add in some styling here area member.
+
+00:44.730 --> 00:50.580
+Our goal for adding styling or the approach to use underneath the component we add a new object called
+
+00:50.580 --> 00:56.810
+styles that will be an object and then we'll give it a single property.
+
+00:57.300 --> 00:59.730
+And in this case we call it container style.
+
+00:59.730 --> 01:03.810
+Now I'm going to call this specifically a container style because it's going to be some styling that
+
+01:03.810 --> 01:09.270
+we're adding to this view tag right here and the whole purpose is you tag is to just wrap some other
+
+01:09.270 --> 01:09.880
+component.
+
+01:09.900 --> 01:12.630
+And so you can kind of think of it as being like a container.
+
+01:12.660 --> 01:16.290
+And so that's where I'm coming from with this word container cell right here.
+
+01:16.560 --> 01:20.340
+One thing I want to throw out there the names of all the style properties that we use throughout the
+
+01:20.340 --> 01:22.490
+course completely arbitrary.
+
+01:22.500 --> 01:26.970
+I'm just kind of picking them not necessarily at random you know I'm putting some thought into it but
+
+01:27.150 --> 01:32.970
+you can change it from container style to anything else you might want to have so totally up to you.
+
+01:33.130 --> 01:38.170
+Now I want to make apologize or I want to apologize right now because we're going to add a lot of styles
+
+01:38.170 --> 01:40.450
+to this container style right here a lot of typing.
+
+01:40.480 --> 01:42.050
+So let's just get to it.
+
+01:42.100 --> 01:44.240
+We'll just power through all the styling.
+
+01:44.260 --> 01:47.280
+Once you've done it I think we'll both be really happy to be done.
+
+01:47.320 --> 01:48.320
+So let's get started.
+
+01:48.520 --> 01:54.200
+First off we're going to give this card a border so we'll assign a border with one.
+
+01:54.560 --> 01:59.620
+This says put a border around the component and give it a pixel width of one.
+
+01:59.620 --> 02:02.380
+So a nice thin border around the outside.
+
+02:02.470 --> 02:09.940
+Next we'll give it a border radius of two a border radius says at any corners of my component rounded
+
+02:10.080 --> 02:10.930
+them off nicely.
+
+02:10.930 --> 02:15.670
+So it just kind of rounded edges rounded corners excuse me.
+
+02:15.670 --> 02:20.400
+Next a border color of DDD.
+
+02:20.430 --> 02:25.520
+So this border color right here is going to give us a nice light gray border along the outside.
+
+02:25.930 --> 02:27.260
+And finally for the border.
+
+02:27.280 --> 02:31.890
+We'll give it a border bottom with a zero.
+
+02:32.200 --> 02:35.400
+So we assign the border with them of one up above.
+
+02:35.410 --> 02:41.080
+But for the bottom of the border the bottom segment we're saying don't give it with just hide the border
+
+02:41.080 --> 02:42.400
+entirely.
+
+02:42.400 --> 02:48.190
+So the reason for this is related to the parts section or card item component that we're going to work
+
+02:48.190 --> 02:48.880
+on later.
+
+02:49.000 --> 02:52.120
+So there is a reason the word kind of zeroing out the border there.
+
+02:52.180 --> 02:55.830
+We'll discuss it once we get to that card item.
+
+02:55.990 --> 02:57.340
+So that's it for borders.
+
+02:57.340 --> 02:59.410
+Next we'll get this thing a shadow.
+
+02:59.410 --> 03:04.240
+The purpose of the shadow is just to give the thing a little bit of pop or a little bit of elevation
+
+03:04.330 --> 03:05.370
+appearance to it right.
+
+03:05.380 --> 03:11.080
+It just makes it feel like the heart is something you get kind of picked up and drag off the screen.
+
+03:11.080 --> 03:24.040
+So start off with a shadow color of 000 a shadow offset with the with a zero and a height of two.
+
+03:24.130 --> 03:28.590
+Remember that the shadow offset specifies what side we want the shadow to be on.
+
+03:28.600 --> 03:30.930
+So I don't want any shadow on the left and right side.
+
+03:31.060 --> 03:36.830
+But I do want a height to the shadow so it's going to appear to have some shadowing to the bottom.
+
+03:36.850 --> 03:44.500
+Next we'll give a shadow opacity of 0.1 theory called the Shadow a house is what is used to kind of
+
+03:44.500 --> 03:50.950
+give darkness or kind of light opacity is really about making a component or an item see through.
+
+03:50.980 --> 03:57.360
+So to speak by applying opacity to a very dark color it kind of lightens it up a little bit.
+
+03:57.520 --> 04:02.590
+We can go anywhere from zero to one with the opacity giving a point one gives it just kind of a very
+
+04:02.590 --> 04:04.820
+nice light gray color to it.
+
+04:06.290 --> 04:13.210
+Knacks for the shadow radius will give a to so two pixels for the radius a shattered radius right here
+
+04:13.230 --> 04:18.500
+is just like the border radius so that the corners of the shadow around them off nicely.
+
+04:18.650 --> 04:23.030
+And this is really important because it's going to map out nicely with the border radius as well.
+
+04:23.030 --> 04:28.480
+If we had a border radius of two but then the shadow was like you know had square edges or square corners.
+
+04:28.490 --> 04:29.810
+It would just look really goofy.
+
+04:29.840 --> 04:33.510
+And so that's why we're assigning a shadow radius here as well.
+
+04:33.510 --> 04:34.940
+Next is the elevation.
+
+04:34.940 --> 04:40.700
+We'll talk about why we have elevation later on and then we'll give some margin so a margin left to
+
+04:40.700 --> 04:46.350
+five a margin right of five and a margin top.
+
+04:48.890 --> 04:56.020
+A 10 these margin settings right here behave the exact same way as they do with normal CSX.
+
+04:56.050 --> 05:01.300
+They're used to just place some spacing in between components so a margin left in a margin right.
+
+05:01.300 --> 05:07.210
+Says a give me some space in gets left and right hand sides of the device in the actual screen and then
+
+05:07.210 --> 05:11.170
+the margin top is related to when we show a card in the list.
+
+05:11.170 --> 05:15.520
+So if you have some list of cards we want to make sure that there is some reasonable spacing in between
+
+05:15.520 --> 05:19.050
+each one so they don't just kind of all stack right on top of each other.
+
+05:19.120 --> 05:22.410
+And so that's why we give it a margin top of 10.
+
+05:22.920 --> 05:23.820
+Good the last step.
+
+05:23.830 --> 05:28.000
+Now we're going to apply this container style to our view tag.
+
+05:28.060 --> 05:30.970
+So on that view tag I will say style.
+
+05:30.970 --> 05:33.610
+Make sure you do not say styles it's not plural.
+
+05:33.610 --> 05:42.040
+Singular here and then into their pastilles Daut container style and all new line the view tag as well
+
+05:43.160 --> 05:44.770
+of course something as Slint air.
+
+05:44.770 --> 05:48.220
+Here it says Capones should be closing if they don't have any contents.
+
+05:48.250 --> 05:51.880
+We actually are going to add some contents in here very shortly in the next section.
+
+05:51.910 --> 05:57.800
+So let's take a quick break and talk about exactly how we're going to use a card component like you
+
+05:57.800 --> 06:00.710
+know this one right here to wrap some other component.
+
+06:00.760 --> 06:04.860
+So let's take a quick quick break and take care of that in the next section.

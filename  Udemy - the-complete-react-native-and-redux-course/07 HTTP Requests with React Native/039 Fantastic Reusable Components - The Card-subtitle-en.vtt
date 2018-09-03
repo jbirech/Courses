@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.810 --> 00:05.920
+In the last section we created our album detail component and the purpose of this thing is to show a
+
+00:05.940 --> 00:11.160
+nice looking summary of a single album something like I don't know la.
+
+00:11.340 --> 00:11.940
+That right there.
+
+00:11.940 --> 00:12.450
+Exactly.
+
+00:12.450 --> 00:18.810
+So the album name the artist name some artwork cover image thing and then the buy now button at the
+
+00:18.810 --> 00:19.160
+bottom.
+
+00:19.200 --> 00:20.190
+So this is the intent.
+
+00:20.190 --> 00:21.620
+This is what we're going towards.
+
+00:21.930 --> 00:26.820
+So before we get started on this I want to kind of come up with a game plan on exactly how we're going
+
+00:26.820 --> 00:29.930
+to design and build this component right here.
+
+00:29.970 --> 00:34.910
+There's two different and distinct methodologies that we can take for building this first.
+
+00:34.920 --> 00:41.670
+We might make a single kind of make a component something that's going to in one component render this
+
+00:41.670 --> 00:43.200
+entire card right here.
+
+00:43.200 --> 00:48.060
+So we might end up with some GSX that looks like this right here on the right hand side will have this
+
+00:48.060 --> 00:51.590
+kind of a top level view for the overall car.
+
+00:51.600 --> 00:54.490
+You know like the border that really goes along the outside.
+
+00:54.870 --> 00:59.740
+And then we'll have three blocks inside of that one for each section.
+
+00:59.760 --> 01:01.080
+Inside the cart.
+
+01:01.290 --> 01:07.490
+And the purpose of this view and right here that's going to contain the image and to text things.
+
+01:07.530 --> 01:12.150
+The purpose of this view right here will have some nice styling to make sure there's kind of like you
+
+01:12.270 --> 01:19.180
+know margin between the tax and some nice like border here at the bottom between the image and the header.
+
+01:19.560 --> 01:24.030
+And this view same thing will have like a nice border and blah blah blah and I sporter on there.
+
+01:24.150 --> 01:28.670
+So I have one single make component that has all these different things to it.
+
+01:28.680 --> 01:35.550
+And most importantly has all the styling associated with the overall card inside of the single single
+
+01:35.550 --> 01:36.140
+component.
+
+01:36.250 --> 01:38.000
+So that's that is approach number one.
+
+01:38.010 --> 01:41.000
+And that is one direction we can go now.
+
+01:41.070 --> 01:46.590
+An alternative layout that we can take something that's just a little bit different and I know this
+
+01:46.590 --> 01:52.230
+looks nearly identical but there is a very subtle difference one different approach we can take is to
+
+01:52.230 --> 01:57.920
+make two reusable components that will we will to use inside of the album detail.
+
+01:57.930 --> 02:05.490
+So the two reusable components will make our the card component and the card item component or a card
+
+02:05.490 --> 02:08.830
+section that might be a reasonable name as well.
+
+02:08.880 --> 02:15.990
+The purpose of the card and card section components will be to just have some amount of just a component
+
+02:15.990 --> 02:18.810
+that has some amount of built in styling.
+
+02:18.810 --> 02:23.150
+So we will have styling that has the nice border that goes along outside.
+
+02:23.370 --> 02:27.360
+It will have some nice margin to fit the content inside of it.
+
+02:27.480 --> 02:32.340
+And basically you get the idea it's going to have some nice styling that we are not going to locate
+
+02:32.640 --> 02:36.060
+inside of the album detail component that you've already created.
+
+02:36.060 --> 02:37.500
+Now why might we do this.
+
+02:37.500 --> 02:39.570
+Why might we take this approach.
+
+02:40.200 --> 02:47.640
+Well pretty much for what I just said we'll have separate files the card and the card item that we'll
+
+02:47.940 --> 02:50.630
+just know how to show some amount of content inside of it.
+
+02:50.640 --> 02:56.490
+But most importantly it will be a reusable component that will have really nice styling associate with
+
+02:56.490 --> 02:56.630
+it.
+
+02:56.640 --> 03:02.220
+So if we were writing genius or excuse me if we were writing vanilla each team Ellen CSSA here this
+
+03:02.220 --> 03:05.570
+might be just like a very fancy div or something like that.
+
+03:05.720 --> 03:10.770
+Then we can swap out different detail in the future like you know a different image different button
+
+03:11.070 --> 03:14.630
+and still have a nice Like card thing that looks really good.
+
+03:15.180 --> 03:17.500
+So I think that is the direction that we want to go.
+
+03:17.520 --> 03:24.480
+I want to make a part a component and a card item or we might collect cards section that will both be
+
+03:24.480 --> 03:26.500
+reusable and all we're going to do.
+
+03:26.520 --> 03:30.080
+They're not going to be any fancy logic inside in anything like that.
+
+03:30.120 --> 03:35.430
+The only purpose of the card and the card item is to have some nice styling associated with putting
+
+03:35.430 --> 03:36.760
+this card together here.
+
+03:36.810 --> 03:41.610
+So if this sounds a little bit strange like Stephen why are we making these extra components.
+
+03:41.610 --> 03:42.860
+What is the point this.
+
+03:43.020 --> 03:47.970
+Trust me once we start putting the styling together once you see the amount of styling it takes to get
+
+03:47.970 --> 03:50.530
+something that looks good you're going to say okay.
+
+03:50.550 --> 03:51.580
+Yup.
+
+03:51.630 --> 03:52.280
+Good idea.
+
+03:52.290 --> 03:54.770
+Like making this reusable is a fantastic idea.
+
+03:54.780 --> 03:57.970
+So we don't have to rewrite all these styling rules again in the future.
+
+03:58.170 --> 03:59.530
+That is the whole idea here.
+
+03:59.550 --> 04:03.240
+I want to just save out on the amount of styling we have to write.
+
+04:03.810 --> 04:06.190
+So let's get started on these and this section.
+
+04:06.210 --> 04:11.490
+You know let's let's start building this card component and this card item and I really don't like the
+
+04:11.490 --> 04:14.720
+name card item I think we might rename it to parts section.
+
+04:14.730 --> 04:15.280
+We'll see.
+
+04:15.300 --> 04:16.810
+We'll see what happens.
+
+04:16.920 --> 04:20.680
+Anyways let's get started by making the card component.
+
+04:20.760 --> 04:27.390
+So again a new component means a new file inside of my components directory or make a new file called
+
+04:27.450 --> 04:29.470
+simply Carr-Gomm.
+
+04:29.580 --> 04:31.070
+Yes.
+
+04:31.200 --> 04:39.420
+And then inside of here we'll put together our usual boiler plate I will import re-act from react.
+
+04:40.500 --> 04:41.740
+I don't want to import either.
+
+04:41.760 --> 04:49.540
+I just want to view so import view from re-act native and let's do Konst card
+
+04:52.620 --> 04:59.900
+and right now will just return a new tack and I'm going to leave it open.
+
+04:59.910 --> 05:05.550
+So we will get a yes lent air here about a million to self-closing but that's OK we're going to fill
+
+05:05.550 --> 05:08.270
+something in here in just a while at the bottom.
+
+05:08.370 --> 05:10.970
+We'll do our expert default card.
+
+05:11.690 --> 05:12.180
+Cool.
+
+05:12.270 --> 05:12.580
+OK.
+
+05:12.600 --> 05:14.400
+So again just to be clear.
+
+05:14.400 --> 05:19.260
+The sole purpose of this component right here is just to make something with some nice styling that
+
+05:19.260 --> 05:20.450
+looks like a card.
+
+05:20.700 --> 05:22.540
+So that's all we're going to be focusing on.
+
+05:22.620 --> 05:24.770
+Let's continue with this in the next section

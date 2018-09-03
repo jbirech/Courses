@@ -1,0 +1,373 @@
+WEBVTT
+
+00:01.850 --> 00:04.860
+So now we've got a better idea of the application that we're about to build.
+
+00:04.890 --> 00:06.680
+Let's get started working on it.
+
+00:06.690 --> 00:10.740
+I think the best place to start is going to be working on this Hetter component right here.
+
+00:10.770 --> 00:15.560
+Remember we organize our reata applications into a series of different components.
+
+00:15.690 --> 00:21.030
+So we're going to make a single component called the head or component whose sole purpose is going to
+
+00:21.030 --> 00:25.220
+be to sit at the top of the application and show the text albums.
+
+00:25.230 --> 00:29.760
+Now we've already figured out how to show text and react natives so chances are the biggest challenge
+
+00:29.760 --> 00:32.560
+here is going to be figuring out how to style it nicely.
+
+00:32.580 --> 00:37.620
+You know how to make the text nice and big how to center it and how to make a nice header all around
+
+00:37.620 --> 00:37.780
+it.
+
+00:37.800 --> 00:40.200
+So that's going to be our big challenge here.
+
+00:40.770 --> 00:42.250
+So let's get started.
+
+00:42.900 --> 00:44.590
+Any re-act need of application.
+
+00:44.610 --> 00:47.790
+We always create one component per file.
+
+00:47.820 --> 00:53.410
+So one component per file inside of my index iOS J.S. file.
+
+00:53.430 --> 00:56.430
+I've already got a single component located in here.
+
+00:56.430 --> 01:02.100
+So to create a new component I will make a new javascript file to house it.
+
+01:02.100 --> 01:07.650
+That means that for the larger application gets you know the more components we make the more files
+
+01:07.650 --> 01:10.230
+remain working with at one time which is totally fine.
+
+01:10.230 --> 01:15.270
+It's something that you're going to get used to to create my new component and the new file that goes
+
+01:15.270 --> 01:16.220
+along with it.
+
+01:16.320 --> 01:19.800
+I'm going to place it inside of a new directory in my project folder.
+
+01:20.070 --> 01:26.090
+So in my project folder I'm going to create a new folder called SIRC.
+
+01:26.340 --> 01:31.540
+And I thought here is that I'm going to place all of the code that I write for my application inside
+
+01:31.560 --> 01:33.340
+of this SIRC file.
+
+01:33.360 --> 01:35.010
+It just helps me a folder.
+
+01:35.010 --> 01:40.020
+It just helps create division or you know kind of separate from all the boiler plate they got Jefferey
+
+01:40.020 --> 01:45.690
+with re-act native versus the code that specifically you know we write and we intend to use with our
+
+01:45.690 --> 01:47.000
+application.
+
+01:47.670 --> 01:54.750
+Secondly inside this SIRC folder I want to make a nother folder called components so I'll make another
+
+01:54.750 --> 01:58.950
+folder called components and this is going to make all the different components they're going to use
+
+01:58.950 --> 02:05.720
+inside of our application as we start making more complex applications will have other folders inside
+
+02:05.730 --> 02:08.900
+this SIRC one that have radically different jobs.
+
+02:08.910 --> 02:13.120
+And so that's why I like to make the second one just to say hey specifically in here.
+
+02:13.270 --> 02:14.830
+This is where all my components go.
+
+02:14.970 --> 02:16.080
+That's pretty much it.
+
+02:16.500 --> 02:16.790
+OK.
+
+02:16.800 --> 02:22.260
+So now inside of your last step we'll make a new file to How's our head or component.
+
+02:22.290 --> 02:24.520
+So make a new file called header.
+
+02:24.640 --> 02:27.450
+Yes this is it.
+
+02:27.450 --> 02:29.500
+This is where we're going to make our head or component.
+
+02:29.550 --> 02:34.920
+And the purpose of the center component is just so a nice rectangle with some text inside of it that
+
+02:34.920 --> 02:35.840
+says albums.
+
+02:35.940 --> 02:36.390
+That's it.
+
+02:36.390 --> 02:38.110
+That's all we're trying to accomplish here.
+
+02:38.520 --> 02:44.890
+So to get started we'll kick off with the same three steps that we used inside of index SJS.
+
+02:45.150 --> 02:53.370
+First we will import libraries for making for making a component.
+
+02:53.370 --> 02:55.070
+Then we will make a component
+
+02:59.140 --> 03:06.250
+finally we will make the components available to other parts of the app.
+
+03:06.250 --> 03:09.460
+Notice here that I changed the comment a little bit right.
+
+03:09.640 --> 03:15.460
+Whereas in the index file I said rendered on the screen in the device this time around I'm saying well
+
+03:15.490 --> 03:18.640
+I don't really want to like immediately rendered to the screen the device.
+
+03:18.640 --> 03:23.060
+I just want other parts of the application tool to use this component and reference it.
+
+03:23.050 --> 03:25.030
+And so we'll figure out exactly what I mean by that.
+
+03:25.240 --> 03:27.290
+When we get to step number three here.
+
+03:27.530 --> 03:30.190
+So let's start off with Step number one at the very top.
+
+03:30.190 --> 03:34.580
+We will import some libraries for making a component and.
+
+03:34.840 --> 03:36.540
+Import the same two that we did last time.
+
+03:36.550 --> 03:39.360
+We're going to import react and react native.
+
+03:39.400 --> 03:47.080
+So import re-act from re-act import Riak native from
+
+03:50.160 --> 03:57.760
+react native you'll notice that as slant is Emily unhappy with this because hey we're not actually referencing
+
+03:57.760 --> 03:59.350
+these variables here.
+
+03:59.380 --> 04:00.140
+That's totally fine.
+
+04:00.140 --> 04:02.500
+We all make use of them in just a moment.
+
+04:02.590 --> 04:04.960
+So step number two we need to create our component
+
+04:07.900 --> 04:09.810
+as a rule of thumb when we create that component.
+
+04:09.820 --> 04:14.490
+We will always name it a function that is the same as the file that it's placed in.
+
+04:14.530 --> 04:16.630
+So we're inside of heterogeneous.
+
+04:16.840 --> 04:23.800
+Therefore we're going to create a component called header and we'll make our component which is a federal
+
+04:23.800 --> 04:31.520
+function and then from here we're going to return some amount of GSX to render.
+
+04:31.650 --> 04:36.810
+You'll notice that this time I'm not going to use the parentheses right away that's totally fine.
+
+04:36.870 --> 04:42.190
+I'm going to again kind of vary through styles throughout the entire course on exactly how this looks.
+
+04:42.580 --> 04:43.380
+It's really up to you.
+
+04:43.390 --> 04:45.550
+There's not a super solid convention.
+
+04:45.560 --> 04:47.130
+RC I'd take that back.
+
+04:47.140 --> 04:48.660
+The convention is throughout the community.
+
+04:48.700 --> 04:53.560
+Whenever you've got a single line of GSX you just put the return statement on the same line.
+
+04:53.560 --> 04:57.760
+If you have a multi-line statement of GSX that's when you'll start to use the parentheses.
+
+04:57.760 --> 05:03.220
+So you know I've got kind of obvious a little bit of foresight on exactly how many lines of GSX we're
+
+05:03.220 --> 05:03.640
+going to make.
+
+05:03.640 --> 05:09.940
+So throughout the course I'm going to seemingly randomly either use parentheses and put everything on
+
+05:09.940 --> 05:11.630
+a new line or sometimes i want.
+
+05:11.680 --> 05:13.380
+But you know we'll see.
+
+05:14.290 --> 05:21.040
+So we've got the text like here and then inside the text tab tag will place some amount of text to show
+
+05:21.040 --> 05:21.550
+to the user.
+
+05:21.550 --> 05:24.720
+So I was going to say albums Ray.
+
+05:25.210 --> 05:28.130
+Now immediately I'm using a text tag right here.
+
+05:28.270 --> 05:31.800
+So I'm going to pull the text tag out of the Riak native library.
+
+05:31.810 --> 05:37.630
+So I'm going to delete re-act name at the top and we're going to do a structured import to import the
+
+05:37.630 --> 05:48.400
+text component and Amelio all those errors go away and we're left with just take text albums.
+
+05:48.630 --> 05:54.180
+Finally on to Step Three here we need to make sure this component is available to other areas of the
+
+05:54.180 --> 05:55.290
+application.
+
+05:55.290 --> 06:00.280
+So this is where things you know start to a little bit of interesting back inside the index file.
+
+06:00.300 --> 06:05.250
+We registered this component using the app registry but I'm saying that this time around inside the
+
+06:05.250 --> 06:07.790
+head or I want to do things a little bit differently.
+
+06:07.800 --> 06:13.420
+So let's figure out exactly why that is by looking at a diagram really quick.
+
+06:13.470 --> 06:19.990
+So this is a diagram of our component hierarchy or all the different components we have in our application.
+
+06:20.340 --> 06:25.080
+As I've mentioned several times before a normally react application will have many different components
+
+06:25.110 --> 06:26.490
+created for it.
+
+06:26.490 --> 06:31.730
+Each one a reusable widget that we can make use of in several different locations.
+
+06:31.740 --> 06:38.160
+So when we join all these components together they form a tree of sorts where the very first component
+
+06:38.190 --> 06:42.360
+to be rendered to the screen is what we refer to as the root component.
+
+06:42.600 --> 06:48.540
+So right now because the first component that gets Rem to the screen is the app component we refer to
+
+06:48.540 --> 06:50.570
+it as the root component.
+
+06:50.580 --> 06:53.500
+So the app is the root component.
+
+06:54.360 --> 07:00.480
+Then every other component that the aplan shows is referred to as a child component.
+
+07:00.480 --> 07:06.170
+So pretty soon we're going to tell the app component to show the head or one so we'll refer to the header
+
+07:06.390 --> 07:09.020
+as a child component.
+
+07:09.300 --> 07:14.340
+So coming back around to this whole concept of you know all these important export statements and the
+
+07:14.340 --> 07:16.290
+app registry all that kind of stuff.
+
+07:16.320 --> 07:21.090
+Well basically have the text on here only the root component uses app registry.
+
+07:21.090 --> 07:26.870
+That's the only time we use the average string is for the most top level most parent component.
+
+07:26.910 --> 07:33.330
+It's a component that we want to show first on the device and it's up to that app component to decide
+
+07:33.840 --> 07:40.010
+everything that needs to be displayed to the user for every other component that we create for.
+
+07:40.020 --> 07:45.800
+So for every child's component we create our application instead of registering it with that app registry.
+
+07:46.020 --> 07:49.580
+We export it using yes six syntax.
+
+07:49.920 --> 07:56.370
+So just as we have used import statements at the very top of our file we will also use export statements
+
+07:56.370 --> 08:02.520
+at the bottom export statements you can kind of think of as meaning hey I want to make this components
+
+08:02.790 --> 08:07.050
+hared component usable to other areas of our application as well.
+
+08:07.140 --> 08:10.060
+That's the whole idea behind this export statement.
+
+08:10.080 --> 08:15.030
+So at the bottom we will write exports default header.
+
+08:15.030 --> 08:17.580
+So again this means take that component.
+
+08:17.580 --> 08:21.890
+I want other files within our project to be able to make use of it.
+
+08:22.320 --> 08:27.840
+So let's now continue in the next section and figure out how to make use of an export component

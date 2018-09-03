@@ -1,0 +1,190 @@
+WEBVTT
+
+00:00:01.320 --> 00:00:06.690
+We've now got our Harrod component created and it is being displayed by the app but the styling could
+
+00:00:06.690 --> 00:00:08.320
+still use a lot of work.
+
+00:00:08.460 --> 00:00:14.370
+In particular the headers displaying the network bar on the iOS version the app on the Android version
+
+00:00:14.370 --> 00:00:18.270
+is probably showing in the right spot but we definitely need to fix this up a little bit.
+
+00:00:18.270 --> 00:00:22.750
+So in this section we're going to start by working on styling for our applications specifically the
+
+00:00:22.750 --> 00:00:23.880
+header.
+
+00:00:24.000 --> 00:00:29.130
+Now styling with re-act native I can't tell you right now it's a bit of a touchy subject.
+
+00:00:29.310 --> 00:00:35.640
+If you've worked on web applications with H.C. now and CSSA you might have grabbed some you know bootstrap
+
+00:00:35.640 --> 00:00:41.570
+CSSA file dropped in your project and poof all of a sudden everything looks nice and pretty right.
+
+00:00:41.960 --> 00:00:46.350
+Well unfortunately Riak native doesn't quite have the same tools available.
+
+00:00:46.560 --> 00:00:51.810
+There isn't really a great default package just styling out there that you can just install and suddenly
+
+00:00:51.810 --> 00:00:53.780
+have great looking components.
+
+00:00:53.820 --> 00:00:58.950
+There are one or two open source packages out there that kind of help but there's still a long way from
+
+00:00:58.950 --> 00:01:00.780
+being ready for prime time.
+
+00:01:00.780 --> 00:01:05.980
+So what I'm trying to say here is that Firaaq native We have to do all the styling by ourselves all
+
+00:01:06.010 --> 00:01:10.920
+do it by hand but that's OK because we're going to learn a lot while we're doing it.
+
+00:01:10.950 --> 00:01:16.230
+So just to be clear when I'm saying styling I'm referring to our ability to change what the text and
+
+00:01:16.290 --> 00:01:22.650
+other elements look like on screen like size color placement all that kind of stuff.
+
+00:01:22.740 --> 00:01:28.590
+So rather than creating a separate CSSA file as we might do if were working on a web app we place all
+
+00:01:28.590 --> 00:01:31.550
+of our styles inside of our component file.
+
+00:01:31.620 --> 00:01:36.930
+So inside of the header file I'm going to place some styling that's going to use for this component
+
+00:01:36.930 --> 00:01:38.580
+right here.
+
+00:01:38.590 --> 00:01:45.200
+By convention will usually make a new object underneath our component called styles.
+
+00:01:45.420 --> 00:01:49.900
+And then inside of this object we'll add styling for each individual component.
+
+00:01:50.220 --> 00:01:52.170
+So styling it can.
+
+00:01:52.190 --> 00:01:59.160
+It consists of javascript objects that have certain properties that set the size height color all that
+
+00:01:59.160 --> 00:01:59.670
+kind of stuff.
+
+00:01:59.670 --> 00:02:06.570
+So we have no CSSA a lot of it look like CSSA based rules but you know we're not using like CSSA selectors
+
+00:02:06.570 --> 00:02:07.930
+per se.
+
+00:02:08.790 --> 00:02:14.790
+So the first styling rule that we're going to use is we're going to increase the font size of this text
+
+00:02:14.790 --> 00:02:15.760
+element right here.
+
+00:02:15.930 --> 00:02:22.980
+So I'm going to add in a new property to the styles object called textile and I'm going to say that
+
+00:02:22.980 --> 00:02:29.730
+it should have a font size of 20 so you'll see font size right here and it definitely makes you think
+
+00:02:29.730 --> 00:02:36.570
+of CSSA right because there is a font Dasch size property with CSSA a lot of the same rules are applicable
+
+00:02:36.570 --> 00:02:37.830
+with re-act native.
+
+00:02:37.830 --> 00:02:45.390
+They just all use camel case instead of Dasch casings so you know take note this is not font Dasch size
+
+00:02:45.750 --> 00:02:47.810
+it is font capital S size like.
+
+00:02:47.830 --> 00:02:57.390
+So once I add in the style I will use it inside of my component like so again by convention rather than
+
+00:02:57.390 --> 00:03:02.820
+just saying like you know styles that textile directly will use what's called destructuring to reference
+
+00:03:02.820 --> 00:03:03.940
+our style.
+
+00:03:03.940 --> 00:03:10.560
+So I'll say Konst text style equals styles.
+
+00:03:10.590 --> 00:03:15.790
+So now textile is equal to this font size object right here.
+
+00:03:16.140 --> 00:03:19.610
+Then for the next step will apply the style to the text tag.
+
+00:03:20.070 --> 00:03:26.520
+We're going to use a little bit of interesting syntax here and we're definitely talking about great
+
+00:03:26.520 --> 00:03:29.350
+length about exactly what this syntax is.
+
+00:03:29.520 --> 00:03:39.360
+But inside of the text tag I'll say style equals and then curly brace text style the syntax that we
+
+00:03:39.360 --> 00:03:44.600
+just use right here is referred to as a prop which is short for properties.
+
+00:03:45.720 --> 00:03:50.790
+We're going to talk about properties or props at great length re-act right now let's just focus on the
+
+00:03:50.850 --> 00:03:52.180
+styling aspect of it.
+
+00:03:52.200 --> 00:03:56.280
+Well you know again we'll come back later and talk about this particular syntax.
+
+00:03:56.290 --> 00:04:00.330
+But right now let's just check out our simulator and see what this looks like.
+
+00:04:00.720 --> 00:04:03.100
+So back to my simulator command our.
+
+00:04:03.450 --> 00:04:04.980
+And hot dog sure enough.
+
+00:04:04.980 --> 00:04:10.850
+We've got a larger albums appearing on the screen if we want to we can dial up the size let's say to
+
+00:04:10.850 --> 00:04:11.600
+100.
+
+00:04:12.010 --> 00:04:15.000
+And OK that's a really big albums album's probably too big.
+
+00:04:15.000 --> 00:04:17.470
+So let's just dial back down to 20.
+
+00:04:18.630 --> 00:04:19.430
+And ok.
+
+00:04:19.470 --> 00:04:20.440
+Good to go.
+
+00:04:20.880 --> 00:04:21.180
+OK.
+
+00:04:21.210 --> 00:04:23.690
+So this is how we do styling react need it.
+
+00:04:23.880 --> 00:04:28.160
+Let's continue on the next section and add on a bunch more rules inside this object.
+
+00:04:28.220 --> 00:04:33.050
+It's going to give our head or components some nicer styling than what we've got right now.

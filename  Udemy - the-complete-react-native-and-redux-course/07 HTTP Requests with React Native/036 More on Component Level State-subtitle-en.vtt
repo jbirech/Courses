@@ -1,0 +1,304 @@
+WEBVTT
+
+00:01.000 --> 00:07.060
+In the last section we introduce this concept of state inside of our components state is the concept
+
+00:07.060 --> 00:11.900
+that we use for updating the data that our components show over time as the user starts to like kind
+
+00:11.900 --> 00:17.460
+of click around or whenever we start to load some data or any type of update to our application.
+
+00:17.460 --> 00:21.830
+At this point we've had a little bit of a discussion about state and written some code around it in
+
+00:21.840 --> 00:27.510
+the section I want to expand more on the idea of state and exactly how our component is now working.
+
+00:27.600 --> 00:31.890
+Now that we've introduced state so let's pull up a diagram.
+
+00:31.950 --> 00:36.220
+So this is an updated connect timeline of what's going on inside the application.
+
+00:36.240 --> 00:38.870
+And I know the text is small.
+
+00:38.880 --> 00:39.790
+Look at this.
+
+00:39.890 --> 00:43.350
+It is going to mingle with some of the sizing real quick.
+
+00:43.350 --> 00:43.630
+All right.
+
+00:43.680 --> 00:45.160
+That's all that were legible.
+
+00:45.650 --> 00:45.900
+OK.
+
+00:45.900 --> 00:47.640
+So again this is the time line.
+
+00:47.880 --> 00:51.270
+We went over this previously but about it in a couple more steps.
+
+00:51.270 --> 00:53.680
+Now that are colored in green.
+
+00:53.840 --> 00:58.320
+So now we can walk through the timeline of our application.
+
+00:58.490 --> 01:05.540
+So again our application boot up app shows to the screen the app renders itself had an album list.
+
+01:05.600 --> 01:13.380
+And now when album list gets created it gets an initial state of albums being an empty array.
+
+01:13.430 --> 01:17.340
+So when the thing first boots up albums is an empty array.
+
+01:18.050 --> 01:21.160
+The album list says OK I'm being rendered technical.
+
+01:21.200 --> 01:22.710
+The phone will mount blah blah blah.
+
+01:22.880 --> 01:29.960
+Makes the HTP request and then it's rendered method is called and it appears on the screen so the list
+
+01:30.200 --> 01:30.800
+is rendering.
+
+01:30.800 --> 01:36.110
+One time when its state is still equal to an empty array.
+
+01:36.320 --> 01:41.420
+And we were able to confirm that because our console log over here in Krome we saw Hey Alban's is an
+
+01:41.420 --> 01:45.190
+empty array and we have placed that console log inside of our render method.
+
+01:45.470 --> 01:51.740
+So clearly the render method is getting called at least one time here before anybody that has been fetched.
+
+01:52.310 --> 02:01.670
+So then some time passes while law and r h t t h t t appear close to the real returns some amount of
+
+02:01.670 --> 02:03.410
+Jason data to our component.
+
+02:03.480 --> 02:05.760
+And so now here's where the magic happens.
+
+02:06.260 --> 02:13.040
+We have a request handler that calls set state and it says hey component here is some new state for
+
+02:13.040 --> 02:13.190
+you.
+
+02:13.190 --> 02:20.740
+Here is the complete entire list of Alban's because we call set state and we update our components state
+
+02:21.410 --> 02:28.610
+the component just album list not the app not the header just album list instantly gets re rendered
+
+02:28.610 --> 02:29.650
+to the screen.
+
+02:29.660 --> 02:36.320
+So the second time the render method is called We now have our list of albums and we were able to confirm
+
+02:36.320 --> 02:37.570
+that with our console log in.
+
+02:37.580 --> 02:40.130
+Here is the list of the five albums.
+
+02:40.550 --> 02:41.760
+So the point here.
+
+02:42.140 --> 02:49.850
+The whole point of this is that now we can write our render method in such a way that it assumes that
+
+02:49.850 --> 02:55.820
+there is some amount of data available as this state done albums and that is how we are going to write
+
+02:55.820 --> 03:01.780
+a component that is going to show a list of data or some amount of data that we fetch asynchronously.
+
+03:01.890 --> 03:11.310
+So when we are using state the concept of state to fetch some data to show to our users so let's do
+
+03:11.400 --> 03:12.870
+a quick review of state.
+
+03:12.900 --> 03:17.580
+And then we will update our component actually you know so some good stuff on the screen.
+
+03:18.000 --> 03:21.030
+So I just one last thing I want to go over some rules of state.
+
+03:21.060 --> 03:27.330
+So first off I've kind of skirted around what the real definition of is for state and I've just been
+
+03:27.330 --> 03:33.000
+saying state state state I can say that all day I guess but it doesn't really make any sense until I
+
+03:33.000 --> 03:34.660
+give you a plain text definition.
+
+03:34.680 --> 03:36.120
+So here we go.
+
+03:36.150 --> 03:43.080
+Definition of state a plain javascript object that is available to class based components only that
+
+03:43.080 --> 03:46.930
+is used to record and respond to user triggered events.
+
+03:46.930 --> 03:53.520
+And so that last part here user triggered events or use kind of kind of lightly kind of freely.
+
+03:53.550 --> 04:00.150
+If you think about it a component loading up kind of is a you know I don't know kind of a user triggering
+
+04:00.150 --> 04:00.710
+event.
+
+04:00.810 --> 04:03.930
+It's something that the user you know they launched the app on their device.
+
+04:03.950 --> 04:05.190
+They you know they triggered it.
+
+04:05.370 --> 04:11.010
+And we now know that the user just requested some amount of data and we now need to show it to them.
+
+04:11.010 --> 04:16.410
+So think about state whenever you want to update your component in some fashion because of a user trigger
+
+04:16.470 --> 04:17.510
+event.
+
+04:18.060 --> 04:23.850
+Now the second rule I want you to be aware of right now is that whenever we need to update what a component
+
+04:23.850 --> 04:29.180
+shows whenever we want to re render in some fashion we are going to call set state.
+
+04:29.370 --> 04:34.270
+That is what we use that state for when we call said state the component instantly renders.
+
+04:34.440 --> 04:38.320
+So whenever we want to update what it shows you got to be thinking state.
+
+04:38.400 --> 04:42.760
+And I'm going to just again and again and again I'm going to be throughout the rest of course I'm saying
+
+04:42.810 --> 04:49.160
+OK you know we need to we need to update the component we need to show something new.
+
+04:49.260 --> 04:50.580
+What should we be using here.
+
+04:50.580 --> 04:55.280
+And then you at home ideally you're going to say oh yes we should be using state.
+
+04:55.320 --> 04:57.740
+And then you know we're going to stay around me really happy.
+
+04:57.810 --> 05:05.010
+So I'm going to keep doing that throughout the course next last rule talked about we only change our
+
+05:05.010 --> 05:05.450
+state.
+
+05:05.490 --> 05:09.350
+We only make updates to it with the method set state.
+
+05:09.510 --> 05:14.050
+We do not do this dot state and I guess I'd kind of dropped my thought there.
+
+05:14.100 --> 05:16.070
+Oh no it's on there.
+
+05:16.230 --> 05:16.950
+It's just not showing up.
+
+05:16.950 --> 05:18.430
+We do not do something like this.
+
+05:18.510 --> 05:20.080
+State equals 1 2 3.
+
+05:20.100 --> 05:22.500
+Can we never modify a property directly.
+
+05:22.500 --> 05:26.930
+We always call set state whenever we want to update our community.
+
+05:27.590 --> 05:33.480
+OK let's say here that I did not actually put on this slide is the difference between state and prop's
+
+05:33.490 --> 05:38.070
+this is something that people really get messed up or kind of confused over time the difference between
+
+05:38.070 --> 05:40.390
+the prop system and the state system.
+
+05:40.410 --> 05:44.400
+So I'm going to give you a lot of guidance as we go through the course of that which you don't want
+
+05:44.400 --> 05:44.980
+to use.
+
+05:45.090 --> 05:51.330
+But let me just say right now to give you a general rule of thumb whenever we want to communicate from
+
+05:51.330 --> 05:55.700
+a parent component to a child component we use props.
+
+05:55.770 --> 05:56.130
+OK.
+
+05:56.190 --> 06:00.880
+So props is for parent to child communication States.
+
+06:00.900 --> 06:06.290
+On the other hand is for four components internal recordkeeping that is the purpose of state.
+
+06:06.300 --> 06:12.100
+We use state whenever we want to update some amount of data over time whenever we pass component or
+
+06:12.100 --> 06:14.210
+tease me data from a parent or child.
+
+06:14.310 --> 06:17.440
+Then in this process that is the difference between the two.
+
+06:17.490 --> 06:22.950
+And again I will point out just a ton.
+
+06:23.100 --> 06:26.950
+You know when we should be using one of the other are.
+
+06:27.090 --> 06:32.880
+So that is just a ton of lecturing a ton of lecturing about state.
+
+06:32.910 --> 06:38.610
+I think we're in a pretty good spot now with state and fetching data all that kind of good stuff.
+
+06:38.610 --> 06:43.800
+So let's continue in the next section and we are going to work on making some nice looking albums to
+
+06:43.800 --> 06:44.710
+show the user.
+
+06:44.710 --> 06:47.270
+My second album components to show the user.
+
+06:47.480 --> 06:52.980
+So let's continue in the next section by making use of this new albums data that we've now fetched

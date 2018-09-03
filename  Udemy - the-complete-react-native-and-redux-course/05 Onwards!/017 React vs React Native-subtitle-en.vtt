@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00.950 --> 00:06.690
+And the last section we started writing out our first component and hit early stumbling block with just
+
+00:06.690 --> 00:12.780
+the first two lines of code here we are referencing two separate libraries and we're also doing so with
+
+00:12.870 --> 00:18.990
+this strange import syntax and this video we're going to discuss the differences between react and react
+
+00:19.020 --> 00:24.930
+native And we're also going to review the import syntax that we are using to pull a library into this
+
+00:24.930 --> 00:26.310
+file with.
+
+00:26.580 --> 00:32.820
+So I'm going to pull up a diagram the first of many many diagrams that are going to be looking at to
+
+00:32.880 --> 00:37.980
+figure out what the difference between the react and then react need of libraries are when we work with
+
+00:37.980 --> 00:44.130
+the re-act native application we are interfacing with two separate distinct libraries authored by the
+
+00:44.130 --> 00:49.560
+re-act team re-act natives and react again to separate libraries.
+
+00:49.560 --> 00:56.820
+Each has its own distinct job re-act library contains a bunch of code that describes how a component
+
+00:56.820 --> 01:03.600
+should behave such as what functions it should have and also knows how to deal with a big pile of components
+
+01:03.600 --> 01:06.990
+like you know how to take a bunch of components and make them work together.
+
+01:07.320 --> 01:12.160
+Like I said earlier we're going to end up making apps with a dozen different components.
+
+01:12.360 --> 01:17.760
+And something needs to know how to take all these different things and make them work together.
+
+01:17.790 --> 01:20.860
+That is the job of the re-act library.
+
+01:21.060 --> 01:26.910
+On the other hand re-act native can be thought of as our portal to the mobile device like the thing
+
+01:26.910 --> 01:32.490
+that we can use to get a handle on the mobile device that we're running on it knows how to take output
+
+01:32.490 --> 01:38.820
+from a component and make it appear on a mobile device Riak native also provides us with a couple of
+
+01:39.030 --> 01:44.720
+primitive components that we can use to show simple text or simple images.
+
+01:45.330 --> 01:49.950
+Right now we're not going to sweat the differences between react and react native to much.
+
+01:50.040 --> 01:54.450
+I'll be getting a lot of direction on which one of these We're going to be using at any point in time.
+
+01:54.660 --> 01:59.140
+And soon you'll know which one to refer to you like second nature.
+
+01:59.180 --> 02:05.400
+The next thing I want to talk about is a quicker view of import statements import statements like the
+
+02:05.400 --> 02:12.480
+two we have here are part of 6 and you might recall that yes six is a new version of javascript with
+
+02:12.480 --> 02:14.100
+E-6 code that we write.
+
+02:14.220 --> 02:20.850
+Each file can be thought of as having its own little separate compartment or cell by default.
+
+02:21.270 --> 02:28.260
+No file gets access to any global variables or anything like that only by importing libraries into a
+
+02:28.260 --> 02:28.740
+file.
+
+02:28.740 --> 02:35.430
+Can we reach out to other files and work with code that exists elsewhere in our project.
+
+02:35.430 --> 02:39.720
+So with that in mind the two import statements that we have right here start to make a little bit more
+
+02:39.720 --> 02:40.810
+sense.
+
+02:40.860 --> 02:47.040
+This file that we're working on has no access to like intrinsically any variables within our project
+
+02:47.040 --> 02:52.840
+whatsoever any outside code that we want to work with inside this file must be imported.
+
+02:52.840 --> 02:58.680
+And so we added one import statement to import the reactor library and the second one to import the
+
+02:58.680 --> 03:00.650
+re-act native library.
+
+03:01.410 --> 03:01.770
+OK.
+
+03:01.800 --> 03:05.290
+So that is I know a lot of discussion for two simple lines of code.
+
+03:05.460 --> 03:10.770
+Let's continue to the next section and work on our next step which will need to create our component

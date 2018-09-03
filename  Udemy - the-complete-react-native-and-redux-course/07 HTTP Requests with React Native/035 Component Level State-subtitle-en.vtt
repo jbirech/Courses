@@ -1,0 +1,364 @@
+WEBVTT
+
+00:01.230 --> 00:06.240
+In the last section we successfully fetched album data from our API but we realized that there is a
+
+00:06.240 --> 00:12.600
+big fundamental flaw in the timeline of our app related to the order in which we fetch data and show
+
+00:12.600 --> 00:17.850
+content on screen by the time our data has been fetched all of our components have already appeared
+
+00:17.850 --> 00:23.990
+on the screen which is keeping us from having any opportunity to show the data that we just fetched.
+
+00:24.000 --> 00:27.000
+So it's an order of operations problem.
+
+00:27.030 --> 00:30.690
+This section we'll figure out the best way for dealing with this issue.
+
+00:30.780 --> 00:38.100
+That technique we'll use to solve this timeline issue is called component state state is how re-act
+
+00:38.130 --> 00:41.370
+handles changing the content that is shown on the screen.
+
+00:41.370 --> 00:46.630
+So let's look at a practical example of how this works.
+
+00:46.650 --> 00:51.570
+This diagram shows the two possible states of our album list component.
+
+00:51.810 --> 00:58.230
+It either has an empty list of albums so we get no no albums or show on the screen whatsoever and we
+
+00:58.230 --> 01:02.780
+haven't fetched our data yet or we have some list of albums to show on the screen.
+
+01:02.790 --> 01:07.960
+So maybe like an array of objects where each album has like a name or something like that.
+
+01:08.280 --> 01:12.600
+The event that separates these two different states is fetching our data.
+
+01:12.630 --> 01:20.190
+So we either have data or we do not in theory when we have not fetched our data we have kind of like
+
+01:20.250 --> 01:23.870
+an empty state or a lack of any albums.
+
+01:24.450 --> 01:27.110
+So this is just a little bit of the theory behind the term States.
+
+01:27.120 --> 01:33.350
+Let's pivot a little bit now and talk about how a state works with react with re-act components will
+
+01:33.390 --> 01:35.900
+have the same type of migration of state.
+
+01:35.910 --> 01:41.970
+We will have this kind of empty list of albums and we will have a full list of albums to different possible
+
+01:41.970 --> 01:48.810
+states that our component will be in in re-act any time that we change the state of our component our
+
+01:48.810 --> 01:54.660
+component will automatically render itself to the mobile devices screen which is exactly the behavior
+
+01:54.660 --> 01:56.400
+we are looking for.
+
+01:56.430 --> 02:02.730
+So we are going to in this section walk through the process of enabling what is called component level
+
+02:02.740 --> 02:05.850
+state inside of our album list component.
+
+02:05.850 --> 02:11.260
+And the goal here is that we are going to use component level state to tell component.
+
+02:11.280 --> 02:13.320
+Hey I just fetch a list of albums.
+
+02:13.470 --> 02:14.280
+Here they are.
+
+02:14.280 --> 02:17.950
+You need to rebrand yourself with this new list of data.
+
+02:18.410 --> 02:18.740
+OK.
+
+02:18.780 --> 02:21.600
+So fixing up our component it's going to take three steps.
+
+02:21.600 --> 02:22.770
+Exactly three.
+
+02:22.770 --> 02:28.530
+First we are going to set some default or initial state for our component.
+
+02:28.530 --> 02:33.970
+Second when we fetch our data we are going to tell our component state to update.
+
+02:34.020 --> 02:38.680
+And finally we will make sure that our component makes use of the state.
+
+02:38.700 --> 02:44.010
+So it actually says like oh I've got this chemistry thing I'm going to tweak my render method to make
+
+02:44.010 --> 02:51.030
+sure that I consume or make use of that state just to make sure that I'm really clear here when I use
+
+02:51.030 --> 02:51.990
+this word state.
+
+02:51.990 --> 02:58.100
+This is an actual system that is built in to react so does not dislike arbitrary or random word.
+
+02:58.170 --> 03:03.570
+The components base of a class here has a bunch of functionality built into it that handles dealing
+
+03:03.570 --> 03:06.510
+with this kind of state system that I'm referring to.
+
+03:07.060 --> 03:07.300
+OK.
+
+03:07.350 --> 03:09.180
+So three steps here.
+
+03:09.210 --> 03:15.720
+Let's start with the first setting up some default or missile state for our component to set up some
+
+03:15.810 --> 03:17.130
+default state.
+
+03:17.130 --> 03:22.490
+We are going to add what is called a class level a property a class property looks like this.
+
+03:22.500 --> 03:27.400
+We say just state equals empty object.
+
+03:27.930 --> 03:30.050
+In the past I know how.
+
+03:30.140 --> 03:35.460
+Let me take a quick aside here and say that this state declaration I just added with re-act has gone
+
+03:35.460 --> 03:40.920
+through a lot of different iterations iterations on exactly how you declare a state or initialize it.
+
+03:40.920 --> 03:45.690
+So you might be used to seeing other tutorials where it uses a constructor or other tutorials where
+
+03:45.690 --> 03:47.920
+it uses a method called good initial state.
+
+03:48.030 --> 03:50.070
+They're all doing essentially the same thing.
+
+03:50.070 --> 03:56.210
+They're just saying hey this component when it gets created has some initial empty state or some like
+
+03:56.250 --> 04:01.060
+initial Baystate whenever a component is created.
+
+04:01.080 --> 04:07.170
+It will now have a property called this dot state and it will be set to an empty object and we refer
+
+04:07.170 --> 04:10.490
+to this as our initial or empty state.
+
+04:10.560 --> 04:15.060
+So by default we're saying that inside or component are a kind of like you know in the context of our
+
+04:15.060 --> 04:20.070
+component we're going to have an empty list of albums when we first render a component.
+
+04:20.070 --> 04:26.440
+So I'm going to say that I have eight albums peace of state and it should start off as an empty list.
+
+04:26.490 --> 04:30.990
+So inside of my state object and say albums is an empty threat.
+
+04:31.380 --> 04:37.560
+So I've now got an albums piece of state and it's an empty array to start off.
+
+04:37.560 --> 04:43.020
+So when our component first renders it will have access to a variable that we can make reference to
+
+04:43.020 --> 04:47.330
+inside of render right here as this stayed on albums.
+
+04:47.370 --> 04:49.360
+And that's can return an empty array.
+
+04:49.770 --> 04:49.990
+OK.
+
+04:50.000 --> 04:51.420
+So that's it for Step number one.
+
+04:51.420 --> 04:56.820
+We now have set up some reasonable default or kind of like initial state for a component.
+
+04:56.820 --> 05:02.880
+Now for Step number two step number two we need to make sure that after we fed store data we take that
+
+05:02.880 --> 05:06.670
+state and we update our components state.
+
+05:06.780 --> 05:10.400
+So this step here is going to be just a little bit tricky.
+
+05:10.410 --> 05:10.880
+All right.
+
+05:10.920 --> 05:14.490
+Just a little bit tricky but we're going to write out the syntax for we're going right out the code
+
+05:14.760 --> 05:17.510
+and then we'll talk about exactly what's going on with it.
+
+05:17.520 --> 05:24.120
+So after I fetch my list of albums which is right in here this callback function right here I'm going
+
+05:24.120 --> 05:31.270
+to delete the console log and I'm going to instead replace it with this dot set States.
+
+05:31.430 --> 05:39.560
+I mean passing an object with the key of albums and a value of response data.
+
+05:40.260 --> 05:46.320
+So first things first remember that when we looked at that request in Chrome we looked at the console
+
+05:46.320 --> 05:51.670
+log the list of albums was available on the response as response to our data.
+
+05:51.720 --> 05:55.320
+So that's exact That is why I'm using response to our data right here.
+
+05:55.320 --> 05:59.990
+Second off we are passing an object to this function set state.
+
+06:00.150 --> 06:07.320
+We are passing an object of albums pointing out the partial list of albums because I am updating my
+
+06:07.320 --> 06:09.360
+albums piece of state.
+
+06:09.360 --> 06:16.200
+So after I fetch my list of albums I'm no longer to have this state albums equal to an empty array.
+
+06:16.260 --> 06:21.750
+I'm going to have this state albums equal to an array full of objects.
+
+06:21.750 --> 06:28.740
+Finally you'll notice that I used a function here called this dot set state so set state is a function
+
+06:28.830 --> 06:32.840
+that is automatically implemented for us by this component base class.
+
+06:32.940 --> 06:35.400
+So we're not going to define set state.
+
+06:35.400 --> 06:36.780
+We don't have to do anything like that.
+
+06:36.780 --> 06:42.090
+It's just a function that already exists inside of any of our class based components.
+
+06:42.090 --> 06:47.910
+The purpose of said State is to update our component state and say hey here is some new data for the
+
+06:47.910 --> 06:53.130
+component we now need to read render this component with this new data that we have.
+
+06:53.130 --> 06:56.070
+That's the entire purpose of set state right here.
+
+06:56.670 --> 07:01.710
+One thing that I want to point out to you in particular is that using this set state method right here
+
+07:01.770 --> 07:04.930
+is the only way in which we update our components state.
+
+07:04.980 --> 07:16.330
+We will never ever say something like this Staat state equals albums blah blah you know whatever else.
+
+07:16.410 --> 07:20.080
+We never ever say this but state equals anything.
+
+07:20.190 --> 07:25.800
+We always modify or update our state by using this Dot said state and we'll talk about why that the
+
+07:25.800 --> 07:31.830
+case of that is in the future and a little bit you will notice that we do kind of break that rule up
+
+07:31.830 --> 07:34.700
+here where we say state equals blah blah.
+
+07:34.710 --> 07:38.680
+The difference here is that this is for initializing not for modification.
+
+07:38.730 --> 07:43.550
+So this is like the one time in which we do say state equals something something.
+
+07:44.460 --> 07:51.240
+OK so the member the entire point of this is that we are using component level state to get access to
+
+07:51.240 --> 07:56.080
+that list of albums and pre-rendered our component whenever we have successfully fetched them.
+
+07:56.130 --> 08:00.780
+So I just cannot see what the result of adding the state code is to just going to figure out what's
+
+08:00.780 --> 08:03.020
+going on here inside my render method.
+
+08:03.020 --> 08:11.030
+I'm going to add in a console log of this state so I'm not going to say I've been lecturing long enough.
+
+08:11.040 --> 08:16.170
+I'm not going to say anything else let's just say I'm going to shut up entirely if I can.
+
+08:16.380 --> 08:17.230
+I will try.
+
+08:17.640 --> 08:19.430
+Let's flip over a simulator.
+
+08:19.470 --> 08:21.730
+We'll do our refresh and let's just let's see what happens.
+
+08:21.870 --> 08:23.040
+Let's just see what happens.
+
+08:24.440 --> 08:28.580
+So flip over to Crome wait for the consulate to pick up.
+
+08:28.640 --> 08:29.020
+OK.
+
+08:29.060 --> 08:31.120
+So here's my two logs.
+
+08:31.250 --> 08:37.400
+I've got a console log of albums pointing at an empty array and then I've got a console log of albums
+
+08:37.970 --> 08:40.680
+with five albums in this list right here.
+
+08:40.710 --> 08:44.350
+So all right this looks interesting.
+
+08:44.360 --> 08:47.930
+This means that our render method is occurring twice or is it.
+
+08:48.050 --> 08:51.920
+Excuse me it's running twice which is definitely towards what we're getting at.
+
+08:52.190 --> 08:56.490
+Let's take a quick break and review exactly what's going on here.

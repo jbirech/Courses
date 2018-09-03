@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00:00.610 --> 00:00:05.760
+In the last section we placed some styling inside of our head or component I want a glance back at our
+
+00:00:05.760 --> 00:00:10.530
+mock up real quick and I just want to point out the intent here is that our text should be centered
+
+00:00:10.860 --> 00:00:15.870
+within this larger rectangle thing right here and definitely the intent with this larger rectangle is
+
+00:00:15.870 --> 00:00:19.680
+that we should have a border on the bottom just to make sure that it's clear that hey you know this
+
+00:00:19.680 --> 00:00:21.810
+is the header section right here.
+
+00:00:22.020 --> 00:00:28.320
+So we need some mechanism some nice way to make sure that we can censor the text on here and also make
+
+00:00:28.320 --> 00:00:32.410
+sure that we've got this kind a nice border on the bottom.
+
+00:00:32.910 --> 00:00:39.630
+So you know flip back over to our code so that text tag that we're using right now is just about showing
+
+00:00:39.630 --> 00:00:46.050
+text and it doesn't really have a lot of leverage for kind of positioning itself about the screen whenever
+
+00:00:46.050 --> 00:00:50.890
+we want to move elements around on the screen or kind of center it as we just saw.
+
+00:00:51.000 --> 00:00:57.180
+We're going to use a different tag called The View tag will import the view tag from the re-act native
+
+00:00:57.180 --> 00:00:58.760
+library as well.
+
+00:00:59.040 --> 00:01:04.470
+The view tag is another kind of primitive element that we can use to position elements or wrap certain
+
+00:01:04.470 --> 00:01:08.090
+elements and style elements inside of our application.
+
+00:01:08.430 --> 00:01:14.310
+So let's check out a diagram or a quick Riego.
+
+00:01:14.750 --> 00:01:18.460
+So this is kind of a representation of how we're going to use that view tag.
+
+00:01:18.740 --> 00:01:24.530
+We're going to use the view to kind of use up all this extra space and we're going to give it a set
+
+00:01:24.530 --> 00:01:30.500
+height more than what the text tag takes up by itself and inside of The View is going to be the text
+
+00:01:30.500 --> 00:01:30.860
+tag.
+
+00:01:30.890 --> 00:01:37.250
+So we're going to wrap the text tag with a view so let's fix up our GSX to reflect that.
+
+00:01:38.660 --> 00:01:42.770
+Remember GSX for the most part the Hayes just like HCM.
+
+00:01:43.130 --> 00:01:50.050
+So because this is now going to be a multi line GSX statement I'm going to add in my parentheses like
+
+00:01:50.060 --> 00:01:56.810
+so make sure that you did not leave the semi-colon at the end of the text tag over here and then next
+
+00:01:57.100 --> 00:02:06.870
+will wrap the text tag with a view so now are showing a view and inside of it is our text.
+
+00:02:07.190 --> 00:02:11.870
+So you can think of this view tag as being really a utility knife of sorts as it fills many different
+
+00:02:11.870 --> 00:02:12.810
+roles.
+
+00:02:12.890 --> 00:02:17.570
+In this case we're wrapping our text with a new tag to make positioning easier.
+
+00:02:17.720 --> 00:02:23.210
+We'll set a height on that tag which will function as kind of more like the wrapping box of sorts and
+
+00:02:23.210 --> 00:02:25.980
+position that text tag within it.
+
+00:02:26.860 --> 00:02:27.400
+OK.
+
+00:02:27.560 --> 00:02:32.300
+So now that we've got our multi-line GSX tag here let's add in some additional styling.
+
+00:02:32.470 --> 00:02:39.200
+So you style this view tag inside of the styles object at the bottom allowed on another object property
+
+00:02:39.710 --> 00:02:42.020
+called view style.
+
+00:02:42.530 --> 00:02:47.360
+And then inside of here will be some additional number of rules to styles specifically just the view
+
+00:02:47.360 --> 00:02:48.270
+tag.
+
+00:02:48.710 --> 00:02:52.970
+First we'll make sure that everything works by just setting up a background color.
+
+00:02:53.240 --> 00:02:59.240
+So set a background color with the you know you might guess background color property and when it pass
+
+00:02:59.240 --> 00:03:02.610
+it a color F-8 F-8 F-8.
+
+00:03:02.660 --> 00:03:07.520
+This is hexadecimal right here it's going to appear as kind of like in a neutral egg white sort of color
+
+00:03:09.110 --> 00:03:09.900
+in general.
+
+00:03:09.960 --> 00:03:14.300
+You know again all the CSSA properties are all the style properties I should say tend to map up to the
+
+00:03:14.300 --> 00:03:16.060
+CSSA equivalents.
+
+00:03:16.100 --> 00:03:21.020
+You can check out the reality of documentation to figure out all the different styling properties throughout
+
+00:03:21.020 --> 00:03:21.650
+the course.
+
+00:03:21.650 --> 00:03:26.850
+I'll be throwing just a ton of different properties on here so you can either go check out the documentation
+
+00:03:26.850 --> 00:03:30.770
+to figure out all the different properties or you can just stick around here and will definitely be
+
+00:03:30.770 --> 00:03:33.540
+using a whole bunch of them over time.
+
+00:03:33.650 --> 00:03:41.510
+So next now that we've defined the view style we will define it inside of our component as well as say
+
+00:03:41.510 --> 00:03:47.900
+View style and then we'll use it on the View tag and we'll define it just the same way as we did earlier
+
+00:03:47.950 --> 00:03:50.590
+by passing in this style of Propp.
+
+00:03:50.720 --> 00:03:54.900
+So I'll say style is use style.
+
+00:03:55.490 --> 00:03:59.940
+Again you might be curious why we don't just say you know style doesn't use style and style.
+
+00:03:59.990 --> 00:04:01.180
+Textile right here.
+
+00:04:01.400 --> 00:04:07.820
+The thought process is that by using destructuring we just remove duplicate references to this styles
+
+00:04:07.820 --> 00:04:12.560
+object so totally up to you if you don't like doing the destructuring ahead of time.
+
+00:04:12.620 --> 00:04:14.120
+You I'm not going to cheat on that.
+
+00:04:14.120 --> 00:04:18.220
+You could just as easily say styles dot style.
+
+00:04:18.350 --> 00:04:18.580
+All right.
+
+00:04:18.590 --> 00:04:23.870
+So let's again refresh our simulator and make sure that the color is being applied properly.
+
+00:04:24.280 --> 00:04:24.570
+OK.
+
+00:04:24.590 --> 00:04:28.430
+So it's very subtle and it probably doesn't even show up on the video.
+
+00:04:28.490 --> 00:04:33.260
+But the there's definitely kind of like again kind of a subtle off white coloring to our head or right
+
+00:04:33.260 --> 00:04:38.670
+here being applied by that background color that we applied as the view style.
+
+00:04:39.080 --> 00:04:41.000
+So definitely good for a start.
+
+00:04:41.090 --> 00:04:47.390
+Let's continue on the next section and use this view tag to start positioning our text in the nice center
+
+00:04:47.390 --> 00:04:49.530
+middle of the header area.
+
+00:04:49.640 --> 00:04:51.830
+So let's continue that in the next section.
