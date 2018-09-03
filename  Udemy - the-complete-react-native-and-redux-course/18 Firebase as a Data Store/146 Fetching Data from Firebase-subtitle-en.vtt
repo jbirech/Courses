@@ -1,0 +1,334 @@
+WEBVTT
+
+00:00.840 --> 00:06.090
+Now that we are saving some number of employees to firebase we can start to ramp up our employee list
+
+00:06.090 --> 00:11.010
+component and make sure that they can actually display a list of employees to our users.
+
+00:11.160 --> 00:13.560
+So we'll open up our employee lists component.
+
+00:13.560 --> 00:18.300
+Right now it's just got some scaffolding in here just something to show the hard coded employee list
+
+00:18.330 --> 00:19.890
+text over and over again.
+
+00:20.100 --> 00:24.150
+So we're going to want to freshen up this component a little bit to show a list of employees to the
+
+00:24.150 --> 00:25.890
+user.
+
+00:25.890 --> 00:30.690
+The other thing you have to think about is we have to somehow load our list of employees right like
+
+00:30.690 --> 00:33.040
+we're not actually loading any employees right now.
+
+00:33.310 --> 00:36.400
+We can create them but we can't actually fetch them just yet.
+
+00:36.660 --> 00:42.180
+So maybe the best place to start would be to figure out a way to fetch the list of employees make sure
+
+00:42.180 --> 00:46.640
+we can actually fetch them you know get them in our application state and then work on employee list
+
+00:46.640 --> 00:51.420
+a little bit more to make sure that it shows nicely formatted and nice looking list.
+
+00:51.420 --> 00:52.930
+So I think that'll be our plan of action.
+
+00:52.940 --> 01:01.020
+We will first make an action creator to fetch our list of employees we will add a new producer to store
+
+01:01.020 --> 01:05.550
+that list of employees and we'll come back to employee list and make sure that we can actually render
+
+01:05.550 --> 01:07.420
+that list of employees.
+
+01:07.440 --> 01:09.060
+So that's me our plan.
+
+01:09.060 --> 01:12.520
+Let's get started first with our action creator.
+
+01:12.540 --> 01:19.020
+We're going to add the action creator for fetching the list of employees into employee auctions because
+
+01:19.020 --> 01:23.660
+this is our file that has to do with everything related to working with employees.
+
+01:24.000 --> 01:34.690
+So we'll create a new action create in here call it employees fetch us that now there you go so inside
+
+01:34.690 --> 01:40.930
+of here we need to somehow reach out to firebase grab our list of employees and you know just fetch
+
+01:40.930 --> 01:42.570
+them dispatch in action.
+
+01:42.580 --> 01:47.980
+This is again going to be an asynchronous action because we have to make some type of request to fetch
+
+01:47.980 --> 01:48.830
+our data.
+
+01:48.850 --> 01:52.410
+That means that we'll definitely want to be using redux down here as well.
+
+01:52.720 --> 01:59.830
+So inside of our action creator we will return a fat arrow function that gets called with the dispatch
+
+01:59.830 --> 02:02.980
+method.
+
+02:03.000 --> 02:04.740
+Now here comes the fun part again.
+
+02:04.750 --> 02:07.020
+Remember how we work with our firebase data.
+
+02:07.050 --> 02:14.520
+We create a ref to a very particular spot in our Jaison database just like we did up here inside of
+
+02:14.520 --> 02:17.910
+the employee create method by creating a ref.
+
+02:17.910 --> 02:21.340
+We can then work with the data located at that path.
+
+02:21.810 --> 02:29.610
+So we are currently saving all of our employees to users slash current user id slash employees.
+
+02:29.850 --> 02:35.400
+That means we can make another reference to the same location but this time tell firebase that we want
+
+02:35.400 --> 02:40.450
+to fetch data from that location rather than pushing a new record in there.
+
+02:41.190 --> 02:47.100
+So inside of our employees fetch method were going to create the same ref again fire based database
+
+02:48.120 --> 02:51.510
+ref and then we're going to use string interpolation again.
+
+02:51.510 --> 02:54.100
+So I'm going to use back ticks again.
+
+02:54.210 --> 03:01.630
+Users current user id employees.
+
+03:02.390 --> 03:04.900
+Now we do need access to the current user.
+
+03:05.330 --> 03:12.380
+So we will get access to the current user again with Oops I keep on hit that caps lock will pull the
+
+03:12.380 --> 03:17.580
+current user property off of firebase start off.
+
+03:17.730 --> 03:23.190
+So now current user is the user who is currently logged into our application.
+
+03:23.200 --> 03:29.420
+Now we have a ref to this location inside of firebase but this time around we want to fetch data out
+
+03:29.420 --> 03:36.430
+of here we want to pull some amount of data so fetching the data at a syntax doesn't look maybe doesn't
+
+03:36.470 --> 03:38.130
+quite look like what you would expect.
+
+03:38.150 --> 03:39.900
+OK it's a little bit strange.
+
+03:39.920 --> 03:48.020
+Let's go through it nice and slow though on my firebase Raphe I'm going to chain on a dot on a past
+
+03:48.020 --> 03:54.920
+and the first argument of value and then a second argument of a snap shot like so and then that's going
+
+03:54.920 --> 03:56.930
+to be a factor function.
+
+03:56.960 --> 04:01.820
+So the federal function is going to be called with this snapshot object right here.
+
+04:02.060 --> 04:05.720
+You can read this entire statement right here is saying something like.
+
+04:05.960 --> 04:10.850
+Any time any data comes across from this ref or this bucket of data.
+
+04:10.850 --> 04:18.350
+So any time we get any value any data call this function right here this federal function with an object
+
+04:18.620 --> 04:20.960
+to describe the data that's sitting in there.
+
+04:21.020 --> 04:23.030
+And that's the snapshot right thing.
+
+04:23.030 --> 04:26.470
+So the snapshot variable here it's a little bit misleading.
+
+04:26.510 --> 04:32.330
+You might expect this to be like an array of all the different employees that we have inside our application
+
+04:32.780 --> 04:37.280
+but it is an object that describes what data is in there.
+
+04:37.550 --> 04:44.310
+So it is not the array of employees that is an object that we can use to get a handle on those employees.
+
+04:45.200 --> 04:46.620
+Let's see how we actually use it.
+
+04:46.760 --> 04:54.200
+So whenever we get some amount of new data from this ref right here we will dispatch an action.
+
+04:54.530 --> 05:04.950
+We'll give it a type of employees fetch success and a payload of snapshot value.
+
+05:05.340 --> 05:07.870
+So this snapshot right here this is the magic.
+
+05:07.890 --> 05:12.420
+This is how we actually get access to the data that is out this ref right here.
+
+05:12.420 --> 05:15.560
+So again snapshot is not the actual data.
+
+05:15.570 --> 05:19.920
+It is an object that describes the data that we could get access to.
+
+05:19.920 --> 05:25.460
+So if you want to get the actual employees that are located there we have to call snapshot Val.
+
+05:25.680 --> 05:32.250
+Little little bit misleading I think doesn't quite follow a lot of you know trends of other libraries.
+
+05:32.370 --> 05:37.440
+But the reasoning behind using snapshot right here is that it gives you a lot of other fantastic data.
+
+05:37.440 --> 05:42.630
+Kind of like middle level data about what Jaison is sitting at that point right there.
+
+05:43.650 --> 05:44.080
+All right.
+
+05:44.160 --> 05:46.900
+So we are now creating RF.
+
+05:46.990 --> 05:52.870
+Any time we get any data from this thing we're going to dispatch a type in action.
+
+05:52.920 --> 05:58.620
+One thing that I want to point out right here is that this on value action creator it is persistent
+
+05:58.680 --> 05:59.540
+so to speak.
+
+05:59.760 --> 06:07.200
+So if we call employees fetch one time just like one time it will immediately start up this event handler
+
+06:07.200 --> 06:07.880
+right here.
+
+06:07.980 --> 06:13.580
+And for the life of the rest of our application it will call this federal function.
+
+06:13.620 --> 06:16.030
+Any time any new data comes across.
+
+06:16.200 --> 06:20.880
+So this is kind of where firebase and redux they kind of work together pretty well because we can just
+
+06:20.880 --> 06:25.220
+set up this thing right here to watch for some amount of new data.
+
+06:25.350 --> 06:31.500
+And then at any point in our applications lifecycle any time that there's any new value that comes across
+
+06:31.920 --> 06:38.160
+we will immediately automatically I should say we will automatically dispatch an action of type employees
+
+06:38.160 --> 06:43.350
+fetch success with the new data in there and so skinny really valuable for that employee.
+
+06:43.380 --> 06:49.170
+Going from employee create back to employee list because when we call employee create we make the new
+
+06:49.170 --> 06:53.970
+employee firebase will automatically detect that we added a new employee.
+
+06:54.110 --> 06:59.700
+It will dispatch an action automatically and our data will instantly show up inside the employee list
+
+06:59.700 --> 07:01.670
+without us actually having to do anything.
+
+07:01.680 --> 07:04.390
+So pretty nice in that regard.
+
+07:04.400 --> 07:09.690
+Now the last thing we have to do is make sure that we create this typewrite your employees fetch success.
+
+07:09.690 --> 07:16.840
+So at the very top we will add on the new type employee such success
+
+07:19.670 --> 07:20.830
+and a guinea.
+
+07:20.870 --> 07:21.150
+There.
+
+07:21.180 --> 07:22.820
+I must have a typo.
+
+07:22.970 --> 07:25.460
+Employees that success.
+
+07:25.820 --> 07:28.160
+This is a little bit annoying here.
+
+07:28.160 --> 07:30.700
+I've got employee Cingular and other locations.
+
+07:30.710 --> 07:32.820
+But in this location here I've got employees.
+
+07:33.050 --> 07:33.970
+It's a little bit misleading.
+
+07:33.980 --> 07:39.680
+But we are fetching multiple employees so I'm going to stick with employees plural like so just make
+
+07:39.680 --> 07:45.620
+sure whatever you go with just make sure that you are have the same type either employee or employees
+
+07:46.250 --> 07:48.650
+in both locations.
+
+07:48.840 --> 07:50.080
+And don't forget we actually help out.
+
+07:50.220 --> 07:52.630
+We also have to add this to our type file.
+
+07:52.940 --> 08:00.410
+So let us open up the type file export Konst employees fetch success
+
+08:05.960 --> 08:06.850
+looks good.
+
+08:06.920 --> 08:12.530
+Let's continue in the next section where we are going to create a new reducer that's going to catch
+
+08:12.620 --> 08:15.800
+this action right here of employees fetch success

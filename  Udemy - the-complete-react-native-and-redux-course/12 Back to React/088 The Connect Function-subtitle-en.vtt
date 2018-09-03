@@ -1,0 +1,436 @@
+WEBVTT
+
+00:00.510 --> 00:06.710
+All right hopefully you have now copy pasted the contents of all these libraries into the library list.
+
+00:06.860 --> 00:08.160
+Jason File.
+
+00:08.280 --> 00:14.670
+So now we are going to import that list of libraries into our library reducer and instead of returning
+
+00:14.670 --> 00:21.170
+this empty array right here we'll return that list of data or list of libraries that we just added.
+
+00:21.690 --> 00:31.100
+So at the top of my library reduce or file import just we'll call it just simply data from library list
+
+00:31.140 --> 00:37.030
+dot Jaison and take special note because it is a file extension with Jaison instead of us.
+
+00:37.080 --> 00:43.140
+I have to specify here the packager web packs that we're using kind of behind the scenes here behind
+
+00:43.140 --> 00:44.640
+the scenes of Riak native.
+
+00:44.640 --> 00:47.120
+By default it will assume that all your files.
+
+00:47.220 --> 00:48.800
+And with Jay Yes.
+
+00:48.810 --> 00:54.870
+So if I want to use dot Jaison or like a different file extension I have to be very explicit about it.
+
+00:54.900 --> 01:01.470
+All right so now this data variable right here this import should be an array of objects where again
+
+01:01.530 --> 01:05.310
+each object represents a single library.
+
+01:05.940 --> 01:11.370
+So now inside of my producer I'm going to say that whenever this producer runs whenever this thing runs
+
+01:12.180 --> 01:15.500
+I will always return my list of libraries.
+
+01:15.720 --> 01:23.670
+So now my expectation is that because I hooked up my library reducer to the library piece of state if
+
+01:23.670 --> 01:33.050
+I were to ever call console log store don't get state I should get back something it looks like libraries.
+
+01:33.390 --> 01:41.790
+That is an array with ID of one title of web pack description of you know so on whatever.
+
+01:41.880 --> 01:43.910
+And then all the other libraries that are in here as well.
+
+01:44.000 --> 01:44.540
+OK.
+
+01:44.970 --> 01:52.530
+Because this reducer is not looking at any action right it's not like looking at the different actions
+
+01:52.530 --> 01:56.280
+any instruction or some like that it is always going to return the list of data.
+
+01:56.280 --> 02:01.200
+So as many actions as we might dispatch Remember actions is how we update the data that are that is
+
+02:01.200 --> 02:07.590
+inside of our reducers no matter how many actions we dispatch we will always have this static list of
+
+02:07.590 --> 02:11.100
+data coming back from the producer.
+
+02:11.100 --> 02:14.580
+All right so I can clean up the council log here just as I want to see it.
+
+02:15.180 --> 02:16.800
+So this is our list data.
+
+02:16.800 --> 02:18.110
+Hey we've got something right.
+
+02:18.120 --> 02:19.920
+Hooray.
+
+02:20.010 --> 02:21.050
+Or we do.
+
+02:21.060 --> 02:24.990
+I guess I mean we haven't really used it just yet but maybe that be a great next step here.
+
+02:24.990 --> 02:30.900
+Maybe maybe we should go back to the re-act side of things and figure out how to now take this data
+
+02:30.900 --> 02:33.600
+that we're producing and show it inside of our application.
+
+02:33.600 --> 02:35.760
+I think that would be a great next step here.
+
+02:36.630 --> 02:42.390
+So let's make a new component that will be responsible for just rendering this list of libraries to
+
+02:42.390 --> 02:43.080
+the user.
+
+02:43.080 --> 02:48.730
+Since you know now in theory we do have some some data to show to the user.
+
+02:49.200 --> 02:54.780
+So because I want to show a list of libraries of the user I'm going to make a new component inside my
+
+02:54.780 --> 02:58.630
+components directory called library list.
+
+02:58.780 --> 02:59.720
+Yes.
+
+02:59.850 --> 03:01.720
+So a library list out just right here.
+
+03:01.740 --> 03:06.920
+The purpose of it is going to be to just render that list of libraries to the user.
+
+03:07.020 --> 03:12.750
+So let's throw in our usual boilerplate I would import react and component.
+
+03:12.760 --> 03:20.450
+I am going to make this a class based component so like say class library list extends component
+
+03:23.700 --> 03:26.640
+I will find my render method not return nothing.
+
+03:27.060 --> 03:29.970
+And right now I was going to place just a return statement in there.
+
+03:29.970 --> 03:31.430
+We'll talk about why in just a moment.
+
+03:31.680 --> 03:35.720
+And at the bottom we will export default library list.
+
+03:35.730 --> 03:35.990
+OK.
+
+03:36.000 --> 03:38.960
+So boom here is our boilerplate.
+
+03:39.390 --> 03:40.720
+Good place to start.
+
+03:40.890 --> 03:46.140
+Now this computer right here Lyrae list has a very interesting requirement.
+
+03:46.290 --> 03:52.920
+We need to somehow inside this component reach into our redux state and pull out that list of libraries
+
+03:52.920 --> 03:53.280
+right.
+
+03:53.310 --> 03:56.600
+Like we need to get at that list of libraries somehow.
+
+03:56.610 --> 04:02.040
+Now you might think to yourself Hey Steve no problem let's just you know important data from library
+
+04:02.040 --> 04:07.260
+list Jaison whatever it was and then we can just render everything inside this component and boom are
+
+04:07.260 --> 04:07.970
+happy.
+
+04:08.240 --> 04:11.930
+Ok yeah that is how we can do things if we were not using redux.
+
+04:12.270 --> 04:18.990
+But when we're using redux inside re-application things change a little bit and we now have a very discrete
+
+04:19.350 --> 04:26.380
+very well-formed very like documentable and reproducible method for pulling data out of our state object.
+
+04:26.400 --> 04:31.320
+Remember out of our redux store and showing it inside of a component.
+
+04:31.320 --> 04:35.300
+So this method that I'm about to show you you know we're going to cover inside the section or maybe
+
+04:35.290 --> 04:42.900
+it'll lead over to the next one little bit is going to be the way the one and only way in which we reach
+
+04:42.900 --> 04:46.570
+into our redux state and access some amount of data.
+
+04:46.590 --> 04:46.890
+All right.
+
+04:46.890 --> 04:54.680
+So let's let's at least get started on it in this section and then maybe continue in the next one OK.
+
+04:54.830 --> 05:00.760
+So here's kind of a diagram of what our application looks like right now.
+
+05:01.640 --> 05:04.170
+Let's I'm going to change the name of this.
+
+05:04.250 --> 05:08.570
+What it really is libraries and that one is fine.
+
+05:08.990 --> 05:09.250
+OK.
+
+05:09.260 --> 05:11.830
+So this is kind of what our application looks like right now.
+
+05:12.110 --> 05:17.110
+At the very top we've got our provider tag and as we've learned that wraps our store.
+
+05:17.120 --> 05:18.210
+Right.
+
+05:18.350 --> 05:18.800
+And.
+
+05:18.830 --> 05:19.170
+OK.
+
+05:19.190 --> 05:21.280
+That was an awful typo libraries.
+
+05:21.370 --> 05:21.710
+OK.
+
+05:21.740 --> 05:28.090
+So I need to just stop trying to they're good enough whatever.
+
+05:28.760 --> 05:33.350
+So inside of our store we have just one or so right now technically you know we don't really have to
+
+05:33.350 --> 05:38.060
+select a library idea just yet but this eventually will be the piece of state that reflects what the
+
+05:38.060 --> 05:38.980
+selected library is.
+
+05:38.990 --> 05:42.760
+But for right now we just really want to focus on this library's piece of state.
+
+05:42.770 --> 05:46.830
+So we said that the libraries piece of state is the list of libraries.
+
+05:46.850 --> 05:47.120
+Right.
+
+05:47.120 --> 05:50.430
+Is what is being produced by that reducer.
+
+05:50.540 --> 05:55.550
+So the provider tag is showing or is basically inside the app component right.
+
+05:55.700 --> 06:01.190
+And are out component will very shortly be displaying the library list like we haven't rendered inside
+
+06:01.190 --> 06:03.280
+there just yet but we will very shortly.
+
+06:03.620 --> 06:10.860
+So what we have to do what we need to figure out is how to get this library's piece of data this library
+
+06:10.880 --> 06:15.960
+piece of state from up here and push it down into our library list.
+
+06:16.160 --> 06:17.230
+And that's that is the goal.
+
+06:17.240 --> 06:22.070
+We want to get something from our store down into this child's component right here.
+
+06:22.580 --> 06:26.520
+We need to forge a connection between the store and the library list.
+
+06:26.960 --> 06:28.530
+So how might we do that.
+
+06:31.600 --> 06:37.450
+To get some amount of data and push it into the library list from our store we're going to use what
+
+06:37.450 --> 06:44.440
+is called a connect helper that connects right here is a feature of that re-act redux library.
+
+06:44.440 --> 06:46.870
+And remember reactor's locks that library.
+
+06:46.870 --> 06:47.560
+We discuss it.
+
+06:47.560 --> 06:53.530
+It is the glue between redox and reacts so it kind of makes sense that we are using that to get access
+
+06:53.530 --> 07:01.390
+to some piece of redux data from a re-act component connect is a tool that is used explicitly to connect
+
+07:01.450 --> 07:03.670
+a component to the redux store.
+
+07:03.910 --> 07:10.850
+So by wrapping so to speak the library list with this component or seeing this connect function is Connect
+
+07:10.850 --> 07:11.920
+help right here.
+
+07:11.920 --> 07:18.180
+We now have the ability to reach back up to provide her up here to the store and say hey give me I want
+
+07:18.200 --> 07:25.850
+a piece of state I want access to that like libraries piece of state.
+
+07:26.440 --> 07:27.600
+So that's the idea here.
+
+07:27.640 --> 07:34.850
+We are going to use the connect helper to give the library list some very discreet access to our you
+
+07:34.850 --> 07:37.430
+know application state up top.
+
+07:37.550 --> 07:42.100
+I know this might be a little bit of a long section but let's add a little bit the code in just to get
+
+07:42.100 --> 07:45.420
+started with this thing and it could continue in the next section.
+
+07:45.520 --> 07:52.540
+So to add a Kinect helper to any single component side of our project I will first import that connect
+
+07:52.550 --> 07:59.970
+all at the top so import connect from the re-act redux library.
+
+08:00.040 --> 08:02.560
+Now here's here's the weird part about connect.
+
+08:02.590 --> 08:05.810
+So connecting again we use it to get access to our Reebok's state.
+
+08:05.830 --> 08:10.140
+The weird part about it is the syntax that we use for implementing it.
+
+08:10.300 --> 08:14.280
+So we're going to toss in some code here and we'll talk about exactly what it's doing.
+
+08:14.620 --> 08:20.690
+I mean we go down to the bottom my file to my export default statement and here's the weird syntax.
+
+08:20.700 --> 08:26.860
+I mean to say connect and add a set of parentheses and add another set of parentheses around library
+
+08:26.860 --> 08:27.660
+list.
+
+08:27.670 --> 08:32.940
+So I've got connects with one set of parentheses and then another set around library list.
+
+08:32.950 --> 08:34.000
+So this is not a mistake here.
+
+08:34.000 --> 08:36.760
+This is very much on purpose.
+
+08:36.910 --> 08:38.810
+So here's what the syntax does.
+
+08:39.010 --> 08:44.820
+It calls the function connect because connect is a function when Connect is called.
+
+08:44.860 --> 08:47.020
+It returns a nother function.
+
+08:47.110 --> 08:53.730
+So you can imagine that this immediately gets invoked and gets turned into a function.
+
+08:53.770 --> 08:59.550
+We then immediately call that connect return function with the library list.
+
+08:59.550 --> 09:03.020
+OK so you kind of think of this as a two step process.
+
+09:03.070 --> 09:06.090
+First K'NEX gets called and returns a function.
+
+09:06.100 --> 09:11.140
+We then immediately call that function with the library list to set process.
+
+09:11.380 --> 09:14.420
+So why in the world right.
+
+09:14.440 --> 09:20.350
+Why in the world did the library author choose to make a method signature like this.
+
+09:20.350 --> 09:27.730
+Why not just do something like connect library list and then whatever other arguments might want to
+
+09:27.730 --> 09:29.210
+have in here.
+
+09:29.290 --> 09:30.280
+Fantastic question.
+
+09:30.280 --> 09:31.440
+Great question.
+
+09:31.480 --> 09:33.820
+This goes back to my general guidance on redux.
+
+09:33.820 --> 09:41.440
+It is a lot of fancy stuff that otherwise obfuscates concepts that are you know maybe not the worst
+
+09:41.440 --> 09:42.880
+thing in the world not the scariest thing.
+
+09:42.880 --> 09:46.550
+Maybe maybe some of these concepts are not so difficult to understand.
+
+09:46.570 --> 09:54.130
+It is sometimes the implementation or the syntax or the crazy terminology that redux uses that makes
+
+09:54.130 --> 09:56.210
+it kind of confusing.
+
+09:56.310 --> 10:02.920
+Anyways let's get to the next section and figure out exactly how to use this connect helper to get access
+
+10:02.920 --> 10:04.850
+to the piece of state that we want

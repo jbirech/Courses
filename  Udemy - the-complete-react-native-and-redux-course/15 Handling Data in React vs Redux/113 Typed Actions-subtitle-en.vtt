@@ -1,0 +1,373 @@
+WEBVTT
+
+00:00.930 --> 00:06.690
+Just two more steps to make sure that we get our e-mail input working with redux instead of local component
+
+00:06.690 --> 00:12.330
+state the first thing we need to do is make sure that our douceur watches for an action of the appropriate
+
+00:12.330 --> 00:13.080
+type.
+
+00:13.080 --> 00:18.570
+So right now it's always just passing back state object which right now is just an empty object with
+
+00:18.570 --> 00:19.800
+an email property.
+
+00:19.800 --> 00:25.740
+We need to make sure that we watch for this action of type email changed and then update our state object
+
+00:25.740 --> 00:27.930
+appropriately.
+
+00:27.930 --> 00:33.210
+Now let's look over to my auction creator email change so here it is right here I'm inside my actions
+
+00:33.210 --> 00:34.430
+index file.
+
+00:34.470 --> 00:40.830
+Right now we've got a type of e-mail changed and that type is you know very literally a string as a
+
+00:40.830 --> 00:43.260
+string that says email change.
+
+00:43.290 --> 00:46.400
+So I want to pause here for a second and point something out to you.
+
+00:46.590 --> 00:54.360
+This stream right here is forming an incredibly strong link between this action and to reduce or write
+
+00:54.540 --> 00:59.980
+like this string right here this literal string right here we have to reproduce over inside of our douceur
+
+01:00.000 --> 01:04.670
+file right here and make sure that there's like no typos in there whatsoever.
+
+01:04.730 --> 01:12.230
+And if I end up making a small typo on either side so something like you know email changed or email
+
+01:12.270 --> 01:17.700
+change right like it's so easy to make a typo like that what's the difference if I make a typo like
+
+01:17.700 --> 01:24.790
+that then my reducer is never going to properly pick up on this action when it's dispatch.
+
+01:24.810 --> 01:31.470
+So if I live to solve this issue the convention the redux community is to make variables to hold our
+
+01:31.470 --> 01:32.810
+actions tight.
+
+01:33.120 --> 01:38.300
+So let's pull up a diagram and check out what the idea behind this is.
+
+01:38.300 --> 01:42.540
+OK so we're going to make a new file called types Dot.
+
+01:42.580 --> 01:43.060
+Yes.
+
+01:43.090 --> 01:46.810
+A new file just called types inside this file.
+
+01:46.810 --> 01:51.530
+We're going to make a set of constant variables and assign them a string.
+
+01:51.610 --> 01:59.410
+So we will create a variable like capital email changed equals email changed or another one like password
+
+01:59.440 --> 02:02.050
+underscored change equals password change.
+
+02:02.050 --> 02:05.400
+So these two variable names email change and password change.
+
+02:05.530 --> 02:12.220
+And we're going to assign them a string then we are going to import that into both our reducer and our
+
+02:12.220 --> 02:13.210
+action.
+
+02:13.210 --> 02:17.850
+And we're going to use that variable as opposed to just a raw string.
+
+02:18.640 --> 02:25.030
+So the the point here the idea behind this is that we're going to avoid making any very small typo like
+
+02:25.260 --> 02:31.180
+you know accidentally dropping off the D or the II or whatever it might be and that literal string that
+
+02:31.180 --> 02:34.550
+we're typing out by using a variable instead.
+
+02:34.750 --> 02:40.600
+If I reference a variable like email changed like all capitals right here and I say drop off the deep
+
+02:40.690 --> 02:45.730
+inside of the action file I'm going to get a big error message that says like hey I got no no no idea
+
+02:45.730 --> 02:47.540
+what variable you're referencing here.
+
+02:47.540 --> 02:50.270
+Like email change I have no idea what that is.
+
+02:50.470 --> 02:55.740
+And so it's a very clear signal to you as the developer that OK you know what I must of made a typo
+
+02:55.770 --> 02:58.430
+somewhere in there I need to go fix up my tights.
+
+02:58.510 --> 03:00.190
+So let's let's give it a shot.
+
+03:00.190 --> 03:01.510
+See how it works in practice.
+
+03:01.630 --> 03:06.520
+Honestly it's not the worst thing in the world so let's just kind of blow through it real quickly and
+
+03:06.520 --> 03:08.290
+some of my actions folder.
+
+03:08.500 --> 03:11.470
+I'm going to make a new file called types.
+
+03:11.620 --> 03:12.470
+Yes.
+
+03:12.490 --> 03:16.990
+Now inside of here we're going to put all the definitions for all the different types that we're going
+
+03:16.990 --> 03:18.890
+to have in our application over time.
+
+03:18.910 --> 03:27.770
+So one file all of the actions types than inside of here we will say export Konst email.
+
+03:28.010 --> 03:32.620
+Change is a lowercase string email change.
+
+03:32.620 --> 03:36.930
+Now one thing that I want to point out to you like really could just be really clear about this.
+
+03:37.060 --> 03:40.940
+This string right here does not have to match the variable name.
+
+03:40.960 --> 03:46.630
+There is absolutely no tie between the value of the string and the variable name.
+
+03:46.630 --> 03:51.540
+This just has to be a string that is unique against all of the other actions we have.
+
+03:51.550 --> 03:55.930
+Because remember the only purpose of it is to make sure that we've got some like a little marker on
+
+03:55.930 --> 04:01.420
+both the action and the reducer so it can be anything we want by convention I like to make it just the
+
+04:01.420 --> 04:03.390
+same as the actions name.
+
+04:03.600 --> 04:06.880
+So it really doesn't matter if I use lowercase characters or uppercase.
+
+04:06.880 --> 04:08.640
+No big difference there.
+
+04:09.400 --> 04:14.580
+All right so now we've got our action type defined We're not going to flip over to my actions file so
+
+04:14.580 --> 04:17.280
+I can go to actions index start.
+
+04:17.710 --> 04:22.150
+And then at the top we're going to import that action type that we've just created.
+
+04:22.540 --> 04:32.920
+So at the top I will import e-mail changed from types and it's in the same directory so I'm going to
+
+04:32.920 --> 04:35.520
+do just dot slash types.
+
+04:35.680 --> 04:42.100
+Finally instead of the type of just a string right here I will replace this with email.
+
+04:42.170 --> 04:48.740
+Change goal looks good just to be really clear about one of the things I get a lot of questions about
+
+04:48.740 --> 04:52.120
+this inside of my type's file.
+
+04:52.310 --> 04:55.680
+I expect to export many different types from this file.
+
+04:55.700 --> 04:58.400
+Right we're going to have like a lot of different types because we're going have a lot of different
+
+04:58.460 --> 04:59.530
+actions.
+
+04:59.960 --> 05:05.060
+So because I expect to export many different things from here I'm going to make what is called a named
+
+05:05.120 --> 05:06.020
+export.
+
+05:06.050 --> 05:08.330
+So I you say export Konst.
+
+05:08.450 --> 05:13.700
+And then the variable name notice decided to not use the default keyword and I didn't use the default
+
+05:13.700 --> 05:19.580
+key word because I expect to export many other types like this from this file.
+
+05:19.580 --> 05:25.070
+The flip side of that again is that whenever I import from the types file I have to use the curly braces
+
+05:25.070 --> 05:26.190
+to say hey you know what.
+
+05:26.180 --> 05:28.850
+There's many different things inside that types file.
+
+05:28.850 --> 05:37.620
+I specifically want email changed and I indicate that by using the curly braces all right now the next
+
+05:37.620 --> 05:41.080
+thing you need to do is pull this type into our author reducer.
+
+05:41.240 --> 05:46.910
+So I'm going to flip over to the author douceur your ideas and at the top we'll import that actions
+
+05:46.920 --> 05:57.070
+type so import email changed from type actions types.
+
+05:58.030 --> 05:59.260
+And inside the switch statement.
+
+05:59.260 --> 06:04.710
+We will now add a new case of email changed.
+
+06:04.860 --> 06:09.720
+And then right here is where we'll put our logic to handle this new e-mail that's coming across inside
+
+06:09.720 --> 06:12.510
+the action.
+
+06:12.510 --> 06:15.830
+One other very common error that oh man.
+
+06:15.900 --> 06:16.750
+Let me let me just tell you.
+
+06:16.890 --> 06:23.650
+This is by far the most common error that I see in any redux application any question I get like it's
+
+06:23.660 --> 06:28.710
+probably a 10 percent chance it's tied to this bug that I'm about to tell you right now.
+
+06:29.380 --> 06:32.820
+One thing to be aware of with i named exports like this.
+
+06:32.820 --> 06:38.820
+You know what we're using right here is that I can pull in any arbitrary property that I want from this
+
+06:39.210 --> 06:40.680
+actions types file right.
+
+06:40.680 --> 06:43.600
+I can use something like email changed blah blah blah.
+
+06:43.680 --> 06:50.580
+Even if it doesn't exist I can try to import this in no air will be thrown I know arrow will be thrown
+
+06:51.240 --> 06:58.110
+the what's going to happen is if I cancel logged this value right here I'm not going to actually run
+
+06:58.110 --> 07:00.520
+this code so please do not reproduce this.
+
+07:00.580 --> 07:04.030
+If I did a console right here this would come across as undefined.
+
+07:04.270 --> 07:06.000
+OK so it come across as undefined.
+
+07:06.000 --> 07:11.850
+I'm not going to see an error message and what the result is is that if I then use this like Mystery
+
+07:11.880 --> 07:19.650
+undefined type right here inside of my reducer I'm going to essentially have a case of case undefined.
+
+07:19.890 --> 07:26.400
+But as we all know every action must have a type of not undefined like it must have a declared type.
+
+07:26.460 --> 07:30.300
+And so my action will never catch anything inside the reducer.
+
+07:30.300 --> 07:33.170
+So extremely common air that I see all the time.
+
+07:33.180 --> 07:38.730
+If you ever come across a situation where you're thinking to yourself you know gee whiz I know I'm calling
+
+07:38.730 --> 07:39.570
+the action creator.
+
+07:39.570 --> 07:44.100
+I have like you know a console log in there or something but it seems that the reducer is never actually
+
+07:44.100 --> 07:46.020
+picking up on this action.
+
+07:46.170 --> 07:51.150
+And if you ever say that to yourself the first thing you look at is the import statement up here.
+
+07:51.180 --> 07:56.790
+I want to look at this I want you to say OK did I actually define an action of this type up here.
+
+07:56.860 --> 07:58.790
+And if he did great it must be something else.
+
+07:58.800 --> 08:03.600
+But you know double check and make sure that that action actually exists in a really easy way that you
+
+08:03.600 --> 08:10.530
+can troubleshoot that is just at a console log in here and say like you know action a very easy way
+
+08:10.530 --> 08:13.570
+to make sure that your actions type is actually properly defined.
+
+08:13.850 --> 08:14.130
+OK.
+
+08:14.160 --> 08:18.870
+So anyway it's a little bit of a side note there but I know that some number of people will make that
+
+08:18.870 --> 08:24.510
+mistake and so I just probably saved some number of you for making a frustrating little little mistake
+
+08:24.510 --> 08:26.730
+there so it is worth the time to mention.
+
+08:27.230 --> 08:27.520
+OK.
+
+08:27.540 --> 08:33.960
+So our reducer is now properly catching on type e-mail changed which means we'll take a quick break
+
+08:34.230 --> 08:39.750
+and come back in the next section and figure out how we're going to update our state object inside the
+
+08:39.760 --> 08:41.870
+reducer is going to open a big can of worms.
+
+08:41.880 --> 08:45.120
+And definitely one of the most important topics in this entire application.
+
+08:45.120 --> 08:47.320
+So let's take care of it in the next section.

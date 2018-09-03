@@ -1,0 +1,499 @@
+WEBVTT
+
+00:00.930 --> 00:04.790
+We've now centralized all the code for application inside of our out.
+
+00:05.010 --> 00:05.600
+File.
+
+00:05.700 --> 00:11.130
+So again this has the benefit of allowing us to test against an Android or iOS build without having
+
+00:11.130 --> 00:15.660
+to worry about any platform specific configuration.
+
+00:15.660 --> 00:18.360
+Thinking back to the mockup So we looked out for this app.
+
+00:18.690 --> 00:20.470
+Let's put those up real quick.
+
+00:22.190 --> 00:23.190
+Here we go.
+
+00:23.240 --> 00:29.230
+So thinking back to the mock ups we definitely had a lot of components in here such as the header and
+
+00:29.240 --> 00:33.100
+the buttons and the card views rather than rebuild all these from scratch.
+
+00:33.110 --> 00:37.480
+You suggest that we just copy paste these files over from our last project.
+
+00:37.640 --> 00:43.430
+After all that is the goal of reusable components we want to avoid having to remake the same elements
+
+00:43.490 --> 00:44.490
+over and over again.
+
+00:44.500 --> 00:48.950
+And I know I don't know about you but if I had to make the header a second time inside this course I
+
+00:49.280 --> 00:51.080
+wouldn't be terribly happy.
+
+00:51.080 --> 00:57.260
+But anyways there are some really fancy ways to import code over or kind of shared between projects
+
+00:57.470 --> 00:58.420
+and we certainly could.
+
+00:58.520 --> 01:01.710
+But we're going to keep things here just for the sake of this course.
+
+01:01.730 --> 01:03.790
+Very simple very straightforward.
+
+01:03.830 --> 01:05.740
+We're just going to copy paste a few fights.
+
+01:05.780 --> 01:07.170
+That's all we're going to do.
+
+01:07.820 --> 01:14.000
+So I want to copy paste a handful of components out of my previous project dark albums project and then
+
+01:14.030 --> 01:16.880
+just drop them directly into this project.
+
+01:16.910 --> 01:20.510
+OK so not a lot of magic here we're just going to do a copy paste.
+
+01:20.630 --> 01:27.260
+So inside my phone instructor excuse me and my source directory will start by making a component's folder
+
+01:27.950 --> 01:31.140
+so all make my components folder like so.
+
+01:31.580 --> 01:37.880
+And then this time around I'm going to make another folder inside of here and I call it common.
+
+01:38.330 --> 01:44.360
+And the goal here is that any reusable components that I have inside my project I'm going to place them
+
+01:44.360 --> 01:46.040
+all inside this common directory.
+
+01:46.050 --> 01:49.970
+You'll see why in just a minute is give me a really nice really nice trick that we're going to use here
+
+01:49.970 --> 01:53.370
+for our reusable components.
+
+01:53.420 --> 01:58.820
+So this coming for the right here is where I want to put my reusable components from the last section.
+
+01:59.030 --> 02:01.850
+So now will do a little bit of copy pasting.
+
+02:01.860 --> 02:08.090
+I going to open up my file explorer here and honestly you can do is copy pasting process however you
+
+02:08.090 --> 02:12.730
+want so you use the terminal you can use your code editor.
+
+02:12.770 --> 02:19.430
+However you want to get your files over here is totally fine by me but for me it just make everything
+
+02:19.430 --> 02:21.780
+nice and easy for everyone to do it.
+
+02:21.800 --> 02:25.990
+And a very visual fashion by doing the actual dragging and dropping.
+
+02:26.000 --> 02:32.350
+So let me pull open my re-act native project directory here we go
+
+02:37.440 --> 02:38.230
+and origo.
+
+02:38.440 --> 02:45.030
+So I've got my component's directory from my albums project in one window and then in my other window.
+
+02:45.030 --> 02:49.510
+I've got my Auth. source components Paghman directory.
+
+02:49.690 --> 02:58.030
+Something is going to take my button my card my card section in my header components and I don't just
+
+02:58.120 --> 03:00.460
+drop them all inside that common directory.
+
+03:00.720 --> 03:02.960
+This should be a really fast copy paste over.
+
+03:03.010 --> 03:10.750
+So now I've got bar button card card section and header all inside of that common directory right here.
+
+03:11.170 --> 03:16.630
+As a quick side if you feel as though your four components right here you know we are going to depend
+
+03:16.630 --> 03:17.700
+on these pretty heavily.
+
+03:17.890 --> 03:23.020
+If yours are not working perfectly you can always hop on the official didn't have revoke from this course
+
+03:23.380 --> 03:26.750
+and just copy paste the code for each of these files directly.
+
+03:26.750 --> 03:32.830
+You could just get a nice fresh copy as a reminder you can find a link to the Get have Ribault in one
+
+03:32.830 --> 03:38.580
+of the very first sections inside this course you just hop right on over there go find the prodigy's
+
+03:38.590 --> 03:41.890
+project files and just copy them right into your project directory.
+
+03:42.280 --> 03:44.220
+OK so that's that.
+
+03:44.460 --> 03:50.170
+But my code editor back open here and yup now I can verify that I've got my four components inside the
+
+03:50.170 --> 03:51.780
+common directory.
+
+03:52.580 --> 03:55.120
+OK so now here's a little trick I mentioned.
+
+03:55.180 --> 04:00.700
+We know that components like the log and form that we're going to create in a little bit.
+
+04:00.730 --> 04:05.110
+You know I've only vaguely mentioned the log in form but the line forms give me the thing that's going
+
+04:05.110 --> 04:06.960
+to house the actual logon form here.
+
+04:07.030 --> 04:12.590
+We know that it's going to need to require several different components out of that common directory.
+
+04:12.610 --> 04:12.980
+Right.
+
+04:13.000 --> 04:15.230
+We know that it's definitely you need the button.
+
+04:15.340 --> 04:19.900
+It's going to mean the card it's going to be in the card section we're going to need to import quite
+
+04:19.900 --> 04:23.500
+these things out of that single directory right there.
+
+04:23.500 --> 04:28.150
+That means that we would have to stack up a bunch of import statements that all import stuff out of
+
+04:28.150 --> 04:29.180
+the same directory.
+
+04:29.200 --> 04:33.630
+And you know what having a ton of import statements at the top of your file.
+
+04:33.640 --> 04:36.080
+It gets a little bit tiresome to read right.
+
+04:36.130 --> 04:40.210
+You don't want to see whenever you open a file something like that right.
+
+04:40.260 --> 04:41.920
+It just gets old really quickly.
+
+04:42.130 --> 04:46.700
+So I'm going to suggest a little to work around a nice little trick that's going to dramatically simplify
+
+04:46.700 --> 04:50.480
+the number of import statements that we have to use inside this application.
+
+04:50.950 --> 04:54.570
+I'm going to pull a diagram up really quick of exactly how this going to work.
+
+04:56.910 --> 05:01.790
+All right so here's the here's the strategy here inside of our common folder.
+
+05:01.890 --> 05:04.750
+We're going to create a new file called index dot.
+
+05:04.760 --> 05:05.670
+J.S..
+
+05:05.760 --> 05:08.500
+So don't confuse this with a top level index.
+
+05:08.520 --> 05:11.580
+Iowa SJS and index Android js files.
+
+05:11.580 --> 05:15.770
+This is a completely separate one are a completely separate index js file.
+
+05:16.220 --> 05:21.180
+So inside of index G-S we will import the header the button.
+
+05:21.300 --> 05:25.950
+The card section and the card and then we will immediately export them.
+
+05:26.430 --> 05:33.090
+Then any other component that wants to use any of these files is are in want of a single component that
+
+05:33.090 --> 05:38.430
+wants to get access to the header and the button we will be able to import both those components from
+
+05:38.430 --> 05:39.900
+just components.
+
+05:39.930 --> 05:40.590
+Slash.
+
+05:40.620 --> 05:46.240
+Common take note of the import string here and the diagram actually is correct.
+
+05:46.250 --> 05:53.530
+I've not actually specified a file here but whenever we have a file called index start yes inside of
+
+05:53.530 --> 05:59.320
+a directory and I'm suggesting that we do if we try to import from that directory without specifying
+
+05:59.320 --> 06:03.700
+a file it will by default pick up that index file.
+
+06:03.700 --> 06:09.760
+So basically if we leave off any very particular file we will get a default of index G-S come back to
+
+06:09.760 --> 06:11.800
+us as a quick aside.
+
+06:11.800 --> 06:18.070
+That's why you generally see the file name of index floating all over the place and really larger established
+
+06:18.100 --> 06:19.740
+reac projects.
+
+06:20.290 --> 06:20.650
+OK.
+
+06:20.680 --> 06:21.820
+So let's give this a shot.
+
+06:21.820 --> 06:26.050
+It really shouldn't be too bad in my common folder.
+
+06:26.050 --> 06:31.170
+I'm going to make a new file called index dot J us.
+
+06:31.390 --> 06:37.450
+Then inside of here we are going to immediately or we're going to import and export each of these other
+
+06:37.450 --> 06:39.570
+components in just a single line here.
+
+06:39.580 --> 06:45.640
+So when you're a little bit of a trick to do that normally we might do something like say import button
+
+06:45.640 --> 06:47.820
+from button and then export button.
+
+06:47.860 --> 06:48.560
+Right.
+
+06:48.820 --> 06:52.860
+Instead we're going to do this entire step all in one line to do so.
+
+06:52.870 --> 06:55.180
+We will write export star.
+
+06:55.420 --> 07:00.490
+That's you know date on your keyboard from button.
+
+07:00.850 --> 07:06.120
+So in a single line here this imports and exports the button component.
+
+07:06.400 --> 07:10.730
+So then we will repeat the same step for our other files as well.
+
+07:14.910 --> 07:22.440
+Our card section and we're going to one thing that you know we made a mistake on much earlier.
+
+07:22.440 --> 07:24.640
+I use a lowercase on the head here.
+
+07:24.740 --> 07:26.200
+I'm going to fix that issue right now.
+
+07:26.220 --> 07:27.060
+So very important.
+
+07:27.080 --> 07:28.660
+I'm going to fix the header issue.
+
+07:28.920 --> 07:30.700
+I have capital H right here.
+
+07:30.750 --> 07:35.450
+I'm going to fix up my header file by just renaming it to use a capital H as well.
+
+07:35.730 --> 07:37.590
+So capital a chatter.
+
+07:37.770 --> 07:41.200
+Now everything across the board is nice and consistent.
+
+07:41.910 --> 07:43.170
+So again the statement here.
+
+07:43.200 --> 07:46.250
+These statements each of these is essentially a pass through.
+
+07:46.410 --> 07:47.710
+It can be read as.
+
+07:47.790 --> 07:54.760
+Take everything from the button file and export it from this one like export it from index G-S.
+
+07:54.960 --> 07:57.870
+One last thing though you'll notice that each of these I've got it.
+
+07:57.870 --> 08:02.080
+Yes lint Arafura says no named experts found a module button.
+
+08:02.190 --> 08:08.790
+So the one downside to this approach then taking right here is if I want to use this pattern I cannot
+
+08:08.850 --> 08:16.500
+use the default keyword inside of each of these files saw side of my button component right now if I
+
+08:16.500 --> 08:17.640
+want to use this approach.
+
+08:17.670 --> 08:19.750
+I can not use the default keyword.
+
+08:19.950 --> 08:24.680
+Instead I have to export an object with a key of button.
+
+08:24.840 --> 08:27.540
+So I'd have to do something like this.
+
+08:27.600 --> 08:35.540
+So I want to export an object with a key a button and a value of the actual component which is button.
+
+08:35.820 --> 08:40.800
+And of course you'll also notice that because I've got a key and a value that are identical I can use
+
+08:40.800 --> 08:45.390
+a little bit of ESX to condense this down to just button like so.
+
+08:46.320 --> 08:53.760
+So again the one twist here if you're using this export star syntax we have to make sure that we just
+
+08:53.820 --> 08:57.330
+export something without that default keyword.
+
+08:57.930 --> 09:00.930
+And when I say it here you'll see that that air now falls off.
+
+09:00.930 --> 09:08.110
+So we're going to get the same process in the other files as well inside of my card component.
+
+09:08.280 --> 09:15.960
+I will go down to the bottom and take off the default keyword and wrap it with curly braces.
+
+09:16.500 --> 09:18.650
+I need to do the same thing for my card section
+
+09:23.250 --> 09:27.220
+replaced with curly braces and same thing with the header as well.
+
+09:32.020 --> 09:32.300
+Get.
+
+09:32.370 --> 09:38.640
+So now all four of my reusable components have a single export statement at the bottom is my export
+
+09:39.750 --> 09:45.470
+export and my export and now my index dot J.S. file is all happy.
+
+09:45.510 --> 09:47.100
+So no errors from yes lint.
+
+09:47.190 --> 09:53.580
+If you still have something or some errors from iOS lint keep in mind that you Slint just command us
+
+09:53.580 --> 09:56.760
+to save the file and you should see those errors drop off.
+
+09:56.760 --> 10:01.350
+If Yeslam is still complaining I would encourage you to just close the index file and open it back up
+
+10:01.350 --> 10:03.030
+and you should be good to go.
+
+10:03.630 --> 10:05.180
+OK so one last step here.
+
+10:05.250 --> 10:07.900
+I wanted to make sure that everything is working as we expect.
+
+10:07.920 --> 10:12.890
+So I flip back over to our app component and I want to test out this new import strategy.
+
+10:13.050 --> 10:14.580
+So at the very top.
+
+10:14.580 --> 10:21.310
+I import Hetter from components common.
+
+10:21.330 --> 10:24.400
+Notice that I do not have to specify that index file.
+
+10:24.540 --> 10:29.130
+If I just specify a directory by default it will go to the index js file.
+
+10:29.130 --> 10:34.050
+In addition I only want to get the header out of here so I get a structure header out of that index
+
+10:34.050 --> 10:34.960
+file.
+
+10:35.370 --> 10:46.250
+Then inside of our component I locate the header and I'll give it a better text of authentication like
+
+10:46.260 --> 10:46.530
+so
+
+10:49.890 --> 10:55.560
+cool let's go ahead and give this a test out in our simulator.
+
+10:56.190 --> 10:59.100
+So flip over refresh and hot dog.
+
+10:59.100 --> 10:59.980
+It all worked out.
+
+10:59.980 --> 11:01.200
+Hooray.
+
+11:01.560 --> 11:05.550
+So again this whole pattern right here I know three factor was a little bit of a pain but the entire
+
+11:05.550 --> 11:11.520
+idea behind it was that we can now put all of our usable components inside that common directory and
+
+11:11.520 --> 11:15.110
+then just have one single import statement to get access to all of them.
+
+11:15.130 --> 11:17.510
+So definitely makes life a little bit easier.
+
+11:17.850 --> 11:21.330
+Let's continue on the next section and get started with firebase

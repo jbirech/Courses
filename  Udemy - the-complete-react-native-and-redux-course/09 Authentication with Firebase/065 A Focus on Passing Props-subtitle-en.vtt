@@ -1,0 +1,232 @@
+WEBVTT
+
+00:00:00.960 --> 00:00:04.610
+In the last section we created our new reusable input component.
+
+00:00:04.800 --> 00:00:11.130
+The whole purpose of this input component is just to wrap a text and put and make it look nice or by
+
+00:00:11.130 --> 00:00:14.340
+default that text input has absolutely zero styling.
+
+00:00:14.460 --> 00:00:16.430
+And so I don't want to have to add in the styling.
+
+00:00:16.440 --> 00:00:19.540
+Every single time I want to use the text input.
+
+00:00:19.680 --> 00:00:24.750
+So inside our component now will place or text input and then immediately start to add in some styling
+
+00:00:24.750 --> 00:00:25.930
+here as well.
+
+00:00:26.070 --> 00:00:32.400
+So I'll place my text input and I expect to have to give it a lot of different properties so I'll get
+
+00:00:32.400 --> 00:00:34.790
+myself a little space to add in some props here.
+
+00:00:36.990 --> 00:00:45.220
+We'll add in to start a hardcoded style of height 20 and a width of 100 just like we had before.
+
+00:00:45.300 --> 00:00:50.280
+So maybe just before we start working on the styling too much let's focus on making sure that we can
+
+00:00:50.280 --> 00:00:53.360
+use this input inside of our loggin form.
+
+00:00:53.370 --> 00:00:58.440
+So specifically what I'm talking about here is we've got a little of a challenge ahead of us are text
+
+00:00:58.440 --> 00:01:00.840
+input that we create inside of the log in form.
+
+00:01:00.840 --> 00:01:03.330
+Remember this is the primitive component right here.
+
+00:01:03.510 --> 00:01:09.420
+Had that entire system with state and onchange callback and the value in blah blah blah blah.
+
+00:01:09.420 --> 00:01:10.890
+Kind of great stuff.
+
+00:01:10.890 --> 00:01:16.950
+So we need to make sure that when we replace this text input right here with the input that we just
+
+00:01:16.950 --> 00:01:23.770
+created you know the reusable version of it we need to make sure that our component also respects these
+
+00:01:23.850 --> 00:01:27.130
+value in onchange text properties as well.
+
+00:01:27.210 --> 00:01:29.460
+So it is not as bad as it might sound.
+
+00:01:29.460 --> 00:01:32.370
+Trust me let's do the refactor and see how it works out.
+
+00:01:33.620 --> 00:01:38.840
+The first thing I'm going to do is I don't realize that I don't really want the text input from the
+
+00:01:38.840 --> 00:01:42.170
+re-act native library inside of my log in form anymore.
+
+00:01:42.350 --> 00:01:47.090
+I want to replace it with our homegrown version our re-usable component version.
+
+00:01:47.300 --> 00:01:51.380
+So I'm going to take out that import statement because we don't need re-act need of any more inside
+
+00:01:51.380 --> 00:01:52.750
+this file right now.
+
+00:01:53.150 --> 00:02:00.320
+And instead we will import the input tag that we just created and then I will replace the text input
+
+00:02:00.980 --> 00:02:02.380
+with the input.
+
+00:02:02.480 --> 00:02:04.670
+So now this is our component right here.
+
+00:02:04.670 --> 00:02:07.450
+This is our component through and through.
+
+00:02:07.590 --> 00:02:13.440
+We already added in the style tag to the text input inside of our component so we'll take this one out
+
+00:02:13.440 --> 00:02:14.180
+for now.
+
+00:02:15.270 --> 00:02:20.600
+But we also we are going to leave in the props of value in onchange text.
+
+00:02:20.860 --> 00:02:23.880
+So all we have to do to make sure this thing works correctly.
+
+00:02:23.920 --> 00:02:29.250
+You know make sure that the state of that text input is still reflected on the log and form state.
+
+00:02:29.410 --> 00:02:37.240
+We'd just have to make sure that the we pass the props of value in onchange text to the text input inside
+
+00:02:37.240 --> 00:02:38.470
+of our component.
+
+00:02:38.680 --> 00:02:41.430
+So we will flip over to our input right here.
+
+00:02:41.620 --> 00:02:46.750
+We will receive the value and onchange text props.
+
+00:02:46.990 --> 00:02:50.120
+And then we're going to pass them directly into the text input.
+
+00:02:50.200 --> 00:02:51.770
+So Value is value.
+
+00:02:52.210 --> 00:02:55.030
+And onchange text is on.
+
+00:02:55.030 --> 00:02:58.190
+Change text so we pause here for a second.
+
+00:02:58.200 --> 00:03:03.370
+And I want to acknowledge yes this last step probably seemed a little bit weird a little bit strange
+
+00:03:03.840 --> 00:03:05.060
+but it.
+
+00:03:05.350 --> 00:03:07.570
+I promise you it makes more sense.
+
+00:03:07.570 --> 00:03:14.740
+You might think if it seems confusing our log in form is responsible for figuring out what the text
+
+00:03:14.830 --> 00:03:19.950
+input state is right like what the actual fields text is what its value is.
+
+00:03:20.320 --> 00:03:27.390
+So any single time that the user types inside that field we want to invoke this federal function.
+
+00:03:27.430 --> 00:03:27.700
+Right.
+
+00:03:27.700 --> 00:03:29.260
+Like that's the goal.
+
+00:03:29.260 --> 00:03:35.390
+So we are passing that federal function as a prop down into the input we created.
+
+00:03:35.590 --> 00:03:39.290
+We were passing it as a prop to the impot we created.
+
+00:03:39.580 --> 00:03:47.050
+So now in our input we are receiving that Propp So we're receiving the onchange tax Propp and we're
+
+00:03:47.050 --> 00:03:52.990
+just passing it right along to the text input and this text input right here is the primitive version
+
+00:03:52.990 --> 00:03:53.890
+of the input.
+
+00:03:53.890 --> 00:03:58.230
+It is the thing that's actually receiving text from the user.
+
+00:03:58.270 --> 00:04:03.670
+I feel like if there's probably one really confusing part about this in my opinion it's the fact that
+
+00:04:03.670 --> 00:04:06.700
+I chose a component name of input right here.
+
+00:04:06.880 --> 00:04:11.540
+If it makes more sense you might think of this comput instead is like field or something like that.
+
+00:04:11.600 --> 00:04:16.230
+You know anything that kind of separates it in meaning from this text input.
+
+00:04:16.240 --> 00:04:19.320
+OK so enough lecturing about that.
+
+00:04:19.320 --> 00:04:24.740
+The last thing we have to do is work on the styling for the rest of this component right here and maybe
+
+00:04:24.780 --> 00:04:30.840
+for that let's just do a quick test to make sure it still work inside the simulator so I can click in
+
+00:04:30.840 --> 00:04:31.220
+here.
+
+00:04:31.260 --> 00:04:32.580
+Yep looks good.
+
+00:04:32.820 --> 00:04:35.470
+And yeah I can still type stuff in here.
+
+00:04:35.490 --> 00:04:40.350
+You'll notice that there is a little bit of white margin up here as well right now that we didn't have
+
+00:04:40.350 --> 00:04:41.220
+before.
+
+00:04:41.370 --> 00:04:43.020
+That's being caused by the text tag.
+
+00:04:43.050 --> 00:04:45.170
+We're not passing a label to it right now.
+
+00:04:45.300 --> 00:04:48.400
+So it is taking out of some arbitrary whitespace up there.
+
+00:04:48.420 --> 00:04:53.370
+So we'll make sure that we will want to make sure that we also pass in a label from the log in form
+
+00:04:53.370 --> 00:04:54.390
+as well at some point.
+
+00:04:55.240 --> 00:05:01.030
+OK let's take a quick break and then come back and finish up the styling on this entire input element
+
+00:05:01.050 --> 00:05:01.370
+.

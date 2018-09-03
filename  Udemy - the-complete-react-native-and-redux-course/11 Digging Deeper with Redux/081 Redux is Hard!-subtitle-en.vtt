@@ -1,0 +1,481 @@
+WEBVTT
+
+00:00.470 --> 00:03.230
+The section we had a long demo of redux.
+
+00:03.330 --> 00:08.280
+We're going to continue in this section by trying to answer that one burning question that might be
+
+00:08.280 --> 00:14.520
+in your head which is why in the world would we ever write code like this.
+
+00:14.520 --> 00:15.580
+What's the point.
+
+00:15.600 --> 00:18.720
+Why do we have actions and reducers and stuff.
+
+00:18.720 --> 00:21.840
+Why don't we just split the string and be done with it.
+
+00:21.840 --> 00:28.530
+Hey that's a fantastic question and that's probably the most important question there is with redux
+
+00:29.040 --> 00:31.410
+all these actions reducers store stuff.
+
+00:31.410 --> 00:32.910
+What is the point of it.
+
+00:32.910 --> 00:35.730
+Let me tell you what the point is in one sentence.
+
+00:35.750 --> 00:39.560
+I'm going to try the rest of this course to convince you of this one point.
+
+00:39.990 --> 00:47.550
+Redux is one of the best libraries in existence for scaling an application to be very large with the
+
+00:47.550 --> 00:50.350
+least amount of code complexity.
+
+00:50.370 --> 00:56.100
+In other words as your apps start to grow start to get more features redux will help you write code
+
+00:56.130 --> 01:00.930
+in such a fashion that your code doesn't also have to grow in complexity.
+
+01:00.930 --> 01:02.500
+So that's the point of Redus.
+
+01:02.640 --> 01:04.200
+But why is that the case.
+
+01:04.210 --> 01:06.830
+You know how can I make that claim easy.
+
+01:06.840 --> 01:08.260
+I can easily make that claim.
+
+01:08.280 --> 01:10.530
+The answer is the action system.
+
+01:10.530 --> 01:17.520
+This whole process of dispatching an action and receiving it inside the reducer with Reebok's actions
+
+01:17.550 --> 01:22.940
+give us the ability to make predictable changes to the state of our application.
+
+01:22.990 --> 01:29.220
+We will never ever reach directly into our store you know reach directly into this thing and start messing
+
+01:29.220 --> 01:31.870
+around with a state that is contained within it.
+
+01:32.130 --> 01:39.590
+Instead we will create an action and actions modify our state in one very particular way.
+
+01:39.630 --> 01:45.860
+That means that we can only modify our application state in a very finite number of ways.
+
+01:45.930 --> 01:52.230
+Now at this point in the OP I can only change my app my state in my state object which I retrieve via
+
+01:52.350 --> 01:55.770
+stored die state in exactly one fashion.
+
+01:56.650 --> 02:01.240
+Via the action that we wrote right here the action with tyed split string.
+
+02:01.450 --> 02:09.220
+Because I only have one action I know without a fact with absolute guaranteed certainty that my application
+
+02:09.280 --> 02:14.350
+will always have a state of either empty array or.
+
+02:14.500 --> 02:18.520
+I think I lost a good state on here let me throw it back in really quick.
+
+02:18.520 --> 02:24.040
+My state is always give me either an empty array or an array with some strings inside of it.
+
+02:24.070 --> 02:30.700
+That's it my state will never be an object a string a number a boolean nothing else.
+
+02:30.700 --> 02:35.090
+I will only ever have an array or an array of characters.
+
+02:35.110 --> 02:37.090
+That's it.
+
+02:37.090 --> 02:42.070
+Now that's my case for using redux But for right now we should be a lot more concerned with exactly
+
+02:42.070 --> 02:43.110
+how it works.
+
+02:43.240 --> 02:45.720
+So let's review the code we've got so far.
+
+02:45.730 --> 02:47.890
+First we created a reducer
+
+02:51.150 --> 02:52.080
+lost my spot.
+
+02:52.080 --> 02:52.550
+There you go.
+
+02:52.560 --> 02:54.120
+First recruiter douceur.
+
+02:54.160 --> 02:58.730
+Here is a function that produces some amount of state number.
+
+02:58.800 --> 03:02.460
+Then we created a store and passed it that one reducer.
+
+03:02.700 --> 03:09.290
+So we now have an instance of a store that contains one reduce error and the state that that one reducer
+
+03:09.300 --> 03:10.280
+produces.
+
+03:10.290 --> 03:16.650
+So by default if we call get stayed on that store we got back an empty array because that is what the
+
+03:16.650 --> 03:20.380
+reducer produced.
+
+03:20.440 --> 03:22.250
+Next we made an action.
+
+03:22.390 --> 03:29.050
+The action is a very specific directive to tell the reducer how to update it state in a very particular
+
+03:29.050 --> 03:32.600
+fashion so our action was of type split.
+
+03:32.680 --> 03:34.810
+String to the typewrite.
+
+03:34.810 --> 03:40.420
+Here you can think of as being like the command or the direction that we're issuing to the reducer and
+
+03:40.420 --> 03:43.450
+then we also passed along a payload property.
+
+03:43.450 --> 03:49.300
+The payload property is the data that we want to communicate to the reducer so we can read this action
+
+03:49.300 --> 03:52.190
+in plain text more or less as hey reducer.
+
+03:52.210 --> 03:53.940
+Please split the string.
+
+03:54.070 --> 03:56.470
+And here is the string that I want you to split.
+
+03:57.890 --> 04:04.430
+Next we sent that string off for that excuse me that action off to all of our reducers by calling store
+
+04:04.460 --> 04:09.710
+dot dispatch with the action when we dispatch an action as refer to it.
+
+04:09.710 --> 04:15.660
+The action will get automatically sent to all of the different reducers insider application so let's
+
+04:15.660 --> 04:18.780
+experiment now by adding another action.
+
+04:18.870 --> 04:26.100
+I wanted to make an action that will take my current array of characters which is a SDF and I want to
+
+04:26.100 --> 04:28.820
+just add another character at the end of this right.
+
+04:28.920 --> 04:35.750
+So I want to have an action that modifies my state by adding another character to the end of the first
+
+04:35.750 --> 04:37.170
+real defining action.
+
+04:37.520 --> 04:43.100
+So I'll write out my new action and I'm going to call it very simply action to
+
+04:45.860 --> 04:48.380
+remember that actions are objects.
+
+04:48.380 --> 04:56.300
+They must have a type property I'm going to give is why type property of add character and then a payload
+
+04:56.390 --> 04:57.210
+of a.
+
+04:57.500 --> 05:03.950
+So if I read this like you know read this in a very literal fashion I would read this action too as
+
+05:03.950 --> 05:08.050
+meaning please add another character to the end of my state array.
+
+05:08.180 --> 05:13.680
+And that character to add should be a K so that's basically the idea here.
+
+05:13.700 --> 05:16.710
+So now we're going to dispatch this action.
+
+05:16.880 --> 05:21.920
+Remember that by just creating an action nothing nothing actually occurs by just creating one we have
+
+05:21.920 --> 05:29.900
+to actually dispatch it dispatching an action sends it off to reduce or reduce or we'll rerun and whatever
+
+05:29.900 --> 05:34.560
+this reduce or returns becomes our state inside of our store.
+
+05:34.850 --> 05:39.170
+We can then retrieve that state by calling store doc state.
+
+05:39.170 --> 05:47.300
+So now we're going to dispatch the action by calling store dispatch action to
+
+05:49.960 --> 05:52.740
+again when we pass an action to the dispatch method.
+
+05:52.780 --> 05:55.950
+It gets sent to all the reducers that are hooked up to our store.
+
+05:55.960 --> 05:58.380
+In our case we've only got one right here.
+
+05:58.510 --> 06:01.260
+Our seducer will then immediately rerun.
+
+06:01.300 --> 06:08.980
+So this reruns right here and return a new updated updated piece of state the store.
+
+06:09.040 --> 06:15.240
+Notice though that even though we added in another dispatch Let's check our state really quick if I
+
+06:15.240 --> 06:22.520
+call store don't get state my state inside of my store has not actually changed and nothing has occurred
+
+06:22.520 --> 06:22.720
+yet.
+
+06:22.730 --> 06:27.930
+I still just have a state of a SDF that's all there is right now.
+
+06:27.950 --> 06:34.130
+So I notice our producer has decided that it does not care about the action that was dispatched.
+
+06:34.130 --> 06:36.500
+So we just ignored it entirely.
+
+06:36.500 --> 06:38.020
+This is a really important fact.
+
+06:38.030 --> 06:43.430
+It means that if we have multiple reducers in our application E-Street user will be called with every
+
+06:43.430 --> 06:44.790
+dispatch action.
+
+06:44.900 --> 06:51.550
+So it's up to us to make sure that this reduce right here watches for actions of a very particular type.
+
+06:51.560 --> 06:58.620
+So in our case we want to make sure that this reducer also responds to an action of type add character.
+
+06:58.640 --> 07:03.010
+So to do so we'll add another if statement in here or another catch say.
+
+07:03.020 --> 07:08.530
+Else if and Dot type equals add character
+
+07:11.750 --> 07:17.510
+then I want to add that character to the end of my array of characters right here.
+
+07:17.550 --> 07:23.600
+Is it like this a SDF that means do I need to already know what this producer returns the last time
+
+07:23.600 --> 07:24.180
+it ran right.
+
+07:24.190 --> 07:25.140
+I need to know.
+
+07:25.250 --> 07:25.640
+OK.
+
+07:25.640 --> 07:32.390
+I already dispatched one action and my current state is a SDF and now I intend to add on a character
+
+07:32.780 --> 07:37.180
+to the end of that array a character a.
+
+07:37.190 --> 07:39.920
+So how do we get access to that previous array.
+
+07:39.920 --> 07:45.380
+How do we get access to like that previously calculated piece of state that is the job of the first
+
+07:45.380 --> 07:49.790
+argument to the reducer which we have labeled as state here.
+
+07:49.790 --> 07:55.550
+Reducers rerun many times throughout her application and each time they are called they are past the
+
+07:55.550 --> 08:01.940
+result of the last time they were called as the first element which we by convention refer to as state.
+
+08:02.270 --> 08:09.080
+So again each time we dispatched an action we are making an incremental change to the state of our application.
+
+08:09.130 --> 08:17.120
+So now inside of here we'll take our state and we'll push on action not payload and then return that
+
+08:17.120 --> 08:24.380
+modified state now or get state call returns SDF and a.
+
+08:24.430 --> 08:26.950
+So is the new character that was appended out yet.
+
+08:28.200 --> 08:33.960
+Let me pause for a moment though and I want to say that I just made a huge huge error in the code that
+
+08:33.960 --> 08:37.870
+I just added right here something that is very subtle.
+
+08:37.980 --> 08:41.310
+I want you to take a look at the two lines that I just added.
+
+08:41.310 --> 08:49.050
+I took my current state object and I added in another character to it using push and then I returned
+
+08:49.050 --> 08:51.390
+that object.
+
+08:51.590 --> 08:53.630
+Now sure that seems like an OK thing to do right.
+
+08:53.630 --> 08:58.720
+Like Stephen you said we need to add in a character to the end here and not.
+
+08:58.730 --> 08:59.580
+Not quite.
+
+08:59.600 --> 09:06.020
+So this is the one big rule of reducers whenever we change our state object and reducers like whenever
+
+09:06.020 --> 09:13.640
+we make a tiny very subtle change we must return a completely new object or a completely new array or
+
+09:13.640 --> 09:16.160
+whatever data structure we might be using.
+
+09:16.340 --> 09:20.390
+In other words we do not mutate our data as we did right here.
+
+09:20.390 --> 09:27.770
+Instead we create a completely new data structure the code that I wrote right here mutates our existing
+
+09:27.770 --> 09:34.130
+state terrain by calling push on it some taking his existing array and I'm modifying it which is not
+
+09:34.130 --> 09:35.430
+what we want to do.
+
+09:35.480 --> 09:40.900
+We are going to in a future sexually and talk in great detail about why that's the case for right now
+
+09:40.910 --> 09:45.620
+I just want to kind of plant it in your head like this you know like seed of a thought that we do not
+
+09:45.620 --> 09:50.430
+mutate our state and to reduce or instead we completely recreate recreate it.
+
+09:51.170 --> 09:56.540
+So to fix this I'm going to replace these two lines with a little bit of six code.
+
+09:56.760 --> 10:01.130
+I'm going instead write return and I'll open up an array.
+
+10:01.280 --> 10:09.170
+Dot dot dot state comma action dot payload and then close off the array like so.
+
+10:09.170 --> 10:12.830
+This line right here now says make a new array.
+
+10:12.860 --> 10:19.910
+Indicated by these outside brackets take all of the elements in the current state array and toss them
+
+10:19.910 --> 10:20.640
+in here.
+
+10:20.990 --> 10:25.530
+And then also Tolleson action not payload as the last entry as well.
+
+10:25.550 --> 10:31.030
+More importantly it creates an entirely new array which is the requirement that we must satisfy with
+
+10:31.030 --> 10:32.990
+redux inside reducer.
+
+10:32.990 --> 10:37.910
+Now again we'll talk about why this is the case in the future but for now just remember the golden rule
+
+10:38.090 --> 10:41.440
+we always return brand new objects from reducers.
+
+10:42.010 --> 10:47.030
+OK so believe it or not I'm sure you're still incredibly confused but this is the end of our very brief
+
+10:47.030 --> 10:48.490
+introduction to redux.
+
+10:48.530 --> 10:53.710
+So I absolutely in no way shape or form expect you to be a master of redux at all.
+
+10:53.720 --> 10:55.590
+Not not one bit.
+
+10:55.630 --> 11:00.600
+In fact I'm going to continue with the next section by assuming that you know absolutely nothing about
+
+11:00.600 --> 11:01.280
+it.
+
+11:01.370 --> 11:02.920
+Redux is tough it's hard.
+
+11:02.930 --> 11:04.040
+It's a different way of thinking.
+
+11:04.040 --> 11:06.350
+So we're going to take things nice and slow.
+
+11:06.380 --> 11:12.410
+The only intent I had inside of this section and the previous sections was to introduce you to the ideas
+
+11:12.650 --> 11:20.530
+of a reducer an action dispatching actions and pulling a state out of our store.
+
+11:20.570 --> 11:22.580
+OK so that's those are the big takeaways here.
+
+11:22.580 --> 11:25.250
+That's all I really want you to get this.
+
+11:25.250 --> 11:26.820
+We're going to continue now in the next section.
+
+11:26.830 --> 11:32.420
+And again I'm basically going to assume that you know nothing about redux anyways so let's continue
+
+11:32.480 --> 11:38.410
+on the next application and continue working on our actual re-act native application.
+
+11:38.420 --> 11:39.000
+I'll see you there

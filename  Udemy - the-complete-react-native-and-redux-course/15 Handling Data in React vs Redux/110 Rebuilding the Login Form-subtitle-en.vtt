@@ -1,0 +1,280 @@
+WEBVTT
+
+00:01.790 --> 00:07.560
+In the last section we spoke a little bit about the behavior or the purpose of react as it relates to
+
+00:07.560 --> 00:09.490
+rebox and this application we're about to build.
+
+00:09.490 --> 00:15.090
+So we're going to treat re-act much more like just layer that produces GSX and content like that's it.
+
+00:15.120 --> 00:16.960
+That's all we want react do from now on.
+
+00:16.970 --> 00:21.960
+And we're going to depend on redux for handling all the decision making inside our application.
+
+00:21.960 --> 00:26.100
+So with that in mind we're going to get started on our log in form in this section.
+
+00:26.190 --> 00:30.900
+The first thing we need to do is make sure that we pull over all those default re-usable components
+
+00:30.900 --> 00:33.920
+that we've been carting around all over the place.
+
+00:33.930 --> 00:39.990
+So again there are fancier ways to do this by using NPM or get some modules but we're going to do it
+
+00:39.990 --> 00:41.220
+in the simplest way possible.
+
+00:41.220 --> 00:46.320
+We're just going to copy paste a directory full of all those common components.
+
+00:46.470 --> 00:53.340
+So inside my source directory I'm going to make a new folder called components and then I'm going to
+
+00:53.340 --> 00:57.050
+open up my current directory.
+
+00:57.390 --> 01:04.670
+So here is my manager project and I'm also going to open up a second window here just so I can be very
+
+01:04.670 --> 01:06.830
+explicit about what's going on.
+
+01:07.550 --> 01:12.630
+Let's go over to my workspace.
+
+01:12.680 --> 01:17.890
+I'm going to find my last project that I worked on which was the tech stack project.
+
+01:18.200 --> 01:21.990
+I mean go in there and find my common directory.
+
+01:22.070 --> 01:25.230
+So here's my button card card section blah blah blah.
+
+01:25.600 --> 01:31.550
+And I copy this send a copy of a directory and it come over to my manager application and drop it into
+
+01:31.550 --> 01:34.650
+the source excuse me in the components directory.
+
+01:34.670 --> 01:36.220
+There we go.
+
+01:36.280 --> 01:36.820
+There you go.
+
+01:36.920 --> 01:41.960
+OK so in component's I've got my common folder and inside of their button card card section voila all
+
+01:41.960 --> 01:44.000
+that good stuff.
+
+01:44.030 --> 01:44.470
+All right.
+
+01:44.570 --> 01:52.340
+So we now got our starter pack of components something to very quickly get start with our application
+
+01:52.430 --> 01:53.850
+again with Riak native.
+
+01:54.050 --> 01:58.150
+So fantastic to have reusable components like this it really speeds up development.
+
+01:58.880 --> 02:01.050
+So let's get started with our log in form.
+
+02:01.070 --> 02:06.880
+We're going to create a new folder or a new file inside the components directory called log in form
+
+02:09.320 --> 02:16.490
+so because we are going to be making a standalone component this time one that depends way more on redux.
+
+02:16.490 --> 02:19.770
+I'm not going to copy paste over my existing log in form.
+
+02:19.880 --> 02:25.000
+We're going to do this from scratch and say OK how do we make a log in form that works nicely with redux.
+
+02:25.100 --> 02:31.100
+And we're going to kind of you know juxtapose the react based approach with the react with redox approach
+
+02:31.610 --> 02:32.070
+instead.
+
+02:32.090 --> 02:36.440
+So it's going to you know get a better sense of what the differences difference is between these two
+
+02:36.440 --> 02:38.800
+different approaches.
+
+02:38.900 --> 02:46.370
+So it's putting in some boilerplate for a log in form at the top will import react and component from
+
+02:46.370 --> 02:53.240
+react and we'll get started with just the card component from common.
+
+02:53.240 --> 02:57.320
+So one of our common components that will make our log and form
+
+03:00.570 --> 03:07.100
+will place our render method and will return a default card component right now.
+
+03:07.540 --> 03:15.900
+And at the bottom will export default log and form like so and then just to get something to show up
+
+03:15.900 --> 03:17.860
+on the screen of our application.
+
+03:17.880 --> 03:20.640
+I'm going to flip back over to the app component.
+
+03:20.640 --> 03:22.840
+I'm going to import the log in form at the top
+
+03:27.490 --> 03:33.280
+components log and form and I'm going to replace my text tag.
+
+03:33.340 --> 03:41.750
+In my view tag inside the render method with this log in form OK so who looks like I got a little typo
+
+03:41.750 --> 03:42.440
+on the path there.
+
+03:42.440 --> 03:45.200
+So import log in form from components.
+
+03:45.260 --> 03:46.910
+That's better.
+
+03:48.080 --> 03:48.390
+OK.
+
+03:48.390 --> 03:50.680
+So nothing special going on so far.
+
+03:50.690 --> 03:55.370
+Again just our very standard boilerplate in here just yet.
+
+03:55.370 --> 03:57.820
+Do you take note that I'm not worrying about navigation yet.
+
+03:57.830 --> 04:02.780
+So you know there's no concept of showing different content to the user yet we're always going to show
+
+04:02.780 --> 04:06.320
+the log in form to them right now.
+
+04:06.320 --> 04:06.640
+All right.
+
+04:06.650 --> 04:10.600
+So let's do a quick refresh just to make sure that everything is going ok.
+
+04:11.270 --> 04:15.340
+Most importantly I want to make sure that we've got those default components over.
+
+04:15.340 --> 04:19.790
+It looks I know it's very subtle but we kind of see the border here of the card component so it looks
+
+04:19.790 --> 04:21.390
+like we're in a good spot here.
+
+04:21.470 --> 04:23.590
+Now let's continue by doing a little more scaffolding out.
+
+04:23.600 --> 04:28.380
+I want to create my input tags for my email and password.
+
+04:28.460 --> 04:36.380
+So at the top we're going to import our card section our inputs and our button and now we're going to
+
+04:36.380 --> 04:42.280
+place our e-mail and put our password input and our button tag as well.
+
+04:43.330 --> 04:50.890
+So we'll make a card section we're going to need three of these one for both components and one for
+
+04:50.890 --> 04:53.560
+the button song and I copy paste these in as well.
+
+04:53.590 --> 04:57.780
+So I got three card sections now and the first of all put our input
+
+05:00.740 --> 05:04.420
+for our e-mail.
+
+05:04.670 --> 05:07.060
+I'll give it a placeholder.
+
+05:07.400 --> 05:09.210
+About e-mail at CNN.com.
+
+05:09.260 --> 05:10.430
+That's what we did last time.
+
+05:12.990 --> 05:21.530
+Inside the second one the second card section that is we'll place our password so thrown secure tech
+
+05:21.550 --> 05:27.940
+century remember this is the prompt to say they make sure that the text in here displays as dots and
+
+05:27.950 --> 05:30.920
+give a label of password past board.
+
+05:31.010 --> 05:32.160
+That's interesting.
+
+05:32.350 --> 05:37.400
+Password a placeholder of password.
+
+05:37.740 --> 05:40.200
+And finally we'll do our button
+
+05:42.890 --> 05:44.960
+and they'll just have the text log in.
+
+05:45.440 --> 05:45.890
+OK.
+
+05:45.890 --> 05:48.500
+So good boilerplate good place to start.
+
+05:48.500 --> 05:51.410
+Let's do another refresh to make sure that we're going ok so far.
+
+05:51.630 --> 05:52.610
+And yup looks good.
+
+05:52.610 --> 05:55.940
+We got e-mail password and log in button on the screen.
+
+05:55.940 --> 05:57.420
+So notice that so far.
+
+05:57.560 --> 05:59.030
+Yes everything looks identical.
+
+05:59.030 --> 06:03.130
+We still have to have the inputs we still have that button for all that stuff.
+
+06:03.140 --> 06:04.930
+It's still happening on the re-act side.
+
+06:05.000 --> 06:09.440
+What's really going to start to change however is the fact that we're not going to have the component
+
+06:09.440 --> 06:12.230
+keep track of the value of the email and password.
+
+06:12.230 --> 06:14.790
+We're going to have redux be in charge of that instead.
+
+06:15.050 --> 06:19.170
+So let's continue the next section and start hooking up redux to this forum.

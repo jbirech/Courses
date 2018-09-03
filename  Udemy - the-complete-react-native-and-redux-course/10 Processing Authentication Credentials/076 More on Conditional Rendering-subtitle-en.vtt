@@ -1,0 +1,322 @@
+WEBVTT
+
+00:00.750 --> 00:07.290
+We now have a piece of state on our app component called this dot state DOT logged in to decide whether
+
+00:07.290 --> 00:09.530
+or not the user is currently logged in.
+
+00:09.540 --> 00:15.390
+So just to be clear one last time the on off state change function there you know the federal function
+
+00:15.390 --> 00:19.110
+right here can be called at any point in time inside of our application.
+
+00:19.110 --> 00:24.180
+So if the user logs in and backs out and logs out 10 times in a row our state is just going to keep
+
+00:24.180 --> 00:26.590
+on flipping back and forth.
+
+00:26.640 --> 00:32.580
+We will now use the same methodology as we used in the log for him to decide whether or not we want
+
+00:32.580 --> 00:38.490
+to show the log in form or something that says like you know hey you're currently signed in or whatever
+
+00:38.490 --> 00:40.060
+one might want to show.
+
+00:40.500 --> 00:45.930
+So we'll create a new helper function that will decide whether or not to show the log in form or a button
+
+00:45.930 --> 00:47.980
+that allows the user to sign out.
+
+00:48.450 --> 00:55.900
+So first off make the helper function which I'm going to call Brender content and inside of here will
+
+00:55.920 --> 01:05.730
+look at this state DOT logged in and if the user is currently logged in then I will return a button
+
+01:05.730 --> 01:12.280
+tag that just says something like you know sign out.
+
+01:12.330 --> 01:16.620
+Actually let's keep our terminology consistent and say log out.
+
+01:17.060 --> 01:19.010
+Now I haven't imported the button tag just yet.
+
+01:19.010 --> 01:20.610
+We'll do that in just a second.
+
+01:21.170 --> 01:28.060
+If the user is not logged in we will return a different piece of GSX will return the log and form itself.
+
+01:30.340 --> 01:35.000
+Finally we will replace the log form down here with the call to render content.
+
+01:35.170 --> 01:37.760
+So say this dot Rander content.
+
+01:37.810 --> 01:41.440
+So now at any given time if the user is logged in.
+
+01:41.530 --> 01:42.910
+Show a button to log out.
+
+01:42.910 --> 01:44.810
+Otherwise allow them to sign in.
+
+01:44.830 --> 01:45.430
+That's it.
+
+01:45.430 --> 01:46.800
+That's all we want to do.
+
+01:47.150 --> 01:51.220
+So now I think the lesson we have to do is make sure that we import that button component.
+
+01:51.480 --> 01:53.680
+So scroll back up to the top.
+
+01:54.040 --> 01:57.770
+We've already got an import statement from the common folder right here.
+
+01:57.790 --> 02:00.790
+So I will also import our button component as well.
+
+02:02.670 --> 02:07.320
+Now of course the component doesn't really do anything just yet like you know it's not like you know
+
+02:07.320 --> 02:08.190
+soldering thing.
+
+02:08.310 --> 02:11.870
+But I think we're in a good enough spot to do a little bit of a test in the simulator.
+
+02:11.880 --> 02:15.150
+So in a pop open the simulator would refresh.
+
+02:15.360 --> 02:18.520
+Now I'm still logged in from our previous session.
+
+02:18.540 --> 02:25.130
+This is like the magic of firebase in practice right here I was signed in already to our application.
+
+02:25.140 --> 02:32.020
+So as soon as I authenticate the app are on all state change callback kicks in it flips.
+
+02:32.020 --> 02:36.670
+Logged into true and lo and behold all of a sudden we get the log out button on the screen.
+
+02:36.690 --> 02:39.310
+So this is exactly what I want to have happen here.
+
+02:41.220 --> 02:45.090
+So I want to do something else here I want to just refresh the sealer really quick and you'll notice
+
+02:45.090 --> 02:51.210
+however that when I first refresh it we see the log in form on the screen for just you know half of
+
+02:51.210 --> 02:57.540
+a second there as firebase syncs up with the remote data store and decides whether or not we are still
+
+02:57.540 --> 02:58.500
+signed in.
+
+02:58.500 --> 03:04.260
+So this on All-State change here it's not instantaneous it actually takes firebase a moment to figure
+
+03:04.260 --> 03:06.790
+out whether or not our user is currently signed in.
+
+03:06.840 --> 03:10.590
+And that's why we see that log in form appear on the screen for half a second.
+
+03:10.620 --> 03:13.590
+So obviously that is not ideal behavior.
+
+03:13.740 --> 03:20.070
+So I think that it would be really nice to show a spinner on the screen all the way until we know whether
+
+03:20.070 --> 03:23.320
+or not the user for sure sign in or signed out.
+
+03:24.920 --> 03:26.660
+Now there's just one small issue here.
+
+03:26.660 --> 03:31.960
+Just one small and a nasty issue at present.
+
+03:32.000 --> 03:39.330
+We've got a logged in flag right and logged in is either flipping between true or false and we're defaulting
+
+03:39.350 --> 03:44.270
+are logged in state to be false so by default we're assuming Hey you're not logged in and if you're
+
+03:44.270 --> 03:47.190
+not logged in boom see the logon form.
+
+03:47.210 --> 03:49.570
+So in fact we really need three states here.
+
+03:49.580 --> 03:55.280
+We need a state in which we don't know if you're logged in a state in which you're definitely not logged
+
+03:55.280 --> 03:57.990
+in and ascertain which Yeah you're definitely logged in.
+
+03:58.010 --> 04:01.520
+So three different states to handle this.
+
+04:01.550 --> 04:07.690
+I'm going to suggest that we flip the initial value of logged in to no instead of false.
+
+04:07.820 --> 04:12.480
+And so Nolla right here represents Hey we just I don't know if you're logged in.
+
+04:12.500 --> 04:13.490
+I've got no idea.
+
+04:13.490 --> 04:14.770
+I don't want to say you're not.
+
+04:14.780 --> 04:16.430
+You know I don't want to say false.
+
+04:16.490 --> 04:17.960
+Like for sure you're not.
+
+04:17.960 --> 04:20.390
+But I also want to say are true obviously.
+
+04:20.570 --> 04:26.570
+So instead we'll place Nolan here and no kind of has the connotation of the idea of I just don't know
+
+04:26.840 --> 04:27.940
+what this should be like.
+
+04:27.950 --> 04:30.080
+I don't know if you're signed in.
+
+04:30.800 --> 04:36.560
+So now we can update our render content method right here to handle this additional case of what the
+
+04:36.560 --> 04:39.130
+value of this dot state law is.
+
+04:39.380 --> 04:46.900
+So now we need to handle the case in which the Start states are logged in is true false or no.
+
+04:47.040 --> 04:50.240
+OK so we've got three different cases now to handle this.
+
+04:50.240 --> 04:54.720
+I think that using a bunch of if else statements would be a little bit messy.
+
+04:54.740 --> 04:59.150
+So instead I'm going refactor this to use a switch statement.
+
+04:59.150 --> 05:07.070
+So I'm going to add a little space in here and we will switch over the value of this state logged in
+
+05:08.810 --> 05:13.680
+now inside of a year we'll have a couple different cases of a case in which it is true.
+
+05:13.700 --> 05:18.130
+Like yeah you're like in love a case in which falls which is.
+
+05:18.320 --> 05:24.410
+No you're definitely not logged in and a default case which is really going to handle when this state
+
+05:24.620 --> 05:26.070
+logged in is nil.
+
+05:26.090 --> 05:28.720
+So that's the purpose of default.
+
+05:28.780 --> 05:30.080
+It's now inside of here.
+
+05:30.080 --> 05:34.040
+I'm going to just copy paste up the log and form tag.
+
+05:34.190 --> 05:35.920
+So I'm going to cut this thing out.
+
+05:36.260 --> 05:44.340
+And if the user is not logged in so false I want to show the log in for them if the user is logged in.
+
+05:44.360 --> 05:46.660
+Then I want to show my button tag
+
+05:50.070 --> 05:53.040
+that allows them to log out.
+
+05:53.260 --> 05:54.930
+Now I can delete this statement
+
+05:57.840 --> 06:01.780
+and then finally in the default case I want to show the user a spinner.
+
+06:02.220 --> 06:03.830
+It's also a spinner instead.
+
+06:03.990 --> 06:10.250
+And I probably want this to be a nice big spinner or something to show it with the size of large.
+
+06:10.320 --> 06:12.380
+We also need to make sure that we import the spinner.
+
+06:12.390 --> 06:16.790
+So I'm going to make sure that import spinner from our common directory.
+
+06:17.250 --> 06:20.390
+So inside of here we'll get our spinner.
+
+06:21.450 --> 06:21.930
+All right.
+
+06:21.930 --> 06:26.880
+So I think we're in a great spot now we're handling three different cases of our application the case
+
+06:26.880 --> 06:32.630
+in which you're live in case in which you're logged out and the case in which we just don't know yet.
+
+06:32.640 --> 06:36.350
+So let's now test this out inside the simulator or refresh.
+
+06:36.690 --> 06:42.210
+And I get that spinner on the screen for just half a second which is a much nicer experience than showing
+
+06:42.210 --> 06:44.910
+the user that log in for them right away.
+
+06:44.910 --> 06:49.710
+You'll notice that you know to be kind of nice if this spinner was a little bit more centered on the
+
+06:49.710 --> 06:54.730
+screen overall I'm going to allow that to be kind of a self-directed exercise.
+
+06:54.780 --> 07:00.420
+So if you want you could wrap the spinner right here with a view tag and use that view tag to center
+
+07:00.420 --> 07:05.490
+it on the screen overall as opposed to just letting it kind of butt up against the top here.
+
+07:06.220 --> 07:06.650
+OK.
+
+07:06.660 --> 07:09.510
+So this looks fantastic I think we're making great progress.
+
+07:09.510 --> 07:14.820
+The last thing we have to do for authentication is be able to log the user out by clicking the button
+
+07:14.820 --> 07:15.720
+right here.
+
+07:15.720 --> 07:18.840
+So let's take care of that implementation in the next section.

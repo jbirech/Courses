@@ -1,0 +1,337 @@
+WEBVTT
+
+00:00.870 --> 00:06.180
+Are finally ready to save our new employee to firebase Let's jump right into it inside of our employee
+
+00:06.210 --> 00:12.120
+create action Creator and we want to see something to firebase any time we want to work with firebase
+
+00:12.120 --> 00:13.660
+in any way shape or form.
+
+00:13.680 --> 00:16.570
+We need to make sure that we import the firebase library.
+
+00:16.890 --> 00:24.930
+So at the top of this file I'm going to add an import statement to import import firebase from firebase
+
+00:24.930 --> 00:28.380
+like so.
+
+00:29.190 --> 00:33.070
+Now here comes the fun part the fun part so to speak.
+
+00:33.090 --> 00:35.320
+I'm going to clean up this consulate right here.
+
+00:35.340 --> 00:37.840
+We know the actual crater is being called with the correct data.
+
+00:37.850 --> 00:41.150
+So I don't think we really need anymore.
+
+00:41.220 --> 00:45.720
+This next part like I said quite fun with firebase depending on how you look at it.
+
+00:45.840 --> 00:48.000
+We're going to throw a little bit of code on here again.
+
+00:48.000 --> 00:49.070
+Talk about what it's doing.
+
+00:49.110 --> 00:53.790
+I'm going to call firebase dot database dot ref.
+
+00:53.860 --> 01:00.230
+I'm going to pass in a string user's user id employees.
+
+01:00.710 --> 01:02.370
+So there's a little bit of interesting code right here.
+
+01:02.400 --> 01:06.560
+This says good access to our firebase database.
+
+01:06.660 --> 01:06.900
+Right.
+
+01:06.900 --> 01:16.400
+So like the location where you actually store our data and then make a reference to user's user id employees.
+
+01:16.590 --> 01:20.610
+So this string right here is a little bit misleading because it looks like it might be a U or L or something
+
+01:20.610 --> 01:21.460
+like that right.
+
+01:21.660 --> 01:27.870
+Well in fact it is a path to our Jason data store as I passed through the different gates on that we
+
+01:27.870 --> 01:28.530
+have.
+
+01:28.770 --> 01:35.970
+So remember some data structure we had said that we would have a top level collection of users and then
+
+01:35.970 --> 01:39.210
+a user ID and then a collection of employees.
+
+01:39.300 --> 01:44.700
+And so that is exactly what the string is doing right here it is saying find my collection of users
+
+01:44.730 --> 01:52.830
+like find a key users find a key of user ID and then find a key of employees.
+
+01:52.860 --> 01:57.590
+Now the one kind of a misleading part here is I put just a hard coded user id in here.
+
+01:57.660 --> 02:03.570
+We don't actually want this to be a hard coded user id want this to be the user id of the currently
+
+02:03.570 --> 02:07.230
+authenticated user like that currently logged in user.
+
+02:07.230 --> 02:10.680
+That is what's going to give us back over our days on schema.
+
+02:10.860 --> 02:16.530
+This intermediate key right here of like User 1 2 3 we're going to use their ID as this intermediate
+
+02:16.530 --> 02:17.690
+key right here.
+
+02:17.730 --> 02:24.630
+Again if this like data structure here sounds really confusing as soon as we see this inside firebase
+
+02:24.630 --> 02:27.360
+itself I think it's going to make a lot more sense.
+
+02:27.420 --> 02:30.920
+So let's finish up with this actually saving the data here.
+
+02:30.930 --> 02:31.400
+Check it out.
+
+02:31.410 --> 02:32.250
+Inside a firebase.
+
+02:32.250 --> 02:35.090
+And I think it's going to start to make a lot more sense.
+
+02:35.130 --> 02:41.070
+So we have to actually get used to or get access to the currently authenticated user in our application
+
+02:41.340 --> 02:47.910
+because we need their ID to shove in right here as the user ID to get access to the currently authenticated
+
+02:47.910 --> 02:48.680
+user.
+
+02:49.020 --> 02:57.600
+We can call can get our current user from firebase start off like so.
+
+02:57.960 --> 03:04.820
+So if we reference firebase doth dot current user thats the currently authenticated user is our user
+
+03:04.830 --> 03:11.760
+model and this current user object right here has a new ID property which is the idea of that current
+
+03:11.790 --> 03:14.030
+user which is exactly what we need.
+
+03:14.250 --> 03:21.270
+So we need to take that current users use ID or essentially their ID and stuff it in in place of this
+
+03:21.270 --> 03:24.030
+user id variable right here to do that.
+
+03:24.040 --> 03:28.650
+We're going to use a little bit of template strings or string interpolation depending what you want
+
+03:28.650 --> 03:31.650
+to call it which is a feature of ESX.
+
+03:31.860 --> 03:37.470
+So I'm going to find my single quotes and either side the string I'm going to delete it on both sides
+
+03:38.060 --> 03:40.340
+and I'm going to replace them with back ticks.
+
+03:40.620 --> 03:45.700
+So back ticks are a button on your keyboard that is to the left of the one.
+
+03:45.750 --> 03:49.260
+So you're going to want to end up at the back tick right here.
+
+03:49.260 --> 03:53.740
+Then we want to inject that ID in place of this user ID right here.
+
+03:53.910 --> 03:59.270
+So I'm going to remove user ID and then replace it with dollar sign curly brace.
+
+03:59.300 --> 04:04.620
+And again this is a part of the A-6 any javascript variable that we placed inside of here is going to
+
+04:04.620 --> 04:10.410
+be injected into this string and we're gonna end up with like the fully qualified string of users slash
+
+04:10.800 --> 04:14.650
+user id whatever it might be like user 1 to 3 Flash employees.
+
+04:15.000 --> 04:19.210
+So inside if you're put current user ID.
+
+04:19.410 --> 04:20.980
+Boom that's it.
+
+04:21.750 --> 04:26.580
+So just to be really clear the final product of that string right there would end up being something
+
+04:26.580 --> 04:27.980
+that looks like you know users.
+
+04:28.020 --> 04:31.480
+One two three four five six slash employees like that.
+
+04:31.470 --> 04:35.550
+That is the final result of that string.
+
+04:35.610 --> 04:41.790
+Look at after we get a reference to this path right here on firebase this is just like a reference to
+
+04:41.790 --> 04:44.570
+a very specific location in our data store.
+
+04:44.640 --> 04:47.730
+We want to actually take some operation on that reference.
+
+04:47.730 --> 04:55.580
+We want to actually like do something at this point in time to add new data to this little slice of
+
+04:55.580 --> 04:57.070
+our firebase data store.
+
+04:57.170 --> 05:02.640
+We can call the DOT push method on that reference so don't push.
+
+05:02.660 --> 05:08.690
+We can pass it an object and then anything inside of here will be saved to that reference or to this
+
+05:08.690 --> 05:11.190
+little spot inside our database.
+
+05:11.480 --> 05:18.370
+So we want to push inside of there a name the phone number and the shift.
+
+05:18.700 --> 05:25.340
+And again I think that we would probably be really well-served to test this out at this point see what
+
+05:25.340 --> 05:28.480
+it looks like inside of our firebase console.
+
+05:28.570 --> 05:31.750
+I think it's really going to help us to figure out what's going on here.
+
+05:32.570 --> 05:37.760
+So I'm going to open up my simulator and going to refresh
+
+05:41.260 --> 05:42.000
+log in
+
+05:46.760 --> 05:47.250
+go.
+
+05:47.340 --> 05:48.760
+And now we'll go to add.
+
+05:48.950 --> 05:53.990
+I'm going to set Jane 5 5 5 5 5 5.
+
+05:54.420 --> 05:58.890
+We can set a shift or we can just leave a default Monday that should definitely be functioning now and
+
+05:58.890 --> 06:00.380
+then I'll go ahead and click Create.
+
+06:00.510 --> 06:02.790
+So we still get the big red error message on here.
+
+06:02.790 --> 06:04.540
+Actions must be plain objects.
+
+06:04.560 --> 06:09.260
+Again that is because we are not treating this like a proper action Creator and we are not returning
+
+06:09.260 --> 06:14.680
+actual action here but we should have at least made this request over to firebase.
+
+06:14.820 --> 06:20.300
+So now I should really check my console and see if we've got any data so I'll flip back over my console
+
+06:20.610 --> 06:26.370
+and immediately it looks like I've already gotten an update here so I can now see on my root level I've
+
+06:26.400 --> 06:28.490
+now got a collection of users.
+
+06:28.860 --> 06:31.720
+If I expand it this is my current user ID.
+
+06:31.740 --> 06:36.390
+So this would be like in my diagram that I had here this would be equivalent to like you know User 1
+
+06:36.390 --> 06:37.500
+to 3.
+
+06:37.500 --> 06:40.840
+This is the ID of the currently logged in user.
+
+06:41.130 --> 06:47.280
+So I can expand this that user has a collection of employees and inside of it there is an employee with
+
+06:47.280 --> 06:54.500
+ID dash Katie T-P blah blah blah and their name is Jane with the phone number 555 in a shift of Monday.
+
+06:54.780 --> 06:58.780
+Yes that is exactly what we want it perfect.
+
+06:58.800 --> 07:01.350
+This is great progress.
+
+07:01.590 --> 07:02.890
+Just to be really clear now.
+
+07:02.910 --> 07:04.470
+Hopefully it makes a little bit more sense.
+
+07:04.470 --> 07:09.630
+What's going on with those rules that we have added so this user ID right here.
+
+07:09.660 --> 07:12.360
+This is the currently authenticated user.
+
+07:12.360 --> 07:20.130
+So the rules that we set up means if any user logs in with out an ID of engaged and blah blah blah they
+
+07:20.130 --> 07:25.680
+should not have access to any of the data sitting inside of this little bucket right here.
+
+07:25.680 --> 07:31.080
+So only in the user with ngi web law the law is going to have access to this collection of employees
+
+07:31.350 --> 07:34.650
+and any other data that we add in here as well.
+
+07:34.650 --> 07:34.950
+All right.
+
+07:34.980 --> 07:36.170
+This is great progress.
+
+07:36.330 --> 07:41.410
+Let's take a quick break and then it looks like we've still got this big red error message here.
+
+07:41.460 --> 07:45.450
+We still need to make sure that we navigate our user back to the employee screen.
+
+07:45.450 --> 07:47.560
+So let's take care of that in the next section

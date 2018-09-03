@@ -1,0 +1,403 @@
+WEBVTT
+
+00:00.780 --> 00:06.570
+We've got our employee edit form put together but it's not actually being used anywhere just yet.
+
+00:06.570 --> 00:10.410
+Remember whenever a user taps on an individual list item.
+
+00:10.410 --> 00:12.380
+So here's my list item component.
+
+00:12.630 --> 00:17.010
+We are still going to the employee create route.
+
+00:17.150 --> 00:20.770
+So we need to make sure that it changes over to the employee at it.
+
+00:21.050 --> 00:26.540
+So we're going to first add a new scene to represent employee audit at it and then we will have access
+
+00:26.540 --> 00:30.170
+to the actions dot employee added route as well.
+
+00:30.170 --> 00:33.950
+So since we know that we're going to add the scene in I'm going to just go out and change this one side
+
+00:33.950 --> 00:35.470
+of list item right now.
+
+00:35.930 --> 00:40.810
+So I will go to employee at it whenever a user taps on an individual row.
+
+00:40.860 --> 00:45.840
+Now inside of my router router J us here it is right here at the top.
+
+00:45.840 --> 00:49.020
+We will first import employee at it.
+
+00:49.110 --> 00:58.140
+So I will import employee at it from components employee at it and then we can create a new scene with
+
+00:58.140 --> 00:58.800
+this.
+
+00:59.040 --> 01:04.140
+So I still want the scene to be in the same light kind of bucket as the other employee routes in here.
+
+01:04.140 --> 01:15.780
+So inside of the main scene we will add on a scene for employee at it and it's going to show the employee
+
+01:16.250 --> 01:17.660
+edit component.
+
+01:18.060 --> 01:23.890
+Lastly we'll give it a title on here because this is not only showing but also editing an employer and
+
+01:23.980 --> 01:24.840
+employee.
+
+01:24.840 --> 01:28.590
+You can really make a lot of different arguments for what this title should be.
+
+01:28.590 --> 01:32.400
+I think that an employee makes a lot of sense.
+
+01:32.400 --> 01:36.660
+Remember this title property right here is what's going to be shown on the nav bar at the top of the
+
+01:36.660 --> 01:38.490
+screen.
+
+01:38.490 --> 01:39.920
+All right this looks good.
+
+01:40.050 --> 01:41.880
+I'm pretty confident this is going to work.
+
+01:41.880 --> 01:45.400
+You know we could do a quick test if you want to pause a video and do a quick test.
+
+01:45.480 --> 01:46.040
+Go for it.
+
+01:46.080 --> 01:49.820
+Otherwise we're going to keep steaming ahead a little bit.
+
+01:49.850 --> 01:55.850
+So now you can navigate to this employee at its screen but we still haven't resolved that very root
+
+01:55.940 --> 01:58.520
+issue inside of this form right now.
+
+01:58.550 --> 02:05.780
+Whenever you navigate to this form we want to bootstrap work pre-load the reducer with the employee
+
+02:05.780 --> 02:07.440
+that is being passed to the form.
+
+02:07.510 --> 02:13.730
+And remember an employee has been passed to it as a prop because when we change the route we are explicitly
+
+02:13.760 --> 02:17.510
+passing in the employee that we're trying to modify.
+
+02:18.020 --> 02:24.290
+So inside employee at this stop Prasada employee is the employee that we're trying to modify.
+
+02:24.290 --> 02:29.260
+So we're going to use a little bit of a trick to load up our producer with this employee.
+
+02:29.330 --> 02:31.420
+Here's what we're going to do at the top.
+
+02:31.460 --> 02:40.970
+I'm going to import employee update from actions remember employee update is the action creator that
+
+02:40.970 --> 02:43.790
+will modify our employee form reduce her.
+
+02:43.790 --> 02:48.660
+This is what changes the state of that reducer.
+
+02:48.720 --> 02:52.960
+Then I'll scroll down we're going to add this as an action creator to the next method down here.
+
+02:53.010 --> 02:55.500
+So I don't have a map state to prop's just yet.
+
+02:55.500 --> 02:59.340
+I'll put in a no and employee update.
+
+02:59.340 --> 03:03.210
+So now we've got access to that action Creator within this component.
+
+03:03.210 --> 03:04.530
+And here comes the fun part.
+
+03:04.860 --> 03:06.860
+I'm going to make a component will.
+
+03:06.900 --> 03:13.370
+Now it's going to say at any time that this component is about to be loaded onto the screen so any time
+
+03:13.390 --> 03:14.910
+is about to be shown.
+
+03:14.910 --> 03:20.340
+I want to look at this stuff Propst that employee and every single property that it has.
+
+03:20.340 --> 03:22.590
+I want to forward on to employee update.
+
+03:22.600 --> 03:28.890
+So I'm going to take all the properties out of my employee and stuff it into the reducer to do so we're
+
+03:28.890 --> 03:30.810
+going to be using load ash as well.
+
+03:30.810 --> 03:37.050
+So at the top you'll import load ash from load ASH.
+
+03:37.290 --> 03:39.260
+You know if you're wondering why we're going to pollute ASH.
+
+03:39.290 --> 03:42.940
+Well we're going to iterate over all the properties of the employee.
+
+03:43.160 --> 03:50.510
+So for each prop in this Start prop's employee and remember this is an object right here with the key
+
+03:50.510 --> 03:55.900
+value pairs of ID name phone and shift.
+
+03:55.900 --> 04:06.800
+So now for each key value pair we can take the value and key which I can refer to as Propp in here and
+
+04:06.800 --> 04:09.320
+we will call our action creator with these.
+
+04:09.770 --> 04:18.490
+So this doc Propst dot employee update and I'll pass in an object with profit and value.
+
+04:19.160 --> 04:24.340
+So the end result here what this is doing I know this is a nasty little chunk of code right here.
+
+04:24.410 --> 04:29.720
+This says that we understand that there is an employee model coming into this component.
+
+04:29.840 --> 04:36.080
+We're going to iterate over every property on that object and update our reducer with every property.
+
+04:36.080 --> 04:42.410
+So this is taking all those attributes off the employee and stuffing them as pre-filled values inside
+
+04:42.410 --> 04:44.090
+of our form reducer.
+
+04:44.090 --> 04:46.520
+This is a little bit of a hackish way to do this.
+
+04:46.520 --> 04:52.790
+The other route that I might make or the other approach might be to create a new action creator to accept
+
+04:52.820 --> 04:57.710
+an entire employee model and then update all the values in the reducer.
+
+04:57.730 --> 04:59.350
+And just like in one go.
+
+04:59.510 --> 05:03.000
+So it would definitely be another approach that we might take as well.
+
+05:03.120 --> 05:11.770
+The OSCON do is Elly's start to hook up our button at least enough that we can start to test our application.
+
+05:11.900 --> 05:19.700
+So the button I'm going to give it a handler of on Prus we will run on button press and I'll bind this
+
+05:19.700 --> 05:20.600
+to it.
+
+05:21.350 --> 05:31.100
+And then inside it of all button press I want to be able to cancel log the name the phone and the shift
+
+05:31.790 --> 05:37.910
+from the props and accounts log name phone and shift.
+
+05:37.910 --> 05:41.570
+Now this last bit right here this is probably if you were following me before this is probably where
+
+05:41.570 --> 05:45.230
+I really threw you off by logging name phone and shift.
+
+05:45.230 --> 05:49.440
+This is intended to be the name phone and shift out of our former douceur.
+
+05:49.520 --> 05:54.200
+We have not yet pulled those properties into this component yet so we're going to define a map state
+
+05:54.230 --> 05:59.500
+props at the bottom.
+
+05:59.710 --> 06:12.200
+We'll take our state Hoopes and from our form reduce her we're going to take our name phone and shift
+
+06:14.190 --> 06:19.290
+from the employee form piece of state and then we will return.
+
+06:19.350 --> 06:21.650
+Name Phone shift.
+
+06:22.050 --> 06:28.400
+And lastly and I've been forgetting to do this so often we need to plug in the map state to prop's like
+
+06:28.420 --> 06:29.300
+so.
+
+06:29.820 --> 06:30.290
+OK.
+
+06:30.310 --> 06:31.420
+So if this.
+
+06:31.510 --> 06:37.620
+I would imagine that this section seemed a little bit a little bit vague a little bit obtuse.
+
+06:37.660 --> 06:42.370
+Let's continue I want to test this in just a second by just want to take a moment to say that yeah this
+
+06:42.420 --> 06:45.070
+this is a little bit of nasty coding here.
+
+06:45.070 --> 06:49.900
+This is some of the challenges that arise whenever we decide to have to deal with both to create an
+
+06:49.930 --> 06:51.090
+edit form separately.
+
+06:51.100 --> 06:56.140
+So it's a little bit nasty but we will do a nice big review to make sure that's really clear where all
+
+06:56.140 --> 06:59.420
+these different props are coming from and where they're flowing to.
+
+06:59.830 --> 07:03.610
+So let's do your one quick test inside of the simulator just to make sure we're going down the right
+
+07:03.610 --> 07:04.380
+path here.
+
+07:05.620 --> 07:07.690
+And it looks like I've got a typo somewhere in here.
+
+07:07.690 --> 07:09.070
+It's inside of employ.
+
+07:09.130 --> 07:12.520
+I probably just made it.
+
+07:12.560 --> 07:17.020
+Yup looks like I got a little in there somehow my mistake so I'll save
+
+07:20.640 --> 07:23.190
+bring the simulator back up.
+
+07:23.310 --> 07:25.720
+I will log in.
+
+07:26.040 --> 07:27.400
+Let's get that password.
+
+07:29.540 --> 07:36.200
+Now I should be able to click on any employee in this row right here in this list and see the correct
+
+07:36.200 --> 07:37.160
+values in the list.
+
+07:37.160 --> 07:38.690
+So yup here is Amanda.
+
+07:38.690 --> 07:42.460
+Amanda has a phone a five five five and a shift day of Tuesday.
+
+07:42.660 --> 07:45.440
+I should be able to go back see Jane instead.
+
+07:45.770 --> 07:47.440
+I should be able to see Nick.
+
+07:47.620 --> 07:49.420
+So Thursday 5 5 5.
+
+07:49.640 --> 07:51.510
+And now here's the really important part.
+
+07:51.650 --> 07:53.220
+If I change any value.
+
+07:53.240 --> 08:00.950
+So let's say that Nick is now going to have a phone number of 5 5 5 2 2 2 and then click on Save changes.
+
+08:00.950 --> 08:06.920
+You'll see that I get the console log of all the attributes from my form reducer.
+
+08:06.920 --> 08:09.280
+So here is the new update as values.
+
+08:09.350 --> 08:15.250
+So it is very clear here is that we are correctly kind of pulling the values out of that employee that
+
+08:15.260 --> 08:17.280
+we're trying to load the form up with.
+
+08:17.380 --> 08:22.250
+They are getting saved onto the reduce or we know that that's occurring because we see the correct properties
+
+08:22.310 --> 08:23.910
+in the form itself.
+
+08:23.930 --> 08:28.090
+Then whenever I change the properties we are updating them in the form reducer.
+
+08:28.220 --> 08:34.130
+I click the button and we see them cancel lot why I want to make sure is really clear here is that we
+
+08:34.130 --> 08:38.860
+are not touching the underlying employee model that came from firebase.
+
+08:38.880 --> 08:43.610
+You know the one that is being maintained by the employees reducer and what is so critical about that.
+
+08:43.640 --> 08:44.760
+The reason it's so important.
+
+08:44.870 --> 08:46.700
+You just saw that I'd change the phone number here right.
+
+08:46.700 --> 08:48.820
+I changed it to two to two.
+
+08:48.830 --> 08:56.030
+Now if I go back and I go back into Nick Nick is back at 5:55 as he was before because I did not save
+
+08:56.030 --> 08:56.540
+the record.
+
+08:56.540 --> 08:58.730
+Nothing got persisted to firebase.
+
+08:58.730 --> 09:02.480
+So very important item to note in here.
+
+09:02.700 --> 09:04.340
+All right let's continue on to the next section.
+
+09:04.350 --> 09:09.300
+I think that our next step is going to be to create an action creator to save the changes that we are
+
+09:09.300 --> 09:10.820
+making to these employees.
+
+09:10.830 --> 09:13.410
+So let's tackle that in the next section

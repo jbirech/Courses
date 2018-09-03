@@ -1,0 +1,259 @@
+WEBVTT
+
+00:01.050 --> 00:06.510
+We now have a big button on the right hand side of our out that it will allow us to basically do anything
+
+00:06.510 --> 00:07.970
+we want when we press on it.
+
+00:08.190 --> 00:13.220
+So we need to now making new component that is going to serve for creating a new employee.
+
+00:13.260 --> 00:15.240
+We don't have a form to show the user just yet.
+
+00:15.240 --> 00:20.790
+So in the section we're going to put together some scaffolding for a new employee form or a form to
+
+00:20.790 --> 00:25.080
+create a new employee and then we're going to make sure we can navigate there whenever we press this
+
+00:25.170 --> 00:26.670
+add button.
+
+00:27.530 --> 00:30.850
+So we'll start off with the form first in my component's directory.
+
+00:30.870 --> 00:38.460
+I'll make a new file called employee create dot J.S. and then inside of a year we'll toss in a little
+
+00:38.460 --> 00:39.460
+bit of boilerplate.
+
+00:39.510 --> 00:53.250
+So import react and component components and from re-act will grab a view and text from re-act native.
+
+00:53.250 --> 00:57.500
+I definitely expect that we're going to be using our reusable components instead of you in text but
+
+00:57.500 --> 01:01.700
+for right now we just want to kind of get something on the screen.
+
+01:01.710 --> 01:06.720
+We'll make an employee create form that will extend component
+
+01:09.460 --> 01:10.600
+and from the render method
+
+01:13.540 --> 01:15.230
+we return a view.
+
+01:17.630 --> 01:24.850
+With some text it says like employee form.
+
+01:24.990 --> 01:32.220
+And finally at the bottom will tell us on our export statement.
+
+01:32.230 --> 01:33.050
+All right.
+
+01:33.190 --> 01:38.910
+So just to get some content on the page something just get us started.
+
+01:39.010 --> 01:45.790
+So we need to actually make sure that the router knows about this component here and Krita seem to represent
+
+01:45.790 --> 01:46.760
+this component.
+
+01:46.870 --> 01:49.450
+So we're going to flip on back to our router.
+
+01:49.450 --> 01:51.700
+I will import our new form.
+
+01:51.700 --> 02:02.730
+So import employee create from components employee create and I will make a new scene.
+
+02:02.860 --> 02:08.050
+Now this is where I need to ask myself the question should this scene go underneath the kind of off
+
+02:08.080 --> 02:10.330
+bucket or is underneath the main bucket.
+
+02:10.480 --> 02:14.870
+And to answer that question I need to think about how I want users to navigate to this.
+
+02:14.890 --> 02:22.240
+I want to use or sell the ability to navigate from the employee list to the employee create form.
+
+02:22.420 --> 02:26.440
+And once they're on the create form if they decide Oh you know what I don't actually want to create
+
+02:26.440 --> 02:32.050
+a new employee that they like don't press that back button I should kick them back to the employee list
+
+02:32.050 --> 02:32.560
+component.
+
+02:32.560 --> 02:38.040
+So it sounds like is going to be in this channel of all the different main scenes that I have.
+
+02:38.060 --> 02:41.590
+It's definitely an added inside of your own make a new scene
+
+02:46.270 --> 02:51.520
+that has a title of create employ.
+
+02:51.550 --> 02:53.470
+So that's what the users are going to see.
+
+02:53.700 --> 02:57.280
+Well give me a key in your let's get order of properties right here.
+
+02:57.280 --> 02:59.120
+I want to see at least somewhat consistent.
+
+02:59.190 --> 03:02.890
+We'll put the key first.
+
+03:03.410 --> 03:12.780
+So we'll give it a key of employed create a component of employee creates That's what we need.
+
+03:12.790 --> 03:17.160
+Yep and boy create and then we've got the title of create employee.
+
+03:17.330 --> 03:17.660
+OK.
+
+03:17.690 --> 03:20.370
+So this definitely looks good right here.
+
+03:20.420 --> 03:21.690
+Let's see it.
+
+03:21.710 --> 03:23.580
+I want to do a quick refresh.
+
+03:23.750 --> 03:24.510
+See where we're at
+
+03:31.020 --> 03:33.820
+all log in.
+
+03:34.090 --> 03:37.840
+And you know I just realize we're testing it here but we haven't actually hooked up this button just
+
+03:37.840 --> 03:38.290
+yet.
+
+03:38.290 --> 03:39.490
+My mistake.
+
+03:39.490 --> 03:40.830
+Let's do that first.
+
+03:40.840 --> 03:46.960
+So on my scene for the employee list right now we've got a console log whenever someone presses the
+
+03:46.960 --> 03:48.250
+on right button.
+
+03:48.250 --> 03:53.680
+I want to navigate to the employee create screens employ create screen instead.
+
+03:53.770 --> 04:00.190
+So don't remove the console log and remember how we do navigation with this routing library we call
+
+04:00.220 --> 04:04.630
+actions dot and then the key of the scene that we want to go to.
+
+04:04.630 --> 04:08.680
+So it'll be employee create.
+
+04:08.900 --> 04:11.710
+I have not imported actions into this file just yet.
+
+04:11.720 --> 04:18.700
+So I will also import actions from the re-act native router fluxed library area.
+
+04:18.850 --> 04:19.220
+OK.
+
+04:19.280 --> 04:22.040
+Now we should be in place where it actually works.
+
+04:22.040 --> 04:23.840
+So I will refresh the simulator again
+
+04:28.470 --> 04:31.460
+throw in our credentials.
+
+04:31.890 --> 04:37.590
+Now I should really click add and I go over to my employee form and I can click back if I decide you
+
+04:37.590 --> 04:40.460
+know what I don't want to make anything and then toggle between the two.
+
+04:40.620 --> 04:43.710
+You'll notice that in the simulator I don't know if the video quite translates it.
+
+04:43.710 --> 04:45.450
+Maybe you see it in your simulator.
+
+04:45.540 --> 04:46.710
+It's a little bit like.
+
+04:46.800 --> 04:51.450
+You know there's a little bit of jittery here once you're actually on a mobile device all that stuff
+
+04:51.450 --> 04:53.490
+goes away and everything will work just fine.
+
+04:53.490 --> 05:00.200
+So it's really just an oddity of the simulator that you see that little can a bit Jane Guinness.
+
+05:00.390 --> 05:07.170
+Now just as a reminder we have two scenes inside of our main scene or the main bucket as I kind of like
+
+05:07.170 --> 05:09.870
+to refer to it as the two scenes in here.
+
+05:09.900 --> 05:14.000
+I start to want to think about how I'm going to use that initial prop.
+
+05:14.190 --> 05:19.110
+Remember initially it was what is in charge of deciding what scenes didn't show up first.
+
+05:19.170 --> 05:24.870
+So by default order of operations would excuse me order of declaration will come into play since the
+
+05:24.870 --> 05:26.010
+employee list is declared.
+
+05:26.010 --> 05:27.990
+First it will be shown first.
+
+05:28.020 --> 05:33.210
+Whenever someone says hey go over to Maine please but just to make sure it's nice and clear.
+
+05:33.210 --> 05:37.100
+I would probably choose to add on the initial prop here as well.
+
+05:37.130 --> 05:38.370
+So now for sure.
+
+05:38.370 --> 05:42.930
+Like without a doubt just in case anyone else comes across and adds a new scene here I don't have to
+
+05:42.930 --> 05:48.480
+worry about a user going to that scene instead of the one I really intend to go to so I'm going to throw
+
+05:48.480 --> 05:53.260
+the initial on there just to be a model citizen.
+
+05:53.370 --> 05:55.580
+All right so we can now navigate over to our form.
+
+05:55.620 --> 06:00.810
+I think that we can probably start working on that employee creation forum in the next section

@@ -1,0 +1,139 @@
+WEBVTT
+
+00:00.780 --> 00:05.820
+We've got our async action creator working just fine now but it's still missing a lot of that extra
+
+00:05.820 --> 00:07.910
+stuff that we need for one.
+
+00:08.010 --> 00:12.940
+The action itself is still a string rather than a true conc like we should be using now.
+
+00:13.200 --> 00:19.080
+And we also are not starting any spinner creating accounts if one doesn't exist or showing any error
+
+00:19.080 --> 00:20.200
+messages.
+
+00:20.220 --> 00:27.090
+So in this section we're going to add some more robust handling around this log in user action Creator.
+
+00:27.090 --> 00:32.520
+One thing to keep in mind as we work with redux thung is that because we have direct access to the dispatch
+
+00:32.520 --> 00:38.700
+method now we can dispatch as many methods or Simi Dispatch as many actions as we would like from a
+
+00:38.700 --> 00:40.440
+single action creator.
+
+00:40.440 --> 00:47.060
+So even though we are already dispatching logging users access here we can dispatch many others as well.
+
+00:47.680 --> 00:53.730
+OK so I think a good place to start is going to be to assign logging users access to an actual Konst
+
+00:54.060 --> 00:55.290
+inside of our type's file.
+
+00:55.290 --> 00:56.810
+That's a good easy place to start.
+
+00:56.820 --> 00:57.920
+So let's do it.
+
+00:58.440 --> 01:03.260
+I'm going to open up my type's file which is in my auctions directory and inside if you're going to
+
+01:03.260 --> 01:12.590
+create the new Konst export Konst log in user success.
+
+01:12.620 --> 01:18.920
+So this actually here is the type I should say is clearly meant to indicate to our inducers Hey something
+
+01:18.920 --> 01:22.150
+really could just happen like the user just logged in successfully.
+
+01:22.430 --> 01:28.840
+So now that I've got that type of flip back over to my action Kreator file I will import it at the top.
+
+01:28.880 --> 01:36.260
+So logging user success and then in my log in user action creator rather than using the string will
+
+01:36.290 --> 01:39.700
+use the type itself that costs the variable.
+
+01:39.710 --> 01:41.860
+However you want to refer to it fine by me.
+
+01:44.140 --> 01:46.890
+And now we can add this to our producer as well.
+
+01:46.890 --> 01:52.010
+So I flip over to my order reducer and we can catch this action when it comes across.
+
+01:52.020 --> 01:58.420
+So we've got e-mail changed password changed and also logged in users success.
+
+01:58.530 --> 02:05.580
+Now that we've got this type in here we can also make use of it inside of our juicer itself.
+
+02:05.580 --> 02:08.340
+So now comes the really interesting question.
+
+02:08.670 --> 02:13.390
+What are the properties that we want to update when every user successfully logs in.
+
+02:13.680 --> 02:16.450
+Well we know that we get that user in there.
+
+02:16.470 --> 02:21.590
+Right we get that user model from firebase and we attach it as the payload to the action.
+
+02:21.750 --> 02:27.990
+So by default I think a great place to start is going to be to make sure that we reflect the user model
+
+02:28.080 --> 02:30.660
+on our user piece of state.
+
+02:30.660 --> 02:36.970
+So whenever we successfully log in I'm going to return a new state object.
+
+02:36.990 --> 02:44.370
+So I say take all the existing properties on our state object and also include action payload which
+
+02:44.370 --> 02:46.110
+is our user.
+
+02:46.170 --> 02:49.300
+So now we're introducing the user property here.
+
+02:49.520 --> 02:54.960
+Again I'm going to to my initial state object as well just to tell any other engineers who look at this
+
+02:54.960 --> 02:59.710
+that hey there is a user property in play somewhere inside of this reducer.
+
+02:59.790 --> 03:00.150
+Cool.
+
+03:00.180 --> 03:06.150
+So now when a user successfully logs in we will save that user model which has their email and their
+
+03:06.150 --> 03:11.300
+I.D. on the state DOT off dot user piece of state.
+
+03:11.460 --> 03:16.170
+That's going be really important later on because we are going to make use of the user model early the
+
+03:16.170 --> 03:18.610
+user's I.D. and several other locations.
+
+03:18.720 --> 03:21.880
+So we'll want to definitely remember that little factoid.
+
+03:22.200 --> 03:22.530
+OK.
+
+03:22.590 --> 03:27.360
+Let's get to the next section and make sure that we can also handle the creation of user accounts

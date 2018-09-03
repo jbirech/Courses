@@ -1,0 +1,337 @@
+WEBVTT
+
+00:00.720 --> 00:05.970
+We've now got the ability to show a spinner to the user whenever they start trying to authenticate but
+
+00:05.970 --> 00:11.330
+we still have to make sure that once the request is complete Be it in success or failure.
+
+00:11.400 --> 00:13.440
+We clear out the spinner.
+
+00:13.440 --> 00:18.630
+We can do this by adding some more cases onto our two authentication requests.
+
+00:18.750 --> 00:25.280
+So both the signing with email and password and the create user with email and password as well.
+
+00:27.370 --> 00:33.640
+We currently have a statement on both which handles the failed case but we can also add on a dot then
+
+00:33.640 --> 00:35.260
+statement to each them as well.
+
+00:35.290 --> 00:39.470
+So I can add on a dot then add any function that I passed to this data.
+
+00:39.470 --> 00:45.760
+Then right here will be executed only if the user successfully signs in with the email and password.
+
+00:45.760 --> 00:50.860
+So inside of a federal function or just some type of function that we passed to this then statement
+
+00:51.160 --> 00:56.440
+we can add in our logic to say hey we need to clear out the spinner or whatever else we might need to
+
+00:56.440 --> 00:57.010
+do.
+
+00:58.970 --> 01:03.620
+I think that it's this block of code right here is starting to get kind of laborious to read.
+
+01:03.620 --> 01:06.220
+You know there's really a lot of logic in here a lot of lines.
+
+01:06.290 --> 01:13.760
+So I can make a separate helper method called on live in success to handle the case in which the user
+
+01:13.760 --> 01:15.990
+successfully signs in.
+
+01:16.040 --> 01:21.310
+So inside of on log in success there's going to be a couple of things that are going to want to do.
+
+01:21.320 --> 01:25.910
+Number one we'll want to clear out any error messages that exist on the screen.
+
+01:25.910 --> 01:32.300
+Number two I think that we'll want to reflect a loading of false here because hey we just successfully
+
+01:32.300 --> 01:36.120
+logged in we're not loading anymore and then numbers three and four.
+
+01:36.200 --> 01:39.270
+We probably also want to kind of clean out the form.
+
+01:39.290 --> 01:39.590
+Right.
+
+01:39.590 --> 01:44.940
+Like once you successfully log in we don't need to show you your e-mail and password in there anymore.
+
+01:45.110 --> 01:47.830
+So I think they will want to reset our state there as well.
+
+01:49.080 --> 01:56.010
+So inside of online in success whenever we successfully log in the user We're going to update our state
+
+01:56.100 --> 01:56.700
+object
+
+02:01.290 --> 02:04.960
+and we're going to basically touch every single state property that we have right now.
+
+02:04.980 --> 02:08.610
+So I'm going to get myself a new line for a couple of different properties.
+
+02:08.610 --> 02:13.570
+First I want to zero out the e-mail and the password.
+
+02:13.830 --> 02:17.490
+So I'm going to reset that e-mail in the password to an empty string.
+
+02:17.910 --> 02:21.810
+This is also part of the beauty in the approach we took for handling our inputs right here.
+
+02:21.840 --> 02:28.680
+Remember by using state to track the value of the inputs if we want to change the value of the inputs
+
+02:28.950 --> 02:35.280
+we can just call set state with a new string and poof the inputs values will be out instantly cleared
+
+02:35.280 --> 02:37.040
+out for us.
+
+02:37.350 --> 02:41.320
+Next we will also say that the thing is no longer loading anymore.
+
+02:41.340 --> 02:43.210
+So no need to show the spinner.
+
+02:43.260 --> 02:49.400
+We can hide the spinner to let the user know so request completes and then finally if there's any error
+
+02:49.400 --> 02:55.900
+on the screen for any reason whatsoever we will zero it out by passing an error of empty string.
+
+02:55.980 --> 03:01.680
+This error message right here is probably a little bit unnecessary just because we are already clearing
+
+03:01.680 --> 03:07.800
+out the error message before we make the request and the only case in which a user could get another
+
+03:07.800 --> 03:10.500
+error message on the screen is by failing to log in.
+
+03:10.500 --> 03:14.200
+So you know perhaps it's a little bit overkill right here.
+
+03:14.310 --> 03:19.820
+Nonetheless I think that if we ever start doing some client side validation of the email and password
+
+03:20.130 --> 03:22.790
+then perhaps this would make a little bit more sense.
+
+03:24.160 --> 03:27.250
+OK so this is our on logons success case.
+
+03:27.250 --> 03:31.870
+So now we can say that whenever a user makes this request you know whenever they try to sign him with
+
+03:31.870 --> 03:38.200
+their email and password if they succeed again any pass any function we pass to this dot.
+
+03:38.230 --> 03:40.830
+Then kids right here will be automatically called.
+
+03:40.960 --> 03:45.820
+So we will reference this dot on log in success.
+
+03:46.120 --> 03:51.550
+And now it's time for everybody's favorite part because this is a function that we are passing off to
+
+03:51.550 --> 03:55.150
+a promise that is going to be invoked sometime in the future.
+
+03:55.150 --> 03:58.040
+We don't know the context that it will be called with.
+
+03:58.150 --> 04:03.440
+We have to find the context to this like so do make sure that you are not.
+
+04:03.460 --> 04:08.870
+You want to make sure you do not have a set of parentheses after you log in success.
+
+04:08.950 --> 04:17.440
+We want to have just online log into Access and then bind this we want to make sure that we also handle
+
+04:17.440 --> 04:23.830
+this on log and success case when a user successfully creates a user with email and password as well.
+
+04:24.100 --> 04:31.390
+So in this case as well on this second request we will also change on a dot then with this dot on log
+
+04:31.390 --> 04:35.860
+in success find this.
+
+04:36.070 --> 04:36.280
+All right.
+
+04:36.280 --> 04:39.670
+So I know this is a little bit of a confusing block of code.
+
+04:39.670 --> 04:41.300
+We're going to do one last thing.
+
+04:41.440 --> 04:46.720
+We're going to refactor out this catch case to a separate helper function as well which is just going
+
+04:46.720 --> 04:49.030
+to make this thing a little bit more legible.
+
+04:49.390 --> 04:57.750
+So I want to extract this fadder function right here to a helper method add on another method on loggin
+
+04:58.720 --> 05:08.760
+fail and inside of year we will set the error message and we will also stop the spinner because hey
+
+05:08.850 --> 05:09.930
+the request has failed.
+
+05:09.930 --> 05:15.270
+I now need to allow the user to put in a new email and password and let them attempt to log in again
+
+05:15.360 --> 05:19.650
+and if they're going to attempt to log in again we need to show them the button of course.
+
+05:19.950 --> 05:25.600
+So we'll call this set state and I keep getting that gosh darn error message.
+
+05:28.310 --> 05:32.110
+We'll give it an air of authentication failed.
+
+05:34.390 --> 05:38.680
+And we'll set loading to false because hey we're not loading anymore.
+
+05:38.680 --> 05:45.550
+And then inside of our fair firebase call on the catch that is lined up with the create user with email
+
+05:45.550 --> 05:46.610
+and password.
+
+05:46.870 --> 05:56.330
+I'm going to remove that federal function and instead call this dot on log in fail find this like so.
+
+05:56.880 --> 05:57.300
+OK.
+
+05:57.310 --> 06:00.880
+So let's do a quick review of where we're at.
+
+06:01.030 --> 06:07.440
+When a user enters an email and password we will attempt to sign them in if they successfully sign in.
+
+06:07.480 --> 06:12.820
+We will immediately call on log in success that will clear out the form.
+
+06:12.910 --> 06:17.770
+It will hide the spinner and it will also clear any pending error messages.
+
+06:19.330 --> 06:26.220
+If the user enters a correct e-mail like an e-mail that exists but a wrong password they will enter
+
+06:26.240 --> 06:28.180
+this catch case.
+
+06:28.180 --> 06:35.830
+So in this case we will attempt to create a brand new account so a brand new e-mail brand new password
+
+06:37.180 --> 06:40.480
+if that succeeds then we'll consider the user to be logged in.
+
+06:40.600 --> 06:47.350
+And we will have run on log and success but also that request fails you know if they enter a valid email
+
+06:47.380 --> 06:53.470
+but an incorrect password then we will call on log and fail that will show the error message.
+
+06:53.470 --> 06:55.300
+It will also hide the spinner.
+
+06:55.480 --> 06:59.350
+So we got a couple of very distinct routes to change our state here.
+
+06:59.350 --> 07:03.130
+Basically you are either in success case or the fail case.
+
+07:03.130 --> 07:09.640
+One of the other I think the worded good point to do a test now so I'm going to flip open to my simulator
+
+07:10.750 --> 07:14.170
+and I think we'll start by adding a valid email.
+
+07:14.230 --> 07:16.490
+Test that test dot com.
+
+07:16.750 --> 07:20.320
+But a bad password is put in one two three four five.
+
+07:20.650 --> 07:25.960
+So now when I click log in I get the spinner and then the authentication fail message which is exactly
+
+07:25.960 --> 07:26.930
+what I want.
+
+07:27.340 --> 07:32.600
+But if I put in the correct password which for me is password I can sign in
+
+07:35.290 --> 07:38.820
+and this is really taken a long time to do that.
+
+07:38.880 --> 07:44.220
+That sign in and boom we're back to a zeroed out form so no error message.
+
+07:44.230 --> 07:46.340
+And the e-mail and the password got cleared.
+
+07:46.720 --> 07:49.280
+So this right here is a little bit startling to see.
+
+07:49.300 --> 07:50.590
+Like you know OK I signed in.
+
+07:50.590 --> 07:52.590
+Why did this form just clear itself out.
+
+07:52.720 --> 07:57.790
+But really the idea here is that once we sign our user in we should no longer see the form at all.
+
+07:57.790 --> 08:02.590
+Instead we should see like some other content like some content that a user would normally see when
+
+08:02.590 --> 08:04.680
+they are signed into our application.
+
+08:04.750 --> 08:06.400
+So we're in a good spot here.
+
+08:06.400 --> 08:12.160
+I think that the form is behaving as we expect it to but we still have to figure out like OK once a
+
+08:12.160 --> 08:13.300
+user is logged in.
+
+08:13.480 --> 08:14.540
+What happens.
+
+08:14.540 --> 08:16.660
+Like what's the point of signing into our app.
+
+08:16.660 --> 08:19.450
+We need to show some other content on the screen.
+
+08:19.660 --> 08:25.300
+So how do we figure out what end user signed in and how do we show some different content on screen.
+
+08:25.300 --> 08:28.120
+So let's take care of those challenges in the next section.

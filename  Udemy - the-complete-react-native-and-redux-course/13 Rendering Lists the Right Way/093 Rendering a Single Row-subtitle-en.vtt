@@ -1,0 +1,235 @@
+WEBVTT
+
+00:00.840 --> 00:05.970
+In the last section we set up our initial list view implementation remember that list view exists for
+
+00:05.970 --> 00:10.000
+rendering a long list of items in a memory efficient fashion.
+
+00:10.080 --> 00:12.150
+Now our list of data is not very large of course.
+
+00:12.150 --> 00:17.610
+I mentioned that several times but it's still worth getting familiar with the API inside of our library
+
+00:17.610 --> 00:18.430
+list component.
+
+00:18.480 --> 00:25.080
+We first initialized a data source for the list view and then we created an A list of components and
+
+00:25.080 --> 00:25.580
+passed it.
+
+00:25.590 --> 00:27.450
+The data source that we created.
+
+00:27.780 --> 00:32.790
+The purpose of this data source right here is just a fancy little wrapper around the data that we want
+
+00:32.790 --> 00:34.550
+to actually show inside that list.
+
+00:34.860 --> 00:36.270
+And just about everything in here.
+
+00:36.270 --> 00:40.900
+Everything up to this clone Rose is a 100 percent coffee possible.
+
+00:40.950 --> 00:45.510
+If you go look at the official documentation you'll have you'll see the exact same code as what you
+
+00:45.510 --> 00:46.780
+see right here.
+
+00:46.830 --> 00:51.750
+The only real customization we had to do was make sure that we passed it our list of data that we want
+
+00:51.750 --> 00:53.880
+to show on the screen.
+
+00:54.000 --> 01:00.720
+So the last thing that we left off here was instructing the list view on how to render a very particular
+
+01:00.720 --> 01:01.890
+row of the application.
+
+01:01.890 --> 01:03.660
+So we need to tell the list view.
+
+01:03.870 --> 01:09.990
+Hey if you want to read or just a single row like a single item inside the list please execute the render
+
+01:09.990 --> 01:12.330
+row function right here.
+
+01:12.330 --> 01:16.930
+So because our render row function needs to return just like a single row.
+
+01:17.040 --> 01:22.020
+I think that maybe it makes a little bit of sense to make a new component to represent a single row
+
+01:22.320 --> 01:27.010
+rather than adding a bunch more GSX into this render list component.
+
+01:27.180 --> 01:33.840
+So let's make a new component called list item and it will be the purpose of it will be to just display
+
+01:33.870 --> 01:37.340
+a single item out of our list or like a single row.
+
+01:38.040 --> 01:41.410
+So inside my Capones directory will create a new component.
+
+01:41.840 --> 01:42.890
+So I'll make a new file.
+
+01:42.910 --> 01:45.010
+And I would call it list item.
+
+01:45.030 --> 01:45.630
+J.S.
+
+01:50.380 --> 01:54.640
+then inside of here will place in some of our usual boilerplate.
+
+01:54.790 --> 01:59.840
+I am going to make this a class based component again because I think that we might need some lifecycle
+
+01:59.860 --> 02:02.380
+methods or something like that in the future.
+
+02:02.380 --> 02:13.690
+So at the top we will import react and component from react and also a class list item extends component
+
+02:15.100 --> 02:16.370
+out in our render method.
+
+02:16.390 --> 02:18.270
+And I'm just going to leave it empty right now.
+
+02:18.300 --> 02:19.980
+Just bear with me for a moment.
+
+02:20.260 --> 02:23.740
+At the bottom we will export default list item
+
+02:27.180 --> 02:30.630
+and you are getting a complaint here that the render method Shavar return statement.
+
+02:30.630 --> 02:33.210
+So we will take care of that in just a moment.
+
+02:33.210 --> 02:35.890
+Now let's go back to our library list and render.
+
+02:36.000 --> 02:38.110
+Wired this thing up.
+
+02:38.190 --> 02:45.270
+So inside of library list we will first import the list item a list import list item from
+
+02:47.940 --> 02:48.770
+list item
+
+02:51.990 --> 02:57.600
+and then inside of our render row method right here we need to make sure that we return an instance
+
+02:57.780 --> 03:00.800
+of the list item component.
+
+03:00.810 --> 03:04.750
+The real question here though is when we create this list item.
+
+03:04.800 --> 03:06.830
+So I returned the list item.
+
+03:07.680 --> 03:13.560
+I need to somehow pass some configuration down into this list time component that says hey list item
+
+03:13.590 --> 03:19.560
+you are supposed to show like this particular library right list item we can expect it to just like
+
+03:19.560 --> 03:22.730
+magically figure out which item in the list it should be rendering.
+
+03:22.770 --> 03:28.870
+We have to be very particular in telling it please show this item like this item out of a list.
+
+03:28.950 --> 03:34.400
+So to help us out without the render Rove function is actually provided with an argument that we will
+
+03:34.410 --> 03:36.190
+call library.
+
+03:36.390 --> 03:38.030
+And so this argument right here.
+
+03:38.100 --> 03:44.190
+The first argument to render Roe is the element in the list that it is trying to currently render that
+
+03:44.190 --> 03:46.430
+the list of use try to currently render.
+
+03:46.470 --> 03:52.530
+So at the end of the day if I have you are like say eight or nine items inside of our library list I'm
+
+03:52.530 --> 03:59.730
+going to expect render rode to get called maybe like eight or nine times once for each library in our
+
+03:59.730 --> 04:00.810
+list.
+
+04:00.870 --> 04:05.850
+So I'm going to return eight or nine however many different list items.
+
+04:05.950 --> 04:09.660
+Each one is going to be rendering a different library.
+
+04:09.660 --> 04:14.560
+Now of course we need to communicate the library down into the list item so it knows what to render.
+
+04:14.730 --> 04:18.050
+So I'm going to pass the library as a prompt to the list item.
+
+04:18.080 --> 04:25.650
+I was going to call it again library as I mentioned many many many times before for components that
+
+04:25.650 --> 04:29.820
+we create the names of props is completely up to us.
+
+04:29.820 --> 04:31.920
+We can decide any name we want.
+
+04:31.950 --> 04:36.480
+So I do not have to call this library just because this variable name is library right here.
+
+04:36.720 --> 04:39.060
+I could just as easily call it like item or whatever.
+
+04:39.060 --> 04:43.130
+I'm just choosing to call it library because it kind of makes sense to me.
+
+04:43.650 --> 04:43.920
+OK.
+
+04:43.950 --> 04:50.370
+So now as the last few tries to render each row is going to show a list item and it is now up to us
+
+04:50.370 --> 04:54.190
+to make sure that the list item is going to take this library prob..
+
+04:54.360 --> 04:57.350
+And you know it shows something reasonable on the screen.
+
+04:57.390 --> 05:03.630
+So now let's flip back flip back over to the list item and make sure we use that prop adding in some
+
+05:03.630 --> 05:07.770
+styling and get a really nice row to display.
+
+05:07.830 --> 05:09.620
+Let's go ahead and take care of that next section.
+
+05:09.630 --> 05:12.540
+Let's take a quick break and we're going to work on our list item component

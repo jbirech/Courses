@@ -1,0 +1,196 @@
+WEBVTT
+
+00:01.330 --> 00:07.430
+In the last section we set up our firebase account and we enabled email and password for authentication.
+
+00:07.710 --> 00:12.990
+That's only half the set up though as we still have to set up the firebase client library so we can
+
+00:12.990 --> 00:15.060
+interact with their servers.
+
+00:15.210 --> 00:19.200
+So we do a little bit set up now but don't worry the set apart isn't too bad.
+
+00:19.200 --> 00:22.470
+It's just more installation of modules.
+
+00:22.950 --> 00:28.530
+So first thing we're going to do is install the firebase library as an NPM module.
+
+00:28.530 --> 00:30.420
+So I'm going to open up my command line.
+
+00:30.440 --> 00:41.020
+I'm inside of my project directory of author right now and I will NPM install dash dash save firebase.
+
+00:41.050 --> 00:46.270
+So again this is going to reach out to the NPM registry and install firebase as a dependency.
+
+00:46.270 --> 00:50.640
+After that we will be able to set up firebase inside of our application.
+
+00:50.740 --> 00:57.820
+Now when we created our firebase project like over the firebase consul here when we made this authentication
+
+00:57.820 --> 01:04.570
+thing it created a distinct bucket of data for our project that sits on the firebase servers.
+
+01:04.570 --> 01:10.690
+So now in theory on the firebase servers there are some like big folder or bucket where all of our data
+
+01:10.690 --> 01:12.210
+is going to set.
+
+01:12.400 --> 01:19.390
+So to set up our firebase library locally we have to tell it exactly what bucket to go reach out and
+
+01:19.390 --> 01:22.950
+try to get access to on the firebase servers.
+
+01:23.270 --> 01:23.580
+OK.
+
+01:23.590 --> 01:29.410
+So my firebase library is done installing and we are now going to tell it hey when you boot up please
+
+01:29.410 --> 01:33.410
+try to connect to this very specific bucket of data.
+
+01:33.500 --> 01:35.080
+That's the goal here.
+
+01:35.110 --> 01:39.950
+So inside of our app component we're going to place that initialization code inside of here.
+
+01:40.480 --> 01:45.350
+We will first import firebase from firebase.
+
+01:45.400 --> 01:47.980
+So this gives us access to the firebase library.
+
+01:48.460 --> 01:54.550
+And then we are going to set up some initialization or configuration for it and we need to think for
+
+01:54.550 --> 01:57.830
+a second what is the what is the best time to do set up like that.
+
+01:57.850 --> 02:00.890
+You know when's the best time in our application to do that set up.
+
+02:01.450 --> 02:07.180
+And so I would say well maybe the best time to that set up would be right before this component right
+
+02:07.180 --> 02:14.670
+here this app component gets rendered to the screen of our device to get a handle or a hook on that
+
+02:14.950 --> 02:16.960
+we can use a lifecycle method.
+
+02:17.020 --> 02:25.720
+So add the lifecycle method component will mount and inside of here is where we will do our firebase
+
+02:25.720 --> 02:27.140
+initialization.
+
+02:27.340 --> 02:34.230
+Remember that lifecycle methods are methods that are automatically invoked inside of our component.
+
+02:34.270 --> 02:39.420
+All we have to do is define the method and if we define it it will be automatically called.
+
+02:40.390 --> 02:41.010
+All right.
+
+02:41.080 --> 02:48.490
+So last step we are going to go back over to firebase and on the right hand topsides here you can find
+
+02:48.640 --> 02:55.360
+a button that says web setup and click web setup and this gives me a bunch of stuff to copy paste into
+
+02:55.360 --> 02:56.820
+my application.
+
+02:56.860 --> 02:58.650
+Note that this is all set up.
+
+02:58.660 --> 03:04.750
+Assuming that you're using a way or like you're in a web environment so it's got some script tags and
+
+03:04.750 --> 03:06.280
+all that kind of good stuff.
+
+03:06.280 --> 03:09.180
+And we're clearly not in a web environment we're using re-act need.
+
+03:09.190 --> 03:14.280
+So we're going to kind of just copy paste a section out of this.
+
+03:14.620 --> 03:19.170
+I'm going to grab just this configuration object right here.
+
+03:19.190 --> 03:23.740
+It's just everything from the opening curly brace to the closing Crilley brace.
+
+03:23.740 --> 03:29.000
+And then I'm going to copy it and we'll pull it back over to our component will mount.
+
+03:29.410 --> 03:38.680
+And inside of here we'll call firebase initialiser out and I'm going to paste in excuse me I'm going
+
+03:38.680 --> 03:44.410
+to paste in that configuration and I'm also make sure I delete the dangling semicolon here.
+
+03:47.820 --> 03:48.340
+OK.
+
+03:48.360 --> 03:49.300
+And the last thing is.
+
+03:49.320 --> 03:53.850
+Yes lint really wants to have single quotes and I am happy to oblige.
+
+03:53.910 --> 03:57.240
+So I'm going to replace all these with single quotes like so.
+
+03:59.710 --> 04:00.350
+OK.
+
+04:00.820 --> 04:04.730
+Well the last thing you know I put that import statement as the last statement.
+
+04:04.750 --> 04:08.220
+It should really be above any import statements for stuff that we write.
+
+04:08.230 --> 04:15.820
+That was a mistake on my side some is going to cut this line and move it above the head or import.
+
+04:15.850 --> 04:17.370
+There we go much better.
+
+04:17.920 --> 04:18.270
+OK.
+
+04:18.280 --> 04:19.600
+So that's that's it all.
+
+04:19.630 --> 04:21.420
+That's all we had to do for our firebase setup.
+
+04:21.430 --> 04:27.850
+So at this point in time we have installed the firebase library and we gave it a little bit of configuration
+
+04:27.850 --> 04:30.610
+that told it hey we've already got a project set up for you.
+
+04:30.620 --> 04:34.950
+There's some bucket of data on the firebase servers that you need to make access to.
+
+04:35.200 --> 04:38.680
+And this is the configuration that makes that happen.
+
+04:39.370 --> 04:43.750
+So I think that we are just about all set out to start working on our form.
+
+04:43.750 --> 04:46.910
+Let's continue on the next section and start working on that Sign-Up form

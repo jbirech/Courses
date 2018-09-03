@@ -1,0 +1,166 @@
+WEBVTT
+
+00:00.870 --> 00:06.180
+We just finished up grade application and we're ready to steamroll forward right on to the next one.
+
+00:06.390 --> 00:12.090
+This next map next app that we're going be focusing on is going to be using the redux framework before
+
+00:12.090 --> 00:15.890
+we start typing out redux though we'll have a quick discussion on the app that we're going to build
+
+00:15.900 --> 00:18.290
+just kind of frame our discussion a little bit.
+
+00:18.480 --> 00:23.340
+That way we can then talk about redux and then immediately jump into building our application without
+
+00:23.340 --> 00:26.650
+having to take a break to figure out you know what we're building.
+
+00:26.990 --> 00:31.410
+So the next app that we've been working on is a little bit more simple than the one that we've been
+
+00:31.410 --> 00:36.910
+working on or at least when we just finished but because we're adding redux on top of everything else
+
+00:37.590 --> 00:42.510
+I want to make sure that we've got a reasonably sized application to you know address reduction because
+
+00:42.630 --> 00:47.080
+outing redux is going to be a little bit of an additional challenge here.
+
+00:47.250 --> 00:52.040
+So our next step is going to be sort of like you know kind of vaguely flashcard style application.
+
+00:52.050 --> 00:56.950
+I don't know maybe not quite flash cards users are really presented with a list of topics.
+
+00:56.990 --> 00:59.870
+So like redux react to ash.
+
+00:59.910 --> 01:00.340
+Yes.
+
+01:00.380 --> 01:01.580
+Battle battleaxe.
+
+01:01.700 --> 01:03.590
+You know all these different topics.
+
+01:03.840 --> 01:11.010
+Whenever a user taps on a topic like if I tap on re-act right there I would expect to see this re-act
+
+01:11.010 --> 01:15.310
+section expand and show a description of the technology.
+
+01:15.330 --> 01:19.480
+So as this is rendered right now it's showing with redux in a rendered state.
+
+01:19.530 --> 01:24.170
+So you can see redux and beneath it is a description of that library.
+
+01:24.330 --> 01:29.470
+So whenever you know again whenever someone taps on thing boom expand it show description.
+
+01:29.640 --> 01:31.230
+Now as before.
+
+01:31.260 --> 01:34.920
+Let's discuss some of the challenges within this application.
+
+01:34.920 --> 01:41.430
+First we must use redux to build this with you know whatever difficulty or whatever requirements that
+
+01:41.430 --> 01:46.710
+entails so we have to figure out what redux is figure out how we're going to apply it to this application.
+
+01:46.710 --> 01:52.590
+Second we must figure out a way to render a list of the elements in a performance or at least performance
+
+01:52.590 --> 01:59.630
+conscious manner long lists of data on mobile devices are notorious for grinding applications to a halt.
+
+01:59.730 --> 02:06.360
+So we must figure out a way you like a super solid solution for rendering a list of items that may be
+
+02:06.360 --> 02:08.630
+very very long in the past.
+
+02:08.630 --> 02:14.220
+We use that map function to make a short list but map starts to slow down once we start to get a lot
+
+02:14.220 --> 02:15.000
+of items.
+
+02:15.000 --> 02:20.580
+So I want to figure out how to render a list in a very efficient fashion.
+
+02:20.580 --> 02:23.210
+Third we have to figure out animations.
+
+02:23.370 --> 02:28.500
+I want to make sure that whenever a user taps on a given section we just seemed like a description just
+
+02:28.500 --> 02:30.920
+like pop up instantly out of nothingness.
+
+02:31.050 --> 02:36.840
+Instead I want to make sure that when user tabs on the section we had a very smooth animation of like
+
+02:36.840 --> 02:43.800
+you know this kind of box right here opening up and have our description nicely appear inside of there.
+
+02:43.800 --> 02:49.890
+So I have a very smooth transition when any of these sections open up and to do so you have to figure
+
+02:49.890 --> 02:53.280
+out how to use the animation API with Riak native.
+
+02:53.520 --> 02:58.170
+Again all of this is going to be framed through the lens of figuring out how to use relax.
+
+02:58.170 --> 03:03.340
+So the goal is you're like first and foremost figure out how to use redox and then on top of that just
+
+03:03.390 --> 03:07.360
+know at the same time we're going to be learning about lists and animations as well.
+
+03:08.270 --> 03:10.850
+Anyways let's get rolling.
+
+03:10.850 --> 03:16.200
+First thing I want to do is create a new project directory with the re-act native command line tool.
+
+03:16.250 --> 03:20.050
+We're just going to start the installation and then take a break and continue from there.
+
+03:20.510 --> 03:24.350
+So right now I'm inside as my kind of like overall projects directory.
+
+03:24.350 --> 03:27.690
+And here's my Allums project in my off project.
+
+03:27.710 --> 03:34.340
+So inside of here I'm going to create a new reac need a project by running re-act need is in it and
+
+03:34.340 --> 03:36.680
+I'm going to close one tech stack.
+
+03:37.100 --> 03:42.020
+It's called tech stack because you know we're going to be rendering a list of different technologies
+
+03:42.530 --> 03:44.700
+kind of in a stacked fashion.
+
+03:45.080 --> 03:47.940
+I don't know it's the best name I could come up with guys.
+
+03:48.110 --> 03:49.100
+OK.
+
+03:49.360 --> 03:50.590
+We're going to be our insulation.
+
+03:50.630 --> 03:55.040
+Let's take a quick break and continue the next section and start learning about redux

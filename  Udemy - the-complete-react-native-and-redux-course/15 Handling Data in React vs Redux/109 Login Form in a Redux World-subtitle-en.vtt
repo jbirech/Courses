@@ -1,0 +1,307 @@
+WEBVTT
+
+00:01.130 --> 00:04.290
+I think we're in a pretty good place with our boiler plate setup right now.
+
+00:04.320 --> 00:06.870
+You know we've got certainly some tech showing up on the screen.
+
+00:06.870 --> 00:08.190
+I don't have any error message.
+
+00:08.610 --> 00:10.700
+Error messages nothing like that.
+
+00:10.710 --> 00:14.160
+The one thing that we do so I do is bring over our default components.
+
+00:14.160 --> 00:18.540
+So those you know reusable components that we've been taking from section to section now we'll do that
+
+00:18.540 --> 00:19.240
+in just a minute.
+
+00:19.300 --> 00:26.430
+Right now let's focus a little bit more on our first challenge which is the little log in form.
+
+00:26.910 --> 00:31.350
+So we're going to do a little bit of time chella for a minute and think back to the loggin forum that
+
+00:31.350 --> 00:34.250
+we had created in that previous section.
+
+00:34.500 --> 00:35.030
+We made it.
+
+00:35.040 --> 00:38.590
+We had four separate pieces of state inside that log in form.
+
+00:38.710 --> 00:44.190
+Right we had the email password floating boolean in the air message as well.
+
+00:44.220 --> 00:48.690
+So we definitely know that we're going to need to show a log in form to the user so that they can sign
+
+00:48.690 --> 00:50.280
+into our application.
+
+00:50.280 --> 00:55.830
+The real question the real challenge here is deciding whether or not we have to modify this thing to
+
+00:55.830 --> 00:58.160
+work in a redux world.
+
+00:58.230 --> 00:59.160
+That's the big question.
+
+00:59.160 --> 01:03.420
+Do we need to modify this thing to work with redux.
+
+01:03.420 --> 01:08.730
+So I want to just give you a very straightforward very simple answer to that one that maybe is a little
+
+01:08.730 --> 01:12.340
+bit surprising I guess for me when you say no we don't have to.
+
+01:12.360 --> 01:16.330
+We don't we don't react can work with our redux.
+
+01:16.340 --> 01:20.590
+And we have absolutely seen that in the first two hours that we built in this course right.
+
+01:20.690 --> 01:22.310
+Like we made a log in form.
+
+01:22.470 --> 01:23.110
+It worked.
+
+01:23.130 --> 01:25.260
+We didn't need redux to do it.
+
+01:25.260 --> 01:30.480
+We are going to choose that you know maybe it's going to make sense to react to our application a little
+
+01:30.480 --> 01:36.270
+bit or read back to the blog and form to work with redox because media is going to make some more challenging
+
+01:36.300 --> 01:40.640
+aspects of the blog and form work a little bit more nicely.
+
+01:40.650 --> 01:40.990
+Right.
+
+01:41.010 --> 01:46.020
+Or maybe as we start to improve increase the complexity of our application we're going to find that
+
+01:46.260 --> 01:51.420
+using redux to manage our log in form is actually any kind of a good idea.
+
+01:51.420 --> 01:54.570
+So again I'm going to tell you we don't have to do this.
+
+01:54.610 --> 01:58.890
+We're going to choose to do it because at some point in time our application is probably going to grow
+
+01:58.890 --> 02:05.340
+in complexity especially in the log inside or the authentication side and maybe keeping track of everything
+
+02:05.340 --> 02:10.720
+having to do with authentication in the redux store is going to end up working to our advantage.
+
+02:10.740 --> 02:16.830
+So as we work throughout this application we're going to see that rather than holding these pieces of
+
+02:17.070 --> 02:22.860
+redux or excuse me these pieces of state at the component level it actually starts to make a little
+
+02:22.860 --> 02:27.740
+bit more sense to hold them at the redux level or the application state level.
+
+02:29.870 --> 02:34.130
+As we start to bring redux into our application and we're going use it very heavily within this app
+
+02:34.130 --> 02:40.670
+here we're going to learn that we start to move components like the log and form a way from very intelligent
+
+02:40.700 --> 02:46.340
+little pieces of software that know how to manage all these different pieces of state into very simple
+
+02:46.340 --> 02:52.190
+components that behave a lot more like templates where they just take some amount of data and spit out
+
+02:52.190 --> 02:53.730
+some amount of GSX.
+
+02:53.740 --> 02:55.120
+So that's kind of our end goal here.
+
+02:55.130 --> 03:02.330
+We want to pull as much logic in keeping track of state as possible away from the component level and
+
+03:02.330 --> 03:04.090
+push it to redux instead.
+
+03:05.740 --> 03:06.040
+All right.
+
+03:06.040 --> 03:11.170
+So let's take a look at some diagrams that can you know to explain or help us understand what the long
+
+03:11.170 --> 03:16.130
+form is going to be responsible for and what the redux is going to be responsible for.
+
+03:16.150 --> 03:18.060
+So what the long form is doing right now.
+
+03:18.070 --> 03:23.530
+Or you know what it was doing previously the log in form would take an email and password it would attempt
+
+03:23.530 --> 03:28.720
+to log in and then it would produce a loading an Arab piece of state and then we would figure out hey
+
+03:28.720 --> 03:30.580
+OK is the user actually logged in.
+
+03:30.610 --> 03:34.240
+Do we need to show them an error message should we be showing them a spinner you know whatever it might
+
+03:34.240 --> 03:34.490
+be.
+
+03:34.540 --> 03:40.930
+So again the log in form which is generally very intelligent once we start to bring redux onto the scene
+
+03:40.930 --> 03:45.040
+however you know this is the this is the thought process we want to have going through our head moving
+
+03:45.040 --> 03:45.850
+forward.
+
+03:45.850 --> 03:51.150
+We want to minimize the responsibilities of any one of our components.
+
+03:51.190 --> 03:57.430
+So the long form rather than being on track of that big old flow of e-mail password loading error all
+
+03:57.430 --> 04:02.930
+that stuff we want to make the component as just simple and dumb as possible.
+
+04:03.160 --> 04:09.850
+So the log in form all it's going to do is show a form whenever a user typed something like the email
+
+04:09.850 --> 04:15.250
+or the password or they tap on a button that log in form will show an action creator.
+
+04:15.250 --> 04:17.230
+So we still do need that level of glue in there.
+
+04:17.230 --> 04:21.970
+You know we do still need to have the logging forms say like oh I just got tapped on or a user just
+
+04:21.970 --> 04:22.930
+pressed a button.
+
+04:22.930 --> 04:25.570
+We still have to have that minimum amount of logic.
+
+04:25.750 --> 04:31.780
+But as far as deciding what to do about that tap or what to do about that e-mail that was just entered.
+
+04:31.780 --> 04:37.400
+That is something that we're going to move off to being managed completely by redux instead.
+
+04:38.590 --> 04:43.870
+So only when a user like starts to like tap on something or do something on the screen that's when the
+
+04:43.870 --> 04:47.660
+log in form says OK I need to like respond to this in some fashion we can.
+
+04:47.710 --> 04:52.220
+You know we can't completely make that log in form like to dumb.
+
+04:52.290 --> 04:52.570
+All right.
+
+04:52.570 --> 04:54.200
+Just one more diagram really quick.
+
+04:54.550 --> 04:57.010
+Let's talk a little bit more about the flow.
+
+04:57.200 --> 05:00.640
+You know generally how we want to treat redux moving forward.
+
+05:00.850 --> 05:05.040
+So we're going to start at the very top and move down here at the very top.
+
+05:05.050 --> 05:10.840
+Re-act is watching for the user to do something like you know tap on an element or to type in some text
+
+05:11.560 --> 05:15.280
+when the user does this reactor is going to for that event onto redux.
+
+05:15.280 --> 05:20.560
+So again this is the part where it's like OK we do have to have some minimum level of glue code in reacts
+
+05:20.560 --> 05:25.330
+like we can't just be passing out GSX and not really thinking anything about it.
+
+05:25.330 --> 05:28.320
+We still have to use re-act for at least some level in here.
+
+05:28.780 --> 05:34.870
+But we are going to start to delegate everything all the logic around deciding what to do about that
+
+05:34.870 --> 05:38.160
+event over to redux instead.
+
+05:38.200 --> 05:43.720
+So when the user starts to tap something or type something re-act is going to for the event to react
+
+05:43.840 --> 05:47.980
+or seeing the reaction unit for the event on the readout excuse me and the redux is going to decide
+
+05:47.980 --> 05:53.350
+whether or not it needs updated state in some fashion after it makes that decision.
+
+05:53.350 --> 05:56.030
+It will push that state back over to react.
+
+05:56.250 --> 06:02.190
+So whatever you know you little piece of loading state or air state it's going to push that over back
+
+06:02.190 --> 06:07.780
+to react and then react is going to say aha some new state from Redux I better re render myself and
+
+06:07.780 --> 06:12.810
+we are going to update the content on the screen and wait for the user to do something again.
+
+06:12.820 --> 06:19.270
+So our overall goal here especially with the logging Foreman log in form in mind is to shift all of
+
+06:19.270 --> 06:25.280
+our record keeping all the side effects all the like actually really doing something over two redux.
+
+06:25.450 --> 06:31.060
+And we are only really going to depend on re-act for producing content on the screen and getting some
+
+06:31.060 --> 06:35.680
+notification about when the user does something because that's going to this is how these two pieces
+
+06:35.680 --> 06:37.830
+fit together and how we're going to treat them moving forward.
+
+06:37.870 --> 06:43.840
+Re-act is all about just showing something on the screen and watching for user events whereas redox
+
+06:43.930 --> 06:49.720
+is all about actually keeping track of the state of our application and deciding how to interpret or
+
+06:49.720 --> 06:52.770
+handle these events that are coming into our application.
+
+06:53.330 --> 06:58.510
+OK so with this kind of paradigm shift in mind let's continue onto the next section and start wiring
+
+06:58.510 --> 06:59.680
+up our log and form

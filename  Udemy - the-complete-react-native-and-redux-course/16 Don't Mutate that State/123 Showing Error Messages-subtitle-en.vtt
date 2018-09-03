@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00.790 --> 00:05.310
+We've made a ton of progress in our action crater's file and we're starting to see some really solid
+
+00:05.310 --> 00:08.280
+behavior between these actual creators and.
+
+00:08.600 --> 00:12.040
+We're handling the case in which the user successfully signs in.
+
+00:12.180 --> 00:16.290
+But we also need to handle the case in which the user fails to log in as well.
+
+00:16.320 --> 00:19.420
+With this logon user fail function that we have down here.
+
+00:19.800 --> 00:24.650
+First we need to think about what we want to have happen when the user fails to log in.
+
+00:24.660 --> 00:28.790
+Chances are we really want to show a error message of some type to the user.
+
+00:28.830 --> 00:29.240
+Right.
+
+00:29.250 --> 00:30.720
+I think that makes sense.
+
+00:30.720 --> 00:36.290
+So in that case I think that will do the same exact thing as what we did inside of our off app will
+
+00:36.330 --> 00:39.950
+add a new piece of state to our producer called air.
+
+00:39.960 --> 00:45.240
+So back inside of my office reduce your file or find my initial state right here and we're going to
+
+00:45.240 --> 00:51.110
+update it to make sure that it contains a string error by default it will be an empty string.
+
+00:51.240 --> 00:57.090
+And then as soon as we see some fail case or a case in which the user fails to log in then we'll update
+
+00:57.090 --> 01:00.570
+that string to contain some type of error message.
+
+01:00.570 --> 01:07.320
+So inside of my initial state object I will default the air piece of state to be an empty string like
+
+01:07.320 --> 01:16.230
+So next we'll need to make sure that we import our action type of logon user fail which we had just
+
+01:16.230 --> 01:18.480
+put together inside of our type's file.
+
+01:18.510 --> 01:19.350
+A moment ago.
+
+01:19.410 --> 01:22.170
+So is log in user fail.
+
+01:22.170 --> 01:30.680
+Back inside the reducer will import log in user fail and then we'll add this to the reducer as well
+
+01:31.490 --> 01:32.780
+down inside the reducer.
+
+01:32.810 --> 01:37.140
+We'll add on an extra case statement of log in user fail.
+
+01:37.580 --> 01:42.560
+And if we ever see this case then we will return everything inside of our state object.
+
+01:42.830 --> 01:45.220
+But will also update that air property.
+
+01:45.350 --> 01:52.560
+It will make it say something like about authentication failed licensing call.
+
+01:52.590 --> 01:59.100
+So now any time a user fails to sign in boom we're going to set this piece of air state as a side note
+
+01:59.190 --> 02:04.380
+if you are really concerned about security and you want to do something like say clear clear out the
+
+02:04.380 --> 02:07.410
+user's password whenever they fail assign an attempt.
+
+02:07.530 --> 02:13.410
+Then we could also reset the password property that's being maintained inside's reducer as well by writing
+
+02:13.410 --> 02:17.030
+something like password empty string.
+
+02:17.130 --> 02:21.710
+So if the user now fails to log in it will reset the password input.
+
+02:21.720 --> 02:26.940
+Now I'm not going to do this so I'm going to take out that statement but I wanted you to know that you
+
+02:26.940 --> 02:30.290
+could very easily add that in anyways.
+
+02:30.320 --> 02:31.860
+Now back to our log in form.
+
+02:31.910 --> 02:36.530
+We need to make sure that we now take this air piece of state that we've created and show it on the
+
+02:36.530 --> 02:37.970
+form itself.
+
+02:37.970 --> 02:43.550
+So back inside of my log in form we're going to go down to our map state to proper function at the very
+
+02:43.550 --> 02:51.950
+bottom way down here and we'll make sure that we pull off the air piece of state from the off property
+
+02:52.010 --> 02:53.030
+as well.
+
+02:53.030 --> 02:59.780
+So we'll say air is going to come from St. boss Don air.
+
+02:59.930 --> 03:04.910
+Now the last thing we have to do is make sure that this component is aware that it needs to show that
+
+03:04.960 --> 03:06.120
+air piece of steak.
+
+03:06.190 --> 03:12.440
+Anytime something goes wrong our indication that something has gone wrong inside the component itself
+
+03:12.590 --> 03:18.460
+will be the case in which the air property has been assigned to something other than an empty string.
+
+03:18.770 --> 03:23.690
+So I think that a really easy way to handle this is going to be to create a helper method inside of
+
+03:23.690 --> 03:29.070
+our component that's going to look at that air property and decide exactly what to render.
+
+03:29.360 --> 03:36.500
+So right above the render function allowed on render air inside of there will add an if statement to
+
+03:36.500 --> 03:40.980
+see if this dock Propst hot air has been assigned a value.
+
+03:41.300 --> 03:46.580
+So if nothing has gone wrong and this is still an empty string then the if statement will fail and nothing
+
+03:46.580 --> 03:47.280
+will happen.
+
+03:47.600 --> 03:52.580
+But if there is an error that will execute this code inside the if statement.
+
+03:52.670 --> 03:57.780
+So inside the if statement itself let's return something to show some error to our user.
+
+03:57.850 --> 04:10.560
+So I return with the view I can give this thing a hard coded style of back ground color white and then
+
+04:10.560 --> 04:13.440
+inside the view will place a text tag.
+
+04:13.770 --> 04:19.320
+I do expect to add some styles to this like some stuff to make sure that the text appears red and whatnot
+
+04:19.560 --> 04:24.690
+so I'm going to assume assume that we'll create a styles object in just a moment and I will assume that
+
+04:24.690 --> 04:34.000
+there will be a property on there cold air text style like so that inside the text tag itself will place
+
+04:34.240 --> 04:36.790
+this dot props on air.
+
+04:38.460 --> 04:43.740
+Now we can call the render method from inside or see the render air method from inside of our render
+
+04:43.740 --> 04:44.270
+method.
+
+04:44.370 --> 04:47.830
+So down inside render maybe right above the button.
+
+04:47.850 --> 04:54.150
+So here's the card section with a button maybe right above this thing will place that method call.
+
+04:54.170 --> 04:57.170
+So like a call to this dot render air.
+
+04:57.360 --> 05:02.540
+So now if any air exists this would turn a view with a text tag inside of it.
+
+05:02.610 --> 05:04.920
+That will be displayed to the user.
+
+05:04.920 --> 05:10.350
+Now the last thing we have to do is make sure that we add in some styling for this air text style thing
+
+05:10.350 --> 05:11.050
+right here.
+
+05:11.100 --> 05:16.200
+And again what we really want to do is just to make sure that it shows up as red and maybe center the
+
+05:16.200 --> 05:18.770
+text and some stuff like that as well.
+
+05:18.810 --> 05:23.510
+So down towards the bottom of the file underneath our component will create a Stiles object.
+
+05:23.550 --> 05:36.590
+Sukant styles will be air or text style will have a font size of 20 a line cell of center.
+
+05:36.660 --> 05:42.790
+So that will Central the text and will also give it a color of red just a kind of pop out to the user.
+
+05:42.800 --> 05:45.050
+Make it very prominent.
+
+05:45.050 --> 05:45.290
+All right.
+
+05:45.290 --> 05:48.120
+I think that we're ready to test this out inside of our simulator.
+
+05:48.260 --> 05:51.330
+So I'll flip back or the simulator or refresh it.
+
+05:51.740 --> 05:57.830
+And now we should be able to say and to enter in some garbage e-mail without any password at all and
+
+05:57.830 --> 06:01.880
+then have the logging button and oops moments like we forgot one thing.
+
+06:01.910 --> 06:07.160
+So I don't think we ever imported that view and we might've also skipped the text tag as well.
+
+06:07.190 --> 06:09.590
+So let's make sure we import both those at the top.
+
+06:10.360 --> 06:11.540
+All right back up here.
+
+06:11.580 --> 06:12.930
+Yup sure enough we forgot it.
+
+06:12.940 --> 06:21.260
+So import you and text from Briac native and let's give this another shot.
+
+06:21.880 --> 06:27.220
+So refresh the simulator again we can click log in and we're immediately told authentication failed
+
+06:27.370 --> 06:31.340
+because something went wrong during the authentication process.
+
+06:31.390 --> 06:33.060
+So I think that's about it right now.
+
+06:33.070 --> 06:37.360
+Now maybe the last thing that we need to do with the log in form is to make sure that we show a spinner
+
+06:37.360 --> 06:40.740
+to our users while they're waiting for the log in request.
+
+06:40.810 --> 06:44.350
+So let's take a glance at how we would accomplish that in the next section.

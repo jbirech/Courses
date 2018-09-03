@@ -1,0 +1,187 @@
+WEBVTT
+
+00:00.770 --> 00:05.270
+In the last section we install dependencies for our new project and spoke about some features of the
+
+00:05.270 --> 00:09.110
+app that we're going to built now that our project is all ready to go.
+
+00:09.110 --> 00:12.340
+I'm going to start up my code editor inside the auth directory.
+
+00:12.800 --> 00:15.410
+And I'm also going to open up my simulator.
+
+00:15.410 --> 00:18.110
+Now I've already taken the liberty of starting my simulator up.
+
+00:18.110 --> 00:19.080
+You'll see it right here.
+
+00:19.100 --> 00:20.250
+It's already running.
+
+00:20.270 --> 00:22.540
+I encourage you to pause a video right now.
+
+00:22.550 --> 00:27.670
+Remember you can startup your simulator by running the command react.
+
+00:27.980 --> 00:33.740
+React dash native run ins or run Android Android.
+
+00:33.800 --> 00:39.920
+If you are on Android so let it do its thing and start up the simulator or emulator.
+
+00:39.920 --> 00:40.460
+All right.
+
+00:40.460 --> 00:43.280
+If you're still here I'm going to assume you have your simulator running.
+
+00:43.280 --> 00:46.670
+So let's keep going inside my code editor.
+
+00:46.760 --> 00:51.180
+Notice all those same files and folders that we had on the last app that we generated.
+
+00:51.230 --> 00:53.920
+So we still have the Android and iOS folders.
+
+00:54.050 --> 00:56.100
+We've got the node modules directory.
+
+00:56.150 --> 01:02.090
+We've got a bunch of configuration stuff and then we've also got our route file the index does J.S.
+
+01:02.090 --> 01:03.860
+file.
+
+01:03.860 --> 01:08.900
+Now one thing that you might notice about this default re-act native project is that it doesn't really
+
+01:08.900 --> 01:11.690
+give us a lot of project structure.
+
+01:11.750 --> 01:17.030
+In other words let's imagine that at some point in time if we are working with a ton of different components
+
+01:17.330 --> 01:22.190
+there's not really any clear location on where we should stuff all those components or where we should
+
+01:22.190 --> 01:25.100
+really place them inside of our application.
+
+01:25.100 --> 01:31.370
+So I'm going to suggest that maybe we should create a new folder to house all the different components
+
+01:31.550 --> 01:34.430
+that you and I need to create for this project.
+
+01:34.490 --> 01:40.220
+So going to do that right now inside my office directory I'm going to make a new folder called SIRC
+
+01:40.640 --> 01:45.890
+and we're going to say that we're going to put all of the custom code that we write for our application
+
+01:46.190 --> 01:48.560
+inside the SIRC directory.
+
+01:48.560 --> 01:54.980
+The only thing that's going to stay outside will be the index file because re-act native requires there
+
+01:54.980 --> 02:02.040
+to be an index dot file in our project directory in order to start up correctly.
+
+02:02.100 --> 02:07.860
+Now you will notice when we first generated our project there is a default component that is made for
+
+02:07.860 --> 02:10.000
+us and is placed inside this.
+
+02:10.020 --> 02:11.000
+J.S. file.
+
+02:11.250 --> 02:18.150
+So by default the index dodgiest file imports that app and then attempts to show it on the screen.
+
+02:18.150 --> 02:21.890
+So I don't really want to make use of this default app that JSA file.
+
+02:22.080 --> 02:27.060
+I'm going to delete it and we're going to make our own but this time we're going to place it inside
+
+02:27.060 --> 02:29.250
+of the S or C directory.
+
+02:29.250 --> 02:35.610
+So inside the Cercy directory I'm going to make a new file and I'm going to call it app dot J.S. as
+
+02:35.610 --> 02:36.170
+well.
+
+02:37.690 --> 02:44.500
+Inside if you're going to place some import statements and a new component to generate some content
+
+02:44.500 --> 02:45.660
+that we can show on the screen.
+
+02:45.670 --> 02:51.690
+So just a very simple little component something to just get us started inside the app.
+
+02:51.740 --> 02:52.510
+Jazz file.
+
+02:52.550 --> 02:59.680
+I mean first start off by importing react and component from the re-act library.
+
+02:59.860 --> 03:08.230
+And I'll also import the view and text tags from re-act native as well.
+
+03:08.230 --> 03:15.820
+Then I will create my new app component I'll say class app extends component I'll define my render method
+
+03:15.820 --> 03:21.820
+inside of here and inside there I will return a little bit of just boilerplate tags.
+
+03:21.820 --> 03:29.330
+So I put a view and inside the view I'll place a text tag and will say that this text tag says something
+
+03:29.330 --> 03:34.380
+like an app whatever you want it to say and then don't forget at the bottom of the file.
+
+03:34.400 --> 03:36.930
+We need to export this component as well.
+
+03:37.060 --> 03:42.320
+So export default app OK.
+
+03:42.410 --> 03:48.660
+Last thing we have to do is make sure that we import the correct file into our index dot js file.
+
+03:48.690 --> 03:55.440
+So back inside of index dot J.S. Right now this file is assuming that it can import the component from
+
+03:55.500 --> 03:59.710
+a file in the same root directory and that's not the case anymore.
+
+03:59.760 --> 04:03.870
+We are now placing this app component inside of the SIRC directory.
+
+04:04.170 --> 04:12.710
+So I'm going to fix up the path here by saying SIRC slash app like so we should now be able to save
+
+04:12.710 --> 04:15.450
+this file and then refresh our simulator.
+
+04:15.500 --> 04:18.410
+And we should see that new content appear on the screen.
+
+04:18.410 --> 04:20.790
+All right so it is up here at the top left.
+
+04:20.790 --> 04:24.860
+We do have a little bit of an overlap issue but it looks like it definitely works.
+
+04:24.860 --> 04:27.340
+So let's keep going in the next video.

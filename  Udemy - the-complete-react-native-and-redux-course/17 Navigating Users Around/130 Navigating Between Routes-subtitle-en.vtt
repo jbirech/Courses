@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00.770 --> 00:05.960
+We've now got to scene components in our application and we see that we can at least toggle between
+
+00:05.960 --> 00:10.700
+which one displays first by changing the order but obviously when the user actually makes use of our
+
+00:10.700 --> 00:15.010
+application we're not going to be sitting there next to them manually toggling the scenes.
+
+00:15.050 --> 00:21.500
+So we need some fashion to automatically navigate our users between different scenes that we've created.
+
+00:21.500 --> 00:26.020
+So let's think about how that's going to work inside of our application in particular.
+
+00:26.030 --> 00:32.300
+Well whenever a user enters email and password and logged in successfully chances are we're going to
+
+00:32.300 --> 00:35.440
+want to navigate a user over to that employee list.
+
+00:35.480 --> 00:35.780
+Right.
+
+00:35.780 --> 00:41.090
+Like you log in successfully you expect to see some new content on the screen.
+
+00:41.120 --> 00:47.930
+So I say that in our action creators file whenever we hit that user successfully logged in action creator
+
+00:48.200 --> 00:52.370
+that's probably when we're going to want to navigate our user over to this different screen.
+
+00:52.580 --> 00:57.800
+So that's probably where we're going to want to initiate this navigation process.
+
+00:59.340 --> 01:05.070
+So you know open up my action crater's file and I'm going to scroll down to the bottom and locate logon
+
+01:05.070 --> 01:06.210
+user success.
+
+01:06.300 --> 01:10.110
+OK so right here this is where I want to do my navigation.
+
+01:10.290 --> 01:11.710
+So this next part.
+
+01:11.760 --> 01:15.210
+Definitely another one of those places where we're going to throw some code on the screen and talk about
+
+01:15.210 --> 01:17.160
+what's going on at the top.
+
+01:17.220 --> 01:27.120
+I'm going to import actions from re-act native router flux and then back down at the bottom side of
+
+01:27.120 --> 01:29.070
+log in user success.
+
+01:29.100 --> 01:30.780
+I'm going to find my helper method.
+
+01:30.780 --> 01:31.780
+Here it is.
+
+01:31.890 --> 01:39.610
+And then right after it I'm going to call actions dot employee the list now without another word.
+
+01:39.660 --> 01:42.230
+Let's do a little bit of a test and see what happens.
+
+01:45.110 --> 01:48.230
+I mean I'm putting some correct authentication credentials.
+
+01:48.350 --> 01:57.200
+So that's going to be my test at test dot com and password and log in and boom I automatically get navigated
+
+01:57.230 --> 01:58.910
+over to my employee list.
+
+01:58.910 --> 02:04.540
+So clearly something here is happening correctly like it is working the way I expect.
+
+02:05.080 --> 02:09.470
+There is just one kind of interesting thing you'll notice that now I've got to back button up here.
+
+02:09.500 --> 02:15.830
+And so for some reason I'm able to like navigate back to the sign and sign in form which is now reset
+
+02:15.920 --> 02:18.730
+into making the user think that oh hey you haven't signed on yet.
+
+02:18.740 --> 02:20.030
+Please log in.
+
+02:20.030 --> 02:20.560
+So.
+
+02:20.720 --> 02:24.980
+OK it looks like we can navigate between different screens but still something is a little bit off.
+
+02:25.000 --> 02:28.580
+And we can navigate back and we definitely really do not want to.
+
+02:29.180 --> 02:32.590
+Let's take a second to talk about the code that we actually added in here.
+
+02:32.640 --> 02:39.050
+And the first thing I want to point out is we imported this actions object from the re-act need of router
+
+02:39.050 --> 02:40.250
+fluxed library.
+
+02:40.260 --> 02:45.650
+The second thing I want to point out is that we have this method on here called employee list that seems
+
+02:45.650 --> 02:47.420
+awfully coincidental doesn't it.
+
+02:47.420 --> 02:52.780
+Like this library has a method called employee list as you might expect.
+
+02:52.910 --> 02:56.630
+That is the purpose of this key property right here.
+
+02:56.630 --> 02:59.260
+So this is why that key property is so important.
+
+02:59.390 --> 03:04.000
+It is what we use as the engineers to navigate around in our application.
+
+03:04.100 --> 03:11.270
+If I create a scene with a key component I can navigate to it at any point in time from anywhere in
+
+03:11.270 --> 03:20.090
+my code base by just calling actions dot employee list or actions dot loggin you know whatever we might
+
+03:20.090 --> 03:20.850
+want to call it.
+
+03:20.960 --> 03:27.350
+That's all we have to call and boom will automatically be thrown over there with a nice animation.
+
+03:27.350 --> 03:32.780
+The next thing I want to point out to you is that we start to see why using the built in header is so
+
+03:32.780 --> 03:33.260
+useful.
+
+03:33.260 --> 03:34.310
+So if I log in again
+
+03:37.300 --> 03:42.430
+we get navigate over and yes the backbone here does not make sense but I want to at least point out
+
+03:42.490 --> 03:48.280
+that we got that back button for free so we didn't have to do anything like you know go into the employee
+
+03:48.280 --> 03:51.460
+list component and say oh please show a button up there.
+
+03:51.470 --> 03:56.920
+And you know figure out what the last view was and show the by and if anyone clicks on it go back to
+
+03:56.920 --> 03:57.780
+that last few.
+
+03:57.820 --> 04:01.650
+Let's that's a little bit tedious and we don't really want to do that for every single component.
+
+04:01.660 --> 04:06.700
+So by using this built in header we definitely get some good amount of functionality for free even if
+
+04:06.700 --> 04:09.880
+it's not something that we necessarily want inside of this case.
+
+04:11.580 --> 04:16.800
+All right so let's take a quick break here and figure out what's going on with his back button and how
+
+04:16.800 --> 04:21.410
+we're going to disable it when we go between the off screen and the employee lists screen

@@ -1,0 +1,250 @@
+WEBVTT
+
+00:00.810 --> 00:05.910
+In the last section we started to talk about the structure our data will have inside firebase we're
+
+00:05.910 --> 00:08.550
+going to have a top level collection of users.
+
+00:08.550 --> 00:11.090
+Each user will have their own bucket of employees.
+
+00:11.310 --> 00:14.530
+We then started talking just a little bit about the security of our data.
+
+00:14.880 --> 00:20.580
+So it might be surprising to hear this but by default inside of firebase we can even see a little message
+
+00:20.580 --> 00:21.190
+right here.
+
+00:21.210 --> 00:26.370
+The only default security rules there are is to require that a user is authenticated.
+
+00:26.370 --> 00:28.240
+That is the only requirement.
+
+00:28.260 --> 00:34.370
+So once a user is authenticate with firebase they can reach out to any data inside of your database.
+
+00:34.380 --> 00:35.740
+Absolutely any.
+
+00:35.790 --> 00:38.600
+This is by default and we can fix it and we are going to fix it.
+
+00:38.720 --> 00:43.370
+But I just want to know that that is the default behavior in here on my console.
+
+00:43.380 --> 00:45.280
+I'm on the real time database tab right here.
+
+00:45.290 --> 00:53.780
+I clicked the rules tab at the top this rules tab right here changes the security rules of our application.
+
+00:53.820 --> 01:00.990
+So by default you can kind of read this vaguely as you know English do not allow or only allow people
+
+01:00.990 --> 01:05.800
+to read from our database or write from our database if they are offered.
+
+01:05.850 --> 01:12.420
+So if if auth is null do not allow them to read Do not allow them to write any Dade's the application.
+
+01:12.420 --> 01:18.360
+So this rules tab right here is where we can set up some number of rules that dictate what data a user
+
+01:18.360 --> 01:21.590
+can read and write inside of our database.
+
+01:22.290 --> 01:26.820
+So we're going to update this rule set right here with something is going to be a lot more secure for
+
+01:26.820 --> 01:29.440
+the application that we are going to make.
+
+01:29.460 --> 01:30.800
+We're going to make a change.
+
+01:30.810 --> 01:34.620
+This is another one of those locations where all of you know we're gonna throw some code on here and
+
+01:34.620 --> 01:35.780
+then figure out what's going on.
+
+01:35.790 --> 01:39.340
+So let's just do a little bit of typing and see where it takes us.
+
+01:39.450 --> 01:42.920
+First I'm going to delete everything inside of the rules object.
+
+01:43.030 --> 01:46.890
+So now I've got just rules and then empty object.
+
+01:46.890 --> 01:52.680
+And inside of you are going to add users and I'm going to make sure that I use double quotes just to
+
+01:52.680 --> 01:53.570
+make sure that's really clear.
+
+01:53.690 --> 01:55.620
+Let's dial up the size here.
+
+01:55.620 --> 01:58.660
+So I'm using double quotes around everything.
+
+01:59.210 --> 02:07.020
+Then inside of users I'm going to say dollar sign you I.D. and then one more object in here will do
+
+02:07.040 --> 02:17.250
+Daut read will the dollar sign your ID equals equals equals Kauth dot you ID and
+
+02:20.220 --> 02:28.940
+dot right dollar sign your ID equals equals equals dot you ID.
+
+02:29.520 --> 02:37.200
+We can read these rules the seen in my firebase data like in my database there is going to be a collection
+
+02:37.260 --> 02:38.890
+of users.
+
+02:40.110 --> 02:46.740
+And in that users collection we will have a bunch of keys where each key is a user's ID so you ID right
+
+02:46.740 --> 02:48.930
+here is a user's ID.
+
+02:49.560 --> 02:56.310
+If a user tries to edit any data inside of this you id property which like it at production time.
+
+02:56.310 --> 03:01.170
+In reality this you ID right here is going to be some string of characters that matches up to a very
+
+03:01.170 --> 03:02.680
+particular user.
+
+03:02.700 --> 03:09.900
+So if a user tries to enter or read or edit any data within this little bucket right here they must
+
+03:10.410 --> 03:14.100
+have a user id equal to the ID.
+
+03:14.120 --> 03:19.980
+In other words look at the current user's ID if it is equal to the idea of this little bucket right
+
+03:19.980 --> 03:20.330
+here.
+
+03:20.340 --> 03:25.040
+Then allow them to read or write from this data otherwise denied to them.
+
+03:25.050 --> 03:27.900
+So yes this is a little confusing.
+
+03:27.990 --> 03:32.710
+Lets glance it a little bit more practical example of something with some actual numbers here.
+
+03:33.690 --> 03:36.870
+So I'm back over to our firebase schema diagram.
+
+03:37.080 --> 03:44.490
+Again this is what our Jaison is going to look like in practice in the States on diagram We've got two
+
+03:44.490 --> 03:45.350
+users.
+
+03:45.510 --> 03:49.320
+User 1 2 3 and user 4 5 6.
+
+03:49.320 --> 03:53.010
+So the user 1 2 3 4 5 6 are you IDs.
+
+03:53.600 --> 04:00.270
+If user 1 2 3 logs in and tries to edit any one of their employees firebase is going to look at the
+
+04:00.270 --> 04:07.230
+ID of the currently authenticated user which is user 2:59 and it's going to compare it to this key right
+
+04:07.230 --> 04:08.760
+here.
+
+04:09.210 --> 04:12.550
+They would be identical you know user 1 2:59 is user 1 2 3.
+
+04:12.660 --> 04:17.730
+So they're going to have full read and write access to everything inside this bucket right here.
+
+04:17.910 --> 04:19.290
+All the employees.
+
+04:19.380 --> 04:24.220
+Any other key is we haven't in here any other data that they're going to have complete access to.
+
+04:24.450 --> 04:30.890
+On the other hand if user 2:59 logs in and then tries to edit any data inside of the user four or five
+
+04:30.890 --> 04:38.040
+six bucket firebase is going to compare the idea of user 2:59 the currently logged in user to user 4
+
+04:38.050 --> 04:39.470
+or 5 6.
+
+04:39.480 --> 04:40.440
+They are not equal.
+
+04:40.440 --> 04:45.660
+So the user is not going to have read or write access to any of the data inside of this bucket right
+
+04:45.660 --> 04:47.360
+here and that's pretty much it.
+
+04:47.370 --> 04:49.810
+That's how security works with firebase.
+
+04:49.830 --> 04:54.990
+Again this is a very super Just like a super generic schema of data right here.
+
+04:55.080 --> 04:59.940
+So if you want to reuse this on your own personal projects its definitely going to take you pretty far
+
+05:00.270 --> 05:05.560
+where for any type that where a user has their own little island of data or their own little kind of
+
+05:05.910 --> 05:08.050
+bucket of data in here.
+
+05:08.210 --> 05:16.480
+So last thing we have to do inside of our firebase consul here I'm going to publish this rule set that
+
+05:16.480 --> 05:21.460
+I just created so I can publish it and I see rules published up here that means that now these rules
+
+05:21.490 --> 05:25.470
+are in effect and no user can reach out to any other users data.
+
+05:25.480 --> 05:27.270
+And you know and go with it.
+
+05:27.340 --> 05:32.080
+The last thing I want to say about the Jason data structure if it's still confusing what its going to
+
+05:32.080 --> 05:36.670
+look like as soon as we start saving data it's going to pop up and it's interface right here.
+
+05:36.670 --> 05:41.110
+So as soon as we start saving data we're going to get our eyes on this thing and say OK yes that is
+
+05:41.110 --> 05:44.770
+what this actually looks like and I think at that point in time it's going to start to make a little
+
+05:44.770 --> 05:46.170
+bit more sense.
+
+05:46.730 --> 05:47.070
+OK.
+
+05:47.080 --> 05:48.580
+We've got our data locked down.
+
+05:48.580 --> 05:54.480
+Let's continue the next section and start saving the employees that are being created within our application.

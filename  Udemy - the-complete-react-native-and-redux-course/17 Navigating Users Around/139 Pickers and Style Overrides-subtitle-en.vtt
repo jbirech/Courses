@@ -1,0 +1,292 @@
+WEBVTT
+
+00:01.020 --> 00:02.430
+We've got our picture in place.
+
+00:02.430 --> 00:07.500
+But I'm really going to nit pick here just a little bit and mention that this picture does not have
+
+00:07.500 --> 00:08.950
+a label right.
+
+00:09.000 --> 00:14.430
+We don't actually see anything here like hey pick the employees shift users really need to know what
+
+00:14.430 --> 00:15.380
+they're selecting here.
+
+00:15.390 --> 00:19.290
+So we should really make sure that we have a label here as well.
+
+00:20.250 --> 00:23.920
+So to add in the label we will make a separate component this time around.
+
+00:23.970 --> 00:29.490
+Just because you know we have to kind of specify the days that we here it's a lot of customization for
+
+00:29.490 --> 00:30.900
+a reusable component.
+
+00:30.930 --> 00:37.500
+I think that this is maybe a reasonable case to just have the raw picker in here to add in a label.
+
+00:37.500 --> 00:44.550
+We will need to import a text element from re-act me as well will place a text element in the card section
+
+00:44.580 --> 00:49.240
+right above the picker and will style it appropriately to make it look like a label.
+
+00:49.290 --> 00:55.810
+So if at the top I'm going to import my text tag from re-act native and then back down.
+
+00:55.860 --> 01:00.370
+Right above the picker word in our text.
+
+01:00.610 --> 01:01.520
+Whoops.
+
+01:04.250 --> 01:08.120
+And I think it would be appropriate to just how these things shift.
+
+01:08.120 --> 01:13.360
+You can have it you know something more Burby might be like select a shift that might be good as well.
+
+01:13.760 --> 01:16.300
+And I'm going to give it a style of styles.
+
+01:16.340 --> 01:24.670
+Dot picker text style maybe also pick her label syle might be appropriate as well.
+
+01:24.770 --> 01:29.330
+All right we have not yet to find our styles object so scroll down to the bottom and make sure we define
+
+01:29.330 --> 01:29.970
+that.
+
+01:30.370 --> 01:42.180
+So right above map stage props say styles is an object with a picture text style.
+
+01:42.260 --> 01:46.960
+This will have a font size of 18 in a padding left of 20.
+
+01:46.970 --> 01:48.050
+So just some.
+
+01:48.050 --> 01:52.130
+So I need to dial up the size and the padding left is going to make sure that it stands off from the
+
+01:52.130 --> 01:57.020
+left hand side of the form and lines up nicely with the name and phone here as well.
+
+01:58.130 --> 01:58.600
+All right.
+
+01:58.850 --> 02:02.590
+Let's do a quick refresh and see how this looks.
+
+02:08.900 --> 02:11.110
+So in my ad form.
+
+02:11.320 --> 02:12.630
+Hmm interesting.
+
+02:12.640 --> 02:16.130
+So it looks like we definitely have the label on here.
+
+02:16.150 --> 02:17.210
+It's in a good spot.
+
+02:17.230 --> 02:24.820
+It has correct text correct size everything looks good but if you look down now our picture is a little
+
+02:24.820 --> 02:29.100
+bit off center whereas before is nicely centered inside this card section.
+
+02:29.140 --> 02:32.650
+You can see that now it's going to offset by the label that we put in here.
+
+02:33.940 --> 02:39.870
+The issue here is that the card section component has a style of flex direction row.
+
+02:40.300 --> 02:46.510
+If you recall that means that all of the card sections children will be laid out going from left to
+
+02:46.510 --> 02:47.350
+right.
+
+02:47.350 --> 02:51.280
+So first there's the shift that takes up the full height of this thing.
+
+02:51.340 --> 02:56.470
+And then the next element in here will be placed to the right of that label and that's exactly what
+
+02:56.470 --> 03:00.160
+happened with this picture right here.
+
+03:00.160 --> 03:06.940
+So for this particular card section we really want to have a layout going from top to bottom or a flex
+
+03:06.940 --> 03:09.260
+direction of column.
+
+03:09.280 --> 03:16.150
+In other words we want to override this very specific card section style with some custom style that
+
+03:16.150 --> 03:19.240
+we can pass into the card section right here as a prop.
+
+03:19.390 --> 03:25.060
+So we need to make sure we can override the styling inside of this very particular card section right
+
+03:25.060 --> 03:26.690
+here.
+
+03:26.800 --> 03:28.440
+So that's the goal.
+
+03:28.660 --> 03:33.160
+There's really no great leading and I can give you for the methodology here this is def. those places
+
+03:33.160 --> 03:36.720
+we're going to throw the code on the screen and then talk about how it works.
+
+03:37.030 --> 03:39.900
+So inside my employee create form.
+
+03:39.920 --> 03:41.060
+Here's my card section.
+
+03:41.080 --> 03:50.290
+I'm going to give it a prop of style and then to that I will pass an object with flex direction column.
+
+03:50.290 --> 03:56.280
+Now I want to point out to you that on all of the primitive elements that we've used so far like text
+
+03:56.280 --> 04:03.640
+or picture or touchable opacity whatever might have been all those except a style prop and re-act native
+
+04:03.700 --> 04:06.030
+internally makes use of that style problem.
+
+04:06.510 --> 04:09.020
+This card section here however it is a start.
+
+04:09.040 --> 04:16.080
+It is a component that we put together and there is nearly no property that will be automatically consumed
+
+04:16.090 --> 04:20.690
+for us are automatically used when it's a component that we put together.
+
+04:20.710 --> 04:25.660
+So just because I added on style in here doesn't actually mean that it's going to do anything meaningful
+
+04:25.900 --> 04:28.350
+inside of the card section component.
+
+04:28.390 --> 04:34.210
+I have to open the card section component and make sure that I make use of this prop that I'm passing
+
+04:34.210 --> 04:39.850
+to the card section and I have to do this because it is a component that we created.
+
+04:39.850 --> 04:42.020
+So I'm going to open up the card section.
+
+04:42.640 --> 04:44.110
+Here's my card S. component.
+
+04:44.110 --> 04:47.080
+We haven't looked at this thing in a while right.
+
+04:47.080 --> 04:54.190
+So now my props object I'm going to expect it to maybe have a prop of style on there as well.
+
+04:54.250 --> 04:58.310
+So I need to somehow make use of that prop inside this component.
+
+04:58.330 --> 05:04.120
+Essentially what we want to do is take these styles dot container style and then overwrite it with any
+
+05:04.120 --> 05:07.440
+additional styles that were passed in on the props object.
+
+05:07.490 --> 05:13.170
+This is another location where you go through the code up to talk about what it's doing.
+
+05:13.360 --> 05:21.400
+I'm going to wrap the styles container style with an array as the second argument I'll pass in prop
+
+05:21.400 --> 05:25.240
+Staats style suits me props the real style.
+
+05:25.330 --> 05:29.600
+So this is a nice little trick with styling and react native right here.
+
+05:29.680 --> 05:37.530
+This style prop that gets passed to any primitive element like a viewer or a text can take an array.
+
+05:37.540 --> 05:45.640
+If we pass in an array of styles then the style most to the right will overwrite any style on the left.
+
+05:45.640 --> 05:48.660
+So a nice little trick here right.
+
+05:48.930 --> 05:52.370
+What this does is it's going to say hey use the container style.
+
+05:52.480 --> 05:57.490
+But if there is anything better being passed along on props out style use that instead.
+
+05:57.580 --> 06:05.110
+So basically exactly fits our use case because by default we want to have a flex direction of row unless
+
+06:05.110 --> 06:10.290
+we specifically pass an override of flex direction column.
+
+06:10.300 --> 06:11.280
+All right.
+
+06:11.280 --> 06:13.960
+So I flip back over to employee create.
+
+06:13.960 --> 06:17.040
+I'm going to refresh my simulator and see how we look now.
+
+06:18.680 --> 06:19.670
+So log back in
+
+06:25.030 --> 06:27.400
+go to my form and hot dog.
+
+06:27.400 --> 06:31.240
+This looks a lot better now when the form starts off and it's on Monday.
+
+06:31.240 --> 06:36.670
+It does look like there's a lot of white space right here but really that's you know that's just how
+
+06:36.880 --> 06:39.240
+a picture with iOS works.
+
+06:39.310 --> 06:43.630
+Once the user starts to scroll up they're going to see OK that's why there is that white space right
+
+06:43.630 --> 06:44.150
+there.
+
+06:44.380 --> 06:49.180
+So certainly when I start to go to like Saturday it is very clear why there's the white space above
+
+06:49.180 --> 06:50.540
+the Monday on the form.
+
+06:50.930 --> 06:51.290
+OK.
+
+06:51.310 --> 06:52.240
+This looks good.
+
+06:52.240 --> 06:58.040
+I think we are finally just about ready to start saving the data that this form is producing.
+
+06:58.060 --> 07:00.250
+Let's take care of that in the next section.

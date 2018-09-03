@@ -1,0 +1,247 @@
+WEBVTT
+
+00:00:00.700 --> 00:00:06.690
+You know sexually took care of the case of our app first booting up when our firebase library is deciding
+
+00:00:06.690 --> 00:00:09.480
+whether or not we are currently signed in or not.
+
+00:00:09.480 --> 00:00:14.100
+So I think the last thing you have to do is add some functionality to signing user out whenever they
+
+00:00:14.100 --> 00:00:16.320
+click the log out button.
+
+00:00:16.450 --> 00:00:22.110
+We've already got a button tag in here right here and we know exactly how to add in some code to fire
+
+00:00:22.140 --> 00:00:24.180
+whenever the user presses the same.
+
+00:00:24.210 --> 00:00:31.530
+Remember we pass a prop of on press to the button and inside that on press we can pass a federal function
+
+00:00:31.560 --> 00:00:34.830
+that will be ran whenever the user presses this thing.
+
+00:00:34.830 --> 00:00:38.400
+So I expect the button tag here to grow in size just a little bit.
+
+00:00:38.400 --> 00:00:42.700
+So I'm going to start by putting this thing on a new line like so.
+
+00:00:43.230 --> 00:00:47.160
+And do you make sure that you don't have a semi colon at the end of the button tag right here.
+
+00:00:47.160 --> 00:00:50.180
+Otherwise you get a nice big error.
+
+00:00:50.220 --> 00:00:55.910
+Now we'll add on our on press and we'll pass it on event handler.
+
+00:00:55.980 --> 00:01:02.430
+So now inside of this federal function we have to figure out how to sign the user out and walk and why
+
+00:01:02.520 --> 00:01:04.670
+it's not is not the worst thing we have to do.
+
+00:01:04.710 --> 00:01:05.920
+Not the worst thing in the world.
+
+00:01:06.020 --> 00:01:12.380
+Oh it is called firebase dot auth dot sign out with the capital.
+
+00:01:13.230 --> 00:01:14.680
+And that's it.
+
+00:01:15.000 --> 00:01:15.560
+I think I'll do it.
+
+00:01:15.600 --> 00:01:19.080
+Another new line here just to make things look nice.
+
+00:01:20.390 --> 00:01:20.780
+OK.
+
+00:01:20.820 --> 00:01:23.710
+So now let's test the simulator or refresh.
+
+00:01:23.730 --> 00:01:30.360
+And now when I click this button I should be signing my user out the instant I signed my user out I'm
+
+00:01:30.360 --> 00:01:36.990
+going to expect that my authentication state is changing which means in should be getting flipped over
+
+00:01:36.990 --> 00:01:40.900
+to false and I should be shown the log in form again.
+
+00:01:40.920 --> 00:01:42.030
+So let's see if that's the case.
+
+00:01:42.030 --> 00:01:44.230
+Let's see if that's how this works.
+
+00:01:44.640 --> 00:01:48.510
+Click log out and I see the log in form.
+
+00:01:48.670 --> 00:01:54.060
+Now I should be allowed to enter and test and test on a password of password
+
+00:01:57.610 --> 00:01:58.950
+and sign back in.
+
+00:01:58.960 --> 00:01:59.600
+There we go.
+
+00:01:59.650 --> 00:02:01.840
+And again I can log right back out.
+
+00:02:01.870 --> 00:02:02.480
+Perfect.
+
+00:02:02.560 --> 00:02:04.440
+So that is it for authentication.
+
+00:02:04.440 --> 00:02:05.750
+That's the whole flow.
+
+00:02:06.070 --> 00:02:09.360
+Now of course we're missing a little bit of critical parts in here right.
+
+00:02:09.370 --> 00:02:14.000
+Once you actually sign in it would be great to have some more useful content on the screen.
+
+00:02:14.080 --> 00:02:18.760
+But for the purposes of this application I just want to show you the general idea behind authentication
+
+00:02:18.820 --> 00:02:22.400
+firebase and how to handle form input.
+
+00:02:22.480 --> 00:02:27.250
+We will definitely in the future come back to authentication and figure out how to build more complex
+
+00:02:27.250 --> 00:02:31.970
+applications where a user can sign in and sign out.
+
+00:02:31.990 --> 00:02:39.350
+So one last thing I want to do is just do one last walk through this entire application so inside this
+
+00:02:39.350 --> 00:02:43.040
+application we learned about firebase to start.
+
+00:02:43.070 --> 00:02:47.030
+We use firebase to create a new project on the firebase console.
+
+00:02:47.150 --> 00:02:53.870
+We installed the local firebase library and then we initialized it using some amount of configuration
+
+00:02:55.430 --> 00:03:00.830
+this configuration right here told Tolda use or told firebase that we want to connect to a very specific
+
+00:03:00.830 --> 00:03:02.530
+project that we had created.
+
+00:03:04.690 --> 00:03:08.710
+After that we learned about handling text input inside of our loggin form.
+
+00:03:08.740 --> 00:03:11.690
+And this is where things were pretty strange.
+
+00:03:11.710 --> 00:03:18.580
+Remember the interesting of the flow we use our state project to tell our input what its value should
+
+00:03:18.580 --> 00:03:19.030
+be.
+
+00:03:19.030 --> 00:03:24.790
+So we were not at any point in time really kind of you know pulling the value out of the input at all
+
+00:03:24.790 --> 00:03:30.070
+points in time we were telling the input hey this is what your value currently is and this is at great
+
+00:03:30.070 --> 00:03:33.010
+odds with how a lot of other javascript frameworks work.
+
+00:03:33.010 --> 00:03:37.660
+Normally you'll just let a user type in the input and then at some point in time like when the user
+
+00:03:37.660 --> 00:03:40.790
+tries to submit the form you'll pull the value out of that input.
+
+00:03:40.810 --> 00:03:43.530
+So re-act handles this a little bit differently.
+
+00:03:44.900 --> 00:03:50.300
+Creating inputs like this is referred to as creating controlled components inside of react so does limit
+
+00:03:50.330 --> 00:03:51.010
+of terminology.
+
+00:03:51.020 --> 00:03:53.130
+Therefore you next.
+
+00:03:53.170 --> 00:03:58.630
+We learned how to use conditional rendering to render different stuff inside of our components.
+
+00:03:58.810 --> 00:04:05.470
+So we added a helper method called render button and then inside of render button we decided whether
+
+00:04:05.470 --> 00:04:10.090
+or not we wanted to show a spinner or a button one or the other.
+
+00:04:10.150 --> 00:04:16.130
+This is a super common pattern for handling showing users know different content on the screen.
+
+00:04:16.240 --> 00:04:21.610
+So as time goes on we'll probably end up with more and more helper functions to decide what content
+
+00:04:21.610 --> 00:04:23.000
+we want to show to our user.
+
+00:04:24.040 --> 00:04:30.390
+Fourth we created two new reusable components both the input component and the spinner.
+
+00:04:30.400 --> 00:04:32.340
+These are fantastic little components.
+
+00:04:32.350 --> 00:04:34.730
+We're definitely going to reuse them again in the future.
+
+00:04:34.750 --> 00:04:38.650
+So try not to mess around with them too much.
+
+00:04:38.650 --> 00:04:43.720
+Finally the last thing we learned and this is my favorite part of the app we made sure to give the user
+
+00:04:43.780 --> 00:04:48.040
+a lot of feedback about the current state of the app that they were using.
+
+00:04:48.040 --> 00:04:52.810
+So by that I mean that we were showing the user error message and we were showing them showing them
+
+00:04:52.810 --> 00:04:56.270
+some nice spinners whenever we were making a request.
+
+00:04:56.320 --> 00:05:01.330
+So whenever we were making a request if that's kind of like blocking the user experience it's really
+
+00:05:01.330 --> 00:05:06.460
+good use case to make sure that we show the user a nice spinner on the screen to kind of be like hey
+
+00:05:06.760 --> 00:05:10.270
+you know we acknowledge your action but something is going on right now.
+
+00:05:10.280 --> 00:05:13.930
+You know right now we are showing we're loading something or doing whatever.
+
+00:05:14.020 --> 00:05:18.990
+And while that's occurring great practice to show a spinner to the user.
+
+00:05:19.000 --> 00:05:21.220
+All right so this app was a lot of fun to build.
+
+00:05:21.250 --> 00:05:24.730
+And we've got a solid foundation now on the basics of react.
+
+00:05:24.940 --> 00:05:29.780
+Let's continue the next section where we're going to start getting a lot more familiar with redux

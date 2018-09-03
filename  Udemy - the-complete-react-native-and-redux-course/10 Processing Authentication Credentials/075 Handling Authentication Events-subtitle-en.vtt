@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.780 --> 00:05.430
+In the last section we completed our loggin form but now we need to make sure that when a user logs
+
+00:05.430 --> 00:05.780
+in.
+
+00:05.780 --> 00:12.990
+We actually do something about it that function on loggin success that we implement right here is called
+
+00:12.990 --> 00:15.070
+whenever a user successfully logs in.
+
+00:15.180 --> 00:20.490
+So we couldn't use that as a place to notify the rest of our app that hey these are just signed in show
+
+00:20.490 --> 00:21.300
+a different screen.
+
+00:21.330 --> 00:23.020
+Or do you want to do.
+
+00:23.160 --> 00:26.030
+And that would definitely be one possible solution.
+
+00:26.040 --> 00:28.750
+However there is another solution that we can use as well.
+
+00:28.770 --> 00:34.490
+One that is a little bit more magic but it's certainly going to lead to some simpler code.
+
+00:34.770 --> 00:39.480
+So let's talk about what that second solution is all over the place.
+
+00:39.480 --> 00:44.300
+We've been calling this method on the firebase library of firebase thought off.
+
+00:44.410 --> 00:48.450
+Right we've been calling the thing right here and we've seen two methods tied to it.
+
+00:48.450 --> 00:48.720
+Right.
+
+00:48.720 --> 00:55.070
+So when I call fire based on off clearly it returns an object with some number of methods like sign
+
+00:55.080 --> 00:59.120
+in with a password and create user with email and password as well.
+
+00:59.120 --> 01:02.240
+So that object has similar number of methods tied to it.
+
+01:03.700 --> 01:12.690
+This object that gets returned from fire based on auth has another method called on off state changed.
+
+01:12.760 --> 01:14.620
+This is a handler for the event.
+
+01:14.770 --> 01:20.740
+We can pass in a function that will be called whenever the authentication state of our user changes
+
+01:20.800 --> 01:23.620
+like if they log in or they log out.
+
+01:23.680 --> 01:29.050
+I suggest that we use this as our place for figuring out whether or not the users Longet logged in or
+
+01:29.050 --> 01:32.880
+logged out at any point in time and update our app appropriately.
+
+01:33.040 --> 01:39.490
+OK so we're going to use this new event handler that is on the fire based on object to figure out whether
+
+01:39.490 --> 01:45.240
+or not the user is signed in or signed out to do so we need a place to locate this code.
+
+01:45.290 --> 01:49.750
+We've got to add some code in our application that's going to be implement this event handler.
+
+01:49.750 --> 01:56.170
+I just mentioned I think the best place to do that will be inside of our app component and most specifically
+
+01:56.350 --> 01:58.080
+component will mount.
+
+01:58.510 --> 02:04.660
+So inside of component will mount out in a function call we call firebase.
+
+02:04.810 --> 02:15.720
+Auth dot on off state change and this is a function an event handler handler right here that accepts
+
+02:15.720 --> 02:16.620
+a function.
+
+02:16.830 --> 02:22.860
+So whenever the user signs in or signs out you know as many times as they might do as we have our application
+
+02:22.860 --> 02:28.030
+opened this fadder a function right here will be called.
+
+02:28.070 --> 02:34.580
+So if the user signs in great we will know inside this function if they sign out fantastic that's just
+
+02:34.580 --> 02:35.310
+as good.
+
+02:35.660 --> 02:40.250
+This function right here at the federal function will be called with a single argument that we're going
+
+02:40.250 --> 02:42.560
+to call user.
+
+02:42.560 --> 02:48.770
+So when the authentication state changes if the user is signed in this user argument right here will
+
+02:48.770 --> 02:51.200
+be an object that represents the user.
+
+02:51.350 --> 02:55.550
+But if they signed out it will be no or undefined.
+
+02:55.820 --> 03:00.950
+So we can figure it we can look at this argument right here to decide whether or not the user has signed
+
+03:00.950 --> 03:03.700
+in when this on all state changes.
+
+03:03.980 --> 03:08.510
+So I feel like that kind of key thing here that's kind of confusing about this concept is that this
+
+03:08.510 --> 03:14.190
+is one event handler right here for handling either signing in or signing out.
+
+03:14.210 --> 03:20.300
+So either one our federal function right here will be called and it's solely based on the presence of
+
+03:20.300 --> 03:24.980
+this argument right here that we're going to figure out whether or not the user just signed in or signed
+
+03:25.010 --> 03:31.340
+at now I want to pause for a second and look back at our mockup for this application.
+
+03:31.730 --> 03:36.470
+We had said that when the user is not signed in we should show them the log in form over here on the
+
+03:36.470 --> 03:37.260
+left hand screen.
+
+03:37.280 --> 03:39.200
+And that's definitely what we're doing right now.
+
+03:39.200 --> 03:41.190
+You know we're always showing them the log on screen.
+
+03:41.510 --> 03:46.610
+But as soon as they are logged in we want to show them not the form anywhere we want to show them just
+
+03:46.610 --> 03:48.400
+a button to sign out.
+
+03:48.770 --> 03:52.400
+So when a user signs in we want to show them the sign out button.
+
+03:52.550 --> 03:58.010
+And then when they're not I want to show them the log in form put it another way we need to conditionally
+
+03:58.010 --> 04:00.160
+show some GSX on the device.
+
+04:00.170 --> 04:00.760
+Right.
+
+04:00.800 --> 04:05.430
+We want to conditionally do one thing or the other and we want to reregister between the two.
+
+04:05.480 --> 04:07.040
+So hopefully that sounds familiar.
+
+04:07.040 --> 04:12.140
+This is something we just did with our spinner and the log in form and we solved it by using component
+
+04:12.140 --> 04:13.790
+level state.
+
+04:13.790 --> 04:19.550
+So we will add a new piece of state to our application specifically the app component that will track
+
+04:19.640 --> 04:22.740
+whether or not the user is logged in.
+
+04:23.280 --> 04:25.570
+So we will add a new piece of state in here.
+
+04:25.590 --> 04:28.070
+Let's initialize our state object.
+
+04:28.140 --> 04:35.670
+I think that we will default or we will create a new property here called logged in and by default let
+
+04:35.730 --> 04:38.640
+logged in be just false.
+
+04:38.670 --> 04:43.030
+So by default I mean I assume you are not logged into our application.
+
+04:43.380 --> 04:52.890
+So now inside of our callback right here we will look at the user argument to it and if there is a user
+
+04:53.460 --> 04:58.180
+will say this set States logged in is true.
+
+04:58.230 --> 05:00.390
+So now you are logged in.
+
+05:00.450 --> 05:09.350
+Else this set States logged in false like so.
+
+05:09.780 --> 05:10.290
+OK.
+
+05:10.590 --> 05:14.400
+So either you are logged in or you are not logged in.
+
+05:14.420 --> 05:20.410
+We could probably condense this to just like set the user object on saw in our state object right.
+
+05:20.420 --> 05:23.300
+We could I got a little bit of typo there I apologize on that.
+
+05:23.310 --> 05:26.750
+We had capitalized I logged in like so.
+
+05:26.940 --> 05:32.130
+So we could pretty much be you think and see why aren't we just setting the user object on our state.
+
+05:32.280 --> 05:36.310
+Well there is a good reason for that and we'll see exactly why very shortly.
+
+05:37.010 --> 05:37.310
+OK.
+
+05:37.320 --> 05:39.110
+So are out component right now.
+
+05:39.300 --> 05:44.760
+We'll now understand whether or not the user is currently signed in or signed out to our application
+
+05:45.180 --> 05:50.660
+it does this by watching this on state change callback from the firebase library.
+
+05:50.670 --> 05:55.910
+So whenever the user toggles between one or the other it will Kalas federal function and we will flip
+
+05:55.920 --> 06:01.450
+our state variable of logged in from either true to false like True or False True False True False.
+
+06:01.980 --> 06:07.500
+Let's use this piece of state now in the next section to figure out what content we want to show on
+
+06:07.500 --> 06:08.560
+the screen.

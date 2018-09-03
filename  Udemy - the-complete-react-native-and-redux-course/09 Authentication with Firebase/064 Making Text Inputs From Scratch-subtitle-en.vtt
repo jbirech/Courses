@@ -1,0 +1,199 @@
+WEBVTT
+
+00:00:00.910 --> 00:00:06.420
+In the last section we had a discussion about how the text input interaction interacts with our component
+
+00:00:06.420 --> 00:00:08.210
+level state.
+
+00:00:08.460 --> 00:00:13.490
+We're going to continue now by spinning out this text input as a reusable component.
+
+00:00:13.500 --> 00:00:18.870
+So the reason that we're going to do this is having to recreate our text and put every time with obviously
+
+00:00:18.870 --> 00:00:23.550
+what is probably getting that being a lot of styling on here right we're going to add a lot of styling
+
+00:00:23.550 --> 00:00:25.480
+to this thing just to make it look nice.
+
+00:00:25.680 --> 00:00:30.660
+And so I think that creating this as a reusable component would save us a lot of time considering that
+
+00:00:30.660 --> 00:00:33.520
+we might want to reuse this text input in the future.
+
+00:00:33.540 --> 00:00:34.310
+So that's our goal.
+
+00:00:34.320 --> 00:00:39.190
+We want to create a reusable input to serve as our text input.
+
+00:00:40.110 --> 00:00:44.490
+Let's take a look at a diagram really quick just to remember exactly what we want this thing to look
+
+00:00:44.490 --> 00:00:45.260
+like.
+
+00:00:45.630 --> 00:00:48.090
+So we want to have the text input in here.
+
+00:00:48.150 --> 00:00:49.790
+Kind of off to the right hand side.
+
+00:00:49.800 --> 00:00:54.810
+So the user should be able to tap to the right hand side here and enter some amount of text by default
+
+00:00:54.840 --> 00:00:56.070
+we should have a placeholder.
+
+00:00:56.100 --> 00:01:01.680
+So some placeholder text and then on the left hand side we should have the option to add in a label
+
+00:01:01.680 --> 00:01:02.310
+of sorts.
+
+00:01:02.310 --> 00:01:07.800
+So this is not the value over here as is supposed to be able to tell the user hey please enter an email
+
+00:01:07.800 --> 00:01:09.560
+over here to the right hand side.
+
+00:01:09.980 --> 00:01:12.200
+So let's give this a shot.
+
+00:01:12.510 --> 00:01:19.590
+We will place this reuseable input or is reusable component in the same location as all of our other
+
+00:01:19.590 --> 00:01:22.360
+reusable components which is the common directory.
+
+00:01:22.620 --> 00:01:29.680
+So we're going to add a new file and for a reusable text input we're just going to simply call it input
+
+00:01:30.780 --> 00:01:31.610
+so input.
+
+00:01:31.650 --> 00:01:34.170
+J.S..
+
+00:01:34.390 --> 00:01:42.610
+And then inside if we're going to place our usual or usual boilerplate so import re-act from react will
+
+00:01:42.670 --> 00:01:50.390
+import a couple of helpers from re-act native text input of the tag and a text tag.
+
+00:01:53.480 --> 00:01:57.170
+And then we'll define the component self.
+
+00:01:57.480 --> 00:01:59.220
+I'm going to make this a functional component.
+
+00:01:59.220 --> 00:02:01.040
+We'll talk about why in just a second.
+
+00:02:01.140 --> 00:02:07.080
+And then finally we will do our export of input at the bottom because this is one of the files that
+
+00:02:07.080 --> 00:02:10.010
+we are going to immediately imported export.
+
+00:02:10.020 --> 00:02:12.200
+Kind of like that passed through from our index.
+
+00:02:12.210 --> 00:02:15.960
+JS file I'm going to wrap input with the curly braces.
+
+00:02:15.960 --> 00:02:18.420
+I'm not going to use the default keyword.
+
+00:02:18.840 --> 00:02:23.430
+So now we'll flip over to index and we will leave out our little helper in here.
+
+00:02:23.760 --> 00:02:27.240
+Export star from input.
+
+00:02:27.630 --> 00:02:34.170
+So now any other file inside of our project can import the input tag from the index file inside of our
+
+00:02:34.170 --> 00:02:35.440
+common directory.
+
+00:02:37.280 --> 00:02:42.120
+Now inside the input components off we're going to place just a little bit of GSX in here.
+
+00:02:42.350 --> 00:02:46.700
+And just to kind of get ourselves started and then we'll talk about exactly how we're going to design
+
+00:02:46.700 --> 00:02:47.550
+this thing.
+
+00:02:47.930 --> 00:02:51.450
+So I'm going to place just a little bit of standon GSX for now.
+
+00:02:51.740 --> 00:02:59.170
+I'm going to return a view tag and then inside of there I'm going to add in a text tag.
+
+00:02:59.540 --> 00:03:04.100
+So the purpose of this text tag right here is to serve as that label that's going to float off to the
+
+00:03:04.100 --> 00:03:04.910
+left hand side.
+
+00:03:04.910 --> 00:03:06.540
+So here is our markup right here.
+
+00:03:06.590 --> 00:03:11.660
+I want to have some amount of Texas is going to float over to left until these are hey here's what you're
+
+00:03:11.660 --> 00:03:13.160
+supposed to enter into this thing.
+
+00:03:14.810 --> 00:03:21.530
+So since we want this to be a reusable component we're going to want to reconfigure or determine what
+
+00:03:21.530 --> 00:03:24.810
+that label should be is or what that label should be.
+
+00:03:24.830 --> 00:03:26.410
+Excuse me on the fly.
+
+00:03:26.510 --> 00:03:33.530
+So what I mean by that is I want to pass in the label text as a prop to this component.
+
+00:03:33.530 --> 00:03:36.490
+So I think with out we don't really need to beat around the bush here.
+
+00:03:36.530 --> 00:03:43.040
+We can receive a prop from our props object and I'm going to just arbitrarily right now remember all
+
+00:03:43.040 --> 00:03:46.450
+these names that we specify all the ones we create.
+
+00:03:46.490 --> 00:03:48.600
+I'm just kind of making up on the fly here.
+
+00:03:48.830 --> 00:03:54.590
+I'm going to say that we should call this thing with a label or prop and then whatever it text I pass
+
+00:03:54.590 --> 00:03:55.970
+it as the label prop.
+
+00:03:56.000 --> 00:04:01.040
+We should add it inside of this text component or the text tag right here.
+
+00:04:01.070 --> 00:04:07.460
+So now by default if I use the input component somewhere I can pass an improv label and that label should
+
+00:04:07.460 --> 00:04:09.040
+show up inside of it.
+
+00:04:09.220 --> 00:04:09.500
+Cool.
+
+00:04:09.500 --> 00:04:11.100
+So good enough start here.
+
+00:04:11.120 --> 00:04:13.860
+Let's continue working on this in the next section.

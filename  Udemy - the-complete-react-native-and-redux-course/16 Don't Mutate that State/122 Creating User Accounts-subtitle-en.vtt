@@ -1,0 +1,283 @@
+WEBVTT
+
+00:01.050 --> 00:07.020
+Continue with our authentication wire up we need to also make sure that when we log in a user if the
+
+00:07.020 --> 00:12.930
+initial requests to authenticate them fails we want to make sure that we also attempt to create an account
+
+00:12.930 --> 00:14.090
+for the user as well.
+
+00:14.310 --> 00:18.030
+So we're going to follow the same methodology as in our authentication app.
+
+00:18.210 --> 00:23.380
+If an email and password combination fails we assume that the user needs a new account.
+
+00:23.400 --> 00:26.940
+So we will attempt to create the new account.
+
+00:27.840 --> 00:34.100
+So our start is going to be the same as the the we handled authentication previously.
+
+00:34.350 --> 00:39.450
+If we hit that then case that means that the user successfully logged in if the authentication with
+
+00:39.450 --> 00:40.980
+email and password fails.
+
+00:41.010 --> 00:43.330
+That means we're going hit a catch case.
+
+00:43.410 --> 00:48.630
+So we had a catch case in here and whenever we had this catch case we're going to do a couple of different
+
+00:48.630 --> 00:50.130
+things.
+
+00:50.130 --> 01:00.630
+First off we're going to call firebase dot off God creates user with e-mail and password and it'll pass
+
+01:00.630 --> 01:02.870
+in the email and password that were entered.
+
+01:05.690 --> 01:11.230
+And then after that we'll get back a user model and inside of there.
+
+01:11.270 --> 01:14.730
+We will also dispatch the logging user success action.
+
+01:14.810 --> 01:21.190
+So type log in user success with a payload of user.
+
+01:21.190 --> 01:22.080
+All right.
+
+01:22.100 --> 01:24.090
+Now I want to point out to you.
+
+01:24.540 --> 01:28.440
+She has this is some really nasty looking code here.
+
+01:28.470 --> 01:33.860
+We're only really doing you know two things more or less like sign in the user with the email and password.
+
+01:33.860 --> 01:36.360
+Failing that try to create a new account.
+
+01:36.440 --> 01:39.530
+But this is one nasty block of code right here.
+
+01:39.620 --> 01:43.520
+And I would not be surprised if I have a hidden typo somewhere in here.
+
+01:43.520 --> 01:46.890
+This is where yes Lent is definitely very helpful.
+
+01:46.970 --> 01:50.880
+So clearly very nasty that we're working with here.
+
+01:50.990 --> 01:53.880
+This is the absolute downside of redux.
+
+01:53.990 --> 01:59.720
+So it can really add to or really contribute to some kind of Pyramid's of doom as you see like this
+
+01:59.720 --> 02:00.260
+right here.
+
+02:00.260 --> 02:06.680
+I mean we're using promises which cleans up things a little bit but still at it's kind of nasty.
+
+02:06.920 --> 02:12.560
+The best solution that we can come up to handle this is to make a couple of helper functions for processing
+
+02:12.560 --> 02:17.360
+the callbacks that we have in here specifically the success cases.
+
+02:17.510 --> 02:24.560
+So you can see that if we successfully sign in with email and password or if we successfully create
+
+02:24.560 --> 02:29.060
+a user in both cases we are dispatching an identical action.
+
+02:29.270 --> 02:34.240
+So I would suggest that we create a new function called log in user success.
+
+02:34.460 --> 02:38.810
+It will take the dispatch method and automatically dispatch our success.
+
+02:38.810 --> 02:40.280
+Action for us.
+
+02:40.280 --> 02:45.290
+So essentially we're going to make a helper method to clean up this log in user action creator.
+
+02:45.320 --> 02:47.640
+Let's see what it looks like.
+
+02:47.720 --> 02:53.000
+You'll notice that I'm not going to export this new method because I really do not intend to call it
+
+02:53.000 --> 02:55.620
+directly from anywhere else inside my application.
+
+02:55.700 --> 03:03.250
+It's really just for use to support the log in user action creator well-define log in users success.
+
+03:03.310 --> 03:08.220
+It will be called directly with a dispatch method and the user that just signed in.
+
+03:08.960 --> 03:14.180
+And then inside of here we will dispatch our log in user success action.
+
+03:14.180 --> 03:24.150
+So all of a type of log in users success in a tight or excuse me a payload of the user.
+
+03:24.180 --> 03:29.460
+So now we can clean up our code just a little bit inside of the logon user action creator.
+
+03:29.460 --> 03:36.900
+First off I'm going to delete both the dispatch statements so delete dispatch number one and then delete
+
+03:36.930 --> 03:38.540
+dispatch number two.
+
+03:38.700 --> 03:40.740
+Now I've got two vans.
+
+03:40.980 --> 03:47.240
+Each of them just have kind of dangling federal function with the user as an argument.
+
+03:47.490 --> 03:53.730
+Then inside of both these I would call log in users success and I need to pass along the dispatch method
+
+03:53.760 --> 03:58.620
+so that it can actually do a dispatch and also the user.
+
+03:58.980 --> 04:04.420
+So log in user success with the user.
+
+04:04.560 --> 04:10.320
+So again one more time just because I want to make sure that we get the right code on the screen here
+
+04:10.650 --> 04:16.630
+I have two events both of them are identical and they should both take a user and call log and use their
+
+04:16.630 --> 04:20.380
+success with dispatch and the user.
+
+04:20.380 --> 04:25.380
+So this is a little bit better but definitely two more things here we need to make sure that we bubble
+
+04:25.380 --> 04:30.420
+up an error message to handle the case in which the user just like puts in the wrong credentials.
+
+04:30.420 --> 04:35.830
+And we also need to make sure that we send across an action when the action creator is first called.
+
+04:35.940 --> 04:38.270
+So we noticed start up the spinner right.
+
+04:38.280 --> 04:44.320
+We need to make sure that we notice start up the spinner when the action crater's first called So let's
+
+04:44.320 --> 04:46.970
+start with the handling the fail case first.
+
+04:46.990 --> 04:51.670
+And I think that we should also put the fey handling the fail inside of a helper method as well because
+
+04:51.670 --> 04:54.250
+it's really going to clean up the file a little bit.
+
+04:54.370 --> 05:01.910
+So I'm going to make another helper method helper function called log in user fail.
+
+05:01.980 --> 05:10.710
+This will be called with the dispatch method and all it has to do is dispatch an action of type log
+
+05:10.710 --> 05:12.470
+in user fail.
+
+05:12.810 --> 05:14.360
+Now we don't have that type yet.
+
+05:14.360 --> 05:16.410
+So let's go create it.
+
+05:16.410 --> 05:24.210
+I'm going to go up to the top of this file and I'm going to import log in user fail at the top.
+
+05:24.300 --> 05:27.570
+I wanted to make sure that our type file has that as well.
+
+05:27.840 --> 05:35.190
+So I'm going to find my type's file inside the actions directory and I'll add an export Konst log in
+
+05:35.280 --> 05:36.220
+user fail
+
+05:40.910 --> 05:41.260
+OK.
+
+05:41.290 --> 05:46.960
+So everything that we're doing this section again it's all about making this log in user action creator.
+
+05:47.050 --> 05:51.570
+Much more robust to handle the spin or handle the error messages handle is success.
+
+05:51.580 --> 05:59.250
+So we have now added in code to handle success of signing with the email and password.
+
+05:59.380 --> 06:05.770
+Success of creating a new account both those were handled by the log in users access method and then
+
+06:05.770 --> 06:11.660
+we also just created log in user fail which dispatches an action of type log and user failed.
+
+06:11.860 --> 06:18.520
+So we will definitely want to make sure that we eventually hop over to our reducer as well and pick
+
+06:18.520 --> 06:22.830
+up on this you know pick up on the log in user fail message right here.
+
+06:22.870 --> 06:24.620
+So doesn't want to take that as well.
+
+06:24.620 --> 06:29.050
+The last thing we have to do is make sure that we actually call log in use or fail at some point.
+
+06:29.140 --> 06:35.620
+So we're only going to fail the user out of this flow after we have both tried to sign with email and
+
+06:35.620 --> 06:39.270
+password and create a new user with the email and password.
+
+06:39.550 --> 06:45.780
+So after we attempt to create a user with the email and password I'm going to add on a catch case notice
+
+06:45.780 --> 06:50.790
+that I'm going to take off the semi-clean on the van here and take it off.
+
+06:51.640 --> 07:02.410
+And if that fails I want to catch and directly call log in user fail with the dispatch method and then
+
+07:02.410 --> 07:05.980
+nothing will be responsible for dispatching the fail type.
+
+07:06.440 --> 07:06.700
+OK.
+
+07:06.720 --> 07:09.860
+So again a really nasty chunk of code right here.
+
+07:09.880 --> 07:14.420
+This is definitely where redux thung starts to get you know a little bit painful.
+
+07:14.680 --> 07:20.080
+Let's continue on the next section and make sure that we are handling starting a spinner showing error
+
+07:20.080 --> 07:23.050
+messages and all that kind of good stuff inside of our producer

@@ -1,0 +1,241 @@
+WEBVTT
+
+00:00.740 --> 00:03.380
+We're starting to really pick up some speed on our application.
+
+00:03.380 --> 00:05.760
+I like it let's keep rolling through.
+
+00:05.780 --> 00:10.580
+We now have the ability to navigate over the two this simply form which means we can finally start focusing
+
+00:10.970 --> 00:16.920
+on having some real functionality to our app by giving users the ability to create employees.
+
+00:16.930 --> 00:17.500
+All right.
+
+00:17.510 --> 00:21.890
+So before we start work on the farm itself I want make sure that we're on the same page as to what this
+
+00:21.890 --> 00:22.990
+forum needs to do.
+
+00:22.990 --> 00:24.340
+Exactly.
+
+00:24.380 --> 00:30.320
+So when employees created where they're going to have three properties assigned to them a name a phone
+
+00:30.320 --> 00:32.890
+number and a shift time or shift days.
+
+00:32.900 --> 00:37.760
+Really what is the shift they will be the day of the week that they are scheduled to work.
+
+00:38.170 --> 00:45.620
+So for the phone number and the name the first two entries here we can definitely reuse the input component
+
+00:45.620 --> 00:49.110
+that we've already created previously the reusable component.
+
+00:49.280 --> 00:54.050
+On the other hand for the shift where they have to pick a day of the week we're probably going to want
+
+00:54.050 --> 00:58.250
+to make sure that we display the choices for them and they should only be able to use or should only
+
+00:58.250 --> 01:01.650
+be able to pick from one of these existing options on here.
+
+01:01.670 --> 01:07.820
+So Monday Tuesday Wednesday you get the idea after the user enters all this stuff we should validate
+
+01:07.820 --> 01:09.590
+their inputs in some fashion.
+
+01:09.590 --> 01:15.440
+So you make sure they actually entered a value for each one of these and then it's Add a button on to
+
+01:15.440 --> 01:16.670
+submit it all.
+
+01:17.330 --> 01:19.940
+Now we did something really similar with a log in form.
+
+01:19.940 --> 01:25.520
+So we're going to make sure you know of course that we're absolutely concrete and understanding on how
+
+01:25.520 --> 01:26.660
+to put a form together.
+
+01:26.660 --> 01:32.280
+So this is going to be another exercise in form generation and form validation.
+
+01:32.600 --> 01:35.380
+We'll make sure that the component or we'll make the components.
+
+01:35.510 --> 01:40.370
+We're going to wire them up to some action creators make a reduce or to hold all the values in the forms
+
+01:40.460 --> 01:44.240
+and then make an action crater to actually save the form.
+
+01:44.240 --> 01:50.420
+Now there is one twist in here that I really want to add in that I really want to add one more twist
+
+01:50.770 --> 01:53.600
+on all the boxes shown you so far tonight.
+
+01:53.610 --> 01:55.110
+I know this is a horrible example right here.
+
+01:55.110 --> 01:58.370
+Maybe I've got a better one blah blah.
+
+01:58.400 --> 02:04.070
+I guess I'll have to do all the mocks passionately before it kind of showed this form as having like
+
+02:04.160 --> 02:10.710
+editing capability is right like a save button a fire button text button to text that employee.
+
+02:10.820 --> 02:16.250
+But now I'm claiming that we're going to have a form that is solely made for creating an employee and
+
+02:16.250 --> 02:20.190
+not really kind of viewing one or editing one.
+
+02:20.200 --> 02:27.190
+So if we're going to make a edit form or kind of like a show form to show an existing record and a creative
+
+02:27.190 --> 02:32.370
+form maybe it would be a waste of time to make two separate forms.
+
+02:32.410 --> 02:33.660
+Right.
+
+02:33.700 --> 02:39.250
+Maybe we should make just one form and reuse it for both the Create and the edit as well.
+
+02:39.250 --> 02:42.660
+So for now we're going to focus on just the Create aspect to the form.
+
+02:42.670 --> 02:48.070
+But I want you to keep that thought in mind or I want you to remember that that maybe recreating this
+
+02:48.070 --> 02:52.470
+form for both create and edit doesn't make a lot of sense.
+
+02:52.660 --> 02:55.660
+But anyways we're going to concentrate on just create right now.
+
+02:55.840 --> 02:59.040
+So let's get started for the form itself.
+
+02:59.050 --> 03:01.510
+You probably got a good idea of what we need to do.
+
+03:01.510 --> 03:08.710
+We're going to import some of our reusable components put on some labels some card sections some inputs
+
+03:09.040 --> 03:10.230
+just get a form on the page.
+
+03:10.240 --> 03:12.500
+It's going look very similar to the log in form to start.
+
+03:12.500 --> 03:15.310
+So we're going to breeze right through it first.
+
+03:15.340 --> 03:17.510
+We do not need the re-act need of import any more.
+
+03:17.530 --> 03:20.760
+We're gonna replace it with all of our own custom components.
+
+03:20.950 --> 03:22.400
+It's going to take those out.
+
+03:22.810 --> 03:34.000
+I'll pull in my card card section input and button from common and then inside of the employee create
+
+03:34.000 --> 03:43.720
+component replace it with a card and a couple of card sections.
+
+03:43.980 --> 03:46.950
+So I'm going to copy paste the card section down.
+
+03:47.010 --> 03:53.700
+I'm going to skip the worrying about the picker right now hours selecting the date because I definitely
+
+03:53.700 --> 03:55.320
+want a new custom component in there.
+
+03:55.320 --> 03:57.300
+So right now I'm not going to worry about it.
+
+03:57.300 --> 04:00.650
+We're going to come back to it in a future section.
+
+04:00.720 --> 04:08.070
+So in the first card section I'll place my first input which is going to be responsible for getting
+
+04:08.070 --> 04:12.160
+the employee's name and I'll give it a placeholder.
+
+04:12.180 --> 04:21.230
+Jane then for the second and put this one is going to be responsible for collecting the phone number
+
+04:22.730 --> 04:27.490
+given the label of just a phone and a placeholder.
+
+04:27.730 --> 04:28.550
+555
+
+04:31.410 --> 04:33.360
+looks good.
+
+04:33.360 --> 04:35.570
+Again the third card section is give me that picture.
+
+04:35.580 --> 04:37.050
+I'm going to ignore it right now.
+
+04:37.090 --> 04:42.310
+So the last thing I need to do is place a button inside of the last card section.
+
+04:42.420 --> 04:49.600
+So place my button and I want to say something like save all we can do to create now.
+
+04:49.800 --> 04:51.310
+Yes create.
+
+04:51.570 --> 04:52.470
+Let's go to create.
+
+04:52.470 --> 04:53.360
+Why not.
+
+04:53.910 --> 04:54.520
+OK.
+
+04:54.750 --> 04:55.860
+I'm sure this all works good.
+
+04:55.860 --> 05:00.420
+So I'm oh I will refresh the simulator just to make sure I don't have a compilation error or anything
+
+05:00.420 --> 05:05.800
+like that any typos but I'm going to skip the process of actually logging in and checking it out.
+
+05:06.160 --> 05:06.450
+OK.
+
+05:06.480 --> 05:08.380
+So a good place to start with our form.
+
+05:08.400 --> 05:13.140
+Let's continue in the next section by starting to wire up our action creators our reducers all that
+
+05:13.140 --> 05:14.290
+kind of good stuff.

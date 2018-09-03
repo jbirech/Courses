@@ -1,0 +1,319 @@
+WEBVTT
+
+00:00.680 --> 00:04.820
+In the last section we introduce some terminology with the redux library.
+
+00:04.950 --> 00:09.150
+We had an action or a douceur a state and a store.
+
+00:09.540 --> 00:12.990
+I don't want to talk too much more about this example right now let's just dive into actually coding
+
+00:12.990 --> 00:13.380
+it up.
+
+00:13.380 --> 00:19.620
+So our goal is to make a tiny redox application where we can take a string of characters and split them
+
+00:19.620 --> 00:20.220
+into an array.
+
+00:20.280 --> 00:20.750
+That's it.
+
+00:20.760 --> 00:22.290
+That's all we're trying to do here.
+
+00:22.680 --> 00:27.900
+So I'm going to flip over to back or J.S. playgrounds and I can write remember I did write some javascript
+
+00:27.900 --> 00:30.210
+on the left hand side here.
+
+00:30.730 --> 00:37.230
+JS playgrounds is not hooked up to any type of import export system and has direct access to the redux
+
+00:37.230 --> 00:38.100
+library.
+
+00:38.100 --> 00:43.090
+So I can make reference to redux and I get the library back directly here.
+
+00:43.140 --> 00:47.180
+I know this looks like it's an empty object but trust me it's the actual redux library.
+
+00:47.220 --> 00:50.750
+So we're going to basically work with redux directly.
+
+00:51.210 --> 00:57.600
+The first thing that we're going to do is create a store remember a store is an object that holds our
+
+00:57.600 --> 01:00.380
+application state and reducers.
+
+01:00.600 --> 01:08.820
+So a create store can store equals redox dot create store.
+
+01:08.820 --> 01:14.070
+Now notice that already we had a nice big error message here down on the bottom right hand side.
+
+01:14.310 --> 01:21.010
+When we create a redux store it expects us to pass in at least one redos or function guide.
+
+01:21.030 --> 01:27.360
+So remember a producer is a function that produces some amount of application state and clearly it's
+
+01:27.360 --> 01:31.860
+expecting us to pass in at least one when we create a store.
+
+01:31.920 --> 01:37.810
+So I'm going to pass in a single function as a producer.
+
+01:37.870 --> 01:44.440
+It's also a cost reducer is a federal function that returns an array.
+
+01:44.500 --> 01:48.540
+So just be clear on the syntax here reducer is a federal function.
+
+01:48.740 --> 01:51.970
+It returns an array whenever it's invoked.
+
+01:51.970 --> 01:55.960
+Now I'm going to pass that reduce her to the create store call.
+
+01:56.700 --> 01:57.060
+OK.
+
+01:57.070 --> 01:59.100
+Now boom your message goes away.
+
+01:59.110 --> 02:00.250
+So looks like.
+
+02:00.250 --> 02:00.680
+All right.
+
+02:00.680 --> 02:08.080
+Like that seems reasonal something's going right right now remember that the store contains our applications
+
+02:08.080 --> 02:14.500
+state and all of our reducers however many we might have or application at any point in time.
+
+02:14.530 --> 02:17.700
+We can ask the store for its current state.
+
+02:17.700 --> 02:21.020
+So say store dot get state.
+
+02:21.280 --> 02:28.020
+So right now it looks like our entire application state as it stands right now is just a single array.
+
+02:28.060 --> 02:29.130
+So what does that tell us.
+
+02:29.140 --> 02:36.500
+It tells us that by default when we create a redux store in passen reduce or the reducer will be ran.
+
+02:36.730 --> 02:42.930
+And whatever the reduce your returns will become our applications are a redux store state.
+
+02:43.120 --> 02:49.810
+So we've now got an application state of just anti-reg that's it.
+
+02:49.890 --> 02:56.620
+All right if we change the return value from the reduce or our application state will change as well.
+
+02:56.810 --> 03:01.550
+So if I start to put in like you one two three one two three you can see that yeah it looks like our
+
+03:01.550 --> 03:03.730
+application state is updating as well.
+
+03:03.890 --> 03:09.680
+So again whatever the reduce the returns is our application state and I take the one to three out of
+
+03:09.680 --> 03:19.550
+your really quick and you flip back over toward diagram real quick so we can remember some of our definitions.
+
+03:19.790 --> 03:20.880
+Here we go.
+
+03:21.460 --> 03:28.510
+So again we've now created a store and we passed that store one reduce or reduce or produces our application
+
+03:28.510 --> 03:29.020
+state.
+
+03:29.140 --> 03:30.540
+So that's where we are right now.
+
+03:30.790 --> 03:37.000
+Next we're going to create an action and action is a plain javascript object that tells the reducer
+
+03:37.270 --> 03:40.610
+that it needs to modify the state that it is producing.
+
+03:40.660 --> 03:46.070
+So will first create the action then tell the producer how to deal with that action.
+
+03:46.720 --> 03:52.270
+So back over and Jae's playgrounds I'll create an action and I'll say it for probably a third or fourth
+
+03:52.270 --> 03:52.970
+time now.
+
+03:53.110 --> 03:56.030
+An action is a plain javascript object.
+
+03:56.050 --> 03:59.450
+So I just created a plain javascript object right here.
+
+04:00.100 --> 04:05.050
+The only requirement of an action is that it defines a type property.
+
+04:05.140 --> 04:11.820
+So when I say type property like literally type is type property will always be a string.
+
+04:11.830 --> 04:17.920
+The purpose of this type property is to tell or reduce or to commit a very specific operation like a
+
+04:17.920 --> 04:20.740
+very specific command or instruction.
+
+04:20.800 --> 04:28.420
+So it's going to have a type of split stream because we want to tell her douceur hey I want you to split
+
+04:28.450 --> 04:32.020
+the string or like a string like something or whatever.
+
+04:32.520 --> 04:39.520
+We will also tell the user which string we want it to split by passing it on a payload property like
+
+04:39.550 --> 04:47.320
+SDF go into to go much better get.
+
+04:47.490 --> 04:48.900
+So here's our action.
+
+04:48.960 --> 04:50.980
+It's a plain javascript object.
+
+04:51.030 --> 04:57.090
+It has a type property that type you can think of as being like a command or an instruction to the reducer
+
+04:57.720 --> 04:59.210
+and it has a payload.
+
+04:59.610 --> 05:04.270
+The payload is the thing you know the piece of data that we want to implement to work on.
+
+05:04.290 --> 05:09.070
+This is like the thing that we want to do some action to we want to manipulate this thing right here
+
+05:09.090 --> 05:11.940
+whatever's on the payload property.
+
+05:11.970 --> 05:18.210
+Now we're going to update our reducer which is up at the top and instructed how to handle this action
+
+05:18.210 --> 05:18.800
+right here.
+
+05:18.920 --> 05:19.930
+OK.
+
+05:20.790 --> 05:23.720
+Reducers are always called with two arguments.
+
+05:23.790 --> 05:26.300
+The first is the current state that it has produced.
+
+05:26.320 --> 05:28.600
+And I know that's very confusing we will come back to that.
+
+05:28.650 --> 05:30.330
+And the second is an action.
+
+05:30.570 --> 05:34.350
+So just bear with me for a second here we're going to put some code on the screen and then discuss it
+
+05:34.940 --> 05:40.360
+in the same state as an empty array and action.
+
+05:40.500 --> 05:48.990
+And then I'm going to put down a fat or a function body inside of your or say if action doc type is
+
+05:49.230 --> 05:50.000
+split.
+
+05:50.040 --> 05:50.630
+String
+
+05:54.140 --> 05:58.440
+then return action not payload split.
+
+06:01.230 --> 06:06.540
+Otherwise return state.
+
+06:06.770 --> 06:12.760
+OK so what we're doing here is we are saying that we've got to reduce or it gets called with two arguments.
+
+06:12.860 --> 06:16.000
+Right now we're going to just ignore that first argument.
+
+06:16.430 --> 06:19.250
+The second argument will be an action.
+
+06:19.250 --> 06:23.480
+So we've created an action down here so you can kind of imagine this object right.
+
+06:23.490 --> 06:28.070
+You're appearing inside this reducer as the second argument.
+
+06:28.440 --> 06:34.620
+If the actions type is equal to split string and for us it will be then we're going to take whatever
+
+06:34.620 --> 06:40.140
+the action is payload property is and split it with an empty string so it'll turn it into just like
+
+06:40.140 --> 06:43.210
+an array of characters a SDF.
+
+06:43.650 --> 06:46.910
+So that's it that's all we really need to know about actions right now.
+
+06:46.950 --> 06:52.610
+The last thing you have to do is figure out how to tell this reducer to run with this action.
+
+06:52.610 --> 06:55.530
+So I want to like feed this action into this reducer right.
+
+06:55.530 --> 06:57.750
+That's like what we're seeing with the diagram over here.
+
+06:57.810 --> 07:05.700
+I want to take this action and I want to push it into the reducer so to do that our very last step I'm
+
+07:05.700 --> 07:11.320
+going to call store dog dispatch action.
+
+07:11.550 --> 07:16.770
+And then finally I'm going to run store and get state again.
+
+07:16.800 --> 07:20.960
+So now when I run my get state method a second time you'll see that.
+
+07:21.040 --> 07:27.120
+OK it looks like for some reason we had an empty array before but now we've got a array of characters
+
+07:27.120 --> 07:29.450
+here like a SDF.
+
+07:29.500 --> 07:30.690
+It's been a really long session.
+
+07:30.720 --> 07:35.670
+Let's take a quick break and then come back and discuss them like absolute minutia of all this code
+
+07:35.700 --> 07:36.720
+that we just added in

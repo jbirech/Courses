@@ -1,0 +1,265 @@
+WEBVTT
+
+00:01.080 --> 00:04.560
+We've now done a whole bunch of discussion about the out there we're going to build you know talked
+
+00:04.560 --> 00:07.950
+about challenges around it and I don't think we can put off any longer.
+
+00:07.950 --> 00:11.230
+I think it's really time to start working on this application.
+
+00:11.260 --> 00:16.890
+So unless I actually did start up the installation of our new app so my installation is complete here
+
+00:17.670 --> 00:22.950
+I'm going to change into my project directory and I'm calling the app manager.
+
+00:22.980 --> 00:26.830
+So I'm changing into the Manager Project file folder.
+
+00:27.210 --> 00:29.190
+I just started my code editor.
+
+00:29.520 --> 00:32.920
+Our goal in this section is to get through a whole bunch of set up.
+
+00:32.990 --> 00:36.860
+OK so we've kind of got a real big stack of set up to do.
+
+00:37.020 --> 00:40.290
+We have to install re-act we have to install redux.
+
+00:40.290 --> 00:42.300
+We have to hook up those index files.
+
+00:42.300 --> 00:45.950
+We have to bring over our default components.
+
+00:46.060 --> 00:48.470
+Definitely a little bit of setup here.
+
+00:48.510 --> 00:53.940
+I know that the server can get a little bit tedious but you know there's a lot of just having mastery
+
+00:53.940 --> 00:56.380
+over that default setup I think is very valuable.
+
+00:56.430 --> 01:00.690
+And so even though this is like the fourth time that we're going through the set up I really think it
+
+01:00.690 --> 01:05.830
+is a valuable exercise to just figure out how this stuff is all put together from scratch.
+
+01:06.390 --> 01:09.640
+Okay so then mind let's get to it.
+
+01:10.050 --> 01:14.050
+I don't really necessarily have any set order of you know what the best way to go about this is I think
+
+01:14.050 --> 01:20.370
+we're just going to do this on a you know whatever's whatever is easiest to get it started sort of way.
+
+01:20.370 --> 01:25.530
+So I think first we'll install some dependencies then we'll set up our boiler plate and then we'll bring
+
+01:25.530 --> 01:27.720
+over some default components.
+
+01:27.720 --> 01:33.110
+So the first thing we're going to do is install the redux and re-act redux libraries.
+
+01:33.150 --> 01:34.550
+So I'm back at the command line.
+
+01:34.920 --> 01:41.990
+I'll run and PM install dash dash save re-act redux and redux.
+
+01:42.030 --> 01:46.880
+So remember the re-act redux library is specifically the bindings between react and redux.
+
+01:46.890 --> 01:50.860
+That's why we're installing that and of course redux is just redux.
+
+01:51.210 --> 01:53.030
+So we don't really need to watch the progress bar here.
+
+01:53.040 --> 01:57.670
+We can let it do its thing and flip back over to our codebase.
+
+01:57.720 --> 02:02.130
+So next I think we should set up our route component remember the root component is we're going to create
+
+02:02.130 --> 02:03.600
+our redux store.
+
+02:03.600 --> 02:09.180
+We're going to place that provider tag and they're going to make sure that the two index files point
+
+02:09.240 --> 02:11.520
+out that root component.
+
+02:11.590 --> 02:16.590
+So inside of my project directory or make a new folder that's going to house all the code for our project
+
+02:17.800 --> 02:24.990
+and I can call just SIRC and then side if you're going to make my root component which I'm going to
+
+02:24.990 --> 02:29.050
+call Apgar J.S. OK.
+
+02:29.060 --> 02:39.440
+So Years of us will get started by importing react and component because we are going to create a component
+
+02:39.440 --> 02:44.060
+in here and I am going to make it a class based component for reasons that we'll talk about in a little
+
+02:44.060 --> 02:53.130
+bit will import the provider tag from re-act redux.
+
+02:53.360 --> 02:59.510
+We'll import that create store method from redux.
+
+02:59.510 --> 03:09.200
+And you know what let's import the view and text tags from re-act native as well.
+
+03:09.370 --> 03:13.230
+You can also tell that I have not yet said it might yes Slint configuration.
+
+03:13.230 --> 03:15.930
+You know I'm going to do that here between the next break.
+
+03:16.390 --> 03:18.250
+So right now I'm going to go just without.
+
+03:18.360 --> 03:18.810
+Lint.
+
+03:18.850 --> 03:20.460
+No big deal.
+
+03:20.470 --> 03:22.480
+Next we'll create our root component.
+
+03:22.480 --> 03:33.220
+So class app extends component will place our render method inside of your and by default we will return
+
+03:34.360 --> 03:40.700
+our provider tag and inside of they're going to place a single view
+
+03:44.510 --> 03:45.350
+with my textbook
+
+03:48.950 --> 03:50.710
+and I'm going to say hello right now.
+
+03:50.710 --> 03:52.790
+Now of course I'm probably gonna be running this on iOS.
+
+03:52.810 --> 03:58.420
+So as we've seen we're getting a little bit of a overlay on the top nav bar or the top like default
+
+03:58.420 --> 03:59.740
+connection bar on iOS.
+
+03:59.740 --> 04:00.880
+No big deal.
+
+04:00.880 --> 04:04.600
+We're going to replace this thing really quickly but I just want to have something on the screen just
+
+04:04.600 --> 04:07.040
+to make sure that you know something's actually working.
+
+04:07.660 --> 04:15.730
+So finally at the bottom you export default app now last up in here we need to make sure that we give
+
+04:15.730 --> 04:19.430
+the provider tag an instance of a redux store.
+
+04:19.480 --> 04:25.180
+So remember that provider tag is what connects to all those different connect tags that we scatter about
+
+04:25.180 --> 04:30.730
+our application and the provider tag make sure that all those connect tags can get access to the store
+
+04:31.030 --> 04:34.870
+grab our redux state and then pass it off to individual components.
+
+04:35.230 --> 04:44.320
+So inside the provider tag will pass it a store with create store like so and then we're going to I
+
+04:44.320 --> 04:46.680
+think that this component is probably in a pretty good place right now.
+
+04:46.840 --> 04:51.160
+So we'll go ahead and we're wired up to our two index files at the top level.
+
+04:51.490 --> 04:57.280
+So inside of my index Android J us let's go ahead and you know we can probably clear out just about
+
+04:57.280 --> 04:58.680
+everything in here.
+
+04:59.080 --> 05:06.760
+I'll take out the top import and take out all of the other imports re-act native and just leave behind
+
+05:06.760 --> 05:11.280
+app registry because we do know that we need that app registry component.
+
+05:11.290 --> 05:12.610
+Now here comes the real fun part.
+
+05:12.610 --> 05:18.340
+We get to delete just about everything in here except for that app registry registry component tag at
+
+05:18.340 --> 05:20.110
+the bottom.
+
+05:20.440 --> 05:29.940
+So we will import app from source app and install instead of returning this little manager component.
+
+05:29.950 --> 05:33.540
+You know the default line will return our new component.
+
+05:33.550 --> 05:36.030
+The one that we just created the app component.
+
+05:36.160 --> 05:42.240
+So let's say that I think that the index Android js file now looks pretty darn good.
+
+05:42.550 --> 05:47.040
+So I'm going to take all of this and I copy it and I'll pull it over to the index.
+
+05:47.050 --> 05:49.420
+Iowa SJS file as well and save it.
+
+05:49.560 --> 05:49.890
+OK.
+
+05:49.930 --> 05:50.550
+So this is good.
+
+05:50.560 --> 05:51.400
+Good start.
+
+05:51.400 --> 05:56.100
+We've now got something Nashville to run in both the Android and iOS simulators.
+
+05:56.140 --> 05:58.720
+So I think that's enough set up for this section.
+
+05:58.930 --> 06:01.460
+Let's take a quick break.
+
+06:02.050 --> 06:08.650
+During the break you know one last thing I want to do is going to start up my simulator so run re-act
+
+06:08.680 --> 06:14.770
+native run iOS and this is going to take a little minute or two to warm up so I can take a quick break
+
+06:14.800 --> 06:19.550
+while this warms up and we'll come back and just verify that our project actually runs on the simulator
+
+06:19.630 --> 06:21.680
+so I'll see him in just a second.

@@ -1,0 +1,208 @@
+WEBVTT
+
+00:00:00.810 --> 00:00:05.550
+In the last section we verified that whenever we called our action creator from our list item component
+
+00:00:05.910 --> 00:00:09.400
+we saw the action appear inside of our selection reducer.
+
+00:00:09.450 --> 00:00:15.750
+So now it's just up to us to make sure that whenever this thing sees an action of type select library
+
+00:00:16.140 --> 00:00:22.420
+it will return the actions payload which is libraries ID instead of all day.
+
+00:00:22.440 --> 00:00:24.920
+So that's all we have to do.
+
+00:00:24.930 --> 00:00:30.000
+I'm going to remove the two lines I have in here right now and instead I'm going to replace this with
+
+00:00:30.000 --> 00:00:35.310
+some boilerplate that we're going to see for just about every single producer that we ever create.
+
+00:00:35.310 --> 00:00:36.040
+OK.
+
+00:00:36.630 --> 00:00:42.810
+By convention every REDUCE-IT that we create is going to have a switch statement inside of it that is
+
+00:00:42.810 --> 00:00:45.770
+going to switch over the actions type.
+
+00:00:46.410 --> 00:00:52.980
+So the reason that we do this is to have one very nice very easy to read statement to figure out what
+
+00:00:52.980 --> 00:00:57.010
+this user does and more importantly what actions it responds to.
+
+00:00:57.540 --> 00:01:04.700
+In our case our action to reduce her wrist needs to respond to an action of Tide select library.
+
+00:01:04.960 --> 00:01:14.680
+So I will add in the case of select library like so I also wanted to respond to the default case.
+
+00:01:14.700 --> 00:01:21.150
+So if I ever get an action coming through here that is not of type select library I need to handle that
+
+00:01:21.150 --> 00:01:22.280
+case as well.
+
+00:01:22.290 --> 00:01:28.610
+So if a action comes through with type like I dunno melt motherboard or something.
+
+00:01:28.610 --> 00:01:29.620
+You know I don't know something.
+
+00:01:29.710 --> 00:01:30.860
+Something crazy like that.
+
+00:01:30.990 --> 00:01:36.240
+I need to make sure that I still return something from this reducer because remember all of my reducers
+
+00:01:36.240 --> 00:01:41.100
+can run many times throughout my applications lifecycle and I need to make sure that they always return
+
+00:01:41.100 --> 00:01:43.460
+some non undefined value.
+
+00:01:43.670 --> 00:01:48.520
+If I ever return undefined from Ray douceur redux is going to throw an error.
+
+00:01:48.540 --> 00:01:54.900
+So now by default if this action creator is ever seen at this reducers ever called with an action that
+
+00:01:54.900 --> 00:02:01.330
+it does not care about it will return whatever it returned the last time that it ran.
+
+00:02:02.220 --> 00:02:09.030
+So if a mysterious action comes through here with the type we don't care about just return whatever
+
+00:02:09.030 --> 00:02:14.310
+state we returned last time and remember the state argument right here is the state that was returned
+
+00:02:14.370 --> 00:02:18.300
+from the last time that the redux are from the producer Ron.
+
+00:02:18.300 --> 00:02:21.880
+Now how would the case in which the action is of type select library.
+
+00:02:22.080 --> 00:02:29.130
+Well in that case we want to return the actions payload property because inside of our action creator
+
+00:02:29.190 --> 00:02:36.210
+if you recall and flip over to our action Krater file we gave our action of types like the library a
+
+00:02:36.210 --> 00:02:42.090
+payload of the library's ID that was selected because we called the action cratered self at that library
+
+00:02:42.090 --> 00:02:43.090
+ID.
+
+00:02:43.230 --> 00:02:49.460
+So now inside my producer whenever the action is of type slides library I want to return that library's
+
+00:02:49.460 --> 00:02:51.000
+ID.
+
+00:02:51.150 --> 00:02:57.120
+The last thing you have to do in here is make sure that I handle the very default or like first initialization
+
+00:02:57.120 --> 00:03:00.820
+case to reduce or so the very first time the producer runs.
+
+00:03:00.900 --> 00:03:06.030
+And remember as we saw in the console just a second ago when redux first boots up it runs all of my
+
+00:03:06.030 --> 00:03:15.860
+reducers I need to make sure that I return some non undefined value from my reducer the first sign that
+
+00:03:15.860 --> 00:03:19.090
+runs state will be called with a value of undefined.
+
+00:03:19.160 --> 00:03:24.590
+So if I just let this thing run by itself I will end up returning undefined which is going to result
+
+00:03:24.590 --> 00:03:25.280
+in error.
+
+00:03:25.400 --> 00:03:30.300
+So to get around that I will always provide an initial state default argument.
+
+00:03:30.310 --> 00:03:37.280
+So this is going to be a little piece of ESX right here what this says right here is if this argument
+
+00:03:37.280 --> 00:03:43.550
+or if this argument right here is undefined we should instead default it to the value of NULL.
+
+00:03:44.000 --> 00:03:49.670
+So instead of returning undefined as our initial state we will return NULL which means essentially in
+
+00:03:49.670 --> 00:03:52.800
+our case I do not have a currently selected library.
+
+00:03:52.800 --> 00:03:53.890
+I just continue on.
+
+00:03:53.900 --> 00:03:56.400
+I don't have a selected library right now.
+
+00:03:57.300 --> 00:04:00.310
+OK so I know it's reducers stuff is a little bit crazy.
+
+00:04:00.330 --> 00:04:01.510
+Well probably a lot crazy.
+
+00:04:01.520 --> 00:04:03.660
+I mean I'll be really honest you it's super crazy.
+
+00:04:03.980 --> 00:04:08.600
+Fortunately we are going to get so much practice with reducers because they're the absolute core of
+
+00:04:08.600 --> 00:04:10.300
+every redux application.
+
+00:04:10.310 --> 00:04:16.070
+So again just like earlier when we went through our jazz playground and we were just kind of you know
+
+00:04:16.210 --> 00:04:18.950
+angling around with a redux a little bit.
+
+00:04:18.950 --> 00:04:22.630
+Even at this point in time I do not expect you to be a master of redux.
+
+00:04:22.640 --> 00:04:28.490
+I do not expect you to be able to rewrite all this code right here from scratch without any type of
+
+00:04:28.490 --> 00:04:30.620
+reference in the next app that we build.
+
+00:04:30.620 --> 00:04:35.830
+We will definitely go through reducers action creators actions again in great great great detail.
+
+00:04:35.830 --> 00:04:38.610
+So if it's still confusing do not sweat at all.
+
+00:04:38.630 --> 00:04:40.970
+We're going to get a lot of practice with it.
+
+00:04:41.940 --> 00:04:42.510
+OK.
+
+00:04:42.590 --> 00:04:49.490
+So at this point in time if I refreshed my simulator and then start clicking on these different things
+
+00:04:49.490 --> 00:04:56.300
+I don't get any feedback right now but in theory I have a piece of steak called selective library ID
+
+00:04:56.720 --> 00:05:00.600
+that is being changed every time I click on one of these lines right here.
+
+00:05:00.770 --> 00:05:09.830
+So the last thing we have to do is make sure that whenever a particular library ID is equal to the currently
+
+00:05:09.830 --> 00:05:13.400
+selected library ID we expand a given row.
+
+00:05:13.460 --> 00:05:15.890
+So let's take care of that in the next section.

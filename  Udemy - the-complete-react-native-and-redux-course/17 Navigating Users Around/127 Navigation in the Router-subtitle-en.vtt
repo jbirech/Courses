@@ -1,0 +1,193 @@
+WEBVTT
+
+00:00.970 --> 00:05.280
+In the last section we installed the re-act router native fluxed library.
+
+00:05.280 --> 00:10.190
+I had a little bit of a discussion about scenes and really just decided let's write some code.
+
+00:10.240 --> 00:14.410
+We're going to figure out how this thing works much more quickly by just diving right in.
+
+00:14.440 --> 00:17.880
+So I'm going to be a little bit of an abrupt here and I can do a huge introduction.
+
+00:17.890 --> 00:21.550
+I'm just going to kind of start working on some stuff and we'll figure out what's going on really quickly
+
+00:22.270 --> 00:27.680
+in my source directory and so my project I'm going to make a new file inside the source directory so
+
+00:27.680 --> 00:31.550
+it's not inside components it's inside of source and I call this router Dot.
+
+00:31.630 --> 00:32.310
+Yes.
+
+00:32.430 --> 00:33.250
+OK.
+
+00:34.060 --> 00:39.640
+The purpose of this file is to have one location where I can tweak all the different scenes that a user
+
+00:39.640 --> 00:43.990
+can navigate to or all the different routes that a user can navigate to.
+
+00:43.990 --> 00:50.590
+So in this fire file We're going to define all the different possible screens or scenes whichever way
+
+00:50.590 --> 00:54.790
+you want to refer to it as that a user can visit insider app.
+
+00:54.820 --> 00:57.470
+We'll be creating a component to do that.
+
+00:57.670 --> 01:02.860
+So we're start off by throwing in some boilerplate to make the functional component.
+
+01:02.860 --> 01:05.730
+So at the top we'll import react from react.
+
+01:06.130 --> 01:09.410
+I'll make a component called router component.
+
+01:09.710 --> 01:12.010
+Now I know the name here is a little bit funky.
+
+01:12.040 --> 01:15.820
+Do make sure do call this you know please call his router component.
+
+01:15.820 --> 01:23.620
+Do not just call it router what the full word in there at the bottom we will export default router component
+
+01:25.870 --> 01:28.170
+and then we'll do a little bit more of imports.
+
+01:28.230 --> 01:32.080
+This is where we're going to start figuring out how this navigation stuff works.
+
+01:32.080 --> 01:42.790
+So we will import scene and router from re-act native Retter flux in both seen and router.
+
+01:42.830 --> 01:47.420
+This is why we did not call our component router even though it really is is because we are importing
+
+01:47.420 --> 01:58.870
+this other router object or variable into this file and we can import log in form use from our components
+
+01:58.870 --> 02:03.890
+directory components log and form.
+
+02:04.870 --> 02:05.780
+OK.
+
+02:06.730 --> 02:08.220
+So here we go.
+
+02:08.230 --> 02:09.350
+Let's get started again.
+
+02:09.370 --> 02:11.210
+I'm going to just throw some code on the screen.
+
+02:11.230 --> 02:12.630
+Not quite talked about it just yet.
+
+02:12.640 --> 02:15.110
+You know let's get stuff up and then we can figure out what's going on.
+
+02:15.430 --> 02:17.520
+I need a place down a router tag.
+
+02:17.830 --> 02:22.600
+And then inside of it we will define our first scene like so.
+
+02:22.930 --> 02:25.820
+Next we're going to pass this scene a couple of props.
+
+02:25.840 --> 02:33.520
+Some of the props we just discussed I'm going to give you a key of log in a component of log in form
+
+02:34.510 --> 02:40.770
+and a title of Please log in.
+
+02:40.820 --> 02:46.190
+Now the last thing I want to do is use this router inside of our application so we made this component
+
+02:46.220 --> 02:48.470
+just make it does absolutely nothing.
+
+02:48.470 --> 02:51.620
+We have to actually put it somewhere inside her application.
+
+02:51.800 --> 02:54.680
+So I'm going to flip back over to our out component.
+
+02:54.690 --> 02:56.030
+So here's my component.
+
+02:56.360 --> 02:58.130
+I'm going to import the router.
+
+02:58.370 --> 03:05.660
+So import router from router and we're going to place this router component inside of our render method
+
+03:05.730 --> 03:07.820
+and can replace the log and form to do so.
+
+03:07.820 --> 03:14.060
+So instead of showing the logon form going to show the excuse me the router.
+
+03:14.170 --> 03:16.900
+There we go and at the top.
+
+03:16.900 --> 03:21.600
+We're not using that log in any anymore it's going to clean up the import statement like so.
+
+03:22.030 --> 03:22.420
+OK.
+
+03:22.450 --> 03:24.620
+So again no discussion yet.
+
+03:24.790 --> 03:26.150
+Just throwing some code on the screen.
+
+03:26.170 --> 03:29.650
+I'm going to refresh and see what we get.
+
+03:29.650 --> 03:35.050
+Of course the first refresh is always a little bit slow because we've just imported this new library.
+
+03:35.350 --> 03:36.050
+Ok cool.
+
+03:36.070 --> 03:37.290
+There we go.
+
+03:37.300 --> 03:40.080
+So it looks all right.
+
+03:40.120 --> 03:43.480
+The styling is a little bit off but it looks like something definitely happened right here.
+
+03:43.480 --> 03:43.920
+You can see that.
+
+03:43.930 --> 03:49.510
+Now we've got a header inside our application automatically It says Please log in very prominently on
+
+03:49.600 --> 03:50.540
+the top.
+
+03:50.560 --> 03:53.150
+It is also cutting off our log in form.
+
+03:53.180 --> 03:55.150
+It's kind of hogging the screen here a little bit.
+
+03:55.390 --> 03:59.920
+So let's go to the next section we'll do a review on all the code that we just wrote and we'll also
+
+03:59.920 --> 04:05.100
+figure out how we're going to kind of figure out this very obvious display bug that we have right here

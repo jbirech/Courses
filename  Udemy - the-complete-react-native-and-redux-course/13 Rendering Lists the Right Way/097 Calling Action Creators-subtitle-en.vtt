@@ -1,0 +1,370 @@
+WEBVTT
+
+00:00.680 --> 00:07.770
+In the last section we created our first action creator action creators are functions that return actions
+
+00:08.220 --> 00:14.910
+and actions are objects that have a type property defined to them actions are used to tell her users
+
+00:14.910 --> 00:17.580
+to update in a very specific fashion.
+
+00:17.580 --> 00:23.520
+So the very specific action that we created should be informing our readers here that we intend to select
+
+00:23.610 --> 00:24.620
+a new book.
+
+00:24.630 --> 00:26.810
+So that's the that's the goal here.
+
+00:26.880 --> 00:31.820
+So we've got our action clear at this point in time but we need to figure out how to call it properly.
+
+00:31.860 --> 00:34.530
+So here's the process for calling an action creator.
+
+00:34.530 --> 00:38.560
+First we determine where we want to call this action creator from.
+
+00:38.820 --> 00:43.750
+Well chances are we want to call the action Creator from the list item component.
+
+00:43.830 --> 00:48.810
+You know whenever a user taps on this current section right here is when we want to call it action creator
+
+00:48.810 --> 00:53.900
+and say hey we need to select or update the currently selected library.
+
+00:54.030 --> 00:59.820
+Now I wish I could say that calling an action creator was as simple as importing it and you know just
+
+00:59.910 --> 01:01.720
+calling inside this compound right here.
+
+01:01.830 --> 01:03.890
+But it's not quite that easy.
+
+01:04.050 --> 01:08.940
+Here's the thing the action creator that we just made is a plain javascript function.
+
+01:08.970 --> 01:09.550
+Right.
+
+01:09.600 --> 01:12.130
+And it just returns a plain object.
+
+01:12.390 --> 01:18.030
+So the overriding theme with 3.0 beyond the fact that you know really confusing terminology is that
+
+01:18.030 --> 01:19.280
+it is not magic.
+
+01:19.290 --> 01:25.650
+There is no magic whatsoever just calling an action creator like you know if I just call this function
+
+01:25.680 --> 01:32.520
+and saw this object return nothing will automatically happen like redux does not magically say oh you
+
+01:32.520 --> 01:34.720
+just call the function from the actions file.
+
+01:34.740 --> 01:38.340
+Well you know let me take that action and do something with it.
+
+01:38.340 --> 01:39.360
+No that's not how it works.
+
+01:39.360 --> 01:45.480
+We have to make sure that the action and this action creator are specifically wired up to redux.
+
+01:45.480 --> 01:50.910
+So again general rule of thumb remember that for every part of redux application that we build from
+
+01:50.910 --> 01:56.680
+the components the actions the reducers they all have to be wired up at some point.
+
+01:56.700 --> 02:01.090
+So here's how we wire up our action creators inside of an application.
+
+02:01.110 --> 02:03.410
+This is a 100 percent reproducible process.
+
+02:03.510 --> 02:08.460
+So we're going to do it once now and then we'll do it again and again and again and again in the exact
+
+02:08.520 --> 02:10.560
+same fashion.
+
+02:10.620 --> 02:15.140
+First I'm going to go to the file that I want to call the action creator from.
+
+02:15.140 --> 02:20.010
+So inside the list item I want to really call that action creator so I can update the currently selected
+
+02:20.010 --> 02:21.180
+library.
+
+02:21.420 --> 02:28.930
+Then at the top I'm going to import all of my action creators from that actions index file.
+
+02:29.310 --> 02:38.190
+So I'm currently inside of my list item files so I need to go up one directory and then access the actions
+
+02:38.190 --> 02:42.430
+folder because the actions folder has an index file inside of it.
+
+02:42.480 --> 02:46.620
+I'm just going to import the actions folder and of course that will automatically give me the index
+
+02:46.620 --> 02:47.380
+file.
+
+02:47.450 --> 02:49.470
+Now I can do one really weird thing here.
+
+02:49.500 --> 02:55.500
+I'm going to say import star as actions from up one directory.
+
+02:55.620 --> 02:56.490
+Dot dot.
+
+02:56.490 --> 03:00.390
+Notice the dot dot there slash actions like so.
+
+03:00.550 --> 03:02.940
+OK it's already one weird thing here.
+
+03:03.020 --> 03:05.530
+One weird thing store as actions.
+
+03:05.540 --> 03:06.680
+What in the world is that.
+
+03:06.870 --> 03:10.610
+Well here's what's going on inside of my actions file.
+
+03:10.650 --> 03:13.680
+I might have many different action creators.
+
+03:13.710 --> 03:14.410
+Right.
+
+03:14.420 --> 03:20.370
+I have many different creators and I might want to use them all over the place in different components
+
+03:20.370 --> 03:22.010
+for different things.
+
+03:22.050 --> 03:29.220
+Whenever I export many things from a single file as I might do here I use just the export keyword.
+
+03:29.220 --> 03:30.810
+I do not use export default.
+
+03:30.840 --> 03:39.030
+So again if I want to export many things I just use the export keyword whenever I want to import many
+
+03:39.030 --> 03:44.410
+things from a file at one time and just get access to like the whole lot of them right.
+
+03:44.520 --> 03:53.160
+I can say store has and then some variable right here so start as actions means give me everything that
+
+03:53.160 --> 03:58.310
+was exported from the actions file and assign it to the variable actions.
+
+03:58.890 --> 04:02.880
+I could have done the same exact thing with the re-act need of import right here as well.
+
+04:02.880 --> 04:10.200
+I could have said you know something like Star as components and gotten access to like the text tag
+
+04:10.200 --> 04:16.860
+the view tag the text input all those different primitive tags that are provided by re-act native but
+
+04:16.860 --> 04:22.800
+in reac natives case I just wanted the text tagged in the actions case I wanted all of my available
+
+04:22.800 --> 04:23.910
+action creators.
+
+04:24.080 --> 04:26.510
+OK so quick aside there.
+
+04:26.940 --> 04:29.400
+So that's step 1 for calling an action creator.
+
+04:29.400 --> 04:33.580
+Step two is to import that connect helper from re-act redux.
+
+04:33.780 --> 04:39.840
+So up here I will import connect from re-act redux.
+
+04:39.960 --> 04:46.670
+Remember connect is are kind of like window to the whole world of redux from the Riak side of things.
+
+04:46.830 --> 04:53.190
+We use it previously to get access to our application state but we can also use the connect helper to
+
+04:53.220 --> 04:56.700
+call an action creator.
+
+04:56.740 --> 05:00.790
+Finally we will set up that connects helper at the bottom of our file again.
+
+05:00.850 --> 05:03.610
+So here's my x4 default statement.
+
+05:03.610 --> 05:09.100
+I will add in the connect helper with one set of parentheses and then wrap the list item with the second
+
+05:09.100 --> 05:09.710
+set.
+
+05:11.580 --> 05:18.510
+Now when we last used the connect helper we passed the function map state to probs as the first argument.
+
+05:18.510 --> 05:21.790
+That's the first that is the purpose of the first argument to connect right here.
+
+05:21.800 --> 05:26.560
+Like the first argument must be the map state to proper function.
+
+05:26.640 --> 05:32.850
+The purpose of the second argument however is to bind action creators to this component.
+
+05:32.940 --> 05:37.620
+Now because we do not have any map state to props so we want to pass to this.
+
+05:37.620 --> 05:44.040
+I'm going to pass and no as the first argument again the first argument is explicitly for map state
+
+05:44.040 --> 05:44.850
+to process.
+
+05:45.000 --> 05:51.180
+So if I don't want to map states props I have to pass and null here then is the second argument I will
+
+05:51.180 --> 05:53.230
+pass in my entire actions.
+
+05:53.250 --> 06:00.220
+Object this says take these action creators you know whatever's in here in this case you only have one
+
+06:00.220 --> 06:07.290
+right now and make sure that whenever they are called the actions go to the right place and then pass
+
+06:07.290 --> 06:10.880
+these actions down into the component as props.
+
+06:11.050 --> 06:12.910
+So this right here is doing two things.
+
+06:12.910 --> 06:18.970
+First off it is turning it's kind of like mutating the action creator right here from a kind of dumb
+
+06:18.970 --> 06:25.240
+function that just returns a you know actions like a silly object doesn't really do anything with it.
+
+06:25.300 --> 06:31.660
+It mutates this function into something special where whenever it is called It will be the returned
+
+06:31.660 --> 06:37.460
+action will be automatically dispatched to the redux store which is exactly what we want.
+
+06:37.480 --> 06:42.310
+The second thing that it does is it takes all of the actions that are inside the subject which again
+
+06:42.340 --> 06:50.260
+in our case we have just one and it passes them all to our component as props because a very common
+
+06:50.260 --> 06:56.260
+theme that you might see arising here whenever we use the connect helper it is modifying what data is
+
+06:56.260 --> 06:59.100
+going to show it to our list item as props.
+
+06:59.110 --> 07:05.260
+So just to make sure that's the case I'm going to add a console log statement inside of my component
+
+07:05.320 --> 07:08.080
+and I'm going to count the log props and I don't know.
+
+07:08.110 --> 07:11.560
+Error message keeps on popping up there anyways.
+
+07:11.890 --> 07:15.970
+So I've got to conc log here I'm just going to cancel my profs object.
+
+07:16.690 --> 07:20.020
+Let's now flip over to my council here.
+
+07:20.020 --> 07:21.760
+I will also in my simulator.
+
+07:22.000 --> 07:24.030
+Let's do a refresh.
+
+07:25.060 --> 07:31.900
+And very interestingly you will notice that because my component is rendered nine times here I get nine
+
+07:31.900 --> 07:38.260
+separate console logs and if I expand any of these you'll see that my props object now has an argument
+
+07:38.320 --> 07:40.750
+called select library.
+
+07:40.810 --> 07:43.060
+So this is my action creator right here.
+
+07:43.060 --> 07:45.610
+I can now call this action creator.
+
+07:45.610 --> 07:52.540
+I can pass in the ID of the library that I want to select that will generate an action.
+
+07:52.630 --> 07:55.320
+So here's my select library action right here.
+
+07:55.330 --> 08:00.130
+It will generate this action and it will automatically dispatch it to all the different reducers in
+
+08:00.130 --> 08:01.510
+my application.
+
+08:01.510 --> 08:08.140
+So in practice you know when we had previously worked with redux and we called stort dispatch ourselves
+
+08:08.380 --> 08:13.440
+in practice we do not have to call dispatch ourselves from our components.
+
+08:13.540 --> 08:17.900
+We use this kind of automatic binding with the connect helper to do it for us.
+
+08:19.460 --> 08:20.120
+OK.
+
+08:20.190 --> 08:27.370
+So at this point in time we've now got access to our action crater's select library inside of our component.
+
+08:27.450 --> 08:33.110
+All we have to do is call it with the very particular library's ID that we want to select.
+
+08:33.120 --> 08:34.790
+There's just one little problem here.
+
+08:34.950 --> 08:40.530
+We don't yet have anything to receive a touchy event here like nothing to receive a press event like
+
+08:40.530 --> 08:42.510
+we did previously with the button.
+
+08:42.510 --> 08:45.630
+Remember only touchable components can receive top events.
+
+08:45.720 --> 08:50.880
+So we're going to need to import one into this component to receive a tap in that let's take care of
+
+08:50.880 --> 08:55.660
+that in the next section and do a big review on how all these action creators work

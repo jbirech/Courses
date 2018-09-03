@@ -1,0 +1,199 @@
+WEBVTT
+
+00:00.740 --> 00:05.910
+In the last section we've decided to add a spinner component to our application that should appear whenever
+
+00:05.910 --> 00:08.550
+the user clicks the logon button right here.
+
+00:08.550 --> 00:13.980
+Then when the log in request is complete we should restore the button and make the spinner go away.
+
+00:14.400 --> 00:17.540
+Because I expect to use a spin or many different locations.
+
+00:17.550 --> 00:20.620
+I want to create it as a reusable component.
+
+00:20.670 --> 00:25.860
+That's why we're making a separate component here from the spinner So fortunately we don't have to make
+
+00:25.860 --> 00:31.080
+the whole light animated spinner like you know the spinny thing from scratch.
+
+00:31.260 --> 00:35.230
+The re-act native library includes a default spinner that we can use.
+
+00:35.250 --> 00:40.140
+So we're going to use a default spinner and inside this component we're just going to add on some additional
+
+00:40.140 --> 00:45.940
+styling on top of it to kind of further configure in-style the spinner itself.
+
+00:45.990 --> 00:56.670
+So from the Riak native library we will import that default spinner as activity indicator indiv indicator.
+
+00:56.670 --> 00:57.760
+There you go.
+
+00:58.500 --> 01:01.110
+OK so we've got our activity indicator indicator.
+
+01:01.110 --> 01:02.380
+This is an actual spinner.
+
+01:02.400 --> 01:06.000
+If we place on the screen you're going to see this like you know kind of like an old dial thing moving
+
+01:06.000 --> 01:07.360
+around.
+
+01:07.440 --> 01:10.440
+Next we're going to place that spinner inside of our view here.
+
+01:10.440 --> 01:12.140
+So I'm still going to keep the view tag.
+
+01:12.150 --> 01:16.540
+I'm going to keep the new tag around so we can position the activity indicator.
+
+01:17.070 --> 01:27.250
+So I'll keep the view and expand the tag and then place the activity indicator like so again.
+
+01:27.290 --> 01:31.640
+The whole purpose of keeping the attack here is so that we can make this thing or we can position the
+
+01:31.640 --> 01:33.300
+spinner nicely inside.
+
+01:33.350 --> 01:38.810
+Specifically I want to be able to center the activity indicator or the spear on the screen and we're
+
+01:38.810 --> 01:40.860
+going to use the tag to do that.
+
+01:41.090 --> 01:47.450
+So to make sure that the activity indicator is always centered on the screen we'll add in a style tag
+
+01:47.610 --> 01:51.890
+that's going to put in some positioning properties on top of the view tag.
+
+01:51.890 --> 01:55.490
+Also I think I've missed a semi colon here and a place that as well.
+
+01:56.000 --> 02:03.370
+So I'll place my style's object on Stiles at the bottom and I'll give a simple property here called
+
+02:03.440 --> 02:06.650
+spinner style like so.
+
+02:07.130 --> 02:13.040
+So this spinner style will be applied to the view tag and its purpose is to make sure that the spinner
+
+02:13.100 --> 02:14.550
+is centered on the screen.
+
+02:14.960 --> 02:20.840
+So to make sure that you tag fills up the full width of the screen you want to fill the full width.
+
+02:20.900 --> 02:26.720
+I'm going to give it a flex one and then to center the activity indicator itself.
+
+02:27.230 --> 02:33.290
+We'll use our justified content of center in a line items of center as well.
+
+02:33.290 --> 02:37.110
+Finally we will apply the spinner style to the new tag.
+
+02:37.460 --> 02:46.110
+So on The View tag we'll say hey you should get your style from Styles dot spinner style OK.
+
+02:46.160 --> 02:51.380
+So this is pretty much all we need right now to at least give us video on the screen and make sure that
+
+02:51.380 --> 02:53.410
+it's nicely centered.
+
+02:53.510 --> 02:55.990
+There is one less thing that we need to do here.
+
+02:56.030 --> 03:01.520
+The activity indicator by default has two possible properties you can sign to it.
+
+03:02.060 --> 03:08.030
+We'll actually I should say one one property and that property has two different options to it.
+
+03:08.500 --> 03:14.990
+I mean we can pass a Size property to the activity indicator and that indicates whether or not we want
+
+03:14.990 --> 03:17.270
+this to be large or small.
+
+03:17.300 --> 03:22.550
+So we can either say I want a large spinner something like takes up a decent amount of space on the
+
+03:22.550 --> 03:30.110
+screen or I can pass in a small property here in which case we get a much smaller spinner to appear.
+
+03:30.290 --> 03:37.040
+So we will assume that we will pass in the size of the spinner as a prop to this component and we're
+
+03:37.040 --> 03:39.870
+going to pass it in as a prop called size.
+
+03:39.890 --> 03:45.240
+Remember these prop names that I'm pulling out here are all completely arbitrary completely random.
+
+03:45.260 --> 03:52.370
+I'm just deciding that I want to pass my component that I'm creating a prop called size.
+
+03:52.400 --> 03:58.010
+Now this size prop that I'm passing to the activity indicator However this is a special name here.
+
+03:58.040 --> 04:00.200
+This is the component that we did not create.
+
+04:00.200 --> 04:01.580
+We did not right.
+
+04:01.580 --> 04:05.920
+So it has some number of built in or default props that we can pass it.
+
+04:06.050 --> 04:09.850
+One of which is called size.
+
+04:09.890 --> 04:14.570
+Now we're going to use a little bit of trick here to assign the size property to the activity indicators.
+
+04:14.570 --> 04:17.900
+Let's write out the code for it first and we'll talk about what it does.
+
+04:17.960 --> 04:27.350
+And right size or large what this does right here is it says if we pass in a size property when we create
+
+04:27.350 --> 04:29.390
+the spinner then use that.
+
+04:29.420 --> 04:34.780
+Otherwise if we did not pass in a size property use the string large.
+
+04:34.820 --> 04:40.290
+So by default if we do not specify the size for our spinner we're going to get a large one.
+
+04:40.310 --> 04:44.750
+Otherwise if we say specifically that we want a small one we will get a small one.
+
+04:44.750 --> 04:47.550
+So this is just a little shortcut for handling that logic.
+
+04:49.420 --> 04:49.930
+All right.
+
+04:49.930 --> 04:51.920
+So I think we're just about done here.
+
+04:51.940 --> 04:56.710
+The last thing we have to do is wire this thing up inside of our long form.
+
+04:56.710 --> 04:58.990
+Let's take care of that in the next section.

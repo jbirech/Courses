@@ -1,0 +1,304 @@
+WEBVTT
+
+00:01.220 --> 00:07.750
+Less sexually put together some rudimentary authentication you know there's sign in with email and password.
+
+00:07.900 --> 00:10.330
+But we still don't really know what it means to be signed in.
+
+00:10.330 --> 00:10.990
+Right.
+
+00:11.050 --> 00:15.660
+We are also not handling the case in which a user enters an incorrect e-mail or password.
+
+00:15.700 --> 00:20.530
+So we still have a little bit to go with this whole sign in with e-mail and password business right
+
+00:20.530 --> 00:27.220
+here when we have a call to sign with the e-mail and password and then actually execute it this statement
+
+00:27.220 --> 00:29.410
+right here returns a promise.
+
+00:29.410 --> 00:35.410
+Remember that a promise in Javascript is a construct for handling some amount of asynchronous code when
+
+00:35.410 --> 00:37.300
+we authenticate our user.
+
+00:37.300 --> 00:42.310
+It makes an actual request to the firebase server and that takes some amount of amount of time to actually
+
+00:42.310 --> 00:46.530
+make that request to get notified of when that request is complete.
+
+00:46.570 --> 00:51.580
+We can make use of that promise case we can make use of the promises returned by the state and right
+
+00:51.580 --> 00:53.230
+here.
+
+00:53.230 --> 00:59.470
+So remember the methodology or the flow that we're going to use We're going to say if a users sign a
+
+00:59.470 --> 01:03.330
+test fails then we want to try to create an account instead.
+
+01:03.670 --> 01:09.340
+So to handle that with a promise we can remove the semi colon on the end of this line which I just did
+
+01:09.970 --> 01:19.290
+and I'll add on a dot catch case this dot catch statement right here says if this request fails.
+
+01:19.290 --> 01:26.150
+So if we get an error when we try to sign our username then we should enter this function as fadder
+
+01:26.160 --> 01:29.550
+function that I just passed to the catch statement.
+
+01:31.210 --> 01:35.980
+Then inside the statement right here inside this catch case we will start going down the air change.
+
+01:35.980 --> 01:37.420
+So will say OK they must.
+
+01:37.420 --> 01:41.290
+If we're in this federal function they must have failed to sign in.
+
+01:41.290 --> 01:45.130
+That means we need to then attempt to create that user an account.
+
+01:45.160 --> 01:50.140
+So inside of this catch case right here we will attempt to make the user an account with the same e-mail
+
+01:50.140 --> 01:52.450
+and password that they just entered.
+
+01:52.450 --> 02:00.250
+So to do so we'll use another method on this firebase auth object to say firebase Auth. auth and then
+
+02:00.250 --> 02:09.550
+this time round it will be create user with email and password and it will pass in both the e-mail and
+
+02:09.550 --> 02:10.370
+the password.
+
+02:12.050 --> 02:16.270
+So now we're implementing the right hand side of this chain up to this step right here.
+
+02:16.310 --> 02:20.210
+We attempted to sign the user in it if the request fails.
+
+02:20.210 --> 02:23.230
+We then attempt to create an account for them.
+
+02:23.240 --> 02:28.750
+Now we're going to go further down the right hand side and say OK we just attempted to create an account.
+
+02:28.910 --> 02:34.720
+And if that fails then we want to enter the final failed case we want to say finally OK you know what
+
+02:34.730 --> 02:36.280
+this really went downhill.
+
+02:36.320 --> 02:38.370
+We need to show an error on the screen.
+
+02:38.840 --> 02:44.480
+So this statement right here our create user with email and password also returns a promise because
+
+02:44.480 --> 02:46.790
+it is also an asynchronous method.
+
+02:46.790 --> 02:52.630
+So get a chain on a another dot catch and pass in a federal function.
+
+02:52.970 --> 02:58.460
+And inside if here inside of this nested don't catch is where we will finally show an error to the user.
+
+02:58.520 --> 03:03.550
+So we need to somehow get an error message on the screen.
+
+03:03.590 --> 03:04.970
+So how might we do that.
+
+03:05.030 --> 03:09.670
+How would we get our component to re render and show an error message on the screen.
+
+03:09.710 --> 03:14.810
+Once we're inside this catch case right here remember how we always re render our components we always
+
+03:14.810 --> 03:18.610
+re render components by using component levels state.
+
+03:18.980 --> 03:23.540
+So we will introduce a new property on our state objects called something like I don't know.
+
+03:23.570 --> 03:24.250
+Error.
+
+03:24.470 --> 03:31.490
+And if the user both fails to sign in and create a new user with email and password then we'll show
+
+03:31.490 --> 03:37.190
+an error message basically saying hey everything went wrong here like you did something really wrong.
+
+03:37.520 --> 03:39.090
+So let's give it a shot.
+
+03:39.410 --> 03:42.470
+Whenever we use state we have to default our new property.
+
+03:42.470 --> 03:45.920
+So I will default error to be a new string.
+
+03:47.330 --> 03:52.490
+And then if a user finally gets into this catch case down here where they both failed to sign in and
+
+03:52.490 --> 03:57.580
+sign up then we will update our state and update the error message.
+
+03:57.590 --> 04:05.270
+So we'll say this Dot said state ere is authentication failed.
+
+04:05.300 --> 04:08.800
+Just a very generic Hey something really went wrong here.
+
+04:08.810 --> 04:16.160
+You entered some bad information so now whenever the user really screws up or really fails their authentication
+
+04:16.220 --> 04:20.300
+we will have a piece of state called this dot state DOT air.
+
+04:20.920 --> 04:25.160
+So the last thing that we need to do is make sure that we show that error message inside of our render
+
+04:25.160 --> 04:27.050
+method somewhere.
+
+04:27.050 --> 04:29.780
+I'm going to find my last card section.
+
+04:29.780 --> 04:31.920
+So here's the button component right here.
+
+04:32.210 --> 04:33.710
+And the card section with it.
+
+04:33.830 --> 04:36.420
+And outside of that card section.
+
+04:36.430 --> 04:37.840
+So I'm outside of it.
+
+04:37.940 --> 04:43.030
+I'm going to add in a new text tag to show the user that error message.
+
+04:43.040 --> 04:47.450
+So inside the text tag I'll say this dot state DOT air.
+
+04:47.450 --> 04:52.880
+Now the key here is that when the component first boots up this Staat state DOT air is going to be an
+
+04:52.940 --> 04:53.830
+empty string.
+
+04:53.870 --> 04:57.200
+So by default the user does not see an error message.
+
+04:57.320 --> 05:03.080
+But then when the user successfully logs in you know everything is happy and fine everything is going
+
+05:03.080 --> 05:04.490
+just A-OK.
+
+05:04.750 --> 05:05.560
+Er wait wait.
+
+05:05.570 --> 05:09.060
+No reverse that news or attempts to log in and something goes wrong.
+
+05:09.350 --> 05:11.270
+This outstate air will be populated.
+
+05:11.270 --> 05:16.500
+There will be an error message in here and the text tag will actually show up to the user.
+
+05:16.540 --> 05:22.400
+Note that we are not importing the text tags right now so I'm going to scroll back up to the top two
+
+05:22.410 --> 05:28.390
+are re-act native import and I'm also going to import the text tag and it looks like we removed that
+
+05:28.390 --> 05:30.260
+Riak needed import altogether.
+
+05:30.490 --> 05:38.210
+So import it back in and I'll pull out the text tag from re-activated like so and then the last thing
+
+05:38.210 --> 05:43.790
+I want to do is I want to add a little bit of styling to a text tag right here just to make it nice
+
+05:43.790 --> 05:49.190
+and big and red and really just shove it right in our user's face to let them know hey something went
+
+05:49.190 --> 05:51.530
+really went wrong with authentication.
+
+05:51.530 --> 05:55.900
+So to add in a style we'll do and we're going to do the same thing we always do.
+
+05:56.150 --> 05:58.190
+We will add in a new styles object.
+
+05:58.190 --> 06:10.630
+The bottom and I will give this a property of error text style and it will tell it hey you need to be
+
+06:10.630 --> 06:13.400
+really big so we'll a font size of 20.
+
+06:13.480 --> 06:18.940
+We will use the Aline's self property to center the text on the screen and it will set the color to
+
+06:18.940 --> 06:19.380
+red.
+
+06:19.450 --> 06:21.660
+So it's nice big and bright red.
+
+06:22.180 --> 06:26.150
+Then finally we will apply this textile to the textile that we just added.
+
+06:26.560 --> 06:28.530
+So here is the text tag.
+
+06:29.320 --> 06:37.640
+I'm going to apply a style of styles dot air text style.
+
+06:37.660 --> 06:42.100
+All right so again because we're only using one property of the styles object right now I'm not going
+
+06:42.100 --> 06:47.410
+to use destructuring if it ends up that we need more properties off the styles object that may well
+
+06:47.410 --> 06:50.330
+do some destructuring just to clean up our code.
+
+06:51.040 --> 06:56.170
+So in this section we have implemented the first portion of our flow like this entire right hand side
+
+06:56.170 --> 06:57.170
+failed case.
+
+06:57.340 --> 07:03.280
+So if the user attempts to sign in with an email and password that does not exist or if they attempt
+
+07:03.280 --> 07:09.580
+to sign in with it e-mail and password that e-mail that does exist but the incorrect password they will
+
+07:09.580 --> 07:14.260
+go down the full right hand side and we will eventually show them an error message down here.
+
+07:14.320 --> 07:17.570
+So let's get to the next section and test out this flow.

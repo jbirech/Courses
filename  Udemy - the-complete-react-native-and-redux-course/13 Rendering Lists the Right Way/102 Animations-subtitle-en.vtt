@@ -1,0 +1,325 @@
+WEBVTT
+
+00:00.810 --> 00:05.550
+I think that the last thing you have to do inside of our application is maybe do a little bit of formatting
+
+00:05.550 --> 00:11.190
+on this text right here and also add in some nice animation so that whenever a row expands we get a
+
+00:11.190 --> 00:15.130
+nice smooth expansion as opposed to the very abrupt like boom.
+
+00:15.130 --> 00:16.330
+Here's some text.
+
+00:16.380 --> 00:20.920
+So first let's take care of the styling for our text and this shouldn't be too bad.
+
+00:21.360 --> 00:27.540
+Inside of my list item component I going to find my render description method and for my text tag I'm
+
+00:27.540 --> 00:36.420
+just going to wrap it with another card section so card section and closing card section like so this
+
+00:36.420 --> 00:41.740
+is going to serve to just give my card or my text a little bit of margin on either side.
+
+00:42.000 --> 00:45.990
+And also make sure that it's just you know give myself a bottom border there as well.
+
+00:46.290 --> 00:47.460
+So let's refresh this.
+
+00:47.460 --> 00:49.490
+Test it out and.
+
+00:49.540 --> 00:51.350
+Well OK.
+
+00:51.810 --> 00:56.770
+It's off the edge and we've got a bottom border there but now the tuks is running off the screen.
+
+00:56.850 --> 01:03.270
+So this is just a little bit of an oddity with the way that using text work we can fix this by adding
+
+01:03.270 --> 01:06.690
+on a style property to the text tag itself.
+
+01:06.690 --> 01:14.940
+So on a text tag I mean to add on a style just right in line of flex one is going to tell the text tag
+
+01:15.120 --> 01:19.680
+do not wrap your text or do not cut your text off the screen wrap your text.
+
+01:19.680 --> 01:22.840
+Make sure that takes up as much space as it needs to.
+
+01:22.860 --> 01:25.030
+So let's refresh this now.
+
+01:25.450 --> 01:28.290
+And OK now we're looking pretty darned good.
+
+01:28.290 --> 01:34.050
+We've got a reasonable amount of padding on the left hand side and we've got a nice bottom border.
+
+01:34.050 --> 01:35.640
+All that kind of good stuff.
+
+01:35.640 --> 01:40.140
+If you want to add in some additional padding to the left and right hand side just to push the text
+
+01:40.140 --> 01:41.430
+off a little bit more.
+
+01:41.550 --> 01:42.170
+Go for it.
+
+01:42.180 --> 01:42.990
+Totally up to you.
+
+01:43.080 --> 01:45.630
+But I'm I'm pretty happy with the way it looks right now.
+
+01:46.180 --> 01:46.710
+OK.
+
+01:46.770 --> 01:50.240
+The last thing you have to do here is adding some animation.
+
+01:50.280 --> 01:57.270
+So the whole goal here is that whenever a section expands that should just shoot occur like in a nice
+
+01:57.270 --> 01:59.710
+sliding fashion and like the tech should fade in.
+
+01:59.730 --> 02:01.650
+All that kind of good stuff.
+
+02:01.650 --> 02:06.420
+So without talking too much about animation at all like I'm not going to say anything about it just
+
+02:06.420 --> 02:07.360
+yet.
+
+02:07.440 --> 02:09.600
+Adding some code just a couple lines.
+
+02:09.630 --> 02:11.370
+We're going to see where that gets us.
+
+02:11.370 --> 02:11.910
+OK.
+
+02:13.450 --> 02:22.870
+So first on my Riak native library up top I'm going to import another library or another element or
+
+02:22.870 --> 02:31.840
+I should say called layout animation and notice just because of so many properties here now I chose
+
+02:31.840 --> 02:34.910
+to newline my import statements.
+
+02:34.960 --> 02:37.760
+That's just a stylistic thing that I like to do if you don't want to do it.
+
+02:37.780 --> 02:38.900
+That's totally fine.
+
+02:39.280 --> 02:43.850
+So I just imported layout animation again I'm not going to say anything about it just yet.
+
+02:44.080 --> 02:51.870
+The next you are going to do is that in a lifecycle method called component will update.
+
+02:52.390 --> 02:54.550
+Again I'm not going to say what it does just yet.
+
+02:54.580 --> 02:56.020
+Just bear with me.
+
+02:56.230 --> 03:00.750
+And then inside of here I'll call layout animation spring.
+
+03:00.820 --> 03:05.900
+So all we did was inport layout animation adding a lifecycle method.
+
+03:05.940 --> 03:11.460
+We'll talk about when it's called in just a second here and then called layout animation spring.
+
+03:11.590 --> 03:18.440
+Nothing else I can refresh my application and then I'm going to click on something here and whoa.
+
+03:18.450 --> 03:19.980
+Hot dog.
+
+03:20.300 --> 03:23.520
+Wow that is awesome.
+
+03:23.530 --> 03:25.500
+We basically got for free.
+
+03:25.540 --> 03:32.020
+Like no work required some awesome little animation of whenever we change or enter in the currently
+
+03:32.020 --> 03:34.610
+selected library you know click on a different one.
+
+03:34.630 --> 03:36.010
+It expands nicely.
+
+03:36.010 --> 03:39.680
+It kind of bounces and the text fades in on top of that.
+
+03:39.730 --> 03:44.050
+That is madness total madness like this is sweet.
+
+03:44.050 --> 03:51.340
+This is one of the best things about re-acclimated right here for such little work we get some pretty
+
+03:51.340 --> 03:53.060
+awesome animations.
+
+03:53.470 --> 03:56.950
+So clearly this animation thing right here is totally awesome.
+
+03:56.950 --> 04:01.600
+Let's spend some time to figure out exactly how it works.
+
+04:01.720 --> 04:05.210
+So I'm going pull up a diagram and let's check this thing out.
+
+04:05.670 --> 04:06.380
+OK.
+
+04:06.430 --> 04:11.410
+So on the bottom here I'm going from left to right is you can kind of think of his time.
+
+04:11.440 --> 04:14.500
+So this arrow is like time going along.
+
+04:14.770 --> 04:17.340
+So let's walk through the cycle here first.
+
+04:17.380 --> 04:19.770
+A user presses on a library.
+
+04:19.810 --> 04:23.070
+Now as we know that we'll call our action creator.
+
+04:23.430 --> 04:27.630
+That action clearly turning action that gets sent to all of our reducers.
+
+04:27.790 --> 04:29.730
+So the reducers will rerun.
+
+04:29.860 --> 04:36.270
+They will assemble some amount of new application state that new application state automatically sent
+
+04:36.280 --> 04:43.600
+gets sent down to our map state to prop's functions which causes our components to re render and boom
+
+04:43.600 --> 04:46.490
+all of a sudden our view updates on the screen.
+
+04:46.690 --> 04:49.950
+So that's that's like what happens that is a cycle that we have right now.
+
+04:50.320 --> 04:56.140
+So the animation is a little hook on that very last step right here.
+
+04:56.140 --> 05:03.670
+If we call Leo animation at any time before our components updates are shown on the screen and that
+
+05:03.670 --> 05:11.470
+is exactly when this lifecycle method component will update is called If we call layout animation that
+
+05:11.500 --> 05:17.950
+spring at any point in time before our component gets up there on the screen all the updates on devices
+
+05:17.950 --> 05:22.560
+screen will be automatically animated for us in any way possible.
+
+05:22.690 --> 05:27.110
+So any element that is moving around will have its movement animated smoothly.
+
+05:27.280 --> 05:34.570
+Any text that appears will fade in smoothly any text that goes away will fade ins will fade out slowly.
+
+05:34.600 --> 05:41.080
+All we have to do is make sure that we call the layout animation spring method before this update takes
+
+05:41.080 --> 05:42.010
+place.
+
+05:42.010 --> 05:43.680
+And that's pretty much it.
+
+05:43.720 --> 05:47.630
+It is incredibly easy to get some animation going within your apps.
+
+05:47.650 --> 05:52.530
+So I really suggest you call layout animation not spring.
+
+05:52.570 --> 05:55.420
+You know within reason don't go overboard.
+
+05:55.450 --> 06:01.110
+The only downside that we saw to our animation here was that if you'll notice if I've got one open up
+
+06:01.110 --> 06:06.790
+top and then like I open one at the bottom and then open another one up top again the text kind of like
+
+06:07.120 --> 06:09.900
+you know bounces through at the bottom there.
+
+06:10.000 --> 06:11.360
+Yeah definitely funky.
+
+06:11.380 --> 06:14.570
+Unfortunately there's not exactly an easy work around for us.
+
+06:14.770 --> 06:19.310
+And so that's why it allowed animation is not always a catch all solution.
+
+06:19.320 --> 06:23.290
+You know it's not always going to do the perfectly nice looking thing for us.
+
+06:23.410 --> 06:28.750
+Nonetheless as an engineer I personally love that we have smooth animations here even though we didn't
+
+06:28.750 --> 06:30.850
+have to spend a lot of time putting it together.
+
+06:30.850 --> 06:35.830
+So I think that I can deal with that kind of weird aspect to it if I could eventually figure out a work
+
+06:35.830 --> 06:36.750
+around.
+
+06:37.300 --> 06:42.440
+OK last thing I want to do is just make sure that it's clear this life cycle method right here.
+
+06:42.580 --> 06:43.900
+Remember life cycle methods.
+
+06:43.900 --> 06:48.260
+All we have to do is define them and then they will automatically be called for us.
+
+06:48.490 --> 06:54.220
+So this particular one component will update is called whenever the component is about to be re rendered
+
+06:54.220 --> 06:55.100
+to the device.
+
+06:55.150 --> 06:56.760
+That's pretty much it.
+
+06:57.370 --> 06:57.820
+All right.
+
+06:57.820 --> 06:59.410
+Our app is looking fantastic.
+
+06:59.410 --> 07:02.160
+Let's do a review of everything in the next section.

@@ -1,0 +1,196 @@
+WEBVTT
+
+00:00.990 --> 00:03.150
+We've now got an introduction to redux.
+
+00:03.180 --> 00:09.000
+So it's time to make a little more complex application something that we'd be proud to deploy to the
+
+00:09.000 --> 00:10.110
+App Store.
+
+00:10.110 --> 00:16.080
+Now there's one major feature that we still don't really know how to handle yet something that is absolutely
+
+00:16.080 --> 00:21.660
+necessary for being able to make a compelling application and that is navigation.
+
+00:21.660 --> 00:28.590
+The ability for a user to move around to different pages in our app and see different content as they
+
+00:28.590 --> 00:30.160
+navigate around.
+
+00:30.840 --> 00:36.030
+Now we did already kind of you know toggle in and out some components when we were working on the authentication
+
+00:36.030 --> 00:40.460
+app but that was a little hackish you know we had like an if statement and we conditionally returned
+
+00:40.460 --> 00:41.990
+some amount of GSX.
+
+00:42.000 --> 00:48.040
+Now that's OK for very simple navigation to make something that will scale to a very large application.
+
+00:48.090 --> 00:50.610
+So we need a better solution for navigation.
+
+00:50.670 --> 00:55.350
+We need one that is going to scale to an app of many different pages.
+
+00:55.410 --> 01:00.540
+So that's going be the focus of the next hour we're going to work on or going to figure out how to navigate
+
+01:00.900 --> 01:04.640
+user around in our navigation in our student in our application correctly.
+
+01:04.920 --> 01:10.860
+So let's start the application or the installation of a new Riak needed project and then we'll discuss
+
+01:10.860 --> 01:12.440
+the app that we're going to be making.
+
+01:12.690 --> 01:15.830
+So I'm inside of my general workspace directory here.
+
+01:16.050 --> 01:23.300
+And I'm going to make a new project by using the re-act native Seelye so I'll use re-act native in it.
+
+01:23.400 --> 01:28.260
+And I'm going to call this app manager so well that installs.
+
+01:28.290 --> 01:34.530
+Let's take a look at a mockup for the application that we're going to build.
+
+01:34.780 --> 01:36.380
+Here we go.
+
+01:36.630 --> 01:42.960
+Now this app is going to look a little bit small you know only four screens here but trust me trust
+
+01:42.960 --> 01:48.510
+me trust me please trust me there is a tremendous amount of hidden complexity and challenges tucked
+
+01:48.510 --> 01:49.240
+in here.
+
+01:49.290 --> 01:53.640
+So even though it looks almost small we will absolutely have our hands full.
+
+01:53.640 --> 01:58.170
+And you are going to learn a tremendous number of new concepts.
+
+01:58.230 --> 02:04.320
+The idea behind this app is that a manager of a small business can add their employees.
+
+02:04.320 --> 02:12.660
+So like right now we've got to sample employees of Sarah and Jeff and then designate a schedule for
+
+02:12.660 --> 02:12.900
+them.
+
+02:12.900 --> 02:19.400
+So like maybe a shift starting on Monday and then text that schedule to the particular employee.
+
+02:19.470 --> 02:25.380
+So definitely a practical use case here if I was running like a small business like say McDonald's or
+
+02:25.380 --> 02:26.680
+subway or something like that.
+
+02:26.700 --> 02:30.030
+And I just want to manage the schedules and while all my employees.
+
+02:30.030 --> 02:34.030
+And then once I set the schedule I want to text it directly to the employee.
+
+02:34.260 --> 02:37.490
+So that's a pretty darned practical use case here.
+
+02:37.530 --> 02:42.510
+So let's walk through each screen really quickly and then get started in the next section.
+
+02:42.570 --> 02:44.750
+So on the first screen we have the log in screen.
+
+02:44.870 --> 02:45.220
+Yeah.
+
+02:45.390 --> 02:47.600
+You know again we're going to tackle authentication here.
+
+02:47.670 --> 02:51.240
+So the log in screen is going to be just like the one that we made previously.
+
+02:51.330 --> 02:54.370
+A user has to enter a email and password.
+
+02:54.620 --> 02:59.520
+We're going to use the same trick we had before where we don't have a separate sign up screen.
+
+02:59.520 --> 03:03.840
+You know we're just going to have a single log log in form and if the user doesn't have an account then
+
+03:03.840 --> 03:10.500
+we'll just make them make one for them right away after a user logs in they should be presented with
+
+03:10.560 --> 03:13.890
+a list of all the different employees that they have.
+
+03:13.890 --> 03:18.900
+So of course this list screen right here this employee list is going to start off as empty because by
+
+03:18.900 --> 03:25.500
+default a user does not have any employees only over time after they start adding employees will they
+
+03:25.500 --> 03:32.940
+be able to you know see some number appear here on the screen on the on the list.
+
+03:32.940 --> 03:36.090
+The third screen here has a little bit of a dual purpose.
+
+03:36.090 --> 03:40.450
+And this is going to be a point of just a tremendous amount of discussion here.
+
+03:40.530 --> 03:47.020
+This third screen is going to be used kind of both for both use for both creating and editing employees.
+
+03:47.040 --> 03:54.240
+Ok so like kind of one form that is responsible for creating employee and also editing an employee as
+
+03:54.240 --> 03:54.630
+well.
+
+03:54.660 --> 04:00.150
+And you know again we're going to have a lot of discussion about how to best handle creation and editing
+
+04:00.510 --> 04:03.380
+of resources.
+
+04:03.480 --> 04:08.140
+Finally a manager sometimes you know they got to make they got to make the tough decisions.
+
+04:08.370 --> 04:14.520
+And so if they decide that they want to remove an employee or kind of like fire them via the fire button
+
+04:14.520 --> 04:19.860
+down here we're going to show a big modal message to the user and say Hey are you sure you want to fire
+
+04:19.860 --> 04:26.720
+this person and they're gonna have to click yes or no to actually remove the employee.
+
+04:26.820 --> 04:27.300
+OK.
+
+04:27.450 --> 04:32.970
+Again this might seem like a small application but believe me there is really a lot of hitting complex
+
+04:32.970 --> 04:33.380
+in here.
+
+04:33.380 --> 04:35.280
+A lot of very good lessons to learn.
+
+04:35.490 --> 04:40.120
+So let's continue the next section and we'll discuss what some of these challenges are.

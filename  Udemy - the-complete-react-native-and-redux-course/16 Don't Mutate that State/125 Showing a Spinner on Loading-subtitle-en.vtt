@@ -1,0 +1,550 @@
+WEBVTT
+
+00:00.970 --> 00:06.480
+Our blessing to do is log in form as show a spinner to our user so I'm sure that feels familiar and
+
+00:06.500 --> 00:10.150
+might feel like to do is even We're doing a lot of the same stuff twice over.
+
+00:10.320 --> 00:15.190
+But to be honest with you I'm really happy that we ended up rebuilding in log in form with redox.
+
+00:15.210 --> 00:20.550
+After doing three act it really helps you get a feel for how each library behaves.
+
+00:20.550 --> 00:26.060
+Anyways back to the task at hand showing a spinner on our logon form is going to be something would
+
+00:26.070 --> 00:28.680
+kind of cool you know deceptively simple.
+
+00:28.680 --> 00:32.360
+In other words we really don't need to over think the same.
+
+00:33.120 --> 00:41.700
+As soon as our logon user action creator is called We will want to dispatch an action that somehow says
+
+00:41.700 --> 00:43.330
+hey start spinner up please.
+
+00:43.560 --> 00:50.950
+And then whenever we see a success or failure type come along that means OK well the authentication
+
+00:50.950 --> 00:53.670
+Quest is complete we should resolve the spinner.
+
+00:53.700 --> 00:57.590
+Or C we should turn off that loading flag and not show the spinner anymore.
+
+00:57.720 --> 01:05.130
+So we're just going to depend upon the log in success log in user fail and a new action type that will
+
+01:05.130 --> 01:10.010
+dispatch called log in user to figure out when the spinner should be running.
+
+01:10.020 --> 01:11.270
+So let's give it a shot.
+
+01:11.580 --> 01:20.770
+We'll start off by defining a new type inside of our type's file so my type's file add on export Konst
+
+01:21.340 --> 01:23.350
+logon user.
+
+01:24.460 --> 01:29.260
+So if you're getting a reasonable sense of the different action types that it might create for any type
+
+01:29.260 --> 01:35.080
+of Ajax requests or any type of long or any requests that might fail or generally start off with just
+
+01:35.260 --> 01:41.130
+logging user or you know kind of whatever the very base action is where ever I'm about to start.
+
+01:41.440 --> 01:48.940
+And then for the success case and fail case I'll add on to additional types that just append success
+
+01:49.090 --> 01:49.700
+and fail.
+
+01:49.750 --> 01:54.520
+And so that makes that makes it really easy for me to understand like OK these are all related to logging
+
+01:54.520 --> 01:58.410
+in the user and the different states that are social with it.
+
+01:58.590 --> 02:04.860
+If I was can make any change here whatsoever I might do something like you know maybe start maybe.
+
+02:04.990 --> 02:06.510
+That definitely makes sense.
+
+02:06.520 --> 02:10.390
+It's really up to personal preference whether or not you can be really explicit about this first kind
+
+02:10.390 --> 02:13.570
+of starting action type you're so totally up to you.
+
+02:13.570 --> 02:17.160
+I could definitely see a case for putting on like log in user start there.
+
+02:19.080 --> 02:19.460
+All right.
+
+02:19.460 --> 02:23.040
+Back over my action creator here is logging user.
+
+02:23.210 --> 02:30.550
+I'm going to immediately dispatch an action of type log in user whenever this action crater's called
+
+02:30.840 --> 02:32.550
+will call dispatch.
+
+02:33.390 --> 02:41.150
+With an action of type in user now we still need to import this.
+
+02:41.200 --> 02:43.390
+We don't have the type inside this file just yet.
+
+02:43.390 --> 02:49.810
+So I will scroll back up to the top and I'll make sure that I also include this action type at the top
+
+02:49.820 --> 02:51.370
+in the import statement.
+
+02:51.950 --> 02:54.970
+OK so now this is really starting to meet our requirements.
+
+02:54.970 --> 03:01.140
+The instant that we try to log user in we're going to dispatch an action of type logon user.
+
+03:01.390 --> 03:07.800
+Then whenever the request succeeds or fails we will dispatch the success or fail actions.
+
+03:07.810 --> 03:14.020
+Well one thing I really want to point out in particular is that we are going to use this logon user
+
+03:14.020 --> 03:15.720
+typewrite here to start our spinner.
+
+03:15.730 --> 03:20.860
+And so you might be a little bit tempted to do something like you know an action of tide start spinner
+
+03:20.860 --> 03:24.880
+or something like that and I would really encourage you not to go down that path.
+
+03:24.880 --> 03:31.840
+The reason for which is that at some future point in time when you are coming back to this code after
+
+03:31.840 --> 03:38.590
+some long break or whatever it might be you see a action of type like start spinner when you don't quite
+
+03:38.590 --> 03:40.820
+know when that thing is going to be dispatched right.
+
+03:40.840 --> 03:45.710
+You don't really quite know by just looking at the actions name you know what it might do.
+
+03:45.730 --> 03:49.780
+You know you might you it gives you a reason or idea that's going to serve the spinner but you don't
+
+03:49.780 --> 03:51.620
+really know when it's going to be dispatched.
+
+03:51.700 --> 03:53.840
+So it's something like logging user it's very clear.
+
+03:53.860 --> 04:00.010
+OK this is going to dispatch whenever I'm about to log in the User very clear what it does is a little
+
+04:00.010 --> 04:04.210
+bit more of a mystery but I would rather have to figure that out than have to figure out when the thing
+
+04:04.210 --> 04:06.660
+gets called.
+
+04:06.740 --> 04:09.440
+All right so now we can flip over to our producer.
+
+04:09.760 --> 04:16.580
+I'm going to pull in my log in user type and then we'll add on another case statement to handle this
+
+04:16.840 --> 04:17.570
+type.
+
+04:17.920 --> 04:30.260
+So case log in user so now inside of here I want to take all of my existing state and I won't want to
+
+04:30.260 --> 04:34.020
+set the loading flag to true.
+
+04:34.040 --> 04:35.290
+So we don't have one just yet.
+
+04:35.300 --> 04:37.030
+Let's initialises property.
+
+04:37.220 --> 04:40.310
+Again we don't have to do this.
+
+04:40.550 --> 04:44.240
+I'm choosing to do it so that any engineer in the future is going to have a reasonable idea of what
+
+04:44.240 --> 04:48.470
+all the different pieces of state are inside this reducer.
+
+04:48.480 --> 04:50.390
+So now we've got logged in user loading.
+
+04:50.390 --> 04:50.890
+True.
+
+04:51.050 --> 04:54.560
+Another thing that I'm going to decide to put in here and this is kind of you know I'm just thinking
+
+04:54.620 --> 04:58.140
+ahead for my for my program for my app here.
+
+04:58.160 --> 05:04.250
+Chances are that whenever I start up the log in process if there's any existing error message I might
+
+05:04.250 --> 05:05.870
+want to zero that out as well.
+
+05:05.900 --> 05:09.260
+You know I might want to clear out the error message and this makes a lot of sense because if I attempt
+
+05:09.260 --> 05:15.010
+to log in once and I fail and then I'd say like you know change my password again and I hit log in again.
+
+05:15.140 --> 05:17.190
+I want the user to understand it like you.
+
+05:17.240 --> 05:17.500
+OK.
+
+05:17.510 --> 05:20.220
+Yes we understand that you are trying to log in again.
+
+05:20.270 --> 05:24.330
+We will clear that error message because otherwise you're going to think that your app is just you know
+
+05:24.350 --> 05:25.900
+doing nothing whatsoever.
+
+05:27.820 --> 05:30.910
+All right so now we're going to get this loading true flag.
+
+05:31.240 --> 05:37.690
+We will also make sure that we clear loading true whenever we hit the success case or the fail case.
+
+05:37.690 --> 05:44.230
+So whenever we hit success on a flip leading to false and whenever we hit the fail case I'm also going
+
+05:44.230 --> 05:46.870
+to change loading to false as well.
+
+05:46.870 --> 05:50.530
+Now this line right here is getting a little bit long so if you want to do some newline characters in
+
+05:50.530 --> 05:51.460
+here that's totally fine.
+
+05:51.460 --> 05:53.990
+I think I'm just going to let it kind of hang out for a little bit.
+
+05:55.870 --> 05:56.270
+OK.
+
+05:56.300 --> 06:01.820
+So we've got our loading flag right now and we are properly toggling it from true to false between all
+
+06:01.820 --> 06:03.210
+of our different states.
+
+06:03.560 --> 06:05.820
+Let's flip over to our blog and form.
+
+06:05.870 --> 06:07.400
+So here's my log in form.
+
+06:07.400 --> 06:12.350
+I'm now going to add that loading flag to my map state to prop's function and then we're going to place
+
+06:12.350 --> 06:18.560
+the button inside the log and form along with the spinner so I'll scroll down to the bottom find my
+
+06:18.560 --> 06:23.520
+map state to prop's here's where we put all of our properties off the Auth. state object.
+
+06:23.650 --> 06:28.190
+So also pulling this new loading flag that we're maintaining and I'll make sure I pass it down to the
+
+06:28.190 --> 06:29.640
+component as well.
+
+06:31.700 --> 06:36.680
+Next at the very top I will import my spinner for my common components.
+
+06:36.710 --> 06:43.350
+Remember this is one of those compounds that we've made and pulled through from project to project.
+
+06:43.750 --> 06:47.100
+And then inside of my render method I'm going to find the button.
+
+06:47.120 --> 06:51.430
+All right here it is right here and we want to move this button to a helper method where we're are going
+
+06:51.430 --> 06:56.890
+to say instead of always showing the button right here we will call the helper method and decide whether
+
+06:56.890 --> 07:01.570
+or not we want to show the button or the spinner depending on that loading flag.
+
+07:01.950 --> 07:06.050
+So this should feel pretty familiar because we did it once already in the Auth. project.
+
+07:06.100 --> 07:11.020
+So we'll say This rendered button we're going to take the same exact approach here and I'm going to
+
+07:11.020 --> 07:12.720
+cut this button tag right here.
+
+07:12.790 --> 07:19.560
+Let's cut it out and then we'll define render button as a helper method.
+
+07:19.710 --> 07:21.510
+So a rendered button.
+
+07:22.230 --> 07:25.040
+Then if this docked props start loading.
+
+07:25.050 --> 07:34.240
+So if we are loading return early and so a spinner and I wanted to be a size large Otherwise we can
+
+07:34.240 --> 07:37.570
+return that bit of button GSX that we just cut out.
+
+07:38.080 --> 07:38.580
+So there we go.
+
+07:38.590 --> 07:40.480
+I got my rendered button for loading.
+
+07:40.510 --> 07:41.400
+So the spinner.
+
+07:41.410 --> 07:44.390
+Otherwise show our button.
+
+07:44.680 --> 07:45.120
+Cool.
+
+07:45.130 --> 07:46.300
+I think we're all set.
+
+07:46.300 --> 07:48.250
+I think we're ready for a test in the simulator.
+
+07:48.250 --> 07:56.810
+I'll do my refresh now if I've put in test at test dot com and put in a bad password to start.
+
+07:56.880 --> 08:02.490
+So I'll put in a bad password we get the spinner we see authentication failed the password goes away
+
+08:02.520 --> 08:06.930
+because we want to clear that password out so the user kind of doesn't keep on just trying to like say
+
+08:06.930 --> 08:11.900
+oh maybe it was like you know that very classic you know password one oh that didn't work OK.
+
+08:11.910 --> 08:12.990
+Two three.
+
+08:12.990 --> 08:16.710
+You know what that type of kind of funky situation.
+
+08:16.710 --> 08:18.710
+So let's now log in appropriately.
+
+08:18.710 --> 08:23.870
+Now the instant that I attempt to log in here I'm going to expect to see the error message go away.
+
+08:23.880 --> 08:28.620
+I don't expect to see a spinner start up and then I'm going to expect to see this button come back when
+
+08:28.620 --> 08:31.060
+loading is all complete.
+
+08:31.060 --> 08:31.570
+There we go.
+
+08:31.600 --> 08:33.670
+Just all we expected.
+
+08:33.670 --> 08:40.120
+Now again this is a situation where we don't really have to flip the spinner back to a button that much.
+
+08:40.120 --> 08:40.470
+Right.
+
+08:40.480 --> 08:45.730
+Because in theory when the user loads or logs in successfully We're going to redirect them away from
+
+08:45.730 --> 08:50.090
+this form to some type of like you know logged in page inside our app.
+
+08:50.260 --> 08:54.160
+Nonetheless I think it's really good practice just to make sure that you can reset all of your form
+
+08:54.160 --> 08:59.080
+attributes before you know something it's a little messy or dirty.
+
+08:59.080 --> 09:01.540
+Speaking of which one more thing I want to point out here.
+
+09:01.570 --> 09:06.880
+Speaking of you know resetting form attributes I'm not going to do this because we're not going to really
+
+09:06.880 --> 09:08.710
+have a log out feature in this app.
+
+09:08.710 --> 09:13.630
+You know we covered it earlier in the authentication app so I've got a reasonable belief that you know
+
+09:13.630 --> 09:16.780
+how to put the log out functionality together yourself.
+
+09:16.780 --> 09:18.040
+But one thing I want to point out.
+
+09:18.940 --> 09:24.020
+Is that if for some reason we navigate away from the screen and then come back to it and we're going
+
+09:24.020 --> 09:30.170
+to be covering navigation here very shortly the values of these inputs are stored in the reducer right.
+
+09:30.220 --> 09:31.440
+That's where they are stored.
+
+09:31.750 --> 09:38.350
+So if I go away from this form and then come back to it those values are still going to be in the reducer.
+
+09:38.350 --> 09:43.180
+And so I would see if I came back to this form right here I would see an email and password still in
+
+09:43.180 --> 09:46.220
+the form which is really not expected behavior at all.
+
+09:46.540 --> 09:52.320
+So one way that I might choose to solve this is to flip over to my auth reducer and I could say I'm
+
+09:52.330 --> 10:00.010
+here hey whenever someone successfully logs in so I'm going to put some new new lines in here whenever
+
+10:00.010 --> 10:01.840
+someone successfully logs in.
+
+10:01.870 --> 10:02.470
+That's great.
+
+10:02.470 --> 10:09.460
+You know we've got their user user model now but I don't want to have like that stored or kind of cached
+
+10:09.490 --> 10:16.990
+email or password in the form anymore so I might choose to also reset the email and the password like
+
+10:16.990 --> 10:17.530
+so.
+
+10:17.530 --> 10:21.450
+So now someone navigates away from the form and comes back to it.
+
+10:21.490 --> 10:24.730
+They won't see their e-mail and password prefilled in there.
+
+10:24.910 --> 10:30.550
+Now the one thing I want to point out now is that if you look at the signature of this return statement
+
+10:30.550 --> 10:35.810
+right here we are essentially redefining every single property on our state objects.
+
+10:35.820 --> 10:40.630
+Right we've got like dot dot dot state which might have an air loading e-mail whatever has all that
+
+10:40.630 --> 10:42.680
+stuff on there but we're resetting all of that right here.
+
+10:42.700 --> 10:46.110
+So I think we might bill to actually clean this up a little bit.
+
+10:46.120 --> 10:52.760
+I'm going to remove all of those extra attributes.
+
+10:53.270 --> 10:57.480
+I'm going to condense down to just dot dot dot state and user.
+
+10:57.500 --> 10:58.990
+And then I will also spread it.
+
+10:59.000 --> 11:00.790
+Here's the tricky part.
+
+11:00.920 --> 11:02.190
+Initial State.
+
+11:02.840 --> 11:06.230
+So I'd say take all of our existing state you know whatever it might be.
+
+11:06.230 --> 11:11.150
+Who knows maybe we add in some additional properties in the future and we don't reflect them initial
+
+11:11.150 --> 11:11.620
+state.
+
+11:11.630 --> 11:16.470
+You know this initial dot dot state right here is just future proofing this for ourselves.
+
+11:16.700 --> 11:19.110
+Then reset all the state and order redo sir.
+
+11:19.250 --> 11:22.060
+And then on top of that throw in our user model as well.
+
+11:22.140 --> 11:24.520
+So let's see how this works now it will be our last test.
+
+11:24.530 --> 11:30.700
+I know this is turning into a long section but I really wanted to add in this last thing in here.
+
+11:30.750 --> 11:34.790
+So now if I do one two three I'm going to see my error message.
+
+11:34.850 --> 11:41.040
+But if I hit password when I logged in successfully perfect the form resets I go back to no spinner
+
+11:41.060 --> 11:41.950
+no error message.
+
+11:41.960 --> 11:44.180
+Everything is back to just very empty.
+
+11:44.220 --> 11:47.690
+And so if a user ever comes back to this form they're not going to see the proof.
+
+11:47.760 --> 11:49.510
+Pre-filled email and password.
+
+11:49.790 --> 11:51.230
+OK wriggling S..
+
+11:51.250 --> 11:51.940
+Let's see.
+
+11:51.950 --> 11:53.240
+I think we're all done here.
+
+11:53.240 --> 11:54.440
+Let's continue the next section.
+
+11:54.440 --> 11:56.750
+I think we're ready to move on to navigation

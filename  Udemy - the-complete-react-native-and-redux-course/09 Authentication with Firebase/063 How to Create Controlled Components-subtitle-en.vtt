@@ -1,0 +1,199 @@
+WEBVTT
+
+00:00.930 --> 00:06.430
+In the last section we added a bunch of code to our blog and form all revolving around States and this
+
+00:06.430 --> 00:08.720
+mystery property here that we called text.
+
+00:08.920 --> 00:13.630
+So I pull up a diagram now and we're going to do a shot at trying to figure out what the heck is going
+
+00:13.630 --> 00:15.690
+on here with this thing.
+
+00:15.760 --> 00:17.320
+So here's our diagram.
+
+00:17.320 --> 00:20.650
+So this diagram is meant to represent a cycle of sorts.
+
+00:20.650 --> 00:22.880
+So we're going to start off the top left hand side.
+
+00:23.110 --> 00:26.950
+We're going to go down there and come back up to the top 10.
+
+00:27.100 --> 00:29.470
+So everything starts off with a text input.
+
+00:29.470 --> 00:32.040
+We rendered it to art inside of our component.
+
+00:32.050 --> 00:34.570
+It shows up on the screen it is just kind of there.
+
+00:34.810 --> 00:39.670
+Once the rent is rendered and it's visible on the screen the text input just sits there and it doesn't
+
+00:39.670 --> 00:45.340
+actually do anything until the user actually taps in it and then starts to enter some text.
+
+00:45.550 --> 00:51.130
+So until the user enters some text the text input just sitting there.
+
+00:51.130 --> 00:55.350
+Now when a user enters some text some really interesting stuff starts to happen.
+
+00:56.910 --> 01:01.750
+Whenever the user enters text that onchange text event handlers called.
+
+01:01.770 --> 01:05.460
+So he added a prop to that text and put on change text.
+
+01:05.460 --> 01:10.940
+And we passed it a function that function gets called whenever a user typed something into that input.
+
+01:11.010 --> 01:13.770
+OK and it gets called with a text that the user just added.
+
+01:14.040 --> 01:16.080
+So it's not the weirdest thing in the world right.
+
+01:16.080 --> 01:21.870
+We added a callback function this federal function right here is going to be called whenever the user
+
+01:21.900 --> 01:28.230
+types inside that thing and it gets called with a text that the user outed.
+
+01:28.230 --> 01:35.400
+So then after that onchange tests on change text event is called We merely call set state with the new
+
+01:35.400 --> 01:36.170
+text.
+
+01:36.420 --> 01:39.090
+So we take that text and it calls that state with it.
+
+01:39.090 --> 01:44.370
+So now the current value of that text and put it like as far as the user is concerned as far as we're
+
+01:44.370 --> 01:47.210
+concerned is this state DOT text.
+
+01:47.220 --> 01:55.700
+That is what the value of the input is next because we called Set state the component immediately renders.
+
+01:55.910 --> 02:00.890
+Don't forget that stuff whenever we call said state the component immediately renders.
+
+02:00.950 --> 02:05.660
+And now here is where the magic happens when the text input re renders.
+
+02:05.690 --> 02:05.990
+Right.
+
+02:05.980 --> 02:13.970
+Like when our render method is executed again the text input is created again and when it renders we
+
+02:13.970 --> 02:18.990
+tell it that its value should be equal to this dot state DOT text.
+
+02:19.250 --> 02:21.150
+So we recreate the text input.
+
+02:21.170 --> 02:26.000
+We placed it on the screen and we immediately tell it that it's values this dot statement text.
+
+02:26.000 --> 02:31.520
+And so we start off all the way with the cycle again all the way back up to the top with the text input.
+
+02:31.640 --> 02:37.880
+So the very critical part here the really important part is that whenever a user enters some text into
+
+02:37.880 --> 02:44.130
+that input the text input is not responsible for knowing what its value is.
+
+02:44.140 --> 02:47.010
+It has no idea what its value is.
+
+02:47.440 --> 02:54.300
+Instead we save the value that the user entered to this state and then whenever the text input reminders
+
+02:54.340 --> 02:58.500
+we say hey text input you're not going to tell us what your value is.
+
+02:58.510 --> 03:00.850
+You have no idea what your value is.
+
+03:00.850 --> 03:08.080
+We are going to tell you very distinctly your value like the the text you should contain should be coming
+
+03:08.080 --> 03:10.360
+from this dot state DOT text.
+
+03:10.530 --> 03:11.030
+OK.
+
+03:11.110 --> 03:15.850
+So I know this might seem like a really crazy town way of handling text input.
+
+03:15.850 --> 03:17.890
+I don't disagree with you.
+
+03:18.010 --> 03:23.470
+To be honest it's very very much dissimilar from how just about every other javascript framework does
+
+03:23.470 --> 03:24.250
+this right.
+
+03:24.310 --> 03:28.360
+Every other javascript framework says let's put a text input on the screen.
+
+03:28.480 --> 03:29.760
+When the user types something in.
+
+03:29.770 --> 03:34.810
+Great just let them do it and then eventually when the user tries to submit the form let's reach into
+
+03:34.810 --> 03:37.060
+the text input and pull the value out.
+
+03:37.090 --> 03:39.820
+So re-activated is completely different in that regard.
+
+03:39.940 --> 03:45.700
+We are not letting the text exist inside the text input the text exists as a piece of state.
+
+03:45.760 --> 03:48.550
+On our component that's how it works.
+
+03:48.580 --> 03:53.680
+The benefit to this is that we always know exactly what the value of that text input is.
+
+03:53.680 --> 03:57.110
+We can just reference this dot state DOT text.
+
+03:57.120 --> 04:02.770
+Now maybe that doesn't sound like the greatest benefit in the world but believe me as soon as we start
+
+04:02.770 --> 04:07.390
+to try to pull the text of this thing and try and make this into reusable component blah blah blah blah
+
+04:07.390 --> 04:08.180
+blah.
+
+04:08.350 --> 04:13.720
+All these benefits are going to come together and you're going to realize that holding states or holding
+
+04:13.720 --> 04:18.650
+text outside of the text input actually has a fair number of benefits.
+
+04:19.330 --> 04:19.680
+OK.
+
+04:19.690 --> 04:23.520
+So this has been kind of a heavy little discussion talking about how these text inputs work.
+
+04:23.680 --> 04:29.490
+So let's take a quick break and then come back and turn this text input right here into a reusable component.

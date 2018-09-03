@@ -1,0 +1,274 @@
+WEBVTT
+
+00:01.060 --> 00:05.680
+In the last section we wired up our action creator to list item component.
+
+00:05.880 --> 00:10.580
+So we did run up a little bit short as we didn't really have any component inside of here.
+
+00:10.760 --> 00:13.650
+It was capable of receiving an on press event.
+
+00:13.710 --> 00:18.000
+So we didn't really have any way to make sure that we could actually call that action creator when the
+
+00:18.000 --> 00:23.560
+user tapped on the road for that we're going to need to import a touchable component.
+
+00:23.790 --> 00:28.080
+Now when we previously looked at our documentation for all those touchable things we saw that there
+
+00:28.080 --> 00:33.940
+were four types of touchable components and at the end of the day we used one inside of our button component.
+
+00:34.110 --> 00:38.880
+So if I open up my button here you'll see we use the touchable opacity.
+
+00:39.340 --> 00:45.160
+Each of those touchable components are designed to just handle touch feedback from users.
+
+00:45.270 --> 00:48.740
+One of those four sites is going to be very handy for us here.
+
+00:48.750 --> 00:52.530
+It is called touchable without feedback.
+
+00:52.530 --> 00:59.020
+This component is designed to register a press event but not give any feedback to the user when it occurs.
+
+00:59.070 --> 01:03.960
+And that's actually perfect for our use case because the feedback that the user is going to get is the
+
+01:03.960 --> 01:04.980
+row expanding.
+
+01:04.980 --> 01:10.240
+So we really don't need to show a highlights or a fancy opacity change nothing like that.
+
+01:10.440 --> 01:13.790
+We just have to expand the row and that is going to be our feedback to the user.
+
+01:13.790 --> 01:18.560
+You know like the responses show like yes we receive your tab.
+
+01:19.380 --> 01:24.820
+So let's import that touchable without feedback component and make use of it inside of ours.
+
+01:25.200 --> 01:32.000
+So update reac native library we'll import touchable without feedback.
+
+01:32.580 --> 01:35.740
+And I'm also going to import the view tag as well.
+
+01:36.600 --> 01:43.080
+So now we can wrap our entire GSX block with that touchable without feedback component.
+
+01:43.410 --> 01:48.810
+And then whenever someone taps on the text or the card section you know whatever it might be we can
+
+01:49.110 --> 01:54.940
+register a press event and call our action couriered to select this very particular library.
+
+01:54.960 --> 02:01.210
+So we'll start off by wrapping our entire GSX block with the touch of without feedback component.
+
+02:01.320 --> 02:04.560
+So we say touchable without feedback
+
+02:07.250 --> 02:10.550
+I'll do a little bit of indenting and then close the tag off
+
+02:17.700 --> 02:19.430
+cool.
+
+02:19.860 --> 02:27.240
+Now inside of here is all the rest of the GSX we already had because I expect to have a second card
+
+02:27.240 --> 02:30.120
+section that's going to show the description of my application.
+
+02:30.120 --> 02:32.150
+I'm going to do just a little bit of work right now.
+
+02:32.250 --> 02:39.480
+I'm going to wrap this with a view tag so that when we come back through later and add in the second
+
+02:39.480 --> 02:42.970
+card section as a sibling to this one it will be just a little bit easier.
+
+02:42.990 --> 02:46.020
+So I've now got my touchable without feedback.
+
+02:46.020 --> 02:49.740
+I've got my view tag and my card section.
+
+02:49.740 --> 02:55.500
+So now we need to hook up an on press handler to the touchable without feedback so we know whenever
+
+02:55.500 --> 02:57.930
+a user touches the thing right here.
+
+02:57.930 --> 03:04.200
+So I'm going to pass a prop called on press Remember that's how we register a callback with a touch
+
+03:04.200 --> 03:08.660
+of what that feedback into that I will pass a federal function.
+
+03:08.670 --> 03:13.710
+So inside this federal function is the code they will execute whenever a user taps on this row.
+
+03:14.130 --> 03:18.620
+So inside of here is exactly where we want to call our action creator.
+
+03:18.750 --> 03:24.690
+I want to call my select library action creator and I want to pass it this very particular library's
+
+03:24.690 --> 03:25.240
+ID.
+
+03:25.260 --> 03:30.540
+You know the the the library that maps up to this list item so that I can select that very particular
+
+03:30.540 --> 03:31.220
+library.
+
+03:32.730 --> 03:40.100
+So inside of your we will call this stuff props that selects a library and will pass in the Id noticed
+
+03:40.200 --> 03:42.160
+that I don't have a reference to ID just yet.
+
+03:42.300 --> 03:47.170
+We're going to do a little bit of destructuring off of the library to get access to that ID.
+
+03:47.460 --> 03:52.050
+So I'm going to clean up the kids like here because you probably don't need any more and I'll replace
+
+03:52.050 --> 03:54.300
+it with a little bit of destructuring.
+
+03:54.510 --> 04:00.700
+I'm going to pull off the I.D. and title properties from this prop stock library.
+
+04:01.200 --> 04:08.520
+So now when I call my press I'm going to call the select library action creator with this particular
+
+04:08.520 --> 04:11.440
+I.D. And I notice that down here as well.
+
+04:11.550 --> 04:17.130
+Scott Propst out library title since I'm destructuring the title up here.
+
+04:17.130 --> 04:22.140
+I can just condense this down to just the title.
+
+04:22.140 --> 04:22.620
+There you go.
+
+04:22.620 --> 04:25.050
+Just the title by itself.
+
+04:25.050 --> 04:25.550
+OK.
+
+04:25.620 --> 04:29.810
+So I remember the idea behind action creators.
+
+04:29.820 --> 04:33.360
+After we bound them with that connects help or at the bottom.
+
+04:33.360 --> 04:40.200
+In theory whenever the action creator is called It will return an action that gets sent off to all of
+
+04:40.200 --> 04:42.570
+our producers in our application.
+
+04:42.570 --> 04:49.720
+So I think at this point in time we should add a console log statement to our selection reducer.
+
+04:49.890 --> 04:51.900
+I've got my selection reducer opened right now.
+
+04:51.900 --> 04:57.500
+Let's add a console logged this thing to make sure that the action is showing up inside this.
+
+04:57.680 --> 05:00.850
+OK let's try it up inside of here.
+
+05:00.900 --> 05:06.090
+I'm going to cancel the log and I need to add on the arguments that the user is called for.
+
+05:06.090 --> 05:13.110
+Remember reducers are always called with the state object which is the state that was returned the last
+
+05:13.110 --> 05:19.170
+time this reducer was executed and a second argument of action.
+
+05:19.170 --> 05:23.260
+So whenever I dispatch an action it will show up as the second argument.
+
+05:23.370 --> 05:28.370
+So let's just log that action OK.
+
+05:28.790 --> 05:35.440
+So I would flip over to my Krogh or my you know my chrome console refresh my simulator.
+
+05:35.930 --> 05:41.260
+And while that was interesting look how we instantly got some console logs in here.
+
+05:41.330 --> 05:42.670
+It looks like a reducer.
+
+05:42.680 --> 05:47.840
+As we've mentioned many times previously whenever our reduce or seeing our application first boots up
+
+05:47.840 --> 05:54.560
+in redux first starts up it runs all of our reducers at least one time to assemble some type of initial
+
+05:54.560 --> 05:55.990
+state for our application.
+
+05:56.180 --> 06:03.740
+So this is that kind of boot up action that's coming through here now Ishmael to tap on any row here
+
+06:04.190 --> 06:07.120
+and see an action flow through that reducer.
+
+06:07.160 --> 06:15.560
+And in fact I do I get an action of type select library and it appears to have a payload attached to
+
+06:15.560 --> 06:17.720
+it which should be the ID of the library.
+
+06:17.720 --> 06:18.890
+I just clicked on.
+
+06:18.950 --> 06:21.210
+So with and had an idea of zero.
+
+06:21.230 --> 06:23.520
+If I click on it I get a payload of zero.
+
+06:23.590 --> 06:29.270
+Yep and then actually is at the very end has a payload of 8 because it has ID of 8.
+
+06:29.840 --> 06:30.400
+Awesome.
+
+06:30.410 --> 06:32.020
+This looks perfect right here.
+
+06:32.030 --> 06:38.270
+The last thing we have to do now that we are receiving this action inside a reducer is make sure that
+
+06:38.270 --> 06:45.410
+our douceur watches for an action of type select library and whenever it sees that it should return
+
+06:45.710 --> 06:47.510
+the selected library's.
+
+06:47.600 --> 06:53.820
+And that way this reduce or will create the selected library ID piece of state.
+
+06:53.830 --> 06:56.030
+So let's take care of that in the next section.

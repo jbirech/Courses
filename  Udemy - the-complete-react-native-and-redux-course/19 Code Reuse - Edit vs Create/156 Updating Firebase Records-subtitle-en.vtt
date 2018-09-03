@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.780 --> 00:06.220
+Our employee edit form is really coming along whenever a user clicks on the Save Changes button.
+
+00:06.380 --> 00:11.930
+We're going to run on button press and we have now verified that when we cancel log name phone and shift
+
+00:12.260 --> 00:15.550
+we get the updated values out of that form inducer.
+
+00:15.800 --> 00:21.140
+So all we have do now is replace this console log with an action creator that will actually save our
+
+00:21.380 --> 00:23.130
+new data after firebase.
+
+00:23.180 --> 00:23.910
+So let's do that now.
+
+00:23.930 --> 00:29.150
+We'll start off by writing the action creator all imported into this file we'll call it from on button
+
+00:29.150 --> 00:32.870
+press and then we'll test it all out inside the simulator.
+
+00:32.870 --> 00:38.250
+So Step 1 is going to be to open up my employee actions file.
+
+00:38.420 --> 00:45.470
+Now we've covered previously on how to create new records and firebase believer or not saving or I should
+
+00:45.470 --> 00:48.180
+say updating records is really just as simple.
+
+00:48.320 --> 00:53.940
+So we're going to form up a ref to the database and then instead of calling this push method right here
+
+00:53.990 --> 01:00.410
+which usually creates a new record we'll use what's called the set property and what it does is it updates
+
+01:00.410 --> 01:01.100
+information.
+
+01:01.100 --> 01:02.880
+So set is for updating.
+
+01:03.050 --> 01:05.000
+So see how that works in practice.
+
+01:05.420 --> 01:09.700
+At the bottom of my file I'm going to create a new action creator Randy Khalis.
+
+01:09.770 --> 01:17.820
+Employees say I don't expect employees it to be called with a name or phone.
+
+01:18.130 --> 01:20.830
+A shift and an ID.
+
+01:21.200 --> 01:26.020
+So that last last property of their idea this is the real key right here.
+
+01:26.030 --> 01:32.660
+Remember that in the case of saving or really you know updating an employee we are updating an existing
+
+01:32.660 --> 01:33.150
+record.
+
+01:33.170 --> 01:37.850
+So we have to be very explicit until firebase that we are attempting to you know like a this record
+
+01:37.850 --> 01:41.330
+over here the one with this idea this is the one that we are trying to update.
+
+01:41.420 --> 01:46.670
+So whenever we call this action creator we need to make sure that we specify the employee that we are
+
+01:46.670 --> 01:47.910
+trying to save.
+
+01:48.000 --> 01:55.130
+Or I should say update if I flip over to my firebase console just to be 100 percent clear you'll see
+
+01:55.130 --> 02:02.900
+that I have on users the first idea that's in here is my user ID that user has an employee's collection.
+
+02:02.900 --> 02:07.100
+And this is that you I.D. the idea of that very particular employee right here.
+
+02:07.100 --> 02:10.720
+So that's where that is coming from.
+
+02:10.720 --> 02:11.200
+All right.
+
+02:11.200 --> 02:16.930
+So as far as creating the ref to the database it's going to look very similar to the others.
+
+02:16.930 --> 02:19.540
+We're first going to need to get access to the current user
+
+02:22.720 --> 02:29.760
+like so I am pretty darn sure that this is going to be an asynchronous action creator again.
+
+02:29.770 --> 02:33.900
+So again I'm going to return a function because I know that I do.
+
+02:33.930 --> 02:38.180
+I'm not going to have anything to return right away from this from this action creator right.
+
+02:38.200 --> 02:39.420
+I don't know anything just yet.
+
+02:41.160 --> 02:44.340
+Then inside of here we'll form up our raft to our database.
+
+02:44.340 --> 02:47.170
+So firebase start database.
+
+02:47.190 --> 02:49.990
+RATH we're going to place our ticks.
+
+02:50.030 --> 02:50.930
+So we'll do slash.
+
+02:50.930 --> 02:58.840
+Users will designate the current users I.D. employees.
+
+02:58.860 --> 03:00.480
+And now here's the interesting part.
+
+03:00.570 --> 03:04.740
+We need to specify the exact record that we are trying to update.
+
+03:04.770 --> 03:11.910
+So usually before we were just saying like hey yeah go find that employees bucket and you know actually
+
+03:11.940 --> 03:16.940
+appear as a better example go find that employees bucket and push on the new record in their right just
+
+03:16.940 --> 03:19.410
+through a new record on top this time around.
+
+03:19.410 --> 03:22.710
+We are trying to update a very specific record.
+
+03:22.830 --> 03:26.870
+So in the ref we are pointing to a very specific record.
+
+03:27.020 --> 03:35.040
+I am pointing to the one with this very particular I.D. and once it's found I want to set some new number
+
+03:35.040 --> 03:36.490
+of properties on it.
+
+03:36.540 --> 03:41.440
+So we're going to set on there the name the phone in the shift.
+
+03:41.850 --> 03:47.760
+Finally right now I want to just do a count of log of saved.
+
+03:47.760 --> 03:52.980
+So after everything is done all the accounts log of saved and we'll call it get checks are in reality
+
+03:52.980 --> 03:56.540
+we're going to want to navigate back to the employee list screen.
+
+03:56.550 --> 03:57.900
+I think that would be a good idea.
+
+03:58.020 --> 04:02.200
+But right now we'll just kick to use or just a season we'll just do a console log.
+
+04:02.670 --> 04:04.590
+All right I think we're ready to do a up.
+
+04:04.590 --> 04:09.250
+Almost forgot one last thing we need to make sure that we actually call this action creator from somewhere.
+
+04:09.360 --> 04:12.620
+So I'm going to import it over into employee at it.
+
+04:13.140 --> 04:16.370
+So I'm going to flip over to employ it at the top.
+
+04:16.380 --> 04:23.400
+I've already got an import statement from my employee update action creator of Poland employees save
+
+04:23.400 --> 04:24.030
+as well.
+
+04:25.800 --> 04:29.070
+And then I'll hook it up to my component down inside the connector paper.
+
+04:29.600 --> 04:32.950
+I'll do a new line just to make things look nice.
+
+04:33.000 --> 04:35.760
+Here's employee save.
+
+04:35.930 --> 04:43.410
+And then finally inside of the button the button handler that is I can call this stop prop's dot employee
+
+04:43.710 --> 04:44.530
+save.
+
+04:44.820 --> 04:49.500
+And of course I need to pass and the modified name phone shift.
+
+04:49.500 --> 04:50.570
+And don't forget.
+
+04:50.580 --> 04:51.930
+Here's the really important one.
+
+04:52.050 --> 04:54.880
+The ID of the record that we are trying to update.
+
+04:54.990 --> 05:00.070
+So as you I.D. to pass and stopped Propst employee you I.D..
+
+05:00.420 --> 05:03.830
+So this last little bit here and that that's the nasty part.
+
+05:03.840 --> 05:06.120
+Where did this employee come from.
+
+05:06.120 --> 05:12.180
+Remember when ever we come to employee at it the only way you can navigate this thing is by clicking
+
+05:12.180 --> 05:15.340
+or tapping pressing on an employee.
+
+05:15.420 --> 05:23.280
+And when you do that we have our event handler inside of our list item and the list item transitions
+
+05:23.280 --> 05:27.860
+us over to employee had it passing in that employee as a prop.
+
+05:28.020 --> 05:30.090
+So that is where this does start.
+
+05:30.090 --> 05:35.130
+Props don't employ you ideas coming from it is because whenever we come to this view we are specifying
+
+05:35.130 --> 05:39.330
+the very particular employee that we are trying to work on.
+
+05:39.330 --> 05:39.630
+All right.
+
+05:39.660 --> 05:41.040
+I think we are ready for a test here.
+
+05:41.050 --> 05:47.690
+It's going to save this all do a refresh.
+
+05:47.830 --> 05:48.730
+I will log in
+
+05:53.500 --> 05:54.270
+and here's.
+
+05:54.290 --> 05:56.310
+I deleted all my other employees.
+
+05:56.330 --> 06:00.980
+I want to have just one in here so that I can see the actual record that is going to get updated.
+
+06:00.980 --> 06:08.220
+So here's Jane all by her lonesome on tap and again all of Jane's attributes are pre-filled in the form.
+
+06:08.240 --> 06:11.510
+So Jane five five Monday is actually what I expect.
+
+06:11.510 --> 06:12.830
+Let's update her phone number.
+
+06:12.850 --> 06:19.640
+So she's got a new phone number and I expect her you know let's be really mean let's really to make
+
+06:19.640 --> 06:23.150
+scene work on Saturday to read from Jane.
+
+06:23.670 --> 06:27.770
+It's now going to click on see if changes are going to expect that this is going to make her request
+
+06:27.830 --> 06:30.400
+off to firebase update this record.
+
+06:30.560 --> 06:35.510
+And I should see a council log that just says something like Hey safety record looks good.
+
+06:35.510 --> 06:40.520
+So I click save changes we get the yellow flash over here which means some data has been updated.
+
+06:40.550 --> 06:40.940
+You'll see it.
+
+06:40.940 --> 06:45.950
+Now I've got the phone number of 4 4 4 4 4 and my shift is now on Saturday.
+
+06:45.950 --> 06:47.230
+Perfect.
+
+06:47.270 --> 06:49.720
+Let's see I want to do is verify that we got the concert log.
+
+06:49.780 --> 06:50.150
+Yup.
+
+06:50.210 --> 06:50.720
+Here it is.
+
+06:50.720 --> 06:53.440
+It says saved exactly what I expected.
+
+06:53.510 --> 06:54.300
+So it's perfect.
+
+06:54.320 --> 06:55.780
+We're working really well right now.
+
+06:55.820 --> 07:00.500
+I think the last thing that we need to do is make sure that we navigate the user back over to the employee
+
+07:00.500 --> 07:01.460
+list.
+
+07:01.460 --> 07:03.610
+Normally I would say let's do it in the next section.
+
+07:03.620 --> 07:07.130
+But in this case well you know it lets us handle this event along section.
+
+07:07.130 --> 07:08.690
+Let's take care of the next section.
+
+07:08.780 --> 07:13.880
+So scene a second we're going to navigate our users back over to the employee list after they successfully
+
+07:13.880 --> 07:15.450
+save the changes.

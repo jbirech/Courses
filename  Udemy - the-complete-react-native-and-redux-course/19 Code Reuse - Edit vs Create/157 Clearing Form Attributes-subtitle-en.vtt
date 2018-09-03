@@ -1,0 +1,214 @@
+WEBVTT
+
+00:01.110 --> 00:08.140
+We're now able to save changes made in our edit form so we changed everything over to Jane.
+
+00:08.190 --> 00:13.060
+We update the phone number update the shift save changes and we saw those changes reflected over and
+
+00:13.060 --> 00:13.940
+firebase.
+
+00:14.120 --> 00:18.750
+So that's what we have to do is flip open our action creator and Williger.
+
+00:18.780 --> 00:24.660
+We want to say that after an employee has been successfully saved we're going to want to navigate them
+
+00:24.660 --> 00:28.500
+back over to our employee list screen.
+
+00:28.830 --> 00:32.870
+So we're going to first verify that we've imported our actions object up at the top.
+
+00:33.100 --> 00:34.670
+Sure have.
+
+00:34.880 --> 00:37.320
+That means that we can come on back down.
+
+00:38.090 --> 00:44.620
+I'm going to replace the Cancellara statement here with actions dot employee list.
+
+00:44.750 --> 00:50.180
+And again I want to make sure that when I navigate back to the employee list I'm not adding onto the
+
+00:50.180 --> 00:50.660
+stack here.
+
+00:50.660 --> 00:53.570
+I'm not going forward of you i'm back of you.
+
+00:53.810 --> 00:56.770
+So I go back I'm going to reset my whole stack.
+
+00:56.840 --> 01:04.220
+We did this once already with that type reset so we can as pass an option of type reset
+
+01:06.880 --> 01:09.380
+and then if I load my list up again
+
+01:16.920 --> 01:19.910
+let's add it Jane again because Jane is all I have.
+
+01:20.280 --> 01:23.360
+So let's make it work on Friday now at least a little bit nicer.
+
+01:23.430 --> 01:27.310
+I'll save changes and boom we're back over here now.
+
+01:27.520 --> 01:28.270
+Sounds good right.
+
+01:28.290 --> 01:33.930
+Well hey wait a minute wait a minute that's a big mistake.
+
+01:33.930 --> 01:40.080
+After we edited Jane I clicked on the Add button and Jane's attributes were already in the form.
+
+01:40.110 --> 01:43.240
+So remember our form reducer.
+
+01:43.290 --> 01:48.420
+It holds all of the forms state and that form state is being used in multiple places now both in the
+
+01:48.450 --> 01:50.910
+edit form and the create form.
+
+01:50.940 --> 01:56.880
+So the instant that I am done modifying an employee I need to make sure that I clear out all of these
+
+01:56.880 --> 02:02.100
+saved attributes on the form and what that really means is I need to reset the properties on my form
+
+02:02.100 --> 02:04.090
+reducer.
+
+02:04.110 --> 02:07.130
+We handle this once already with the Create case.
+
+02:07.140 --> 02:12.060
+So if I scroll up a little bit here is employee create we we're dispatching an action that said employee
+
+02:12.060 --> 02:14.440
+create and that let me know hey.
+
+02:14.610 --> 02:15.360
+OK.
+
+02:15.500 --> 02:18.430
+Time to reset all the attributes inside the form.
+
+02:18.540 --> 02:20.760
+So let's do the same thing here as well.
+
+02:20.790 --> 02:25.840
+We will dispatch an action of employees save success.
+
+02:25.890 --> 02:32.710
+Once we get that action inside of the reducer we can we can reset all the forms attributes.
+
+02:32.760 --> 02:35.480
+So first we will make sure that we get dispatch in here.
+
+02:35.490 --> 02:41.040
+So here's our dispatch method and then we will dispatch an action after we have successfully saved this
+
+02:41.040 --> 02:41.990
+employee.
+
+02:42.120 --> 02:47.290
+So we will call that employee save success.
+
+02:47.420 --> 02:49.350
+Of course we don't have this type available yet.
+
+02:49.400 --> 02:51.690
+So I'm going to scroll up to the top.
+
+02:51.890 --> 02:55.200
+We will add it as another type employee.
+
+02:57.300 --> 02:59.980
+Saves access.
+
+03:00.200 --> 03:03.580
+We have to add it as a type to our types file as well.
+
+03:03.580 --> 03:07.830
+So export Konst employees saves excess
+
+03:12.250 --> 03:17.170
+and I think you know where this is going we're going to flip over to our douceur the former douceur
+
+03:17.170 --> 03:25.660
+that is all grab employees save success and then once I see this
+
+03:28.840 --> 03:36.260
+gloire save success I will again return my initial state which is going to reset all the attributes
+
+03:36.260 --> 03:39.350
+inside the form just of what we want it.
+
+03:39.350 --> 03:41.810
+Now one thing I want to point out to you just a little reminder
+
+03:44.570 --> 03:50.900
+if I flip back on my form right now and let's update this again to Thursday excuse me that's when they
+
+03:50.900 --> 03:56.510
+create most going to go on Jane again I mean said Jane to Thursday I want to save changes.
+
+03:56.690 --> 04:00.240
+No I cook Jane again you'll notice that Jane is now on Thursday.
+
+04:00.380 --> 04:07.460
+Just to be really clear what's going on there inside of our employees fetch action creator remember
+
+04:07.460 --> 04:14.150
+how we had that on value thing and I'd said any time we update or save a record we're going to automatically
+
+04:14.150 --> 04:15.790
+get this event across.
+
+04:15.830 --> 04:19.070
+Dispatch grabbed the new employees and load them up.
+
+04:19.220 --> 04:24.110
+So that is why we're seeing that instant update for us when we just do the save.
+
+04:24.110 --> 04:24.350
+All right.
+
+04:24.360 --> 04:28.490
+When we just saved this record right here let's go to Wednesday and I click save changes.
+
+04:28.730 --> 04:35.390
+Just changing the record by default doesn't actually change it in our state like nothing actually happens.
+
+04:35.390 --> 04:41.870
+Just because I happen to set it here is specifically because we set up a watcher on the value of this
+
+04:41.870 --> 04:44.030
+location on this list of employees right here.
+
+04:44.090 --> 04:48.850
+It is only because of this right here that we get that updated model back from firebase.
+
+04:48.890 --> 04:53.540
+So there's a lot of actions that are being dispatched automatically inside of our application.
+
+04:53.540 --> 04:58.380
+We just have to kind of describe what we want to have happen and remarks and firebase take it from there.
+
+05:00.190 --> 05:07.510
+I think that we are all set with editing employees now which means we get to move on to our next topic.
+
+05:07.510 --> 05:09.680
+We need to be able to delete employees.
+
+05:09.820 --> 05:13.820
+We also need to be able to text employees their updated schedule.
+
+05:13.900 --> 05:16.910
+So let's start on both of those topics and the next section

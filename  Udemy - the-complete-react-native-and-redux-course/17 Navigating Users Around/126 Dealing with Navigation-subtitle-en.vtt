@@ -1,0 +1,370 @@
+WEBVTT
+
+00:00.630 --> 00:02.420
+Our app is now in a really great spot.
+
+00:02.460 --> 00:05.150
+I think that we have wrapped up our log in form.
+
+00:05.160 --> 00:10.620
+It is fully redux of FIDE and I get to see that you know we've probably got a better hand on handle
+
+00:10.620 --> 00:12.780
+on redux in general at this point in time.
+
+00:13.170 --> 00:17.820
+So I think that now we can move on to the next area of the application.
+
+00:17.860 --> 00:21.610
+Right now we can put an email and password we can in theory sign in.
+
+00:21.750 --> 00:26.370
+But once the user is signed in we're not really actually doing anything about it right we're not shown
+
+00:26.370 --> 00:30.130
+the user like a list of employees are given the ability to our employees.
+
+00:30.390 --> 00:32.330
+And so that's what we want to start working on.
+
+00:32.330 --> 00:37.440
+And so we're sort of going to start working on the realm of navigation with reac native and I can tell
+
+00:37.440 --> 00:43.350
+you right now navigation with re-act native is a little bit of a tricky subject.
+
+00:43.350 --> 00:50.340
+While the re-act J.S. world like you know react in the browser and has a defacto standard of navigation
+
+00:50.400 --> 00:52.220
+with the reactor router library.
+
+00:52.340 --> 00:58.320
+So yes very clear directions on how to pull off navigation on the Web.
+
+00:58.350 --> 01:04.050
+On the other hand Riak native doesn't really have a very similar go to solution for navigation.
+
+01:04.050 --> 01:10.130
+There's not like a single just fantastic community accepted standard library for all navigation.
+
+01:10.500 --> 01:16.110
+So we're going to be using one possible solution right so this is a possible solution for navigation.
+
+01:16.110 --> 01:17.520
+Personally I've looked at many of them.
+
+01:17.520 --> 01:18.650
+I think this is the best.
+
+01:18.660 --> 01:20.440
+So I think that we're making a good decision here.
+
+01:20.610 --> 01:25.890
+But I want you to be aware that there are different solutions for navigation the re-act native world.
+
+01:26.160 --> 01:33.090
+So the navigation solution we're going to use is a library called and this is just a crazy town name
+
+01:33.390 --> 01:36.040
+re-act native rowdier flux.
+
+01:36.200 --> 01:39.140
+I nasty name for a liar.
+
+01:39.180 --> 01:39.850
+Let me say that right.
+
+01:39.870 --> 01:41.380
+Nasty name for library.
+
+01:41.430 --> 01:47.730
+I'm going to most refer to it as just like our right library because you know just remembering all those
+
+01:47.730 --> 01:49.480
+four words is too much for me.
+
+01:49.490 --> 01:52.700
+I'm still going to tell you anyways.
+
+01:53.100 --> 01:56.990
+Getting a little off topic there let's start the library and we're going to figure out how it works.
+
+01:57.030 --> 02:07.170
+So at our command line will NPM install dash dash safe then re-act dash rowdier dash me wait no see.
+
+02:07.440 --> 02:17.980
+It's too long re-act dash native router flux and I want a very specific version this 3.3 5.0.
+
+02:18.420 --> 02:23.530
+So while that installs Let's go ahead and check out a diagram on how this thing works.
+
+02:24.120 --> 02:26.840
+So I've taken a couple of these screens out of our application.
+
+02:26.860 --> 02:28.880
+You know these are from our mockups.
+
+02:28.890 --> 02:32.920
+I know if the formatting on these there is a little bit weird it's just how it kind of turned out.
+
+02:32.940 --> 02:36.210
+I took the screens and I separated them out on the top.
+
+02:36.210 --> 02:42.000
+We've got our main authentication screen like you know our in form and that is kind of like this authentication
+
+02:42.000 --> 02:46.680
+flow and you can imagine that maybe if we had a really full featured authentication flow maybe you would
+
+02:46.680 --> 02:52.170
+also have like a sign up screen over here and then maybe also like a you know reset my password or something
+
+02:52.170 --> 02:52.860
+like that.
+
+02:54.180 --> 02:59.490
+Blow it I have what I'm currently calling the main flow which is you know maybe not the best name but
+
+02:59.520 --> 03:00.810
+you kind of get the idea.
+
+03:01.050 --> 03:06.710
+It has a flow where a user can see their list of employees and they can tap on an individual employee
+
+03:06.960 --> 03:10.850
+and they can look at details about that particular employee as well.
+
+03:10.930 --> 03:14.890
+And they can very freely navigate between these two screens right here right.
+
+03:14.890 --> 03:16.500
+Like they can tap on the user.
+
+03:16.710 --> 03:20.180
+They can tap the back button and they can toggle between the two very easily.
+
+03:20.190 --> 03:22.120
+That is the intent anyways.
+
+03:22.710 --> 03:28.470
+The main flow and the authentication flow however the this is a little bit more of a very distinct jump
+
+03:28.470 --> 03:29.390
+between the two.
+
+03:29.400 --> 03:29.700
+Right.
+
+03:29.700 --> 03:34.040
+Like you have to really put in your email and password press logon button.
+
+03:34.080 --> 03:40.160
+And then we the developer will direct you over to this employee list of sorts right here.
+
+03:40.230 --> 03:45.990
+So jumping between these two flows is a little bit you know more direct more programmatic something
+
+03:45.990 --> 03:53.390
+that we are gonna take care of ourselves as the developers so now our question is how do we use this
+
+03:53.390 --> 03:58.340
+navigation library that we just installed to set up for this type of navigation right here.
+
+03:58.340 --> 04:02.690
+We've got these kind of two distinct flows where we can jump between the two.
+
+04:02.780 --> 04:07.580
+And then the one we can freely go forward and back how are we going to use this re-act router native
+
+04:07.580 --> 04:09.980
+flux library to do that.
+
+04:10.400 --> 04:18.650
+Well then this routing library has the idea of what is called a scene a scene in a scene is how we organize
+
+04:18.710 --> 04:26.720
+a distinct page that our user can navigate to a scene is a component that we were going to import from
+
+04:26.720 --> 04:29.490
+that routing navigate routing Leibert.
+
+04:29.990 --> 04:36.310
+So in our application we have three distinct screens the log in screen a employee list of sorts.
+
+04:36.310 --> 04:39.810
+And employee create of sorts where you you know create new employees.
+
+04:39.830 --> 04:45.870
+We have three screens and so I'm going to expect to have three Screen Scene components.
+
+04:46.100 --> 04:50.120
+So scene one scene too and SCENE THREE.
+
+04:50.120 --> 04:57.020
+Each of these scene components are going to create match up a component with a key property over here
+
+04:57.020 --> 05:01.400
+and the key property kind of describes hey what does this show screen or what is it what does this screen
+
+05:01.400 --> 05:03.040
+show backwards.
+
+05:03.200 --> 05:08.630
+So I'm going to expect that we're going to create three scene components one for each of the distinct
+
+05:08.720 --> 05:10.650
+screens that we're going to create.
+
+05:12.470 --> 05:12.800
+All right.
+
+05:12.800 --> 05:14.710
+One more thing I want to talk about here.
+
+05:15.050 --> 05:17.770
+Figure out how these scenes work with the routeing library.
+
+05:17.780 --> 05:21.910
+I expect that you're going to jump onto it pretty quickly.
+
+05:21.920 --> 05:27.950
+The most challenging part of this scene API of sorts is just understanding what all the props you can
+
+05:27.950 --> 05:29.310
+past the scene are.
+
+05:29.600 --> 05:36.680
+So again we're going to make one scene component for each distinct screen in our application the scene
+
+05:36.680 --> 05:40.190
+component has four big properties that we're going to really care about.
+
+05:40.220 --> 05:44.950
+And there's many other properties that we can pass this thing but these are the ones that we're like
+
+05:45.080 --> 05:49.040
+going to use probably 90 percent of the time in our applications.
+
+05:49.040 --> 05:50.600
+First off is a key.
+
+05:50.600 --> 05:55.460
+So we might give it a kind of like log in which means you know this is my log in screen.
+
+05:55.460 --> 06:00.650
+The key is very important and is very distinctly different from the Keys that we've been working with
+
+06:00.650 --> 06:03.020
+whenever we made a list of re-act components.
+
+06:03.080 --> 06:03.420
+OK.
+
+06:03.470 --> 06:05.360
+I want to I want to throw that out there right away.
+
+06:05.360 --> 06:11.540
+This key is not related to list building like when we were using map to build up a list.
+
+06:11.660 --> 06:16.650
+Instead the key is how we navigate around from screen to screen in our application.
+
+06:16.850 --> 06:20.680
+So I've got a note up here that says you know you call this thingamajig to show the screen.
+
+06:20.690 --> 06:21.830
+We'll talk more about that.
+
+06:21.860 --> 06:26.560
+But for right now I just want you to understand that the key does not have to do with list building.
+
+06:26.660 --> 06:31.490
+It has to do with how we identify a particular screen.
+
+06:31.510 --> 06:36.880
+Next is the component and this one I bet you can imagine what this one is for when we make a scene.
+
+06:36.880 --> 06:41.870
+It represents a singular screen that we want to show in our app or a single like a set up of components.
+
+06:42.100 --> 06:47.250
+So we tell a single scene what component we want it to show next.
+
+06:47.290 --> 06:53.980
+The title property and that's where things start to get a little bit more interesting this re-act router
+
+06:54.250 --> 07:00.600
+no re-act native router flock's There we go library has a built in Hetter component for us to use.
+
+07:00.940 --> 07:02.540
+So we have already made it better.
+
+07:02.620 --> 07:03.040
+Yes.
+
+07:03.040 --> 07:06.220
+And we made a reusable component but we're not going to be using that one.
+
+07:06.220 --> 07:10.990
+We're going to be using the one that is provided by this library and there's a very good reason for
+
+07:10.990 --> 07:11.860
+that and we'll talk about it.
+
+07:11.860 --> 07:13.900
+We started using the header for it.
+
+07:13.900 --> 07:19.180
+Now it is once you understand that we can tell a scene what its tiles should be and if we set that title
+
+07:19.380 --> 07:21.980
+it will put that title on the nav bar.
+
+07:21.980 --> 07:24.170
+There's going to be automatically created for us.
+
+07:24.190 --> 07:27.860
+And again we will talk a whole bunch about that.
+
+07:27.970 --> 07:33.880
+Finally the last prop I want to talk about is called initial initial means hey out of all the different
+
+07:33.880 --> 07:39.870
+scenes I have in my application when the app first boot up I want to show this scene in particular.
+
+07:39.940 --> 07:42.860
+So for us we're going to have three different scenes right.
+
+07:42.880 --> 07:45.850
+We definitely want to show the log in screen first no matter what.
+
+07:45.940 --> 07:47.910
+Pop that thing up make the person log in.
+
+07:47.920 --> 07:55.290
+So we want to tell one scene that is the initial scene to show insider application.
+
+07:55.410 --> 07:55.650
+All right.
+
+07:55.660 --> 07:57.090
+So a lot of talking here.
+
+07:57.130 --> 08:02.590
+Overall I feel like this whole router library is really one of those things where it's kind of tough
+
+08:02.590 --> 08:05.040
+for me to explain with words and diagrams.
+
+08:05.260 --> 08:11.500
+But once we put some code down on the screen are you on the page and see how it really works by writing
+
+08:11.500 --> 08:12.280
+some code.
+
+08:12.280 --> 08:15.040
+I think you're going to get a hold on it really quickly.
+
+08:15.040 --> 08:19.450
+So let's take a quick break and then start working on some implementation in the next section.

@@ -1,0 +1,190 @@
+WEBVTT
+
+00:00.630 --> 00:06.210
+In the last section you finished up our selection reducer so that we are now recording the selected
+
+00:06.210 --> 00:08.300
+library whenever one is clicked on.
+
+00:08.550 --> 00:14.480
+I think one of the last things we have to do is now take that selected library ID and import it into
+
+00:14.480 --> 00:22.290
+a list item and say hey if that selected library is ID is equal to this library's ID then I should show
+
+00:22.350 --> 00:26.150
+an expanded card section of view that includes the detail.
+
+00:26.160 --> 00:33.450
+So again I have a component where I want to consume some piece of application level state.
+
+00:33.720 --> 00:39.210
+Remember how we do that we add on a map state to prop's function and then pass it to our connect handler
+
+00:39.210 --> 00:40.260
+down here.
+
+00:40.260 --> 00:51.120
+So we will first start out by creating a map state state prop's not state to process excuse me function.
+
+00:51.230 --> 00:57.450
+It will be called with our application states and from here we will return a plain javascript object
+
+00:57.840 --> 01:02.610
+and that object will show up as props to our component.
+
+01:02.640 --> 01:15.300
+So I would return selected library ID and that is going to be state DOT selected library ID.
+
+01:15.560 --> 01:19.880
+Remember this state does select to like library id property right here.
+
+01:19.890 --> 01:26.860
+It is specifically selected library ID because when I wired up the reducer to my application I assigned
+
+01:26.880 --> 01:30.450
+the reducer to the selected library id property.
+
+01:30.450 --> 01:39.250
+So because I sign this reducer to this property I now have a selected library ID piece of state.
+
+01:39.300 --> 01:42.970
+So here is our map state the proper function it is returning an object.
+
+01:42.980 --> 01:48.240
+The last thing you have to do is make sure we pass this map state to prop's function as the first argument
+
+01:48.540 --> 01:50.510
+to our connect handler.
+
+01:50.620 --> 01:55.740
+So I will pass it in as the first argument to the connect helper call.
+
+01:55.740 --> 02:08.280
+So now in theory inside of our component we can compare this ID right here to this dot props dot selected
+
+02:08.280 --> 02:14.970
+library ID and if they are equal we should show some expanded amount of detail about this library.
+
+02:15.090 --> 02:16.340
+So lets try this out.
+
+02:16.650 --> 02:25.870
+I will say Konst should expand equals you know let's do this with like a nice long.
+
+02:25.940 --> 02:27.790
+Whats the best way to do this.
+
+02:27.930 --> 02:29.160
+Let's do this with a helper function.
+
+02:29.160 --> 02:29.670
+How about that.
+
+02:29.700 --> 02:36.750
+I think thats going to be the most clear to add on a helper method called render description and we're
+
+02:36.750 --> 02:39.480
+going to treat this like some conditional GSX return.
+
+02:39.510 --> 02:50.400
+So I will say if this dog props dog library dot ID is equal to this dot Probst dot selected library
+
+02:50.910 --> 02:56.880
+ID then return.
+
+02:56.880 --> 03:01.740
+And this is where we will put in some additional amount of GSX right here something to say basically
+
+03:01.960 --> 03:03.270
+hey here is a description.
+
+03:03.480 --> 03:05.580
+So I want to return a text tag.
+
+03:05.630 --> 03:09.180
+For right now just a text tag that says
+
+03:11.590 --> 03:19.480
+this props library Daut description and because it is a reference to a javascript very well I am going
+
+03:19.480 --> 03:21.530
+to wrap it with curly braces like so.
+
+03:21.940 --> 03:27.730
+Now of course take notice here that I'm referring to several properties off of our props object which
+
+03:27.730 --> 03:32.320
+means this would be a really good candidate for doing some destructuring just to condense down the amount
+
+03:32.320 --> 03:33.930
+of references we have.
+
+03:33.930 --> 03:43.750
+So let's do that now let's say Konst library and selected library ID should come from the Vistar props
+
+03:43.840 --> 03:45.070
+object.
+
+03:45.070 --> 03:54.970
+And now I can condense this all down to just Library ID equals select library ID and then inside the
+
+03:54.970 --> 03:58.950
+text Dagh will go to just Library dot description.
+
+03:59.530 --> 04:06.260
+So make sure you've got library ID select the library ID and library description.
+
+04:06.280 --> 04:09.770
+All right let's save this and test it out in the simulator.
+
+04:09.930 --> 04:13.480
+Oh you know what actually when I say we got to do we need to make sure that we are calling the render
+
+04:13.480 --> 04:16.730
+description method from inside of our render method.
+
+04:17.140 --> 04:23.450
+So inside of our render method I'm going to add on a call to this dot render.
+
+04:24.450 --> 04:29.030
+Description.
+
+04:29.630 --> 04:30.170
+All right.
+
+04:30.200 --> 04:32.510
+I think we're ready for a test out in the simulator.
+
+04:32.680 --> 04:40.950
+I would refresh clicked on a thing and also we get our nice description in here.
+
+04:41.510 --> 04:42.840
+The full length description.
+
+04:42.860 --> 04:47.480
+And whenever I click on one and then click on another the previous one closes because I can only have
+
+04:47.480 --> 04:49.860
+one selected ID at a time.
+
+04:50.390 --> 04:54.380
+OK it definitely works out but the styling is Woof.
+
+04:54.410 --> 04:55.130
+That is rough.
+
+04:55.130 --> 04:57.050
+That is some rough styling right there.
+
+04:57.050 --> 05:02.960
+In addition you know what I'm thinking about this render description help right here and I'm not super
+
+05:02.960 --> 05:03.640
+happy about it.
+
+05:03.650 --> 05:08.070
+I feel like we could maybe do something a little better than what I've got right here.
+
+05:08.210 --> 05:12.480
+Let's continue in the next section and see if we can't refactor this component up a little bit.

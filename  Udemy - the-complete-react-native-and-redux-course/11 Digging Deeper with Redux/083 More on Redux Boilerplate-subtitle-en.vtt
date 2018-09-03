@@ -1,0 +1,358 @@
+WEBVTT
+
+00:00.480 --> 00:04.200
+In the last section we put together a little bit of boilerplate for our application.
+
+00:04.530 --> 00:07.490
+And I also just set up as Slint and I'm so happy I did.
+
+00:07.500 --> 00:11.610
+This is a fantastic example of the tiny mistakes that it keeps you from making.
+
+00:11.610 --> 00:15.950
+You'll notice that in the path and sodomite index files I listed.
+
+00:15.960 --> 00:17.140
+With a capital A.
+
+00:17.340 --> 00:19.850
+When in fact we created the file with the lowercase say.
+
+00:19.890 --> 00:22.030
+So I was going to go with the lower case version.
+
+00:22.050 --> 00:26.940
+So inside of index I was yes I'll fix up the paths to be a sarcy slash app.
+
+00:27.360 --> 00:31.150
+And inside of my android J us I'll make sure I do the same.
+
+00:31.580 --> 00:33.410
+OK so it's a little bit of a typo there.
+
+00:35.610 --> 00:36.510
+Go.
+
+00:37.150 --> 00:41.530
+So in this section we're going to set up the redux side of things inside of our application.
+
+00:41.530 --> 00:47.890
+Now I want to tell you right now that unfortunately setting up the read out side of things requires
+
+00:47.890 --> 00:52.120
+typing out a pretty good amount of code where it's just going to look kind of mysterious to us.
+
+00:52.130 --> 00:52.580
+OK.
+
+00:52.780 --> 00:59.340
+So generally when I teach redox I love to give people our beginners a kind of boilerplate application.
+
+00:59.350 --> 01:03.040
+You know something with a very low level redux code already put together.
+
+01:03.310 --> 01:06.860
+Just because it helps us from getting really caught in the weeds right at the get go.
+
+01:07.030 --> 01:11.230
+But since with reac need have we generate a new project on the fly it kind of makes a little bit harder
+
+01:11.230 --> 01:15.830
+to start off with like you know some pre-build application I've worked on.
+
+01:15.850 --> 01:20.040
+Anyways the point of what I'm saying here is we're going to go through a little bit of setup.
+
+01:20.200 --> 01:24.550
+I don't think it's going to be that painful but we are going to see a pretty decent amount of code for
+
+01:24.550 --> 01:26.430
+stuff that we haven't really touched on before.
+
+01:26.440 --> 01:31.630
+Let's just get to it and you guys can let me know if it's in retrospective it's really crazy or not.
+
+01:31.630 --> 01:33.280
+We'll see how it turns out.
+
+01:34.000 --> 01:38.260
+So I'm going to be giving some amount of discussion about what's going on but for the most part we're
+
+01:38.260 --> 01:43.000
+going to kind of try to get through the set up and then focus on learning what's going on inside of
+
+01:43.020 --> 01:44.400
+my app file right now.
+
+01:44.440 --> 01:52.060
+And at the very top I'm going to import two things I'm going to import provider from re-act redux and
+
+01:52.060 --> 01:57.260
+I'm going to import create store from redux.
+
+01:57.400 --> 02:02.810
+Notice that the last three import statements that I have right now all have curly braces around them
+
+02:02.970 --> 02:10.390
+as so curly braces around provider curly braces around create stores as well now we create store function
+
+02:10.390 --> 02:10.980
+right here.
+
+02:11.110 --> 02:12.310
+Probably looks a little bit familiar.
+
+02:12.310 --> 02:13.630
+Right we got that from redux.
+
+02:13.630 --> 02:17.640
+We tested out inside the browser is what creates our store object.
+
+02:17.890 --> 02:20.560
+But the provider object certainly is not.
+
+02:20.740 --> 02:24.760
+And in addition this whole library of re-act redux you know what the heck is that.
+
+02:24.760 --> 02:26.560
+I thought we were just doing redux.
+
+02:26.830 --> 02:31.780
+Well let's just add a little bit more code and it will discuss about what each of these is doing.
+
+02:32.590 --> 02:39.190
+So inside of my out component I'm going to wrap the view tag right here with the provider tag.
+
+02:39.460 --> 02:43.100
+So that thing that we just imported is a GSX component.
+
+02:43.120 --> 02:45.990
+So I can render it as the provider.
+
+02:46.050 --> 02:49.420
+Next I'm going to pass the provider a store.
+
+02:49.740 --> 02:54.910
+I need to just put in your create store and right now I'm not going to create store I'm just going to
+
+02:55.120 --> 02:58.960
+pass it the method just like so just this right here.
+
+02:58.990 --> 03:01.980
+So let's talk about what the provider tag right here does.
+
+03:01.990 --> 03:06.210
+I'm going to help pull up a diagram to help us out with that definition a little bit.
+
+03:09.750 --> 03:13.000
+The provider tag works together with the store.
+
+03:13.020 --> 03:15.410
+Each of them has a very specific job.
+
+03:15.630 --> 03:18.500
+So the store is what actually holds our application state.
+
+03:18.510 --> 03:21.130
+You know like all the data within our application.
+
+03:21.390 --> 03:25.960
+So in this diagram right here I've got the store sitting right here and I'm saying that it has like
+
+03:25.980 --> 03:33.530
+basically pieces of state called state one state to state three state for the purpose of the provider
+
+03:33.540 --> 03:38.940
+on the other hand is what translates all the data into that in that store into something that can be
+
+03:38.940 --> 03:41.560
+used by the re-act side of our application.
+
+03:41.820 --> 03:49.860
+So the store is the thing that holds our state while every provider is communication with re-act.
+
+03:50.110 --> 03:56.440
+You may have noticed that when we were working with redux over in the browser We didn't touch a single
+
+03:56.440 --> 03:58.680
+thing that said react anywhere right.
+
+03:58.690 --> 04:03.680
+Like there wasn't a single thing that we were working with on the redux side that said oh yeah hookup
+
+04:03.700 --> 04:07.260
+to react at this point in time like that never ever happened.
+
+04:07.270 --> 04:13.250
+So the real truth behind redux as a library is yeah it was definitely made with react in mind.
+
+04:13.300 --> 04:13.600
+Right.
+
+04:13.600 --> 04:15.770
+Like the author wrote it with react in mind.
+
+04:15.940 --> 04:18.130
+But they did not design the library.
+
+04:18.190 --> 04:22.180
+Redux was not designed to only work with react.
+
+04:22.240 --> 04:27.400
+It doesn't really have any Riak specific bindings to it whatsoever nothing that makes it work nicely
+
+04:27.400 --> 04:28.550
+with react.
+
+04:28.660 --> 04:33.190
+That's the job of the re-act light re-act redux library that we just installed.
+
+04:33.460 --> 04:38.560
+So this reata redux library is the communication glue between redux and react.
+
+04:38.610 --> 04:40.660
+So it makes them play nicely together.
+
+04:44.070 --> 04:47.490
+So at this point in time we've got some amount of boiler plate on here.
+
+04:47.490 --> 04:49.520
+We've got our create story call.
+
+04:49.620 --> 04:54.390
+The next thing that we're going to do is we're going to create a producer and we're going to pass it
+
+04:54.450 --> 04:55.950
+to this create store right here.
+
+04:55.950 --> 05:01.500
+So remember when we're in the browser when we try to create a store and we just you know said like Freestore
+
+05:01.500 --> 05:06.050
+we got an error message thrown back to us that said hey you have to throw in at least one reducer here.
+
+05:06.180 --> 05:09.870
+So we're going to create one reduce her and then pass it into the store.
+
+05:10.320 --> 05:16.460
+The only kind of flip here is the only kind of the way in which I'm going to make things really confusing
+
+05:16.470 --> 05:20.880
+let me just be blunt about that is that we're going to do it in a slightly and we're going to create
+
+05:20.880 --> 05:24.430
+this news from a slightly different way than how we made the last one.
+
+05:24.480 --> 05:27.880
+So just bear with me for a moment inside of my source directory.
+
+05:27.880 --> 05:35.280
+I'm going to make a new folder called reducers and then inside if you're going to make a new file called
+
+05:35.310 --> 05:36.990
+index dot J.S..
+
+05:37.170 --> 05:42.540
+So index dot is right here a member that shares the same pattern as that like common components folder
+
+05:42.540 --> 05:43.600
+that we had before.
+
+05:43.740 --> 05:49.710
+So in theory we might have many other reducers inside this file but they will all be imported into this
+
+05:49.710 --> 05:50.660
+index file right here.
+
+05:50.670 --> 05:55.390
+So this index file is kind of like the window to the rest of the world as far as reducers go.
+
+05:55.890 --> 05:58.410
+So now here's the kind of weird part that I mentioned.
+
+05:58.620 --> 06:05.330
+We're going to say imports combine reducers from redux.
+
+06:05.380 --> 06:09.750
+Notice I have curly braces around combine reducers here as well.
+
+06:09.760 --> 06:14.110
+We are pulling this property out of the redux library.
+
+06:14.110 --> 06:17.730
+Now we had previously created a redux store with just one reducer.
+
+06:17.800 --> 06:22.930
+But in the vast majority of apps you want to have multiple reducers like multiple different pieces of
+
+06:22.930 --> 06:27.090
+state to make all these different reducers play nicely together.
+
+06:27.100 --> 06:33.260
+We use this combine reduces function from the redux Library.
+
+06:33.420 --> 06:37.650
+We'll certainly see the impacts that combine reducers has on application state.
+
+06:37.740 --> 06:45.890
+For right now let's just get our example working I can put down export default combine reducers and
+
+06:45.900 --> 06:48.220
+I get a pass it an object.
+
+06:48.720 --> 06:56.180
+It's going to have a single key of libraries and that's going to return an empty array right now.
+
+06:56.820 --> 07:03.290
+So at this point we created 1 reduce or it's going to other main libraries and by default that reduce
+
+07:03.290 --> 07:05.600
+or always returns an array no matter what.
+
+07:05.730 --> 07:11.330
+So even if an action comes through is reduce or we are always going to get an array returned.
+
+07:11.640 --> 07:21.570
+Finally we need to wire this reduce up as simple an and nonfunctional as it is I suppose to create StoryCorps.
+
+07:21.640 --> 07:25.100
+So we need to get that producer over to create store right here.
+
+07:25.810 --> 07:34.100
+So inside of our out file I will import reducers from in the current directory get the reducers folders
+
+07:34.110 --> 07:41.240
+so in the current directory get the reducers folder and I don't have to put on Slash's index here because
+
+07:41.240 --> 07:45.410
+just by importing the folder it's implied that I want the index file.
+
+07:45.410 --> 07:49.360
+And finally I'll pass in reducers to the create store call.
+
+07:49.520 --> 07:52.720
+So create or see me reducers.
+
+07:52.780 --> 07:54.740
+There we go.
+
+07:55.100 --> 07:55.610
+That's it.
+
+07:55.610 --> 07:56.800
+That is the like.
+
+07:56.810 --> 08:01.500
+That is the bare minimum amount of redux it takes to set up an application.
+
+08:01.550 --> 08:05.300
+We created a store and passed it to the provider tag.
+
+08:05.570 --> 08:10.250
+We also created one reducer and we passed it to the store when we created it.
+
+08:10.250 --> 08:11.400
+So this is a good start.
+
+08:11.510 --> 08:13.900
+Let's continue going in the next section.

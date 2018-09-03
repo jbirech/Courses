@@ -1,0 +1,325 @@
+WEBVTT
+
+00:00.770 --> 00:06.340
+In the last section we introduce the idea of this connect help right here from the re-act redux library.
+
+00:06.480 --> 00:12.750
+And we said there was going to help us get access to our application state inside of a given component.
+
+00:12.810 --> 00:15.830
+So let's now continue with this implementation.
+
+00:15.840 --> 00:21.270
+I'm inside of my library list file right here and we still have our connect up are wired up right now
+
+00:21.300 --> 00:24.860
+but it's not really appearing to do anything too much for us.
+
+00:24.900 --> 00:29.750
+So here's how he uses Kinect helper we connect helper.
+
+00:29.760 --> 00:32.100
+We can pass in a first argument to it.
+
+00:32.130 --> 00:36.570
+So like first argument inside of the first set of parentheses as a function.
+
+00:36.960 --> 00:44.040
+And I'm going to call this function map state to prop's it's going to take an argument of state like
+
+00:44.040 --> 00:48.290
+so and then I don't pass it in as the first argument.
+
+00:49.570 --> 00:53.250
+Ok so I know that I just kind of jump the gun in there a little bit through a bunch of stuff up on the
+
+00:53.250 --> 00:57.330
+screen without giving you a good idea of what's going on so let's just take a quick pause and discuss
+
+00:57.330 --> 00:58.340
+what's happening.
+
+00:58.740 --> 01:05.310
+The purpose of this function right here map state to prop's is to do just what the function name says
+
+01:05.310 --> 01:09.840
+right here and I know the function name is kind of a little bit confusing but it is somewhat reasonable
+
+01:09.840 --> 01:11.430
+once I explain it.
+
+01:11.520 --> 01:15.230
+The purpose of this function is to take our global state object.
+
+01:15.240 --> 01:17.600
+So this is our application state.
+
+01:17.640 --> 01:23.820
+The thing that sits inside of our redux store and it will map it in some fashion or kind of like take
+
+01:23.820 --> 01:31.020
+some properties off that state object and then provide them as props to our component of library list.
+
+01:31.030 --> 01:38.070
+So that is the purpose of map state to process in practice so well you know sure that description is
+
+01:38.070 --> 01:41.640
+easy to say but let's actually kind of figure out how this thing works.
+
+01:41.700 --> 01:46.320
+Let's get started by putting a console log inside this function right here and just see when it gets
+
+01:46.320 --> 01:48.730
+called and what it gets called with.
+
+01:48.750 --> 01:51.250
+So I'm going to add a console log of state.
+
+01:51.270 --> 01:53.250
+So you know let's look at what the state object is.
+
+01:53.250 --> 01:58.140
+Figure out what properties it has and also figure out when this console log right here gets called.
+
+01:58.160 --> 02:02.280
+Or excuse me this Matt States the proper function gets called.
+
+02:02.280 --> 02:06.660
+Now before I can refresh the simulator and run this code right here if you recall we are not actually
+
+02:06.660 --> 02:09.770
+showing the library list anywhere inside of our application right now.
+
+02:09.870 --> 02:15.720
+So we need to first go into our apt J.S. file and make sure that we actually show the library list inside
+
+02:15.720 --> 02:16.110
+of here.
+
+02:16.110 --> 02:20.580
+Remember just because we created the component doesn't actually mean it necessarily mean that it's going
+
+02:20.580 --> 02:22.060
+to be visible on the screen.
+
+02:22.620 --> 02:33.270
+So at the top we'll import library list from components library list and I'm going to place it inside
+
+02:33.270 --> 02:35.860
+of the tag inside our component.
+
+02:36.300 --> 02:42.080
+So lie very list like so cool.
+
+02:42.270 --> 02:44.190
+So I'm going to pop up in Chrome.
+
+02:44.190 --> 02:47.370
+I've got my debugger here already.
+
+02:47.430 --> 02:50.660
+One quick thing I want to mention back inside of library list.
+
+02:50.670 --> 02:54.000
+We are not returning any valid GSX from this component just yet.
+
+02:54.000 --> 02:56.740
+So I'm going to expect to see a big error message.
+
+02:56.910 --> 02:57.920
+That's totally fine.
+
+02:57.930 --> 03:02.460
+We should still see the console log anyways so we will see an error but it will still be useful for
+
+03:02.460 --> 03:04.190
+us.
+
+03:04.260 --> 03:10.690
+So back in my simulator I will refresh and get a nice big air there but that's really fine.
+
+03:10.710 --> 03:14.400
+Here is the console log from that map state to prop's function.
+
+03:14.760 --> 03:21.630
+So our map state to prop's function got called with one argument at the top and the argument we called
+
+03:21.630 --> 03:24.560
+state because it is our application state.
+
+03:24.750 --> 03:26.670
+So check out this object right here.
+
+03:26.670 --> 03:34.950
+It is an object with a key of libraries and a value of I don't know an array an array of objects where
+
+03:34.980 --> 03:38.260
+each object represents one of our particular libraries.
+
+03:38.430 --> 03:41.390
+So this is starting to like tie the whole story together a little bit.
+
+03:41.400 --> 03:42.240
+Right.
+
+03:42.240 --> 03:43.490
+We now have.
+
+03:43.850 --> 03:50.670
+If I flip over to my reducers file index start Geass I had said that our state object will have a key
+
+03:50.670 --> 03:56.710
+of libraries and a value of the list of libraries produced by our library reducer.
+
+03:56.730 --> 04:04.110
+So when our application first boots up it evaluates this statement right here it executes the library
+
+04:04.170 --> 04:08.270
+reduce or 1 time to get some like initial state put together.
+
+04:08.670 --> 04:11.700
+And therefore our initial state objects are at first.
+
+04:11.790 --> 04:19.050
+Up is an object with a key of libraries and a value of whatever got produced from the library reducer.
+
+04:19.080 --> 04:25.140
+So then when our map state the proper function is executed with the first argument being our application
+
+04:25.140 --> 04:27.310
+state we saw that count the log.
+
+04:27.330 --> 04:30.440
+And yup it definitely was our application state.
+
+04:30.940 --> 04:33.180
+OK but that's just kind of step one right here.
+
+04:33.240 --> 04:33.490
+Right.
+
+04:33.500 --> 04:39.300
+Step one we have now verified that map state to prop's is called in this function right here gets called
+
+04:39.600 --> 04:41.830
+and the first argument is state.
+
+04:41.970 --> 04:48.750
+But again I said you know we're going to use connect to somehow get access to our state object or some
+
+04:48.750 --> 04:51.970
+properties out of it and pass them to the library list.
+
+04:51.990 --> 04:53.010
+That was the whole goal here.
+
+04:53.010 --> 04:53.950
+Communicate.
+
+04:54.060 --> 04:57.270
+The list of libraries to the library list component.
+
+04:57.510 --> 04:59.060
+And so right now we're not quite doing that.
+
+04:59.060 --> 05:02.980
+You know we've got two state object inside of that state to prop's.
+
+05:03.080 --> 05:08.600
+But how do I actually communicate any data from this function into this component.
+
+05:08.900 --> 05:13.180
+Well to do so here's kind of the magic of Matthysse to process.
+
+05:13.340 --> 05:15.150
+If I return a function.
+
+05:15.220 --> 05:22.880
+Excuse me if I return an object from this function right here that object will show up as props to my
+
+05:22.880 --> 05:25.150
+component library list.
+
+05:25.220 --> 05:32.420
+So let's see what that looks like in practice if I return an object from this function right here.
+
+05:32.420 --> 05:34.750
+It will show up as props to library list.
+
+05:34.820 --> 05:41.930
+So I'm going to make an object with the key of libraries and the value of state libraries or member
+
+05:41.990 --> 05:46.550
+state libraries would be a reference to my array of libraries.
+
+05:46.580 --> 05:49.390
+So it should have like 9 objects inside of it.
+
+05:50.160 --> 05:58.670
+So now I'm going to expect that my component library list has a problem of libraries and the value of
+
+05:58.970 --> 06:00.240
+the array of libraries.
+
+06:00.290 --> 06:04.240
+I know that library were just flying all over the place here.
+
+06:04.250 --> 06:08.320
+Hopefully we can keep that word in check at least somewhat.
+
+06:08.600 --> 06:15.140
+So just as a test inside my render method I'm going to put in a console log of this prompts.
+
+06:15.170 --> 06:24.440
+So my expectation now is that my prop's object should have a library's property to it with a value of
+
+06:24.440 --> 06:27.610
+the list of libraries like the array of all those objects.
+
+06:27.800 --> 06:29.630
+So I'm going to go back over to Chrome.
+
+06:29.630 --> 06:36.050
+I will refresh my console or just clear it excuse me and then I will refresh my simulator.
+
+06:38.040 --> 06:43.530
+So I refreshed my simulator still get an error here because I'm not returning any valid GSX.
+
+06:44.070 --> 06:49.710
+But if I expand this consulate statement right here you'll see that I have an object with a property
+
+06:49.710 --> 06:51.390
+of dispatch which is a function.
+
+06:51.420 --> 06:53.010
+We'll talk more about that later.
+
+06:53.160 --> 06:59.670
+But more importantly I have a property of libraries and that is an array that contains all the libraries
+
+06:59.670 --> 07:00.990
+for my application.
+
+07:00.990 --> 07:07.980
+So clearly this connect helper is forging a connection between our library list and our application
+
+07:07.980 --> 07:09.420
+state.
+
+07:09.570 --> 07:11.990
+Again that is the whole purpose of the connect helper.
+
+07:12.150 --> 07:18.450
+It is what forges a connection between our re-act side of our application and the redux side.
+
+07:19.150 --> 07:19.540
+OK.
+
+07:19.560 --> 07:22.960
+So we clearly have our data inside the component at this point in time.
+
+07:23.100 --> 07:28.740
+Let's now continue in the next section and figure out you know exactly how we're going to build our
+
+07:28.740 --> 07:31.830
+list out of all these different libraries.

@@ -1,0 +1,247 @@
+WEBVTT
+
+00:00.810 --> 00:05.790
+In the last section we added in a render description helper that would figure out whether or not the
+
+00:05.790 --> 00:11.730
+library was currently selected and if it was it would return the library's description and that definitely
+
+00:11.730 --> 00:13.940
+had good results inside of our simulator.
+
+00:14.100 --> 00:16.850
+But you'll notice that this thing Wolf it's kind of rough right now.
+
+00:16.850 --> 00:20.510
+It could definitely use some styling on that thing.
+
+00:20.940 --> 00:25.290
+In addition I want to point out that our runner description method right here you know there's something
+
+00:25.290 --> 00:30.150
+about it that just makes me really unhappy and that is in this.
+
+00:30.270 --> 00:34.640
+Like Tiny helper method right here that nobody is ever really going to look at.
+
+00:34.650 --> 00:38.940
+We make this very critical decision like this statement right here.
+
+00:38.960 --> 00:45.510
+This statement this very critical decision where we say if this library is currently selected then do
+
+00:45.510 --> 00:46.480
+this thing.
+
+00:46.530 --> 00:50.980
+And so I've got this very critical logic that's just kind of tucked away inside of my component.
+
+00:51.450 --> 00:57.570
+I would feel a lot better about this component's design if we instead just passed in a single prop of
+
+00:57.570 --> 01:02.500
+something like You know I don't know expanded like this got prostate expanded.
+
+01:02.610 --> 01:04.660
+And that would be either true or false.
+
+01:04.710 --> 01:08.910
+And that would determine whether or not I want to show the library's description.
+
+01:08.910 --> 01:14.700
+So what I'm seeing here is it would be really nice if I could pull out this logic here the logic to
+
+01:14.700 --> 01:18.860
+decide whether or not this component is expanded to some other location.
+
+01:19.050 --> 01:23.230
+It would just allow my component to end up being that much simpler.
+
+01:23.940 --> 01:26.550
+So I think that would be a great place to start inside the section.
+
+01:26.580 --> 01:32.480
+I want to relocate this logic right here to decide whether or not this component is selected.
+
+01:32.550 --> 01:36.880
+And so you might be ask yourself Was Stephen where we are in the world else would we do that.
+
+01:37.020 --> 01:42.240
+We can't you know we could do it in the parent but you know is that the best place for it then the parent
+
+01:42.270 --> 01:44.090
+just knows about whether or not this thing is selected.
+
+01:44.100 --> 01:44.980
+I don't know.
+
+01:45.420 --> 01:52.380
+Well I'm going to suggest maybe the best place to do this would be in the map state to prop's function
+
+01:52.380 --> 01:58.040
+right here because this component doesn't really it doesn't really care about what the meaning of selected
+
+01:58.050 --> 02:03.790
+library idea is that component just cares about whether or not it should show the expanded view.
+
+02:03.810 --> 02:12.180
+So I want to modify my map state to proper function to only pass in a prop of like expanded so like
+
+02:12.180 --> 02:15.790
+expanded true or expanded false.
+
+02:15.840 --> 02:19.790
+So you might be thinking that that's not going to work the math into proper function.
+
+02:19.800 --> 02:22.450
+It's only called with the state object.
+
+02:22.470 --> 02:27.180
+How are we going to know like which particular library we're talking about here.
+
+02:27.180 --> 02:33.270
+Well fortunately what I'm really trying to lead up to here is the map state departs function is called
+
+02:33.270 --> 02:39.900
+with a second argument that by convention we call own prop's.
+
+02:40.060 --> 02:46.150
+The second argument here that we call own props are the props that were passed to the component that
+
+02:46.150 --> 02:47.140
+we're wrapping.
+
+02:47.470 --> 02:53.830
+So in our case the list item component when it is displayed on the screen by the library list it is
+
+02:53.830 --> 02:56.100
+passed in library right.
+
+02:56.110 --> 03:05.100
+It is passed a library which is why inside of here we reference this Propst library this own props function
+
+03:05.130 --> 03:12.890
+or own props object right here is exactly equal to this art props inside of the component.
+
+03:12.990 --> 03:19.830
+So any props that we pass into this list item component will show up inside of map state to props as
+
+03:19.950 --> 03:21.070
+own props.
+
+03:21.090 --> 03:22.980
+I'm sure this is a little bit confusing.
+
+03:23.040 --> 03:23.540
+Don't sweat it.
+
+03:23.540 --> 03:27.940
+This is another one of those topics that we're going to come back to many many times.
+
+03:28.500 --> 03:34.200
+So I'm getting access to own props inside of that state the props I can do some amount of kind of like
+
+03:34.620 --> 03:41.280
+pre calculation or pre-determination to figure out exactly what props I want to pass down into my component
+
+03:41.610 --> 03:46.860
+and what it really allows me to do is remove all logic from my component entirely.
+
+03:46.860 --> 03:49.040
+And that's exactly what I want to do.
+
+03:49.050 --> 03:56.490
+So inside of that stage props I'm going to create a new variable called expanded and expanded is going
+
+03:56.490 --> 04:01.530
+to be state DOTs selected library ID.
+
+04:01.890 --> 04:09.770
+And if this is equal to own prop's dot library ID then expand it will be true.
+
+04:09.900 --> 04:13.300
+Otherwise if they are not the same expand it will be false.
+
+04:13.620 --> 04:18.780
+And then finally instead of having to communicate to the component what the currently selected library
+
+04:18.780 --> 04:23.680
+ideas I can just say whether or not it should be expanded.
+
+04:24.390 --> 04:29.900
+And because my key and the value are identical I can advance this down to just expanded like so.
+
+04:30.330 --> 04:36.960
+So the net result of all this the net result is that I have pulled some amount of logic out of my component
+
+04:37.690 --> 04:40.180
+my component no longer has to worry about this.
+
+04:40.200 --> 04:47.400
+You know the meaning of selected like the ID component can just look at this expanded flag and decide
+
+04:47.400 --> 04:49.850
+whether or not it should show the description.
+
+04:49.860 --> 04:56.850
+So now we can refactor our code inside of Rand's description and just say instead of looking at selected
+
+04:56.850 --> 05:02.820
+library ID I can just look at expanded and expanded is true.
+
+05:02.820 --> 05:07.410
+So if expanded then chosen text otherwise do not.
+
+05:07.410 --> 05:08.720
+And that's pretty much it.
+
+05:09.090 --> 05:12.080
+So I know that this is probably a very subtle distinction here.
+
+05:12.080 --> 05:18.060
+You might be thinking Stephen what is the difference between deciding inside the components self whether
+
+05:18.060 --> 05:24.930
+or not this thing should be expanded versus placing that logic inside of map stage props.
+
+05:25.230 --> 05:31.530
+Well yes in this case is a very small distinction and we probably didn't save ourselves too much by
+
+05:31.530 --> 05:37.710
+just allocating this one line of logic down to map state to prop's but I can guarantee you that on more
+
+05:37.710 --> 05:43.680
+complex components this type of consideration right here you know this type of kind of Prete calculation
+
+05:43.680 --> 05:47.970
+of props to pass down to the component can be extremely helpful.
+
+05:48.150 --> 05:53.360
+So the intent here is not necessarily for our application to really save the day or anything like that.
+
+05:53.370 --> 05:59.070
+The intent here is to just let you know that your map state the proper function is called with the components
+
+05:59.070 --> 05:59.570
+props.
+
+05:59.580 --> 06:03.500
+And you can use that to do some type of pre-calculated here.
+
+06:04.050 --> 06:06.300
+OK let's do one last test.
+
+06:06.300 --> 06:07.650
+Make sure this all works.
+
+06:07.800 --> 06:13.660
+So refresh my simulator and yup I can still Heider show all my descriptions.
+
+06:14.130 --> 06:19.200
+So I think the last thing we have to do is make sure that these text descriptions are smiled a little
+
+06:19.200 --> 06:20.210
+bit more nicely.
+
+06:20.340 --> 06:22.800
+So let's take care of that in the next section.

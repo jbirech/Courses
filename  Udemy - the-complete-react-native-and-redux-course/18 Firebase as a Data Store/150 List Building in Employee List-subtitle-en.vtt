@@ -1,0 +1,244 @@
+WEBVTT
+
+00:00.690 --> 00:05.820
+We've now got our data we've got our data source we can start to work on the actual list view inside
+
+00:05.820 --> 00:07.040
+of our component.
+
+00:07.110 --> 00:12.000
+We're going to follow the same convention as when we last used the last few where we made a separate
+
+00:12.000 --> 00:16.380
+list item component to represent a single employee in our list.
+
+00:16.380 --> 00:20.850
+So that will be a pretty darn simple component but we'll still break it out to be something separate
+
+00:21.210 --> 00:26.530
+just in case we ever want to give it a bunch of special functionality as an individual row.
+
+00:27.330 --> 00:35.130
+So inside of our component I'm going to start off by replacing my view tag with a list view and we're
+
+00:35.130 --> 00:38.780
+going to give the list view a healthy number of properties.
+
+00:38.790 --> 00:43.050
+The first thing we're going to do is work around a small little issue.
+
+00:43.830 --> 00:45.630
+This is an issue with re-act native.
+
+00:45.720 --> 00:49.470
+I don't want to talk about it too much because it might be something that goes way in a future version.
+
+00:49.470 --> 00:53.130
+Basically just enable empty sections.
+
+00:53.130 --> 00:58.150
+Next we're going to give a data source of this data source.
+
+00:58.260 --> 01:02.460
+So this is the one that we are crafting every single time that we get a new set of props.
+
+01:02.850 --> 01:07.920
+And then next we'll do our rendah wrote this dot Brandur.
+
+01:08.470 --> 01:15.100
+So render remember is responsible for rendering a singular row of our of our list.
+
+01:15.120 --> 01:23.220
+So let's build that render ROW function say Renda row and from here we will return a list item which
+
+01:23.220 --> 01:29.440
+is going to be the component we need to create and we're going to pass it in employee.
+
+01:30.210 --> 01:35.690
+And remember that this helper method render row is going to be called with a single employee as well.
+
+01:35.690 --> 01:37.920
+So that's where the employee is coming from.
+
+01:37.920 --> 01:41.190
+So it gets called with an employee because it's representing a single row.
+
+01:41.310 --> 01:45.710
+And we're going to pass that down to list item as a prop called employee.
+
+01:45.750 --> 01:50.420
+So now we can create our first we'll import list item at the top and we haven't made it yet or so are
+
+01:50.430 --> 01:52.070
+going to import it anyways.
+
+01:52.560 --> 01:56.960
+So at the very top we don't need the you or text anymore.
+
+01:57.000 --> 02:06.140
+So I'm going to clean those up and then I will import list item from list item list item.
+
+02:06.180 --> 02:07.790
+It's a very generic name here.
+
+02:07.800 --> 02:12.570
+I might want to call it something a little bit more specific like employee list item just in case I
+
+02:12.570 --> 02:16.170
+have any other lists of data inside my application this time around.
+
+02:16.170 --> 02:20.760
+We've only got the one list so I feel okay about just client list item but you might want to call it
+
+02:20.790 --> 02:22.890
+employee list item instead.
+
+02:22.890 --> 02:29.880
+So make a new component called list item and then side if you're where you are going to scaffold out
+
+02:29.880 --> 02:31.050
+our list item.
+
+02:31.490 --> 02:43.740
+So at the top we'll import react and component from react we'll import text from re-act native and it
+
+02:43.740 --> 02:53.850
+will also import our card section from Conon which is our collection of all of our reusable components.
+
+02:53.900 --> 03:04.010
+Then we'll make our list item class which will extend component we'll make our render method the list
+
+03:04.010 --> 03:04.730
+item itself.
+
+03:04.730 --> 03:07.350
+I think it just needs to show the employees name.
+
+03:07.550 --> 03:11.770
+It doesn't really make too much maybe it makes sense to show the shift or something like that.
+
+03:12.050 --> 03:17.130
+But I think that for the purposes of our app I think it makes sense to show the name on the on here.
+
+03:17.570 --> 03:26.180
+So I will pull off the name of the employee which is coming from this stock props start employee then
+
+03:26.180 --> 03:30.140
+I will return a card section
+
+03:34.620 --> 03:44.910
+S. and inside of there will have are text tag which contains the employee's name.
+
+03:45.360 --> 03:50.550
+Then at the bottom I will export the full list item to make sure that this thing can be used in other
+
+03:50.550 --> 03:51.680
+files as well.
+
+03:51.690 --> 03:56.820
+I think the last thing that I want to do is add a little bit of styling to the text tag itself as it
+
+03:56.820 --> 04:01.860
+stands right now we would render all the way to the left of the screen you know kind of butting up against
+
+04:01.860 --> 04:02.640
+the edge.
+
+04:02.670 --> 04:06.360
+So I think that maybe we should increase the text size of this thing and make sure that it has a little
+
+04:06.360 --> 04:09.030
+bit of standoff from the left hand edge as well.
+
+04:09.160 --> 04:12.680
+So make a Stiles object at the bottom.
+
+04:12.680 --> 04:22.720
+This thing will have a title style and will give it a font size of 18 along with a padding left of 15.
+
+04:22.820 --> 04:26.670
+There's padding left is what's going to give us a little stand off in the edge.
+
+04:26.670 --> 04:30.490
+Then we can pass that as a style to our text tag.
+
+04:30.530 --> 04:35.060
+So styles dot title style like so.
+
+04:35.970 --> 04:38.100
+All right let's try this out in the simulator.
+
+04:38.100 --> 04:39.060
+So refresh
+
+04:42.880 --> 04:49.740
+we will log back in.
+
+04:50.220 --> 04:54.780
+And now we get our employees popping up on the screen and that is a mighty fine looking list.
+
+04:54.880 --> 04:56.290
+Without a doubt.
+
+04:56.290 --> 04:57.540
+So now here's the real test.
+
+04:57.540 --> 05:02.880
+Here's the thing we really want to make sure silk works though if I add a new employee I expect to see
+
+05:02.880 --> 05:07.930
+it automatically appear in this list and I expected to appear there automatically because remember'd
+
+05:07.950 --> 05:12.900
+side of our action creator file we made that employees fetch action creator.
+
+05:12.900 --> 05:19.860
+We only have to cull this thing just like the one time and then any time that any new data comes across
+
+05:19.860 --> 05:25.980
+from firebase and remember firebase is a live dynamic data store so any time that remote collection
+
+05:25.980 --> 05:34.410
+or remote pool of employees gets updated we will get notified by this on value event handler right here.
+
+05:34.560 --> 05:40.440
+So any time we get a new employee we should automatically get a dispatch of employees fecche success
+
+05:40.770 --> 05:42.710
+along with a new list of employees.
+
+05:42.720 --> 05:44.890
+So that is what I expect to have happen.
+
+05:44.910 --> 05:47.530
+I'm going to make a new employee.
+
+05:48.050 --> 05:55.350
+We need we need a name for this one about Samantha and Samantha is also there all sharing the same phone
+
+05:55.350 --> 05:56.800
+number.
+
+05:56.880 --> 06:01.980
+Samantha maybe she needs to work on Sunday so that will create this takes us back to our employee list
+
+06:01.980 --> 06:07.920
+screen and we automatically get Samantha appended onto the list at the very bottom right there.
+
+06:07.920 --> 06:08.610
+It is awesome.
+
+06:08.640 --> 06:13.170
+We dont have to do any additional logic to go out and hey refed your list of employees or anything like
+
+06:13.170 --> 06:13.520
+that.
+
+06:13.650 --> 06:15.640
+So definitely works fantastically.
+
+06:15.930 --> 06:21.180
+Lets now continue in the next section and start working on one of our next features.
+
+06:21.270 --> 06:25.190
+The ability to edit and delete existing employees

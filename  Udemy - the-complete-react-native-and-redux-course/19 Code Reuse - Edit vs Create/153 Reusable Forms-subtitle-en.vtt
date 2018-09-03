@@ -1,0 +1,346 @@
+WEBVTT
+
+00:00.680 --> 00:05.720
+In the last section we had a long discussion about the differences between forms and they create versus
+
+00:05.780 --> 00:07.290
+edit mode.
+
+00:07.290 --> 00:13.290
+I'm going to pick a direction to move forward in if you feel like you know I want to really try to reuse
+
+00:13.290 --> 00:18.030
+the entire form like the entire thing I want to make one component that's responsible for both editing
+
+00:18.060 --> 00:19.950
+and show and creation.
+
+00:19.950 --> 00:26.770
+That's fine if you want to make two completely separate components as totally fine but go into a kind
+
+00:26.870 --> 00:31.170
+of I can call it a hybrid approach or going to call like the middle ground.
+
+00:31.350 --> 00:39.630
+I want to point out that the really reusable portion in both of these create and edit forms is the set
+
+00:39.630 --> 00:41.080
+of fields in the middle right.
+
+00:41.130 --> 00:43.960
+That's like the real reusable portion here.
+
+00:43.980 --> 00:50.160
+So what I'm going to suggest is that we're going to create two separate components one is going to be
+
+00:50.160 --> 00:53.660
+called employee create and we've already got one called that.
+
+00:53.820 --> 00:59.370
+And then we're going to have another one called employee and it will then make a third component called
+
+00:59.400 --> 01:01.110
+employee form.
+
+01:01.170 --> 01:06.820
+The purpose of employee form is to just tackle these three fields right here.
+
+01:06.900 --> 01:12.600
+So these three fields are 100 percent common between the two different forms.
+
+01:12.750 --> 01:15.500
+So I can pull them all into a separate component.
+
+01:15.510 --> 01:22.020
+I can reuse that amount of code but for all the stuff about deciding about hey what should happen when
+
+01:22.020 --> 01:23.740
+the user clicks the button at the bottom.
+
+01:23.910 --> 01:27.510
+We can make a separate employee create component to figure that out.
+
+01:27.750 --> 01:33.090
+And when deciding what to do when a user clicks on delete we're going to make a separate employee edit
+
+01:33.150 --> 01:35.330
+component to figure that out as well.
+
+01:35.340 --> 01:37.200
+So that's that's the plan going forward.
+
+01:37.230 --> 01:43.780
+We're going to introduce a new employee edit component and a new employee form component as well.
+
+01:44.400 --> 01:49.020
+So we certainly have quite a good amount of refactoring to do here.
+
+01:49.020 --> 01:53.090
+So let's get started on it inside of my components directory.
+
+01:53.190 --> 02:00.270
+I'm going to get started by creating a new file called employee form and then the sole purpose of this
+
+02:00.360 --> 02:08.700
+company right here is to show those different fields to the user fields to edit the name the shift and
+
+02:08.700 --> 02:09.910
+the phone number.
+
+02:10.440 --> 02:12.540
+So we'll make a class employee form
+
+02:15.710 --> 02:17.010
+at our render method.
+
+02:17.180 --> 02:24.970
+I'm not going to add anything in here just yet at the bottom we will export default employee form.
+
+02:25.610 --> 02:31.640
+So again the only purpose of this thing is to make sure that it's the only purpose of this is to make
+
+02:31.640 --> 02:36.230
+sure that we show the different fields that the user should see.
+
+02:36.260 --> 02:40.760
+So I'm going to flip back over to the employee create and I think that we can actually get away with
+
+02:40.760 --> 02:44.270
+just copy pasting out a bunch of stuff in here.
+
+02:44.420 --> 02:51.020
+So I'm going to take the first card section the second card section and the third card section and all
+
+02:51.020 --> 02:52.220
+the picker's stuff.
+
+02:52.250 --> 02:56.440
+So I get to select all this stuff all three card sections.
+
+02:56.800 --> 03:02.390
+I'm going to cut it out and I'm going to move it all over to the employee form.
+
+03:02.480 --> 03:10.730
+So in here I will return and I need to have a view at the top level because I cannot every render method
+
+03:10.730 --> 03:13.460
+I make has to return just one top level element.
+
+03:13.790 --> 03:16.510
+And these three card sections are all siblings.
+
+03:16.950 --> 03:25.990
+OK so now we've got our employee form and it contains three different card sections in here.
+
+03:26.100 --> 03:30.460
+Of course we're going to need to fill in a couple of imports at the top so I'll do that right now.
+
+03:30.670 --> 03:34.830
+I will import view from Riak native.
+
+03:35.040 --> 03:39.380
+I think we're also going to need the text for the label and picker as well.
+
+03:39.470 --> 03:48.110
+So viewed Texan picker and then we will import the card section and the input from common.
+
+03:48.600 --> 03:52.680
+And I think that should probably get up to one last area here we need to make sure we bring over the
+
+03:52.680 --> 03:54.630
+stiles object as well.
+
+03:54.660 --> 03:57.270
+So we've got text styles right here.
+
+03:57.430 --> 04:03.600
+And if flip back over to employee create in a grab my style's object it's not being used inside this
+
+04:03.600 --> 04:08.970
+file so I'm going to take the entire thing is I going to cut it and I come back over to employee form
+
+04:09.810 --> 04:11.410
+and paste it at the bottom.
+
+04:13.590 --> 04:14.030
+OK.
+
+04:14.160 --> 04:19.400
+So now I don't think of any errors left in here I think I'm good to go.
+
+04:19.500 --> 04:24.000
+The next thing we have to do inside of this employee form right here is make sure that it has access
+
+04:24.000 --> 04:26.310
+to the employee update action creator.
+
+04:26.310 --> 04:31.740
+Remember that is the action creator that actually does something whenever a user types some value in
+
+04:31.740 --> 04:32.530
+here.
+
+04:32.550 --> 04:37.950
+So I wanted to take my employee update action creator and add it to this component.
+
+04:38.010 --> 04:39.020
+You know how to handle that.
+
+04:39.030 --> 04:41.040
+We will import that connect helper at the top
+
+04:45.280 --> 04:56.150
+from reactor's ducks and then we'll also import our action creator of employee update from actions.
+
+04:58.830 --> 05:03.930
+Then we can flip down to the bottom and we'll toss in our connect helper.
+
+05:04.270 --> 05:07.490
+I don't think we're going to need a map state to props here.
+
+05:07.780 --> 05:12.740
+So I'm going to leave it as no health costs an employee update.
+
+05:13.140 --> 05:13.750
+OK.
+
+05:13.870 --> 05:20.140
+So the API so to speak about this thing you know what I take that back.
+
+05:20.140 --> 05:28.300
+We do need a we do need a map state to proxy because we do have to poll in the name the phone and the
+
+05:28.810 --> 05:31.000
+shift of the user as well.
+
+05:31.000 --> 05:36.020
+So we do need that map stage props so all down or real will define outstate props
+
+05:39.910 --> 05:48.210
+we take our state object this thing is going to show airs going to require some number of attributes
+
+05:48.210 --> 05:50.830
+off of the employee form reducer.
+
+05:51.060 --> 05:53.820
+So we're going to reach out to the
+
+05:56.380 --> 06:05.740
+state DOT employee form property and we're going to pull off the name the phone in the shift then from
+
+06:05.740 --> 06:14.490
+this function we'll return name phone and shift Lastly and replace null with map state two prompts.
+
+06:14.590 --> 06:20.690
+So now I'm sure this refractors probably doesn't seem like the clearest thing in the world.
+
+06:20.770 --> 06:21.310
+Right.
+
+06:21.310 --> 06:26.410
+That seemed like the clearest thing but I do want to point out I want to convince you it's not as bad
+
+06:26.410 --> 06:28.020
+as it might seem.
+
+06:28.030 --> 06:35.880
+Our employee form as it stands right here is exactly identical to how it was inside of employee create.
+
+06:35.890 --> 06:39.140
+We're still showing three card sections.
+
+06:39.160 --> 06:45.640
+We show the value coming from this dot stock name which is sourced from our employee former douceur.
+
+06:45.880 --> 06:53.080
+And then whenever a user changes the value of some input we call employee update action creator with
+
+06:53.080 --> 06:57.810
+the prop of the property was changed and the new value as well.
+
+06:57.820 --> 07:03.850
+So all we've done at this point is extracted these three fields into a separate component and now the
+
+07:03.850 --> 07:09.840
+last thing that we need to do is make sure that the employee create form shows that set of fields.
+
+07:10.210 --> 07:14.350
+So inside of employee create We're going to do it just a little bit of cleanup at the top.
+
+07:14.350 --> 07:16.510
+We don't need the picker or the techs anymore.
+
+07:16.810 --> 07:19.390
+We don't need the inputs anymore.
+
+07:19.960 --> 07:30.420
+We do need our employee form from employee form and we're going to show this inside of this component.
+
+07:30.610 --> 07:35.950
+So when the render method right above the last card section will show employee form.
+
+07:36.040 --> 07:44.220
+Like so the last thing that I'm doing here is to make sure that any props that are given to this employee
+
+07:44.220 --> 07:49.800
+create form or this employee create component get passed on to employee form as well and we'll we'll
+
+07:49.800 --> 07:51.270
+see why in just a moment.
+
+07:51.320 --> 07:57.390
+So to make sure that we pass along any props that are provided to this employee forum I'm going to say
+
+07:57.420 --> 08:03.210
+Dot dot dot this stuff props and what this says is take all of the different props that employ create
+
+08:03.210 --> 08:06.960
+has been passed and forward them on to employee form as well.
+
+08:06.960 --> 08:09.970
+Again we'll come back to this little topic right here in a moment.
+
+08:10.570 --> 08:12.220
+OK let's do a quick test.
+
+08:14.890 --> 08:16.600
+I'm going to do my refresh.
+
+08:16.600 --> 08:17.400
+We will log in
+
+08:23.790 --> 08:29.090
+and then I click on Add and lo and behold we still have the same forms on the screen and the same field
+
+08:29.100 --> 08:32.650
+so I can add in Jane 5 5 5.
+
+08:33.010 --> 08:34.590
+I listed a different name let's say.
+
+08:34.920 --> 08:39.870
+Amanda that will create and everything still works the same.
+
+08:39.870 --> 08:41.270
+So here's Amanda right here.
+
+08:41.310 --> 08:45.900
+The only difference we made at this point is that we extracted out all those fields into a separate
+
+08:45.900 --> 08:46.900
+component.
+
+08:47.010 --> 08:51.270
+Do you notice at this point that you know it employed create is now really small.
+
+08:51.270 --> 08:53.790
+There's not a lot of stuff that's going on here just yet.
+
+08:53.820 --> 08:56.130
+So it is pretty nice in that regard.
+
+08:56.940 --> 09:03.150
+Let's now continue onto the next section and see where we're going to get the real benefit here by creating
+
+09:03.180 --> 09:04.980
+our employee added form

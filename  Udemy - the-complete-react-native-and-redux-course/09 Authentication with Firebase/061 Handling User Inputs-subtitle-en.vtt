@@ -1,0 +1,160 @@
+WEBVTT
+
+00:00.670 --> 00:05.940
+In the last section we kicked off our log and form component by import import on a couple of different
+
+00:05.940 --> 00:09.000
+components from our common directory.
+
+00:09.000 --> 00:13.890
+You'll notice here that you know condensing it down to a single line is just fantastic saves us a lot
+
+00:13.890 --> 00:15.290
+of space here.
+
+00:15.300 --> 00:18.930
+Now there's a couple of different directions that we can go with our blog and forum to get it working
+
+00:18.930 --> 00:21.850
+for accepting a email and password.
+
+00:21.900 --> 00:27.160
+But I think the best direction is going to be to focus on just getting some text inputs in here.
+
+00:27.180 --> 00:31.590
+In each of the card sections and starting to receive an email and a password from the user you know
+
+00:31.590 --> 00:34.560
+just give them the ability to type something in.
+
+00:34.590 --> 00:36.300
+So that's a great place to start.
+
+00:36.300 --> 00:41.790
+But before we do let me say something really quick handling text inputs is a little bit of a pain with
+
+00:41.790 --> 00:44.450
+re-act native Cade's a little bit of a pain.
+
+00:44.670 --> 00:49.700
+So to figure out how to handle text inputs Here's the methodology we're going to take.
+
+00:49.860 --> 00:54.170
+We're first going to implement a text input inside of this log in form.
+
+00:54.180 --> 00:59.440
+So we're going to do all the work that's required directly inside this logging form.
+
+00:59.810 --> 01:05.150
+After that you know after we figure out how it works we're going to factor out that text input to a
+
+01:05.150 --> 01:07.510
+separate component to a reusable component.
+
+01:07.580 --> 01:09.320
+OK so that's that's the plan here.
+
+01:09.320 --> 01:13.920
+We're going to first figure out how it works and then we're going to refactor it over time.
+
+01:14.360 --> 01:14.710
+OK.
+
+01:14.720 --> 01:18.420
+So with that disclaimer Let's get started with some text fields.
+
+01:18.560 --> 01:23.500
+The Riak native library provides us with a primitive text field and a text field.
+
+01:23.510 --> 01:28.140
+I mean just something that can accept text from use or called text input.
+
+01:28.400 --> 01:32.450
+So we're going to import that right now from the re-act native library.
+
+01:32.690 --> 01:33.930
+So here is our view.
+
+01:33.980 --> 01:39.230
+I will also Pullan text input like so the text input.
+
+01:39.240 --> 01:44.700
+Again it's a primitive It's a view tag or you know a component that we can place anywhere inside of
+
+01:44.700 --> 01:46.180
+our render method.
+
+01:46.230 --> 01:52.890
+So we want to have one text input or input for each of our hard sections three hours going to focus
+
+01:52.890 --> 01:54.900
+on doing one of the two inputs.
+
+01:55.020 --> 02:02.810
+So I'm going to expand out like hard section and inside of it or place a text input like so.
+
+02:03.170 --> 02:03.760
+OK.
+
+02:03.920 --> 02:07.400
+So here is kind of difficulty.
+
+02:07.400 --> 02:11.300
+Number one with text inputs and let me tell you there's more than one difficulty.
+
+02:11.300 --> 02:17.990
+Number one is that text inputs by default do not have a set height and width by default they behaved
+
+02:18.020 --> 02:20.230
+just like the image tags we saw earlier.
+
+02:20.240 --> 02:25.190
+They render with a height in the width of zero and they also have zero styling in general.
+
+02:25.220 --> 02:30.230
+So if we just went refreshed our simulator right now we would not see anything pop up on the screen
+
+02:30.740 --> 02:35.540
+so it'd just get our text input to be visible like just visible.
+
+02:35.540 --> 02:42.980
+We're going to add on a style tag or a style Propp excuse me and we'll give it a hard coded height of
+
+02:42.980 --> 02:45.740
+20 and a width of 100.
+
+02:45.880 --> 02:46.050
+OK.
+
+02:46.090 --> 02:48.520
+So this is just to get the darned thing visible.
+
+02:48.860 --> 02:55.820
+So let's flip Bobe and our simulator now and you'll see that our card section the first one now appears
+
+02:55.820 --> 02:57.680
+to have a little bit of height to it.
+
+02:57.950 --> 03:02.710
+If I click all the way to the left all the way to the left if you click in the middle it won't work.
+
+03:02.720 --> 03:04.380
+You have to click all the way to the left.
+
+03:04.550 --> 03:06.220
+We can then start to type.
+
+03:06.230 --> 03:07.210
+So OK.
+
+03:07.220 --> 03:10.070
+It looks like we are able to accept some amount of text here.
+
+03:10.070 --> 03:12.890
+So we're definitely going in the right direction.
+
+03:12.890 --> 03:18.410
+Let's take a short break and come back and talk a little bit more about exactly how text inputs work
+
+03:18.500 --> 03:19.490
+with re-act native

@@ -1,0 +1,301 @@
+WEBVTT
+
+00:01.050 --> 00:06.030
+We've now got access to our list of libraries inside of the library list component which means it's
+
+00:06.030 --> 00:11.070
+time to maybe pivot away from redux a little bit and focus more on the re-act side of things and just
+
+00:11.070 --> 00:14.240
+figure out how we are going to render this list of components.
+
+00:14.380 --> 00:17.450
+Now in the past we have already figured out how to make a list.
+
+00:17.520 --> 00:24.080
+We did so by using the map function to turn a list of data objects into a list of components.
+
+00:24.110 --> 00:28.280
+This is a fine approach for small lists like limited lists of data.
+
+00:28.500 --> 00:33.530
+But as soon as we start trying to render like dozens of items or hundreds or even thousands of items
+
+00:33.810 --> 00:39.260
+we need a better approach when it comes to the performance side of our application.
+
+00:39.270 --> 00:43.440
+Now I want to preface all this by saying yes our list of libraries is very small.
+
+00:43.440 --> 00:45.210
+We've only got like nine right now.
+
+00:45.480 --> 00:51.310
+Yes it is a small list but I still want to pretend as though maybe it's a very large list of libraries.
+
+00:51.310 --> 00:51.630
+Right.
+
+00:51.650 --> 00:56.590
+I want to figure out how we can render this very large list of libraries appropriately.
+
+00:57.300 --> 00:59.260
+So here's how we're going to tackle this.
+
+00:59.310 --> 01:03.990
+First we're going to look at the theory behind rendering a large list of items and then we're going
+
+01:03.990 --> 01:06.740
+to implement it inside of our component.
+
+01:06.900 --> 01:11.190
+So I pull a diagram up on the screen really quick and I know this is kind of a nasty one but just bear
+
+01:11.190 --> 01:13.980
+with me in the background.
+
+01:13.980 --> 01:18.870
+I've got a mobile device so we're going to pretend for a second that I've got a mobile device that's
+
+01:18.870 --> 01:22.140
+running an app that is trying to show a list of items.
+
+01:22.290 --> 01:29.130
+Right and maybe I've got so many items that some number of them are visible on the screen like the top
+
+01:29.130 --> 01:30.180
+half right here.
+
+01:30.180 --> 01:37.380
+And it's not until I like scroll down like click here and then drag up right that I'm going to scroll
+
+01:37.380 --> 01:39.570
+these by bottom items into view.
+
+01:39.680 --> 01:44.580
+You can kind of imagine that you know perhaps these items are there they're just off the screen of the
+
+01:44.580 --> 01:48.980
+device and it's not until I scroll that they kind of move up and appear on the screen.
+
+01:49.020 --> 01:52.040
+So that's the idea behind this diagram right here.
+
+01:53.360 --> 01:56.120
+Now I'm going to go for one second.
+
+01:56.120 --> 01:58.240
+This is the this is another diagram.
+
+01:58.240 --> 02:03.890
+There's kind of modeling how we are building lists right now by using the map function on the screen.
+
+02:03.890 --> 02:07.630
+I've got a item in every one of these green boxes.
+
+02:07.820 --> 02:15.080
+So the box that says item represents like a javascript object like for us a single album or a single
+
+02:15.080 --> 02:17.820
+library or whatever object it might be.
+
+02:17.930 --> 02:23.330
+And the green box around it represents a re-act component component.
+
+02:23.480 --> 02:31.250
+So with our current approach of rendering lists we take every single item in the list and we instantly
+
+02:31.250 --> 02:38.540
+map it and create a distinct component right like we instantly create one component for every item we
+
+02:38.540 --> 02:39.060
+have.
+
+02:39.170 --> 02:47.190
+So if we have a list of like 100 items or 100 books or libraries or whatever it might be we create 100
+
+02:47.240 --> 02:50.770
+components in memory to show every single one of those.
+
+02:50.780 --> 02:53.090
+The instant we go to create our list.
+
+02:53.420 --> 02:55.400
+So what's the downside to this approach.
+
+02:55.400 --> 03:01.250
+The downside is that even if our user can only see light you know four or five components on the screen
+
+03:01.250 --> 03:07.430
+at a time we still have to go through all of that upfront work of rendering a hundred different items
+
+03:07.790 --> 03:13.220
+and then those 100 different items 100 different components might be just sitting there and memory.
+
+03:13.250 --> 03:15.360
+So that is the source of poor performance.
+
+03:15.380 --> 03:22.730
+The upfront rendering of a bunch of items and then holding them in memory mode devices are traditionally
+
+03:22.730 --> 03:23.740
+memory constrained.
+
+03:23.870 --> 03:29.460
+So any time that we can reduce our memory footprint inside of our app it is definitely a good thing.
+
+03:31.460 --> 03:34.400
+Just to be really clear one more time I just want to echo it again.
+
+03:34.460 --> 03:39.810
+The reason that mapping over a list of items to build a list is bad for performance.
+
+03:39.860 --> 03:45.080
+Is that for every item in that list we are instantaneously creating one component.
+
+03:45.110 --> 03:48.910
+So 100 items in a list equals 100 components.
+
+03:48.920 --> 03:56.870
+We have to create a front to address this performance issue reac native includes a little tool called
+
+03:56.960 --> 04:03.320
+List view the list view is a component that remedies this list or this issue of rendering a bunch of
+
+04:03.320 --> 04:06.270
+items by using a little trick.
+
+04:06.870 --> 04:07.260
+OK.
+
+04:07.280 --> 04:09.980
+So it's the last kind of weird diagram we got to look at
+
+04:13.340 --> 04:17.780
+the list view is a component and we are going to use it to obviously you know render a list of items
+
+04:17.780 --> 04:24.620
+to the user the list view works by figuring out what items in the list are visible to the user at a
+
+04:24.620 --> 04:25.700
+given time.
+
+04:25.700 --> 04:30.470
+So if this is my mobile device in the background over here then the only items which are you know kind
+
+04:30.470 --> 04:34.030
+of like technically visible would be these right here.
+
+04:34.490 --> 04:40.820
+So the list view figures out what items are visible and then it creates a single component for only
+
+04:40.820 --> 04:43.400
+the items that should be visible on the screen.
+
+04:43.400 --> 04:49.940
+So in this case instead of creating 100 components for 100 different items it might only create six
+
+04:49.940 --> 04:55.360
+components for these six items that are actually visible on the screen.
+
+04:55.400 --> 05:00.620
+Now the real magic happens when we scroll through the list when I start scrolling around that's when
+
+05:00.620 --> 05:02.250
+the magic happens.
+
+05:02.630 --> 05:03.170
+If I.
+
+05:03.190 --> 05:05.050
+Let's imagine that I like click here.
+
+05:05.050 --> 05:10.100
+Or like you know I'd tap on screen here and then pull up so I'm intending to bring these bottom items
+
+05:10.100 --> 05:16.730
+into view the list view watches for any scroll event from the users so like as soon as you start to
+
+05:16.730 --> 05:22.220
+scroll the list view kicks in and says oh scrawlings happening something like I probably I might need
+
+05:22.220 --> 05:24.250
+to handle this in some fashion.
+
+05:24.470 --> 05:28.590
+The list few watches for any item that starts to scroll out of view.
+
+05:28.640 --> 05:35.630
+So again if I click here like drag here and then dried up this item at the very top might be moving
+
+05:35.750 --> 05:37.340
+out of view very soon.
+
+05:37.340 --> 05:43.850
+Right so maybe I now have a situation where it's like that where this item is starting to come on the
+
+05:43.850 --> 05:46.820
+screen and this item just left the screen.
+
+05:47.060 --> 05:54.020
+So the list for you does is it takes this instant instant so the component right here it moves it down
+
+05:54.020 --> 06:00.690
+to the bottom of the screen and you fix the ordering it moves it down to the bottom of the screen.
+
+06:01.690 --> 06:02.580
+There you go.
+
+06:03.190 --> 06:05.650
+And then it plugs the new item into it.
+
+06:05.650 --> 06:12.130
+So the whole idea here is that as a user scrolls around the list view is reusing the same components
+
+06:12.220 --> 06:13.940
+over and over and over again.
+
+06:14.290 --> 06:17.970
+And it's just swapping out the data that sits inside of them.
+
+06:17.980 --> 06:24.590
+So if I then scroll a little bit more and now I'm like down here the list view is going to say OK this
+
+06:24.900 --> 06:27.120
+phone right here is not visible to the user anymore.
+
+06:27.130 --> 06:33.460
+I'm going to take that component you know throw it down here and I'm going to stick this new item inside
+
+06:33.460 --> 06:33.990
+of it.
+
+06:34.210 --> 06:35.510
+And then this item up top.
+
+06:35.560 --> 06:39.400
+Yeah that one's no longer visible so it doesn't need a component component anymore.
+
+06:39.850 --> 06:46.590
+So basically in practice the way that the list view works is to take only a subset of our total list
+
+06:46.600 --> 06:50.470
+at any given time and only render that subset.
+
+06:50.470 --> 06:54.920
+In addition it takes whatever kind of wrapping list item component is being used.
+
+06:55.120 --> 06:58.610
+And it reduces it throughout the entire list.
+
+06:58.780 --> 07:01.030
+So that is how the history works.
+
+07:01.030 --> 07:04.400
+That is how we gain performance on really long lists of data.
+
+07:04.570 --> 07:10.630
+Let's now stop lecturing and continue in the next section and focus on implementation of building a
+
+07:10.630 --> 07:11.110
+list for you

@@ -1,0 +1,268 @@
+WEBVTT
+
+00:00.960 --> 00:05.330
+We've added in some amount of code to create our datasource at this point in time.
+
+00:05.730 --> 00:11.030
+So each time that we get a new list of users from firebase we will recreate our data source.
+
+00:11.370 --> 00:15.750
+There's just one last thing with this chunk of code that I want to draw your attention to.
+
+00:15.750 --> 00:20.400
+You remember how when we pulled in our list of employees to the employees reduce or we saw that it was
+
+00:20.490 --> 00:23.680
+an object that contained a bunch of employees.
+
+00:23.700 --> 00:28.380
+It was an object rather than the array that we expected.
+
+00:28.380 --> 00:32.070
+Now the list of data source clone with rows right here.
+
+00:32.070 --> 00:34.770
+It has no idea how to work with an object.
+
+00:34.800 --> 00:40.230
+It expects to be passed an array of record array of objects to work with.
+
+00:40.230 --> 00:46.140
+So that means that not only do we have to add a map state to prop easier to get access to our employees
+
+00:46.140 --> 00:47.790
+right because we still haven't done that.
+
+00:47.820 --> 00:54.900
+We also have to somehow convert that employees piece of state from from an object of employees to an
+
+00:54.900 --> 00:56.400
+array of employees as well.
+
+00:56.460 --> 01:00.330
+So we've got to do two things in here and we got to do them outside the props and we also have to make
+
+01:00.330 --> 01:05.400
+sure that we convert it from an object or the list of employees from an object to an array.
+
+01:05.430 --> 01:10.210
+Let's first define our map state to props because that's going to be the easy part.
+
+01:14.460 --> 01:20.550
+So our collection of employees is available in here as state DOT employees.
+
+01:20.670 --> 01:25.400
+We're going to somehow have to figure out how to convert this thing from an object to an array.
+
+01:25.620 --> 01:30.900
+So this is certainly another location where we're going to throw up a little bit of code on the screen
+
+01:31.170 --> 01:33.000
+and figure out what's going on.
+
+01:33.190 --> 01:39.030
+The first I'm going to do is flip over to my terminal and I'm going to install a helper library called
+
+01:39.030 --> 01:40.980
+Load ash load.
+
+01:41.000 --> 01:47.190
+ASH has a whole bunch of helper methods for working with objects and arrays and it has one in particular
+
+01:47.250 --> 01:54.230
+that's going to help us out big time with this conversion going from an object to an array.
+
+01:54.270 --> 01:57.650
+So one install load Ash I'm sure will complete in just a second.
+
+01:59.560 --> 02:02.530
+Then at the top of our file we will import ash
+
+02:07.160 --> 02:14.650
+calorically or by convention we represent the ashes and underscore hence the name low Dasch like you
+
+02:14.650 --> 02:17.210
+know low down.
+
+02:17.260 --> 02:24.160
+Well you get you get the idea you get it never come back down to our maps data props and this is where
+
+02:24.220 --> 02:25.570
+we're going to do some magic.
+
+02:25.600 --> 02:29.170
+So we're going to do a little bit of very interesting little code.
+
+02:29.200 --> 02:35.270
+I mean to say Konst employees is map state employees.
+
+02:35.290 --> 02:39.000
+So state employees right here is my object of employees.
+
+02:39.460 --> 02:43.400
+And for every element in that object every key value pair.
+
+02:43.630 --> 02:51.850
+I'm going to take the employee model which I'm going to represent as just Val and the key which is really
+
+02:51.850 --> 02:57.700
+the user id or the you Id not see me not user ID but unique ID of that record.
+
+02:57.700 --> 03:01.160
+So the you ID right here is the key of that employee.
+
+03:01.210 --> 03:04.090
+So the key and the value key value pair
+
+03:06.730 --> 03:14.340
+then inside of this thing you go I'm going to return.
+
+03:14.560 --> 03:16.300
+Let's do this like very explicitly.
+
+03:16.300 --> 03:22.810
+I will return and put on my curly braces just to make sure it's really clear what's going out the syntax.
+
+03:23.320 --> 03:31.750
+So from the saying I will return an object containing all the properties of the employee model.
+
+03:31.780 --> 03:36.790
+Right so that's Val and the user id guess.
+
+03:36.890 --> 03:39.940
+This is a nasty little chunk of code right here.
+
+03:39.940 --> 03:48.700
+What this says is state DOT employees is an object and has many key value pairs for each key value pair
+
+03:49.140 --> 03:51.800
+that iteration is done by the map right here.
+
+03:51.910 --> 04:00.580
+Run this fat arrow function the federal function will be called with each value and key and the key
+
+04:00.580 --> 04:03.200
+in our case is the idea of the record.
+
+04:03.430 --> 04:10.180
+Val right here is the user model so it has the name property the shift property and the phone property
+
+04:10.180 --> 04:11.390
+as well.
+
+04:11.400 --> 04:18.950
+We then create a new object we push in all the values from that from the user model.
+
+04:18.970 --> 04:24.280
+So the name the phone and the shift and then we also throw the ID on top.
+
+04:24.280 --> 04:30.880
+So the end result will be an object that looks like this something with like you know shift Monday name
+
+04:31.330 --> 04:37.430
+ass or whatever and ID of some string of characters like so.
+
+04:37.480 --> 04:38.750
+So this is the end result.
+
+04:38.860 --> 04:43.090
+We craft this object for each object in the array.
+
+04:43.750 --> 04:49.940
+Then we collect all those objects and put them into an array which is then assigned by employees or
+
+04:50.080 --> 04:51.720
+assigned to employees.
+
+04:51.820 --> 04:56.530
+That last step the like putting them into an array that's what map does automatically for us.
+
+04:56.530 --> 05:02.110
+So after map executes the federal function on every record and then takes all of the returned objects
+
+05:02.410 --> 05:04.950
+and stuffs them into an array for us.
+
+05:04.960 --> 05:09.410
+So now the very last step we can just return employees.
+
+05:09.460 --> 05:16.630
+So we will get this array of employees inside of our component as they start props employees which is
+
+05:16.630 --> 05:21.110
+exactly what we expected with the create data source method.
+
+05:21.680 --> 05:27.440
+So now the very last step is to add the map state to props to our connect helper as the first argument.
+
+05:27.430 --> 05:33.940
+So say map state to props like so and then I think maybe you would be good practice to just throw in
+
+05:33.940 --> 05:37.000
+a Hans log and verify that this actually works.
+
+05:37.000 --> 05:44.300
+So inside of my render method I'm going to convert the log the stock props like so now I'll do my refresh.
+
+05:44.830 --> 05:46.480
+Let's get our log here.
+
+05:52.900 --> 05:54.970
+Because we just added in the load ash library.
+
+05:54.970 --> 05:59.440
+Of course it's going to take a little bit time to refresh.
+
+05:59.530 --> 06:02.260
+So now we will like that again.
+
+06:02.740 --> 06:07.620
+I will log in the first time.
+
+06:07.960 --> 06:08.310
+Here we go.
+
+06:08.350 --> 06:08.760
+OK.
+
+06:08.830 --> 06:13.510
+So the instant the employee list screen showed up we got the console log because it rendered the first
+
+06:13.510 --> 06:17.300
+time it then called our action creator to go fetch some data.
+
+06:17.350 --> 06:22.270
+And after that data was fetched we ended up with a second console log down here from the render method
+
+06:22.540 --> 06:24.400
+because our component re rendered.
+
+06:24.400 --> 06:27.960
+So let's look at the first console log of our prop's object.
+
+06:28.030 --> 06:31.140
+You'll see that we have an employees of Mt aurorae right here.
+
+06:31.180 --> 06:34.180
+We have not yet loaded any employees.
+
+06:34.990 --> 06:40.620
+Then on our second console log we can see that here's our employees problem.
+
+06:40.750 --> 06:45.680
+It is an array it has four records in it and each record is an object.
+
+06:46.210 --> 06:51.870
+So each record has the name phone number shift and I.D. of that particular employee.
+
+06:52.110 --> 06:52.840
+It's imperfect.
+
+06:52.840 --> 06:56.550
+This is exactly what our data source object expects.
+
+06:56.950 --> 07:03.730
+So we can now move forward and start working on making a list item or a component to show an individual
+
+07:03.730 --> 07:06.620
+row for each of our employees that we've loaded up

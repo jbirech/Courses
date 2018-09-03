@@ -1,0 +1,325 @@
+WEBVTT
+
+00:01.130 --> 00:04.220
+In the last section we added some styling to our input component.
+
+00:04.220 --> 00:08.260
+But when we render it inside the simulator I wasn't able to click in here.
+
+00:08.300 --> 00:10.740
+I apologize I made a little bit of a mistake.
+
+00:10.790 --> 00:12.940
+We added on the style of input style.
+
+00:12.950 --> 00:17.340
+I completely forgot that we had already added on the style of a height and a with on here.
+
+00:17.540 --> 00:23.660
+So whenever we add two props with the same name the earlier prop is overwritten by a later one.
+
+00:23.870 --> 00:29.320
+So I'm just going to remove the style that's hard to clear with the height of 20 and with 100.
+
+00:29.510 --> 00:36.350
+Save it and now it will refresh the simulator and actually tap in here and start typing some text.
+
+00:36.440 --> 00:38.960
+Ok so back to where we need to be.
+
+00:38.960 --> 00:42.980
+One thing I want to point out here is the flex values really quick.
+
+00:43.070 --> 00:50.660
+So remember because we gave the input a flex of two and a label style of one the input is occupying
+
+00:50.660 --> 00:56.930
+two thirds of the available space whereas the label is only applying or I should say occupying one third
+
+00:56.930 --> 01:00.120
+of the space.
+
+01:00.190 --> 01:05.860
+So just a little bit more challenge inside here a little bit more housekeeping to do on this input before
+
+01:05.860 --> 01:07.800
+we can move on to that password one.
+
+01:08.170 --> 01:11.500
+First I want you to notice one really annoying thing here.
+
+01:11.620 --> 01:21.160
+If I put in something like you know maybe I entry email and I've got a e-mail of like bottle at gmail
+
+01:21.160 --> 01:26.040
+dot com as a bad example let's see if I can yeah.
+
+01:26.050 --> 01:27.930
+Wait no.
+
+01:28.250 --> 01:28.520
+OK.
+
+01:28.550 --> 01:29.590
+Well if I just do.
+
+01:29.590 --> 01:30.120
+There go.
+
+01:30.140 --> 01:31.830
+Getting that right there you get the idea.
+
+01:32.240 --> 01:39.320
+If I type in a word that is not valid iOS is going to try to auto correct my value here and I really
+
+01:39.320 --> 01:44.980
+very likely never want to show my users some auto correct information around their e-mail address like
+
+01:45.020 --> 01:54.140
+you know it's incredibly common for people to have an e-mail like I don't know super Princess 32 or
+
+01:54.140 --> 01:58.850
+something like that and I don't want to start to show user some validation around their e-mail address
+
+01:58.850 --> 02:00.450
+because it could be completely valid.
+
+02:00.470 --> 02:06.560
+You know as long as it has a fully qualified domain at the end here so would be really nice to not have
+
+02:06.560 --> 02:10.710
+any default autocorrect on here to handle that.
+
+02:10.760 --> 02:17.290
+We can just pass a prompt to the text input here to disable that default auto correct functionality.
+
+02:17.330 --> 02:26.820
+So I'm going to pass in a additional prompt to the text input of auto correct false.
+
+02:26.840 --> 02:30.310
+So this says hey don't don't try to auto correct anything here.
+
+02:30.320 --> 02:32.120
+People are going to have crazy e-mails.
+
+02:32.120 --> 02:33.370
+Don't worry about it.
+
+02:33.380 --> 02:38.800
+So now if I start to do like you know test one or whatever.
+
+02:39.500 --> 02:40.530
+Ok I made a mistake.
+
+02:40.530 --> 02:42.300
+I may be kept busy.
+
+02:42.320 --> 02:43.450
+Let's get a shot.
+
+02:45.440 --> 02:47.190
+Just one.
+
+02:47.230 --> 02:47.850
+OK.
+
+02:48.100 --> 02:49.960
+My apologies my my mistake there.
+
+02:50.090 --> 02:55.570
+Autocorrect should have a capital C not a lowercase c and we just have to pass it the value false and
+
+02:55.570 --> 03:01.010
+then we won't get any validation here or any messages that the users passing in something funky.
+
+03:01.030 --> 03:06.490
+Now the other requirement here for e-mail tag we had said that we wanted to show a placeholder to the
+
+03:06.490 --> 03:10.930
+user something to approximate Hey you're supposed to put your email address in here or something beyond
+
+03:10.930 --> 03:14.110
+just the text or the label that says email.
+
+03:14.140 --> 03:19.320
+So to add a placeholder to a text input also very easy to add it just like auto correct.
+
+03:19.330 --> 03:27.610
+We just need to add an additional prompt to the text input so I'll add a additional Propp of placeholder
+
+03:28.390 --> 03:33.970
+and we need to make sure that we specify this placeholder on the fly or make it available for configuration
+
+03:33.970 --> 03:35.330
+from the parent component.
+
+03:35.590 --> 03:40.780
+Because I don't want to make sure this thing I know I don't want to hard code email in here if I heartwood
+
+03:40.780 --> 03:44.900
+e-mail in here all of a sudden my input component is no longer usable.
+
+03:45.220 --> 03:53.520
+So instead we will receive a placeholder prop from our parent component.
+
+03:53.550 --> 03:56.200
+So get it out onto our props list right here.
+
+03:56.870 --> 04:03.290
+A placeholder like so and then we're going to flip back over to our log and form and make sure that
+
+04:03.290 --> 04:05.480
+we actually add that placeholder in.
+
+04:05.480 --> 04:07.090
+So here is my input.
+
+04:07.370 --> 04:09.760
+I will add in a placeholder.
+
+04:10.080 --> 04:15.200
+And you know you might think well put in place placeholder like email or something like that I love
+
+04:15.200 --> 04:20.420
+the pattern of placing in some realistic input for the user some realistic prompt.
+
+04:20.450 --> 04:26.470
+So instead of give them a more realistic prompt of you maybe your e-mail looks like user fetchmail that
+
+04:26.470 --> 04:31.070
+column just something to guide the user into thinking oh that's what this form of this input should
+
+04:31.070 --> 04:34.540
+be it should be something that looks like an email address.
+
+04:34.970 --> 04:40.860
+So now you refresh the simulator we see we've got a very nice looking placeholder in there right now
+
+04:41.170 --> 04:45.830
+and it's very easy for the user to understand OK you know I should probably click in there and start
+
+04:45.830 --> 04:52.470
+entering something in our voice has been a great little advance here.
+
+04:52.490 --> 04:57.370
+I think there's just one last little piece of housekeeping I want to take care of back inside of our
+
+04:57.370 --> 04:58.470
+log and form.
+
+04:58.520 --> 05:04.900
+We are currently stashing the value of the e-mail input on a piece of state called text.
+
+05:04.910 --> 05:06.280
+Now that's completely fine.
+
+05:06.290 --> 05:08.010
+You know nothing bad about that.
+
+05:08.010 --> 05:11.780
+Member the names of all these state properties are completely arbitrary.
+
+05:11.810 --> 05:17.600
+We can make them anything we want but very soon we're going to want to add in a nother text input to
+
+05:17.600 --> 05:20.040
+handle our email field as well.
+
+05:20.150 --> 05:24.980
+And at that point in time it's not really going to make sense to have like a text besides state and
+
+05:24.990 --> 05:27.610
+like password text or something like that.
+
+05:27.650 --> 05:33.380
+So I'm going to choose to just rename the prop here from or excuse me the name of the state property
+
+05:33.680 --> 05:36.350
+from text to e-mail.
+
+05:36.410 --> 05:41.960
+So it's very clear to anyone who looks at this in the future that this piece of state right here contains
+
+05:41.960 --> 05:45.570
+the user's e-mail address that they're trying to type in.
+
+05:45.860 --> 05:49.630
+So we need to also update some of our code down here as well.
+
+05:49.850 --> 05:55.720
+The input tag should now be pulling its value from this dot state DOT e-mail.
+
+05:55.970 --> 06:01.760
+And when we receive some amount of text from the onchange text callback we're no longer going to set
+
+06:01.790 --> 06:03.770
+a prop called Text.
+
+06:03.810 --> 06:06.220
+We're going to set a prop called e-mail.
+
+06:06.260 --> 06:10.340
+So take that text and set it on a proper e-mail.
+
+06:10.370 --> 06:15.850
+One other thing if you want to rename this Propp to e-mail as well and then maintain the shortened syntax
+
+06:15.890 --> 06:18.560
+that's completely you know definitely good.
+
+06:18.680 --> 06:20.110
+Good factor as well.
+
+06:20.420 --> 06:23.100
+Let's go ahead and do that just for the sake of completion.
+
+06:23.360 --> 06:26.130
+So we're going to say that rather than calling this argument text.
+
+06:26.180 --> 06:28.320
+I want to call it e-mail.
+
+06:28.370 --> 06:30.340
+Just a quick reminder in javascript.
+
+06:30.350 --> 06:32.780
+You can name your props anything you want.
+
+06:32.810 --> 06:33.940
+You can remain them on the fly.
+
+06:33.940 --> 06:36.160
+Doesn't matter whatever you want to be called.
+
+06:36.290 --> 06:38.330
+Go for it.
+
+06:38.380 --> 06:43.290
+Are you saying the argument did not mean to say Propp and the argument can be whatever I want to call
+
+06:43.290 --> 06:43.730
+it.
+
+06:44.010 --> 06:46.490
+Props have to be specially named anyways.
+
+06:46.830 --> 06:49.510
+So now I've got just the email Propp.
+
+06:49.620 --> 06:57.180
+I will remove the text tag and I'm relying on a little bit of E.S. 6 again of getting this expanded
+
+06:57.180 --> 07:01.820
+out to a full object of email Colan e-mail.
+
+07:02.030 --> 07:02.880
+All right.
+
+07:02.880 --> 07:06.900
+I think that's just about it for collecting e-mails from our user.
+
+07:06.930 --> 07:09.200
+So we're definitely in a good spot here.
+
+07:09.210 --> 07:14.550
+Let's continue in the next section and start handling a password from the user as well.

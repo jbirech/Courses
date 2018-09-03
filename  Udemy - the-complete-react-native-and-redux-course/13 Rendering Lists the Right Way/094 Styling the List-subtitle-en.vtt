@@ -1,0 +1,277 @@
+WEBVTT
+
+00:00.930 --> 00:06.470
+We now have a list item component that will be responsible for showing a single library at a library
+
+00:06.480 --> 00:11.150
+that this row will represent is available to us as this stock don't library.
+
+00:11.210 --> 00:11.540
+All right.
+
+00:11.550 --> 00:14.580
+Because we passed in the prop called Library.
+
+00:14.580 --> 00:19.910
+So inside of this component list item right here we can just reference process a library and Boomer.
+
+00:19.940 --> 00:23.370
+Good to go OK.
+
+00:23.830 --> 00:31.190
+So keep in mind that that library object that we passed in here has both a title and a description.
+
+00:31.210 --> 00:37.010
+So if I pull up in my library list Jason File and this is where we defined the libraries.
+
+00:37.030 --> 00:42.270
+It has a title a description and of course it has the idea of wealth as well.
+
+00:42.340 --> 00:49.150
+So we need to like basically add some GSX into our render method that shows the title and the description
+
+00:49.280 --> 00:51.160
+you know because that's what we really want to show to the user.
+
+00:51.160 --> 00:52.550
+That's what we want to communicate.
+
+00:54.330 --> 00:54.670
+OK.
+
+00:54.720 --> 01:00.780
+So inside the list item I'm thinking that we should probably make reuse of some of the components we've
+
+01:00.780 --> 01:01.600
+already created.
+
+01:01.600 --> 01:05.070
+Right because we've got all these great looking components already made.
+
+01:05.250 --> 01:07.710
+So I want to reuse something out there.
+
+01:07.740 --> 01:14.310
+I don't suggest that we show a card section component and put the name of the library inside of it.
+
+01:14.310 --> 01:21.060
+Then whenever I use it like TAPS that card will expand with a second card 6 section with the library's
+
+01:21.060 --> 01:21.890
+description.
+
+01:22.020 --> 01:27.870
+So whenever a user taps on the thing that's when we want to expand it and show the library's description.
+
+01:27.880 --> 01:33.420
+Now note that I said that we only want to use the card section component here instead of the card as
+
+01:33.420 --> 01:33.980
+well.
+
+01:34.260 --> 01:38.470
+And you'll see exactly why that is we checked this out inside the simulator.
+
+01:38.500 --> 01:39.170
+OK.
+
+01:39.900 --> 01:42.930
+So first we will import the card section of the talk.
+
+01:42.990 --> 01:53.410
+So I will import a card section from the common folder then I will place it inside the render method.
+
+01:53.530 --> 02:07.860
+So I will return a card section like So next we do need to place the name of the library inside of the
+
+02:07.860 --> 02:13.430
+card section so we'll need a text tag to be able to show some text inside of here.
+
+02:13.500 --> 02:18.780
+We don't have a text tag imported just yet so we import that from the re-act native library.
+
+02:18.780 --> 02:24.390
+So at the top import texts from re-act native.
+
+02:24.750 --> 02:28.410
+Now inside the text section we can place our text tag
+
+02:31.260 --> 02:38.340
+and inside the text tag I will reference this props library dot title.
+
+02:38.790 --> 02:45.300
+Remember the library is passed in as a prop called Title and library Earthsea has a code library and
+
+02:45.300 --> 02:48.020
+the library itself has a property called Title.
+
+02:48.030 --> 02:51.540
+So that's why we have this Propst out library that title right here.
+
+02:52.090 --> 02:52.780
+OK.
+
+02:53.160 --> 02:55.410
+Probably a good time to check this out in the simulator.
+
+02:55.410 --> 02:56.280
+Let's see how we're doing.
+
+02:56.280 --> 02:57.390
+Make sure everything works.
+
+02:57.400 --> 02:58.950
+So don't flip back over the simulator.
+
+02:58.950 --> 03:00.490
+Let's refresh.
+
+03:01.410 --> 03:02.250
+And all right.
+
+03:02.250 --> 03:02.810
+Hot dog.
+
+03:02.810 --> 03:04.640
+That does not look half bad.
+
+03:05.070 --> 03:07.420
+Definitely does not look half bad.
+
+03:07.470 --> 03:12.660
+You'll notice that because we are using the list view component by default we get some nice scrolling
+
+03:12.660 --> 03:13.630
+behavior.
+
+03:13.680 --> 03:19.980
+Of course it looks like when I scroll down the with the list stops right here which is maybe not intended.
+
+03:19.990 --> 03:21.500
+See it's kind of cut off right there.
+
+03:21.660 --> 03:26.510
+So maybe you'll need to do a little bit of work on that front as a side note.
+
+03:26.510 --> 03:31.800
+This is why I want to use the card section without the card with just the card section.
+
+03:31.800 --> 03:35.150
+We get some really nice looking segmented rows like this right here.
+
+03:35.160 --> 03:39.190
+Right like the 20s is its own distinct row.
+
+03:39.390 --> 03:44.700
+Now the title of each library like you know battleaxe nosiest line all of these things.
+
+03:44.710 --> 03:47.850
+They could probably stand to be a little bit larger in text.
+
+03:47.940 --> 03:52.780
+So I think maybe we should add some styling to the text tag to accommodate for that.
+
+03:52.800 --> 04:02.760
+So at the bottom of our file here let's add in a styles object which will have a title style property
+
+04:05.190 --> 04:11.430
+and inside of your let's give it a font size of 18 and then you'll also notice that it kind of butts
+
+04:11.430 --> 04:14.000
+up so the left hand side of the screen that doesn't look too nice.
+
+04:14.040 --> 04:21.330
+So let's also give it a padding left of 15 as well just to get it to stand off from the left hand side
+
+04:21.330 --> 04:23.760
+of the screen a little bit.
+
+04:24.270 --> 04:28.700
+So we will then apply this style to our text tag.
+
+04:29.280 --> 04:32.240
+I think that we might have some other styling in here to take care of.
+
+04:32.310 --> 04:38.760
+So rather than applying it directly to the text tag I'm going to first structure the text or the title
+
+04:38.760 --> 04:41.260
+style off the styles object.
+
+04:41.370 --> 04:53.700
+So let's say Konst title style equals styles and then we will apply a style of title style.
+
+04:53.760 --> 04:57.000
+All right let's check out the simulator again.
+
+04:57.000 --> 04:58.540
+I will refresh.
+
+04:58.710 --> 04:59.420
+All right.
+
+04:59.430 --> 05:03.630
+Now this is starting to look pretty good it's starting to really look like a list of items.
+
+05:04.110 --> 05:09.840
+So to still have that one last issue that when I start to scroll down the list of items gets cut off
+
+05:09.870 --> 05:14.130
+arbitrarily right here which is probably not what I want at all.
+
+05:14.130 --> 05:16.870
+So again we ran into this in the past.
+
+05:16.950 --> 05:23.550
+If I flip back to my app component and I find my top level view tag I need to tell my top level view
+
+05:23.640 --> 05:27.210
+tag to fill up as much space as possible.
+
+05:27.420 --> 05:31.530
+Right now it's that view tag that is actually kind of cutting off our list here.
+
+05:31.530 --> 05:39.630
+So I'm going to add the property or the style of flex 1 to my view tag and that is going to tell the
+
+05:39.750 --> 05:45.600
+tag hey please fill up as much space as possible because we've got like a lot of content that we won't
+
+05:45.630 --> 05:46.820
+show on the screen.
+
+05:46.860 --> 05:53.250
+Do note that I passed the style prop here two sets of curly braces you know one is for GSX and the inner
+
+05:53.250 --> 05:57.600
+one is for to designate a javascript object.
+
+05:57.600 --> 06:00.870
+So let's refresh in the simulator now and when I scroll down.
+
+06:00.870 --> 06:06.000
+Fantastic view tag is definitely taking up the full height of the screen and my content is no longer
+
+06:06.000 --> 06:07.840
+getting cut off.
+
+06:07.920 --> 06:10.380
+OK this looks pretty darn good.
+
+06:10.680 --> 06:13.530
+So this really brings phase one of our application to a close.
+
+06:13.530 --> 06:18.930
+You know we are able to render a list of items in the screen using a highly performant component the
+
+06:18.930 --> 06:19.710
+list view.
+
+06:20.040 --> 06:25.890
+So we're now going to move on to our next feature in which we will need to show a user details about
+
+06:25.890 --> 06:28.260
+a particular library whenever they tap on it.
+
+06:28.260 --> 06:30.610
+So let's start that process in the next section

@@ -1,0 +1,259 @@
+WEBVTT
+
+00:01.380 --> 00:06.840
+Read a good spot now to move on to working our on our employee list component I would love to start
+
+00:06.840 --> 00:07.730
+working on this component.
+
+00:07.740 --> 00:11.520
+But you know we don't have the ability to make any employees yet.
+
+00:11.550 --> 00:14.760
+So we've got no employee creation whatsoever.
+
+00:14.760 --> 00:18.570
+So if we start working on the employee list well you know we're not going to have any data to show it
+
+00:18.570 --> 00:19.530
+just yet.
+
+00:19.530 --> 00:24.570
+So I can recommend that we do a little bit of a sidestep here and we go work on the employee creation
+
+00:24.570 --> 00:30.240
+form give our users the ability to create an employee and then we can come back to working our on our
+
+00:30.240 --> 00:31.510
+employee list here.
+
+00:31.830 --> 00:34.190
+So that's going to be our asking our plan.
+
+00:34.320 --> 00:40.020
+If you recall or Mocca we said that we were going to have a separate screen and right now this is a
+
+00:40.020 --> 00:42.540
+little bit disingenuous a little bit misleading.
+
+00:42.540 --> 00:48.240
+It's set up to look like the edit or show for a single employee but we definitely have a screen where
+
+00:48.240 --> 00:56.420
+we show a name phone and shift field to the users so that they can enter these and create a new employee.
+
+00:56.490 --> 00:59.340
+So we're definitely going to need to think about this a little bit.
+
+00:59.340 --> 01:04.830
+The big challenge we have to do at the outset is get an ad button up here on the top right hand side
+
+01:04.860 --> 01:06.370
+of our employees bar.
+
+01:06.420 --> 01:11.550
+So we've already seen that the nav bar can automatically generate a back button for us but now we want
+
+01:11.550 --> 01:16.870
+to also somehow get a like you know basically add a record button in there and do something with it
+
+01:18.390 --> 01:23.090
+do so we can expand a little bit more on the scene component API.
+
+01:23.400 --> 01:28.770
+So I've already pulled a couple of the different API properties for scene you know a couple of different
+
+01:28.770 --> 01:30.100
+props out.
+
+01:30.270 --> 01:34.350
+So I think that for the next one maybe would be nice if we check out the official docs so I can show
+
+01:34.350 --> 01:39.090
+you where you look up all these different props from in my browser.
+
+01:39.090 --> 01:42.150
+I've already pulled up the hub repository for the react.
+
+01:42.180 --> 01:49.650
+Nate re-act native router flex project Marielle got the first time prescious big enough so I'm going
+
+01:49.650 --> 01:50.820
+to scroll down a little bit.
+
+01:50.970 --> 01:56.010
+The documentation for this project is I would say a little bit mixed like in some locations.
+
+01:56.010 --> 02:00.950
+There's very good API documentation and other locations and it's a little bit lacking.
+
+02:00.960 --> 02:03.840
+And we're going to see one lacking areas here in just a second.
+
+02:03.840 --> 02:06.440
+That's why I specifically want to show you this.
+
+02:06.480 --> 02:11.670
+So I'm on the API and configuration page and you can see that there is a whole bunch of different stuff
+
+02:11.670 --> 02:13.490
+that the Leibert gives you access to.
+
+02:13.490 --> 02:19.120
+And I've already used the router we use the seen we've used actions.
+
+02:19.390 --> 02:23.860
+And hey maybe what we really want here is the nav bar because we want to figure out a way to make the
+
+02:23.860 --> 02:27.840
+nav bar show a button on the top right inside that says like at.
+
+02:27.850 --> 02:33.270
+So we can go the add new employees screen and create a new employee.
+
+02:33.270 --> 02:34.660
+So get this scroll all the way down.
+
+02:35.380 --> 02:41.150
+To the nav bar section and you can see it there is a distinct section here called navigation bar right
+
+02:41.150 --> 02:41.960
+button.
+
+02:42.260 --> 02:46.760
+And so this is where all the documentation is for tell me what different options you have for putting
+
+02:46.790 --> 02:53.670
+a nav bar button on the right or the nav bar button on the right hand side of the navigation bar area.
+
+02:53.720 --> 02:57.800
+So clearly there's a bunch of great props on here you like I see stuff like right.
+
+02:57.800 --> 03:04.010
+Title so optional string to appear appear to the right and then it looks like there is an event handler
+
+03:04.010 --> 03:08.840
+here called on right which will be called Whenever the right nav bar button is pressed.
+
+03:08.990 --> 03:15.950
+So seems to me like we could provide a right title of like you know a string of ADD and then an on right
+
+03:15.970 --> 03:16.890
+callback.
+
+03:17.300 --> 03:22.520
+And whenever someone taps on this thing unright will get called and we can use our actions helper from
+
+03:22.580 --> 03:26.720
+the same library to navigate over to like a new ad screen.
+
+03:26.900 --> 03:30.290
+Right like that that makes a lot of sense.
+
+03:30.290 --> 03:36.210
+Well here's the part that gets a little bit weird a little bit funky when it comes to the documentation.
+
+03:36.410 --> 03:42.170
+So it looks like these are the properties we care about but where exactly do we add these props like
+
+03:42.170 --> 03:43.020
+where do they go.
+
+03:43.020 --> 03:43.230
+Right.
+
+03:43.250 --> 03:49.010
+OK I the navigation bar but we haven't really made direct access to any type of navigation bar just
+
+03:49.010 --> 03:49.180
+yet.
+
+03:49.190 --> 03:51.400
+Here's more stuff on the left button.
+
+03:51.410 --> 03:55.410
+More stuff on the back button some more stuff on the title.
+
+03:55.640 --> 03:56.910
+And then his navigation bars.
+
+03:56.920 --> 03:57.770
+So it tells you.
+
+03:57.770 --> 04:02.720
+I agree it does a great job telling you about all the different props are available to you but it doesn't
+
+04:02.720 --> 04:06.210
+quite tell you where the heck these things are going which I don't know.
+
+04:06.210 --> 04:11.540
+First I find a little bit interesting anyways though the big trick here the big secret is that all those
+
+04:11.540 --> 04:16.490
+props can be provided directly to the scene component and a scene component will make sure they get
+
+04:16.620 --> 04:18.050
+forwarded onto the right spot.
+
+04:18.050 --> 04:23.930
+So basically we can customize our Hetter from the scene components whenever this scene right here at
+
+04:23.930 --> 04:25.490
+the employee list is shown.
+
+04:25.490 --> 04:30.330
+It'll take any props we pressed to it and I'll forward them off to the headers well.
+
+04:30.670 --> 04:36.640
+So we're going to pass this thing a right title to make the button show up.
+
+04:36.650 --> 04:40.330
+You know something that says hey Atta employer or whoever wanted to say.
+
+04:40.330 --> 04:46.070
+And they'll also give it an on right function that will be called whenever a user taps on that button.
+
+04:46.070 --> 04:49.430
+So let's give this a shot because it's going to take a lot of props.
+
+04:49.430 --> 04:55.180
+Now I'm going to put in some new lines just to get myself a little bit of space and then I'm going to
+
+04:55.180 --> 05:09.460
+add in a right title of add in all out in an on right of return now is a console log of rape.
+
+05:09.840 --> 05:10.470
+Let's go ahead.
+
+05:10.470 --> 05:11.640
+Give us a shot.
+
+05:11.850 --> 05:18.960
+I'll refresh my simulator get my counsel being open because I want to see that console log and I will
+
+05:18.960 --> 05:25.540
+do a test at test dot com password of password log in and hot dog.
+
+05:25.650 --> 05:28.030
+We got the button on the right hand side and we tap it.
+
+05:28.060 --> 05:29.960
+Yup it works.
+
+05:29.970 --> 05:35.500
+So again the documentation here is fantastic for describing what these properties are for.
+
+05:35.640 --> 05:39.300
+But it's a little bit lacking in terms of telling you where these things actually go.
+
+05:39.300 --> 05:45.600
+In the case of the navigation bar we can just throw it all on the scene and just pop up in the right
+
+05:45.600 --> 05:46.220
+spot.
+
+05:46.440 --> 05:49.000
+Whenever we go to the appropriate scene.
+
+05:49.050 --> 05:52.580
+All right let's go into the next section and get started on our employee form

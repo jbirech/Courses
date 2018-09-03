@@ -1,0 +1,289 @@
+WEBVTT
+
+00:00.880 --> 00:05.520
+In the last section we got our employee list working so we can see all the different employees we've
+
+00:05.520 --> 00:07.160
+created for our app.
+
+00:07.320 --> 00:13.260
+We should of course be able to handle or excuse me be able to tap on any given user and navigate to
+
+00:13.260 --> 00:15.960
+that screen so we can see more details about them.
+
+00:15.960 --> 00:17.520
+So let's work on the next.
+
+00:17.820 --> 00:20.110
+We've handled navigation several times in a row now.
+
+00:20.130 --> 00:23.690
+So I bet you've got a pretty good idea of what to expect.
+
+00:23.700 --> 00:30.320
+We want to call our actions helper from the router whenever a user taps on an individual row.
+
+00:30.670 --> 00:32.920
+Now of course we've done something like this before.
+
+00:32.940 --> 00:35.220
+Back when we're building lists previously.
+
+00:35.220 --> 00:46.950
+So in my list item component I'm going to import the touchable without feedback and the view tags and
+
+00:46.950 --> 00:55.980
+then inside of my render method I'll add on the touchable without feedback a view tag and then I'm going
+
+00:55.980 --> 00:57.450
+to close both those off.
+
+00:57.450 --> 01:08.300
+So there's the card section close off the view and close off the touchable without feedback looks good.
+
+01:08.700 --> 01:12.660
+And now we need to add in on press handler to touchable without feedback.
+
+01:12.810 --> 01:16.370
+So whenever we touch tap this thing we're going to do some work right.
+
+01:16.380 --> 01:21.920
+We got a callback in here somewhere so I'll pass this in on press handler.
+
+01:22.380 --> 01:31.080
+I'm not going to call it about on road press I'll blind it to this next level to find the method on
+
+01:31.080 --> 01:31.860
+the class.
+
+01:31.860 --> 01:38.060
+So on road press and then presumably in here we're going to want to do our actual navigation.
+
+01:38.160 --> 01:41.510
+So we haven't imported actions yet but we will in just a second.
+
+01:41.760 --> 01:43.320
+So I'm going to show.
+
+01:43.550 --> 01:47.780
+Let's see it let's double check the amount that key was for that form that we're using.
+
+01:47.820 --> 01:53.040
+So I can open up the router whenever we are on the employee list.
+
+01:53.040 --> 01:55.610
+We are on a key of an employee list.
+
+01:55.710 --> 02:00.130
+And then when we want to go over to that form we're going to go to employee create.
+
+02:00.360 --> 02:05.950
+So we're going to go to actions dot employee create.
+
+02:06.450 --> 02:15.260
+Lastly I need to imports the actions object from our favorite unnamed library out there.
+
+02:15.310 --> 02:18.290
+Re-act native router flux.
+
+02:18.510 --> 02:19.730
+Ah God.
+
+02:19.750 --> 02:20.400
+The first time.
+
+02:20.400 --> 02:21.490
+Fantastic.
+
+02:21.840 --> 02:27.750
+OK let's do a little bit of testing and you know to see you know I'm kind of driving towards a point
+
+02:27.750 --> 02:32.370
+here this is going to be a little bit more challenging a little bit more interesting than than what
+
+02:32.440 --> 02:37.850
+you might think it was mean of the last big challenges we have to confront in this application.
+
+02:37.980 --> 02:38.220
+OK.
+
+02:38.220 --> 02:40.450
+So I just signed in here's my list of employees.
+
+02:40.560 --> 02:47.910
+Now I'm going to tap on an employee and I go to the employee create form when we get here however the
+
+02:47.910 --> 02:51.740
+form doesn't seem to have any details related to the employee I just tapped on.
+
+02:51.750 --> 02:56.320
+Remember we're like we're using this form as kind of a show.
+
+02:56.700 --> 02:57.460
+And at it.
+
+02:57.480 --> 03:02.620
+So we don't really specifically have like a show route or a show screen words going to show an employee.
+
+03:02.670 --> 03:08.010
+We've only got the concept of like editing our employee and that's just because that's how I designed
+
+03:08.010 --> 03:08.780
+the app right.
+
+03:08.790 --> 03:16.080
+Like I want to show the edit form here and then like a save changes a fire and a text button down the
+
+03:16.080 --> 03:16.680
+bottom as well.
+
+03:16.680 --> 03:18.020
+That was the idea here.
+
+03:18.510 --> 03:25.420
+So I click on the employee and you know we get the form but there's no details related to that employee.
+
+03:25.530 --> 03:27.210
+And of course there's no details.
+
+03:27.210 --> 03:28.550
+Why would there be right.
+
+03:28.560 --> 03:34.290
+We've got our employee form reduce our debt is 100 percent in control this form right here and we have
+
+03:34.290 --> 03:39.180
+done nothing whatsoever to tell that reduce or hey please make use of this employee.
+
+03:39.180 --> 03:43.610
+You know I just tapped on the employee make sure that the form reflects that employees attributes the
+
+03:43.610 --> 03:46.430
+right kind of stuff we have done nothing around that.
+
+03:46.980 --> 03:52.380
+All we did was tell the navigator to show this form so we can have any expectation that you know anything
+
+03:52.380 --> 03:54.830
+is just going to magically happen here for us.
+
+03:54.840 --> 04:00.780
+So what we really want to have happen is we want to somehow instruct the employee form that whenever
+
+04:00.780 --> 04:07.800
+it loads up and when I say employee form I'm talking about employee create of course want to tell employees
+
+04:07.800 --> 04:09.700
+create that whenever it loads up.
+
+04:09.750 --> 04:12.660
+It should be showing a very particular employee.
+
+04:12.690 --> 04:19.420
+So we kind of want to like bootstrap the form so to speak we want to pre-load the data that it shows.
+
+04:19.560 --> 04:24.630
+Now we could use an action creator to set a you know like selected employee or something like that.
+
+04:24.630 --> 04:29.820
+Maybe we could select a particular employee and say hey the former do search should always show either
+
+04:29.820 --> 04:36.080
+the stuff in the form or the selected employee that does just getting like a little bit weird.
+
+04:36.180 --> 04:42.270
+So let's go with the route of kind of like what I want to say hijack but no bootstrap.
+
+04:42.270 --> 04:42.690
+There we go.
+
+04:42.690 --> 04:44.150
+We're trying to bootstrap this form.
+
+04:44.150 --> 04:47.100
+I want to kind of inject my employee into it
+
+04:50.380 --> 04:56.920
+so inside of my actions doc employee create method right here I need to somehow communicate to the form
+
+04:57.100 --> 04:58.690
+which employee I want to show.
+
+04:58.690 --> 04:59.810
+Right that's like the whole idea.
+
+04:59.820 --> 05:07.450
+I want to somehow tell it hey for me need to be showing this very particular employee right to do so.
+
+05:07.450 --> 05:14.080
+We are going to pass some props over to the employee create form with this navigation help right here
+
+05:14.710 --> 05:18.200
+so we can pass any object we want in here.
+
+05:18.610 --> 05:24.910
+I'm going to pass an object with the key of employee and the value of this dot dot employee.
+
+05:24.910 --> 05:32.830
+Now whenever this navigation method is called the Employee create form will be rendered and it will
+
+05:32.830 --> 05:36.900
+be given an additional Propp of employee.
+
+05:37.330 --> 05:42.850
+We are in the list item right now and each list item is called with one employee which is provided as
+
+05:42.870 --> 05:44.240
+this Propst employee.
+
+05:44.320 --> 05:47.760
+So that's where this value is coming from right here.
+
+05:47.830 --> 05:49.210
+So let's test this out a little bit.
+
+05:49.210 --> 05:55.240
+I want to flip over to the employee create for now so I can go to employee create and inside the render
+
+05:55.240 --> 05:55.960
+method.
+
+05:56.110 --> 06:04.190
+I'm just going to console log this doc Propst not employed like so.
+
+06:04.230 --> 06:06.730
+So let's do a quick refresh.
+
+06:06.770 --> 06:13.970
+I'll pull up my a log in Hoopes
+
+06:17.960 --> 06:21.230
+And now if I just go ahead and hit add up I'm on top right.
+
+06:21.270 --> 06:26.810
+You see undefined because we went to the form and we did not pass any like configuration directly to
+
+06:26.810 --> 06:31.640
+the form only when we navigate to this form by tapping on an item.
+
+06:31.640 --> 06:33.660
+Our repassing this extra prop to it.
+
+06:33.750 --> 06:36.390
+It's not going to click on Samantha to go to the form.
+
+06:36.470 --> 06:40.670
+And then this time around I get the very particular employee in here as well.
+
+06:40.850 --> 06:45.870
+So now we are loading up our form and we know which employee we want to show in it and you know we know
+
+06:45.870 --> 06:50.620
+which employee we want to kind of pre-filled these different fields with.
+
+06:51.380 --> 06:53.740
+So let's figure out how to do that how to do that.
+
+06:53.740 --> 06:55.430
+Pre-filing in the next section

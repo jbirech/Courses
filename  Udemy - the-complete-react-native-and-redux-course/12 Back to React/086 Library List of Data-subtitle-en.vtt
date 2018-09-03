@@ -1,0 +1,340 @@
+WEBVTT
+
+00:00.870 --> 00:05.820
+In the last section we went through the process of designing the different reducers inside our application
+
+00:05.910 --> 00:11.550
+and we ended up deciding on having two separate reducers a producer that's going in turn our list of
+
+00:11.550 --> 00:17.160
+libraries or so to the user and a selection reducer which is going to keep track of the currently expanded
+
+00:17.190 --> 00:20.800
+or kind of selected reduce or library excuse me.
+
+00:21.450 --> 00:25.740
+So in this section we're going to work on the design of our library reducer.
+
+00:26.010 --> 00:32.730
+So we need to create a new reducer and it should always return a very static list of libraries to show
+
+00:32.730 --> 00:34.050
+to our user.
+
+00:34.200 --> 00:40.400
+So that's our goal you know flip back over to our reducers index file.
+
+00:40.770 --> 00:45.050
+Remember inside of here right now we've got that single dummy reducer.
+
+00:45.060 --> 00:52.200
+By convention we usually locate one reduce or in one file so like a one to one mapping just the same
+
+00:52.200 --> 00:54.250
+way as we have with our components.
+
+00:54.270 --> 00:59.550
+So inside of my reducers directory I will make a new file that is going to house all the code having
+
+00:59.550 --> 01:01.620
+to do with our library reducer.
+
+01:01.920 --> 01:08.570
+So I will make a new file and the reducers folder and I'm going to call it library reducer.
+
+01:08.670 --> 01:10.360
+Yes.
+
+01:10.950 --> 01:12.260
+And then inside of here.
+
+01:12.330 --> 01:16.030
+Right now I'm just going to put in some boilerplate.
+
+01:16.260 --> 01:20.280
+So a very again simple reducer whenever it runs.
+
+01:20.310 --> 01:23.300
+Always return an array.
+
+01:23.670 --> 01:26.530
+Am I going to flip back over to the indexed on J.S. file.
+
+01:26.530 --> 01:29.600
+I'm going to wire it up to the rest of my application here.
+
+01:29.670 --> 01:33.100
+So remember the very overriding theme of redux.
+
+01:33.150 --> 01:35.180
+Nothing is done automatically for you.
+
+01:35.220 --> 01:35.520
+Right.
+
+01:35.530 --> 01:41.640
+And like just making a function inside of a file call library reduce or does not do anything we have
+
+01:41.640 --> 01:43.370
+to very explicitly wired up.
+
+01:43.390 --> 01:44.100
+OK.
+
+01:44.760 --> 01:57.360
+So inside of this index Jasc file import library reducer from library reducer and then instead of using
+
+01:57.360 --> 02:03.180
+a very simple dummy function right here we will say library reducer.
+
+02:03.840 --> 02:04.600
+OK.
+
+02:04.890 --> 02:12.050
+So just a quick reminder and we're going to just really really drive this home at this point next point
+
+02:12.060 --> 02:17.280
+home to you in the coming sections here because it's one of the what I think is the most confusing points
+
+02:17.280 --> 02:21.660
+of redux and maybe because maybe because I'm going to make such a big deal about it maybe it won't be
+
+02:21.660 --> 02:23.450
+quite as confusing but you know whatever.
+
+02:23.450 --> 02:25.670
+Let's just go through it.
+
+02:25.800 --> 02:31.380
+We have said many times that reducers produce our application state right.
+
+02:31.380 --> 02:36.410
+A producer runs it returns a value and boom that is our application state.
+
+02:36.420 --> 02:41.250
+Now we might have many different reducers inside of our application and we need to somehow get them
+
+02:41.280 --> 02:42.960
+all to work together properly.
+
+02:42.960 --> 02:46.400
+And so that's why we introduced this combined reducers call right.
+
+02:46.470 --> 02:52.080
+I said this is the thing that makes multiple reducers work together nicely.
+
+02:52.080 --> 02:56.910
+So the thing that I really want to point out to you here and again I will just harp on this repeatedly.
+
+02:56.910 --> 03:04.230
+We now have one douceur called the library reducer inside of my combine reducers call.
+
+03:04.230 --> 03:11.560
+I assigned this reducer to a key called libraries of libraries right here like supersession that likes
+
+03:11.580 --> 03:17.910
+just stare at that word libraries because I assigned the library reducer to this library's key right
+
+03:17.910 --> 03:18.720
+now.
+
+03:19.050 --> 03:25.230
+If I ever conc a log my state objects like you know Konst a log store that get state which we had done
+
+03:25.230 --> 03:27.020
+several times previously.
+
+03:27.240 --> 03:35.090
+I would expect the response to be or the result the console log to the libraries is an empty array.
+
+03:35.460 --> 03:41.040
+OK so our library reducer right now always always returns an empty array.
+
+03:41.270 --> 03:48.660
+And because I assigned that reducer to a key of libraries my application state will now be an object
+
+03:48.960 --> 03:54.020
+that has the key libraries with a value of whatever got returned from that reducers.
+
+03:54.030 --> 03:59.940
+So again like the whole point here is because I signed library reducer two libraries key my application
+
+03:59.940 --> 04:02.370
+state has a key of libraries.
+
+04:02.370 --> 04:02.970
+That's it.
+
+04:02.970 --> 04:03.330
+That's it.
+
+04:03.330 --> 04:05.580
+I know a lot of talking just to convey that point.
+
+04:05.760 --> 04:11.040
+But again this is something that I have found can be very very confusing and once we start making use
+
+04:11.040 --> 04:16.650
+of our state objects and practice again I will come back and harp on this some more because I'm sure
+
+04:16.650 --> 04:21.160
+you love being I'm sure you love being lectured endlessly right.
+
+04:21.180 --> 04:22.690
+All right now I'm just kidding.
+
+04:23.120 --> 04:23.420
+OK.
+
+04:23.430 --> 04:25.520
+So here's our library producer again right now.
+
+04:25.520 --> 04:27.910
+Very simple very straightforward not really doing anything.
+
+04:28.050 --> 04:33.750
+But we wanted to return our list of libraries like the list of all the data showed to our user and we
+
+04:33.750 --> 04:40.470
+agreed or maybe I just dictated one or the other that the data structure for this list of libraries
+
+04:40.530 --> 04:46.860
+should be an array of objects where each object represents one single library.
+
+04:46.860 --> 04:52.260
+So what I want to do now is I want to say instead of returning just a completely empty array I want
+
+04:52.260 --> 04:57.480
+to return a list of objects that is going to represent all the different libraries to show to the user.
+
+04:57.670 --> 04:59.000
+OK that's it.
+
+04:59.980 --> 05:06.010
+So rather than kind of you know inside this reduce or typing out all these different libraries to show
+
+05:06.010 --> 05:09.540
+to the user just to keep this reducer nice and clean.
+
+05:09.610 --> 05:14.020
+I'm going to make a separate file to How's this list of libraries because I expect there's going to
+
+05:14.020 --> 05:15.190
+be many of them.
+
+05:15.200 --> 05:18.520
+I want to show so inside of my reducers directory.
+
+05:18.520 --> 05:24.710
+I'm going to make a new file called library list dot Jaison.
+
+05:24.730 --> 05:26.510
+Take special note of the file extension.
+
+05:26.510 --> 05:27.580
+Here it is Jason.
+
+05:27.640 --> 05:28.480
+It is not.
+
+05:28.540 --> 05:29.600
+Yes.
+
+05:30.160 --> 05:37.020
+So this Jason fall right here is going to be a dumb day dummy data file like just going to have data.
+
+05:37.060 --> 05:41.460
+It is a Jaison file which means I should place Jason data in here.
+
+05:41.470 --> 05:43.150
+It is not a javascript file.
+
+05:43.150 --> 05:51.850
+I cannot locate javascript code inside of here so I can place an array in here and then an object inside
+
+05:51.850 --> 05:52.700
+this object.
+
+05:52.720 --> 05:57.260
+I will put all the properties I need for my my library.
+
+05:57.280 --> 06:00.040
+So again keep in mind this is just one data.
+
+06:00.040 --> 06:04.630
+It is not javascript so I do not have to use an export statement here at all.
+
+06:04.780 --> 06:05.770
+Just have to put Jason.
+
+06:05.780 --> 06:08.150
+That's it.
+
+06:08.280 --> 06:14.140
+OK now I have already created a big list of libraries that I am going to copy paste into this file right
+
+06:14.140 --> 06:19.810
+here so I'm going to flip over to this code editor over here where I just had this data file already
+
+06:19.810 --> 06:25.030
+located and paste it all and I'm doing this intentionally very quickly because I don't want to have
+
+06:25.030 --> 06:28.670
+to go through all this typing of all this these different libraries in here.
+
+06:28.710 --> 06:33.220
+So in the next section the next section that you're going to see inside this course you're going to
+
+06:33.220 --> 06:37.540
+have some amount it's going to be basically like a text section and it's going to have the contents
+
+06:37.540 --> 06:43.130
+of this file right here so you can just go ahead copy paste it and paste it into this library.
+
+06:43.170 --> 06:45.280
+JS on file.
+
+06:45.280 --> 06:50.980
+One thing I want to point out here is that because it is a JS ON FILE all values are all string values
+
+06:51.110 --> 06:57.760
+text values have to be wrapped with double quotes so absolutely feel free to change the value of any
+
+06:57.760 --> 07:01.730
+of these libraries right if you want to add some to the end of your list.
+
+07:01.900 --> 07:05.180
+Or you want to use completely different titles or different descriptions.
+
+07:05.200 --> 07:08.320
+Absolutely feel free to modify this as much as you want.
+
+07:08.350 --> 07:12.700
+Just make sure that any modifications you make both the key and the value have to be wrapped with double
+
+07:12.700 --> 07:13.760
+quotes.
+
+07:14.140 --> 07:16.420
+So unless you are going to do.
+
+07:16.670 --> 07:17.150
+Again.
+
+07:17.230 --> 07:17.680
+Well you know what.
+
+07:17.680 --> 07:18.160
+Tell you what.
+
+07:18.190 --> 07:19.850
+How about let's take a quick pause.
+
+07:19.930 --> 07:25.060
+I'll let you copy paste this file ope over and then we will actually make use of it inside this reducer.
+
+07:25.300 --> 07:27.100
+So again take a quick break.
+
+07:27.130 --> 07:30.900
+Cut Paste the stuff in here and we will return and make use of it.

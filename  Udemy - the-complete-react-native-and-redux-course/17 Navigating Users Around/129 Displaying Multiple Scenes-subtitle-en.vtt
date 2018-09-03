@@ -1,0 +1,247 @@
+WEBVTT
+
+00:00.670 --> 00:04.660
+You are a lot of sexually added a little bit of styling to fix our header.
+
+00:04.830 --> 00:09.450
+One other thing I want to mention about the header right now is yes there is a very good reason that
+
+00:09.450 --> 00:13.520
+we're going to use the built in header as opposed to the reusable one that we've created.
+
+00:13.530 --> 00:15.950
+We absolutely can substitute ours in.
+
+00:15.960 --> 00:20.640
+But there's a number of reasons that we're not going to and as soon as we start using the header to
+
+00:20.640 --> 00:23.780
+navigate around I think it be really clear why that is so.
+
+00:23.910 --> 00:27.630
+If you're wondering why we're not going to you reuse our head or there is a very good reason for it
+
+00:27.690 --> 00:29.520
+and we'll talk about it in due time.
+
+00:30.940 --> 00:32.930
+I can see off the glass section.
+
+00:32.970 --> 00:34.670
+We've got a single component here.
+
+00:34.680 --> 00:39.090
+We need another component so we can test navigation between different screens.
+
+00:39.090 --> 00:45.780
+Let's create just some dummy component to work around with in my components directory to make a new
+
+00:45.780 --> 00:46.430
+file.
+
+00:46.620 --> 00:49.550
+And we're going to call this one employee list.
+
+00:49.620 --> 00:54.030
+So we'll eventually turn this thing into a real component but right now we're just going to throw in
+
+00:54.030 --> 00:57.080
+some boiler plate just to get something on the screen.
+
+00:58.230 --> 01:07.590
+So we're going to import react and component from react and then I want my view and text tags from re-act
+
+01:07.590 --> 01:11.880
+native will make an employee list component
+
+01:14.940 --> 01:16.610
+give it a render method.
+
+01:16.920 --> 01:21.250
+It's going to return some amount of GSX.
+
+01:21.300 --> 01:26.150
+And for right now we're going to have to viewed tag and a text
+
+01:28.980 --> 01:32.940
+that just says employee list and I want to have a whole bunch of stuff on the screen some is going to
+
+01:32.940 --> 01:34.370
+copy paste down a little bit.
+
+01:34.380 --> 01:40.560
+So whenever this thing renders I'm just going expect to see employee list you know all over the screen.
+
+01:40.950 --> 01:45.570
+Then at the bottom we will export default employee list.
+
+01:45.570 --> 01:48.440
+Of course OK.
+
+01:48.450 --> 01:53.590
+So this definitely works for a test component something and just throw some stuff on the screen.
+
+01:53.670 --> 02:00.870
+Now my goal here is to figure out how to add in a another script or another scene excuse me to my application
+
+02:00.900 --> 02:03.760
+and see how that works with our navigation library.
+
+02:04.030 --> 02:09.360
+It's going to flip back over to my router we will import the employee
+
+02:11.950 --> 02:17.130
+list from components employee list
+
+02:20.110 --> 02:26.290
+now we have a second screen that we want to show inside of our application whenever I want to see my
+
+02:26.290 --> 02:27.160
+employee list.
+
+02:27.160 --> 02:29.190
+I don't want to see a log in form anymore.
+
+02:29.200 --> 02:32.560
+So these are two mutually exclusive screens right.
+
+02:32.560 --> 02:38.380
+I either want to see my log in form or I want to see my employee list because this is supposed to be
+
+02:38.380 --> 02:42.520
+a distinctly different thing or a separate screen.
+
+02:43.770 --> 02:51.120
+I will create another scene component whose sole purpose is going to be to show the employee list I'm
+
+02:51.120 --> 02:53.360
+going to give it a key of employee list.
+
+02:53.370 --> 02:56.830
+So it's clear to me like you know this has to go to my list of employees.
+
+02:56.940 --> 03:01.430
+It does not have to be named after the component I'm just doing that as a convention so I could have
+
+03:01.430 --> 03:08.880
+just easily called this like you know list or employees or whatever I really want JUST I'M GOING TO
+
+03:08.880 --> 03:15.270
+CALL IT employee list to stick with some sort of convention here then I'll tell it that it's component
+
+03:15.270 --> 03:18.270
+to display should be the employee list.
+
+03:18.450 --> 03:26.930
+And then finally I'll give it a title of employees and I'll close it off with a closing bracket.
+
+03:27.000 --> 03:31.500
+Notice that because I gave it a title right here we are going to get that nav bar and I'm going to expect
+
+03:31.500 --> 03:35.030
+it to have an employees title on it.
+
+03:35.040 --> 03:35.340
+All right.
+
+03:35.340 --> 03:41.440
+So without any further discussion nothing else let's just refresh our simulator and see what's going
+
+03:41.440 --> 03:47.230
+on and they still got the log in form of course.
+
+03:47.390 --> 03:49.430
+What else what else do we expect right.
+
+03:49.610 --> 03:53.830
+So definitely at least we don't have any errors going on here.
+
+03:54.080 --> 03:55.980
+We've got a separate screen on here.
+
+03:56.000 --> 03:59.430
+We don't have any way to navigate between separate screens.
+
+03:59.750 --> 04:04.970
+So inside of our re-act native applications whenever we want to navigate to a different scene we have
+
+04:04.970 --> 04:07.830
+to be very explicit very direct about it.
+
+04:07.850 --> 04:13.980
+We have to initiate some change or application to say yes please take the user over to this new scene
+
+04:13.980 --> 04:15.080
+that I just added.
+
+04:16.680 --> 04:21.390
+One thing I want to show you is now that we've got two scenes on here right now we can start to make
+
+04:21.390 --> 04:23.410
+use of that initial prop.
+
+04:23.640 --> 04:30.140
+So on the employee list just to test things out I'm going to give it the initial initial and the real
+
+04:30.660 --> 04:36.090
+prop which is going to mean to say hey I understand there's two scenes here but between these two when
+
+04:36.090 --> 04:39.870
+we're trying to figure out which one to show first please show this one right.
+
+04:39.870 --> 04:41.910
+Please show this one it initially.
+
+04:41.910 --> 04:45.540
+So let's say this refresh.
+
+04:45.840 --> 04:48.040
+And now I see the employee list first.
+
+04:48.090 --> 04:54.750
+And I see this instead of the log in form the initial prop is also really important.
+
+04:54.990 --> 04:58.550
+One thing that's really interesting I'm going to flip the order of these two scenes.
+
+04:58.560 --> 05:00.660
+So I just took off the initial flag over here.
+
+05:00.660 --> 05:06.810
+So neither of them as initial as it was before we were seeing the log in screen or the log in for them.
+
+05:06.810 --> 05:10.030
+I'm not going to flip the order of these two guys so I just flipped them.
+
+05:10.050 --> 05:17.460
+Now the employee list is first and if I refresh the simulator now I see the employee list.
+
+05:17.460 --> 05:23.880
+So if you do not place an initial flag it's going to figure out which seemed to show first solely based
+
+05:23.880 --> 05:25.100
+on order.
+
+05:25.200 --> 05:29.760
+And so we'll definitely be making good use of the initial property because we never want to rely upon
+
+05:29.790 --> 05:34.830
+order but nonetheless just to kind of really organize the scenes in my application.
+
+05:34.830 --> 05:39.660
+I'm probably going to end up putting the log in screen first just because hey you know I expect my user
+
+05:39.660 --> 05:42.790
+to see that one first when they open up my application.
+
+05:43.300 --> 05:43.570
+OK.
+
+05:43.590 --> 05:45.860
+So we now have a second route on here.
+
+05:45.870 --> 05:49.710
+We can do some good testing between these two routes.
+
+05:49.740 --> 05:54.170
+Let's figure out how to do some actual programmatic navigation in the next section.

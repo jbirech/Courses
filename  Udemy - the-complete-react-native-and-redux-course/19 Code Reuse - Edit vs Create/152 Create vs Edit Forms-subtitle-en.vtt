@@ -1,0 +1,280 @@
+WEBVTT
+
+00:01.650 --> 00:07.020
+We're now able to navigate to the employee create form either in the context of like trying to add a
+
+00:07.020 --> 00:07.820
+new employee.
+
+00:07.920 --> 00:13.560
+Like when you hit the button on the top right hand side of the app or in the context of trying to show
+
+00:13.590 --> 00:15.170
+an edit an existing one.
+
+00:15.180 --> 00:19.230
+And that's what we're really trying to get to whenever we tap on an existing employee.
+
+00:19.230 --> 00:25.080
+Like I want to show a form where the user can edit the existing employee or just look at their details
+
+00:25.080 --> 00:26.100
+or whatever else right.
+
+00:26.100 --> 00:32.970
+So it kind of makes sense to kick our user over to the employee create form and include this employee
+
+00:32.970 --> 00:34.280
+along with it.
+
+00:34.320 --> 00:36.260
+We don't really need the console log anymore in here.
+
+00:36.270 --> 00:42.160
+So I'm going to take the log out just to do a little bit of cleanup.
+
+00:42.450 --> 00:49.680
+Now this topic of or this idea of trying to reuse this form when we want to edit or like show an employee
+
+00:49.890 --> 00:53.700
+is a little bit divisive in the web development community.
+
+00:53.760 --> 00:58.260
+So we're going to do a little bit of lecture for a moment just do a little bit of a detour to talk about
+
+00:58.260 --> 01:04.770
+this the somewhat controversial decision that we need to make right now is deciding whether or not we
+
+01:04.770 --> 01:11.410
+should reuse this component for both creating and editing an employee.
+
+01:11.530 --> 01:16.320
+That's that's the path I've kind of directed us towards but we have to stop for just a second and ask
+
+01:16.320 --> 01:18.380
+ourselves is that the right decision.
+
+01:18.420 --> 01:25.900
+Do I want to have one component that is responsible for both creating an employee and also editing one.
+
+01:25.950 --> 01:31.030
+So let's take a look at a diagram that's going to help us you can hash out the differences here.
+
+01:31.050 --> 01:36.270
+The reason this is a big deal or like deciding whether or not we should have a single component to handle
+
+01:36.270 --> 01:42.900
+both operations is because there's a lot of logic inside this form that is very common to both creating
+
+01:43.230 --> 01:44.990
+and editing and employee.
+
+01:45.000 --> 01:50.520
+Right like on the left hand side here I've got the form to create employee on the right hand side is
+
+01:50.520 --> 01:53.340
+the form that will like an employee.
+
+01:53.520 --> 01:57.330
+Both forms are going to show name phone and shift.
+
+01:57.330 --> 02:00.420
+So both them definitely show that.
+
+02:01.290 --> 02:06.590
+The only big difference between them is the presence of the different buttons at the bottom.
+
+02:06.600 --> 02:13.020
+So on the create form we just have like save or I think we actually called it create employee create.
+
+02:13.050 --> 02:15.860
+So we call it in on the Edit side.
+
+02:15.930 --> 02:19.500
+We would probably have a very similar button but it would do something very different.
+
+02:19.530 --> 02:19.770
+Right.
+
+02:19.770 --> 02:25.710
+It would try to update an existing employee as opposed to create one from scratch.
+
+02:25.710 --> 02:31.170
+We would also have the delete button down here and the original box I put together also showed a button
+
+02:31.170 --> 02:34.730
+to text this particular employee their schedule as well.
+
+02:34.980 --> 02:40.770
+So clearly some aspects of this form are shared between these two different operations but some aspects
+
+02:40.830 --> 02:44.380
+are not like the other buttons at the bottom are not shared.
+
+02:44.790 --> 02:50.950
+So that is why we have to ask ourselves does it make sense to try to reuse this component.
+
+02:52.590 --> 02:58.140
+It is kind of a difficult decision because while there are similar components on either side we would
+
+02:58.140 --> 02:58.650
+kind of.
+
+02:58.650 --> 03:04.330
+To make this work we would have to have a lot of conditional logic inside of this component to say OK
+
+03:04.390 --> 03:07.150
+are we in create mode or are we in edit mode.
+
+03:07.170 --> 03:10.950
+And depending on which one we are what should we do when someone taps on this button.
+
+03:10.980 --> 03:17.400
+Or what set of buttons should I show or do we need to somehow attempt to pre-filled the inputs on here
+
+03:17.610 --> 03:20.180
+with the employee that we're trying to edit.
+
+03:20.190 --> 03:26.600
+So there clearly would be both some benefit in terms of code sharing but also some cost in increased
+
+03:26.610 --> 03:28.570
+complexity inside this form.
+
+03:28.590 --> 03:30.540
+So that is that's the pros and cons here.
+
+03:30.540 --> 03:32.820
+That's the that's what you have to weigh.
+
+03:32.820 --> 03:35.550
+This is not a decision that is limited to just react.
+
+03:35.550 --> 03:38.540
+This is something very common to all types of frameworks.
+
+03:38.550 --> 03:44.190
+You know making the decision whether or not you want to try to reuse the two forms that are the two
+
+03:44.190 --> 03:47.760
+different modes creation and editing.
+
+03:48.480 --> 03:53.910
+So there is one other factor to think about when you're attempting to reuse these forms.
+
+03:53.910 --> 04:01.280
+Let's let's see what it is you can pull up another diagram here your ego.
+
+04:01.500 --> 04:04.520
+So this is how the employee form is working right now.
+
+04:04.710 --> 04:12.120
+The user goes to the form the form gets its values from the reducer and by default it's empty.
+
+04:12.120 --> 04:17.250
+The user will then enter some values so they're going to select a thing and type something into it and
+
+04:17.250 --> 04:18.250
+boom they're good to go.
+
+04:18.270 --> 04:23.700
+Users submit the form and we save the data that was in the reducer right like we do that in the action
+
+04:23.700 --> 04:27.310
+creator but we pull the data from the reducer and save it.
+
+04:27.330 --> 04:34.360
+So now the etic case is a little bit more complicated in the edit case whenever that user comes to this
+
+04:34.360 --> 04:38.440
+screen they are intended to edit a very certain record.
+
+04:38.730 --> 04:43.270
+So we should have the values already in each of the inputs on the screen right here.
+
+04:43.800 --> 04:48.930
+But the value of each inputs is coming from the producer not some like arbitrary model that we passed
+
+04:48.930 --> 04:51.130
+in as a prop to this component right.
+
+04:51.150 --> 04:58.490
+We have to somehow pre populate the state in the form reduce or in this case the other really important
+
+04:58.490 --> 05:04.160
+aspect here is that the user is changing these values and whenever they change the values in here this
+
+05:04.160 --> 05:09.860
+is something that I really want to just point out as kind of a side topic whenever we use it user starts
+
+05:09.860 --> 05:11.790
+to edit the values in this form.
+
+05:11.810 --> 05:16.100
+Above all we want to avoid editing our employee model.
+
+05:16.140 --> 05:21.370
+So remember we are like passing an employee in here that like this props the employee above all.
+
+05:21.410 --> 05:27.410
+We always want to avoid editing that existing model in memory and the reason for that is that at any
+
+05:27.410 --> 05:34.440
+point in time our user could like change the name from Sarah to Jill or or Amanda.
+
+05:34.460 --> 05:34.920
+Right.
+
+05:35.060 --> 05:36.620
+But then they say oh you know what.
+
+05:36.620 --> 05:40.050
+Siri actually did not change her name and they end up putting the back button.
+
+05:40.220 --> 05:45.980
+If you had if you had changed that original employee model that was sitting in memory you've now got
+
+05:46.010 --> 05:52.760
+a like dirty model and you would have to reach back out to firebase somehow and reload that model from
+
+05:52.760 --> 05:53.930
+firebase.
+
+05:53.930 --> 06:00.740
+So when we think about the case here we need to somehow pre populate our state in the former douceur
+
+06:01.010 --> 06:06.440
+and we want to make sure that whenever user edits the form we are not editing the employee in memory
+
+06:06.500 --> 06:11.720
+like the one that is stored in our employees reducer We are editing the employee that is stored inside
+
+06:11.720 --> 06:12.970
+the form we do sir.
+
+06:13.250 --> 06:19.310
+Then when the user finally clicks save we could submit the form and save the data for the reducer.
+
+06:19.340 --> 06:21.590
+So a lot of different topics that we covered here.
+
+06:21.680 --> 06:23.930
+Let me give you just one big summary.
+
+06:23.930 --> 06:28.430
+The edit form and the create form behave just a little bit differently.
+
+06:28.610 --> 06:33.780
+Just enough for us to have to wonder about how much code we can reuse between each of them.
+
+06:34.040 --> 06:39.260
+And really just enough to make us feel guilty if we dont try to reuse at least a little bit of code.
+
+06:39.560 --> 06:44.270
+So let's continue in the next section and try to figure out what the best case or what the best best
+
+06:44.270 --> 06:51.290
+path forward is for making at least some re-usable or some attempt at reusing some of the code that
+
+06:51.290 --> 06:52.850
+weve already got in our form.

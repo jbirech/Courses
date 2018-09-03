@@ -1,0 +1,337 @@
+WEBVTT
+
+00:00.960 --> 00:06.510
+Our name and phone and puts in a pretty good spot right now but we still done absolutely no work whatsoever
+
+00:06.540 --> 00:09.720
+on the picker widget that is supposed to exist right here.
+
+00:09.720 --> 00:14.190
+So the ticker widget remember its goal is to show a list of the days of the week to the user so they
+
+00:14.190 --> 00:18.080
+can pick one of those days for this employee to work on.
+
+00:18.390 --> 00:23.010
+We're going to make use of a re-act need if primitive for this picker.
+
+00:23.090 --> 00:24.840
+It is called the picker component.
+
+00:24.910 --> 00:27.440
+Like OK has a pretty reasonable name.
+
+00:27.450 --> 00:29.300
+Let's check out the documentation on it.
+
+00:29.310 --> 00:34.080
+So some over here at the Riak native documentation and on the left hand side I'm going to scroll down
+
+00:34.080 --> 00:40.560
+until I find a picture and I want specifically to use the picture and not picture Iowa iOS picker Aiwass
+
+00:40.560 --> 00:46.230
+is obviously specifically for Iowa as this picture one will work well on either iOS or Android.
+
+00:46.230 --> 00:51.870
+So definitely what we want to hear is a very simple example of the picture on the screen.
+
+00:51.930 --> 00:53.890
+The API is really not too bad.
+
+00:53.910 --> 01:00.580
+We will import the picker component from re-act native We will give it the currently selected value.
+
+01:00.600 --> 01:03.240
+So look at you know they're using the same pattern as us.
+
+01:03.240 --> 01:08.440
+They're making what is called a controlled component which is one in which we tell it what its value
+
+01:08.440 --> 01:09.560
+should be.
+
+01:09.750 --> 01:17.010
+And then for each option in here as well we will add in a picture dot item component with a label and
+
+01:17.010 --> 01:19.070
+a value that matches up to it.
+
+01:19.080 --> 01:22.860
+Notice that label and value are separated out as two separate things.
+
+01:22.860 --> 01:29.940
+This is in case maybe you've got a like pretty English version of a label and then maybe a internally
+
+01:29.940 --> 01:34.150
+meaningful but not really user friendly value that you want to set as well.
+
+01:34.680 --> 01:41.700
+So maybe if you have a label of Java's is a fantastic example right here the external label that the
+
+01:41.700 --> 01:47.140
+user sees is javascript but the internal value that your application is going to use is going to be
+
+01:47.280 --> 01:48.400
+yes.
+
+01:48.570 --> 01:50.220
+Great example right there.
+
+01:50.220 --> 01:55.410
+So let's implement this Pickert component inside our application.
+
+01:55.700 --> 01:57.790
+I'm at my employee create form.
+
+01:57.830 --> 02:02.690
+The first thing you have to do is employer is import the picker from react native.
+
+02:02.690 --> 02:12.140
+So at the top we will add an import picker from re-act native and then I can scroll down to my unused
+
+02:12.140 --> 02:13.160
+card section.
+
+02:13.160 --> 02:16.670
+Here it is right here and allowed in my picker
+
+02:19.920 --> 02:22.280
+We'll start first with the picker options.
+
+02:22.530 --> 02:28.620
+So I need seven of these things I need a label and I need a value as well.
+
+02:28.620 --> 02:34.470
+So I'm going to just kind of put one empty one right here first and then I'd since I know that I need
+
+02:34.470 --> 02:38.000
+seven one more.
+
+02:38.450 --> 02:41.270
+And now here comes the fun part Monday.
+
+02:41.270 --> 02:42.420
+Well here let's.
+
+02:42.530 --> 02:45.680
+Yeah well we'll just do this one by one.
+
+02:45.860 --> 02:50.300
+We're going to use a label and value of the same exact thing.
+
+02:50.330 --> 02:53.210
+We'll make it the property properly capitalized
+
+02:55.670 --> 02:56.800
+value of the day of the week.
+
+02:56.810 --> 03:02.210
+So for us label of capital in Monday value of capital and Monday as well.
+
+03:02.210 --> 03:04.760
+All right now here's where the fancy parts can come in.
+
+03:04.760 --> 03:06.630
+This is why I just started there for a second.
+
+03:06.740 --> 03:09.920
+I'm just going to use multi-select for the rest of these.
+
+03:10.280 --> 03:16.070
+If you are using Adam or subline just in case you're curious you can highlight some little small portion
+
+03:16.070 --> 03:23.440
+of text right here and then press Commandery if you are on a Mac to multi-select these two that will
+
+03:23.450 --> 03:26.950
+give you the multiple cursors and I can do like Tuesday
+
+03:29.710 --> 03:32.400
+and then repeat for Wednesday
+
+03:35.790 --> 03:36.870
+you get the idea.
+
+03:42.660 --> 03:51.350
+Saturday Sunday this would definitely not be a horrible place to do a little bit of iteration as well
+
+03:51.410 --> 03:56.300
+to build up this list of Pickert items if you want to make an array of days of the week and then map
+
+03:56.300 --> 04:00.010
+over it and produce one paper item for each day of the week.
+
+04:00.200 --> 04:00.850
+Go for it.
+
+04:00.860 --> 04:03.600
+That is a fantastic choice as well.
+
+04:04.520 --> 04:04.830
+OK.
+
+04:04.850 --> 04:06.340
+So that is our picker options.
+
+04:06.350 --> 04:13.910
+Now we need to make sure that we declare the selected value and an on value change as well.
+
+04:13.910 --> 04:19.100
+So although the picker API or using declaring the picker is a little bit different as far as setting
+
+04:19.100 --> 04:22.090
+the value it is completely identical as the inputs.
+
+04:22.160 --> 04:27.540
+So our selected value will be this start prop stock shift.
+
+04:27.590 --> 04:29.440
+We do not yet have a shift.
+
+04:29.450 --> 04:34.140
+It is only when our form starts up that we're going to get this shift value of state.
+
+04:34.460 --> 04:40.330
+So then on value change this is what's going to be called whenever the picker's value changes.
+
+04:40.340 --> 04:43.970
+We called with the value out of the option that was selected.
+
+04:44.180 --> 04:47.980
+And for us that you know for us it's really the day I'm going to call it day right year
+
+04:50.930 --> 04:54.510
+then we'll call this stop props dot employee update.
+
+04:54.620 --> 04:59.920
+So remember we're using one action creator to handle all the different values that we're going to have.
+
+04:59.930 --> 05:04.810
+We'll give it a prop of shift and a value of day.
+
+05:04.970 --> 05:07.140
+And you know what I don't know I picked day here.
+
+05:07.250 --> 05:08.680
+Let's go with value as well.
+
+05:08.690 --> 05:13.160
+Just so we can keep the same pattern as what we use on the inputs as well.
+
+05:13.160 --> 05:19.610
+So I to change the argument to value and then we can shorten down the rest of the statement to just
+
+05:19.610 --> 05:20.970
+value as well.
+
+05:21.230 --> 05:26.710
+So value is my prop this shift with a value of value.
+
+05:27.680 --> 05:28.240
+Okay.
+
+05:28.340 --> 05:29.780
+So this sounds good.
+
+05:30.260 --> 05:33.250
+Let's do a quick refresh and see what it looks like.
+
+05:36.030 --> 05:38.440
+So we'll say test M.Com
+
+05:41.090 --> 05:42.060
+like with password
+
+05:44.550 --> 05:45.710
+and ha.
+
+05:45.990 --> 05:47.030
+How interesting.
+
+05:47.040 --> 05:48.680
+Here's my employee create form.
+
+05:48.780 --> 05:53.300
+It looks like there's definitely some height here but I don't actually see the picture at all.
+
+05:53.670 --> 05:57.840
+So this is one of those fantastic little gotchas in the world of re-act need.
+
+05:57.890 --> 05:59.430
+And there sure are a lot of them.
+
+05:59.850 --> 06:02.320
+That's why I'm here to help you out.
+
+06:02.370 --> 06:03.380
+That's my job.
+
+06:03.690 --> 06:10.440
+So by default the picker renders with a zero with set to it to make sure that it expands to fill all
+
+06:10.440 --> 06:12.160
+the area available to it.
+
+06:12.210 --> 06:17.970
+We have to set a we have to tell essentially to expand to fill all that area.
+
+06:17.970 --> 06:22.700
+Now remember how we tell a component to expand to fill all the available area.
+
+06:22.800 --> 06:24.210
+We passed cities style
+
+06:27.480 --> 06:36.690
+Sorry style of flex one like so to pass and flex one that tells it hey please expand to fill all the
+
+06:36.690 --> 06:38.660
+area available to you.
+
+06:38.800 --> 06:40.080
+Now I can sign in again
+
+06:45.030 --> 06:51.300
+go to the ADD form and boom there's my picker and so looks just like the normal US picker that you would
+
+06:51.300 --> 06:52.900
+expect to see.
+
+06:52.950 --> 06:54.490
+One thing you might find interesting.
+
+06:54.510 --> 06:57.690
+I've still got my android emulator open over here as well.
+
+06:57.900 --> 07:02.070
+So I'm going to do a quick refresh on it and then I will sign in
+
+07:09.970 --> 07:18.000
+and I'll go to the ad form and you'll notice that on here the picture still displays but is using the
+
+07:18.000 --> 07:21.740
+Android implementation of the picker's So it definitely looks a little bit different.
+
+07:21.840 --> 07:26.000
+It doesn't have the same kind of scrolling thing here that you would expect to see on iOS.
+
+07:26.020 --> 07:28.150
+There's just a difference between the two phones.
+
+07:28.320 --> 07:30.180
+Totally fine to see this on Android.
+
+07:30.300 --> 07:35.120
+And you know it still works the exact same way I can pick just one option here whereas on iOS I use
+
+07:35.120 --> 07:38.090
+a little slider to pick the one that I want.
+
+07:38.130 --> 07:38.470
+OK.
+
+07:38.490 --> 07:39.560
+So this looks good.
+
+07:39.600 --> 07:41.330
+Let's continue in the next section

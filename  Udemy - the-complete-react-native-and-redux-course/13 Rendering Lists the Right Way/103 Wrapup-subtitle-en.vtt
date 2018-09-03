@@ -1,0 +1,199 @@
+WEBVTT
+
+00:01.500 --> 00:06.600
+We've now got a pretty awesome looking application especially considering that it was for our first
+
+00:06.600 --> 00:07.920
+taste of redux.
+
+00:08.100 --> 00:13.100
+So remember the benefits of redux as our app starts to get more complicated.
+
+00:13.110 --> 00:16.560
+Our code does not necessarily have to be complicated as well.
+
+00:16.770 --> 00:22.200
+So if this app felt like a pain to build having you know wire up redux throughout all of it that is
+
+00:22.260 --> 00:29.040
+absolutely okay because redux is not really designed for use in apps with just like you know two pieces
+
+00:29.040 --> 00:30.900
+of state as we had here.
+
+00:30.990 --> 00:36.450
+It is designed for apps with many different pieces of state many different action creators many different
+
+00:36.450 --> 00:43.140
+reducers as we move onto our next app will have a more complicated state object that is going to come
+
+00:43.140 --> 00:45.520
+up with a lot more problems that we're going to have to solve.
+
+00:45.660 --> 00:49.660
+And that's what we're going to see where redux starts to get really helpful.
+
+00:49.860 --> 00:53.460
+Anyways let's review what we learned inside this application.
+
+00:53.490 --> 01:01.080
+First and foremost redux obviously we started off inside of our app component where we created the provider
+
+01:01.080 --> 01:08.490
+tag and passed it an instance of our redux store that provider tag is all about facilitating communication
+
+01:08.490 --> 01:10.800
+between react and redux.
+
+01:10.800 --> 01:16.980
+Remember they are two separate libraries and it is through the reader re-act redux library that we get
+
+01:16.980 --> 01:21.930
+them to work together nicely after we created the redux store.
+
+01:21.930 --> 01:29.130
+We created two different reducers the two reduced hours were wired together inside of our inducers index
+
+01:29.300 --> 01:35.130
+J.S. file where we combined them together using the combined reducers helper from the redux library
+
+01:35.970 --> 01:42.330
+we created two separate users the library reducer and the selection reducer each of them were assigned
+
+01:42.330 --> 01:49.260
+to a very particular key in the object that we handed off to combine reducers the key that we assign
+
+01:49.260 --> 01:57.660
+these reducers to determines how our applications state object looks or how it gets formed up looking
+
+01:57.660 --> 01:59.430
+at a very particular reducer.
+
+01:59.460 --> 02:02.380
+Let's check out our selection reducer.
+
+02:02.520 --> 02:08.550
+This is a very common structure for our reducer and we're going to see this exact same structure over
+
+02:08.550 --> 02:09.950
+and over and over again.
+
+02:10.050 --> 02:13.900
+So we will create a function we will export it by default.
+
+02:14.100 --> 02:18.800
+The function will contain a single switch statement inside of there.
+
+02:18.840 --> 02:24.150
+We will switch over our actions type and decide whether or not we want to respond to this particular
+
+02:24.180 --> 02:26.490
+action.
+
+02:26.550 --> 02:30.250
+Speaking of actions let's review our actions file.
+
+02:30.300 --> 02:35.060
+So I'm going to go to my actions in backstopped J S file inside of here.
+
+02:35.060 --> 02:43.160
+We made exactly one action creator the action creator has exactly one job and that is to create an action.
+
+02:43.440 --> 02:50.010
+They are plain Javascript functions that return actions the action Creator has no logic in it whatsoever
+
+02:50.010 --> 02:50.850
+right now.
+
+02:50.910 --> 02:56.490
+As we start to make more complicated applications we are going to add more and more logic to our action
+
+02:56.490 --> 02:59.700
+creators next.
+
+02:59.710 --> 03:01.150
+Our action itself.
+
+03:01.150 --> 03:04.000
+Remember that actions are plain javascript objects.
+
+03:04.150 --> 03:09.630
+They have a type property which we can think of as being like the command or the instruction to our
+
+03:09.630 --> 03:10.380
+reducer.
+
+03:10.570 --> 03:17.140
+So in theory when we get more complicated reducers they might respond to several different types and
+
+03:17.140 --> 03:21.070
+for each type we will want that reduce or to do something slightly different.
+
+03:23.690 --> 03:28.370
+All right the last thing I want to make sure is really clear because I did not necessarily touch it
+
+03:28.380 --> 03:29.170
+too often.
+
+03:31.390 --> 03:39.610
+I don't open up my list item file and I scroll down to the map state to proper function at the bottom.
+
+03:39.850 --> 03:46.510
+Remember that map state to prop's Here is our ability to interface from the redux state or excuse me
+
+03:46.510 --> 03:49.570
+our application level state down to the component level.
+
+03:49.600 --> 03:55.300
+So that's where we kind of pluck properties off our state object and inject them into our components.
+
+03:55.300 --> 04:00.520
+Now the one thing that I wanted to make sure was really clear because I did not explicitly mention it
+
+04:01.750 --> 04:10.300
+is that whenever application state changes are mapped state to prop's function will rerun pass in a
+
+04:10.300 --> 04:14.620
+new set of props or component which causes our component to render.
+
+04:14.860 --> 04:20.410
+And that's why we saw whenever we click on something here our application does in fact render.
+
+04:20.560 --> 04:29.770
+So whenever we call an action creator that dispatches an action reducers rerun state recalculated state
+
+04:29.770 --> 04:36.160
+flows into map state to prop's new props show up inside the component and our entire application will
+
+04:36.340 --> 04:37.320
+render.
+
+04:37.330 --> 04:41.440
+So I did not make that explicitly clear I just want to kind of throw it here on top just to make sure
+
+04:41.500 --> 04:43.600
+you know just to mention it.
+
+04:43.780 --> 04:44.230
+All right.
+
+04:44.260 --> 04:46.750
+So again redux is a tough topic.
+
+04:46.750 --> 04:48.110
+It is not easy.
+
+04:48.370 --> 04:53.770
+If you still feel shaky on any particular subject even every subject even though everything about it.
+
+04:53.770 --> 04:55.210
+Do not worry about it.
+
+04:55.260 --> 04:59.530
+We are going to be working through another app to get more experience with redox.
+
+05:00.130 --> 05:02.420
+So I hope that you enjoyed putting this up together.
+
+05:02.560 --> 05:05.730
+Let's go into the next section and kick off our next project

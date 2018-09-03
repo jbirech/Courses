@@ -1,0 +1,94 @@
+WEBVTT
+
+00:00.970 --> 00:04.240
+In the last two sections we discussed the basics of redux.
+
+00:04.260 --> 00:10.260
+We created a store and loaded it with one or more inducers reducers produce state.
+
+00:10.260 --> 00:16.710
+If we dispatch an action it will then be sent to each producer and it will generate a new copy of state.
+
+00:16.740 --> 00:21.010
+So let's start setting up our project to make use of redux.
+
+00:21.030 --> 00:25.980
+The first thing we need to do is install the redux library so that the command line for our Steckler
+
+00:26.220 --> 00:34.860
+tech stack project excuse me I'm going to run the command NPM install dash dash save redux and re-act
+
+00:34.950 --> 00:36.420
+dash redux as well.
+
+00:36.480 --> 00:38.040
+So there are two separate packages here.
+
+00:38.040 --> 00:41.360
+Make sure you install both of them.
+
+00:41.530 --> 00:47.350
+Now they're both tiny little packages so they will install quite quickly as that's going on.
+
+00:47.350 --> 00:52.300
+I'm also going to open up my code editor inside of our tech stack directory and we're going to do a
+
+00:52.300 --> 00:55.100
+little bit of setup inside of our project.
+
+00:55.150 --> 00:59.560
+This is going to be some of the same set up that we had done previously on our last application.
+
+00:59.800 --> 01:06.790
+So inside of our tech stack directory as soon as this thing boots up it always takes slightly longer
+
+01:06.790 --> 01:08.320
+than I expect.
+
+01:08.320 --> 01:10.820
+Here's our index not js file.
+
+01:10.810 --> 01:16.960
+We're going to create a new S or C directory and then set up our root component inside their soul and
+
+01:16.960 --> 01:23.400
+make a new folder called as Cercy I'll make a new file inside of here called app dot.
+
+01:23.450 --> 01:31.310
+J.S. inside of your we will import the re-act library and the view tagged from Riak native just the
+
+01:31.310 --> 01:35.300
+Barebone stuff to get our application running in the simulator.
+
+01:35.400 --> 01:44.340
+So import re-act from react on imports view from re-act native.
+
+01:44.840 --> 01:50.870
+I'll create an app component and this time's going to make it a functional component for which I will
+
+01:50.870 --> 01:52.950
+return the view tag.
+
+01:53.090 --> 01:54.070
+Nothing else.
+
+01:54.110 --> 02:00.360
+Right now we just want to put something together and then at the bottom I will export default the app..
+
+02:00.380 --> 02:05.360
+Now there is one last quick thing we need to remember to do inside of our index geas file.
+
+02:05.390 --> 02:12.710
+We do need to update the import path for our app component so we want to import our app component from
+
+02:12.870 --> 02:17.340
+Daut flash as C slash app like so.
+
+02:17.990 --> 02:23.070
+All right so at this point we have something that can in theory be ran in the simulator.
+
+02:23.110 --> 02:30.260
+There is no content yet but right now it's going to be all 100 percent re-act native code no redux whatsoever.
+
+02:30.560 --> 02:34.440
+Let's take a quick break and then continue with our setup in the next section.

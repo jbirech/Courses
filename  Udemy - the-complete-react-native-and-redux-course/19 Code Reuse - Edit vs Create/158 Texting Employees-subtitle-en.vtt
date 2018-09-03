@@ -1,0 +1,193 @@
+WEBVTT
+
+00:00.770 --> 00:03.600
+Our form is looking great here for editing employees.
+
+00:03.660 --> 00:08.190
+I mean the next thing they're going to work on is giving us our selves the ability to text the user
+
+00:08.370 --> 00:09.460
+their schedule.
+
+00:09.750 --> 00:14.820
+Now I'm going to tell you right now this might be a little bit underwhelming like texting people.
+
+00:14.820 --> 00:16.710
+Gee that sounds like something that's really hard right.
+
+00:16.710 --> 00:20.180
+Well this is one of the awesome things about Riak native.
+
+00:20.190 --> 00:25.770
+It is incredibly easy to text people or at least to initiate the texting process.
+
+00:25.800 --> 00:30.430
+We're not going to like automatically send off a text message to the Target employee.
+
+00:30.570 --> 00:36.450
+We're going to kick our users over to their native text messaging client on the device and we'll let
+
+00:36.450 --> 00:39.030
+them send the final message.
+
+00:39.420 --> 00:43.950
+So it's going to be perhaps a little bit underwhelming but sometimes in programming that's actually
+
+00:43.950 --> 00:46.360
+a very good thing to have happen.
+
+00:46.410 --> 00:50.190
+So let's check out the package that's going to help us out inside my browser.
+
+00:50.220 --> 00:53.520
+I've navigated over to NPM J.S. dot com.
+
+00:53.550 --> 00:57.890
+This is where we can find documentation on all the different packages on NPM.
+
+00:58.170 --> 01:03.120
+I'm going to look up a specific package called re-act native communications
+
+01:06.680 --> 01:08.300
+and I'll navigate right to it.
+
+01:08.300 --> 01:12.680
+So here is reac need of communications and then scroll down a little bit.
+
+01:12.680 --> 01:17.960
+The fantastic thing about this package is that it works both for iOS and Android so we can use this
+
+01:17.960 --> 01:24.260
+to not only text people but also to initiate phone calls e-mails.
+
+01:24.280 --> 01:29.610
+So here is all the stuff about e-mails and then here's what we really care about texting as well.
+
+01:29.860 --> 01:31.080
+And this is pretty much it.
+
+01:31.090 --> 01:32.020
+That's all we've got to do.
+
+01:32.020 --> 01:36.300
+We're going to call text passen the phone number that we want to text something to.
+
+01:36.310 --> 01:37.980
+And the body of the text message.
+
+01:37.990 --> 01:41.760
+So definitely something we don't need to overcomplicate here.
+
+01:41.860 --> 01:50.860
+Let's first install this as an NPM package and my command line will do NPM install save re-act native
+
+01:51.520 --> 01:56.390
+communications and I'm sure that's going to finish installing really quickly here.
+
+01:56.560 --> 02:02.530
+So while that's going I'm back in my employee edit form inside of here I want to add a new button to
+
+02:02.530 --> 02:04.190
+do our texting.
+
+02:04.240 --> 02:06.260
+So here's my render method.
+
+02:06.400 --> 02:11.560
+I've got the employee form here's the card section for with my button.
+
+02:11.650 --> 02:15.600
+I am a little bit you know I don't know if I can make a separate card section for the thing.
+
+02:15.610 --> 02:16.630
+I think I will.
+
+02:16.930 --> 02:22.190
+Let's make a new card section for this second button that we're going to add.
+
+02:22.330 --> 02:28.720
+I'm going to put a little bit of spacing between these just to make it all easier to read.
+
+02:29.020 --> 02:36.080
+So add on and on press will say on text press about that
+
+02:40.100 --> 02:47.740
+and then the text for the button lot in text schedule like so.
+
+02:48.060 --> 02:53.390
+So now whenever someone touches this button we're going to call the helper method on text press.
+
+02:53.610 --> 02:56.690
+Let's add that in right now on text.
+
+02:56.700 --> 02:57.280
+Prus
+
+03:01.100 --> 03:03.780
+and then back up at the top I will import.
+
+03:03.810 --> 03:06.650
+Let's first make sure that the installation was successful.
+
+03:06.660 --> 03:07.790
+Yep it is.
+
+03:08.030 --> 03:09.260
+So I will import
+
+03:11.750 --> 03:20.580
+communications from re-act native communications and then here comes the kind of disgustingly easy part.
+
+03:20.790 --> 03:26.000
+I know I should try to make this make this a lot harder than it than it is.
+
+03:26.000 --> 03:35.120
+We'll take our phone and our shift from our prop's object and we'll call it communications.
+
+03:35.130 --> 03:41.100
+Text the phone number and I'll do it interpretated string here because all customize the message just
+
+03:41.100 --> 03:42.180
+a little bit.
+
+03:42.180 --> 03:48.630
+Your upcoming shift is on shift.
+
+03:48.720 --> 03:53.700
+So I did use string interpolation here your template strings so make sure you get those back ticks instead
+
+03:53.700 --> 03:55.050
+of regular quotes there.
+
+03:55.230 --> 03:58.490
+Also I think that this message right here.
+
+03:58.650 --> 04:03.580
+If Yeslam is complaining to do not sweat it this is not not something to worry about.
+
+04:03.630 --> 04:07.380
+It's just saying hey it also has this export that you could grab.
+
+04:07.380 --> 04:08.190
+Totally optional.
+
+04:08.190 --> 04:13.430
+I really like having communications don't text as opposed to just not just text by itself.
+
+04:13.440 --> 04:17.490
+Anyways let's test this out in our emulator.
+
+04:18.300 --> 04:19.170
+So refresh
+
+04:22.270 --> 04:23.180
+let's sign in
+
+04:29.380 --> 04:38.200
+all go over to Jane and I'll text Jane the schedule and whenever I press this it looks like not quite
+
+04:38.200 --> 04:39.820
+getting any response here.
+
+04:39.820 --> 04:42.370
+So let's figure out what's going wrong in the next section

@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.720 --> 00:06.120
+We've now got the ability to show a model to the user or basically as confirm a message box right here.
+
+00:06.120 --> 00:11.190
+But we don't actually have any way to dismiss it or kind of say yes I do want you're right it doesn't
+
+00:11.190 --> 00:12.980
+actually do anything just yet.
+
+00:13.230 --> 00:20.100
+So if we open up to confirm itself we'll see that we passed it two separate buttons one of which we
+
+00:20.220 --> 00:23.730
+call on except whenever a user clicks us or presses Yes.
+
+00:23.820 --> 00:26.290
+And the other we call on decline whenever they press no.
+
+00:26.310 --> 00:31.860
+And both unaccepting on decline just to be clear are coming from the prop's that we passed to this component
+
+00:31.890 --> 00:33.320
+and this confirmed component.
+
+00:33.630 --> 00:39.660
+So we do have a component that we can customize and have very specific behavior whenever user clicks
+
+00:39.660 --> 00:40.610
+yes or no.
+
+00:40.680 --> 00:46.370
+But we're not actually implementing that behavior just yet to implement that behavior.
+
+00:46.500 --> 00:52.650
+We'll flip back over to employee at it and I'm inside my render methods down a ways on the page a little
+
+00:52.650 --> 00:57.420
+bit and here's where we have that confirmed tag as we replace the confirm itself.
+
+00:57.420 --> 01:03.510
+So we need to pass confirm right here a on except and on decline crop.
+
+01:03.690 --> 01:08.070
+And then in both those callbacks that will pass to them we need to basically do the appropriate thing
+
+01:08.130 --> 01:14.040
+right we need to either dismiss the confirmed message or we need to actually go in to lead the user.
+
+01:14.100 --> 01:16.820
+So let's get to it first.
+
+01:16.890 --> 01:20.800
+We will pass it a on except and on decline Propp.
+
+01:20.850 --> 01:29.490
+So it's due on except and on decline that we need to pass these things actual callbacks of course.
+
+01:29.490 --> 01:34.390
+So I'll pass on we'll say just on except we're you know I'm better.
+
+01:34.470 --> 01:35.810
+Yeah nonexempt is reasonable.
+
+01:35.810 --> 01:41.100
+I would I'd be really happy with that except I would also be happy with Onix Seth to confirm or confirm
+
+01:41.100 --> 01:49.170
+X get except excuse me also on employee delete that one might be a little bit misleading because that
+
+01:49.500 --> 01:54.360
+kind of implies that that is the action or me the event that would be called after the employee was
+
+01:54.360 --> 01:54.830
+deleted.
+
+01:54.870 --> 01:57.180
+So I think that except is reasonable right now.
+
+01:57.270 --> 02:07.590
+So a call I accept and on decline go so we'll take your the easy one first which is on decline.
+
+02:07.590 --> 02:13.800
+When the user presses on decline presumably their intent is to just close that motile close that message
+
+02:13.800 --> 02:15.520
+box that pops up to them.
+
+02:15.540 --> 02:16.710
+So let's scroll up a little bit.
+
+02:16.710 --> 02:22.180
+We're going to find both these callbacks as methods on this class.
+
+02:22.330 --> 02:30.610
+I'm going to call them up right above the render method and I'll place my on except and my on decline.
+
+02:30.610 --> 02:32.170
+So again we'll start with the on decline.
+
+02:32.170 --> 02:33.750
+Now this one's a little bit easier of the two.
+
+02:33.750 --> 02:40.690
+All we want to do here is hide that motile box and keep in mind the motile is only visible when this
+
+02:40.690 --> 02:43.300
+starts state DOTs show motile is true.
+
+02:43.300 --> 02:49.660
+So really all we have to do here is flip this boolean to false and the motile will just go away because
+
+02:49.660 --> 02:52.960
+now visible is false and it's going to be hidden from the user.
+
+02:52.960 --> 02:58.090
+So we're not actually per se like the rendering that confirmed to the user or you know like kind of
+
+02:58.090 --> 03:00.640
+like rendering and sticking onto the screen.
+
+03:00.640 --> 03:04.690
+We're just kind of toggle the visibility with the single prop.
+
+03:05.020 --> 03:12.210
+So let's come back up to decline and I'll say this Daut set state so modal is false.
+
+03:12.520 --> 03:14.260
+So no do not show the.
+
+03:14.260 --> 03:19.320
+I don't want to see the model on the screen so I have a reasonable belief that this is going to work
+
+03:19.320 --> 03:19.970
+right here.
+
+03:20.170 --> 03:22.050
+So maybe I won't tested just yet.
+
+03:22.060 --> 03:26.210
+Let's do the Onix first and then we'll do a full test.
+
+03:26.350 --> 03:31.870
+So in the case of on except this is where we want to actually initiate the employee deletion process
+
+03:31.920 --> 03:38.700
+as Oregon to say like amyloids It's been nice knowing you but you're out of here goodbye so to speak.
+
+03:39.160 --> 03:46.030
+So we don't really have anything yet to handle deletes But what we clearly need to do is somehow hop
+
+03:46.030 --> 03:52.330
+over to firebase and say okay this record right here like Jane you're fired you are deleted.
+
+03:52.330 --> 03:54.480
+We need to just delete this record right here.
+
+03:54.490 --> 03:59.060
+So that's our that's our end goal to work with our firebase data.
+
+03:59.080 --> 04:03.730
+We'll use the same pattern that we've used for all the other locations where we've worked with firebase.
+
+04:03.730 --> 04:06.230
+We will create an action creator.
+
+04:06.580 --> 04:12.870
+So in my employee actions file we will create a new action create are called employee delete.
+
+04:12.880 --> 04:22.770
+Scroll down to the bottom and define export Konst employee deletes.
+
+04:22.810 --> 04:26.460
+Now we need to know exactly which employee we are attempting to delete here.
+
+04:26.680 --> 04:31.450
+And rather than passing in the name which you know we might have many employees named Jane or Matthew
+
+04:31.450 --> 04:37.330
+or whatever other name we need to pass in an ID because the idea is very unique and it's going to say
+
+04:37.600 --> 04:41.250
+this very particular employee This is who I want to lead.
+
+04:41.350 --> 04:49.940
+So I'm going to assume that this thing is called with a new ID which is the ID of our employee next
+
+04:50.030 --> 04:51.040
+to the rest of this.
+
+04:51.040 --> 04:53.710
+Me very similar to the set up we've already done.
+
+04:53.710 --> 05:00.000
+We are going to get a ref to this very particular employee right here and then we'll use a firebase
+
+05:00.010 --> 05:02.770
+method to say please you know knock this guy out.
+
+05:02.770 --> 05:03.480
+Just take him out.
+
+05:03.580 --> 05:05.090
+We don't want him anymore.
+
+05:05.290 --> 05:11.260
+So we use the same pattern as we had before where we grabbed the current user create a ref and then
+
+05:11.470 --> 05:13.290
+do something with that ref.
+
+05:13.300 --> 05:16.200
+So first we'll say Konst current user
+
+05:19.570 --> 05:24.620
+and then we return a function to meet the requirements of redux thung.
+
+05:24.640 --> 05:30.730
+Because again this is going to be an asynchronous action creator and we'll say firebase DOD database
+
+05:31.210 --> 05:37.660
+ref and in here we're going to pass in the same type of interpretated string as before and as matter
+
+05:37.660 --> 05:43.840
+of fact is very similar to our employee save one because we want to reach in to a very particular employee
+
+05:43.840 --> 05:47.220
+and we want to get a reference to a very particular employee.
+
+05:47.290 --> 05:49.930
+So I will say look into my collection of users
+
+05:52.270 --> 06:02.620
+find my current user dot Id like you know find this user's bucket of data grab their employees and then
+
+06:02.620 --> 06:05.530
+find this very particular employee.
+
+06:05.560 --> 06:08.080
+So that's where the ideas coming from right there.
+
+06:10.970 --> 06:14.520
+Now here's the new part of firebase API.
+
+06:14.540 --> 06:18.090
+What we haven't quite covered yet is how do we remove records.
+
+06:18.090 --> 06:19.420
+Well it's really not that bad.
+
+06:19.460 --> 06:21.530
+We've got to call him if that's it.
+
+06:21.860 --> 06:25.230
+So we can get a ref to a node and firebase.
+
+06:25.280 --> 06:30.610
+So this is like pointing out a very particular part of our firebase data structure and then we move
+
+06:30.620 --> 06:31.070
+on.
+
+06:31.460 --> 06:35.080
+And this node and any children that it has puf just go away.
+
+06:35.090 --> 06:38.900
+They get removed now after this.
+
+06:38.900 --> 06:40.840
+We need to make sure that we actually do something after here.
+
+06:40.850 --> 06:45.050
+Right like just removing the employee isn't isn't quite enough.
+
+06:45.050 --> 06:50.550
+We need to actually make sure that the user acknowledges OK I understand the employee is deleted fantastic.
+
+06:50.660 --> 06:55.600
+So to handle that I think it's appropriate that we navigate the user back to our employee list you know
+
+06:55.610 --> 07:00.830
+just be kind of like okay they're gone kick them back to the employee list and they're not going to
+
+07:00.830 --> 07:02.660
+see the employee on that list anymore.
+
+07:03.010 --> 07:05.320
+They're going to reason we believe up they're gone.
+
+07:05.840 --> 07:13.950
+So chain on a door then an inside of your we'll call actions dot employee list.
+
+07:14.000 --> 07:17.260
+Again I don't want to add another viewer to my stack.
+
+07:17.450 --> 07:25.400
+I'm going to type and type reset as in I'm not going forward per se I'm just navigating to a new view
+
+07:25.420 --> 07:27.700
+starting a new bucket of views for me.
+
+07:27.710 --> 07:32.360
+He also notes that we didn't use dispatch here so we can probably take this argument out.
+
+07:32.360 --> 07:38.780
+We're not using dispatch just because we know that whenever we make a change to our list of employees
+
+07:39.230 --> 07:47.360
+that existing fecche employees action greter right up here the value event is going to trigger again.
+
+07:47.570 --> 07:52.850
+We're going to see another dispatch and we're going to get the new collection of employees showing on
+
+07:52.850 --> 07:57.500
+the screen so we know that once we delete the employee everything should just kind of update the way
+
+07:57.500 --> 07:58.570
+we expect.
+
+07:58.580 --> 08:02.980
+So I don't really need to call another action Creator in here and I don't really need to dispatch me
+
+08:02.990 --> 08:08.930
+that I could dispatch an event and like say the error case or maybe I want to show a big check box to
+
+08:08.930 --> 08:12.040
+say yes the user or the employee was deleted.
+
+08:12.050 --> 08:15.470
+But again that's kind of you know up to you as a developer.
+
+08:16.070 --> 08:17.150
+So let's do a test.
+
+08:17.450 --> 08:22.700
+I'm going to refresh my simulator and I just realized before we can do that.
+
+08:22.790 --> 08:25.310
+Let's take a quick break because this is turning a little bit long.
+
+08:25.310 --> 08:29.930
+Let's take a quick break and hook up this action crater in the next section and then test all this behavior

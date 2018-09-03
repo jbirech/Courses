@@ -1,0 +1,232 @@
+WEBVTT
+
+00:01.250 --> 00:04.770
+In the last couple of sections we've really gone in headfirst of three blocks.
+
+00:04.770 --> 00:09.440
+So I just want to take a quick pause and review how our app is currently working.
+
+00:10.970 --> 00:15.800
+This is a pretty complicated diagram of exactly what's happening inside our application right now.
+
+00:15.820 --> 00:18.910
+Let's break this down and walk through it step by step.
+
+00:19.240 --> 00:26.380
+First when our app first boots up read X creates a new store right with that create store call using
+
+00:26.380 --> 00:28.670
+the library's reducer.
+
+00:29.050 --> 00:33.550
+The instant the store is created it runs this reducer one time.
+
+00:33.610 --> 00:39.230
+So we get a piece of state called libraries which is an array containing a list of objects.
+
+00:41.140 --> 00:47.800
+The reducer itself when it runs returns that array of objects and each object represents one library
+
+00:47.800 --> 00:55.000
+that we eventually want to show up on our screen next after we create the store we pass it to the provider
+
+00:55.090 --> 01:00.100
+as a prop where it's going to sit for the rest of the lifespan of our application.
+
+01:00.100 --> 01:08.400
+The provider is a re-act component that ad that aids in communication between react and redux.
+
+01:08.430 --> 01:16.260
+Next the app component is rendered to the screen which in turn renders the library list component the
+
+01:16.290 --> 01:21.430
+instant that the library lists component is about to render are about to appear on the screen.
+
+01:21.630 --> 01:29.190
+The Connect function which we just added in that connect help right here boots up and it says OK time
+
+01:29.190 --> 01:30.280
+for me to do my thing.
+
+01:30.300 --> 01:37.470
+The component I'm wrapping is about to render the connect function then it reaches back up to the provider
+
+01:37.650 --> 01:43.920
+and says hey please give me access to whatever your current state is just just let me know your status.
+
+01:44.070 --> 01:49.920
+The provider gives up the state that is contained within the store and then the connect tag pumps it
+
+01:49.920 --> 01:51.970
+down into the library list.
+
+01:51.990 --> 01:54.330
+After filtering through Mount St. to process.
+
+01:54.390 --> 01:54.560
+OK.
+
+01:54.570 --> 01:57.390
+So again let me just say a lot of steps right there.
+
+01:57.410 --> 01:59.190
+Just break that down one more time.
+
+01:59.250 --> 02:06.130
+When the Kinect helper first boots up it says oh the library list is about to render that connect helper
+
+02:06.150 --> 02:10.250
+goes up to the provider says Can I have access to state.
+
+02:10.260 --> 02:11.400
+The provider says Sure.
+
+02:11.400 --> 02:13.410
+Here you go.
+
+02:13.410 --> 02:19.890
+They connect helper calls map state to prop's without application state and then whatever object gets
+
+02:19.890 --> 02:24.160
+returned will show up as props down into library list down here.
+
+02:24.450 --> 02:26.340
+So the last step there is really key as well.
+
+02:26.400 --> 02:32.610
+The map state to prop's function runs and it returns an object that objects like whatever it contains
+
+02:32.610 --> 02:38.350
+whatever properties whatever values whatever data is then passed as props to the library list.
+
+02:38.430 --> 02:41.340
+And that was the last step that we just verified inside of here.
+
+02:41.410 --> 02:47.440
+Right we can't log this up props and we saw that it contained this object right here an object with
+
+02:47.440 --> 02:53.190
+the key of libraries and a value of the libraries that existed inside of our state.
+
+02:53.190 --> 02:58.230
+One thing I want to point out really quick is that you know again the term libraries is floating around
+
+02:58.230 --> 02:59.600
+a lot right here.
+
+02:59.760 --> 03:03.930
+This object right here that we returned when it showed up as props to our component.
+
+03:03.930 --> 03:05.700
+It had the key of libraries.
+
+03:05.760 --> 03:06.620
+It did not.
+
+03:06.670 --> 03:09.360
+This right here can be absolutely anything that we want.
+
+03:09.360 --> 03:10.910
+So it can be libraries.
+
+03:11.100 --> 03:12.040
+It can be data.
+
+03:12.140 --> 03:15.590
+It can mutate data to show whatever we want it to be.
+
+03:15.600 --> 03:20.250
+It does not necessarily have to be libraries just because the piece of state that we want to reference
+
+03:20.340 --> 03:22.120
+is state libraries.
+
+03:22.170 --> 03:28.300
+I just chose to call it libraries because that is you know a very reasonable name for the problem.
+
+03:29.100 --> 03:34.370
+On the other hand on our state object we have a very distinct property called libraries.
+
+03:34.410 --> 03:40.140
+So I could I could not say of course right here like state idea because our state object does not have
+
+03:40.140 --> 03:44.660
+a data property after very specifically say state libraries.
+
+03:44.670 --> 03:46.750
+I guess that's pretty much where we are at.
+
+03:46.760 --> 03:52.290
+Inside of our application right now I feel like there might be a confusing or item or two in this process
+
+03:52.290 --> 03:56.330
+so I want to provide just a little bit of clarity on them.
+
+03:56.700 --> 04:01.030
+First just to review you know exactly what I just mentioned about the libraries.
+
+04:01.290 --> 04:05.940
+And second the second interesting piece I want to draw your attention to here is that our douceur had
+
+04:05.940 --> 04:11.760
+produced some amount of state insider app even though we did not dispatch an action right.
+
+04:11.760 --> 04:17.520
+So when are out first booted up and we cancel logged our state inside of that stage props and then we
+
+04:17.520 --> 04:20.270
+later Konst logged it inside of our function right here.
+
+04:20.430 --> 04:27.960
+This library's piece of state that came from our reduce or our library reducer over here already had
+
+04:27.960 --> 04:29.340
+some data inside of it.
+
+04:29.370 --> 04:36.090
+So when our redux application first boots up it will automatically run all the registered reducers to
+
+04:36.090 --> 04:38.870
+keep cumulate some amount of initial state.
+
+04:38.940 --> 04:43.950
+So we always have to design or inducers assuming that they would be called like over and over and over
+
+04:43.950 --> 04:46.400
+again and at random points at time.
+
+04:46.470 --> 04:52.020
+So thats why that whole type system that we saw earlier is so important the reducer needs to only change
+
+04:52.020 --> 04:56.010
+its data whenever it sees an action with a type that it cares about.
+
+04:56.010 --> 05:00.240
+In addition we need to make sure that we respond to the application first booting up correctly.
+
+05:00.240 --> 05:06.090
+So when are out first boots up and it runs all the reducers one time we have to make sure that we return
+
+05:06.090 --> 05:12.810
+some amount of initial state in this case here because we are just returning a very static list of data.
+
+05:12.810 --> 05:15.990
+You know just this the Saray that is hard coded into our application.
+
+05:16.050 --> 05:17.800
+It wasn't quite as big a deal.
+
+05:17.970 --> 05:22.890
+But when we go back and implement the selection reducer it's something that we're going to need to think
+
+05:22.890 --> 05:24.970
+about a little bit but we'll get there.
+
+05:25.440 --> 05:25.830
+OK.
+
+05:25.830 --> 05:29.000
+I hope this is a good breather to review our app is working right now.
+
+05:29.010 --> 05:33.540
+Let's continue on the next section by working a little bit more on the library list component

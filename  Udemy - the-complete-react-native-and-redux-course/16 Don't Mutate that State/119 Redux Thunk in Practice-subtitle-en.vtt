@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00.790 --> 00:05.370
+In the last section we started to discuss how we could use redux thunked to get more flexibility out
+
+00:05.370 --> 00:06.840
+of our action creators.
+
+00:06.840 --> 00:12.090
+So enough of the lectures and the last like five or so then a lot of talking let's just wire this thing
+
+00:12.090 --> 00:13.640
+up and see how it works.
+
+00:13.640 --> 00:19.050
+So remember the golden rule of redox is that nothing happens for free and that certainly applies to
+
+00:19.050 --> 00:20.330
+redux thunk as well.
+
+00:20.340 --> 00:23.480
+So before our application can actually use it we have to wiretap.
+
+00:23.490 --> 00:27.500
+We have to tolerate redux please make use of redux stunk over here.
+
+00:27.750 --> 00:30.040
+So we're going to do that inside of our app file.
+
+00:30.060 --> 00:33.210
+So here is my app component right here.
+
+00:33.390 --> 00:40.920
+I'm going to import redux thunk from redux thunk while I'm here.
+
+00:40.920 --> 00:43.520
+I'm also going to clean up my re-act native tags.
+
+00:43.530 --> 00:47.490
+I'm not using these anymore so I'm going to dump them real quick.
+
+00:48.360 --> 00:48.930
+OK.
+
+00:49.080 --> 00:52.440
+Redux thunk itself is what is called a middleware.
+
+00:52.440 --> 00:57.210
+So that is the part they're actually wiring up here we are wiring up a middleware to our redux application
+
+00:57.630 --> 01:04.830
+to include any type of middleware we have to import a helper from redux thunk as well called apply middleware.
+
+01:04.830 --> 01:09.180
+And as you might imagine applying middleware is what allows us to take the middleware Intel redux to
+
+01:09.180 --> 01:11.140
+actually make use of this thing.
+
+01:11.190 --> 01:15.730
+So now down inside of our render method to find our store.
+
+01:15.730 --> 01:19.330
+So here's our story here is the create store call.
+
+01:19.410 --> 01:22.220
+I'm going to add on a second argument of no.
+
+01:22.530 --> 01:23.020
+Excuse me.
+
+01:23.040 --> 01:24.500
+Empty object not known.
+
+01:24.900 --> 01:28.520
+And then a third argument of apply middleware.
+
+01:28.700 --> 01:32.810
+I'm going to pass that redux thought.
+
+01:32.850 --> 01:34.780
+Now this is a really long line of code right here.
+
+01:34.980 --> 01:37.110
+So I'm going to cut this out.
+
+01:39.000 --> 01:46.890
+Declare the story ahead of time and get a more legible and I'm pass the story was a little bit of background.
+
+01:47.130 --> 01:52.920
+The second argument right here is for any initial state that we might want to pass to our redux application.
+
+01:52.920 --> 02:00.960
+So if we had some like imaginary property like you know maybe I wanted to populate the email and password
+
+02:00.960 --> 02:03.990
+flag for my Auth. reducer I could pass that in right here.
+
+02:03.990 --> 02:04.890
+Totally optional.
+
+02:05.040 --> 02:06.500
+Something that we don't do too common.
+
+02:06.630 --> 02:08.850
+Mostly to server side rendering.
+
+02:08.850 --> 02:14.280
+Actually the third argument here is what are called store enhancers.
+
+02:14.280 --> 02:19.770
+So the supply middleware call with redux thunked is referred to as a store enhancer because it is adding
+
+02:19.800 --> 02:22.220
+additional functionality to the store.
+
+02:22.620 --> 02:24.950
+Anyways just a little bit of off topic stuff.
+
+02:24.990 --> 02:27.700
+So this is how we wired up redux thug.
+
+02:27.960 --> 02:32.650
+Now that we've installed it we can actually make use of it inside of a reducers the action creator.
+
+02:32.880 --> 02:35.250
+So here is my action creator file.
+
+02:35.310 --> 02:38.520
+I've got my log in user action creator right here.
+
+02:38.760 --> 02:41.730
+And again I'm going to skimp on the lecture a little bit.
+
+02:41.730 --> 02:44.410
+We're just going to throw up how this thing works right here.
+
+02:44.430 --> 02:46.400
+And then talk about how it works.
+
+02:46.410 --> 02:52.610
+So the tween or right after the action Kryder opening brace over here and when you add a new line and
+
+02:52.640 --> 02:55.880
+the safe return dispatch.
+
+02:57.390 --> 03:01.530
+And I'm going to wrap that entire firebase call in a federal function.
+
+03:02.270 --> 03:02.850
+OK.
+
+03:03.150 --> 03:03.690
+There we go.
+
+03:03.690 --> 03:07.300
+So this is where the syntax starts to get a little bit hairy.
+
+03:07.320 --> 03:09.960
+So do be sure to double check your syntax here.
+
+03:10.110 --> 03:16.920
+I've got return dispatch an opening curly brace the authentication call and then the closing curly brace
+
+03:16.920 --> 03:17.430
+down here.
+
+03:17.540 --> 03:18.360
+OK.
+
+03:19.140 --> 03:19.790
+So that's it.
+
+03:19.800 --> 03:21.290
+That's really excellent connection right.
+
+03:21.300 --> 03:25.020
+Well yeah maybe maybe what's actually going on here.
+
+03:25.020 --> 03:26.610
+What impact does this really have on our app.
+
+03:26.610 --> 03:26.810
+Right.
+
+03:26.820 --> 03:28.700
+That's what we have to really figure out.
+
+03:29.010 --> 03:33.410
+Check out a diagram and see what redux thunk is really going to be doing for us.
+
+03:33.410 --> 03:35.990
+So it's a little bit of an ascii diagram.
+
+03:35.990 --> 03:37.300
+It's because there's a lot of steps to it.
+
+03:37.350 --> 03:39.150
+But bear with me for a moment.
+
+03:39.570 --> 03:45.190
+So now now that we have read thunk this whole flow of calling an action creator is going to change up
+
+03:45.210 --> 03:46.040
+just a little bit.
+
+03:46.290 --> 03:47.640
+So here's how it's going to work.
+
+03:47.670 --> 03:54.150
+We're going to call the action creator action creators now going to return a function so that as a we
+
+03:54.150 --> 03:58.100
+just added in our action creator is now returning a function
+
+04:01.710 --> 04:08.430
+when that function is returned it redux is going to see it as going to say ah they return to function
+
+04:08.430 --> 04:15.140
+from that action Creator and it will immediately call the function with the dispatch method.
+
+04:15.180 --> 04:21.570
+Right and remember that the dispatch method is what actually sends actions off to all the different
+
+04:21.570 --> 04:23.000
+reducers in our application.
+
+04:23.160 --> 04:29.910
+So redox Reebok's thunks kind of the purpose here is to just say AAVE returning action from action creator
+
+04:30.180 --> 04:31.770
+and then immediately call that function.
+
+04:31.770 --> 04:36.300
+Or assuming the return to function with any action creator Emily calls that function area.
+
+04:37.140 --> 04:43.200
+So once Reebok's thunked calls the action or calls the function we returned we will then start our log
+
+04:43.200 --> 04:48.270
+and request you will say hey firebase try to silence please and then we're going to sit there and wait
+
+04:49.310 --> 04:55.530
+and wait a bit longer and eventually when the request is complete and the users logged in our dot van
+
+04:55.530 --> 05:02.550
+runs and inside of the door then we will manually dispatch our actions so this last step right here
+
+05:02.760 --> 05:04.380
+is the entire key to it.
+
+05:04.420 --> 05:10.650
+So the entire key this entire thing works by recognizing that hey some asynchronous action is going
+
+05:10.650 --> 05:17.360
+to happen here and we cannot immediately return an action by giving us access to dispatch.
+
+05:17.400 --> 05:22.590
+We can call dispatch at any point in time like inside of the door then or inside of the door catch wherever
+
+05:22.590 --> 05:23.330
+we want to.
+
+05:23.610 --> 05:30.540
+And at that point in time we can manually dispatch an action instead of waiting for our Instead of immediate
+
+05:30.600 --> 05:33.170
+returning action from the action crater itself.
+
+05:33.180 --> 05:38.370
+So let's take a quick break come back and test out this implementation in the next section.

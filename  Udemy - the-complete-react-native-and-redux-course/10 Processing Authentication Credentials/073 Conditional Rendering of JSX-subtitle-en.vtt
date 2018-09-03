@@ -1,0 +1,295 @@
+WEBVTT
+
+00:00.660 --> 00:06.240
+In the last section we finished up our spinner component so we can place the spinner anywhere specify
+
+00:06.240 --> 00:11.010
+the size that we want and the spinners should appear on the screen centered in the horizontal direction
+
+00:11.040 --> 00:14.140
+because we added in some styling to make sure that's the case.
+
+00:14.340 --> 00:20.010
+We'll now flip over to our blog and forum file and make sure that we show this video inside of here.
+
+00:20.060 --> 00:26.580
+So our goal or what we have to figure out how to do is we have to say that whenever a user clicks on
+
+00:26.580 --> 00:33.710
+the button whenever they click on this thing attempting to log in I want to hide this button and instead
+
+00:33.740 --> 00:35.420
+I want to show that spinner.
+
+00:35.520 --> 00:36.310
+So that's the goal here.
+
+00:36.320 --> 00:41.080
+I need to either show this button or show the spinner.
+
+00:41.720 --> 00:46.040
+So what I'm really talking about doing here is I'm talking about kind of remembering the component on
+
+00:46.040 --> 00:48.580
+the fly with some amount of different content.
+
+00:48.590 --> 00:49.340
+Right.
+
+00:49.370 --> 00:55.040
+And so again whenever I say reminder you got to be thinking about state that is how we cause our component
+
+00:55.040 --> 00:56.270
+to re render.
+
+00:56.300 --> 01:03.710
+So I suggest that we add in a new piece of state to its component called loading and loading should
+
+01:03.710 --> 01:05.310
+be a boolean.
+
+01:05.750 --> 01:11.720
+Whenever the Boullion loading is false that means that we are not making every correct request you know
+
+01:11.720 --> 01:13.480
+we're not trying to sign user end.
+
+01:13.600 --> 01:18.590
+And so we should show the button on the screen but whenever the button or whenever that piece of state
+
+01:18.650 --> 01:23.620
+of loading is true that means that we must be attempting to log the user in.
+
+01:23.660 --> 01:27.070
+And so it can show the spinner on the screen instead of the button.
+
+01:27.200 --> 01:29.410
+Guess that's going to be our goal here.
+
+01:29.450 --> 01:34.670
+So again whenever we use state we were we will first default our property.
+
+01:35.180 --> 01:42.330
+So I will add on a loading piece of state called false or X-C with the value falls excuse me.
+
+01:42.590 --> 01:44.990
+So by default I am not loading anything.
+
+01:45.000 --> 01:46.930
+I'm not attempting to make a request.
+
+01:46.940 --> 01:56.040
+So by default on the first renderers we have loading of false next when we start to issue our request.
+
+01:56.050 --> 02:00.710
+You know when the user presses the button I want to make sure that I immediately show this video on
+
+02:00.710 --> 02:02.050
+the screen to let them know.
+
+02:02.200 --> 02:05.640
+Yeah we are we are showing the spinner we are trying to plug you in right now.
+
+02:05.660 --> 02:08.020
+You know we want to give our user that feedback.
+
+02:08.090 --> 02:15.470
+So inside of an button press I will want to update my state to have loading of true so that we can remember
+
+02:15.470 --> 02:19.210
+the component and show the spinner instead of the button.
+
+02:19.550 --> 02:25.190
+So to update our piece of loading state I do not need to create a separate set state call.
+
+02:25.190 --> 02:28.550
+I can change as many variables on my state object as I want.
+
+02:28.550 --> 02:30.710
+Inside of a single set state call.
+
+02:30.860 --> 02:34.500
+So I will also pass in here loading of true.
+
+02:34.940 --> 02:39.230
+So the instant that a user presses the button we're going to clear out any existing errors that are
+
+02:39.230 --> 02:40.230
+on the screen.
+
+02:40.400 --> 02:45.220
+And we're also going to flip this loading flag to true.
+
+02:45.290 --> 02:51.170
+Now the last thing we have to do is figure out inside of our render method whether or not we should
+
+02:51.170 --> 02:52.860
+show this button or the spinners.
+
+02:52.860 --> 02:55.540
+So that's the last thing we have to do here.
+
+02:55.610 --> 03:00.890
+Whenever I kind of do this conditional a rendering of sorts you know either show this or show that I
+
+03:00.890 --> 03:05.780
+like to extract this logic to a separate helper method to make the decision for me.
+
+03:05.990 --> 03:13.940
+So I'm going to create another helper method called render button and inside of here we will either
+
+03:13.940 --> 03:20.120
+return some amount of GSX to show the spinner or we will show some amount of GSX to show the button
+
+03:20.120 --> 03:21.440
+tag.
+
+03:21.500 --> 03:24.310
+So I will say if this state.
+
+03:24.440 --> 03:25.650
+Loading.
+
+03:26.240 --> 03:31.130
+So if this state uploading is true because remember this is a Boolean right here so we don't have to
+
+03:31.130 --> 03:33.680
+do like equals equals equals true.
+
+03:33.740 --> 03:37.230
+We don't have to do that it can be just the start state of loading.
+
+03:37.250 --> 03:43.280
+Then I want to return my spinner and I have not yet imported my spinner but I will in just a second
+
+03:43.280 --> 03:44.150
+here.
+
+03:44.510 --> 03:51.700
+I also make sure the spinner is small something to pass in a size prop of small number we wired up this
+
+03:51.740 --> 03:54.380
+the size prop just a moment ago.
+
+03:55.130 --> 03:58.600
+So if I'm currently loading return the spinner.
+
+03:58.970 --> 04:03.370
+Otherwise I want to return my button tag.
+
+04:03.860 --> 04:06.250
+So right here we'll return the button.
+
+04:06.320 --> 04:10.480
+So you know scrolling down to the button and we're going to cut and paste it up.
+
+04:10.520 --> 04:11.690
+So here's my button.
+
+04:11.690 --> 04:17.600
+I'm going to cut it and I'm going to scroll back up to my method and then the return statement I'll
+
+04:17.600 --> 04:19.910
+place the button here.
+
+04:19.910 --> 04:21.040
+Now notice that I'm using.
+
+04:21.060 --> 04:25.230
+And if you I could be using if else statement here.
+
+04:25.250 --> 04:30.400
+So I could say if this start States uploading else do this.
+
+04:30.710 --> 04:37.250
+I kind of like this different syntax here and it's different pattern where I say if some condition return
+
+04:37.280 --> 04:39.900
+immediately and you know with this object.
+
+04:39.890 --> 04:42.860
+Otherwise just return this object by default.
+
+04:42.920 --> 04:43.870
+So it's really up to you.
+
+04:43.870 --> 04:50.370
+This can be if else I kind of like this other patterns that it's the last thing we have to do is make
+
+04:50.370 --> 04:55.450
+sure that we call this render button method from inside of our render method.
+
+04:55.500 --> 05:05.430
+So going to scroll back down all the way to our last section here and I'm going to call this dot render
+
+05:05.580 --> 05:07.170
+button like zone.
+
+05:07.620 --> 05:12.840
+So we haven't really done a lot of this before but we absolutely can have helper methods that return
+
+05:12.840 --> 05:17.100
+some amount of GSX and then cull those from within our render method.
+
+05:17.100 --> 05:18.800
+And that's exactly what we're doing here.
+
+05:18.810 --> 05:25.500
+I've got this rendered bet round rendered button method that will return some amount of GSX and I can
+
+05:25.500 --> 05:31.920
+call it directly from within my existing other block of GSX and mean as a matter of fact we can compose
+
+05:31.920 --> 05:37.650
+blocks of GSX out of as many Methley are rendered calls or what method calls has we want.
+
+05:37.650 --> 05:38.400
+Excuse me.
+
+05:38.610 --> 05:43.920
+So we can very freely use functions all over the place to compose our render method.
+
+05:44.710 --> 05:45.190
+All right.
+
+05:45.210 --> 05:49.290
+I think the last thing we have to do is make sure that we import the spinner component because we've
+
+05:49.290 --> 05:50.500
+still not done that.
+
+05:50.850 --> 05:56.820
+So at the very top I'm going to find my import statement from our common directory and I'm also going
+
+05:56.820 --> 06:00.030
+to import Spener.
+
+06:00.090 --> 06:02.920
+OK so I think it's time for a little bit of a test now.
+
+06:02.960 --> 06:11.220
+You know flip over the simulator and o'lantern some credentials.
+
+06:11.630 --> 06:18.890
+And then I will log in and fantastic we get that nice spinner there to let our user know hey just know
+
+06:18.890 --> 06:22.300
+something's in progress here we are currently attempting to log in.
+
+06:22.580 --> 06:23.960
+So this is great.
+
+06:24.020 --> 06:29.870
+Now the only thing we are doing now is we are not handling the case in which the request actually succeeds
+
+06:29.870 --> 06:31.790
+or fails right at some point in time.
+
+06:31.790 --> 06:33.150
+The spinner has to go away.
+
+06:33.170 --> 06:37.580
+So we need to make sure that at some point we hide the spinner from the screen.
+
+06:37.570 --> 06:40.090
+So let's take care of that in the next section.

@@ -1,0 +1,220 @@
+WEBVTT
+
+00:00.920 --> 00:06.690
+Our last stop was focused on learning more about the styling and building of basic components for our
+
+00:06.690 --> 00:11.730
+next application we're going to focus on something that is required by nearly every single mobile app
+
+00:11.730 --> 00:12.600
+out there.
+
+00:12.780 --> 00:19.320
+Authentication or the process of signing in and signing out users to your application will be wary of
+
+00:19.350 --> 00:21.880
+authentication using the popular data service.
+
+00:21.880 --> 00:26.290
+Firebase which we'll use later on for some other interesting apps as well.
+
+00:26.580 --> 00:31.560
+So given that this is a new application we are going to want to generate a new re-act native project
+
+00:31.560 --> 00:37.050
+as well so that my terminal inside of my you know kind of general project directory here.
+
+00:37.200 --> 00:39.670
+So Ive got my albums project right here.
+
+00:39.770 --> 00:44.350
+I'm going to generate a new project by using the re-act native CLID.
+
+00:44.490 --> 00:50.690
+So if you recall re-act dash native in it and I call this project off.
+
+00:51.570 --> 00:54.740
+So this is going to start up our new project and install the Penzeys.
+
+00:54.870 --> 00:56.070
+It's going to take a little bit.
+
+00:56.070 --> 01:00.390
+So let's talk a little bit more about the app that we're going to build and just kind of let this installation
+
+01:00.390 --> 01:01.910
+run.
+
+01:01.940 --> 01:06.920
+So let's check out a diagram of what we're going to be making.
+
+01:07.420 --> 01:07.810
+All right.
+
+01:07.810 --> 01:08.280
+Here we go.
+
+01:08.280 --> 01:10.720
+So this is a mockup of the app that we're making.
+
+01:10.820 --> 01:13.990
+We're going to very purposefully keep it pretty limited in scope.
+
+01:14.000 --> 01:17.910
+So we're just going to be signing a user in and allowing them to sign out.
+
+01:18.290 --> 01:23.200
+So when our first app first starts up we're going to be on this Left-Hand kind of state over here.
+
+01:23.960 --> 01:29.540
+These are really prompted with a signed form that will ask them for their email and password after they
+
+01:29.540 --> 01:31.620
+press the logging button right here.
+
+01:31.850 --> 01:35.340
+We'll then consider them to be like signed in or logged in.
+
+01:35.450 --> 01:38.170
+At which point in time they'll see the screen on the right hand side.
+
+01:38.450 --> 01:41.280
+So again when the users sign then they won't have too much to do.
+
+01:41.270 --> 01:42.650
+They're just going to be able to sign out.
+
+01:42.660 --> 01:47.180
+We're going to get this the absolute basics of authentication for now.
+
+01:47.180 --> 01:49.970
+Now there is one interesting aspect to this flow.
+
+01:50.060 --> 01:53.840
+You'll notice that we've only got kind of the sign in screen right here and there's nothing about sign
+
+01:53.840 --> 01:56.140
+up right there's no ability to create an account.
+
+01:56.390 --> 02:01.620
+So we're going to do to keep the lowest amount of friction for getting users sign a true application.
+
+02:01.760 --> 02:06.620
+We're going to just show them log in screen and if they try to sign in with an e-mail address that we've
+
+02:06.620 --> 02:10.940
+never seen before we're going to assume that they're trying to create an account and we'll just create
+
+02:10.940 --> 02:11.950
+an account for them.
+
+02:11.960 --> 02:19.790
+So we are going to have this kind of dual purpose log in and sign up screen all in one right here before
+
+02:19.790 --> 02:20.760
+ever starting an app.
+
+02:20.780 --> 02:25.400
+I like to always have a good idea of the different components I'll need to create and also figure out
+
+02:25.400 --> 02:27.550
+what the biggest challenge is that the app will be.
+
+02:27.560 --> 02:29.060
+So let's do that right now.
+
+02:30.430 --> 02:34.530
+So for this application I think that we're going to be able to reuse a lot of the components that we've
+
+02:34.530 --> 02:35.390
+just made.
+
+02:35.590 --> 02:42.040
+So we'll have a better component will have a card with some card sections and then a button to actually
+
+02:42.040 --> 02:43.090
+do to log in.
+
+02:43.090 --> 02:47.320
+So I'm kind of thinking that perhaps the only component that we might need to make will be this log
+
+02:47.320 --> 02:48.490
+and form component.
+
+02:48.730 --> 02:55.210
+And the purpose of log in form will be just to hold the sign of fields and the button and all that kind
+
+02:55.210 --> 02:57.740
+of good stuff.
+
+02:58.130 --> 03:01.760
+As far as the challenges in the south we're definitely to have quite a few.
+
+03:01.790 --> 03:07.210
+So we need to figure out how to use firebase to authenticate a user or an application.
+
+03:07.310 --> 03:12.020
+That means we're going to sign up for the firebase service and enable authentication and install the
+
+03:12.020 --> 03:14.240
+library to our project.
+
+03:14.240 --> 03:19.670
+Speaking of firebase especially is a library once we install it we're going to need to figure out how
+
+03:19.670 --> 03:26.330
+to integrate it into react so we have firebase did have a reactive integration library called re-act
+
+03:26.330 --> 03:32.170
+fire but it's not very well maintained and not really kind of up to date with react in general.
+
+03:32.630 --> 03:35.720
+So also our next challenge will be for the log in form itself.
+
+03:35.840 --> 03:38.060
+We need to figure out how to handle user input.
+
+03:38.060 --> 03:43.040
+So there's going to be like a type of ball field right here that users need to press on and then enter
+
+03:43.040 --> 03:43.730
+some input.
+
+03:43.730 --> 03:46.800
+So we need to figure out how to handle input.
+
+03:47.540 --> 03:53.110
+Also close related to input we need to figure out how to validate whatever data the user enters.
+
+03:53.270 --> 03:58.820
+So if the user enters a email right here that does not exist or excuse me if they entered email and
+
+03:58.820 --> 04:04.470
+password combination that is incorrect we should give them a nice big error message to display.
+
+04:04.670 --> 04:10.830
+Finally to make a usable application we want to give a reasonable amount of feedback to our users.
+
+04:11.090 --> 04:17.750
+So in this context we want to make sure that when ever we are attempting to log a user in like so when
+
+04:17.750 --> 04:23.420
+they type in the email and password and then click log in we shouldn't show a spinner to let the user
+
+04:23.420 --> 04:27.350
+know that we are attempting to verify their email and password so that they know that you know we're
+
+04:27.350 --> 04:29.260
+actually doing something.
+
+04:29.270 --> 04:31.290
+So definitely a lot of challenges with this app.
+
+04:31.340 --> 04:37.250
+You know deceptively it looks like there's not a lot going on here but trust me we're going to cover
+
+04:37.250 --> 04:41.330
+a lot of content just to get the sign up form put together.
+
+04:41.360 --> 04:45.110
+So let's continue the next section and start working on this application.

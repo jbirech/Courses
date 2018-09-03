@@ -1,0 +1,226 @@
+WEBVTT
+
+00:00.920 --> 00:05.910
+In the last section we set up some infrastructure for a reusable components to be able to import them
+
+00:05.910 --> 00:07.030
+more easily.
+
+00:07.290 --> 00:11.860
+So with a single line all the components we need at least for the common ones.
+
+00:12.060 --> 00:14.460
+Now continue by getting set up with firebase.
+
+00:14.460 --> 00:20.070
+But before we do let's answer that nagging question what in the world is firebase wasn't going to do
+
+00:20.070 --> 00:21.600
+for us.
+
+00:21.720 --> 00:27.630
+So we're going to exploit our with this amazingly simple diagram right here because what firebase really
+
+00:27.630 --> 00:33.840
+does is amazingly simple firebase can be thought of as an online database that will connect directly
+
+00:33.840 --> 00:34.830
+to our app.
+
+00:35.130 --> 00:41.340
+As we develop or publish our app we can connect to this online data store and be automatically notified
+
+00:41.370 --> 00:45.630
+of any changes to our data by other users of our application.
+
+00:45.630 --> 00:51.360
+So whenever some amount of data changes we can decide to update our different components and present
+
+00:51.360 --> 00:53.940
+that new information to our users.
+
+00:53.940 --> 01:00.660
+Firebase is not only about moving data between firebase the database and our affiliate application though
+
+01:01.290 --> 01:08.850
+it can also be used for analytics file storage or the feature that we're interested in right now authentication.
+
+01:09.000 --> 01:14.550
+So I can talk all day about firebase but it is certainly one of those concepts where you just have to
+
+01:14.550 --> 01:15.870
+walk through it yourself.
+
+01:15.900 --> 01:18.340
+So let's sign up for an account and get started.
+
+01:19.690 --> 01:30.730
+First I'll open up my browser and pop open a new tab and I can go to firebase dot Google dot com.
+
+01:30.760 --> 01:36.730
+Now I need to assume that you've already got a Google account like you know General Gmail or just something
+
+01:36.730 --> 01:41.290
+like that account and I assume that you have one if you do not have a Google account you'll need to
+
+01:41.290 --> 01:46.720
+create one right now and you can do so by clicking sign up here on the top right.
+
+01:46.870 --> 01:51.090
+In my case I've already got a Google account and I've already hooked it up with firebase.
+
+01:51.370 --> 01:55.660
+But again if you've never hooked up with firebase and you are signed into Google there should be a link
+
+01:55.660 --> 01:59.050
+up here that basically just says yeah I want to sign up for firebase.
+
+01:59.110 --> 02:01.120
+That's it.
+
+02:01.120 --> 02:06.210
+So once you sign up for firebase you'll get dumped at the firebase con..
+
+02:08.180 --> 02:12.050
+So here's the cons. right here your counsel might look a little bit different.
+
+02:12.050 --> 02:13.310
+You might see some more.
+
+02:13.320 --> 02:15.320
+Next up you're on the top left.
+
+02:15.500 --> 02:20.210
+But basically one way or the other you want to find a button that says Create new project.
+
+02:20.360 --> 02:25.490
+And if you just created an account I believe it's going to be like right here on the left hand side.
+
+02:25.700 --> 02:27.900
+So all we're going to do is create a new project.
+
+02:27.920 --> 02:29.070
+That's the goal here.
+
+02:29.570 --> 02:37.780
+So click Create new project and I've already got a project called off that I made when I was first developing
+
+02:37.790 --> 02:39.050
+the South location.
+
+02:39.080 --> 02:41.900
+You can call it whatever you would like.
+
+02:41.900 --> 02:47.450
+I'm going to call my project just authentication just to have something different than off and I will
+
+02:47.450 --> 02:48.370
+create my project
+
+02:51.620 --> 02:54.480
+this is going to take a little bit of time for everything to get set up.
+
+02:54.680 --> 02:59.660
+But after creating the project it will automatically take us to our project dashboard.
+
+02:59.660 --> 03:03.860
+So the first thing I would tell you about this project dashboard is that it's set up for a lot of the
+
+03:03.860 --> 03:06.960
+different features that are included with firebase.
+
+03:07.040 --> 03:13.370
+So we've got working with analytics working with authentication which is what we care about database
+
+03:13.370 --> 03:17.510
+data storage hosting Baba whois all that kind of good stuff.
+
+03:17.510 --> 03:23.630
+The other thing I want to mention to you about using firebase specifically with re-act native all over
+
+03:23.630 --> 03:25.340
+the place in the documentation.
+
+03:25.490 --> 03:31.810
+You're going to see stuff that says ad firebase to cheer us up your Android app or your web app.
+
+03:32.150 --> 03:37.490
+And of course re-act need a doesn't quite fit into any of these single categories.
+
+03:38.030 --> 03:43.340
+We're going to be using our firebase here web app because what this ad firebase your web app can really
+
+03:43.340 --> 03:49.230
+be read as is just add firebase to a javascript application and that is what.
+
+03:49.420 --> 03:49.900
+Oops.
+
+03:50.000 --> 03:52.000
+Not yet not yet.
+
+03:52.010 --> 03:52.970
+All right that's fine.
+
+03:52.970 --> 03:54.530
+And that's basically what we're really doing here.
+
+03:54.530 --> 03:59.670
+We are adding firebase to a javascript application.
+
+03:59.730 --> 04:00.450
+All right.
+
+04:00.450 --> 04:05.070
+So one last thing we need to do here to get set up for our application on the left hand side we're going
+
+04:05.070 --> 04:12.810
+to find that off section and click it and then immediately always get some set up here and we're going
+
+04:12.810 --> 04:14.690
+to set up a sign and method.
+
+04:14.940 --> 04:19.650
+So I'm going to set up a sign method and these are all the different providers that we can use with
+
+04:19.650 --> 04:20.790
+firebase.
+
+04:20.790 --> 04:25.380
+Now unfortunately you know you'll see Google Facebook Twitter get hub.
+
+04:25.380 --> 04:29.220
+It would be awesome to do oh off with re-act native.
+
+04:29.340 --> 04:38.120
+But right now unfortunately firebase does not have great support for using providers with re-act native.
+
+04:38.130 --> 04:45.970
+So for us right now we're just going to be making use of email and password as a authentication mechanism.
+
+04:46.200 --> 04:48.120
+So a click on an email and password.
+
+04:48.270 --> 04:52.890
+And I know this is really small by the way but there Xoom doesn't do the greatest.
+
+04:52.890 --> 04:53.810
+Maybe that's better.
+
+04:54.030 --> 04:59.100
+Ok so I clicked on email and password and we are going to specifically say yes I want to enable this
+
+04:59.100 --> 05:02.070
+please turn on email and password authentication.
+
+05:03.690 --> 05:05.230
+So then we'll save.
+
+05:05.970 --> 05:07.130
+And that's pretty much it.
+
+05:07.140 --> 05:11.420
+We just enabled email and password as an authentication mechanism.
+
+05:11.760 --> 05:16.500
+Let's now continue in the next section and get our client set up with firebase

@@ -1,0 +1,262 @@
+WEBVTT
+
+00:01.200 --> 00:06.320
+The last section we realize that there is going to be a little bit of issue with our piece of state.
+
+00:06.360 --> 00:11.820
+There are some pieces stayed on there that we can only update after we make an asynchronous request.
+
+00:11.970 --> 00:16.620
+We eventually came to the realisation that we've been writing action creators that are synchronous in
+
+00:16.620 --> 00:21.220
+nature so we run them and they instantly return in action.
+
+00:21.240 --> 00:26.400
+This does not work out for our kids though because we want to authenticate a user which is going to
+
+00:26.400 --> 00:29.880
+take a request and then only after that request succeeds.
+
+00:29.940 --> 00:36.210
+Do we have the information we need to actually return in action or dispatch an action as it were in
+
+00:36.210 --> 00:36.780
+this section.
+
+00:36.780 --> 00:41.820
+We're going to address this by first writing out our action creator with the authentication request
+
+00:42.180 --> 00:46.850
+and then make some changes to it to ensure that it works in an asynchronous fashion.
+
+00:46.860 --> 00:51.220
+So first we need to make an action creator that will attempt to log the user.
+
+00:51.220 --> 00:56.940
+So just something that's going to say hey firebase log in this user with this email and password.
+
+00:56.940 --> 01:01.230
+Now be clear the code that we're about to add will not work the way that we wanted to.
+
+01:01.290 --> 01:02.910
+It is just a starting point.
+
+01:02.910 --> 01:06.500
+We're going to kind of play around with it a little bit until it gets working.
+
+01:06.600 --> 01:11.370
+So first first attempt is give me just that an attempt.
+
+01:12.270 --> 01:18.720
+So inside my action creator file I'm going to make a new action creator say expert Konstam MICKOLUS
+
+01:18.860 --> 01:24.860
+log in user with the very obvious purpose or job of authenticating user.
+
+01:24.980 --> 01:27.790
+I expect it to be called with an email and password
+
+01:30.930 --> 01:35.130
+and notice that I have the curly braces on here which means I expect this to be called with an object
+
+01:35.130 --> 01:38.810
+that has an e-mail and a password property on it.
+
+01:38.820 --> 01:42.310
+Next we're going to add some logic to handle our firebase log in.
+
+01:42.450 --> 01:45.660
+First we will import firebase up at the top of the file.
+
+01:45.750 --> 01:54.330
+So at the very very top I will import firebase from firebase and on down at the bottom inside our action
+
+01:54.330 --> 01:55.380
+career that we just created.
+
+01:55.380 --> 01:58.560
+We're going to create or to add in our authentication call.
+
+01:58.830 --> 02:03.930
+So again for right now we're just going to attempt to sign a any user and not worry about creating a
+
+02:03.930 --> 02:05.180
+new account or anything like that.
+
+02:05.180 --> 02:11.800
+Just sign in the user so say firebase dot dot sign in.
+
+02:11.810 --> 02:16.760
+You remember this long one right with email and password.
+
+02:16.960 --> 02:19.280
+They're going to pass and email and password
+
+02:23.720 --> 02:29.450
+again just to make sure everything here is crystal clear this call is going to make a request to firebase
+
+02:29.450 --> 02:30.370
+the servers.
+
+02:30.440 --> 02:34.940
+So the earliest time that we can get access to any response from it are like any.
+
+02:34.940 --> 02:36.960
+And it says like hey everything worked out ok.
+
+02:37.140 --> 02:41.510
+Is by adding in a then clause because this is a promise right here.
+
+02:41.510 --> 02:47.200
+So we'll say then when you get back the user just go ahead and cancel log the user
+
+02:50.580 --> 02:53.770
+so the then clause will be executed after the request is finished.
+
+02:53.820 --> 02:57.040
+And it will be called with a user if one exists.
+
+02:57.180 --> 03:02.400
+If we enter an account that does not exist for invalid credentials then we're not going to see anything
+
+03:02.400 --> 03:07.470
+out of this promise right here because it's going to hit a ketch case and we're not handling that catch
+
+03:07.470 --> 03:09.040
+on here right now.
+
+03:09.970 --> 03:10.500
+OK.
+
+03:10.620 --> 03:17.070
+So after all this big lead up after all this you know big deal how do we fix this issue with asynchronous
+
+03:17.070 --> 03:18.020
+action creators.
+
+03:18.030 --> 03:24.090
+How do we only dispatch action after we hit this then right here because this technically right here
+
+03:24.360 --> 03:28.690
+is exactly when we would want to return an action to do this.
+
+03:28.690 --> 03:31.810
+We are going to use a supporting library called redux Thuc.
+
+03:31.830 --> 03:37.440
+So that is like the big solution here we're going to use redux thung to handle asynchronous action creators
+
+03:38.010 --> 03:38.540
+redux.
+
+03:38.550 --> 03:44.840
+Thunk is used to handle any type of asynchronous action Krater that we might need throughout our codebase.
+
+03:44.850 --> 03:50.790
+So right now we're using it for firebase but it could be for any type of Ajax request or any long running
+
+03:50.790 --> 03:53.820
+process that you could possibly imagine.
+
+03:53.820 --> 03:57.600
+Redux thunked is a NPM module that we need to install and actually set up.
+
+03:57.600 --> 04:01.190
+So we're going to go through that process now at the command line.
+
+04:01.710 --> 04:08.720
+I'm going to install Reebok's thunked by running NPM install dash dash save redux dash.
+
+04:08.780 --> 04:14.000
+Thank you and while that goes we're going to look at a quick little diagram.
+
+04:14.000 --> 04:17.110
+It's going to help us understand what the Sing's doing for us.
+
+04:17.210 --> 04:20.010
+What is redux really doing.
+
+04:20.030 --> 04:23.840
+So first I want to go back and review a little bit.
+
+04:23.840 --> 04:28.400
+Our default action create a rules so by default I mean like how they work right now.
+
+04:28.400 --> 04:35.600
+Right like without redux tongkat all action creators are functions they must return in action and an
+
+04:35.630 --> 04:40.120
+action is an object to the type property and optionally a payload as well.
+
+04:40.130 --> 04:44.210
+So this is how actions behave right now are action creators behave right now.
+
+04:44.360 --> 04:50.740
+So the whole point of re-ups thung is to allow us to bend these rules like that is really what it does
+
+04:50.750 --> 04:53.730
+it allows us to bend the rules of action creators.
+
+04:53.990 --> 04:56.260
+Here's how it bends the rules.
+
+04:56.960 --> 05:03.680
+Once we install redux thunk we can either create an action creator which is a function and must return
+
+05:03.710 --> 05:10.220
+action action must be an object or or like so here's the big Or here's the bending the rules part really
+
+05:10.220 --> 05:11.060
+breaking them I guess.
+
+05:11.060 --> 05:18.840
+But you know what I mean with redux thunk and stalled action creators are functions so no change there.
+
+05:19.340 --> 05:23.320
+Action creators must return a function so that is the new part right here.
+
+05:23.420 --> 05:30.860
+Instead of returning an action which is an object we can return a function from our action creator.
+
+05:31.580 --> 05:37.140
+That function will then be called automatically for us with dispatch.
+
+05:37.460 --> 05:41.520
+And that last part there that that dispatch this is the real magic part right here.
+
+05:41.690 --> 05:43.270
+Dispatches the magic part.
+
+05:43.370 --> 05:50.870
+If you think back to when we first went over redux inside the Jazz playgrounds tool we use storm dispatch
+
+05:50.900 --> 05:56.110
+to dispatch or process an action or send it off to all of our different reducers.
+
+05:56.300 --> 06:02.660
+So the whole magic behind redux thunk is that it allows us to bend the rules of action creators by allowing
+
+06:02.660 --> 06:09.140
+us to return a function that gives us direct access to dispatch the dispatch method and that dispatch
+
+06:09.140 --> 06:17.220
+method will allow us to return or excuse me to manually dispatch an action to all of our different reducers.
+
+06:17.220 --> 06:20.370
+OK still again a lot of lecturing here.
+
+06:20.540 --> 06:23.140
+Let's just verify that the install went successfully.
+
+06:23.140 --> 06:23.550
+Yup.
+
+06:23.570 --> 06:24.770
+Here's Reebok's thunk.
+
+06:24.770 --> 06:28.570
+Let's take a quick break now and then come back and figure out how to use Reebok's thunk.
+
+06:28.580 --> 06:29.300
+In practice

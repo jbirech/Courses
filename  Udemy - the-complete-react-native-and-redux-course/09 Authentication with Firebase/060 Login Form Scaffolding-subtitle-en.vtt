@@ -1,0 +1,268 @@
+WEBVTT
+
+00:00.550 --> 00:03.790
+In unless section we finished some firebase set up.
+
+00:03.810 --> 00:06.180
+We're not going to come back to firebase for a little bit.
+
+00:06.180 --> 00:10.740
+Instead we're going to focus on putting together our sign in form with some really good styling for
+
+00:10.740 --> 00:16.050
+now and then we'll come back to firebase and actually wrap up the authentication piece.
+
+00:16.110 --> 00:20.670
+So one of the first considerations that we need to make for this sign of form is whether or not we should
+
+00:20.670 --> 00:26.340
+create a new component to house the form itself or whether or not we should just place the form directly
+
+00:26.340 --> 00:27.600
+inside this app components.
+
+00:27.600 --> 00:34.570
+I'm talking about like literally placing a text input tag directly inside this component.
+
+00:34.650 --> 00:40.800
+I mean to suggest that we create a separate component and here's why the sign form should only be visible
+
+00:40.800 --> 00:44.590
+for a portion of the time inside our app sometimes will show the form.
+
+00:44.610 --> 00:44.910
+Right.
+
+00:44.910 --> 00:48.570
+Like when the user first starts the app up but other times you won't.
+
+00:48.570 --> 00:54.120
+So when a user successfully signs in and it's going to be easier to hide it if we put the form into
+
+00:54.120 --> 00:56.490
+a separate component.
+
+00:56.490 --> 01:02.250
+So with that in mind I'm going to create a new file inside of my components directory not inside of
+
+01:02.250 --> 01:06.410
+common just inside of components called log in form
+
+01:09.340 --> 01:10.480
+so log in form.
+
+01:10.480 --> 01:17.010
+Its sole purpose is going to be to How's everything having to do with entering a email entering a password
+
+01:17.170 --> 01:19.650
+and then trying to sign the user in.
+
+01:19.660 --> 01:23.630
+So inside this file Let's get started with a little bit of boilerplate.
+
+01:23.680 --> 01:28.600
+I am going to make this a class based component for reasons that we'll talk about in just a little bit.
+
+01:29.120 --> 01:40.930
+What import react and component from react and then just view right now from re-act native then we'll
+
+01:40.930 --> 01:44.230
+create our component class of log and form
+
+01:47.570 --> 01:54.990
+you to make sure I've got components spelt correctly and add my render method from which will return
+
+01:55.380 --> 01:57.930
+a single view tag for right now.
+
+01:58.330 --> 02:00.060
+Then at the bottom we can export.
+
+02:00.060 --> 02:03.340
+Default log in form.
+
+02:03.900 --> 02:06.210
+OK so there's the boiler plate right now.
+
+02:06.720 --> 02:11.430
+I'm hoping that at some point in time getting this boy the play together is going to become second nature
+
+02:11.430 --> 02:14.310
+because it feels like we write it a lot.
+
+02:14.360 --> 02:15.990
+Yup that's absolutely correct.
+
+02:15.990 --> 02:17.650
+We definitely write this thing a lot.
+
+02:17.670 --> 02:20.330
+This boy that played out.
+
+02:20.970 --> 02:25.340
+All right as a quick reminder log in form Here's a diagram for it.
+
+02:25.350 --> 02:28.010
+We need to have that kind of a card.
+
+02:28.050 --> 02:31.680
+The card section component and definitely the button component as well.
+
+02:31.890 --> 02:38.130
+So I think of our next step will be to place our reusable components or at least import them and then
+
+02:38.130 --> 02:43.990
+kind of scaffold out what we want the blog in the form to look like we're going to need one card.
+
+02:44.070 --> 02:49.770
+And I think it's going to contain three card sections one for e-mail one for password and one for the
+
+02:49.770 --> 02:50.830
+log in button.
+
+02:51.120 --> 02:53.290
+So let's get started with that now.
+
+02:54.030 --> 03:04.800
+At the very top we'll import our button card and it card section from the common directory and notice
+
+03:04.800 --> 03:06.920
+that I'm sane in the current directory.
+
+03:06.930 --> 03:13.060
+Find the common folder because this law enforcement is already inside the components directory.
+
+03:13.080 --> 03:18.750
+Notice all this is a lot nicer import statement than if we had three separate import statements all
+
+03:18.750 --> 03:20.040
+coming from the common folders.
+
+03:20.040 --> 03:27.450
+So again I really like this kind of pattern here is kind of approach Nabel and just kind of a little
+
+03:27.450 --> 03:32.590
+bit of scaffolding of what you know with the different cards and cards section area should be.
+
+03:32.940 --> 03:38.390
+So then take out the view tag right now and replace it with a card tag.
+
+03:38.620 --> 03:44.580
+So that's going to give us that kind of nice looking wrapper as a nice shadow on it has some margin
+
+03:44.580 --> 03:46.200
+on the left and right hand sides.
+
+03:46.200 --> 03:53.760
+Just something that looks nice and inside of here we'll make our three separate card sections so card
+
+03:53.760 --> 03:54.750
+section one.
+
+03:54.930 --> 04:00.960
+And right now I just can use self-closing tags because I don't have anything to put inside the first
+
+04:00.960 --> 04:02.750
+two just yet.
+
+04:03.570 --> 04:08.940
+And then for the last one this is going to be the card section that's going to How's that button.
+
+04:08.940 --> 04:15.690
+And we could probably create that button right now because we already know what text it's going to require
+
+04:16.010 --> 04:19.410
+So I just going to put in Lagann like so.
+
+04:20.160 --> 04:27.150
+So we've got card three card sections in the last card section has a button tag inside it.
+
+04:27.180 --> 04:30.830
+Finally we need to make sure this component actually gets shown inside of our app.
+
+04:30.990 --> 04:33.440
+So again flip back to our app component.
+
+04:34.200 --> 04:36.140
+Import this form and show it.
+
+04:36.330 --> 04:48.360
+So if the top will imports loggin form from components log in form like so and then we're going to show
+
+04:48.360 --> 04:50.180
+it inside of our application.
+
+04:50.250 --> 04:53.170
+So I've got my view tag I've got my header tag.
+
+04:53.370 --> 04:54.860
+I probably don't need the text anymore.
+
+04:54.870 --> 04:57.190
+It was really just there to get us started.
+
+04:57.360 --> 05:03.850
+So we're going to take out the text tag and replace it with an instance of the logon form like so.
+
+05:04.740 --> 05:05.330
+All right.
+
+05:05.350 --> 05:09.600
+Now of course as I mentioned earlier we probably don't want to show the logon form 100 percent of the
+
+05:09.600 --> 05:14.670
+time but we will just use this shortcut for now and we'll come back later and figure out how we're going
+
+05:14.670 --> 05:17.560
+to toggle whether or not the log in form is visible.
+
+05:18.040 --> 05:19.810
+OK time see if everything worked out.
+
+05:19.950 --> 05:24.530
+I'm going to flip back to the simulator refresh and see how we're doing.
+
+05:28.820 --> 05:35.450
+First time we import stuff always takes a while for it transpired especially since my laptop is not
+
+05:35.450 --> 05:36.610
+the newest one in the world.
+
+05:36.650 --> 05:39.340
+So it's kind of a I'm never giving up.
+
+05:39.350 --> 05:43.770
+I'm just going to let the thing go while it is running though I do need to do a little bit of clean
+
+05:43.770 --> 05:44.060
+up.
+
+05:44.060 --> 05:46.890
+I've still got the unused text tagged which we just deleted.
+
+05:47.220 --> 05:50.550
+So I'm going to take that out just for good housekeeping.
+
+05:51.200 --> 05:52.070
+And there we go.
+
+05:52.070 --> 05:52.390
+All right.
+
+05:52.430 --> 05:53.410
+So much better.
+
+05:53.600 --> 05:56.690
+I've got one card section to section.
+
+05:56.690 --> 06:01.850
+And the third one here and the third one presently just houses the log in button which if we press doesn't
+
+06:01.850 --> 06:03.200
+do anything just yet.
+
+06:03.590 --> 06:08.330
+So let's continue the next section and figure out exactly what we're going to place inside of these
+
+06:08.340 --> 06:09.840
+card sections.

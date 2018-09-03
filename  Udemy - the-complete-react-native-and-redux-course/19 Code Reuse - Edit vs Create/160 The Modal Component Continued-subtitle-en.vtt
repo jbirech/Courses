@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.740 --> 00:04.540
+In the last section we started working on our confirm component.
+
+00:04.590 --> 00:10.020
+So this is going to be a model that's going to pop up right in front of users face and we're specifically
+
+00:10.020 --> 00:14.940
+calling it confirm because we're going to set this thing up to ask the user a yes or no question.
+
+00:15.300 --> 00:17.760
+So let's continue working on this thing a little bit more.
+
+00:17.760 --> 00:22.090
+We've already imported a bunch of stuff at the top so I think we're pretty good in that regard.
+
+00:22.230 --> 00:26.080
+Now we just need to tell us on a whole bunch of markup in here.
+
+00:26.100 --> 00:28.510
+Whole bunch of GSX.
+
+00:28.510 --> 00:34.000
+So we definitely need to return some of this stuff.
+
+00:34.030 --> 00:42.740
+If we go first we will place our modal and the mode all the way that it works.
+
+00:44.270 --> 00:48.130
+Before I start trying to be fancy new line stuff let's just put the model by itself.
+
+00:48.260 --> 00:54.050
+So the model itself takes some number of children components and those child components we pass into
+
+00:54.050 --> 00:57.010
+it are what we're going to be displayed inside the motile.
+
+00:57.080 --> 01:02.270
+So you can think of this modal as a big wrapper a big container anything we pass to it will be popped
+
+01:02.270 --> 01:08.030
+up and displayed to the user so that in mind all makes a little bit more obvious we need to pass in
+
+01:08.300 --> 01:13.850
+the card sections that button that text all that kind of good stuff need to be passed in as children
+
+01:13.850 --> 01:14.960
+to the motile.
+
+01:15.410 --> 01:18.560
+So I'm going to pass in here a view tag.
+
+01:19.100 --> 01:20.790
+We'll see why in just a second.
+
+01:21.340 --> 01:22.290
+Oops.
+
+01:22.400 --> 01:25.160
+And then inside the new tag I'll place a card section
+
+01:28.630 --> 01:31.870
+the card section will have a text tag.
+
+01:32.230 --> 01:38.470
+This text tag will be the area where we will specify some amount of text something to ask the user an
+
+01:38.470 --> 01:39.640
+actual question.
+
+01:39.640 --> 01:41.380
+So that's the purpose of the text tag.
+
+01:41.590 --> 01:45.560
+Then beneath it we're going to show our two buttons.
+
+01:46.120 --> 01:48.030
+So we need some some text in here.
+
+01:48.050 --> 01:51.580
+You know I don't know what's going to be to Seattle's leave it empty for right now.
+
+01:51.640 --> 01:58.940
+Then beneath this card section I'm going to add another card section in and this one will be for showing
+
+01:59.720 --> 02:01.290
+our buttons.
+
+02:02.210 --> 02:03.990
+I'm going to have two buttons.
+
+02:05.730 --> 02:09.490
+Because I want to ask the user specifically a yes or no question.
+
+02:09.690 --> 02:15.030
+So the first one we'll be like yes I want to do or I want to accept whatever you're asking me.
+
+02:15.060 --> 02:17.190
+And the second one will just be hardcoded to be No.
+
+02:17.290 --> 02:22.620
+I don't want do that whatever whenever you try and ask me I buy it.
+
+02:22.710 --> 02:26.100
+So we need to start thinking about the API for this component.
+
+02:26.100 --> 02:31.860
+This markup is just about all we need to get something on the screen but what props do I expect to pass
+
+02:31.860 --> 02:36.010
+this thing you know how how old functionally am I going to use this confirm component.
+
+02:36.450 --> 02:41.550
+Well it's clear that we need to pass in some amount of text something to prompt the users ask them an
+
+02:41.550 --> 02:42.660
+actual question.
+
+02:44.150 --> 02:50.000
+I think they will use the same pattern we've used previously a little bit where we passed in the text
+
+02:50.000 --> 02:52.660
+that we want to show as children.
+
+02:52.730 --> 02:59.690
+So I remember if I said or if I open up a set of GSX tags and then pass something in between them it
+
+02:59.690 --> 03:03.980
+will show up inside of that target component as props start children.
+
+03:03.980 --> 03:10.240
+So in this case I want to pass some tests to confirm as like you know a little child entry.
+
+03:10.400 --> 03:13.910
+So I will refer to it as simply children.
+
+03:13.970 --> 03:19.120
+That means we're going to need to receive the children property out of the prop's object.
+
+03:19.160 --> 03:21.790
+That is what we called with.
+
+03:21.860 --> 03:23.270
+So that takes care of the text.
+
+03:23.270 --> 03:27.800
+You know I think they're asking a question we're going to ask the user the next thing we need to think
+
+03:27.800 --> 03:33.050
+about is how do we actually deal with the user clicking yes or no.
+
+03:33.050 --> 03:34.900
+This one's not going to be too too bad.
+
+03:34.910 --> 03:42.230
+So I think that a good idea here is going to be to say that when ever a button is pressed maybe we will
+
+03:42.230 --> 03:49.400
+require the user to provide a on except an on decline callback to this component.
+
+03:49.490 --> 03:57.920
+So we will assume that we will get a a prop called on except and on decline whenever we use the confirm.
+
+03:57.920 --> 04:02.300
+So if the user presses the Yes button we'll call on press
+
+04:07.200 --> 04:13.230
+and pass it on except notice that we don't have to do like this or bind or anything like that here.
+
+04:13.290 --> 04:15.510
+We just want to call the function.
+
+04:15.510 --> 04:17.340
+Also notice very very important.
+
+04:17.370 --> 04:24.090
+I am not immediately invoking it by not passing the are putting the Prendes there on the end that means
+
+04:24.090 --> 04:29.970
+we are passing a reference to the function we are not immediately invoking it we're saying hey at some
+
+04:29.970 --> 04:32.340
+point in time you might want to call this function.
+
+04:32.340 --> 04:35.080
+Just go ahead and take it.
+
+04:35.160 --> 04:36.880
+So then we've got the second on press.
+
+04:36.880 --> 04:39.230
+This will be our on decline.
+
+04:39.480 --> 04:43.950
+So again we have now entered into a contract for the API of this component.
+
+04:44.010 --> 04:51.020
+We are expecting to pass in some text and also and on except and on decline Propp as well.
+
+04:52.460 --> 04:56.500
+All right there's one thing more I want to do in here before we take a break.
+
+04:56.540 --> 05:00.540
+I want to add in some of those default properties that are modal expects.
+
+05:00.540 --> 05:04.410
+So we just went over some of these inside the official documentation.
+
+05:04.490 --> 05:08.960
+So it was stuff like information type transparent all that kind of good stuff.
+
+05:11.120 --> 05:20.100
+So first we'll take care of the animation type chances are I always want to animate this thing wherever
+
+05:20.100 --> 05:20.760
+possible.
+
+05:20.760 --> 05:26.490
+I always want to animate stuff for my users so I'm going to by default tell it slide slide just means
+
+05:26.640 --> 05:31.340
+slide up from the bottom the screen it'll give it a nice animation.
+
+05:31.500 --> 05:37.200
+The next problem we need to worry about is that on request close.
+
+05:37.570 --> 05:43.060
+So I don't really have again anything specific that I want to do when the user attempts to close this
+
+05:43.060 --> 05:43.560
+thing.
+
+05:43.720 --> 05:49.890
+I'm going to pass in a empty function just to says Father requirement of Android with the modal number.
+
+05:49.890 --> 05:55.680
+Like I mentioned when we're on Android we are required to pass in the problem on request close.
+
+05:55.810 --> 06:01.200
+So I was going to pass an empty function because I don't want to actually do anything.
+
+06:01.230 --> 06:08.610
+Next we need to specify the prob of transparent transparent Propp means you don't want this thing to
+
+06:08.610 --> 06:10.600
+be like partially see through.
+
+06:10.890 --> 06:12.210
+Yeah I definitely do.
+
+06:12.210 --> 06:17.880
+I think that it leads to a fantastic user experience when they can kind of see the content behind the
+
+06:17.880 --> 06:21.400
+motile so they can say OK I still like things didn't just change.
+
+06:21.390 --> 06:23.580
+Now now I have no idea what's going on.
+
+06:23.670 --> 06:28.860
+If they can see the content behind the motile it means that they understand they're like OK I'm still
+
+06:28.860 --> 06:32.220
+in the process of trying to delete a user here.
+
+06:32.490 --> 06:34.880
+I know where I am basically.
+
+06:35.250 --> 06:39.720
+Finally and this is going to be the most critical one of all.
+
+06:39.930 --> 06:43.800
+We're going to pass in a visible flag so they're visible here.
+
+06:43.800 --> 06:48.350
+This is the real meat and potatoes of what's going on with the modal visible here.
+
+06:48.360 --> 06:50.840
+Is either going to be true or false.
+
+06:51.240 --> 06:56.650
+And I bet you could guess what they what it does if we pass invisible of true.
+
+06:56.670 --> 07:01.190
+We want the model to be displayed if we pass and false the model will go away.
+
+07:01.200 --> 07:03.180
+It will be hidden.
+
+07:03.270 --> 07:08.780
+Now the confirmed component itself cannot decide whether it needs to be visible.
+
+07:08.790 --> 07:12.870
+Right we only want to show this whenever a user taps on that delete button.
+
+07:13.050 --> 07:18.960
+So we're going to pass in a prop a visible we will specify.
+
+07:19.040 --> 07:23.750
+It will tell this confirmed component whether or not it should be visible.
+
+07:23.760 --> 07:30.240
+Now the last thing I forgot to do we designated the on acceptant on decline does need to be passed in
+
+07:30.240 --> 07:31.130
+as props.
+
+07:31.140 --> 07:32.670
+So let's do that as well.
+
+07:35.170 --> 07:38.700
+All right who does a lot of typing.
+
+07:38.830 --> 07:42.290
+Unfortunately we're still not quite done.
+
+07:42.460 --> 07:46.150
+Believe it or not I know I'd love to be but not quite yet.
+
+07:46.470 --> 07:47.670
+The last thing we're going to have to do.
+
+07:47.680 --> 07:50.690
+We're going to take a quick break before we do this.
+
+07:51.040 --> 07:54.790
+The motile by default has basically no styling to it.
+
+07:54.790 --> 07:56.320
+Like really nothing is going on there.
+
+07:56.350 --> 08:02.560
+So it's really up to us to place on some amount of styling to this thing to make sure that it looks
+
+08:02.560 --> 08:04.800
+nice when it's presented to the user.
+
+08:04.810 --> 08:09.550
+So the last thing we have to do is toss on a whole bunch of default styling will take care of that in
+
+08:09.550 --> 08:10.680
+the next section.

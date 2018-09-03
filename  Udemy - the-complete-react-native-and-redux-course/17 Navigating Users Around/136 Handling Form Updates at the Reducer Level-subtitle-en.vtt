@@ -1,0 +1,250 @@
+WEBVTT
+
+00:01.560 --> 00:06.350
+We've got a scaffold put together for our form inducer and I remembered just like the log in form.
+
+00:06.360 --> 00:11.860
+This is the thing that is going to govern all the different values on our form for creating an employee.
+
+00:11.880 --> 00:17.400
+So when a user selects some input like this name right here and they start typing they are going to
+
+00:17.400 --> 00:19.140
+be producing a name.
+
+00:19.190 --> 00:21.770
+Same thing with phone and same thing for the shift.
+
+00:21.780 --> 00:29.850
+So our go into maintaining three properties of state the name the phone and the shift we've already
+
+00:29.850 --> 00:35.670
+wired up an action creator to handle the employee update type which is our idea of you know handling
+
+00:35.670 --> 00:39.060
+update from the user typing on the keyboard on the device.
+
+00:39.060 --> 00:45.700
+So let's put in some code to handle this employee update case will say employee update.
+
+00:45.780 --> 00:46.930
+Now here's the fun part.
+
+00:46.950 --> 00:48.070
+Here's the fun part.
+
+00:48.120 --> 00:53.850
+I had said that our actions payload number let's flip back over to the employee actions file real quick
+
+00:54.360 --> 01:03.420
+the actions payload will be an object having the key of Propp and a key value and each of those represents
+
+01:03.430 --> 01:07.540
+like the proper name and the actual value number property.
+
+01:07.550 --> 01:13.920
+There will be a name phone or shift and the value will be whatever the value of the input itself will
+
+01:13.920 --> 01:14.330
+be.
+
+01:14.490 --> 01:19.110
+So again just to make sure it's really clear I'm going to put in you know just a comment here really
+
+01:19.110 --> 01:21.690
+quickly.
+
+01:21.690 --> 01:35.220
+Action not pay payload is going to look something like a name or a prop prop name and value of Jane
+
+01:35.400 --> 01:36.180
+or something like that.
+
+01:36.180 --> 01:38.630
+That is what the auctions payload is going to look like.
+
+01:38.850 --> 01:46.830
+So we need to somehow take this name right here and reflect that on our applications and on our application
+
+01:46.830 --> 01:54.240
+state or on this reduce or sales I should say with a value of Jane because that's what our goal here
+
+01:54.240 --> 01:54.740
+is.
+
+01:54.930 --> 01:59.640
+So we're going to use a little bit of E-6 to just make this happen a very nice fashion let's put the
+
+01:59.640 --> 02:02.570
+code down and then talk about what is going on here.
+
+02:02.790 --> 02:08.680
+Remember that because we are in reducer we always want to make sure that we return a new object as well.
+
+02:08.760 --> 02:10.210
+So I'm gonna return from here.
+
+02:10.560 --> 02:12.200
+Dot dot dot States.
+
+02:12.330 --> 02:14.090
+And then here's the fun part.
+
+02:14.680 --> 02:17.490
+Action dot payload dot prop.
+
+02:17.610 --> 02:24.420
+Make sure you get those square braces on there and then action dot payload dot value and then take out
+
+02:24.420 --> 02:27.110
+that comment here as well.
+
+02:27.120 --> 02:27.740
+All right.
+
+02:27.840 --> 02:31.240
+So this is a fun little bit of VSX.
+
+02:31.560 --> 02:37.040
+I want to say several times in a row these square braces right here are not an array.
+
+02:37.150 --> 02:37.980
+It's non-array.
+
+02:37.980 --> 02:39.040
+It's not an array.
+
+02:39.090 --> 02:41.130
+It is not an array that we're creating right here.
+
+02:41.130 --> 02:43.890
+This is called the interpellation.
+
+02:43.920 --> 02:49.470
+So the key that we are adding to this object right here will be determined at runtime.
+
+02:49.830 --> 02:56.760
+If we call our action Creator with a prop of name this whole segment right here this little chunk of
+
+02:56.760 --> 03:04.770
+code will turn into name like so if we call our action Creator with a prop of shift this whole segment
+
+03:04.800 --> 03:08.510
+will turn into shifts and so on with phone numbers as well.
+
+03:08.670 --> 03:14.670
+So it is a nice little bit of syntax from iOS 6 just to avoid having to do something a little bit more
+
+03:14.670 --> 03:16.080
+painful.
+
+03:16.110 --> 03:22.320
+Basically if you want to use without ESX we would end up doing that you know tried and true thing that
+
+03:22.320 --> 03:32.150
+looks like this where we do declare the object and then have to say Action payload prob equals action.
+
+03:32.250 --> 03:38.560
+Payload value and then do the DOT DOT DOT state with a dot dot dot new state as well.
+
+03:38.580 --> 03:40.370
+But this is really ugly right here.
+
+03:40.370 --> 03:45.750
+Just nasty stuff using the key interpellation really saves us a little bit of pain.
+
+03:46.470 --> 03:47.200
+All right.
+
+03:47.400 --> 03:48.730
+But a semi-colon on there.
+
+03:49.080 --> 03:50.830
+And I think we're in a good spot now.
+
+03:51.240 --> 03:56.070
+So we've now got an action creator and reduce or put together so we can start to wire up inside our
+
+03:56.070 --> 03:56.900
+form.
+
+03:56.910 --> 04:02.310
+I think the last thing I want to do in the producer is again put in some initial state here some reasonable
+
+04:02.310 --> 04:08.730
+initial state just to make sure that it's clear what properties this reducer is going to be maintaining.
+
+04:08.760 --> 04:14.430
+So I expect it to have a name that's going to start off as empty string a phone which will be an empty
+
+04:14.430 --> 04:18.680
+string and a shift.
+
+04:19.190 --> 04:23.640
+I think we're looking pretty good here.
+
+04:24.150 --> 04:30.240
+Before we flip on back to our form and start to wired up I did mention that we were going to do a little
+
+04:30.240 --> 04:33.000
+bit of re factor in our action crater's file.
+
+04:33.000 --> 04:38.030
+Remember we created our new action Creator having to do with employees inside the employee actions full
+
+04:38.040 --> 04:44.020
+of file but we still have a whole bunch of actions related to authentication in the index on file.
+
+04:44.250 --> 04:52.560
+So I'd really like to just do a quick refactor here just to make sure this is nice and clean have separate
+
+04:52.560 --> 04:55.430
+files for each of our action creators.
+
+04:55.740 --> 05:04.030
+So it really quickly in my actions folder I'm going to make a new file called auth actions and then
+
+05:04.030 --> 05:08.740
+inside if you're going to take everything that I've got inside the index file right now I'm going to
+
+05:08.740 --> 05:17.400
+cut it I'll put it into the office actions and now I get to treat my index file right here just as well
+
+05:17.660 --> 05:23.250
+as the same as we did with our common index file as well inside of our reusable components folder.
+
+05:23.260 --> 05:28.030
+So remember in there the idea was that we would import a file and immediately export it.
+
+05:28.030 --> 05:29.410
+At the same time.
+
+05:29.590 --> 05:42.610
+So inside of my actions index j yes will say export star from all factions and export star from employee
+
+05:42.640 --> 05:44.270
+auctions as well.
+
+05:45.970 --> 05:52.010
+I know this was a little side topic but I wanted to make sure we got that done before we forgot about
+
+05:52.010 --> 05:52.300
+it.
+
+05:52.340 --> 05:57.170
+So I can do a little bit of file cleanup here so that some in the open.
+
+05:57.170 --> 05:58.990
+All right let's take a quick break.
+
+05:59.000 --> 06:03.470
+Since we went a little bit out of were there to handle the Arthur actions and when we come back we'll
+
+06:03.470 --> 06:09.290
+make sure that we hook up our employee form reducer to our combined reducers call and then hook the
+
+06:09.290 --> 06:11.680
+whole thing up to our actual form component.
+
+06:11.720 --> 06:12.980
+So I'll see in the next section

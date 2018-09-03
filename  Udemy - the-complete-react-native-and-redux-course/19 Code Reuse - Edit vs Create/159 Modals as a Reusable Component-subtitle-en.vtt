@@ -1,0 +1,301 @@
+WEBVTT
+
+00:01.040 --> 00:06.240
+In the last section we put together the ability to text a user but whenever I press this button button
+
+00:06.240 --> 00:08.460
+nothing actually seemed to happen.
+
+00:08.460 --> 00:13.190
+So we've been of course full of gotchas nonstop.
+
+00:13.230 --> 00:15.800
+This is one of the last got just going to throw out the.
+
+00:15.960 --> 00:21.550
+Hopefully we'll see if we check out the docs for the rock native communications package.
+
+00:21.550 --> 00:24.130
+Here's the text message method.
+
+00:24.390 --> 00:31.810
+And if I scroll down a little bit you will notice that this will only run when on actual devices.
+
+00:31.830 --> 00:38.100
+The Iowa simulator only supports the web method does not have the required device Capones Baba WA Android
+
+00:38.100 --> 00:40.900
+emulator it can run everything apart from e-mail.
+
+00:41.190 --> 00:48.600
+So the long and the short of it here is that on iOS the texting does actually work but it doesn't actually
+
+00:48.600 --> 00:49.650
+work in the simulator.
+
+00:49.650 --> 00:54.720
+So this is one of the difficulties of working with the simulator when creating react or really I should
+
+00:54.720 --> 00:58.470
+say iOS applications in general not just react native.
+
+00:58.800 --> 01:04.500
+On the other hand the fantastic part about re-act native is I can always pull up the simulator for Android
+
+01:04.500 --> 01:05.210
+as well.
+
+01:05.430 --> 01:13.410
+So I've got an android simulator up I can tap on Jane I can tap on text schedule and lo and behold I
+
+01:13.410 --> 01:19.260
+get a window popping up that says Here we go here's my text message your upcoming shift is on Wednesday
+
+01:19.350 --> 01:22.670
+Wednesday and the text is going off to 4 4 4 4 4.
+
+01:22.740 --> 01:25.980
+So I could send this off if I so chose.
+
+01:25.980 --> 01:27.160
+There we go.
+
+01:27.240 --> 01:27.660
+Cool.
+
+01:27.660 --> 01:28.860
+So this looks good.
+
+01:28.860 --> 01:33.000
+I know that it's a little bit of a let down that ios doesn't support it but that's just more impetus
+
+01:33.000 --> 01:36.180
+for actually getting this thing working on our mobile device.
+
+01:36.180 --> 01:40.670
+So now it's time for us to move on to what's probably one of the last features we need to work on.
+
+01:40.980 --> 01:47.760
+We need to add in a button to fire an employee fire is such a harsh term but I don't really want to
+
+01:47.760 --> 01:48.810
+delete an employee either.
+
+01:48.810 --> 01:50.440
+That's also pretty rough.
+
+01:50.460 --> 01:55.340
+Basically fire an employee and whenever a user taps it I want to pop up a big motile to the user something
+
+01:55.340 --> 01:59.180
+and say like oh hold up are you sure you want to fire this person.
+
+01:59.490 --> 02:01.810
+You know that button is right next to text schedule.
+
+02:01.920 --> 02:07.740
+So it would be a little bit very easy for our users to accidentally press fire instead.
+
+02:07.770 --> 02:12.300
+And so I want to be able to make sure that they really mean to fire an employee.
+
+02:13.260 --> 02:18.960
+So that means we need to figure out how to show specifically a motile to our users.
+
+02:19.260 --> 02:22.430
+I don't want to kick the user off to another screen or anything like that.
+
+02:22.440 --> 02:28.860
+I want to have specifically something pop up on the screen and really just demand the user's attention
+
+02:28.860 --> 02:34.120
+like you got to answer a yes or no to this question to solve this.
+
+02:34.120 --> 02:38.920
+We're going to use a nother primitive component in the re-act native world.
+
+02:38.950 --> 02:41.170
+So I'm going to pull up the re-act made of documentation
+
+02:43.910 --> 02:45.020
+years getting started.
+
+02:45.030 --> 02:46.480
+That'll do.
+
+02:47.300 --> 02:52.410
+And then on the left hand side we're going to scroll all the way down to our components.
+
+02:53.920 --> 03:00.070
+I'm going to find modal so modal somewhat synonymous.
+
+03:00.070 --> 03:06.100
+Not quite the same as pop up modal or something that's going to appear and obstruct everything else
+
+03:06.100 --> 03:06.610
+behind it.
+
+03:06.610 --> 03:11.850
+Or at least kind of put some fade or opacity and everything else behind it.
+
+03:11.860 --> 03:17.030
+So the modal is a builtin or what I kind of like to refer to as a primitive component.
+
+03:17.200 --> 03:18.480
+That is a part of re-act need.
+
+03:18.490 --> 03:23.680
+And we can just make use of this thing that big properties that we're going to care about with this
+
+03:23.680 --> 03:30.130
+model are the visible flag which determines whether or not you can see the modal the transparent flag
+
+03:30.310 --> 03:37.510
+that means whether or not you can see through it to the content behind it the animation type says determines
+
+03:37.510 --> 03:39.390
+how this thing gets shown to the user.
+
+03:39.390 --> 03:43.650
+Like does it just pop into existence or does it slide in nicely.
+
+03:43.720 --> 03:45.830
+And that's what solut slide here means.
+
+03:45.880 --> 03:51.850
+And then finally we get the benefit of a little helper or I should say event handler here are called
+
+03:51.910 --> 03:53.360
+on request close.
+
+03:53.590 --> 03:59.500
+So if the modal gets closed by the user we get a callback that says hey you know this thing we can do
+
+03:59.620 --> 04:04.900
+we can basically do anything in there that we would like the one very important item I want to throw
+
+04:04.900 --> 04:10.920
+out there is that if you are an android it is required to pass in an on request close method.
+
+04:10.930 --> 04:16.080
+So even if you don't want to do anything with this if you're an android you have to pass it in.
+
+04:16.090 --> 04:16.990
+So let's give this a shot.
+
+04:16.990 --> 04:19.940
+We want to put in our modal.
+
+04:20.560 --> 04:23.020
+This is something that I expect that we might want.
+
+04:23.020 --> 04:29.620
+Modals in many different areas of our application so maybe it's going to make sense going to make sense
+
+04:29.620 --> 04:33.760
+to place it or to create it as a re-usable component.
+
+04:33.790 --> 04:35.320
+So I think that that part makes sense right.
+
+04:35.320 --> 04:40.930
+We might want to have yes or yes or no questions and many different locations in our application.
+
+04:41.080 --> 04:45.040
+So maybe we should turn this into a reusable component.
+
+04:45.190 --> 04:51.250
+I'm going to create a new file in our common directory and I'm going to call it confirm because even
+
+04:51.250 --> 04:56.290
+though this is going to be a modal I want specifically a modal that has the ability to ask a user a
+
+04:56.290 --> 05:03.380
+question like a yes or no question and says we're going to call it confirm then inside if you're in
+
+05:03.390 --> 05:13.770
+a place in my boiler plate so import reaction and react I'm going to grab text you and motile from re-act
+
+05:13.770 --> 05:18.470
+native and I also want to make sure they have some nice styling on this thing as well.
+
+05:18.510 --> 05:23.040
+The motile that we're going to import here has no styling by default.
+
+05:23.040 --> 05:29.520
+So again this is not that default pop up that you get on your iOS device like when it bugs you to update
+
+05:29.520 --> 05:31.020
+your version of Iowa us.
+
+05:31.050 --> 05:34.530
+This is something that we have just styled ourselves.
+
+05:34.530 --> 05:44.130
+So to help us out with that styling or import card section and button from our reusable components.
+
+05:44.320 --> 05:50.330
+Now before I tried doing like oh import from like I don't know index I want to point something out here.
+
+05:50.380 --> 05:52.750
+This is a reusable component.
+
+05:52.750 --> 05:55.870
+We are going to import it into index.
+
+05:55.930 --> 05:59.110
+This file cannot therefore import index back.
+
+05:59.110 --> 06:01.740
+Otherwise we get a cyclical dependency.
+
+06:01.740 --> 06:08.470
+Now Knode can resolve those or bundler can resolve those but I highly recommend that whenever you expect
+
+06:08.470 --> 06:10.780
+that you're going to have some cyclical dependencies.
+
+06:10.930 --> 06:13.200
+You just import the stuff directly that you want.
+
+06:13.210 --> 06:23.080
+So we're just going to import card section by itself from card section and button by itself from button
+
+06:23.080 --> 06:27.710
+like so next I'm going to make my component.
+
+06:27.840 --> 06:32.370
+I think this is going to be a very dumb component selling going to make it a functional component rather
+
+06:32.370 --> 06:41.430
+than a class based as just about all of our others have at the bottom right now let's export confirm.
+
+06:41.430 --> 06:43.890
+Remember that this is one of our reusable components.
+
+06:43.890 --> 06:46.680
+So we need to export it as a named export.
+
+06:46.770 --> 06:52.410
+And the last thing I want to do before we take a break is just flip over to index dot G-S in our common
+
+06:52.410 --> 06:58.230
+directory because I do not want to forget to export this thing as I very frequently do.
+
+06:58.470 --> 06:59.410
+Inside this file.
+
+06:59.430 --> 07:05.930
+We will export Starr from confirm.
+
+07:05.930 --> 07:07.250
+Like so.
+
+07:08.030 --> 07:08.380
+OK.
+
+07:08.390 --> 07:09.020
+Good start.
+
+07:09.020 --> 07:12.680
+Let's take a quick break come back and finish up on this Modal

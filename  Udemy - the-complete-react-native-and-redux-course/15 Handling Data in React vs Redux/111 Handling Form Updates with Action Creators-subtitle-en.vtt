@@ -1,0 +1,379 @@
+WEBVTT
+
+00:00.860 --> 00:06.510
+In the last section we started recreating our log and form mostly from scratch so we can see some inputs
+
+00:06.510 --> 00:07.910
+and buttons on the form.
+
+00:08.160 --> 00:12.300
+But there is absolutely no logic behind them right now nothing to actually log the user in.
+
+00:12.300 --> 00:17.280
+So in this section when you start to focus more on making the slogging form work nicely with redux.
+
+00:17.580 --> 00:22.380
+So give me the part where if anything about redox is still a little bit hazy This is where I'm going
+
+00:22.380 --> 00:27.150
+to start to just really hammer it into your head as best I can.
+
+00:27.600 --> 00:32.640
+The process that we're about to go through here of making a form that works well with redux we're going
+
+00:32.640 --> 00:35.360
+to repeat once again in this application.
+
+00:35.400 --> 00:40.980
+So the first time if it doesn't still make sense we're going to have another shot at it later on in
+
+00:40.980 --> 00:41.760
+this application.
+
+00:41.760 --> 00:47.130
+So again just going to keep hammering in the same topics over and over again to make sure they are crystal
+
+00:47.130 --> 00:48.490
+clear.
+
+00:48.510 --> 00:54.470
+So let's talk about exactly how this form is going to work with redux.
+
+00:54.500 --> 00:58.440
+So this diagram here is the interaction between react and redux.
+
+00:58.440 --> 01:00.320
+It's like the full story.
+
+01:00.330 --> 01:02.570
+This is the entire flow.
+
+01:02.640 --> 01:05.150
+So we start off at the top left up here.
+
+01:05.250 --> 01:09.710
+We're going to have an input on the screen and the user is going to type something.
+
+01:09.750 --> 01:14.910
+Now previously we had an event handler on that input and we said OK yeah you know a user just typed
+
+01:14.910 --> 01:15.850
+something in.
+
+01:15.930 --> 01:20.970
+Let's take that new value Let's set our state and yeah you know what that's that's all we need to worry
+
+01:20.970 --> 01:21.920
+about.
+
+01:21.930 --> 01:23.100
+So this time around.
+
+01:23.100 --> 01:29.460
+Now that reason redux things are going to be very similar are very similar but a little bit more complicated
+
+01:29.460 --> 01:33.120
+at the same time just because we're involving redux as well.
+
+01:33.540 --> 01:39.780
+So when the user types something instead of immediately calling set state and saving that that news
+
+01:39.780 --> 01:46.680
+value as component level state we're going to instead call an action creator with this new text remember
+
+01:46.740 --> 01:52.890
+action creator is how we invoke some change in site or application you can loosely think of an action
+
+01:52.890 --> 01:53.480
+creator.
+
+01:53.610 --> 02:00.540
+Not entirely unlike a call to set state or not people will and I would get whipped first saying that
+
+02:00.540 --> 02:01.940
+by by some folks.
+
+02:01.950 --> 02:05.850
+But I'm going to make the claim vaguely similar to calling set stay.
+
+02:05.850 --> 02:12.960
+I'm just going to say this action creator will create an action with the new text in a very specific
+
+02:13.020 --> 02:14.100
+action type.
+
+02:14.240 --> 02:14.400
+Right.
+
+02:14.400 --> 02:20.490
+So that's our action the action creator makes an action that action is sent to all the different reducers
+
+02:20.490 --> 02:23.070
+in our application.
+
+02:23.070 --> 02:28.440
+Each producer will calculate a new application state for that and like you know a very particular slice
+
+02:28.440 --> 02:36.120
+of state for that very particular reducer redux is going to take the output from each producer that
+
+02:36.120 --> 02:36.750
+we have.
+
+02:36.810 --> 02:41.350
+It's going to formit up into a single object which we kind of Clovelly refer to as.
+
+02:42.000 --> 02:47.160
+It's going to send that off to all the different components all of the components will be rendered with
+
+02:47.160 --> 02:53.260
+new news say area all of our compulsory render with the new state.
+
+02:53.640 --> 02:55.280
+And then we just sit back and wait for the changes.
+
+02:55.290 --> 03:01.060
+We wait for the user to type another character in which case we repeat the entire process all over again.
+
+03:01.290 --> 03:06.030
+So this is the flow that we're going to go through every single time that a user typed something into
+
+03:06.030 --> 03:08.880
+our form before it was just ok.
+
+03:08.880 --> 03:14.190
+User types something called Set state and then in the render method we refer to we passed the value
+
+03:14.190 --> 03:20.000
+of the input as that piece of state you know start States on email or the start state but pass or whatever
+
+03:20.010 --> 03:21.260
+it might might have been.
+
+03:21.570 --> 03:27.900
+But now that we're using redux we wait for these types something we update our application level States
+
+03:28.350 --> 03:33.670
+we pass that application level state back into the component and we tell the label or me the import
+
+03:33.720 --> 03:35.240
+like here is your value.
+
+03:35.430 --> 03:37.320
+And then we sit back and wait for the new change again.
+
+03:37.320 --> 03:39.890
+So very similar flow that we had before.
+
+03:39.930 --> 03:48.180
+As far as handling text input the differences we're handling it at the state the application state level.
+
+03:48.240 --> 03:53.920
+Now if you if you weren't saying this before I really bet you're saying it's now Stephen.
+
+03:53.970 --> 03:56.910
+Oh my god why why are we doing this.
+
+03:57.030 --> 04:00.330
+Why do we have to do is like five steps because you're like like what.
+
+04:00.390 --> 04:05.760
+What I'm telling you right now is that we're going to make an action creator to handle text updates.
+
+04:05.760 --> 04:10.680
+We're going to make a reducer that's going to handle whatever you know the user is typing and they're
+
+04:10.680 --> 04:15.710
+going to have to make a map state to proper function to pass that state back to the component.
+
+04:15.710 --> 04:21.120
+So I am I am saying here that we're going to do like you know probably three or four times as much code
+
+04:21.150 --> 04:25.070
+as just doing that single set state call that like that is what I'm saying here.
+
+04:25.070 --> 04:27.030
+And so you're probably thinking why would we do that.
+
+04:27.030 --> 04:29.870
+This seems so over-the-top complicated.
+
+04:30.240 --> 04:35.090
+And my response was Well you know yeah like for this very simple case we're doing here for just like
+
+04:35.160 --> 04:36.390
+a simple text input.
+
+04:36.390 --> 04:43.800
+Yes it is quite complicated but you know it as we start to get really complex forms like the key part
+
+04:44.190 --> 04:50.740
+as we start to get really complex forms like say a wizard type form like a multi-page wizard right orientation
+
+04:50.790 --> 04:55.680
+we have to do a lot of validation where in time we have to like take some user input and then do like
+
+04:55.680 --> 04:58.000
+maybe an Ajax request to validate that.
+
+04:58.020 --> 04:59.840
+You know it's a valid user name or something like that.
+
+04:59.930 --> 05:06.660
+Any time that we want to start introducing complexity here this approach is going to be a lot easier
+
+05:06.660 --> 05:10.650
+for adding complexity on as opposed to that single set state call.
+
+05:10.710 --> 05:10.950
+All right.
+
+05:10.950 --> 05:15.720
+So that is why we're doing this it is because even though this makes things a little bit more challenging
+
+05:15.720 --> 05:22.530
+for our simple applications for complex applications this makes life a lot easier.
+
+05:22.530 --> 05:23.740
+All right.
+
+05:23.740 --> 05:28.560
+And so you know as you're starting to use react and redux on your personal projects I got to tell you
+
+05:29.340 --> 05:35.100
+you want to reach to reach for reaction redux when you're working on a complicated project that is when
+
+05:35.100 --> 05:37.980
+you want to reach for these frameworks.
+
+05:38.110 --> 05:38.710
+Okay anyways.
+
+05:38.730 --> 05:40.320
+Enough soapboxing for a little bit.
+
+05:40.320 --> 05:45.050
+Maybe I can stop lecturing for two minutes so we can write some actual code.
+
+05:45.120 --> 05:51.030
+Really it started with step one of that form which is watching for user type something and when they
+
+05:51.030 --> 05:54.450
+do we want to call an action creator because that's our goal right now.
+
+05:54.480 --> 05:58.580
+I want to watch for user type something and when they type something I want to call an action creator.
+
+05:59.040 --> 06:05.860
+So we know how to watch for a user type something we can pass the input tag a onchange text event handler.
+
+06:05.940 --> 06:17.100
+So we're going to pass on change text a callback of this dot on email change and because it is a callback
+
+06:17.160 --> 06:21.660
+where we are going to make reference to this I'm going to bind the context over here.
+
+06:21.780 --> 06:24.780
+So then we'll add that in that handler and as a method.
+
+06:25.000 --> 06:30.550
+So on email change and this will be called with the new text.
+
+06:30.550 --> 06:31.010
+OK.
+
+06:31.170 --> 06:32.570
+So I'd just be really clear here.
+
+06:32.570 --> 06:36.900
+You know I said our components are going be so stupid they're not going to have any logic at all.
+
+06:37.000 --> 06:38.060
+And that's totally true.
+
+06:38.100 --> 06:43.500
+I getting a lot of logic but we still do have to write this like glue code these event handlers.
+
+06:43.500 --> 06:49.110
+Now I could write like you know just pass a fat or a function directly to this prop here for this first
+
+06:49.110 --> 06:50.190
+component we're working on.
+
+06:50.190 --> 06:56.520
+I'm going to just start off with a separate helper function just to keep things nice and clear keep
+
+06:56.520 --> 06:59.450
+the GSX in here like very clear.
+
+07:00.540 --> 07:06.120
+Then inside if we're going to want to call an action creator so that we can update our application level
+
+07:06.120 --> 07:11.310
+state with the new value that the user has typed in because that's our goal we don't have any action
+
+07:11.310 --> 07:12.060
+creators yet.
+
+07:12.060 --> 07:16.740
+So we're going to make a new folder for our action creators and we're going to just kind of scaffold
+
+07:16.740 --> 07:18.370
+out and action right now.
+
+07:18.870 --> 07:25.500
+So inside my source directory going to make a new folder called actions and then inside of there we
+
+07:25.500 --> 07:28.610
+will make a new file called index dot.
+
+07:28.650 --> 07:38.150
+J.S. and finally inside of this file we'll make a new action creator or say expert Konst email changed
+
+07:39.170 --> 07:47.140
+the single will be the some amount of text and whenever it gets called I want to return an action remember
+
+07:47.140 --> 07:50.370
+an action is a plain javascript object.
+
+07:50.610 --> 07:53.450
+It always has a type property which is going to be a string.
+
+07:53.540 --> 08:00.400
+I'm going to make it just email changed and we'll give it a payload of text because we want to communicate
+
+08:00.460 --> 08:03.580
+the new text that was provided.
+
+08:03.580 --> 08:08.350
+Again I do have a little bit that yes lint here from unexpected block statement.
+
+08:08.410 --> 08:14.260
+I mean you said you know I'm really getting tired of this error here because we're really not respecting
+
+08:14.260 --> 08:14.730
+this one.
+
+08:14.740 --> 08:21.490
+And I you know this would really be well suited for having the more compact syntax but I feel like an
+
+08:21.490 --> 08:25.420
+editorial I like having that kind of longer form so in the next section I can show you how to turn this
+
+08:25.600 --> 08:27.090
+message off if you want disable it.
+
+08:27.100 --> 08:29.450
+But let's stay on track right now.
+
+08:29.830 --> 08:32.410
+So we just created our action creator.
+
+08:32.410 --> 08:38.440
+We can now import it back into this file and then we will import the connect helper in wired up as an
+
+08:38.440 --> 08:40.150
+action creator to the component.
+
+08:40.150 --> 08:42.120
+So let's take care of that in the next section.

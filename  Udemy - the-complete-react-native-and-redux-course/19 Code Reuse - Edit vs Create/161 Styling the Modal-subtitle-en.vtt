@@ -1,0 +1,418 @@
+WEBVTT
+
+00:00.920 --> 00:04.380
+We're almost there we've almost wrapped up our application.
+
+00:04.390 --> 00:06.140
+We're just a little bit more.
+
+00:06.230 --> 00:09.690
+The next thing I want to work on is some styling on the motile.
+
+00:09.770 --> 00:12.010
+So again no selling by default.
+
+00:12.020 --> 00:15.840
+We've really got to amp this thing up ourselves as before.
+
+00:15.860 --> 00:17.640
+You know we're going to toss the styling on here.
+
+00:17.660 --> 00:21.650
+Not still not a ton of stuff to learn about the styling.
+
+00:21.650 --> 00:26.620
+Again with reac native You just kind of throw it on there and you're happy with it.
+
+00:26.660 --> 00:29.730
+So let's define our styles object at the bottom.
+
+00:29.920 --> 00:31.720
+We're going to have three different styles.
+
+00:31.790 --> 00:34.710
+We're going to have a card section style.
+
+00:34.790 --> 00:39.180
+This is something that we're going to pass to the card section will have a textile.
+
+00:39.250 --> 00:42.250
+This will be for the text that we show at the top.
+
+00:42.260 --> 00:44.620
+Can I ask to use your question.
+
+00:45.040 --> 00:47.740
+And finally we'll have a container style.
+
+00:47.750 --> 00:52.340
+Now this is the most important one right here and the container style the container style is what is
+
+00:52.340 --> 00:59.590
+going to actually give us that nice kind of dark background that the user can see through and see all
+
+00:59.600 --> 01:02.310
+the content behind it.
+
+01:02.390 --> 01:10.220
+So the card section style all we have to do here just five content center by default the card section
+
+01:10.220 --> 01:11.870
+uses to justify content.
+
+01:11.890 --> 01:15.490
+Let's start we want to make sure that we center the content in there.
+
+01:15.530 --> 01:20.020
+And I we're doing justified content center next for the text.
+
+01:20.020 --> 01:20.970
+We'll do a flex.
+
+01:20.970 --> 01:25.180
+One is make sure that the text can properly wrap on the page.
+
+01:25.490 --> 01:32.270
+Will use a font size of 18 which is consistent with the font size we use everywhere else line to text
+
+01:32.270 --> 01:34.070
+in the center of the screen.
+
+01:34.070 --> 01:40.760
+And finally we'll give it a line height of 40 the line height is how much space is placed in between
+
+01:40.760 --> 01:41.980
+each line of text.
+
+01:41.990 --> 01:46.940
+And for us Functionally it's just going to give us a little bit of spacing between the text whenever
+
+01:46.940 --> 01:50.600
+the event happens to wrap around the page.
+
+01:50.600 --> 01:52.840
+Next we'll add a container style.
+
+01:52.890 --> 01:55.110
+Will you do a background color.
+
+01:55.280 --> 01:58.340
+And here's where the magic comes from.
+
+01:58.370 --> 02:01.200
+I'm going to give it a string with R.G..
+
+02:01.280 --> 02:06.400
+Zero zero zero zero point seven five.
+
+02:06.410 --> 02:08.900
+So the reason Whoops sorry about that.
+
+02:08.960 --> 02:12.950
+The reason I say this is the magic is the last value on here.
+
+02:12.950 --> 02:22.940
+So our G-B were passing in 0 0 0 which is black point seven five means give us an opacity of three quarters.
+
+02:22.940 --> 02:29.520
+This is going to make the container look just a little bit see through which is exactly what we want.
+
+02:29.570 --> 02:35.780
+Next will give a position its position relative
+
+02:38.780 --> 02:39.950
+a flex of one.
+
+02:39.950 --> 02:45.200
+So it takes up the whole with the screen and we'll tell it justified content.
+
+02:47.100 --> 02:53.460
+Center justified content center is what's going to make everything inside of that container appears
+
+02:53.460 --> 02:54.780
+centered on the screen.
+
+02:54.870 --> 02:58.450
+So the card sections will be centered on the screen.
+
+02:59.190 --> 02:59.560
+OK.
+
+02:59.650 --> 03:04.680
+Thing you have to do on here is make sure that we actually apply these styles because we've got a hefty
+
+03:04.680 --> 03:05.660
+number of them.
+
+03:05.700 --> 03:10.190
+I'm going to structure them ahead of time and then apply them on each of these elements.
+
+03:10.590 --> 03:19.610
+So we'll pull out our container style our text style and our card section's style as well.
+
+03:19.890 --> 03:24.000
+And those all come off of our styles object.
+
+03:24.020 --> 03:26.620
+Now our view is going to get the container style
+
+03:30.010 --> 03:38.160
+our card section will get the you guessed it card section's style.
+
+03:38.250 --> 03:40.990
+Don't forget to apply it to only the first one.
+
+03:41.040 --> 03:45.890
+We want only the first card section style to center the text on the screen.
+
+03:46.280 --> 03:50.700
+Then we want our text to get the textile
+
+03:55.140 --> 03:55.770
+cool.
+
+03:55.780 --> 03:56.180
+All right.
+
+03:56.200 --> 03:57.400
+I think that's about it.
+
+03:57.400 --> 04:02.620
+Now we did all the development of this component basically in a black box and we didn't really tested
+
+04:02.620 --> 04:03.730
+as we went through.
+
+04:03.760 --> 04:08.320
+So we're definitely going to want to get this on the screen as soon as possible so we can test it out
+
+04:08.380 --> 04:11.420
+and make sure we're doing the right thing here.
+
+04:11.440 --> 04:18.100
+So let's flip back over to our employee at it and place this thing on the screen.
+
+04:18.100 --> 04:21.850
+We've already hooked up that confirm to our index common file.
+
+04:21.850 --> 04:24.990
+So here is our all of our imports from common.
+
+04:25.000 --> 04:30.970
+We will also pull in that confirm the thing that we just created.
+
+04:31.090 --> 04:33.480
+Now all scrolling down to the bottom where we're going to place it.
+
+04:33.490 --> 04:38.360
+So this is what I like so much about this this model.
+
+04:38.520 --> 04:41.150
+Oh we have to do is place it somewhere in this component.
+
+04:41.170 --> 04:42.880
+So we're going to place it down here.
+
+04:43.030 --> 04:43.830
+Here's my confirm
+
+04:47.780 --> 04:49.730
+and then we'll pass it some text.
+
+04:49.730 --> 04:53.660
+Are you sure you want to delete this.
+
+04:53.690 --> 04:59.570
+Now here's the really important thing the very important aspect of this is confirmed by default is not
+
+04:59.570 --> 05:03.250
+visible until we pass it a prop of visible.
+
+05:03.260 --> 05:03.470
+Right.
+
+05:03.470 --> 05:07.070
+We have to pass it like visible equals true.
+
+05:07.370 --> 05:13.010
+So I can just toss this thing in here at any point in time and it will not be visible until I specifically
+
+05:13.010 --> 05:14.650
+toggle it to be visible.
+
+05:14.660 --> 05:19.880
+That's that's what's so fantastic about this confirmed box that we just built.
+
+05:19.880 --> 05:24.710
+So I want to make sure that the user can only see this after they tap that delete button.
+
+05:24.710 --> 05:25.760
+Right.
+
+05:25.820 --> 05:27.850
+So I think that we will make a new card.
+
+05:27.850 --> 05:34.400
+S. will place a button in it and instead of saying like text schedule save changes it will say just
+
+05:34.640 --> 05:38.660
+fire employee or fire or delete whatever we wanted to say.
+
+05:38.900 --> 05:42.470
+So above the Confirm message will plays a card section
+
+05:46.090 --> 05:51.560
+this will contain a button and says I will go with fire employee.
+
+05:51.670 --> 05:53.930
+Just be really clear about what it does.
+
+05:55.590 --> 06:01.290
+All right so now the last big challenge here last big challenge as it relates to the modal Anyways let's
+
+06:01.770 --> 06:02.640
+be honest here.
+
+06:02.670 --> 06:08.960
+The last big challenge how do we make sure that the confirm is not visible by default.
+
+06:08.970 --> 06:12.680
+Remember we have to pass this thing a visible flag.
+
+06:12.810 --> 06:17.090
+So we are telling from employee edit when this thing should be visible.
+
+06:17.130 --> 06:22.580
+It should be visible all the time we only sometimes want it to be visible so to toggle the visibility
+
+06:22.600 --> 06:29.850
+this thing needs to go between true and false and that needs to be flipped whenever we press this button
+
+06:29.850 --> 06:30.370
+right here.
+
+06:30.420 --> 06:38.120
+So I don't know about you but this sounds like a great case for component level state to me.
+
+06:38.280 --> 06:42.330
+And you might say wait a minute wait a minute week component level state we talked about that we only
+
+06:42.330 --> 06:43.520
+use redux now.
+
+06:43.890 --> 06:46.570
+Well we don't only have to use redux everywhere.
+
+06:46.650 --> 06:53.100
+The visibility of this confirmed message it really is does not concern any other aspect of our application
+
+06:53.100 --> 06:54.260
+whatsoever.
+
+06:54.270 --> 06:58.450
+And so maybe it really doesn't belong in application level state.
+
+06:58.560 --> 07:05.790
+So I think that we will add in a new piece of state called I don't know maybe motile visible show motile
+
+07:05.860 --> 07:11.850
+about show motile and if it's true that the motile should be displayed otherwise it should not be.
+
+07:11.850 --> 07:13.580
+So let's give that a shot.
+
+07:13.710 --> 07:17.410
+Well first initialiser piece of state up at the top.
+
+07:17.840 --> 07:23.090
+It's also a state show motile and by default I do not want to be visible.
+
+07:23.130 --> 07:26.750
+So I will initialize it to False.
+
+07:26.810 --> 07:34.730
+Now down inside my model again I will say this things visibility should be determined by this state
+
+07:34.760 --> 07:36.700
+does show motile.
+
+07:36.830 --> 07:44.860
+Now all we have to do is set up a press handler on our button to toggle the value of show motile Let's
+
+07:44.870 --> 07:47.160
+do that really quickly just because it's so easy.
+
+07:47.210 --> 07:51.350
+We can then go ahead and test this out in our simulator.
+
+07:51.350 --> 07:57.140
+So we'll say on press and there's really no need to make a handler here we can just flip the value of
+
+07:57.140 --> 07:57.700
+it.
+
+07:57.830 --> 08:07.340
+So I'll say this starts set state show motile is going to be the opposite of this dot state DOT show
+
+08:07.410 --> 08:08.460
+motile.
+
+08:08.690 --> 08:11.720
+So you know this did end up being pretty long right here.
+
+08:11.720 --> 08:17.200
+I'm going to leave it up to you as to whether or not you want to pull it out to a separate helper method.
+
+08:17.300 --> 08:25.650
+This is really pushing the bounds of what I think would be irresponsible length for this.
+
+08:25.680 --> 08:26.220
+All right.
+
+08:26.220 --> 08:29.370
+So I think that we're just about to test this thing out.
+
+08:29.490 --> 08:33.220
+I mean to save let's refresh our simulator.
+
+08:38.500 --> 08:40.120
+I will log in
+
+08:44.960 --> 08:45.830
+got a typo
+
+08:51.920 --> 08:53.570
+I will tap on my employee.
+
+08:53.780 --> 08:56.080
+Here's our fire employee at the bottom.
+
+08:56.080 --> 08:59.720
+I'll tap it and boom we've got our motile message popping up to the user.
+
+08:59.720 --> 09:01.910
+So are you sure you want to delete this.
+
+09:02.030 --> 09:03.890
+And then we can either press yes or no.
+
+09:04.100 --> 09:08.840
+Now at present we are not passing in that on accepter on decline.
+
+09:08.990 --> 09:13.850
+Handler So if we click on to any one of these I expect they'll crash.
+
+09:13.850 --> 09:14.650
+No it doesn't.
+
+09:14.690 --> 09:16.400
+OK we're good in that regard.
+
+09:16.550 --> 09:20.180
+But certainly there's no way to dismiss this message just yet.
+
+09:20.180 --> 09:25.370
+So let's continue the next section and make sure that we add in the on press handler for each of these
+
+09:25.370 --> 09:26.110
+buttons.

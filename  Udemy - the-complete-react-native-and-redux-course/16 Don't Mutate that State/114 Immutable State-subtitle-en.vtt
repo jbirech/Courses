@@ -1,0 +1,418 @@
+WEBVTT
+
+00:01.140 --> 00:04.770
+We now have our producer properly setup for catching our action type.
+
+00:04.770 --> 00:10.610
+So now we just have to update our state object with the new text that the user just typed in there.
+
+00:10.620 --> 00:16.170
+So remember the entire goal is like the overarching theme is we are using the reducer to store the current
+
+00:16.170 --> 00:17.690
+value of the text input.
+
+00:17.880 --> 00:22.500
+So by default is an empty string but eventually the user is going to start typing in their email and
+
+00:22.500 --> 00:24.380
+we're going to catch that right here.
+
+00:24.440 --> 00:24.750
+All right.
+
+00:24.780 --> 00:28.660
+You're on this line when action comes across our inducer.
+
+00:28.960 --> 00:34.970
+Now as we have learned whatever value we returned from the producer will end up as our application state.
+
+00:35.040 --> 00:35.840
+Right.
+
+00:35.880 --> 00:41.060
+So we need to somehow update our state object and then return it from this line right here.
+
+00:41.070 --> 00:44.370
+So eventually we're going to end up with something that says like you know returns state or something
+
+00:44.370 --> 00:44.780
+like that.
+
+00:44.780 --> 00:45.680
+Right.
+
+00:45.690 --> 00:48.890
+The question is how do we update our state object.
+
+00:48.930 --> 00:49.750
+How do we do it.
+
+00:51.160 --> 00:55.990
+So first let me show you a little diagram to help you understand what's kind of going on behind the
+
+00:55.990 --> 00:58.450
+scenes like what redux is actually doing.
+
+00:58.450 --> 01:05.050
+So this is what Reducto is actually doing whenever we call an action creator or like for a better piece
+
+01:05.050 --> 01:07.370
+of terminology dispatching action.
+
+01:07.480 --> 01:13.230
+We take our slice of state like the state that the single producer like this author Duzer.
+
+01:13.270 --> 01:15.040
+That's what this is supposed to be right here.
+
+01:15.040 --> 01:21.010
+We take this slice of state that the reducer last publisher like last produced we throw it into the
+
+01:21.010 --> 01:27.290
+producer along with the action and then out we get this like a new fantastic piece of state.
+
+01:27.370 --> 01:30.040
+OK so some piece of state is going in.
+
+01:30.190 --> 01:32.200
+New piece of state is coming out like that.
+
+01:32.200 --> 01:32.670
+That's it.
+
+01:32.740 --> 01:33.780
+OK.
+
+01:34.660 --> 01:39.540
+Now there's one very interesting little detail in here.
+
+01:39.640 --> 01:43.410
+OK so this is the expanded diagram still same diagram on the top half.
+
+01:43.420 --> 01:50.770
+I just added on a couple of boxes on the bottom after our reduce or runs redux looks at the old value
+
+01:50.770 --> 01:52.210
+of states and the new one.
+
+01:52.240 --> 01:57.850
+So I'm talking about like this slice of state up here this like initial arguments the reducer and the
+
+01:57.850 --> 01:58.720
+return value.
+
+01:58.750 --> 02:00.130
+It looks like the two of them.
+
+02:00.400 --> 02:02.500
+So new state right here as I have written.
+
+02:02.500 --> 02:07.440
+Is this like new slice of stay right here old state would be the old slice of state at the top left
+
+02:07.450 --> 02:08.180
+up here.
+
+02:08.670 --> 02:16.810
+And it says is the new state equal to the old state and specifically like specifically with a triple
+
+02:16.810 --> 02:17.860
+equal sign right there.
+
+02:18.040 --> 02:22.680
+Specifically chirpily equals if the result of that is yes.
+
+02:22.690 --> 02:27.400
+If the two of them are equal then redux assumes hey it's the same object.
+
+02:27.400 --> 02:28.980
+I guess nothing happened.
+
+02:29.080 --> 02:31.510
+No day to change nothing happened.
+
+02:31.540 --> 02:35.310
+I don't have to worry about telling any component's about what is going on here.
+
+02:35.320 --> 02:42.430
+On the flip side if the two if the equality fails so if they are like know not equal and I probably
+
+02:42.430 --> 02:44.600
+got the colors here a little bit backwards of the green red.
+
+02:44.630 --> 02:46.060
+But whatever.
+
+02:46.090 --> 02:51.270
+So if they are not equal then redux says aha something must have change.
+
+02:51.280 --> 02:52.680
+This is a new object.
+
+02:52.690 --> 02:55.000
+They are not identical they are not equal.
+
+02:55.000 --> 02:56.300
+Something must have changed.
+
+02:56.320 --> 03:00.880
+That means the user or Seamew the developer intended there to be some new piece of state.
+
+03:01.030 --> 03:06.310
+I must take this new state and send it off to all the different components out there in the wild.
+
+03:06.310 --> 03:11.680
+Now the real key the real key here is this triple equals comparison here in the middle.
+
+03:11.770 --> 03:13.700
+That's like the whole key to this.
+
+03:13.810 --> 03:14.880
+So you might be paying yourself.
+
+03:15.040 --> 03:18.660
+Oh yeah you know like redux is going to compare these two objects.
+
+03:18.700 --> 03:23.360
+Hey if we just put like a new value somewhere on that object it's not the same object anymore right.
+
+03:23.390 --> 03:26.130
+Like well maybe not quite.
+
+03:26.150 --> 03:28.760
+This is where we start to really go down the rabbit hole a little bit.
+
+03:28.860 --> 03:34.270
+OK this is a little bit of pseudo code here that I'm trying to make like a singular point just like
+
+03:34.270 --> 03:35.390
+one point here.
+
+03:35.860 --> 03:40.690
+Let's say that I take some variable declaration some say like constant equals.
+
+03:40.690 --> 03:42.940
+New objects are like empty object.
+
+03:42.940 --> 03:45.550
+And then I say conc new state equal state.
+
+03:45.550 --> 03:52.630
+So now I have the variable state which looks at an object and I have the variable new state which also
+
+03:52.630 --> 03:59.580
+looks at the very same object they're both pointing at this object right here and now say new state
+
+03:59.680 --> 04:01.190
+color equals red.
+
+04:01.590 --> 04:05.930
+Ok so I am setting a property on this object right here.
+
+04:06.010 --> 04:08.130
+Color equals red.
+
+04:08.230 --> 04:13.400
+Then if I said new state equals equals equal state what would I expect to get back.
+
+04:13.450 --> 04:18.330
+I have changed the objects that new state is looking at what I expect to get back there.
+
+04:18.710 --> 04:24.490
+Well the answer to that is by really understanding how javascript compares equality between variables
+
+04:24.490 --> 04:26.510
+with this triple equal sign.
+
+04:26.590 --> 04:28.610
+So it's like one or two more slides here.
+
+04:28.610 --> 04:29.870
+Just bear with me for a second.
+
+04:30.040 --> 04:32.170
+So this is a rant on the left down side.
+
+04:32.170 --> 04:38.280
+Same diagram on the right hand side diagram of kind of what's going on with javascript behind the scenes.
+
+04:38.320 --> 04:41.260
+So with the first line with a state an empty object.
+
+04:41.620 --> 04:42.400
+We are now.
+
+04:42.430 --> 04:44.720
+We have now created an object in memory.
+
+04:44.770 --> 04:51.460
+Like on your devices ram we have an object in memory and we have a pointer that is like a variable essentially
+
+04:51.460 --> 04:57.040
+that is looking at that object we're saying hey here's an object in memory and I have a reference of
+
+04:57.040 --> 04:58.510
+state to that object.
+
+04:58.770 --> 05:04.480
+Then with a second line here when we say new state equals state we are not making a copy of the object
+
+05:04.510 --> 05:09.130
+that is like that is the super mind boggling part about javascript to that that you really got to wrap
+
+05:09.130 --> 05:09.580
+your head around.
+
+05:09.580 --> 05:11.690
+We are not creating a new object here.
+
+05:11.740 --> 05:13.480
+The same object is city memory.
+
+05:13.480 --> 05:20.890
+There is only one but both state and new state are looking at that object finally.
+
+05:21.000 --> 05:29.890
+Or if but next when we say new state color equals red we still only have one object and we did not create
+
+05:29.890 --> 05:32.930
+like a new mystery object like nothing copied out for us here.
+
+05:32.960 --> 05:40.780
+It is still just a singular object so new state is still looking at the object with a property color
+
+05:40.810 --> 05:45.150
+in a value of red and now state is still looking at the exact same object.
+
+05:45.190 --> 05:51.240
+So at the bottom at the very last step here when we say hey is state triple equals you state what is
+
+05:51.240 --> 05:53.650
+happening behind the scenes is javascript Assane.
+
+05:53.730 --> 05:58.740
+I have two pointers like I'm two points here that are pointing out some values.
+
+05:58.860 --> 06:02.750
+Is are they both looking at the exact same object in memory.
+
+06:02.880 --> 06:09.010
+And the answer is unequivocally yes unequivocally yes.
+
+06:09.060 --> 06:15.690
+So the entire point this lecture entire thing I'm trying to say here is inside of our reducer when we
+
+06:15.750 --> 06:22.080
+try to update our state object with this you know email property and we take whatever text that the
+
+06:22.080 --> 06:23.080
+user just entered.
+
+06:23.090 --> 06:24.920
+That's going to come in from this action right here.
+
+06:24.930 --> 06:31.350
+And we try to update that state object if we do not modify it if we do not update it in the correct
+
+06:31.350 --> 06:32.610
+fashion.
+
+06:32.610 --> 06:37.800
+We are not going to redo this is going to think hey nothing actually change is going to think no change
+
+06:37.800 --> 06:39.200
+actually occurred.
+
+06:39.240 --> 06:40.710
+We don't need to look at this just yet.
+
+06:40.710 --> 06:43.820
+Sorry nothing actually occurred.
+
+06:44.550 --> 06:49.170
+So we need to figure out a way to make sure that redux understands that hey we updated our state object
+
+06:49.410 --> 06:52.760
+but something did change here like something actually did change.
+
+06:52.770 --> 06:56.390
+So that's what our big goal here is we're going to take care of the next section.
+
+06:56.400 --> 07:03.060
+But the very last part of this lecture that I really want to convey to you is I should probably bookmark
+
+07:03.060 --> 07:04.000
+this file right here.
+
+07:04.020 --> 07:06.770
+So this is a part of the redux library.
+
+07:06.810 --> 07:12.520
+So you know I'd get hub react J.S. redux and I'm in the source for the combined reducers call.
+
+07:12.540 --> 07:18.780
+So combine reducers Yes I should really bookmark the saying because I end up setting up sending out
+
+07:18.780 --> 07:24.240
+just all the time to try to convey this whole topic of how redux compares a quality song just go down
+
+07:24.240 --> 07:29.910
+to the very bottom really just want you to see here is like visual proof of what I'm what I'm trying
+
+07:29.910 --> 07:34.430
+to convey here and that is you have to make a new object or you have to make sure that redux understands
+
+07:34.430 --> 07:35.970
+that you change the value.
+
+07:35.970 --> 07:40.300
+So this is like the real magic line right here like these two right here.
+
+07:40.820 --> 07:46.650
+This go to appear is what takes this the action that you have dispatched and sends it off to all the
+
+07:46.650 --> 07:57.110
+different reducers inside your application after each reducer runs has changed is declared as did de-value
+
+07:57.120 --> 08:01.950
+actually change like is the thing still here is it has the value actually changed the piece of State
+
+08:01.950 --> 08:04.640
+of the reducer hasn't actually changed.
+
+08:04.860 --> 08:09.490
+And then eventually a comparison is made and said hey has anything actually changed.
+
+08:09.600 --> 08:11.390
+If it has returned the next date.
+
+08:11.400 --> 08:13.510
+Otherwise return the old state.
+
+08:13.600 --> 08:18.120
+This is like kind of the root of redux where this comparison is being made.
+
+08:18.120 --> 08:21.450
+Looking at this stuff isn't super necessary for understanding I do here.
+
+08:21.450 --> 08:25.410
+I just want to point this out if you have any interest in kind of diving into the source a little bit
+
+08:25.410 --> 08:26.030
+more.
+
+08:26.040 --> 08:28.620
+You can always check out that combine reducers call.
+
+08:29.100 --> 08:29.370
+OK.
+
+08:29.370 --> 08:31.680
+So let's take a quick break come back in the next section.
+
+08:31.680 --> 08:36.990
+Figure out how we actually implement all this knowledge about how redux expects to redux expects us
+
+08:36.990 --> 08:39.040
+to see our state object changed.

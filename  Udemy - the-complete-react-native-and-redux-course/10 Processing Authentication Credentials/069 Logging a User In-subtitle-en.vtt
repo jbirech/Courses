@@ -1,0 +1,244 @@
+WEBVTT
+
+00:00.810 --> 00:06.690
+We've now got the ability to take a user's email and password from our form we did this by two creating
+
+00:06.690 --> 00:10.110
+two inputs for the e-mail and the password.
+
+00:10.110 --> 00:16.330
+So now at any single point in time Suddens component whenever we want to we can refer to this state
+
+00:16.340 --> 00:19.730
+DOT email and this state about password.
+
+00:19.720 --> 00:22.350
+To get the email and password that the user entered.
+
+00:22.380 --> 00:27.070
+So I think that we're now ready to use that email and password to attempt to log our user in.
+
+00:27.150 --> 00:31.970
+And we only want to attempt to use your library to log in to what we really want to live them in.
+
+00:31.980 --> 00:39.270
+When they tap on our button and if you recall we deal with taps on buttons by adding a callback function
+
+00:39.690 --> 00:42.920
+to the button tags on press Propp.
+
+00:43.020 --> 00:47.220
+So whenever a user taps a button our callback function will be called.
+
+00:47.220 --> 00:50.450
+So that is going to be our opportunity to log the user in.
+
+00:50.460 --> 00:54.410
+So with that in mind we will add in a callback to our button tag.
+
+00:54.540 --> 00:57.560
+And then inside the callback we will attempt to log in the user.
+
+00:57.600 --> 00:58.810
+That's the goal here.
+
+00:59.310 --> 01:05.780
+So first we will define our on press Propp and then we will give it a callback function.
+
+01:05.820 --> 01:08.280
+I'm going to define it as a helper method.
+
+01:08.370 --> 01:11.640
+On side on this component log in form.
+
+01:11.900 --> 01:14.700
+So say this dot on button press.
+
+01:14.970 --> 01:19.830
+And because we are passing this thing a callback function because this is a function that would be called
+
+01:19.830 --> 01:21.720
+at some point in the future.
+
+01:21.870 --> 01:24.920
+I'm going to bind the context to this.
+
+01:25.120 --> 01:25.560
+OK.
+
+01:26.690 --> 01:29.480
+So now we will define on button press.
+
+01:29.550 --> 01:37.030
+I'm going to scroll back up to the top and add another help or another method called on button press.
+
+01:37.370 --> 01:38.630
+So inside of here this is it.
+
+01:38.630 --> 01:41.830
+This is our point in time to actually log the user in.
+
+01:41.870 --> 01:46.220
+This is where we want to try to authenticate our user to authenticate our user.
+
+01:46.220 --> 01:52.750
+We will import the firebase framework and then we will use a method off of firebase to sign user in.
+
+01:53.200 --> 02:04.840
+So at the top I'm going to import firebase from firebase and I'll use a method on that firebase object
+
+02:04.840 --> 02:06.660
+to authenticate our user.
+
+02:06.670 --> 02:19.480
+We'll call firebase Auth. dot sign in with email and password and then we need to pass misfunction our
+
+02:19.480 --> 02:21.040
+email and password.
+
+02:21.130 --> 02:24.860
+Remember the e-mail password is available on our state object.
+
+02:24.860 --> 02:31.150
+So we just have to refer to this dot state DOT email and this does state a password because we want
+
+02:31.150 --> 02:33.130
+to propertys off the same object.
+
+02:33.160 --> 02:36.490
+We're gonna use a little bit of destructuring just to clean up our code.
+
+02:36.760 --> 02:44.700
+So a reference Konst email and password from this dot state.
+
+02:45.010 --> 02:49.990
+So now we've got access to the email and password variable's within this function.
+
+02:50.050 --> 02:53.680
+So we'll pass them to this method.
+
+02:53.680 --> 02:57.380
+So in short sign my user in with an email and password.
+
+02:57.420 --> 02:59.750
+And here's the email and the password right here.
+
+03:01.210 --> 03:07.100
+OK let's pull up a diagram really quick to kind of figure out where we are like crazy.
+
+03:07.380 --> 03:09.130
+Science isn't just as easy.
+
+03:09.130 --> 03:11.210
+I mean this seems really easy right.
+
+03:11.260 --> 03:14.150
+Well maybe it's as easy maybe it's a little bit harder.
+
+03:14.380 --> 03:16.480
+So they pull up a diagram really quick here.
+
+03:17.030 --> 03:21.600
+If I can find it here we go.
+
+03:22.040 --> 03:22.460
+All right.
+
+03:22.460 --> 03:26.240
+So of course signing end user isn't as easy as you might think.
+
+03:26.240 --> 03:27.990
+The code that we just put in.
+
+03:28.160 --> 03:28.540
+Yeah.
+
+03:28.550 --> 03:35.020
+It is correct is how we initiate signing any user but now we've got a lot of stuff to do on top of this.
+
+03:35.060 --> 03:40.490
+So this is a diagram of all the different cases that can occur from attempting to sign a user in.
+
+03:40.490 --> 03:46.820
+So we start off here at the top with our sign in attempt when we attempt to sign in a user with an email
+
+03:46.820 --> 03:47.780
+and password.
+
+03:47.780 --> 03:54.460
+There's two possible outcomes for it from that either they entered a correct email and password.
+
+03:54.500 --> 03:56.570
+So like you know correct credentials.
+
+03:56.570 --> 03:57.130
+And boom.
+
+03:57.140 --> 04:02.330
+Now that was a successful authentication and we can happily say all right user you are now logged in
+
+04:02.630 --> 04:06.190
+you have access to all the resources within the set.
+
+04:06.260 --> 04:12.330
+On the flip side if they enter an incorrect e-mail and password we need to figure out why.
+
+04:12.380 --> 04:16.970
+So do the user enter in an e-mail that did not exist.
+
+04:16.970 --> 04:21.200
+If they do if they internal e-mail that did not exist maybe you want to try to create an account for
+
+04:21.200 --> 04:21.460
+them.
+
+04:21.470 --> 04:24.910
+Because remember we don't have a distinct separate flow for Sign-Up.
+
+04:25.040 --> 04:29.760
+We've just got this one screen that's going to handle both the sign and the Sign-Up case.
+
+04:30.080 --> 04:37.280
+So if a user attempts to sign in and that signing request fails we will immediately attempt to create
+
+04:37.280 --> 04:40.140
+the user an account.
+
+04:40.330 --> 04:44.980
+Now if they would try to create the account and it's successful fantastic we're all done.
+
+04:44.980 --> 04:47.940
+The user again is signed in we're happy.
+
+04:48.280 --> 04:54.220
+But if a user tries to create the account and that request fails then we want to show the user an error
+
+04:54.250 --> 05:00.070
+something that says hey you either try to create an account using e-mail that already exists in the
+
+05:00.070 --> 05:04.760
+system or you entered an incorrect e-mail and password combination.
+
+05:04.780 --> 05:10.190
+So this is the flow that we have to accommodate now throughout the signing process.
+
+05:10.210 --> 05:12.690
+So user again tops on the button.
+
+05:12.910 --> 05:16.360
+Either they succeed or fail if they fail.
+
+05:16.390 --> 05:20.350
+We'll try to create them account if they succeed with that fantastic.
+
+05:20.350 --> 05:25.870
+But if they fail then we need to show them an error that says basically the entire authentication flow
+
+05:25.870 --> 05:26.410
+failed.
+
+05:26.410 --> 05:30.200
+You need to try a different e-mail or a different password.
+
+05:30.280 --> 05:34.630
+So let's continue in the next section and handle implementing this case

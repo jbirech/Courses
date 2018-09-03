@@ -1,0 +1,253 @@
+WEBVTT
+
+00:00:01.370 --> 00:00:04.860
+In the last section we took a look at the next step that we're going to be building.
+
+00:00:04.890 --> 00:00:08.550
+Let's continue now by discussing what some of the big challenges of this app are.
+
+00:00:08.550 --> 00:00:12.570
+So we're going to try to break down what the challenges are and what we're going to really be focusing
+
+00:00:12.570 --> 00:00:16.200
+on as we work on this application.
+
+00:00:16.230 --> 00:00:18.540
+So there's definitely a hefty number of little challenges in here.
+
+00:00:18.540 --> 00:00:21.220
+Again a lot of hidden complexity going on.
+
+00:00:21.480 --> 00:00:24.940
+So we're you go kind of from left to right daily kind of from left to right.
+
+00:00:25.230 --> 00:00:28.100
+So first off we're going to start with the log in form over here.
+
+00:00:28.120 --> 00:00:33.420
+Now yes we've already made a log in form previously but that was a standalone re-act component that
+
+00:00:33.420 --> 00:00:36.690
+had no basis of touching redux whatsoever.
+
+00:00:36.690 --> 00:00:38.840
+Like you really don't have any concept of redux.
+
+00:00:38.880 --> 00:00:45.900
+So we need to ask ourselves do we have to make changes to a log in form to suit how redux works.
+
+00:00:45.900 --> 00:00:51.670
+You know I don't know maybe we'll decide if we have to modify or log in form at all to make it read
+
+00:00:51.670 --> 00:00:54.030
+X friendly or if we can just leave it as is.
+
+00:00:54.030 --> 00:00:57.120
+That's definitely a key concern.
+
+00:00:57.150 --> 00:01:00.690
+Next our application has several different screens right.
+
+00:01:00.690 --> 00:01:05.880
+Like you know one two three four if you want to count as motile screen over here you know those kind
+
+00:01:05.880 --> 00:01:07.850
+of pop up as a separate screen.
+
+00:01:08.040 --> 00:01:10.200
+So definitely different screens.
+
+00:01:10.620 --> 00:01:12.110
+How do we navigate between them.
+
+00:01:12.110 --> 00:01:16.020
+You know again that's that's like the big focus of this application where you spend a lot of time to
+
+00:01:16.020 --> 00:01:20.970
+figure out how we're going to navigate around the application.
+
+00:01:20.970 --> 00:01:28.290
+Third looking at the header here where it says employees it looks like over time we've got like a header
+
+00:01:28.290 --> 00:01:33.930
+that says log in header that says employees and then a header that says just like Cingular employee
+
+00:01:33.930 --> 00:01:35.090
+over here.
+
+00:01:35.400 --> 00:01:41.020
+So the header certainly is changing over time depending on what screen we're looking at now.
+
+00:01:41.070 --> 00:01:42.990
+Yeah that's probably not too bad right.
+
+00:01:42.990 --> 00:01:48.000
+You know we can probably easily use that hetero tax prop on the head or that we had made previously
+
+00:01:48.000 --> 00:01:49.610
+to change the content in there.
+
+00:01:49.990 --> 00:01:54.330
+But well you know what she knows one thing of her tickler knows that the third panel were also showing
+
+00:01:54.360 --> 00:02:00.750
+a back button here which presumably should take someone from looking at an individual employee back
+
+00:02:00.750 --> 00:02:02.360
+to like the list of employees right.
+
+00:02:02.380 --> 00:02:06.410
+Like show me go back a screen me a little list of employees over here.
+
+00:02:06.480 --> 00:02:10.090
+So clearly some further customization of the headers required.
+
+00:02:10.110 --> 00:02:15.420
+Now believe it or not managing that header right there in re-act native app is a little bit harder than
+
+00:02:15.420 --> 00:02:16.350
+you'd think.
+
+00:02:16.530 --> 00:02:20.180
+So we're going to have to spend a little bit more time to walk through the challenges there.
+
+00:02:21.950 --> 00:02:26.900
+Fourth and this is definitely another big challenge of this application.
+
+00:02:27.090 --> 00:02:32.810
+Each user who installs or application should have their own private list of employees right.
+
+00:02:32.820 --> 00:02:39.270
+Like if I'm running a Subway franchise and I've got my five employees I don't want the guy who's running
+
+00:02:41.040 --> 00:02:45.360
+Burger King across the street to also log in the app and see my list of employees.
+
+00:02:45.420 --> 00:02:50.220
+And so we need to spend some time figuring out however we're going to persist this data how are we going
+
+00:02:50.220 --> 00:02:51.720
+to save these employees.
+
+00:02:51.750 --> 00:02:55.290
+We need to make sure that we've got a airtight layer of security in there.
+
+00:02:55.320 --> 00:03:00.570
+We need to make sure that users of this application are like different users can't see each other's
+
+00:03:00.570 --> 00:03:02.910
+employees and can't modify them in any way.
+
+00:03:02.910 --> 00:03:08.190
+So in short we need to store this list of employees somewhere and make sure that we have really airtight
+
+00:03:08.220 --> 00:03:10.850
+solid security around it.
+
+00:03:10.870 --> 00:03:12.080
+All right just two more days Tim.
+
+00:03:12.120 --> 00:03:13.020
+Bear with me.
+
+00:03:13.030 --> 00:03:19.890
+So Fifth we need to interface with our phones device somehow to be able to send a text message as like
+
+00:03:19.890 --> 00:03:20.780
+again.
+
+00:03:20.820 --> 00:03:26.190
+One of the big features of this is that after a employee gets a ship set and you were just kind of imagining
+
+00:03:26.230 --> 00:03:28.150
+they're going to work a singular day here.
+
+00:03:28.500 --> 00:03:32.130
+We need to be able to interface with the phone bill or send a text message out.
+
+00:03:32.130 --> 00:03:34.230
+Now this is going to be a little bit easier than you might think.
+
+00:03:34.230 --> 00:03:35.980
+You know it's really going to be not that bad.
+
+00:03:36.000 --> 00:03:41.190
+It's definitely one of those things where you kind of see how it's done once and say oh well OK sure
+
+00:03:41.220 --> 00:03:42.880
+that's how you send a text message.
+
+00:03:42.900 --> 00:03:44.490
+So will it be that challenging.
+
+00:03:44.490 --> 00:03:46.440
+But we do have to figure it out.
+
+00:03:47.160 --> 00:03:54.630
+Now finally last one over here we need a kind of a big full screen overlay like a modal pop up something
+
+00:03:54.630 --> 00:03:59.790
+to prompt a user and ask them to confirm some big change or something like that.
+
+00:03:59.790 --> 00:04:05.570
+Now our iOS and Android devices have some default confirm message messages that we could use you know
+
+00:04:05.580 --> 00:04:09.600
+those like messages where it's like on iOS.
+
+00:04:09.600 --> 00:04:14.160
+Certainly like whenever there's a new operating system update it says like hey do you want to update
+
+00:04:14.160 --> 00:04:14.740
+this thing.
+
+00:04:14.780 --> 00:04:20.120
+You know you update your version of BIOS you'll see that inside of the default modal.
+
+00:04:20.130 --> 00:04:21.900
+I think that we can do better than that.
+
+00:04:21.900 --> 00:04:26.850
+I think that we could probably figure out how to style like you know a very nice looking model and not
+
+00:04:26.850 --> 00:04:32.170
+rely on the system default one whenever you got the system default one it kind of pulls the user out
+
+00:04:32.170 --> 00:04:33.910
+of the experience of your application.
+
+00:04:33.930 --> 00:04:38.730
+And so I think there's a lot of value to be able to customize how this pop up is going to look and really
+
+00:04:38.730 --> 00:04:40.970
+have it suit your application.
+
+00:04:41.750 --> 00:04:42.230
+OK.
+
+00:04:42.270 --> 00:04:43.220
+So that's it.
+
+00:04:43.230 --> 00:04:45.400
+That's the big challenges of our app.
+
+00:04:45.480 --> 00:04:49.680
+You know I really like laying out these you know what the what we're going to focus on here because
+
+00:04:49.710 --> 00:04:54.390
+essentially we're going to spend a lot of time to focus on each and every one of these different challenges
+
+00:04:54.390 --> 00:04:55.070
+in here.
+
+00:04:55.140 --> 00:04:58.560
+And again I think that you're really going to enjoy this application.
+
+00:04:58.560 --> 00:05:04.390
+I had a very pleasurable time putting it together a lot of interesting lessons here.
+
+00:05:04.490 --> 00:05:06.170
+Anyways enough hedging around.
+
+00:05:06.210 --> 00:05:08.780
+Let's get started in the next section.

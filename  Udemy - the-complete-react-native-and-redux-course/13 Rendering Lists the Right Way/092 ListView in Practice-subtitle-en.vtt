@@ -1,0 +1,247 @@
+WEBVTT
+
+00:00.920 --> 00:05.430
+Your last section we discussed how the mystery works and we're now going to use List view inside of
+
+00:05.430 --> 00:06.510
+our application.
+
+00:06.630 --> 00:11.250
+I think you'll generally be happy with the amount of work that it takes to create this list view.
+
+00:11.310 --> 00:16.350
+We get pretty good bang for our buck as far as the amount of effort we have to put in and the benefit
+
+00:16.350 --> 00:20.040
+that our application receives on the performance side of things.
+
+00:20.040 --> 00:25.290
+So we're going to implement the whole list view inside of our library list component obviously library
+
+00:25.290 --> 00:25.680
+list.
+
+00:25.680 --> 00:31.950
+It is meant to show a list of data to start with first import the list view component from their re-act
+
+00:32.070 --> 00:33.420
+native library.
+
+00:33.420 --> 00:41.310
+So at the top we import list view from re-act native.
+
+00:41.310 --> 00:47.460
+Next we need to tell the list view which list of items it will be using to construct itself like what
+
+00:47.460 --> 00:49.170
+data is we using.
+
+00:49.500 --> 00:52.580
+And we need to pass in our list of libraries to it.
+
+00:52.710 --> 00:57.540
+So we only have to set up this kind of list of data for the component exactly one time.
+
+00:57.540 --> 01:02.700
+Like immediately when the component first starts up right immediately when our library list first shows
+
+01:02.760 --> 01:03.740
+starts up.
+
+01:04.350 --> 01:10.250
+So we will place the logic to create this list view inside of a lifecycle method called component will
+
+01:10.270 --> 01:12.030
+mount that way.
+
+01:12.030 --> 01:17.250
+The instant that the component is about to render we can tell it we can tell you where to get its data
+
+01:17.280 --> 01:18.960
+from.
+
+01:18.960 --> 01:29.000
+So inside of our component we will implement component will mount remember a component will mount is
+
+01:29.010 --> 01:30.140
+a lifecycle method.
+
+01:30.150 --> 01:36.060
+All we have to do is define it and just by defining it the instant that our component is about to be
+
+01:36.060 --> 01:37.920
+rendered to the device or the screen.
+
+01:37.920 --> 01:41.580
+Any code that we place inside of here will be automatically called.
+
+01:42.460 --> 01:42.790
+OK.
+
+01:42.810 --> 01:48.330
+So inside of here we are going to create our list view and tell it what data it should use inside the
+
+01:48.330 --> 01:50.140
+list.
+
+01:50.220 --> 01:55.400
+Don't read too much into the code that we're about to write here like it's a little bit boilerplate
+
+01:55.440 --> 01:56.810
+setup for making this list.
+
+01:56.810 --> 02:00.030
+And you can easily copy paste the set up from List view to list view.
+
+02:00.030 --> 02:05.160
+So we're not going to dive too deep on the code here because it's really just some boilerplate setup.
+
+02:05.580 --> 02:10.170
+So when I say Konst D.S. that's just an awful name I know.
+
+02:10.440 --> 02:15.090
+Equals new list view dot data source.
+
+02:17.510 --> 02:20.750
+And then we are going to pass in an object with a property.
+
+02:20.910 --> 02:23.420
+Let's do this on new line.
+
+02:23.590 --> 02:26.160
+Rowe has changed.
+
+02:27.180 --> 02:31.460
+And as a value I'm going to pass a fatto function and this is the part where I'm saying like you know
+
+02:31.470 --> 02:41.370
+don't read in to this too much don't worry about logic too much to say are one are two are one does
+
+02:41.370 --> 02:44.430
+not equal are two like so.
+
+02:47.370 --> 02:52.800
+So again when we create the list view we have to tell it exactly what sorts of data to use.
+
+02:52.800 --> 02:58.110
+So this list view do source right here is a very fancy little object.
+
+02:58.110 --> 03:01.600
+Tons of methods attached to it that we never really have to deal with at all.
+
+03:01.800 --> 03:07.380
+And it knows all about how to figure out what items to show on the screen depending on where the user
+
+03:07.380 --> 03:10.270
+has scrolled to inside the list.
+
+03:10.300 --> 03:13.770
+So the last thing you have to do is tell it you know you'll notice that we haven't actually told it
+
+03:13.770 --> 03:15.380
+what data to use just yet.
+
+03:15.420 --> 03:26.010
+So we will feed in some amount of data by saying this data source equals D.S. dot clone with Rose.
+
+03:26.010 --> 03:31.950
+Sorry about that clone with Rose this Propst out libraries.
+
+03:32.000 --> 03:34.640
+OK so now this is the real meat of everything here.
+
+03:35.100 --> 03:40.370
+We have this data source object and we're telling it take this list of libraries.
+
+03:40.410 --> 03:46.170
+So stop Propst at libraries and you are going to use this list of libraries to render a list of data
+
+03:46.170 --> 03:51.410
+to the screen or to you know to use to something to just render the screen that's all.
+
+03:51.420 --> 03:56.340
+Remember that we only have access to this dot Propst at libraries because we already hooked up that
+
+03:56.340 --> 03:58.630
+map state to prop's function.
+
+03:59.500 --> 03:59.960
+OK.
+
+03:59.970 --> 04:02.610
+So this is our data source for the list view.
+
+04:02.640 --> 04:08.310
+The last thing that we have to do is actually create the list view component and then give it this data
+
+04:09.000 --> 04:10.080
+to display.
+
+04:10.590 --> 04:15.240
+So inside of my render method we're going to finally get a return statement in here.
+
+04:15.780 --> 04:21.730
+It's going to add in some Prendes because I expect this to be a multi-line statement and I will create
+
+04:21.730 --> 04:34.350
+the list view with a data source of this darte data source and then I'll close the tag off.
+
+04:34.890 --> 04:41.120
+OK so we have now created a list view and we've given it the data source to use to get knowledge of
+
+04:41.150 --> 04:43.520
+all the items that need to show on the screen.
+
+04:43.520 --> 04:49.310
+There's one last item that we have to do in here and this one is a little bit of you know maybe unexpected
+
+04:49.310 --> 04:54.230
+Maybe I claim this is going to be easier than actually was going to be the last thing we have to do
+
+04:54.800 --> 05:00.900
+is we have to instruct the list view on how to render a single row inside of our application.
+
+05:00.900 --> 05:06.290
+So you'll notice that at this point in time we have done absolutely nothing to instruct the list view
+
+05:06.530 --> 05:09.850
+on how to render a single row or like a single library.
+
+05:09.910 --> 05:10.440
+Right.
+
+05:10.490 --> 05:15.320
+Like the list for you is not going to just magically look at our list of libraries and say oh it has
+
+05:15.320 --> 05:17.950
+a title property I guess I'll show the title.
+
+05:17.970 --> 05:19.220
+It does not do that.
+
+05:19.220 --> 05:25.550
+We have to tell the list view how to render a very specific row to do so.
+
+05:25.580 --> 05:34.180
+We will out on a prop called render row and then we'll pass this a function reference.
+
+05:34.430 --> 05:36.350
+So say this render row.
+
+05:36.620 --> 05:42.720
+Now I'm going to define a helper method called render row like so.
+
+05:42.760 --> 05:47.360
+So now our job is to add some amount of logic to render row right here.
+
+05:47.480 --> 05:52.970
+That is going to figure out how to just render a single element inside of our list.
+
+05:53.000 --> 05:56.480
+So rendering right here needs to return a single library.
+
+05:56.480 --> 05:58.300
+That's our job.
+
+05:58.340 --> 06:02.670
+Let's take a quick break and then continue on implementing this render Rove function

@@ -1,0 +1,220 @@
+WEBVTT
+
+00:00.820 --> 00:05.700
+In the last section we made our first use of the scene component from the re-act native router flux
+
+00:05.700 --> 00:06.900
+library.
+
+00:06.900 --> 00:10.050
+We did so by making a router component inside of it.
+
+00:10.050 --> 00:11.860
+We placed a router tag.
+
+00:11.880 --> 00:16.080
+Now this overall router tag is what kind of organizes all the different scenes that we're going to put
+
+00:16.080 --> 00:17.660
+together for our application.
+
+00:17.700 --> 00:23.520
+Remember each scene corresponds to one distinct screen that we want to show to the user.
+
+00:23.700 --> 00:31.200
+Our scene has three properties to it right now a key component and a title as we saw inside the simulator
+
+00:31.230 --> 00:37.760
+if we provide a title the routing library will automatically generate a header component for us in place
+
+00:37.770 --> 00:39.860
+inside the application.
+
+00:39.860 --> 00:44.960
+We can also place the component tag which tells it hey whenever you boot up I want to show this particular
+
+00:44.960 --> 00:45.910
+component.
+
+00:46.250 --> 00:51.560
+Finally we had passed him the key property and this is going to get a lot more relevant when we want
+
+00:51.560 --> 00:56.030
+to navigate between different scenes in our application.
+
+00:56.030 --> 01:00.980
+I also had previously mentioned an initial property that initial property is used to figure out what
+
+01:00.980 --> 01:06.380
+the first scene to show inside of our app is because we've only got one scene right now we really don't
+
+01:06.380 --> 01:09.890
+need to make use of it so we don't need the initial property just yet.
+
+01:10.980 --> 01:16.710
+After we finished creating the router we imported it into our component and then placed it inside the
+
+01:16.710 --> 01:17.560
+render method.
+
+01:17.580 --> 01:19.320
+And so this is where the real magic happens.
+
+01:19.320 --> 01:24.540
+You know we place the router somewhere and poof the routing library just fills figures out what needs
+
+01:24.540 --> 01:26.300
+to be shown on the screen for us.
+
+01:28.460 --> 01:29.150
+All right.
+
+01:29.270 --> 01:31.580
+So that brings us up to the present.
+
+01:31.790 --> 01:33.330
+The big issue right now.
+
+01:33.370 --> 01:33.690
+Yeah.
+
+01:33.710 --> 01:35.720
+You know we were able to refresh no errors.
+
+01:35.720 --> 01:40.400
+We have a log in form as on the screen we want we have a header but clearly there is something really
+
+01:40.400 --> 01:41.830
+funky going on right here.
+
+01:41.840 --> 01:46.670
+We've got this kind of overlay of the header on top of our component.
+
+01:46.820 --> 01:49.580
+So clearly this doesn't really work for us.
+
+01:49.580 --> 01:54.880
+You might wonder why the router library authors decided to make their nav bar behave like this.
+
+01:54.890 --> 01:58.090
+You know kind of floating on top of any content behind it.
+
+01:58.580 --> 02:03.140
+Well to be honest you know they don't know if you want to use their nav bar as is or if you want to
+
+02:03.140 --> 02:06.800
+customize it to behave like a bottom tab bar down here.
+
+02:06.980 --> 02:13.790
+So it is up to us to fully customize this menu bar this nav bar appear as much as we want so we can
+
+02:14.120 --> 02:17.880
+really tear the thing apart turn it into absolutely anything we want.
+
+02:17.930 --> 02:23.060
+So by default the library authors are giving us something that can be heavily customized and so they're
+
+02:23.060 --> 02:25.910
+really making no assumptions about it whatsoever.
+
+02:25.910 --> 02:29.290
+You know maybe you do want to overlay some content maybe you don't.
+
+02:29.300 --> 02:29.810
+I don't know.
+
+02:29.840 --> 02:33.820
+You know it's really up to us to figure out what we want to do for us.
+
+02:33.830 --> 02:35.650
+Obviously we don't want the overlay here.
+
+02:35.780 --> 02:41.060
+So we're going to add a little bit of styling in to fix this issue right here.
+
+02:41.060 --> 02:48.790
+We can make some global styling changes by passing a property called Scene style to the router.
+
+02:49.100 --> 02:55.760
+So we're going to pass this thing a scene style if we pass this a scene style any style we passed and
+
+02:55.760 --> 03:00.710
+here will be applied to all the different scenes on our application when they show up on the screen.
+
+03:00.920 --> 03:05.820
+So this is like kind of a you think of this as a global style object right here.
+
+03:05.900 --> 03:13.460
+I mean to give it a padding top it's going to hard code in 65 to move it down 65 units.
+
+03:13.470 --> 03:17.550
+Now if I refresh it shows up much more reasonably.
+
+03:17.590 --> 03:22.530
+So now you can imagine that the kind of the start of this of any component we place in here is you're
+
+03:22.560 --> 03:29.480
+right about here because we've got this global 65 patting on top all across our application.
+
+03:29.890 --> 03:32.970
+Just for the sake of making sure that everything works well on Android as well.
+
+03:32.980 --> 03:38.350
+You know any time we hard code in a style having to do with dimensions we really need to think about
+
+03:38.410 --> 03:40.270
+cross-platform compatibility.
+
+03:40.300 --> 03:44.140
+So I did also start up my android emulator.
+
+03:44.170 --> 03:47.770
+It is let's do a refresh and.
+
+03:47.780 --> 03:48.150
+OK.
+
+03:48.170 --> 03:49.420
+Definitely looks reasonable.
+
+03:49.510 --> 03:52.270
+You'll see it there's definitely a little bit more of a gap here.
+
+03:52.290 --> 03:57.280
+We could definitely add in a platform specific check and telling saying like you know hey if we're on
+
+03:57.310 --> 04:00.070
+Android maybe only do 60 units or something like that.
+
+04:00.090 --> 04:04.090
+But for the purposes of this tutorial I think that you know this looks good.
+
+04:04.090 --> 04:06.640
+I'm way more concerned about navigation.
+
+04:06.820 --> 04:10.370
+So let's continue with figuring out how navigation works.
+
+04:11.530 --> 04:16.190
+All right so at this point in time we've only got a single component to work with the log in form.
+
+04:16.240 --> 04:22.330
+So we've got now obviously with navigation we want to figure out how to kind of navigate to different
+
+04:22.330 --> 04:23.500
+components of course.
+
+04:23.500 --> 04:26.060
+Right we want to navigate to different screens.
+
+04:26.140 --> 04:31.510
+So I think that our next step is going to be to create a test component just so we can figure how to
+
+04:31.510 --> 04:34.250
+navigate around to different scenes or application.
+
+04:34.250 --> 04:36.440
+So let's take a quick break and then come back.
+
+04:36.440 --> 04:41.270
+Make a test component and then figure out how we navigate between different scenes in our application

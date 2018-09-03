@@ -1,0 +1,253 @@
+WEBVTT
+
+00:00.870 --> 00:05.460
+Let's take a bit of a break from redux for a moment and focus a bit more on the rest of our application
+
+00:05.880 --> 00:10.620
+now based on the mockups that we've looked at previously we certainly know that we're going to need
+
+00:10.650 --> 00:14.020
+a header component and a list composed of sorts right.
+
+00:14.040 --> 00:18.550
+Some like something to render the list of all the different topics that we're going to have.
+
+00:18.600 --> 00:22.450
+Now we've already got a head or component built from our previous projects.
+
+00:22.530 --> 00:24.800
+So I think we should take the same approach as last time.
+
+00:24.870 --> 00:29.300
+We're going to copy and paste over all of the common components that we had used.
+
+00:29.300 --> 00:35.580
+OK so again there is some fancier ways of sharing code across projects but just for the sake of this
+
+00:35.580 --> 00:39.930
+application you know kind of in the context of this tutorial we're going to take the easy way out and
+
+00:39.930 --> 00:42.660
+just kind of copy paste some components over.
+
+00:43.390 --> 00:49.080
+So first thing we'll do is inside of our Textbook Project we'll make a new folder to hold all of our
+
+00:49.080 --> 00:49.890
+components.
+
+00:49.890 --> 00:56.400
+So inside my source directory I'm going to make a component's folder and inside of there I will again
+
+00:56.400 --> 00:58.380
+make my common folder.
+
+00:58.500 --> 01:04.590
+So I've got component's common and just to be clear the idea behind the name common is like this.
+
+01:04.590 --> 01:08.110
+These components are common to many different parts of the application.
+
+01:08.140 --> 01:10.000
+That's the idea behind it.
+
+01:10.680 --> 01:15.730
+OK so now we're going to copy and paste our components over inside my console.
+
+01:15.740 --> 01:18.240
+I'm just going to go ahead and pull up my project directory
+
+01:20.880 --> 01:29.940
+and pull up a second window soon to do this from the command line.
+
+01:29.960 --> 01:35.120
+There we go OK not getting the second one that's fine.
+
+01:35.130 --> 01:36.790
+We'll do this the hard way.
+
+01:36.900 --> 01:40.290
+So I get to go into my art project which was the last one that we worked on.
+
+01:40.560 --> 01:44.870
+My source folder components folder common folder.
+
+01:45.090 --> 01:49.020
+And here we go here's all the different components that we made that we've been carrying through from
+
+01:49.020 --> 01:50.380
+project to project.
+
+01:50.430 --> 01:56.100
+I'm going to just copy them all and then I'll go back to my text project which is the one that we're
+
+01:56.100 --> 01:57.400
+working on right now.
+
+01:57.720 --> 02:05.010
+I'll go into my source directory components directory common directory and boom paste them all right
+
+02:05.010 --> 02:06.230
+in there.
+
+02:06.270 --> 02:11.310
+So again however you want to do this and you get a copy from the command line you can copy from the
+
+02:11.310 --> 02:13.230
+file explorer whatever way you want.
+
+02:13.230 --> 02:17.580
+Basically we just want this set of components inside of our common directory.
+
+02:17.880 --> 02:22.980
+Now again if you feel like you're not super happy with the state of these compounds right here if you
+
+02:22.980 --> 02:27.940
+feel like you know maybe my spinner isn't quite put together correctly or it's not working.
+
+02:28.110 --> 02:33.840
+I encourage you to go check out the official course repo and just copy the common components directly
+
+02:33.840 --> 02:34.590
+from there.
+
+02:34.590 --> 02:37.470
+And again you can find the Course repot on get hub.
+
+02:37.530 --> 02:41.730
+There is a link to it in a much earlier section within this course so feel free to check it out if you
+
+02:41.730 --> 02:43.830
+would like.
+
+02:43.830 --> 02:48.720
+All right so flipping back or in my code editor now I've got my common directory in here is all the
+
+02:48.720 --> 02:50.400
+common components inside of it.
+
+02:50.400 --> 02:53.850
+So just to kind of get something on the screen just to get something working.
+
+02:53.970 --> 02:56.840
+Let's make immediate use of the head or component.
+
+02:57.060 --> 03:02.370
+So we will import the header component into our app and place a header on the screen and just verify
+
+03:02.370 --> 03:05.470
+Yup like you know it's has shown up in everything it's good to go.
+
+03:06.210 --> 03:14.580
+So inside of my app component I will import header from components slash common.
+
+03:14.610 --> 03:20.550
+And again we are making use of that convention where if we just import a directory will automatically
+
+03:20.550 --> 03:27.990
+pull in the index file if it contains one then inside of our component here side of the app I will place
+
+03:27.990 --> 03:37.730
+my header tag and I'll give it a header text Propp just text act or whatever you would like if you like.
+
+03:37.770 --> 03:39.420
+You know any other name in here.
+
+03:39.660 --> 03:41.060
+Feel free.
+
+03:41.070 --> 03:42.050
+Feel free to go for it.
+
+03:42.050 --> 03:43.860
+Some customization.
+
+03:43.860 --> 03:47.440
+Now the one thing I want to point out here is that we have the provider tag.
+
+03:47.580 --> 03:52.830
+Remember that the provider tag is what serves as glue between the redux side of our application and
+
+03:52.830 --> 03:54.480
+the re-act side.
+
+03:54.480 --> 04:01.250
+The one little tricky thing about the provider is that it can only have one single child component.
+
+04:01.290 --> 04:04.640
+Now that child can have as many subcomponents as it would like.
+
+04:04.740 --> 04:08.360
+But right now we have two children that we're passing to the provider.
+
+04:08.370 --> 04:13.230
+So if I rendered this in the simulator right now I would end up with a big fat error message something
+
+04:13.230 --> 04:16.840
+about the provider only being allowed to have one child.
+
+04:16.980 --> 04:23.580
+So I can fix that by wrapping my head or component with the view tag.
+
+04:24.790 --> 04:25.500
+Like so.
+
+04:25.780 --> 04:29.890
+So now if I have multiple children you know other children they want to toss in here and I certainly
+
+04:29.890 --> 04:31.150
+will you know certainly.
+
+04:31.270 --> 04:35.620
+I can just place them right in here you know wherever else or whatever other components I would like
+
+04:35.620 --> 04:36.560
+to have.
+
+04:36.560 --> 04:39.100
+So that would be a nice setup.
+
+04:39.100 --> 04:41.660
+All right let's check out the simulator.
+
+04:41.660 --> 04:41.920
+Yes.
+
+04:41.930 --> 04:43.300
+Simulators running.
+
+04:43.300 --> 04:46.350
+Pretty sure my terminal is running with the re-act packager.
+
+04:46.390 --> 04:46.870
+Yup.
+
+04:47.080 --> 04:54.400
+Let's refresh and just verify that I've got a header on the screen and there we go there's my text.
+
+04:54.850 --> 04:55.490
+Fantastic.
+
+04:55.510 --> 05:02.560
+So we pulled over all of our common components which means we can reuse just a ton of code going forward
+
+05:02.560 --> 05:05.360
+from this course to projects that you work on yourself.
+
+05:05.530 --> 05:10.480
+I highly encourage you continue carrying over these common components right here and just develop them
+
+05:10.480 --> 05:11.290
+over time.
+
+05:11.560 --> 05:16.300
+And after you know maybe you make a toy application or two you'll end up with a set of components that
+
+05:16.300 --> 05:23.920
+you know really well and you can use to put together future applications in a really compact timeframe.
+
+05:24.610 --> 05:25.010
+OK.
+
+05:25.090 --> 05:30.700
+Let's continue in the next section and start focusing on putting together a list of libraries for application

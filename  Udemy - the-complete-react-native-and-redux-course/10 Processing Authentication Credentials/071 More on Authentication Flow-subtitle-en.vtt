@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.950 --> 00:06.780
+In the last section we added some logic to handle the case in which our user both fails to sign in and
+
+00:06.780 --> 00:07.770
+sign up.
+
+00:08.220 --> 00:11.960
+Let's now test this out in the simulator and see if that error message is actually appearing.
+
+00:11.970 --> 00:13.720
+So I flip over to the simulator.
+
+00:13.920 --> 00:22.560
+I'll do my refresh and then for my e-mail I'm going to put in an email of test at test dot com and a
+
+00:22.560 --> 00:24.790
+password of password.
+
+00:24.930 --> 00:29.740
+So now when I click logon we're going to run that on button press handler right here.
+
+00:29.760 --> 00:35.430
+So we're going to run this code and the first time that I log in my expectations are going to be that
+
+00:35.470 --> 00:42.190
+I it's failed this case because I do not yet have an account with the e-mail of test at test dot com.
+
+00:42.420 --> 00:45.910
+But I expect that I will succeed in creating an account.
+
+00:45.930 --> 00:50.280
+So the first time I press this button I expect basically nothing to happen.
+
+00:50.640 --> 00:54.710
+So I press it and yep looks good and nothing happens whatsoever.
+
+00:55.410 --> 01:01.470
+Now I'm going to change my password only with password to just some you know basically random string
+
+01:01.470 --> 01:02.980
+of characters here.
+
+01:03.030 --> 01:09.330
+Now this time around I will attempt to sign in with an email and password the email will be test at
+
+01:09.330 --> 01:14.670
+test dot com but the password will be incorrect so I'm going to hit the catch case.
+
+01:14.670 --> 01:21.030
+I'm going to try to create a user account with a test that test dot com email but this call right here
+
+01:21.030 --> 01:24.440
+is also going to fail because that e-mail is already in use.
+
+01:24.580 --> 01:29.280
+And so going to hit my second catch statement and I'll expect to see the error message.
+
+01:29.280 --> 01:30.330
+So let's test this out.
+
+01:30.330 --> 01:31.700
+All I do is click log in
+
+01:36.760 --> 01:39.390
+and we get the authentication failed message here.
+
+01:39.430 --> 01:43.720
+He also knows that it took a little bit of time to actually complete that request like we are waiting
+
+01:43.720 --> 01:45.700
+a good two or three seconds there.
+
+01:45.700 --> 01:50.020
+That definitely tells me that hey you know what we might need some methodology or something and tell
+
+01:50.020 --> 01:54.800
+our user that this request is still pending like we are waiting for an update.
+
+01:54.820 --> 01:56.860
+We're trying to log in but just give us a second.
+
+01:56.890 --> 02:01.330
+Otherwise our users are going to think that you know this feels awfully broken.
+
+02:02.680 --> 02:05.610
+So it looks like the air handling is in a good spot here.
+
+02:05.740 --> 02:10.220
+I want to do one small thing though that will throw a wrench in our plans.
+
+02:10.420 --> 02:12.350
+I'm going to delete our password.
+
+02:12.610 --> 02:13.960
+I'm going to put in my correct one.
+
+02:14.080 --> 02:17.920
+So my credit password is password and then I'm going to click the logon button.
+
+02:17.920 --> 02:22.870
+So now my expectation here is that I will successfully log in because I have the correct e-mail and
+
+02:22.870 --> 02:24.100
+the correct password.
+
+02:24.550 --> 02:28.870
+So I will log in and I'm waiting waiting waiting.
+
+02:29.140 --> 02:30.180
+And.
+
+02:30.490 --> 02:30.870
+OK.
+
+02:30.880 --> 02:32.890
+You know I only know what happens is happening.
+
+02:32.890 --> 02:35.910
+I definitely expect to have successfully logged in here.
+
+02:35.920 --> 02:40.420
+So what's really happening at this point in time is we don't have any logic whatsoever to clear out
+
+02:40.420 --> 02:41.680
+this error message.
+
+02:41.770 --> 02:47.380
+If a user attempts to log in again right we want to assume the user attempts to log in a second time.
+
+02:47.380 --> 02:52.690
+We want to make sure that we clear this error message immediately just so that they know that OK like
+
+02:53.080 --> 02:57.630
+I do this follow up request you know me trying to log in again is pending.
+
+02:57.640 --> 03:00.980
+And then eventually maybe the error message will pop up.
+
+03:01.450 --> 03:07.720
+So to handle that case inside of our button press handler if here which is called the instant user presses
+
+03:07.720 --> 03:15.580
+on button I'm going to call this set state air and I'm going to reset it to be an empty object.
+
+03:15.580 --> 03:22.030
+So now if I fail to log in once and then I attempt to log in again that error message is going to instantly
+
+03:22.030 --> 03:23.930
+clear out and the user is going to know.
+
+03:24.070 --> 03:24.700
+Hey all right.
+
+03:24.710 --> 03:30.670
+Like you know recently I believe that the OP is trying to log me in again.
+
+03:30.860 --> 03:34.170
+So let's test this out put him test at test dot com.
+
+03:34.180 --> 03:38.220
+I'm going to put in a bad password just to get an error message to appear on the screen.
+
+03:39.780 --> 03:45.910
+An hour replace it with a good password and get a click log in and the instant I click it the error
+
+03:45.910 --> 03:47.190
+message goes away.
+
+03:47.500 --> 03:48.670
+Exactly what I want.
+
+03:48.760 --> 03:54.070
+It lets the user know OK we acknowledge you put in a new email and password and you are attempting to
+
+03:54.070 --> 03:56.520
+log in again as a quick aside.
+
+03:56.560 --> 04:00.920
+I want to point out that this is a big difference between web development and mobile development.
+
+04:01.270 --> 04:05.860
+If you've got any type of background in web development you know that sometimes we can kind of bend
+
+04:05.860 --> 04:08.700
+the rules when it comes to us like on you x.
+
+04:08.830 --> 04:13.930
+Maybe we wouldn't really have to throw in all this fancy error handling show the user an error message
+
+04:13.930 --> 04:15.110
+and clear it out all the time.
+
+04:15.110 --> 04:16.390
+All this kind of stuff.
+
+04:16.390 --> 04:19.340
+We even have to show a spinner or anything like that.
+
+04:19.540 --> 04:27.040
+But with mobile where we sometimes have awful internet connectivity or Wagih mobile devices giving strong
+
+04:27.040 --> 04:29.520
+feedback to the user is paramount.
+
+04:29.800 --> 04:33.570
+So we spend a lot more time with re-act native than with reality.
+
+04:33.580 --> 04:34.380
+Yes.
+
+04:34.480 --> 04:39.460
+To make sure that we give our user a lot more signaling about the actions that they're committing inside
+
+04:39.460 --> 04:41.780
+of our app.
+
+04:41.920 --> 04:47.710
+So on that note again when I attempt to sign in there is definitely a non-zero Pozen here like there
+
+04:47.710 --> 04:52.420
+is some distinct pause as I attempt as I attempt to authenticate myself right.
+
+04:52.420 --> 04:56.980
+Like if I put in a bad password I'm waiting I'm waiting I'm waiting.
+
+04:57.400 --> 05:00.100
+And there we go.
+
+05:00.100 --> 05:03.660
+Finally I get that authentication failed message appearing.
+
+05:04.030 --> 05:10.780
+So you can imagine that if I'm on a 2G or 3G network connection this request is going to take quite
+
+05:10.780 --> 05:11.860
+some time.
+
+05:12.040 --> 05:19.270
+So with that in mind I suggest that when a user presses the button to log in we show a spinner instead
+
+05:19.270 --> 05:20.830
+of this log in button right here.
+
+05:20.940 --> 05:22.850
+Just so the user knows hey we've got it.
+
+05:22.840 --> 05:24.730
+We're attempting to log in.
+
+05:24.820 --> 05:31.840
+Then when the user successfully logs in or fails whatever might be we should show the button again and
+
+05:31.840 --> 05:32.650
+hide the spinner.
+
+05:32.650 --> 05:37.140
+So basically we're talking about toggling the spinner a little bit.
+
+05:37.480 --> 05:41.950
+Now I expect that there will be several locations within our app that we're creating where we will want
+
+05:41.950 --> 05:43.490
+to show a spinner to the user.
+
+05:43.630 --> 05:48.810
+So I'm going to suggest that we make a standalone spinner or component that can be re-usable guys.
+
+05:48.930 --> 05:50.020
+That's that's our goal here.
+
+05:50.020 --> 05:53.580
+We're going to create a spirit component that is reusable.
+
+05:53.980 --> 05:59.320
+You know what to do now whenever we make a reusable component we'll make a new file inside of our components
+
+05:59.370 --> 06:00.930
+come common directory.
+
+06:00.970 --> 06:04.780
+So I'm going to make a new file called spinner.
+
+06:04.810 --> 06:07.530
+J.S. inside of that common directory.
+
+06:08.260 --> 06:11.940
+And inside it here will play some boiler plate from making a new component.
+
+06:11.950 --> 06:24.160
+So we'll place import re-act from react on imports view from Riak native and I'm going to make my component.
+
+06:24.340 --> 06:27.990
+I expect this to just be a presentational component like either.
+
+06:28.030 --> 06:30.130
+Want to show a spinner where I don't.
+
+06:30.370 --> 06:35.620
+So this components not going to have any requirement for state because basically if I try to write rendered
+
+06:35.620 --> 06:42.280
+the spinner The idea here is I should get a spinner on the screen so I'll make a functional component.
+
+06:44.080 --> 06:46.510
+And from here I will return.
+
+06:46.870 --> 06:49.110
+Right now just the single view tag.
+
+06:49.350 --> 06:55.900
+And at the bottom of place my export statement because this is one of our reusable components that we
+
+06:55.900 --> 06:58.400
+are rerouting through that index J.S. file.
+
+06:58.480 --> 07:00.640
+We use spinner with the braces in here.
+
+07:00.670 --> 07:06.400
+So speaking of which Let's hop over to the index file and make sure that we route that import statement
+
+07:06.400 --> 07:07.130
+through here.
+
+07:07.530 --> 07:12.710
+So we'll say export star from Speir.
+
+07:13.020 --> 07:18.980
+So now any other file inside of our application can import the spinner component from just the referencing
+
+07:18.980 --> 07:24.110
+the column directory which definitely matches our pattern with all of the other reusable components
+
+07:24.110 --> 07:25.180
+that we have.
+
+07:25.640 --> 07:25.930
+OK.
+
+07:25.940 --> 07:29.630
+Let's take a quick break and finish up with a spinner in the next section.

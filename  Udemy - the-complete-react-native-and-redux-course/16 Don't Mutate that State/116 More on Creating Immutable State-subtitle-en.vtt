@@ -1,0 +1,352 @@
+WEBVTT
+
+00:01.290 --> 00:05.570
+In the last section we finish wiring up producer to work with the email field.
+
+00:06.140 --> 00:08.940
+How do you this one very quick review on what's going on.
+
+00:08.940 --> 00:11.570
+And we're going to speed through the password implementation as well.
+
+00:11.660 --> 00:12.540
+OK.
+
+00:13.030 --> 00:17.640
+So this is our flow that we're going through every single time a user typed something inside an input
+
+00:17.640 --> 00:18.190
+field.
+
+00:18.210 --> 00:23.850
+You start at the very top left a user presses selects an input field and type something on their keyboard
+
+00:23.850 --> 00:29.880
+that pops up on the screen the instant they do that we call an action creator with the new text that
+
+00:29.880 --> 00:32.450
+the issue just entered the action creator.
+
+00:32.460 --> 00:33.760
+Returns in action.
+
+00:34.080 --> 00:39.620
+The action is a plain javascript object that has a type property and a payload property.
+
+00:39.900 --> 00:43.440
+The action is sent to all the different producers inside of our application.
+
+00:43.440 --> 00:49.870
+Right now we just have one the author douceur producer calculates a new application state.
+
+00:49.890 --> 00:52.170
+So it says OK I just got an action.
+
+00:52.170 --> 00:55.880
+Here is a new version of state taking this action into mind.
+
+00:56.580 --> 01:00.500
+Redux assembles the state from all the different reducers in our application.
+
+01:00.510 --> 01:03.690
+Yeah Right now there is only one but in the future there will be more.
+
+01:03.720 --> 01:10.020
+That state is sent to all the different components our components render with new application state
+
+01:10.920 --> 01:15.870
+and when that happens our input has a value set to this process.
+
+01:15.960 --> 01:22.260
+Email then everything finishes rendering everything on screen gets updated and we sit back twiddle our
+
+01:22.260 --> 01:26.120
+thumbs and wait for a new change initiated by the user.
+
+01:26.220 --> 01:31.530
+So this fluorite here just happens again and again and again throughout our entire application.
+
+01:31.560 --> 01:35.770
+Everything follows this flow right here in redux everything follows this flow.
+
+01:36.670 --> 01:39.560
+OK so again we have wired up our email input.
+
+01:39.570 --> 01:42.460
+We need to do the same exact thing for our password input as well.
+
+01:42.780 --> 01:47.220
+I'm not going to drag out the implementation here this time around is going to get through it pretty
+
+01:47.220 --> 01:48.030
+quickly.
+
+01:48.030 --> 01:52.170
+So let's wrap it all up inside of this section on the input.
+
+01:52.170 --> 02:00.140
+The first thing we need to do is add in an event handler will say on change text run a callback of.
+
+02:00.410 --> 02:01.780
+On password.
+
+02:01.790 --> 02:05.750
+Change it because we are going to reference this in that callback.
+
+02:05.750 --> 02:07.770
+We need to bind the context.
+
+02:08.240 --> 02:14.200
+Now inside this file we will define on password change.
+
+02:14.540 --> 02:19.340
+It will be called with the new text of the input when it gets called.
+
+02:19.340 --> 02:23.780
+We are going to call an action creator called the Stop proper start.
+
+02:23.990 --> 02:30.680
+Password changed and yes it is very tedious to have one action creator for every property here.
+
+02:30.770 --> 02:37.910
+We will talk about ways or we will actually refactor another form in just a little bit to show you how
+
+02:37.910 --> 02:43.710
+to handle many different properties with just one action creator so we'll get through all this boilerplate.
+
+02:45.020 --> 02:47.930
+So we're going to call the action creator called password change.
+
+02:47.930 --> 02:51.610
+We have not yet created that action creator but of course we're going to do in just a second.
+
+02:51.620 --> 02:55.890
+So I'm going to continue wiring up this file assuming that it actually exists.
+
+02:56.150 --> 03:04.940
+So from our actions file I'm going to also import password changes and also define that actual action
+
+03:04.940 --> 03:05.840
+creator.
+
+03:05.840 --> 03:12.540
+So inside of my actions index start J as File we will first define our action Kreator
+
+03:17.530 --> 03:27.220
+and from there I will return an object with a type property of password changes and a payload of the
+
+03:27.220 --> 03:31.820
+text so the text is the new password that the user just entered.
+
+03:31.840 --> 03:37.900
+I have to also define my password type here so every action creator has its own singular unique action
+
+03:37.900 --> 03:41.570
+type and I do that all inside of my type's file.
+
+03:42.010 --> 03:44.890
+Let's first up open up the types file.
+
+03:44.890 --> 03:45.690
+So Type start.
+
+03:45.750 --> 03:53.390
+Yes we will define our Konst of Password changed.
+
+03:53.430 --> 03:55.090
+A sign is a string.
+
+03:55.090 --> 03:57.220
+Again remember the string is not important.
+
+03:57.220 --> 03:59.170
+The value can be anything we want.
+
+03:59.260 --> 04:01.010
+It just has to be something unique.
+
+04:01.420 --> 04:05.830
+So I'll save this file are done inside of here and enclose it.
+
+04:05.860 --> 04:11.860
+I need to import the password changed up at the top because I expect this line to get pretty darn long
+
+04:11.860 --> 04:12.430
+pretty quickly.
+
+04:12.430 --> 04:15.700
+I'm going to line it here as well like so
+
+04:19.040 --> 04:20.570
+so here's my password changed.
+
+04:20.600 --> 04:21.120
+Cool.
+
+04:21.140 --> 04:22.660
+Everything looks good in here.
+
+04:22.910 --> 04:25.310
+Now I'm going to flip over to my author seducer.
+
+04:25.760 --> 04:27.020
+Inside the author inducer.
+
+04:27.020 --> 04:33.700
+We need to also import that password change type and we're going to add a case to catch that type.
+
+04:33.770 --> 04:34.820
+So all I will again.
+
+04:34.890 --> 04:37.360
+New Line this one as well.
+
+04:37.520 --> 04:41.580
+Import password change.
+
+04:41.750 --> 04:45.630
+I'm going to add on a new type or in a new case to watch for that type
+
+04:48.760 --> 04:54.460
+and when we come across that type we're going to update our state objects so we will return dot dot
+
+04:54.460 --> 04:55.290
+dot state.
+
+04:55.330 --> 05:01.780
+So take all the properties in our state object toss them in here and also throw on password of action
+
+05:01.780 --> 05:05.230
+dot payload and the last thing we should do.
+
+05:05.230 --> 05:07.910
+We don't have to do as per se but I recommend you do.
+
+05:08.050 --> 05:13.410
+I need to update my initial state object to have a password as well.
+
+05:15.530 --> 05:21.150
+So by default password starts off as empty string again I do not have to default this year.
+
+05:21.230 --> 05:27.020
+When our application first executes our first renders to the screen if I have a password of undefined
+
+05:27.050 --> 05:30.990
+and I try to pass into the input it's still going to render just A-OK.
+
+05:31.040 --> 05:36.650
+The real idea behind defining this password and really even the e-mail ahead of time with empty string
+
+05:36.950 --> 05:42.620
+is to just let other engineers in the future know hey this reducer is responsible for an e-mail and
+
+05:42.620 --> 05:43.480
+a password property.
+
+05:43.470 --> 05:51.020
+Like that's what it takes care of all right now the very last step is all flip back to a log and form.
+
+05:51.050 --> 05:56.690
+We're going to update our map state to prop's function at the bottom and then pass that to our input.
+
+05:56.720 --> 05:59.160
+So at the bottom here's my map stage props.
+
+05:59.260 --> 06:02.920
+Oops mouse jumped.
+
+06:03.080 --> 06:10.700
+So I'm going to also take a password property from state DOT DOT DOT password and now my phone has access
+
+06:10.700 --> 06:13.020
+to this dot props up password.
+
+06:13.070 --> 06:18.350
+I noticed that I am duplicating state DOT off here and even state is getting duplicated quite a bit
+
+06:18.350 --> 06:19.150
+as well.
+
+06:19.160 --> 06:23.960
+This will be a pretty reasonable time to use some yes 60 structuring if you like too.
+
+06:24.050 --> 06:29.570
+I'm just gonna leave it as is right now because I know that section is already getting quite long so
+
+06:29.570 --> 06:31.830
+I'm going to try to wrap things up here.
+
+06:31.970 --> 06:36.200
+So the very last thing we need to do is on top of our password input.
+
+06:36.200 --> 06:37.410
+So here it is right here.
+
+06:37.550 --> 06:44.540
+I'm going to give it a value of this process password OK.
+
+06:44.990 --> 06:51.080
+So one last time remember repeating the cycle over and over again user type something.
+
+06:51.200 --> 06:53.190
+We update the value in the reducer.
+
+06:53.210 --> 06:58.340
+The new state gets sent back to our component and then we can assume that new state inside of our component.
+
+06:58.400 --> 07:01.950
+That's the whole thing repeated over and over and over again.
+
+07:01.960 --> 07:02.310
+OK.
+
+07:02.330 --> 07:04.750
+So I do a quick refresh here just to confirm that.
+
+07:04.760 --> 07:05.230
+Yes.
+
+07:05.240 --> 07:06.080
+No big typos.
+
+07:06.080 --> 07:07.560
+Everything still runs.
+
+07:07.700 --> 07:10.270
+I can help.
+
+07:10.610 --> 07:18.140
+Looks like I made a mistake in my fall at the top we imported password change the action creator.
+
+07:18.170 --> 07:21.890
+I did not come back through and add it to the correct function at the bottom.
+
+07:21.890 --> 07:22.840
+Let's do that really quick.
+
+07:22.830 --> 07:26.550
+So I'm going to take password changed.
+
+07:26.810 --> 07:32.250
+I'm going to find my connect statement at the bottom and give it another action creator of password
+
+07:32.700 --> 07:35.160
+change like so.
+
+07:35.400 --> 07:37.130
+All right let's do another refresh.
+
+07:37.160 --> 07:39.410
+I'm happy we did that little test.
+
+07:39.440 --> 07:41.980
+Now I can update my e-mail and I can update my password as well.
+
+07:42.020 --> 07:42.350
+OK.
+
+07:42.380 --> 07:43.440
+Now we're good to go.
+
+07:43.550 --> 07:44.910
+Let's continue in the next section

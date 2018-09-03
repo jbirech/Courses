@@ -1,0 +1,280 @@
+WEBVTT
+
+00:00.800 --> 00:05.130
+In the last section we started putting together our form that will be used to create a new employee
+
+00:05.910 --> 00:11.070
+will now work on us a little bit more by suddenly out some action creators and reduce her to handle
+
+00:11.070 --> 00:14.820
+changes to this form and all the values that it's going to produce.
+
+00:14.820 --> 00:20.430
+One thing I want to mention about forms in redux again is that it is really up to us whether or not
+
+00:20.430 --> 00:24.000
+we want to hold these values in our component levels state.
+
+00:24.000 --> 00:29.730
+So like you know by initializing our state and killing said state or by using application level state
+
+00:29.940 --> 00:34.590
+I'm going to make the claim that it's generally generally better to use redox level state.
+
+00:34.590 --> 00:39.810
+So you know do the whole process full of action creators reducers all that kind of good stuff just because
+
+00:39.810 --> 00:45.720
+it makes doing things like validation prepping the form with the initial values etc. all that kind of
+
+00:45.720 --> 00:50.130
+stuff a lot easier when your data is sitting at the app level state.
+
+00:50.130 --> 00:55.770
+So we're doing a little bit of extra work now for some big payoff later on in addition.
+
+00:55.770 --> 00:59.540
+Just one more quick aside if you've ever used library redux form.
+
+00:59.580 --> 01:07.140
+We are essentially doing more or less exactly what relax form does here by storing values on our application
+
+01:07.140 --> 01:08.550
+level state with redox.
+
+01:08.640 --> 01:11.760
+So really we're kind of doing the work of redux form here.
+
+01:11.810 --> 01:12.270
+We it's form.
+
+01:12.270 --> 01:17.040
+This also happens to include a bunch of helpers for making sure we don't have to write all the code
+
+01:17.080 --> 01:19.080
+and all of these action creators that we're going through.
+
+01:19.080 --> 01:19.800
+All right.
+
+01:19.950 --> 01:21.620
+And let's get started.
+
+01:22.320 --> 01:29.400
+Let's first make some action creators to handle a user changing the value of either the name or the
+
+01:29.400 --> 01:30.110
+phone number.
+
+01:30.120 --> 01:32.310
+So that's where we're going to start.
+
+01:32.310 --> 01:37.530
+I mean all of my action crater's file so actions index not J.S. and the load to sin here.
+
+01:37.530 --> 01:42.910
+Right now we've got we've got a bunch of actions related to authentication.
+
+01:43.200 --> 01:49.590
+And so it feels a little bit funky to start adding in some action creator specific to like this one
+
+01:49.590 --> 01:54.900
+very specific form next to something having to do with like signing a user in right.
+
+01:54.960 --> 01:58.490
+Putting all that stuff in one file feels just a little bit off.
+
+01:58.500 --> 02:05.190
+So I think that maybe would be well-served to create a new action create a file that will have just
+
+02:05.190 --> 02:08.090
+the actions related to dealing with employees.
+
+02:08.190 --> 02:08.590
+All right.
+
+02:08.670 --> 02:13.230
+I think one new file just to deal with employees would be a good idea.
+
+02:13.230 --> 02:21.860
+So in my actions folder and create a new file called employee actions we're going to make a separate
+
+02:21.860 --> 02:26.140
+file for all the actions related to authentication and a little bit too.
+
+02:26.330 --> 02:28.920
+But right now to stay focused on this form.
+
+02:29.480 --> 02:31.510
+So our farmers can have three fields to it.
+
+02:31.610 --> 02:38.390
+The email the phone and the shift we could create one action creator to handle a user editing each of
+
+02:38.390 --> 02:40.700
+those fields like we did with the loggin form.
+
+02:40.790 --> 02:46.730
+But I think that maybe you'd be a lot easier to just write one single action creator to handle update
+
+02:46.880 --> 02:48.560
+any update to the form whatsoever.
+
+02:48.560 --> 02:53.370
+So one arcsin creator any update to the forum.
+
+02:53.600 --> 02:54.440
+So let's try it out.
+
+02:54.440 --> 02:57.980
+I will create a new action creator called Let's do
+
+03:01.720 --> 03:05.320
+about employee form employee update.
+
+03:05.770 --> 03:15.490
+Now work and I'm going to assume that there's going to be called with two variables a prop and a value.
+
+03:16.480 --> 03:22.450
+So the idea here is that rather than making however many action creators for you know one for each different
+
+03:22.450 --> 03:26.680
+property that our form is going to create a different value that the form is going to create We're going
+
+03:26.680 --> 03:30.670
+to make just this one employee update action creator.
+
+03:30.670 --> 03:38.200
+Then whenever want to updates say the name I will call this thing with a prop of name and a value of
+
+03:38.260 --> 03:39.800
+whatever the new name is.
+
+03:40.020 --> 03:46.510
+If I want to update the shift I would call it with a prop of shift and the value of Monday or whatever
+
+03:46.510 --> 03:47.950
+days been selected.
+
+03:47.950 --> 03:53.440
+So one action creator that can update any different prop that is being that should exist inside our
+
+03:53.440 --> 03:55.080
+form.
+
+03:55.080 --> 03:58.350
+So inside of here we'll treat our action.
+
+03:59.080 --> 04:02.830
+I'll give it a type of employee update.
+
+04:02.830 --> 04:09.400
+I'm not I'm really not super happy with this type right here and the action clear name of employee update
+
+04:09.400 --> 04:14.050
+because it's just very closely related to the idea of saving an employee.
+
+04:14.070 --> 04:19.840
+Are you making a change or at it and saving it if we need to I think we'll come back and rename this
+
+04:20.150 --> 04:21.520
+you know do a little bit refactor.
+
+04:21.550 --> 04:26.460
+But for right now I can't quite think of a better term so we'll stick with this.
+
+04:26.470 --> 04:31.020
+So then on my pay load I'm going to pass the prop and the value.
+
+04:31.410 --> 04:34.480
+I do keep in mind that we're using a little bit of six year.
+
+04:34.630 --> 04:40.950
+So I'm expecting this this action creator will be called with an object containing a prop a value key
+
+04:42.220 --> 04:48.380
+and the payload that we return from this or the payload property will be an object containing a product
+
+04:48.380 --> 04:50.520
+key and the value key as well.
+
+04:50.560 --> 04:53.350
+So again just a little bit of the six here.
+
+04:53.710 --> 04:55.890
+I did throw in the type of employee update in here.
+
+04:55.900 --> 05:00.130
+So we need to create this type as well at the top we will import
+
+05:02.540 --> 05:10.160
+employee update from types and need to make sure that I actually create this type inside my types file
+
+05:10.160 --> 05:11.470
+as well.
+
+05:12.500 --> 05:20.780
+So I do export Konst employee update and remember the stream value here.
+
+05:20.970 --> 05:23.570
+Doesn't matter what it is it just has to be something unique.
+
+05:23.570 --> 05:27.420
+Against all the other types that I have.
+
+05:27.420 --> 05:28.770
+OK so this is looking good.
+
+05:28.770 --> 05:34.190
+We've now got an action creator that we can call to update presumably our form.
+
+05:34.350 --> 05:39.960
+We sought to make a reducer However So let's toss a producer together really quickly since we're definitely
+
+05:39.960 --> 05:42.590
+on a roll here in my reducers folder.
+
+05:42.600 --> 05:49.500
+I'll make a new file called employee form reducer
+
+05:53.510 --> 05:57.560
+and inside of here we will throw in some boilerplate just to get started.
+
+05:57.560 --> 06:02.650
+I will import the type that we just made while we're thinking about it.
+
+06:06.050 --> 06:13.030
+So I'll get my employee update type from the actions slash types file and we'll toss in some boilerplate
+
+06:13.040 --> 06:14.960
+for the actual reducer.
+
+06:15.110 --> 06:24.140
+So I'll start by initializing my state to an empty object and I'll export default a function that gets
+
+06:24.140 --> 06:31.370
+called with some in some states and I will default that to initial state and an action.
+
+06:31.430 --> 06:38.570
+And then again just the same thing every single time we put in our switch statement over action type
+
+06:39.560 --> 06:40.780
+by default.
+
+06:41.030 --> 06:46.010
+We're going to return our state like so again just absolute boilerplate.
+
+06:46.010 --> 06:50.470
+You can copy this chunk of code you know the the last half of this file right here from reduce your
+
+06:50.470 --> 06:54.370
+reducer and it's always going to be the exact same thing.
+
+06:54.380 --> 06:54.830
+All right.
+
+06:54.830 --> 06:56.320
+This is looking pretty good so far.
+
+06:56.420 --> 06:59.550
+Let's take a quick break and then start wiring up this reducer

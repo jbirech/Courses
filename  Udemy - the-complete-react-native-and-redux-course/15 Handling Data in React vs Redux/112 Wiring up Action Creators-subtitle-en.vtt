@@ -1,0 +1,355 @@
+WEBVTT
+
+00:01.110 --> 00:03.830
+In the last section we added an action creator.
+
+00:03.960 --> 00:09.840
+Very simple one for handling a user type in some text to the email field of our logon form.
+
+00:09.930 --> 00:14.090
+But we still need to wire that up to the component on email change right here.
+
+00:14.100 --> 00:17.280
+The other thing that I mentioned was that you know I'm getting kind of tired of this error message right
+
+00:17.280 --> 00:18.050
+here.
+
+00:18.540 --> 00:20.820
+If you are using yes lint again.
+
+00:20.840 --> 00:22.470
+No not required for this course.
+
+00:22.470 --> 00:26.730
+I gave instructions on how to set it up much earlier in the course but it's not a requirement to get
+
+00:26.730 --> 00:27.800
+through anything.
+
+00:27.960 --> 00:31.820
+This arrow body style air right here just gets a little bit annoying over time.
+
+00:31.860 --> 00:36.520
+So in case you're interested in turning off any singular rule here it's actually really straightforward.
+
+00:36.710 --> 00:38.530
+I mean to open up my ears Slint config.
+
+00:38.550 --> 00:44.340
+And again you do not have to do this if you don't if you're not running Yes Slint if I want to turn
+
+00:44.340 --> 00:53.130
+off a single rule here I can add in a rule section to my ears Slint RC and point it to an object and
+
+00:53.130 --> 00:56.410
+then side of here to put the name of the rule that I care about.
+
+00:56.550 --> 00:59.860
+You can get the name of the rule that you care about by just kind of looking out the air.
+
+01:00.060 --> 01:02.760
+So in this case it's aero body style.
+
+01:03.450 --> 01:06.220
+So say aero body style.
+
+01:06.670 --> 01:08.010
+And I just set that to zero.
+
+01:08.070 --> 01:10.810
+Like so make sure that you've got double quotes around everything.
+
+01:10.840 --> 01:14.080
+I have double quotes so I can save this.
+
+01:14.590 --> 01:18.890
+And then if I run my Linter again you can see if that error message goes away.
+
+01:18.930 --> 01:20.910
+So that's how you turn off single errors.
+
+01:21.090 --> 01:21.870
+But it's only a single error.
+
+01:21.870 --> 01:26.460
+So if I make like a really bad typo Yeah it's still going to catch everything else.
+
+01:26.490 --> 01:29.580
+Anyways back on topic we made our action creator.
+
+01:29.580 --> 01:32.170
+We just have to wired up to our logon form now.
+
+01:32.340 --> 01:33.720
+So again we know how to do that.
+
+01:33.720 --> 01:36.010
+We're going to import our connector paper.
+
+01:36.060 --> 01:41.380
+We're going to import our action creator and then hook it up to our component with the connect toper.
+
+01:41.430 --> 01:48.390
+So at the top let's do our import for Kinect from reactor's redux.
+
+01:48.740 --> 01:55.290
+And we will import our action creator which is e-mail changed that's the name of it.
+
+01:55.420 --> 02:01.800
+Email changes from the actions folder.
+
+02:01.820 --> 02:08.800
+Because again I've said it so many times because this is the index file we can get it just by referring
+
+02:08.800 --> 02:10.910
+to the actions directory.
+
+02:10.930 --> 02:15.540
+So now down at the bottom we can hook up our action creator with the connect helper.
+
+02:15.760 --> 02:21.140
+Say connect and then a separate set of parentheses for the log in form.
+
+02:21.340 --> 02:23.910
+We do not have a map state to prop's function yet.
+
+02:23.950 --> 02:26.000
+So that will be no for right now.
+
+02:26.260 --> 02:30.070
+But then the second argument is going to be the action created that we want to bind to our function
+
+02:30.220 --> 02:31.670
+smart component.
+
+02:31.750 --> 02:39.540
+So say email changed like so now because we wired up our action creator we now have access to a problem
+
+02:39.610 --> 02:46.530
+inside our component called the Stop prop's start email change so we can call this dot product dot email
+
+02:46.540 --> 02:50.410
+changed with the text of the user entered.
+
+02:50.410 --> 02:59.080
+So remember again this is behaving the exact same way as when we were using our set state called before.
+
+02:59.180 --> 03:01.660
+This is kind of where we're at right now.
+
+03:01.660 --> 03:05.740
+The green as well let's be really clear on the green is the steps that we're on.
+
+03:05.770 --> 03:07.690
+The white is always soft to implement.
+
+03:07.750 --> 03:13.390
+So we're now at a point where a user types something that's going to call or event handler and event
+
+03:13.390 --> 03:18.370
+handler calls that action creator with the new text the action creator is going to return in action
+
+03:18.970 --> 03:23.360
+and that action is sent to all the different reducers inside our application.
+
+03:23.800 --> 03:28.360
+So we don't have a reducer yet to really receive this action and do anything with it.
+
+03:28.360 --> 03:33.520
+Right now we just have that single dummy reducer that we put together inside of reducers file which
+
+03:33.520 --> 03:35.560
+is I guess banana for whatever.
+
+03:36.100 --> 03:38.320
+I don't know who thought that banana.
+
+03:38.350 --> 03:40.240
+That's just ridiculous.
+
+03:41.410 --> 03:47.820
+We want to replace this with a real reducers something to catch that email changed action and actually
+
+03:48.130 --> 03:50.770
+do something with it like record it or whatever it should be.
+
+03:50.770 --> 03:51.900
+I don't know.
+
+03:52.510 --> 03:56.750
+So we're going to want to create a new producer to handle that action.
+
+03:56.940 --> 04:01.070
+I'm going to make a new reducers file to handle our producer.
+
+04:01.120 --> 04:07.800
+So inside of producers directors will make a new file and I get to call this one off redo surrogate's.
+
+04:08.170 --> 04:12.670
+I'm going to call it All three douceur specifically because I want the single producer to handle everything
+
+04:12.670 --> 04:15.840
+having to do with authentication side my application.
+
+04:15.940 --> 04:20.620
+So it's going to handle the e-mail and the password that can be entered it's going to decide whether
+
+04:20.620 --> 04:23.200
+or not there is currently an error with authentication.
+
+04:23.200 --> 04:26.420
+It's also going to decide on whether or not we should show a spinner to the user.
+
+04:26.500 --> 04:32.430
+So one reduce are responsible for all things authentication.
+
+04:32.700 --> 04:38.620
+So now that I've got my producer file before I forget because I always forget it.
+
+04:38.640 --> 04:42.060
+I want to make sure that I'm wired up to my combined reducers call.
+
+04:42.060 --> 04:53.250
+So inside of my reducers index file I will import Auth. reducer from author user and then I'm going
+
+04:53.250 --> 04:55.380
+to place into my combine reducers call.
+
+04:55.410 --> 05:00.630
+Remember the key here like the key what I'm type right here is going to be the property of state that
+
+05:00.630 --> 05:01.920
+I'm producing.
+
+05:02.280 --> 05:08.280
+So I could call this something like authentication you know like full form in practice authentication
+
+05:08.280 --> 05:09.450
+is just a really long word.
+
+05:09.450 --> 05:15.390
+I know that's a really lame excuse but honestly I really like to solve off very simple very straightforward.
+
+05:15.390 --> 05:16.890
+Everybody knows what it's talking about.
+
+05:16.890 --> 05:23.720
+So we'll say that the off piece of state is produced by the Auth. reducer.
+
+05:23.990 --> 05:24.550
+Cool.
+
+05:26.370 --> 05:32.090
+So now that our douceur is wired up we have to actually put the reducer together.
+
+05:32.250 --> 05:35.680
+So let's put together our boiler plate for reducer.
+
+05:35.710 --> 05:36.630
+Remember how that goes.
+
+05:36.630 --> 05:41.770
+We're going to create a function that has two arguments and we're going to export it by default.
+
+05:42.100 --> 05:47.370
+So export default and then producer first argument is our state.
+
+05:47.370 --> 05:49.740
+The second is our action.
+
+05:49.740 --> 05:52.250
+And we've got the body of the reducer.
+
+05:52.530 --> 05:56.340
+We always have the exact same format for every reducer we write.
+
+05:56.370 --> 06:01.860
+We always have a switch statement which is going to switch over the actions type and depending on the
+
+06:01.860 --> 06:04.190
+type the action we'll decide what to do with it.
+
+06:04.420 --> 06:08.940
+But we do always have the default case which is the case in which an action came across that we just
+
+06:08.940 --> 06:13.990
+don't care about in which case we will default to just returning our state.
+
+06:14.490 --> 06:19.090
+Then the last thing to keep in mind is that we can never return undefined from reducer.
+
+06:19.200 --> 06:25.080
+So the very first on the producer is called We have to have some initial or default state.
+
+06:25.080 --> 06:31.560
+So a common pattern I really like to use is to make a variable that is just very clearly the initial
+
+06:31.560 --> 06:33.900
+state for this reducer.
+
+06:33.900 --> 06:36.500
+For me it's going to be a object.
+
+06:36.840 --> 06:43.650
+And because my reducer is going to record the email that is being typed into that that e-mail field
+
+06:44.250 --> 06:48.120
+I'm going to have an email piece of State which by default is going to be a string.
+
+06:48.180 --> 06:52.680
+So this is a line right here that should really remind you back to that log in form.
+
+06:52.680 --> 06:57.490
+Remember we had to log in form at that piece of state of e-mail that was just an empty string.
+
+06:57.660 --> 06:59.420
+That is exactly what this is doing right here.
+
+06:59.430 --> 07:02.590
+This is supposed to be the value of the input.
+
+07:02.680 --> 07:05.060
+This is what the user is actually typing.
+
+07:05.640 --> 07:12.700
+So by default we use that initial state call.
+
+07:12.820 --> 07:14.820
+So this is looking pretty good here.
+
+07:16.480 --> 07:21.500
+At this point time we now have one piece of state inside our entire application.
+
+07:21.550 --> 07:27.940
+When our application first boots up there's going to be state DOT DOT e-mail and that's going be an
+
+07:27.970 --> 07:29.050
+empty string.
+
+07:29.170 --> 07:32.150
+So wow what a boilerplate.
+
+07:32.170 --> 07:32.490
+Right.
+
+07:32.500 --> 07:36.850
+A lot of typing just to get these like basic text inputs put together.
+
+07:36.850 --> 07:43.600
+I know it gets it gets a lot of typing sometimes but it all pays off in the long run as our application
+
+07:43.600 --> 07:46.360
+starts to get more complicated.
+
+07:46.390 --> 07:48.030
+Now we still have two more steps here.
+
+07:48.220 --> 07:53.740
+This producer has to watch for an action of type email changed and we need to also make sure that we
+
+07:53.740 --> 07:58.260
+then pipe that piece of state back into our component our log and form.
+
+07:58.300 --> 08:01.260
+So let's tackle those last two steps inside the next section

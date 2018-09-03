@@ -1,0 +1,331 @@
+WEBVTT
+
+00:01.450 --> 00:05.850
+In the last section we had a discussion about how a redux decides whether or not you have updated your
+
+00:05.850 --> 00:12.000
+application state introducer the end result of all that discussion was a realization that if we want
+
+00:12.000 --> 00:18.720
+to update our state object we cannot just modify our existing object so I can not like the whole thing.
+
+00:18.720 --> 00:24.600
+I'm trying to convey here is that we can not do something like state DOT email equals action dot payload
+
+00:25.200 --> 00:26.940
+and then return state.
+
+00:26.940 --> 00:28.170
+That is like the whole goal here.
+
+00:28.170 --> 00:30.440
+This is what I'm trying to convey.
+
+00:30.690 --> 00:35.820
+If you do something like this redux is going to compare the old value of states and a new one that you
+
+00:35.820 --> 00:36.660
+have returned.
+
+00:36.840 --> 00:41.430
+It is the same object in memory and so redux is going to think that nothing actually changed within
+
+00:41.430 --> 00:45.270
+your application and no updates will be sent off to your components.
+
+00:45.720 --> 00:50.940
+So instead of returning our state object here we have to return something that makes redux just kind
+
+00:50.940 --> 00:53.030
+of think that we made a change.
+
+00:53.070 --> 00:57.700
+That's like the whole goal here we're just trying to kind and trying to trick it just a little bit into
+
+00:57.720 --> 01:00.960
+thinking we actually change the value here.
+
+01:01.140 --> 01:04.450
+So this next part I don't really have a fantastic lead in.
+
+01:04.560 --> 01:08.490
+So we're going to throw the code on the screen and just talk about how it works.
+
+01:08.520 --> 01:12.170
+So I'm going to take a little bit out now the return statement right here.
+
+01:12.180 --> 01:13.940
+I'm going to do a little bit of an update.
+
+01:13.950 --> 01:23.340
+I'm going to make an object and say dot dot dot state e-mail is actually not payload and then close
+
+01:23.340 --> 01:31.520
+off the object like so you can read this line right here as plain-English it says make a new object.
+
+01:31.860 --> 01:34.830
+That's the outer parentheses are seeing outer curly braces.
+
+01:35.160 --> 01:43.920
+Take all of the properties off of my existing state object and throw them into that object then define
+
+01:43.920 --> 01:52.410
+the property email given the value of action not payload and toss it on top of whatever properties are
+
+01:52.410 --> 01:54.100
+on that state object.
+
+01:54.110 --> 01:54.670
+OK.
+
+01:54.780 --> 02:01.260
+So if email or if the state object already has an e-mail property it will be overwritten by this one
+
+02:01.260 --> 02:03.440
+that we are trying to add in on top here.
+
+02:03.450 --> 02:08.540
+So by default when our user first runs we're going to have an initial state of e-mail is an empty object
+
+02:08.550 --> 02:08.800
+right.
+
+02:08.800 --> 02:10.730
+Like that's that's where we start out with.
+
+02:10.830 --> 02:16.610
+And then the user is going to like select the email input and they're going to press the like Esky right
+
+02:16.620 --> 02:19.540
+for Steven at gmail dot com or whatever it might be.
+
+02:19.680 --> 02:23.600
+We're going to get an actual payload of S like the string.
+
+02:23.630 --> 02:24.590
+Yes.
+
+02:24.990 --> 02:27.320
+We're going to hit this line of code right here.
+
+02:27.570 --> 02:31.860
+This line that dot dot dot state is going to come across as e-mails empty string.
+
+02:31.890 --> 02:36.070
+We're then going to throw on top of it e-mail with a value of s.
+
+02:36.100 --> 02:39.910
+It is going to overwrite the existing property on the state object.
+
+02:39.910 --> 02:40.590
+OK.
+
+02:41.160 --> 02:45.560
+So the last part about this that's a little bit about what's going on inside of it.
+
+02:45.570 --> 02:50.910
+The really critical part though is the fact that we created a new object right here so we made a brand
+
+02:50.910 --> 02:51.730
+new object.
+
+02:51.750 --> 02:56.220
+We took all the values off the state object and threw them right in there.
+
+02:56.280 --> 03:03.170
+So because we made a new object return this from the reducer redux is going to say Aha.
+
+03:03.400 --> 03:04.100
+OK.
+
+03:04.290 --> 03:06.890
+And I see that you have a new value here.
+
+03:07.050 --> 03:09.780
+Is this brand new object right here.
+
+03:09.960 --> 03:12.850
+Equals equals equals equal to state.
+
+03:12.870 --> 03:18.210
+And of course because this is a brand new object a new object is allocated in memory and no they are
+
+03:18.210 --> 03:19.250
+not equal.
+
+03:19.380 --> 03:23.650
+Therefore redux knows that we actually change something.
+
+03:24.120 --> 03:28.560
+So there's a lot of build up from one simple little hand because I think that's very much the whole
+
+03:28.560 --> 03:28.940
+story.
+
+03:28.980 --> 03:30.930
+That is what is going on with this line of code.
+
+03:31.050 --> 03:37.020
+That is why we use the dot dot dot state here that is like I'm trying to convey when you return a value
+
+03:37.020 --> 03:42.340
+from reducer if it's an object you gotta make sure that you produce a brand new object.
+
+03:42.390 --> 03:48.960
+Otherwise Reducto is going to think it's the same object doesn't have to actually do anything.
+
+03:49.390 --> 03:50.900
+It was really a mouthful.
+
+03:51.300 --> 03:54.710
+OK so now we get back on track or start writing code again.
+
+03:55.390 --> 04:00.860
+Reducers should now be producing the correct state whenever a user types in the key like you know types
+
+04:00.860 --> 04:05.560
+in that e-mail address every single key press that they put in is going to call or sir.
+
+04:05.700 --> 04:08.670
+We're going to reformulate our off piece of state.
+
+04:08.730 --> 04:12.120
+And then when we need to send that back down into our component.
+
+04:12.120 --> 04:13.250
+So that's what we need to do right now.
+
+04:13.260 --> 04:19.460
+We need to make sure that this piece of state ends up back inside of our log in form.
+
+04:19.560 --> 04:24.480
+We've done that a couple of times now by using the map state to prop's helper from the re-act redux
+
+04:24.480 --> 04:25.130
+library.
+
+04:25.230 --> 04:31.950
+So remember the map state to prop's function is how we end up getting some piece of state into our component.
+
+04:31.950 --> 04:33.640
+In this case our log in form.
+
+04:33.750 --> 04:38.700
+So the first thing we have to do is define our map state to prop's function at the bottom.
+
+04:38.700 --> 04:48.000
+So down at the bottom of my log and form of the fine map state to prop's this we called with our global
+
+04:48.000 --> 04:53.940
+application state and it is our job to just return the property that we care about from that from that
+
+04:53.940 --> 04:55.790
+state object.
+
+04:55.800 --> 05:00.430
+So I think that right now the only property we really care about is the e-mail.
+
+05:00.580 --> 05:03.840
+So I'm gonna say give me that e-mail.
+
+05:03.910 --> 05:06.820
+It's coming from state DOT DOT e-mail.
+
+05:06.820 --> 05:12.900
+Remember it is specifically off because that is the value that we assigned or reduce or to in our combined
+
+05:12.900 --> 05:19.060
+users call and the reducers indexed J.S. file and then reducers what is actually producing this e-mail
+
+05:19.060 --> 05:26.020
+property right here after defining that state to prop's we're going to pass it as the first argument
+
+05:26.020 --> 05:27.160
+to our connect function.
+
+05:27.160 --> 05:29.510
+So map state to prop's
+
+05:32.320 --> 05:39.380
+like so and now inside of our component we have access to this stuff.
+
+05:39.420 --> 05:39.960
+Props.
+
+05:40.000 --> 05:44.090
+Email is the value that was produced by the producer.
+
+05:44.110 --> 05:51.250
+So now very last step inside of our input I'm going to add on the value to say hey this is what your
+
+05:51.250 --> 05:51.820
+value is.
+
+05:51.820 --> 05:56.260
+You're not telling us what the value is we're telling you what the value is and it's going to be this
+
+05:56.500 --> 05:58.990
+probably e-mail like so.
+
+05:59.780 --> 05:59.960
+So.
+
+06:00.010 --> 06:00.910
+Wow.
+
+06:01.450 --> 06:07.350
+How was a lot of work to just make one text him put a lot of work.
+
+06:07.360 --> 06:10.090
+Let's do a quick test in the simulator.
+
+06:10.270 --> 06:11.630
+Just make sure it's working.
+
+06:12.920 --> 06:20.210
+So you know it's like my input type in something and yep it's worked in just the way I would expect.
+
+06:20.210 --> 06:22.290
+You might click on the passer as well and type in here.
+
+06:22.340 --> 06:24.820
+And you might be asking yourself Hey Steve why does this work.
+
+06:24.830 --> 06:26.530
+We didn't wire this up with everything.
+
+06:26.780 --> 06:31.240
+Well yeah it works but we can't actually pull or you know we were not reading the value out of it.
+
+06:31.250 --> 06:31.510
+Right.
+
+06:31.510 --> 06:33.310
+We're not getting the value out of there.
+
+06:33.390 --> 06:38.650
+That email field is working as we expected to user presses something we update our application state.
+
+06:38.780 --> 06:43.730
+And then at any point in time when ever we want to get access to that e-mail the text that's actually
+
+06:43.730 --> 06:47.440
+in there we can reference state DOT offcut email.
+
+06:48.390 --> 06:48.750
+OK.
+
+06:48.770 --> 06:51.260
+So we are now done with that first input.
+
+06:51.290 --> 06:55.880
+I think there's a good time to take a break to do a quick review on what we've done and we're going
+
+06:55.880 --> 06:59.120
+to come back and do the exact same thing for the password.
+
+06:59.150 --> 07:03.280
+You know like I said we're just going to drill this stuff in one way or another.
+
+07:03.320 --> 07:08.020
+Let's take a quick break do a quick review and then knock out the password field as well.

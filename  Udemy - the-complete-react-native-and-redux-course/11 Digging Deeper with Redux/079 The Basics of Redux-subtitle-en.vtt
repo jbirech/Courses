@@ -1,0 +1,382 @@
+WEBVTT
+
+00:01.150 --> 00:04.980
+In the last section we spent a little bit of time to just look at the new application.
+
+00:04.980 --> 00:09.700
+We're going to build and generate a new Riak native project in this section we're going to spend some
+
+00:09.700 --> 00:11.730
+time learning more about redux.
+
+00:11.740 --> 00:14.340
+And when I say read I mean just read up.
+
+00:14.350 --> 00:16.030
+We're not going to talk about Riak native.
+
+00:16.150 --> 00:20.390
+We're not going to talk about react or focusing solely on redux.
+
+00:20.390 --> 00:25.180
+That's all so because we're only focusing on redux but we still want to write some code.
+
+00:25.180 --> 00:30.880
+We're going to be using a really interesting little tool to just kind of experiment with some redux
+
+00:30.880 --> 00:36.370
+code and open up my web browser and then navigate to Steven Grider.
+
+00:36.430 --> 00:43.520
+That's my name dot get hub dot bio slash J.S. playgrounds.
+
+00:44.920 --> 00:48.830
+Make sure that J S and T are all capitalized in here as well.
+
+00:50.390 --> 00:56.480
+And let's go there and see nice screen pop up here on the left hand side I can enter in some amount
+
+00:56.480 --> 00:57.430
+of javascript.
+
+00:57.430 --> 01:00.750
+Sounds like Konst pie 0.24.
+
+01:01.130 --> 01:07.040
+And then if I print out any vier any variable that can be printed out it will be automatically displayed
+
+01:07.100 --> 01:09.490
+on the left hand side or is on the right hand side.
+
+01:09.770 --> 01:17.150
+So if I display pi or two times pi I get three point one four in six point 2:8 I can put any type of
+
+01:17.150 --> 01:18.970
+javascript in here.
+
+01:21.070 --> 01:23.640
+And let's say I'll do some stream concatenation.
+
+01:23.680 --> 01:30.570
+So any type of javascript plus PI yields statement any type of javascript three point for.
+
+01:30.760 --> 01:36.730
+And what's really interesting about this tool is I can change any value I want on the fly and I automatically
+
+01:36.730 --> 01:39.510
+see the result pre-calculate on the right as well.
+
+01:39.880 --> 01:45.940
+Lastly if I make any typo in here so I'm going to make a little typo like so I'll get a note on the
+
+01:45.940 --> 01:49.310
+bottom right hand side that says hey you made a little bit mistake right here.
+
+01:49.330 --> 01:50.430
+Go and fix it.
+
+01:50.800 --> 01:56.700
+So again we're just using this tool to get some very live very dynamic feedback on the redux could that
+
+01:56.700 --> 01:58.270
+were you me writing here.
+
+01:58.570 --> 01:59.090
+Oh get.
+
+01:59.100 --> 02:02.280
+So we're using this tool to learn about redux.
+
+02:02.410 --> 02:04.240
+This tool is not required for the docs.
+
+02:04.240 --> 02:06.990
+It's just a place where we can mess around a little bit.
+
+02:07.330 --> 02:13.600
+So let's change gears here now and talk a little bit more about redux.
+
+02:13.600 --> 02:16.380
+This is a diagram of exactly how redux works.
+
+02:16.420 --> 02:20.110
+And you know you don't really have any context on what's going on here at all.
+
+02:20.110 --> 02:27.190
+Let me lead this off by saying right now crystal clear plain as day redux has a lot of fancy terminology
+
+02:27.640 --> 02:35.220
+but it is all language that obscures or obstructs otherwise straightforward concepts.
+
+02:35.290 --> 02:35.710
+So I don't know.
+
+02:35.740 --> 02:40.570
+I don't know about you but I've heard just tons and tons of people say when they talk about redux they
+
+02:40.570 --> 02:44.220
+say oh redux is so simple it's amazingly simple.
+
+02:44.530 --> 02:49.240
+Well yeah of course it's simple when you understand the confusing terminology.
+
+02:49.450 --> 02:50.670
+And so that's our goal.
+
+02:50.680 --> 02:57.640
+We want to master the confusing terminology and put plain English definitions to all the different parts
+
+02:57.640 --> 02:59.600
+of the library.
+
+03:00.520 --> 03:05.130
+So with that in mind I have four words on the screen right now.
+
+03:05.350 --> 03:09.090
+Store action reduce certain state forwards.
+
+03:09.130 --> 03:13.550
+I want to put a plain English definition to each of these words right here.
+
+03:16.500 --> 03:19.570
+So here's my plain English definition for each of these words.
+
+03:19.600 --> 03:24.300
+And we're going to be repeating these definitions over and over and over through the next couple of
+
+03:24.300 --> 03:25.340
+sections.
+
+03:25.350 --> 03:29.610
+Now I know that you can you know read from the screen here but I'm going to walk through the definitions
+
+03:29.610 --> 03:33.420
+anyways because I need something to say when I'm recording a video.
+
+03:33.930 --> 03:36.250
+Let's start off first with this one in the middle.
+
+03:36.270 --> 03:37.000
+Very center.
+
+03:37.110 --> 03:38.530
+The reducer.
+
+03:38.760 --> 03:44.590
+This is probably the best example in redux of something with a name that is just too complicated.
+
+03:44.590 --> 03:46.730
+Just way too complicated.
+
+03:46.770 --> 03:48.760
+So here's my plain-English definition.
+
+03:48.840 --> 03:53.150
+A producer is a function that produces some amount of data.
+
+03:53.610 --> 03:54.460
+That's it.
+
+03:54.710 --> 03:55.890
+That's all that's all it is.
+
+03:55.910 --> 04:01.110
+It is a function that produces some amount of data.
+
+04:01.140 --> 04:08.850
+Next an action an action is a plain javascript object and I say plain javascript object I'm talking
+
+04:08.850 --> 04:11.370
+about like you know curly braces like an object.
+
+04:11.370 --> 04:12.410
+That's it.
+
+04:12.510 --> 04:22.170
+It is a plain javascript object that tells the reducer how to modify its data get the action only has
+
+04:22.170 --> 04:23.660
+one requirement.
+
+04:23.790 --> 04:26.180
+It must have a type property.
+
+04:26.190 --> 04:27.780
+We're going to discuss more about that in a minute.
+
+04:27.780 --> 04:32.580
+Again I'm just trying to get these words in your head right now just the very vague general concepts
+
+04:32.580 --> 04:33.980
+in your head.
+
+04:34.020 --> 04:39.540
+Next on the far right hand state state is our applications data.
+
+04:40.020 --> 04:46.920
+Everything from the value of each input field to knowing whether or not there is a user currently authenticated
+
+04:47.220 --> 04:54.780
+to a list of data to a series of pictures to show me out all of the data inside of our application puts
+
+04:54.780 --> 04:56.130
+together our state.
+
+04:56.190 --> 05:00.900
+So it's just the data that our application is using.
+
+05:01.020 --> 05:07.970
+Finally the store the story is what holds the reducers in the application state.
+
+05:08.010 --> 05:14.160
+And when I say holds I mean like just literally it has a reference to the reducer in the state if redux
+
+05:14.160 --> 05:18.540
+was its own like kind of like a standalone object or you know its library that you want to import and
+
+05:18.540 --> 05:22.430
+use it would be most most closely analogous to the store right here.
+
+05:22.440 --> 05:28.050
+So you can kind of think of when I say redux when I say like OK redux has some data for us or redux
+
+05:28.350 --> 05:33.020
+we want to update the data that's sitting inside of redox I'm referring to the store.
+
+05:33.030 --> 05:35.410
+So just keep that in mind.
+
+05:35.430 --> 05:35.730
+All right.
+
+05:35.740 --> 05:41.740
+So let's see a little bit of a example of all of these terminologies in practice.
+
+05:42.430 --> 05:44.870
+So this is all the same terminology.
+
+05:44.920 --> 05:47.920
+So here's an action or douceur state.
+
+05:48.050 --> 05:51.420
+Here's a store and let's walk through this example here.
+
+05:51.570 --> 06:00.730
+As I've written it out using redux we are going to we're going to use redux to make a tiny application
+
+06:01.060 --> 06:05.840
+which will take a string of characters basically a word and split it into an array.
+
+06:05.950 --> 06:06.410
+OK.
+
+06:06.520 --> 06:07.450
+So that's our that's our goal.
+
+06:07.450 --> 06:08.930
+I want to use redox.
+
+06:08.940 --> 06:14.290
+It will take a string of characters and split it into an array of characters to do so we will first
+
+06:14.290 --> 06:16.360
+start off with an action.
+
+06:16.660 --> 06:22.750
+The action is going to be plain javascript object that says here's a list of string of characters like
+
+06:22.930 --> 06:23.760
+a word.
+
+06:24.010 --> 06:25.710
+I want it to be split up.
+
+06:25.870 --> 06:28.110
+So it's contains two things.
+
+06:28.110 --> 06:34.060
+The action contains two things a stream of characters and a direction like a command an instruction
+
+06:34.060 --> 06:38.400
+that says I want this thing to be split up into characters.
+
+06:38.670 --> 06:42.560
+We're going to take that action and pass it into the reducer.
+
+06:45.640 --> 06:51.820
+The action when it goes into the reduce or the reducer will look at the action and it will say aha this
+
+06:51.820 --> 06:57.160
+action is commanding me to split up these characters and wants me to split up all these characters into
+
+06:57.160 --> 06:59.670
+an array of single characters.
+
+06:59.920 --> 07:03.930
+So it's going to take the actions string of characters you like the word.
+
+07:04.030 --> 07:07.240
+And it's going to split it into a list of characters.
+
+07:07.840 --> 07:14.850
+The reducers will then return that list of characters like that array because the producer returned
+
+07:14.970 --> 07:17.410
+that array of characters like that data.
+
+07:17.670 --> 07:21.790
+Our state is now going to consist of an array of characters like this.
+
+07:21.810 --> 07:23.040
+SDF.
+
+07:23.140 --> 07:27.210
+So again this is just like one very simple one very straightforward process.
+
+07:27.210 --> 07:33.720
+So we created we are going to create an action that has some strange characters like SDF and it's going
+
+07:33.720 --> 07:40.060
+to contain some commander some instruction that I want this thing to be split into a list of characters.
+
+07:40.590 --> 07:42.910
+We're going to pass that to the seducer.
+
+07:42.990 --> 07:47.850
+The producer is going to take the string of characters and ask him to split them into an array and the
+
+07:47.850 --> 07:51.500
+reducer is going to pass that array to our application state.
+
+07:51.510 --> 07:56.740
+And so now we would say that our application state consists of an array of characters like so.
+
+07:57.330 --> 08:01.200
+So this is I know very esoteric right now probably thing is you what the heck is going on.
+
+08:01.200 --> 08:03.080
+What's with this splitting stuff.
+
+08:03.090 --> 08:03.830
+What's with this array.
+
+08:03.830 --> 08:05.600
+What are you talking about guy.
+
+08:05.780 --> 08:11.490
+I don't blame you I don't blame you but this is like you know a very practical example that we are going
+
+08:11.490 --> 08:16.140
+to take right here and we're going to code this up exactly and JSE playgrounds.
+
+08:16.230 --> 08:20.540
+Going to see what the action looks like we're going to see what the reducer look like looks like.
+
+08:20.630 --> 08:23.660
+And we're going to get some experience with the state object as well.
+
+08:23.850 --> 08:29.190
+So let's take a short break and then come back and code up this tiny little application inside of our
+
+08:29.190 --> 08:30.190
+browser.

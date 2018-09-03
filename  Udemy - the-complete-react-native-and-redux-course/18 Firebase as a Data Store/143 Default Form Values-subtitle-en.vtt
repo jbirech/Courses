@@ -1,0 +1,262 @@
+WEBVTT
+
+00:01.490 --> 00:06.240
+In the last section we did a little bit of testing of our form only to find out that if we did not touch
+
+00:06.240 --> 00:09.880
+the picker at all the shift would come up as undefined.
+
+00:09.930 --> 00:11.240
+So why would that be why.
+
+00:11.260 --> 00:13.230
+Why is shift coming up is undefined but appears.
+
+00:13.230 --> 00:15.900
+Everything else on here is working correctly.
+
+00:15.960 --> 00:22.200
+Remember the state of our form is being held by our employee form reducer.
+
+00:22.740 --> 00:29.850
+By default the employee form inducer does not have a starting or initial value for any element in the
+
+00:29.850 --> 00:30.390
+form.
+
+00:30.430 --> 00:31.370
+Why has an empty string.
+
+00:31.380 --> 00:38.910
+But you know essentially doesn't really have anything to picture itself visually defaults to being Monday.
+
+00:38.940 --> 00:39.150
+Right.
+
+00:39.150 --> 00:45.120
+So like when we logged in and looked at that form that picture appears to be on Monday by default but
+
+00:45.120 --> 00:48.100
+that is just the visual behavior of that picture.
+
+00:48.210 --> 00:52.510
+It's not actually selecting Monday for us it's just defaulting to that value.
+
+00:52.770 --> 00:56.100
+So even though it looks like oh yeah we've got Monday selected here.
+
+00:56.100 --> 00:57.380
+I have a shift a Monday.
+
+00:57.600 --> 01:03.870
+We are never actually making any change or calling any actually creator inside our application to update
+
+01:03.930 --> 01:08.000
+the shift value inside of her or induce her to be Monday.
+
+01:08.010 --> 01:09.510
+So that's essentially what's happening here.
+
+01:09.750 --> 01:15.120
+We think that the value is being set but we never actually update the reducer to say hey it should be
+
+01:15.120 --> 01:16.080
+Monday.
+
+01:16.110 --> 01:21.840
+Now of course if I changed the reduce or excuse me if I change the picture right here that will initiate
+
+01:21.840 --> 01:26.580
+a change that will call an action crater right because we said all that stuff up and then shift will
+
+01:26.580 --> 01:30.050
+be set to you know Tuesday Wednesday Thursday whatever it might be.
+
+01:30.240 --> 01:35.420
+But if a user opens up the form does not touch the shift does not touch the picker at all.
+
+01:35.460 --> 01:38.290
+It's going to stay as just empty string.
+
+01:38.820 --> 01:44.730
+But by the way just to be really clear I probably made a little bit of a stated the WRONG WRONG thing
+
+01:44.730 --> 01:47.910
+I said in the last section that shift was coming up is undefined.
+
+01:47.910 --> 01:53.270
+In fact it was really empty string that was probably a little bit of a verbal typo on my my side.
+
+01:53.270 --> 02:00.210
+So it would be more correct to say shift is empty string and not undefined when we log it anyways.
+
+02:00.750 --> 02:04.080
+There's definitely more than one way to solve this problem right here.
+
+02:04.140 --> 02:05.340
+Definitely more than one way WAY.
+
+02:05.340 --> 02:07.230
+So I throw out a couple of different ways in here.
+
+02:07.260 --> 02:12.510
+I don't personally feel very strongly about any one solution so I'm going to suggest a solution but
+
+02:12.510 --> 02:16.160
+if there's one that sounds better to you then absolutely go for it.
+
+02:16.210 --> 02:22.170
+All of these these solutions are going to outline I think are all reasonable solutions.
+
+02:22.590 --> 02:25.580
+So the first solution that might do is inside the reducer.
+
+02:25.620 --> 02:27.750
+I had this initial state object right here.
+
+02:27.750 --> 02:33.320
+I could instead of defaulting shift to empty string I could defaulted to Monday.
+
+02:33.450 --> 02:38.010
+So that means that when this form is first rendered I will have a shift of Monday set.
+
+02:38.010 --> 02:41.630
+If the user does not touch the picker then no problem.
+
+02:41.700 --> 02:43.710
+We've got a shift a Monday in there by default.
+
+02:43.720 --> 02:45.240
+Everything's good to go.
+
+02:45.240 --> 02:49.770
+The one downside to this approach right here I'm going to mention is that it really does.
+
+02:49.770 --> 02:57.340
+However it really tightly couples the options in the picker like the days of the week to this reducer
+
+02:57.360 --> 02:57.800
+right here.
+
+02:57.810 --> 03:04.080
+So if you for some reason end up changing the picker options to add like hours of the day instead of
+
+03:04.080 --> 03:10.130
+actual days well then you have to update that in both the picker file and the actual form and the reducer
+
+03:10.170 --> 03:10.740
+here.
+
+03:10.740 --> 03:17.430
+So a very small con but I am going to mention that as being a con so I'm I'm not going to go with that
+
+03:17.430 --> 03:17.880
+path.
+
+03:17.870 --> 03:20.940
+So I'm going to leave shift as empty string right here.
+
+03:20.970 --> 03:26.490
+The second option that we could do is to add a component will mount inside of our employee create form
+
+03:26.880 --> 03:32.400
+and as soon as this component is mounted to the dorm or out the door but mounted on a device as soon
+
+03:32.400 --> 03:37.860
+as it is rendered we can call the action creator manually and say hey let's make sure that we default
+
+03:37.860 --> 03:43.430
+the value of shift to to be Monday or whatever we might want to default to be.
+
+03:43.590 --> 03:47.260
+So that's definitely another valuable option if you want to go that path as well.
+
+03:47.280 --> 03:52.650
+The final option and I think what we're going to do in here because it involves the probably the least
+
+03:52.650 --> 04:00.690
+amount of code besides the reducers solution is when we call the action creator employee create right
+
+04:00.690 --> 04:07.650
+here we can default the value of shift so we can just say if a shift is not set then by default use
+
+04:07.650 --> 04:08.260
+Monday.
+
+04:08.340 --> 04:12.330
+I think that's reasonably clear.
+
+04:12.330 --> 04:16.200
+It makes sure that when we call the action crater itself there is an actual value in there.
+
+04:16.200 --> 04:20.260
+Of course the other option could be in the crater itself.
+
+04:20.460 --> 04:21.900
+We could include a shift.
+
+04:21.930 --> 04:25.200
+You know that's also an option we could default the value of shift.
+
+04:25.200 --> 04:27.080
+Again there's a lot of different approaches here.
+
+04:27.090 --> 04:29.020
+I'm just going to arbitrarily pick this one.
+
+04:29.160 --> 04:37.720
+So I get to say when we call employee creates if a shift is not provided then we use Monday like so.
+
+04:38.670 --> 04:45.960
+So for the shift key use either the shift that has been set by the form or if one is not set defaulted
+
+04:45.960 --> 04:47.140
+to Monday.
+
+04:47.160 --> 04:52.920
+Now the one thing that we got to be really aware of here we're exploiting a little bit of a workaround
+
+04:53.040 --> 04:54.750
+you might say in javascript's.
+
+04:54.900 --> 05:02.220
+We are counting on the fact that our reduce our producers shift as a empty string by default which is
+
+05:02.220 --> 05:04.390
+a false value in Javascript.
+
+05:04.380 --> 05:08.310
+So if I say you know over here let's do a quick example.
+
+05:08.400 --> 05:15.260
+If I say empty string or Monday the return result will be Monday so early exploiting a little loophole
+
+05:15.260 --> 05:16.620
+in javascript right here.
+
+05:16.680 --> 05:20.920
+It is not the clearest thing in the world so it's a little bit of a rough spot.
+
+05:20.940 --> 05:23.330
+We might come up with a better solution here.
+
+05:24.060 --> 05:25.260
+OK long lecture there.
+
+05:25.350 --> 05:28.430
+No real long lecture but I think you get the idea now.
+
+05:28.860 --> 05:31.930
+By default our pickers should always have a value set to it.
+
+05:32.550 --> 05:38.310
+So the next thing we have to do is make sure that whenever our employee create action crater's called
+
+05:38.550 --> 05:41.330
+we actually see this thing off to firebase.
+
+05:41.640 --> 05:46.290
+I have to say to sing off to firebase Let's take a quick break come back in the next section and do
+
+05:46.290 --> 05:48.000
+that actual save process.

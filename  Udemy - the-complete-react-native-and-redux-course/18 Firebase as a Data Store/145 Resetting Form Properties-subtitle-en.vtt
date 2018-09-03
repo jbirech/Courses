@@ -1,0 +1,412 @@
+WEBVTT
+
+00:01.020 --> 00:03.420
+We can now save a new employee over to firebase.
+
+00:03.420 --> 00:08.820
+We just need to make sure that after we save a record successfully we kick the user back over to the
+
+00:08.820 --> 00:14.310
+employee list screen where they will eventually we'll see the new employee appear on the screen.
+
+00:14.310 --> 00:19.350
+Right now we also have a big read error message here that is telling us hey your action create or employed
+
+00:19.350 --> 00:21.050
+create isn't really following the rules.
+
+00:21.060 --> 00:28.800
+You're not returning an object with a type property on it to solve this issue we're going to use redux
+
+00:28.800 --> 00:32.690
+thunk again inside of this little bit inside of this action crater right here.
+
+00:32.760 --> 00:36.770
+We're going to use reac stuff to kind of bend.
+
+00:36.800 --> 00:40.690
+Well let's say it breaks the rules this time we're going to use it to break the rules.
+
+00:40.770 --> 00:46.420
+So with firebase we've got this data that we're pushing off to this remote reference right here.
+
+00:46.620 --> 00:50.270
+And we don't really need a response back from firebase.
+
+00:50.310 --> 00:52.200
+Right like the data gets persisted.
+
+00:52.200 --> 00:54.310
+That's it we're happy we're done.
+
+00:54.660 --> 00:59.580
+When our employee list component comes together and we go and get that list of all the different employees
+
+01:00.390 --> 01:05.190
+the employee list is going to automatically update itself with the new employee that just get added
+
+01:05.310 --> 01:05.970
+got added.
+
+01:05.970 --> 01:11.580
+So I'm trying to say is we don't really need to dispatch an action from this action create or at all.
+
+01:11.580 --> 01:14.730
+And we really don't need to send anything out we don't need to do anything with it.
+
+01:14.760 --> 01:21.090
+So that means we don't really need to return in action and we don't really need to wrap this with redux
+
+01:21.090 --> 01:23.870
+thunked for the sake of getting access to the dispatch method.
+
+01:23.880 --> 01:27.480
+We just kind of like want this thing to fade off into nothingness.
+
+01:27.480 --> 01:34.260
+So to make that happen we're going to pretend like we're going to use redux thunk but we're really not
+
+01:35.800 --> 01:39.250
+going to wrap this with a federal function like so.
+
+01:39.390 --> 01:44.420
+So now this will be called by redux thunk right so we're are satisfying the rules of Reebok's thunk
+
+01:44.440 --> 01:48.870
+here but we're not actually using the dispatch method or anything like that at all.
+
+01:49.170 --> 01:51.060
+So that's the idea.
+
+01:51.060 --> 01:55.260
+There is one more thing we need to do inside of here however we need to make sure that after an employee
+
+01:55.260 --> 02:01.650
+is successfully created we want to navigate them back to the employee list screen where they should
+
+02:01.650 --> 02:03.960
+see the new employee pop up.
+
+02:03.960 --> 02:13.380
+So to do so we can add on a dot then to this promise and inside of that then we will call our actions
+
+02:13.380 --> 02:18.990
+object to remember the actions object from our routing library to navigate back to the employee list.
+
+02:18.990 --> 02:24.030
+So we'll call actions docs employee list.
+
+02:24.060 --> 02:26.830
+We also need to make sure that we import actions at the top.
+
+02:26.880 --> 02:36.020
+So we'll go to the top and import actions from re-act native router flock's like so.
+
+02:36.550 --> 02:36.840
+OK.
+
+02:36.840 --> 02:43.560
+So again we are really breaking the rules of redux thunk here by exploiting the fact that we can return
+
+02:43.560 --> 02:47.350
+a function but we're not actually dispatching anything here at all.
+
+02:47.370 --> 02:52.650
+Just be really clear the reason I'm choosing to wrap this with a federal function at all is to get past
+
+02:52.740 --> 02:55.120
+this requirement of redux.
+
+02:55.920 --> 03:00.880
+So it's a little bit dishonest but it definitely works out for us.
+
+03:01.200 --> 03:02.650
+OK.
+
+03:03.750 --> 03:07.300
+I think that we're all ready to give this thing a nice little test.
+
+03:08.910 --> 03:13.010
+So I will go ahead and refresh and then we will toss in an email.
+
+03:13.020 --> 03:20.610
+Test test dot com and password and then we will add a new employees.
+
+03:20.610 --> 03:29.040
+So this time let's say we got Alex is out for four four and I'll go Wednesday we'll create and then
+
+03:29.040 --> 03:31.900
+we get kicked back over to the employee less like so.
+
+03:32.400 --> 03:34.650
+Well this appears to work.
+
+03:34.650 --> 03:36.850
+There's just one little weird thing in here.
+
+03:36.870 --> 03:42.990
+You'll notice that when we got navigated over to the employee list we kind of added onto our stack of
+
+03:42.990 --> 03:45.600
+current views so we've got this back button here.
+
+03:45.600 --> 03:48.380
+But that doesn't really suit what we're supposed to be doing here right.
+
+03:48.390 --> 03:51.400
+I don't want to go back to the employee creation form.
+
+03:51.420 --> 03:57.920
+I really should have gone back so to speak to the employee list in the first place.
+
+03:57.990 --> 04:00.200
+So there's two ways that we can handle this.
+
+04:00.270 --> 04:09.810
+We can either pass an additional argument to this employee list action right here of reset true or excuse
+
+04:09.810 --> 04:13.770
+me I got that backwards type reset.
+
+04:13.770 --> 04:14.560
+There we go.
+
+04:15.000 --> 04:21.030
+So if we pass an option of type reset that's going to tell our navigation library that we want to go
+
+04:21.030 --> 04:25.930
+to the employee list but don't treat it like it's a view that we're going to advance into.
+
+04:25.950 --> 04:31.640
+And so it could like you know press the back button to go to the previous one by passing and type reset.
+
+04:31.650 --> 04:37.910
+It means go to the employee list screen and just don't pretend like you know we can go back to the screen
+
+04:37.920 --> 04:41.480
+for just like reset the entire stack.
+
+04:41.610 --> 04:43.080
+So let's give this a test now.
+
+04:46.060 --> 04:48.330
+Go to test test come again.
+
+04:51.540 --> 04:53.030
+Will add a new employee.
+
+04:53.370 --> 04:56.310
+Let's see those do John what the heck.
+
+04:57.510 --> 04:59.160
+And John has to work on Tuesday.
+
+04:59.180 --> 05:03.640
+So now a create and we get kicked back over to the employee list screen.
+
+05:03.740 --> 05:08.640
+This is exactly what we want and this time we don't have a back button which is definitely the behavior
+
+05:08.640 --> 05:11.060
+that we want to have in here.
+
+05:11.100 --> 05:15.720
+We can also now go check out our firebase cons. If we want to just have a little bit of fun and you'll
+
+05:15.900 --> 05:21.140
+see that for the currently authenticated user we have two additional employees in here.
+
+05:21.150 --> 05:26.070
+So I've now got Alex and John in here as well.
+
+05:26.070 --> 05:26.730
+All right.
+
+05:26.730 --> 05:29.020
+There is one last little thing that we need to do.
+
+05:29.040 --> 05:31.280
+One less thing that we need to think of.
+
+05:31.290 --> 05:36.560
+I've said several times that you know hey we don't we all need to actually dispatch an action from here.
+
+05:36.810 --> 05:38.320
+Well maybe we don't.
+
+05:38.550 --> 05:41.510
+But I want you to see something a little bit interesting.
+
+05:41.520 --> 05:43.770
+We've now created a actual employee.
+
+05:43.770 --> 05:43.980
+Right.
+
+05:43.980 --> 05:45.710
+We just created one.
+
+05:45.810 --> 05:51.690
+I'm going to go back to the employee creation forum and when I go there you'll notice that very interestingly
+
+05:52.140 --> 05:57.600
+our form still has Jaun as the name and the phone number and shift in here as well.
+
+05:57.880 --> 06:01.470
+So that's pretty darn interesting.
+
+06:01.470 --> 06:05.370
+So it turns out that just because we happen to like save the data.
+
+06:05.470 --> 06:11.220
+All right we just we have just because we created a new record over an firebase that does not automatically
+
+06:11.220 --> 06:15.390
+clear out all the state that is in our form reducer for us.
+
+06:15.510 --> 06:20.310
+I remember the form is going to show whatever data is sitting inside this reduce are being produced
+
+06:20.310 --> 06:27.060
+by the producer just because we save it does not mean that that state gets automatically or magically
+
+06:27.060 --> 06:29.080
+cleared out in any fashion.
+
+06:29.220 --> 06:34.860
+So the instant that I go back to the form the form will still be populated with all of the existing
+
+06:34.860 --> 06:36.570
+state that we still had in there.
+
+06:36.840 --> 06:39.530
+So definitely a little bit unexpected.
+
+06:39.690 --> 06:46.400
+We can solve this by saying you know what maybe we do actually want to have an action in here.
+
+06:46.390 --> 06:52.020
+I mean we do want to dispatch an action from this file or excuse me from this action creator.
+
+06:52.020 --> 06:58.380
+So maybe you will say that after we successfully create an employee we will not only navigate back to
+
+06:58.380 --> 07:04.380
+the employee list but we will also dispatch an action that will be responsible for resetting all of
+
+07:04.380 --> 07:06.470
+the fields in that form.
+
+07:06.510 --> 07:12.600
+So after we create the new user We will reset the form and navigate back to the employee list.
+
+07:12.600 --> 07:14.450
+I think that'll be a reasonable approach.
+
+07:14.460 --> 07:18.030
+So let's go with that to be able to dispatch an action.
+
+07:18.060 --> 07:23.880
+We have to make sure that we receive the dispatch method inside this function right here so loud and
+
+07:23.880 --> 07:24.990
+dispatch.
+
+07:25.200 --> 07:32.070
+And then in our adult then we will make sure that we not only navigate over to the employee list we
+
+07:32.070 --> 07:34.040
+will also dispatch an action.
+
+07:34.260 --> 07:41.830
+Let's say it will be of type about employee creates that makes sense.
+
+07:41.940 --> 07:48.060
+So we will watch for the type of employee create inside of our former douceur and the instant we see
+
+07:48.060 --> 07:51.760
+that type we will reset all the fields inside our form.
+
+07:51.960 --> 07:54.060
+So we need to make sure that we create this type.
+
+07:54.090 --> 07:56.090
+So I going to scroll up to the top.
+
+07:56.370 --> 08:00.240
+Let me get a semi-colon in there and I'll scroll up to the top.
+
+08:00.240 --> 08:08.070
+We'll get our employee create and make sure that I add that type inside my type's file.
+
+08:08.070 --> 08:17.170
+So here's my types filed export Konst employee create.
+
+08:17.520 --> 08:22.550
+Then we can flip back over to our reducer as well and handle it inside of our form reducer.
+
+08:22.650 --> 08:28.130
+So we'll pull an employee create and then we'll add in the case for it as well.
+
+08:28.140 --> 08:32.310
+So case employee creates a lot of employee raids all over the place.
+
+08:32.790 --> 08:38.490
+So now inside of our educe right here whenever we see this employee create message come across it means
+
+08:38.970 --> 08:44.250
+this user or excuse me this employee has successfully been created we can reset all the properties in
+
+08:44.250 --> 08:51.630
+the form or in this reducers So the next time the user looks at the form it'll be completely clear totally
+
+08:51.630 --> 08:52.420
+empty.
+
+08:52.860 --> 08:56.690
+So here we can just return initial state.
+
+08:56.700 --> 09:00.360
+We don't really have to do the DOT DOT DOT state or anything like that.
+
+09:00.420 --> 09:05.960
+We can just return the initial state here because we really just want to reset this thing back to how
+
+09:05.970 --> 09:07.190
+first existed.
+
+09:09.140 --> 09:09.530
+All right.
+
+09:09.530 --> 09:11.300
+So let's give it a shot.
+
+09:11.300 --> 09:19.420
+Now I will refresh the simulator to test test outcome.
+
+09:20.020 --> 09:21.310
+And what's a good name to use this time.
+
+09:21.320 --> 09:21.600
+Let's go.
+
+09:21.620 --> 09:27.100
+Nick how about Nick Nick will also be five five five.
+
+09:27.270 --> 09:29.070
+Then he'll be on Thursday.
+
+09:29.390 --> 09:34.340
+So now we'll create this we get kickback to the employee list screen and then when I go back to the
+
+09:34.340 --> 09:40.430
+ad screen the form is completely empty again because my employee form inducer no longer holds a name
+
+09:40.430 --> 09:43.460
+phone or shift from when I just created an IC.
+
+09:43.850 --> 09:45.530
+So perfect just what we want.
+
+09:46.010 --> 09:48.370
+Let's continue in the next section.

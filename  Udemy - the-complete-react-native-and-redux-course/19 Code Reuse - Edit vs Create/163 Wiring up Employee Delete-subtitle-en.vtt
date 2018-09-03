@@ -1,0 +1,181 @@
+WEBVTT
+
+00:01.020 --> 00:04.790
+In the last section we threw in an action creator to delete an employee.
+
+00:04.890 --> 00:09.180
+The only thing we have to do with it is make sure that we call it with the idea of the employee that
+
+00:09.180 --> 00:10.810
+we want to delete.
+
+00:10.830 --> 00:16.380
+We reach out to our firebase data store groud the very particular employee out of all of our Jason data
+
+00:16.470 --> 00:17.500
+and remove it.
+
+00:17.640 --> 00:23.160
+And after that over to the employee list the last thing you have to do is hook this action creator up
+
+00:23.160 --> 00:25.490
+to our employee component.
+
+00:25.560 --> 00:32.220
+So back inside of employee at it I will first scroll all the way to the top find my import statement
+
+00:32.220 --> 00:37.710
+from my action creators and I will import employee delete.
+
+00:38.400 --> 00:43.140
+Then I need to make sure that I bind this action creator to the component itself and scroll all the
+
+00:43.140 --> 00:46.600
+way down to the bottom Heres my connect statement.
+
+00:46.770 --> 00:52.140
+I will add an employee delete as an action creator to be bound to the component.
+
+00:52.180 --> 00:54.390
+So now the very last thing we have to do.
+
+00:54.480 --> 01:00.390
+Very last thing whenever a user on the Confirm message or on a confirmed component whenever they press
+
+01:00.390 --> 01:06.440
+that yes button whenever they say yes I wanted to leave this user that is going to call on except callback.
+
+01:06.600 --> 01:12.280
+So inside of Onix set we need to make sure that we call the employee delete action creator.
+
+01:12.600 --> 01:19.380
+It's going to scroll up to on except we will call this stop prop's employee delete.
+
+01:20.280 --> 01:25.600
+And remember we have to call the thing with the ID of the employee that we want to delete.
+
+01:25.620 --> 01:33.530
+So to get access to that Id We will look out the employee object on this on this component's props.
+
+01:33.540 --> 01:42.030
+So say your ID is coming from this dot props dot employee.
+
+01:42.030 --> 01:47.420
+Now we can pass this you ID into employee delete and that should be about it.
+
+01:47.450 --> 01:49.570
+Do make sure that you pass in as an object.
+
+01:49.650 --> 01:55.530
+So I should have you know curly braces you ID and make sure that over interaction creators well are
+
+01:55.530 --> 02:00.950
+on on delete action creator receives that as an object ID.
+
+02:00.960 --> 02:03.970
+All right I think we're all ready for some testing in here.
+
+02:04.000 --> 02:09.560
+Now I took the liberty of adding another employee that we could just test around with as well.
+
+02:10.620 --> 02:11.920
+And thats John.
+
+02:12.210 --> 02:16.480
+So we just hired John but John is not going be working here for very long.
+
+02:16.740 --> 02:19.520
+Here's John I'm going to fire John.
+
+02:20.010 --> 02:23.830
+And tonight we're left with just Jane.
+
+02:23.850 --> 02:25.010
+Perfect.
+
+02:25.050 --> 02:29.060
+So I want to also test really quickly dismissing the motile as well.
+
+02:29.070 --> 02:33.150
+So it open Jane back up you know fire the employee of a song say no.
+
+02:33.200 --> 02:39.120
+Jenkins stick around and TA-DA the motile just goes back down to the bottom with a nice little animation
+
+02:39.120 --> 02:39.850
+as well.
+
+02:40.060 --> 02:41.010
+So that's pretty much it.
+
+02:41.100 --> 02:42.980
+That's our whole application.
+
+02:42.990 --> 02:47.340
+We've covered every type of resource or excuse me every type of operation we could take on this employee
+
+02:47.340 --> 02:53.760
+resource so we can create them edit them delete them and of course just read them as well so just show
+
+02:53.760 --> 02:54.790
+them up on the screen.
+
+02:55.020 --> 03:00.090
+I think the most interesting part of this application was without a doubt making that decision about
+
+03:00.090 --> 03:04.810
+how to split out the employee form between employee create an employee at it.
+
+03:04.870 --> 03:10.920
+So I want to reiterate there that you know we decided to rip out just the input or excuse me the the
+
+03:10.920 --> 03:12.430
+fields themselves.
+
+03:12.600 --> 03:16.090
+So we can show it in both the Create an edit version that form.
+
+03:16.200 --> 03:21.210
+I think this was ultimately a very good decision because if we ever come back with more custom behavior
+
+03:21.540 --> 03:28.320
+for either the create or the added side of the equation we can keep on adding in more and more implementation
+
+03:28.590 --> 03:33.080
+without really having to worry about disrupting anything that's going on with the you know create form
+
+03:33.090 --> 03:35.940
+or the form or whichever one we're not working on.
+
+03:36.000 --> 03:41.280
+The one thing I will say is that this all makes this assumption that the employee form or I should say
+
+03:41.280 --> 03:44.120
+the fields that we're showing on here are never going to change.
+
+03:44.130 --> 03:50.070
+So there definitely could be a situation in which we say well you know whenever I create an employee
+
+03:50.070 --> 03:52.510
+their name is never really going to change.
+
+03:52.530 --> 03:56.710
+So I should never let a user change the name of an employee.
+
+03:56.910 --> 04:02.430
+That would definitely use case for splitting off two separate versions of the employee form or just
+
+04:02.430 --> 04:06.280
+pulling all those fields into each of the edit and create components.
+
+04:06.450 --> 04:11.840
+So only when the fields start to change when I start to really you know worry about not be able to make
+
+04:11.920 --> 04:13.680
+reuse of this employee form component.
+
+04:13.920 --> 04:18.090
+Anyways I thought that was a really interesting part of this application and I hope you've enjoyed putting
+
+04:18.090 --> 04:19.560
+this out together.

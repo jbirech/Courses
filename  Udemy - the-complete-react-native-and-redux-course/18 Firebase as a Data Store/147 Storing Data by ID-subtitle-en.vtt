@@ -1,0 +1,358 @@
+WEBVTT
+
+00:00.870 --> 00:07.350
+We've now gotten action creator to load up our list of employees we made a ref to our collection of
+
+00:07.350 --> 00:12.250
+employees and then we watched for any new value to come across.
+
+00:12.330 --> 00:18.000
+Again one thing to clarify here is that this is not only triggered when a new value is added by someone
+
+00:18.000 --> 00:18.260
+else.
+
+00:18.260 --> 00:23.400
+It is the generic event to say just go and fetch some data from this location.
+
+00:23.400 --> 00:29.300
+In addition this Wotcher right here this event handler will exist for the life cycle of our entire application.
+
+00:29.310 --> 00:35.730
+So we watch for this thing one time and then any time any data is added to that employees read right
+
+00:35.730 --> 00:38.080
+here by anyone by anything.
+
+00:38.280 --> 00:40.310
+It's going to dispatch a new action.
+
+00:40.350 --> 00:46.600
+So one action creator watches this data source for our entire applications lifecycle.
+
+00:46.740 --> 00:52.540
+Our next step is going to be to call this action creator and receive the data in the reducer.
+
+00:52.560 --> 00:56.080
+Let's first call the action career from the employee list component.
+
+00:56.130 --> 00:57.290
+You know what that means.
+
+00:57.330 --> 01:03.180
+We're going to have to import the action creator and the Kinect helper in here and call it from within
+
+01:03.180 --> 01:05.100
+the company itself.
+
+01:05.210 --> 01:09.830
+So import connect from re-act redux.
+
+01:10.350 --> 01:15.890
+Then we will import employees with employees right.
+
+01:15.900 --> 01:16.230
+Yes.
+
+01:16.230 --> 01:24.270
+Employees fetch from actions that are at the bottom.
+
+01:24.270 --> 01:27.840
+We can add on our connect helper.
+
+01:28.380 --> 01:30.380
+We don't have a map state to prop's just yet.
+
+01:30.390 --> 01:32.370
+So we'll even know for right now.
+
+01:32.540 --> 01:39.450
+And as the second argument will give employees fetch and then let's not forget to wrap employee list
+
+01:39.450 --> 01:42.480
+with a set of peron's as well.
+
+01:42.480 --> 01:48.930
+And then finally inside of our component we will we want to fetch this list of employees or we want
+
+01:48.930 --> 01:51.540
+to start watching for employees to be loaded.
+
+01:51.540 --> 01:55.270
+The instant that this component is about to be rendered to our device.
+
+01:55.410 --> 02:00.750
+So we'll add our lifecycle method component will mount.
+
+02:00.750 --> 02:05.010
+So as soon as this component is about to be shown on the device we will attempt to go get all those
+
+02:05.010 --> 02:06.300
+employees.
+
+02:06.310 --> 02:08.420
+Stock profs DOT employees.
+
+02:08.430 --> 02:12.690
+That's like so cool.
+
+02:12.810 --> 02:17.920
+Now last thing we have to do is add a new reducer to receive this list of employees.
+
+02:17.940 --> 02:23.910
+The end is near reducers going to have the sole purpose of holding our list of employees that are active
+
+02:23.910 --> 02:25.570
+for this user.
+
+02:25.650 --> 02:31.320
+So I'll make a completely new reduce or we're not going to try to use the employee form reducer here
+
+02:31.350 --> 02:35.210
+because this has nothing to do with a form it's only asked to do with the employees.
+
+02:35.460 --> 02:43.970
+So in my reducers folder I'll make a new file called employee reducer and then side of your we'll put
+
+02:43.970 --> 02:46.330
+in our boiler plate for reducer.
+
+02:46.370 --> 03:00.420
+First I will import employees fetch success from leide types file and then we'll place our initial state.
+
+03:00.740 --> 03:05.830
+We are going to use a object as our initial state here and you might be thinking well you'll Stephen
+
+03:05.880 --> 03:10.720
+we are loading up like a list of employees when it just makes sense to have an array of employees.
+
+03:11.120 --> 03:12.610
+It's definitely very good thought.
+
+03:12.660 --> 03:14.970
+But let's let's go on for just a little bit.
+
+03:14.970 --> 03:19.890
+Bear with me for a moment here and then we're going to see exactly how firebase loads this data for
+
+03:19.890 --> 03:21.330
+us.
+
+03:21.330 --> 03:29.900
+So next we will export default our state and we'll defaulted to our initial state got our action.
+
+03:30.180 --> 03:32.330
+And then here comes the fun part.
+
+03:32.390 --> 03:38.160
+I'm going to switch over auction type by default.
+
+03:38.160 --> 03:48.750
+I want to return state and if we have an action with case employees that's success.
+
+03:48.760 --> 03:50.690
+All right this this right here is where things are.
+
+03:50.700 --> 03:56.550
+I mean it's interesting so for right now I want to just console log or action and return my stake.
+
+03:57.060 --> 03:59.850
+OK so we're not going to do anything with the action just yet.
+
+03:59.850 --> 04:02.040
+I want to specifically look at the action.
+
+04:02.040 --> 04:04.640
+I want to see what data we're getting from firebase.
+
+04:04.680 --> 04:06.920
+Remember this action is going to come across right here.
+
+04:07.050 --> 04:09.340
+It is going to have as the payload.
+
+04:09.540 --> 04:13.820
+Whatever was on that snapshot that vals whatever came out from snapshot value.
+
+04:13.950 --> 04:15.510
+That is what the payload is going to be.
+
+04:15.540 --> 04:20.730
+And I want to specifically look at what that value is and what it's going to do for us.
+
+04:20.910 --> 04:25.160
+Now let's you have to do is add this reducer to our combined reducers call.
+
+04:25.350 --> 04:38.190
+So in my reducers index start J.S. file we will import employee reduce our From employee reducer and
+
+04:38.190 --> 04:47.540
+I'm going to say my employees piece of state is going to come from my employee reducer.
+
+04:47.670 --> 04:48.330
+All right.
+
+04:48.360 --> 04:50.730
+So we've already created some number of employees right.
+
+04:50.740 --> 04:52.890
+Like we've made some using the form.
+
+04:52.980 --> 04:54.570
+We've seen them in firebase.
+
+04:54.630 --> 04:59.090
+So I think that we can immediately attempt to run the thing right here and get our tonsils.
+
+04:59.100 --> 05:02.490
+We should see at least you know some number of employees come across.
+
+05:02.840 --> 05:05.960
+It's all very Am I con. I will bring up my simulator.
+
+05:06.330 --> 05:11.880
+Let's do our refresh then I log back in.
+
+05:11.970 --> 05:17.490
+So the instant that I log in I'm going to transition over to the employee list component and as soon
+
+05:17.490 --> 05:23.130
+as the employee list is about to be rendered on the screen in my device it will call the action Crear
+
+05:23.130 --> 05:28.490
+to load up the list of employees will fetch a list of employees and eventually we'll see that conc logs
+
+05:28.600 --> 05:34.920
+me and then expect to see the consul log right away to log in I see employee list on the screen.
+
+05:34.950 --> 05:37.020
+And here's the action.
+
+05:37.020 --> 05:43.980
+So the payload right here is all we really care about in this object right here is what is containing
+
+05:44.040 --> 05:45.840
+our list of employees.
+
+05:46.410 --> 05:51.930
+So this is a very common data structure that you're going to see from firebase rather than giving us
+
+05:51.990 --> 05:56.070
+an array of employees which would be you know quite useful.
+
+05:56.100 --> 06:02.910
+We get back an object containing all the different employees that we have the keys of the object are
+
+06:02.910 --> 06:04.930
+the IDs of each employee.
+
+06:05.100 --> 06:11.920
+So if I want to make reference to like Jane specifically I could reference an ID of Katie T-P blah blah
+
+06:11.920 --> 06:13.200
+blah blah.
+
+06:13.690 --> 06:16.250
+And same thing for Alex John and so on.
+
+06:16.260 --> 06:20.640
+So rather than coming back as an array of employees we get back an object
+
+06:23.470 --> 06:27.880
+this is really a very common data structure that you're going to see in a lot of redux apps.
+
+06:27.910 --> 06:33.760
+So you're going to see a lot of redux applications using an object where the keys are the idea of the
+
+06:33.760 --> 06:36.540
+record as opposed to an array.
+
+06:36.550 --> 06:41.680
+The reason that you end up with an object for storing data like this is to help with redux as a requirement
+
+06:41.770 --> 06:44.890
+of always returning a new object from reducers.
+
+06:44.890 --> 06:50.300
+So this is it is not only because of reducto we do this but it sure is a nice thing.
+
+06:50.350 --> 06:53.050
+That's what I should really be saying here.
+
+06:53.140 --> 06:59.200
+The reason for this is you know just think about if we wanted to have an array of employees an update
+
+06:59.260 --> 07:02.240
+a very specific employee using a reducer.
+
+07:02.440 --> 07:07.190
+We would have to return a new array member because we want to satisfy reductions requirements.
+
+07:07.480 --> 07:13.270
+So we would have to go through our existing array find the record we want to update we would splice
+
+07:13.270 --> 07:18.880
+it out and then splice in the update to record and then also make sure that we return a new array so
+
+07:18.880 --> 07:25.390
+we would have to use the you know dot dot dot dot on there as well with the array because the spread
+
+07:25.390 --> 07:32.950
+syntax work works with the race as well in contrast updating a object full of records is a lot easier
+
+07:32.950 --> 07:35.570
+when we want to update some very specific record.
+
+07:35.620 --> 07:38.830
+I mean to say this is just for example right here we're not going to actually have this line of code
+
+07:38.830 --> 07:40.690
+I'm insane for example.
+
+07:40.690 --> 07:45.460
+So when we organize by ID we can do something like this.
+
+07:47.600 --> 07:52.000
+So rather than walking through the array finding the record we want to replace.
+
+07:52.160 --> 07:57.430
+We can just say take all the records out of the existing object do all the employees we have.
+
+07:58.040 --> 08:04.640
+Create a new key value pair where the ID are excuse me the key is the idea of the record that we want
+
+08:04.640 --> 08:08.580
+to update and the value is the updated record itself.
+
+08:08.600 --> 08:13.700
+So if the syntax right here it is so much easier to do than try to walk through an array and find the
+
+08:13.700 --> 08:15.220
+record that you want to update.
+
+08:15.230 --> 08:22.960
+So keeping track of your data using an ID based approach like this is pretty darn useful.
+
+08:23.240 --> 08:25.840
+So we don't really need to do any of that stuff for right now.
+
+08:25.850 --> 08:30.760
+We just care about the list of employees that are coming back from firebase.
+
+08:30.920 --> 08:34.530
+So we will replace this with just action payload.
+
+08:34.550 --> 08:40.100
+So this is why we made our initial state an object it is because eventually we're going to end up with
+
+08:40.100 --> 08:45.430
+an object containing all the different employees and our application.
+
+08:45.590 --> 08:47.900
+So this wraps up our employee reducer.
+
+08:47.900 --> 08:51.510
+We're now keeping track of all the different employees in our application.
+
+08:51.770 --> 08:57.380
+Let's continue the next section and start working on rendering this list of employees to our users

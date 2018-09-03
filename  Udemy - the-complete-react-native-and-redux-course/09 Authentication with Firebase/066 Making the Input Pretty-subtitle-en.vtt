@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00:00.970 --> 00:00:04.310
+We're ready for our last step inside of our input component.
+
+00:00:04.580 --> 00:00:10.430
+All we have to do is add some styling to style the view the text which is in your label and the text
+
+00:00:10.430 --> 00:00:11.270
+input itself.
+
+00:00:11.270 --> 00:00:18.140
+So just a little bit more to adding our styling will do the same thing as previous out in a styles object
+
+00:00:18.140 --> 00:00:19.500
+at the bottom of the file.
+
+00:00:19.610 --> 00:00:23.090
+So we'll say Clontz styles is an empty object.
+
+00:00:23.390 --> 00:00:26.300
+And I think we're going to end up with three styles inside of here.
+
+00:00:26.310 --> 00:00:31.760
+We'll end up with one for our label one for the text input and one for the overall container.
+
+00:00:31.760 --> 00:00:33.610
+So the overall view tag right here.
+
+00:00:33.830 --> 00:00:38.870
+So I'm going to immediately place the names of these three styles that I expect to have have an input
+
+00:00:38.870 --> 00:00:41.200
+style.
+
+00:00:41.980 --> 00:00:43.960
+We will have a label style
+
+00:00:48.700 --> 00:00:51.170
+and finally a container style as well.
+
+00:00:52.790 --> 00:00:55.840
+All right we've got a decent amount of Taipans Let's get to it.
+
+00:00:56.000 --> 00:01:04.160
+First off our input style will have a color of 0 0 0 will give it a padding rights of five.
+
+00:01:04.190 --> 00:01:07.850
+So this is going to make sure that it stands off from the left hand edge of rigor.
+
+00:01:07.970 --> 00:01:14.190
+We don't want to beat up too closely so we just want to make sure that is a little bit of standoff wants
+
+00:01:14.190 --> 00:01:21.000
+to do a padding left of five and then a font size of 18.
+
+00:01:21.060 --> 00:01:25.560
+This additional font size of this larger font size right here is going to make sure the users can very
+
+00:01:25.560 --> 00:01:28.830
+clearly see the text that they're entering into this field.
+
+00:01:29.510 --> 00:01:32.780
+Next we'll add in a line height of 23.
+
+00:01:32.820 --> 00:01:37.050
+The purpose of line height is not necessarily tied to the font size.
+
+00:01:37.050 --> 00:01:41.300
+It's about how much space is in between each line of text.
+
+00:01:41.460 --> 00:01:46.800
+So by increasing the line height here it's going to make the text inside that input just kind of stand
+
+00:01:46.800 --> 00:01:47.960
+out a little bit more.
+
+00:01:49.620 --> 00:01:52.910
+Finally And we're going to talk exactly the purpose of this one right here.
+
+00:01:52.930 --> 00:01:57.230
+Add in a flex of two and we're going to come back to that in just a second.
+
+00:01:57.240 --> 00:02:04.500
+So bear with me next to our label Styer style only a couple of here we will dial up the font size as
+
+00:02:04.500 --> 00:02:06.050
+well to 18.
+
+00:02:06.270 --> 00:02:13.800
+I'm going to add in a bunch of padding left to make sure that the label stands apart from the left hand
+
+00:02:13.800 --> 00:02:18.030
+border over here and then I'm going to give this a flex one.
+
+00:02:18.180 --> 00:02:21.590
+So let's take a second and discuss these flex values.
+
+00:02:21.870 --> 00:02:28.890
+I want you to take notice that both the input and the text are children of The View tag right here because
+
+00:02:28.890 --> 00:02:29.790
+they're both children.
+
+00:02:29.820 --> 00:02:32.470
+They're siblings of each other might be a better way of putting it.
+
+00:02:32.880 --> 00:02:39.120
+Whenever we have siblings with a flex property designated on the style objects the flex property is
+
+00:02:39.120 --> 00:02:43.650
+how we allocate or a proportion available space to each one.
+
+00:02:43.680 --> 00:02:50.940
+So the rule that we use is we say for each sibling in this case input style and label style we add up
+
+00:02:50.940 --> 00:02:52.290
+the values of flex.
+
+00:02:52.320 --> 00:02:55.910
+So two plus one that totals three.
+
+00:02:55.980 --> 00:03:00.340
+Now we take two divided by the total of three.
+
+00:03:00.360 --> 00:03:06.930
+That means that two thirds of the available space will be allocated to the input style and one divided
+
+00:03:06.930 --> 00:03:11.310
+by three or one third will be added allocated to the label style.
+
+00:03:11.670 --> 00:03:13.650
+As soon as we render this inside the simulator.
+
+00:03:13.670 --> 00:03:16.480
+And as soon as we test it out I think that's going to start to make a lot of sense.
+
+00:03:16.480 --> 00:03:19.800
+Let's finish up the style in here and see what it looks like.
+
+00:03:21.250 --> 00:03:25.870
+So the last thing we have to do is our content or style and this container style is going to be applied
+
+00:03:25.870 --> 00:03:28.080
+to the overall view tag.
+
+00:03:28.840 --> 00:03:36.550
+So for our container container style we'll add a height of 40 flecks of wine to make sure that it fills
+
+00:03:36.550 --> 00:03:43.480
+up all the available space that there is and then we want to make sure that the label and the text input
+
+00:03:43.480 --> 00:03:46.030
+themselves show up alongside each other.
+
+00:03:46.030 --> 00:03:49.650
+So kind of in the horizontal or road direction.
+
+00:03:49.930 --> 00:03:56.320
+So to make these two items lineup in the road direction will give the container style a flex direction
+
+00:03:56.860 --> 00:03:57.580
+of road.
+
+00:03:58.770 --> 00:04:04.140
+Finally we will align items center to make sure that the items are lined up vertically.
+
+00:04:05.720 --> 00:04:10.190
+All right so no lesson you have to do is take these three style properties and apply them to the different
+
+00:04:10.190 --> 00:04:11.360
+tags in here.
+
+00:04:11.360 --> 00:04:14.700
+So again we're going to use a little bit of destructuring to make that happen.
+
+00:04:15.200 --> 00:04:23.630
+So we'll pull our input style our label style and our container style and we're going to pull all those
+
+00:04:23.630 --> 00:04:25.230
+from our styles.
+
+00:04:25.280 --> 00:04:27.640
+Object.
+
+00:04:27.890 --> 00:04:30.310
+And then we'll apply them to each individual tag.
+
+00:04:30.590 --> 00:04:40.210
+So the overall view gets a style of container style that text gets a style of label style.
+
+00:04:40.400 --> 00:04:46.770
+And finally the text input gets a style of input style.
+
+00:04:46.930 --> 00:04:51.150
+All right one last thing before we start in the browser we still do not have a label here.
+
+00:04:51.260 --> 00:04:56.900
+So let's flip back to our loggin form where this input component is being used and make sure that we
+
+00:04:56.900 --> 00:05:00.110
+pass the input a label to use in here.
+
+00:05:00.140 --> 00:05:06.320
+So when we go back to my log and form you find my input and I make sure I pass it a label as well.
+
+00:05:06.380 --> 00:05:08.910
+So I'll give it a label of what say.
+
+00:05:08.910 --> 00:05:12.140
+Email All right.
+
+00:05:12.150 --> 00:05:14.970
+So now is it time for the moment of truth.
+
+00:05:15.210 --> 00:05:18.860
+We will refresh the simulator and.
+
+00:05:18.950 --> 00:05:19.500
+OK.
+
+00:05:19.530 --> 00:05:20.160
+Well you know what.
+
+00:05:20.160 --> 00:05:21.200
+We're close.
+
+00:05:21.210 --> 00:05:25.620
+But it looks like I probably made a typo in here I've got a warning down at the bottom.
+
+00:05:25.830 --> 00:05:29.320
+Let's double check our property name.
+
+00:05:29.400 --> 00:05:33.090
+It's giving me an error on a line specifically or a warning I should say.
+
+00:05:33.300 --> 00:05:36.470
+And so I made a mistake here that should be a line items.
+
+00:05:36.630 --> 00:05:42.080
+I'm almost positive I said a line item so I apologize for the confusion there.
+
+00:05:42.360 --> 00:05:44.200
+So let's do another refresh.
+
+00:05:44.260 --> 00:05:44.660
+All right.
+
+00:05:44.670 --> 00:05:46.110
+Now this is looking pretty good.
+
+00:05:46.170 --> 00:05:49.000
+Now I should be able to click in here somewhere.
+
+00:05:51.430 --> 00:05:55.050
+Well it looks like perhaps there's still a little bit of a mistake in here.
+
+00:05:55.060 --> 00:05:59.770
+So let's continue in the next section and figure out exactly why we can't click on the text input here
+
+00:05:59.790 --> 00:05:59.990
+.

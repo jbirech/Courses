@@ -1,0 +1,337 @@
+WEBVTT
+
+00:00.870 --> 00:02.990
+We're in the middle of working on our form right now.
+
+00:03.030 --> 00:06.060
+We just finished up our employee form douceur.
+
+00:06.360 --> 00:11.590
+We have not yet wired up to our it to our combined reducers call so let's do that now before we forget.
+
+00:11.680 --> 00:16.350
+This is something I just forget to do all the time personally so on make sure I catch this one.
+
+00:16.350 --> 00:19.370
+So here's my reducers index file.
+
+00:19.560 --> 00:21.740
+I've got my combined reducers in here.
+
+00:21.900 --> 00:28.800
+Right now we've only got the author douceur So we are going to also import our employee form reduce
+
+00:28.800 --> 00:36.650
+her from employee form producer and we need to decide on what piece of state.
+
+00:36.660 --> 00:39.590
+You know what do we want to call this new piece of state.
+
+00:39.630 --> 00:41.600
+I think Dunscombe call it employee form.
+
+00:41.780 --> 00:42.830
+We've been nice and simple.
+
+00:44.910 --> 00:50.560
+So the employee form piece of state will be maintained by the employee form reducer.
+
+00:51.210 --> 00:54.870
+I'm not super happy you know I'm going on a bad spree of naming things here.
+
+00:54.870 --> 01:00.000
+I'm not super happy with the name employee former douceur because it really assumes that there's only
+
+01:00.000 --> 01:03.760
+ever going to be one employee form in our entire application.
+
+01:04.020 --> 01:10.560
+So I am not super happy about it but I think that given the scope of this application I think it's going
+
+01:10.560 --> 01:11.720
+to work out.
+
+01:11.790 --> 01:18.540
+In addition I think that it's a reasonable pick because the form and the reducer itself are very tightly
+
+01:18.540 --> 01:19.070
+coupled.
+
+01:19.080 --> 01:25.680
+So the name does really imply hey this is working along with a employee forum which is hosted an employee
+
+01:25.680 --> 01:34.410
+create now that our reducers hooked up we can flip back to our employee create form and start wiring
+
+01:34.410 --> 01:36.330
+up our action creators.
+
+01:36.360 --> 01:40.020
+So here is my employee create component at the top.
+
+01:40.050 --> 01:41.010
+We need to.
+
+01:41.070 --> 01:46.830
+Well let me first say we need to wire up an action creator here so whenever someone adds something or
+
+01:46.830 --> 01:52.370
+type something on input we can call our action creator and update our form of state.
+
+01:52.390 --> 01:57.840
+So remember how we get access to an action creator in a component we have to import the connect helper
+
+01:58.110 --> 02:00.910
+and import the action career that we want to call as well.
+
+02:01.230 --> 02:13.450
+So at the top will import connect from re-act redux and then we'll import employee update from actions.
+
+02:16.510 --> 02:19.670
+Then at the bottom we will add on our connect.
+
+02:20.140 --> 02:22.240
+So here's the bottom.
+
+02:22.240 --> 02:26.890
+We do not yet have a map set to prop's So for the first argument I'll pass Gnoll.
+
+02:27.010 --> 02:33.580
+And the second argument will pass in our employee update action creator and then don't forget that second
+
+02:33.580 --> 02:37.880
+set of Puranas to go around employee create as well.
+
+02:38.080 --> 02:42.040
+And you know I think I spoke too early we actually are going to have maps to prop's we have to make
+
+02:42.040 --> 02:45.960
+sure that we get those attributes that are being created by the Forum itself.
+
+02:46.270 --> 02:53.120
+So we will make a map state to perhaps function to pull stuff off of the employee form piece of state.
+
+02:53.150 --> 03:00.510
+So say can smash state to prop's Here's my state object.
+
+03:01.000 --> 03:05.790
+And then just as we did previously with our Auth. piece of state we'll do a little bit of destructuring
+
+03:05.790 --> 03:10.680
+ahead of time and just make sure his cousin here looks nice and clean.
+
+03:10.680 --> 03:14.850
+So I expect to have a name a phone and a shift.
+
+03:14.880 --> 03:18.920
+Now of course again we do not yet have the shift in here but we will very shortly.
+
+03:18.920 --> 03:21.770
+So we'll just carry the shift through right now.
+
+03:22.290 --> 03:26.610
+So I'll say this is coming from state DOT employee form.
+
+03:26.840 --> 03:31.920
+Remember I know I say this all the time but it's a very important piece of rebox.
+
+03:31.920 --> 03:38.520
+We have the employee forum piece of state right here because we assigned our employee form producer
+
+03:38.790 --> 03:42.230
+to the employee forum key in our recombined reducers call.
+
+03:42.440 --> 03:46.250
+And that is why it's called employee form.
+
+03:46.260 --> 03:52.540
+Finally we return the name the phone and the shift.
+
+03:52.710 --> 03:55.610
+I think there's probably just one more step.
+
+03:55.740 --> 04:03.600
+I think we'll just have to make sure that we pass these values or these name and phone onto the respective
+
+04:03.600 --> 04:04.260
+inputs.
+
+04:04.350 --> 04:07.070
+So let's do that right now.
+
+04:07.230 --> 04:09.650
+I'll make sure that my input knows that it is.
+
+04:09.720 --> 04:16.900
+Its value is going to come from this dot proper name and the phone's value is going to come from the
+
+04:16.900 --> 04:22.010
+stock prop's doc phone.
+
+04:22.860 --> 04:26.170
+One last thing I know there's a lot of typing here but you know I got it.
+
+04:26.190 --> 04:31.470
+I got to point out the fact that we in the past on the logon form you know we spent probably six or
+
+04:31.470 --> 04:35.240
+seven sections to go through what we're doing now into rather quickly.
+
+04:35.240 --> 04:39.290
+So we're definitely speeding up here pretty handily.
+
+04:39.300 --> 04:45.090
+The last thing we have to do is make sure that whenever an input's value is changed we call our employee
+
+04:45.150 --> 04:46.490
+update action creator.
+
+04:46.520 --> 04:47.970
+It's a lesson we have to do.
+
+04:48.270 --> 04:56.040
+So on both the name and the phone will add in on change text you know give myself some space here and
+
+04:56.040 --> 05:02.130
+I'm going to put the action or zoomy excuse me in the callback right here just in line on onchange text
+
+05:02.130 --> 05:05.600
+rather than making a separate helper function up here.
+
+05:06.660 --> 05:12.570
+So onchange text whenever this thing is called will be called with the new tax that's in that input
+
+05:12.930 --> 05:17.370
+we need to call this not props dot employee update.
+
+05:17.790 --> 05:20.940
+And remember the signature of this action creator.
+
+05:20.970 --> 05:23.270
+You know what does it expect to be called with.
+
+05:23.460 --> 05:28.000
+Let's go back over to our employee actions file.
+
+05:28.000 --> 05:29.460
+Here is employee update.
+
+05:29.520 --> 05:34.590
+They expects to be called within object with a proper key and a value key.
+
+05:34.860 --> 05:38.130
+So we need to make sure we follow that method signature.
+
+05:38.130 --> 05:46.080
+So whenever this thing gets called We want to make sure that it has a proper name and the value of text
+
+05:46.230 --> 05:53.530
+like so to this this part in here that's keeping track of the proper thing is what's going to allow
+
+05:53.530 --> 06:01.720
+us to use just one single action creator rather than having you know on name update on phone update
+
+06:01.720 --> 06:02.850
+on shift update.
+
+06:02.950 --> 06:09.070
+One actually creator for each attribute instead of we can just use a single one then we'll repeat the
+
+06:09.430 --> 06:11.830
+same process for the phone input as well.
+
+06:12.280 --> 06:25.260
+So say on change text take the text employee update that prompt we're changing this time it's me the
+
+06:25.260 --> 06:31.920
+phone and the value is going to be text as well because that's what we're going to call our callback
+
+06:32.040 --> 06:38.220
+function here with you mean text one thing keep in mind is that unless we are using destructuring from
+
+06:38.220 --> 06:43.580
+the arguments object remember destruction is where we put in the curly braces and the arguments list.
+
+06:43.800 --> 06:46.950
+If there's just a single argument here we can call this whatever we want.
+
+06:46.950 --> 06:53.740
+It doesn't have to be text it can be name in this case it can be phone here be anything we want.
+
+06:53.760 --> 07:00.510
+I'm just choosing to stick with text maybe a more reasonable approach would be if we made it value and
+
+07:00.510 --> 07:06.270
+then we can use a little bit of E-6 shorthand to condense the line down to just be value like so.
+
+07:06.330 --> 07:13.320
+Because if the name of the key and the value are the same we can condense it down to just a single word.
+
+07:13.320 --> 07:15.110
+So maybe that's a valuable factor.
+
+07:15.360 --> 07:17.040
+Let's go with that direction.
+
+07:18.510 --> 07:21.140
+And shorten up each line just a little bit.
+
+07:21.960 --> 07:22.470
+OK.
+
+07:22.590 --> 07:23.580
+I think this is good.
+
+07:23.580 --> 07:29.820
+I think that this is probably a great time to do a little bit of testing my Linter is complaining that
+
+07:29.820 --> 07:33.910
+I defined map state to Propst without ever adding it anywhere.
+
+07:33.930 --> 07:35.480
+So my mistake.
+
+07:35.520 --> 07:38.760
+We defined this but we never added to the connect function.
+
+07:38.760 --> 07:47.460
+I'm going to replace the null down here with map state to prop's like so right now ready for some testing.
+
+07:48.820 --> 07:51.150
+Or refreshed the simulator.
+
+07:51.170 --> 07:57.380
+I want to remind you when we log in here that due to that oddity with how Facebook or excuse me firebase
+
+07:57.380 --> 08:03.890
+handles errors if there is any error in your code during the signing process it's going to be caught
+
+08:03.980 --> 08:10.170
+during that firebase promise remember and you will see that error pop up in the console right here.
+
+08:10.430 --> 08:15.380
+But it might manifest itself by saying authentication error making you think that you typed in the wrong
+
+08:15.380 --> 08:16.140
+password.
+
+08:16.250 --> 08:19.150
+But in reality it is the promise swallowing the air.
+
+08:19.160 --> 08:25.920
+So don't forget that if you get an error right now or if it says authentication failed or something.
+
+08:26.090 --> 08:29.890
+Hopefully mine works ok cool so I've got my employee list.
+
+08:30.020 --> 08:34.280
+I'm going to attempt to add an employee when I want to be Jane.
+
+08:34.490 --> 08:41.470
+5 5 5 5 5 whatever and then if I want to we can click create and add the record in here as well.
+
+08:41.690 --> 08:44.000
+Of course we don't have anything hooked up to the button just yet.
+
+08:44.060 --> 08:48.090
+So let's continue in the next section and finish working on our form.

@@ -1,0 +1,148 @@
+WEBVTT
+
+00:00:00.840 --> 00:00:05.910
+We're now ready to make an edit employee form that's going to look awfully similar to employ create
+
+00:00:05.910 --> 00:00:06.350
+for them.
+
+00:00:06.360 --> 00:00:11.400
+But the big difference is that this one will need to do something completely different when the user
+
+00:00:11.400 --> 00:00:12.990
+clicks the button at the bottom.
+
+00:00:12.990 --> 00:00:17.130
+And so that's where it gives us or creating a separate form is going to give us the ability to more
+
+00:00:17.160 --> 00:00:23.190
+easily customize the the function of the button here at the bottom.
+
+00:00:23.190 --> 00:00:25.080
+All right so let's get to it.
+
+00:00:25.090 --> 00:00:26.170
+Microphone's directory.
+
+00:00:26.190 --> 00:00:31.330
+I'm going to make a new file called employee edit.
+
+00:00:31.460 --> 00:00:36.840
+Yes this is going to be where our form is going to sit for editing an existing employee.
+
+00:00:36.900 --> 00:00:40.600
+We'll toss in our boiler plate.
+
+00:00:42.240 --> 00:00:50.610
+I'm going to expect that we'll need the card card section and Button components in here and pull those
+
+00:00:50.660 --> 00:00:54.130
+in common and then we'll make our class.
+
+00:00:54.150 --> 00:01:01.560
+So employee at it extends component we'll do our render method I'm going to leave it empty for just
+
+00:01:01.560 --> 00:01:02.570
+a second.
+
+00:01:03.000 --> 00:01:09.720
+Let's do export default employee added at the bottom and now we'll do our render method.
+
+00:01:09.900 --> 00:01:13.590
+So inside of here it's going look very similar to our existing employee create form.
+
+00:01:13.590 --> 00:01:17.730
+Allow the top level of card will have a card section
+
+00:01:20.540 --> 00:01:24.510
+that's going to have a button inside of it.
+
+00:01:25.490 --> 00:01:28.530
+And then this button can say like save changes.
+
+00:01:28.530 --> 00:01:32.960
+Just make sure that it's really clear that hey you are editing an existing employee you can click this
+
+00:01:33.200 --> 00:01:36.350
+if you want to save any of the changes that you're making.
+
+00:01:36.650 --> 00:01:42.560
+Now we need to also make sure that the employee form exists in here and we need to pass down any appropriate
+
+00:01:42.560 --> 00:01:43.810
+values down into it.
+
+00:01:44.090 --> 00:01:52.460
+So at the top of this file I will import my employee form
+
+00:01:55.360 --> 00:01:56.640
+from an employee form.
+
+00:01:57.040 --> 00:02:00.480
+I'm also going to need to make sure that I connect this thing to redux
+
+00:02:03.900 --> 00:02:08.280
+like so and then the reason just barely clear the reason that we are doing the connector right here
+
+00:02:08.310 --> 00:02:13.740
+is to make sure that we can call an action creator to this employee that we're trying to mess around
+
+00:02:13.740 --> 00:02:14.690
+with a little bit.
+
+00:02:15.030 --> 00:02:19.140
+So let's hook up connect at the bottom.
+
+00:02:19.140 --> 00:02:21.480
+I don't have the actual creator put together just yet.
+
+00:02:21.480 --> 00:02:24.990
+So I'm not going to pass anything into connect just a star.
+
+00:02:25.170 --> 00:02:28.870
+I will put inside my employee form.
+
+00:02:28.920 --> 00:02:33.450
+However there we go and I think you might have to do a typo.
+
+00:02:33.450 --> 00:02:35.670
+Employee from employee form.
+
+00:02:35.790 --> 00:02:37.300
+Thank goodness for E.S. lint huh.
+
+00:02:37.440 --> 00:02:40.550
+That's a it's an annoying little one.
+
+00:02:40.590 --> 00:02:46.380
+So now our employee for our employee it is excuse me is at a place where he can be displayed on the
+
+00:02:46.380 --> 00:02:46.980
+screen.
+
+00:02:47.220 --> 00:02:50.070
+So here's where things start to get more interesting.
+
+00:02:50.070 --> 00:02:56.610
+We need to now customize this version of the form to work for editing and employee.
+
+00:02:56.610 --> 00:02:57.930
+That means two things.
+
+00:02:57.930 --> 00:03:03.810
+First we need to make sure that this form always gets navigated to with an employee in mind like the
+
+00:03:03.810 --> 00:03:08.740
+one they were trying to operate on and load that employee's attributes into the form reducer.
+
+00:03:08.820 --> 00:03:13.230
+So that's going to be the part where we initialize the valleys in our form.
+
+00:03:13.230 --> 00:03:19.710
+Second we're going to need to add another action creator to specifically update an employee as opposed
+
+00:03:19.710 --> 00:03:23.540
+to our existing one which just creates a new employee.
+
+00:03:23.560 --> 00:03:26.270
+So let's take care of these two challenges in the next section

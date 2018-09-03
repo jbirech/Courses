@@ -1,0 +1,391 @@
+WEBVTT
+
+00:00.660 --> 00:05.150
+Our application now has two pieces of state that e-mail and the password.
+
+00:05.160 --> 00:09.980
+So in theory once a user enters these we're ready to actually sign them into our application.
+
+00:10.050 --> 00:14.260
+So the next thing we need to work on is figuring out how do we actually sign in a user right.
+
+00:14.430 --> 00:18.550
+Well as we figure out in the past we use firebase to authenticate our user.
+
+00:18.900 --> 00:25.200
+But thinking about authentication I just kind of thinking about it in general I'm starting to think
+
+00:25.200 --> 00:30.960
+that maybe our author reducer is going to need to maintain a couple of their properties in here beyond
+
+00:30.960 --> 00:32.850
+just email and password.
+
+00:32.880 --> 00:38.370
+So let's check out a mock up on the left hand side is what our state currently is like what it looks
+
+00:38.370 --> 00:41.610
+like when we run our application we have just e-mail and password and nothing else.
+
+00:41.610 --> 00:42.930
+That's it.
+
+00:43.050 --> 00:47.280
+What I'm going to propose for our application state.
+
+00:47.280 --> 00:54.660
+We're going to propose our author douceur comes in to responsibility for is a loading flag an error
+
+00:54.660 --> 00:57.180
+message and a user model.
+
+00:57.240 --> 01:00.710
+So let's talk about each of these really quick where we know what the e-mail password are.
+
+01:00.720 --> 01:03.520
+Those are just the strings that the user is entering.
+
+01:03.520 --> 01:05.030
+How about the loading flag here.
+
+01:05.190 --> 01:07.560
+This Ludi flag is to me just like the one we previously had.
+
+01:07.560 --> 01:09.630
+It's going to be a boolean either true or false.
+
+01:09.660 --> 01:14.220
+And it's just going to record whether or not we are currently trying to authenticate the user.
+
+01:14.220 --> 01:16.930
+So the purpose of loading right here is just so we can show spin.
+
+01:17.010 --> 01:17.370
+That's it.
+
+01:17.370 --> 01:19.230
+Nothing crazy.
+
+01:19.230 --> 01:22.050
+The air flag again is just is a string.
+
+01:22.080 --> 01:26.430
+It's going to record whether or not there is a error in authentication.
+
+01:26.430 --> 01:31.080
+So just the strings can say something like authentication failed or whatever.
+
+01:31.110 --> 01:36.480
+We feel like getting a message to now the last one is a little bit more interesting user.
+
+01:36.660 --> 01:41.320
+So user here is going to be the user model that is supplied by firebase.
+
+01:41.370 --> 01:43.920
+So we'll learn a lot more about this in just a little bit.
+
+01:43.920 --> 01:49.290
+For right now just take my word for it that this user property is going to be an object that tells us
+
+01:49.290 --> 01:54.060
+stuff like here's what the currently signed in user's username and ideas.
+
+01:54.060 --> 02:00.570
+So just a short description is an object as a short description of our user who is signed in.
+
+02:00.570 --> 02:06.350
+So all in all I am suggesting that we expand the properties of a producer Orsini the properties that
+
+02:06.360 --> 02:09.250
+reduce or mix by adding in these last three on here.
+
+02:09.640 --> 02:16.200
+That is what I'm suggesting that we do so of course because we want to update our application state.
+
+02:16.200 --> 02:22.320
+We're going to need to toss in some action creators and types and all that other good stuff to manage
+
+02:22.320 --> 02:26.720
+these properties right so we can like actually change the loading flag an error flag in the user like
+
+02:26.730 --> 02:28.510
+all that kind of good stuff.
+
+02:28.530 --> 02:33.930
+So now that we know what the properties we want to maintain Are we can start to think about when we
+
+02:33.930 --> 02:35.720
+want to update each of them.
+
+02:36.130 --> 02:36.580
+OK.
+
+02:36.750 --> 02:41.130
+Want to think about when we're going to update each of those flags.
+
+02:41.130 --> 02:42.210
+So email and password.
+
+02:42.210 --> 02:45.210
+We've already done and those two are kind of obvious right.
+
+02:45.210 --> 02:50.310
+Whenever user types something in the email field I want to update my email whenever the user types something
+
+02:50.310 --> 02:54.190
+the password field I want to update my password password piece of state.
+
+02:54.420 --> 02:55.900
+But these new three down here.
+
+02:55.910 --> 02:58.770
+Well they're a little bit different weren't they.
+
+02:58.770 --> 03:00.380
+They're a little bit different.
+
+03:00.400 --> 03:05.160
+The loading flag will probably start off as something like null because or false because by default
+
+03:05.190 --> 03:07.730
+when the user first starts the application up.
+
+03:07.890 --> 03:10.210
+Yeah you know we're not actually loading anything just yet.
+
+03:10.290 --> 03:13.740
+So probably start to false or whatever.
+
+03:13.740 --> 03:19.020
+But once an authentic quake authentication request starts we're going to flip it over to true and then
+
+03:19.020 --> 03:23.400
+very importantly this is like the real world and trying to hammer in here what I'm trying to get at
+
+03:23.970 --> 03:28.530
+is when the request is complete when like the signing request is complete we're going to flip it back
+
+03:28.530 --> 03:29.540
+to false.
+
+03:29.940 --> 03:30.510
+OK.
+
+03:30.510 --> 03:35.640
+So when the request is complete I want to change this value of this piece of state right here.
+
+03:37.470 --> 03:38.730
+Same thing with the error message.
+
+03:38.730 --> 03:40.380
+By default I mean empty string.
+
+03:40.560 --> 03:46.050
+But when the error or when the authentication request is complete I want to get an error message and
+
+03:46.050 --> 03:48.710
+maybe you know update this to show the user an error message.
+
+03:48.960 --> 03:50.660
+And the same with the third one here as well.
+
+03:50.670 --> 03:54.270
+By default it might be like nold to say no user is signed in right now.
+
+03:54.570 --> 04:01.140
+But when the authentication request is complete I want to put the user model in there as this property
+
+04:02.690 --> 04:10.810
+so the common the common theme here the goal with these last three poverty's is that after a user or
+
+04:10.820 --> 04:16.030
+after we make a request to the firebase server we want to update our application state.
+
+04:16.050 --> 04:16.680
+OK.
+
+04:16.840 --> 04:18.290
+That's the goal.
+
+04:18.770 --> 04:20.040
+But no problem with that.
+
+04:20.090 --> 04:20.780
+Right.
+
+04:20.800 --> 04:23.080
+Like we know how to update our application state.
+
+04:23.090 --> 04:26.450
+We make an action Creator and we return in action.
+
+04:26.780 --> 04:29.350
+And our end user updates something like Whatever.
+
+04:29.450 --> 04:30.770
+What's the big deal here.
+
+04:31.190 --> 04:34.340
+Well maybe it's not so simple.
+
+04:34.340 --> 04:37.550
+I want to point out some little little issue here.
+
+04:37.550 --> 04:42.050
+So first just to make sure everything is crystal clear about this kind of set up this prep I'm trying
+
+04:42.050 --> 04:43.210
+to do here.
+
+04:44.000 --> 04:49.970
+I want to just be very clear very direct with you whenever user presses out logon button right there
+
+04:50.060 --> 04:51.390
+when they press it.
+
+04:51.500 --> 04:56.760
+We're going to call something like a log in user action creator with email and password and that creator
+
+04:56.850 --> 05:00.660
+is going to make a request to sign that user and I like to log them in.
+
+05:00.800 --> 05:05.480
+Now that were the again the part them trying to make real quick crystal clear right here is that this
+
+05:05.480 --> 05:10.400
+action creator must by definition be making an Ajax request.
+
+05:10.400 --> 05:11.510
+Right.
+
+05:11.600 --> 05:13.700
+So it's going to make an Ajax request.
+
+05:13.710 --> 05:18.230
+And until that request succeeds or fails until it completes.
+
+05:18.230 --> 05:23.060
+We don't really know what action we want to return from that action creator and that's what I'm really
+
+05:23.060 --> 05:24.240
+trying to get here.
+
+05:24.290 --> 05:30.860
+So I'm really trying to get at by default whenever we like as all the acting creators we've proved so
+
+05:30.860 --> 05:33.530
+far behave when we call an action creator.
+
+05:33.600 --> 05:34.650
+It runs.
+
+05:34.810 --> 05:35.870
+We return in action.
+
+05:35.870 --> 05:36.210
+Boom.
+
+05:36.210 --> 05:36.700
+Here's the Ox.
+
+05:36.710 --> 05:40.430
+We call it runs it get the action back toss off to the producer.
+
+05:40.550 --> 05:44.240
+Instantaneous no delay whatsoever.
+
+05:44.480 --> 05:51.710
+But with this new idea this new request that I want to make things behave a little bit differently when
+
+05:51.710 --> 05:59.480
+we call the action Creator it runs we make a request to firebase and say wait a minute we don't actually
+
+05:59.480 --> 06:01.000
+have anything to return yet.
+
+06:01.310 --> 06:04.450
+Remember Ajax requests are asynchronous.
+
+06:04.490 --> 06:08.290
+So inside that action creator we have no value no action return.
+
+06:08.290 --> 06:12.680
+Nothing to say like hey here's the user the user is going to come in a minute.
+
+06:12.680 --> 06:16.760
+Like just hold on don't actually return to the action yet like we don't know what it is yet.
+
+06:16.850 --> 06:20.860
+Only at some time in the future when the request is complete.
+
+06:20.870 --> 06:23.850
+Can we actually return an action that is when trying to get out here.
+
+06:24.050 --> 06:31.070
+So when we have action creators that make Ajax requests things behave a little bit differently and our
+
+06:31.070 --> 06:37.190
+existing pattern of call the action create or in turn action starts to break down because when we make
+
+06:37.190 --> 06:41.460
+an Ajax request we don't immediately have anything to return from this function.
+
+06:41.510 --> 06:48.310
+And remember in javascript there is no such thing as like sleep or weight or anything like that.
+
+06:48.380 --> 06:53.230
+When this action creator runs it's going to execute the coding side of it and then immediately return.
+
+06:53.240 --> 06:55.530
+And there is nothing you can do to stop that.
+
+06:55.620 --> 07:01.160
+So there's no fancy way that we can somehow like say oh make Ajax request a write up here but don't
+
+07:01.160 --> 07:02.520
+return anything just yet.
+
+07:02.530 --> 07:05.650
+Like just give me a minute to like figure out what this value should be.
+
+07:05.750 --> 07:13.010
+So clearly our existing pattern for action creators is not going to work when it comes to making Ajax
+
+07:13.010 --> 07:13.760
+requests.
+
+07:13.760 --> 07:16.770
+Clearly we need some new methodology here.
+
+07:16.860 --> 07:22.220
+We need some new way of handling action crater's that's going to help us to make an Ajax request and
+
+07:22.220 --> 07:27.830
+then at some point in the future maybe dispatching action to say loading is complete.
+
+07:27.980 --> 07:29.750
+Here's the error message if there is one.
+
+07:29.870 --> 07:30.920
+And here is the user.
+
+07:30.920 --> 07:37.750
+If there is one OK so when I saw I'm just condenses all down to a single sentence give you the summary.
+
+07:37.760 --> 07:43.230
+The big problem here is that we've been writing synchronous action creators that instant return in action
+
+07:43.430 --> 07:49.370
+but we need to be to write an asynchronous action creator that will return an action at some point in
+
+07:49.370 --> 07:50.260
+the future.
+
+07:50.570 --> 07:53.300
+So of course this is not an original problem.
+
+07:53.300 --> 07:57.800
+Like I didn't just stumble across this redux has our back on this one.
+
+07:57.830 --> 08:01.210
+Let's discuss how we're going to solve this in the next section.

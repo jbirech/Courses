@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.770 --> 00:06.280
+Unless section we saw that we got some automatic navigation between our scenes working but there is
+
+00:06.280 --> 00:08.760
+that little bit of oddity of that right hander.
+
+00:08.830 --> 00:13.130
+You know what I just realized I've been saying right handed and it's actually the left hand.
+
+00:13.300 --> 00:14.800
+Oh my gosh you guys.
+
+00:14.860 --> 00:17.120
+Oh man how embarrassing.
+
+00:17.560 --> 00:22.680
+Well I was thinking about right hand from the device's perspective.
+
+00:22.700 --> 00:26.600
+That's that is my that is my that is my.
+
+00:26.670 --> 00:28.010
+That is what I'm going to claim.
+
+00:28.020 --> 00:28.600
+OK.
+
+00:28.830 --> 00:29.590
+How embarrassing.
+
+00:29.700 --> 00:38.400
+Well such as the way we're going to roll right on Anyways we the nav bar up you're automatically from
+
+00:38.400 --> 00:39.670
+the routeing library.
+
+00:39.720 --> 00:41.960
+So definitely getting a lot of free functionality here.
+
+00:41.970 --> 00:44.460
+But we definitely don't want that button on the left hand side.
+
+00:44.670 --> 00:47.520
+Let's figure out how this thing's working.
+
+00:47.950 --> 00:51.390
+Figure out the fix here is going to require a little bit more knowledge on how scenes work.
+
+00:51.390 --> 00:54.480
+So let's just take a quick break and figure out how the thing works out.
+
+00:55.830 --> 00:59.070
+OK first off want to start back here at this diagram that we were looking at before.
+
+00:59.120 --> 01:03.710
+So we looked at this diagram a couple of seconds ago and I had said that we have two separate flows.
+
+01:03.860 --> 01:07.400
+We've got an authentication flow and the main flow.
+
+01:07.520 --> 01:13.750
+So think of these two flows right now and tell me where you think it's appropriate to have a back button.
+
+01:13.820 --> 01:19.160
+Right now we have a back button going from this employee list screen to the authentication screen.
+
+01:19.160 --> 01:21.810
+And it probably doesn't make sense to have it there right now.
+
+01:21.830 --> 01:26.960
+You know if if that thing actually said like sign out or log out then yes it would make sense.
+
+01:26.960 --> 01:31.400
+But right now just having like a button with no explanation doesn't make sense at all.
+
+01:31.420 --> 01:34.220
+Some say having a backpack in between these two.
+
+01:34.250 --> 01:36.420
+Definitely it does not.
+
+01:37.010 --> 01:39.770
+In some places it does make sense to have a backup.
+
+01:39.780 --> 01:46.490
+However for example when I'm on my employee list if I tap on an employee and go to this kind of detail
+
+01:46.490 --> 01:52.520
+or create screen you know whatever it is it does make sense to have a back button to go back to my employee
+
+01:52.520 --> 01:53.660
+list over here.
+
+01:53.660 --> 01:57.100
+So in some cases it makes sense to have a back button.
+
+01:57.140 --> 02:01.360
+In others it does not.
+
+02:01.450 --> 02:04.630
+We go one more go.
+
+02:05.020 --> 02:10.150
+So to understand this behavior and how it works how that back button works we can do what is called
+
+02:10.210 --> 02:17.830
+seen nesting or recontest different scenes on application right now our auth Flo has a single screen
+
+02:18.010 --> 02:22.870
+and there is no screen that you should be able to go to where there should be like a next button or
+
+02:22.870 --> 02:23.790
+a back button.
+
+02:23.950 --> 02:30.970
+So we're going to nest our logon screen in its own separate scene with a single key of auth and know
+
+02:30.970 --> 02:33.850
+of nothing else no other process whatsoever.
+
+02:33.850 --> 02:34.870
+We can now think of this.
+
+02:34.870 --> 02:38.130
+And I'm going to kind of colloquially referred to as like a scene bucket.
+
+02:38.230 --> 02:40.370
+We now have an author bucket.
+
+02:40.480 --> 02:45.350
+And if I go to any other scene of my application I'm going to be leaving the bucket.
+
+02:45.470 --> 02:51.780
+And any time that I leave the soft bucket I'm not going to get any back buttons or anything like that.
+
+02:51.930 --> 02:57.540
+On the other hand we want to have a forward and back button to go between the employee list and employee
+
+02:57.540 --> 03:00.520
+create or employee form know whatever we end up calling the sing over here.
+
+03:00.750 --> 03:06.150
+So it does make sense to nest the two of them together in their own scene bucket because they're in
+
+03:06.150 --> 03:07.030
+their own bucket.
+
+03:07.140 --> 03:12.820
+Anytime I go between them I am going to expect to have a back button and a forward button.
+
+03:12.960 --> 03:18.270
+Now to be really clear this is behavior that is automatically implemented for us by our routing library.
+
+03:18.480 --> 03:24.690
+So all we have to do is Nest our scenes and then the presence of the back button will be automatically
+
+03:24.690 --> 03:26.090
+inferred for us.
+
+03:26.460 --> 03:27.290
+So let's go to the shot.
+
+03:27.330 --> 03:28.700
+Let's just see how it works.
+
+03:30.680 --> 03:34.890
+Back inside of my rodder component I'm going to add another scene
+
+03:37.660 --> 03:47.620
+of Auth. and I'm going to wrap my log in component with it and add another one with the key of main.
+
+03:48.310 --> 03:51.580
+And I'm also going to wrap my employee list with that one.
+
+03:51.610 --> 03:53.950
+So now I have two separate scene buckets.
+
+03:53.950 --> 03:59.090
+And by the way this term I'm using here bucket it is solely for the purposes of this course.
+
+03:59.190 --> 04:04.420
+It is not an official term but it's one that I find very helpful for kind of understanding what is going
+
+04:04.420 --> 04:05.420
+on here.
+
+04:05.490 --> 04:12.070
+So now because these are two separate buckets we can freely navigate between either of them without
+
+04:12.070 --> 04:13.890
+getting any back button.
+
+04:13.910 --> 04:18.750
+Now there is one little gotcha here and this is a very painful Gotcha.
+
+04:18.790 --> 04:21.280
+And that is why I'm going to tell it to you right now.
+
+04:21.280 --> 04:27.520
+We had been using the actions dot employee list to navigate over to this scene.
+
+04:27.580 --> 04:27.890
+Right.
+
+04:27.910 --> 04:31.160
+We'd like you know we just added that inside of our action crater's file.
+
+04:31.300 --> 04:36.040
+Here's logging user success here is actions not employee list.
+
+04:36.190 --> 04:41.980
+So the gotcha is whenever we are navigating between different buckets we cannot navigate directly to
+
+04:41.980 --> 04:43.580
+a nested scene.
+
+04:43.600 --> 04:51.310
+So now when I want to go from the log in scene right here over to my employee list I am instead going
+
+04:51.310 --> 04:57.200
+to call actions dot main and then rely upon that to dump me on my employee list.
+
+04:57.220 --> 05:00.340
+So it is a nasty little gotcha.
+
+05:00.820 --> 05:02.830
+One just one that we've got to deal with.
+
+05:03.040 --> 05:07.960
+So back in our action critter's file rather than going to actions dot employee list I'm going to go
+
+05:07.960 --> 05:13.840
+to actions dot main and then right now because my employee list is the only scene in here.
+
+05:14.020 --> 05:17.160
+This scene will be shown automatically for us.
+
+05:17.680 --> 05:19.960
+OK so time for a little bit of text.
+
+05:20.170 --> 05:21.520
+Refresh the simulator.
+
+05:23.630 --> 05:28.150
+I will put in my e-mail.
+
+05:28.240 --> 05:33.730
+Let's log in and now you'll notice I don't have the button on the left hand side anymore.
+
+05:34.180 --> 05:34.600
+OK.
+
+05:34.600 --> 05:36.910
+So definitely working the way that we expect now.
+
+05:36.940 --> 05:39.070
+I think our navigation is a pretty good spot.
+
+05:39.070 --> 05:40.990
+So let's continue in the next section

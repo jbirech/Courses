@@ -1,0 +1,298 @@
+WEBVTT
+
+00:00.810 --> 00:05.520
+We've now got the skeleton of our app put together and it's time to now produce a list of different
+
+00:05.520 --> 00:07.380
+libraries to display to the user.
+
+00:07.380 --> 00:09.880
+So just remember how this app is going to work.
+
+00:09.960 --> 00:12.600
+We want to have a list of libraries to serve the user.
+
+00:12.600 --> 00:17.970
+And then whenever user taps one we want to expand that particular library and show the user more detail
+
+00:17.970 --> 00:19.090
+about it.
+
+00:19.110 --> 00:24.420
+So we want to know somewhere we have to basically stash a list of libraries to show the user you know
+
+00:24.420 --> 00:28.020
+we need that data to sit somewhere inside of our application.
+
+00:28.110 --> 00:32.970
+Now in a previous out in the first film we worked on when we were working with that list of albums I
+
+00:32.970 --> 00:38.520
+made the case to say you know whenever you're making a mobile application it a lot of time makes sense
+
+00:38.520 --> 00:44.940
+to store data like that you know data that you want to show to the user on a third party server like
+
+00:44.940 --> 00:46.500
+you know an actual API.
+
+00:47.010 --> 00:50.880
+And then whenever you want to make changes to the list of data that should be shown to the user you
+
+00:50.880 --> 00:54.540
+just update the server right as opposed to having to update the app.
+
+00:54.570 --> 00:57.660
+In other words don't hard code your data inside your application.
+
+00:57.660 --> 01:00.900
+That was the lesson to learn for this app right here.
+
+01:00.900 --> 01:06.540
+Just for the purposes of giving getting a really solid foundation in redux we're going to break that
+
+01:06.540 --> 01:11.820
+rule a little bit and we're just going to say for this application we're going to hard code a list of
+
+01:11.820 --> 01:18.510
+libraries inside our application so like we will have a file in our project right somewhere in here
+
+01:18.600 --> 01:23.110
+a file that says specifically show this list of libraries to the user.
+
+01:23.160 --> 01:28.020
+So just to be clear this is like kind of a one off thing just to get a little bit stronger grasp on
+
+01:28.020 --> 01:29.000
+redux.
+
+01:29.630 --> 01:30.240
+OK.
+
+01:30.570 --> 01:37.650
+So in this section I want to figure out how exactly we are going to produce that list and make it available
+
+01:37.650 --> 01:39.700
+to the rest of our application.
+
+01:39.720 --> 01:46.060
+So I'm kind of you know I'm talking about here is producing some amount of data that's going to like
+
+01:46.090 --> 01:51.360
+C in our application and we're going be able to get access to that data and you know make change soon
+
+01:51.390 --> 01:52.430
+or whatever.
+
+01:52.440 --> 01:59.080
+So at any point in time when we're working with redux And we ever use the word data like data inside
+
+01:59.100 --> 02:03.640
+of my application we need to be thinking about reducers.
+
+02:04.080 --> 02:11.250
+Reducers Purdue's our applications state in our application state is what are what holds all of our
+
+02:11.250 --> 02:14.800
+data for our app K like our state is our apps data.
+
+02:14.850 --> 02:21.990
+So inside of our application state we will have a list of libraries and because our reduce errors produce
+
+02:21.990 --> 02:22.760
+our application.
+
+02:22.770 --> 02:27.570
+It makes sense that our reduce or must produce this list of libraries to show to the user.
+
+02:27.570 --> 02:34.470
+So I'm over here right now inside of the reducers index file where we had hard coded just a very simple
+
+02:34.530 --> 02:37.450
+reducer for right now about as simple as it gets.
+
+02:37.470 --> 02:40.820
+Remember a producer is a function that returns some amount of data.
+
+02:41.010 --> 02:45.200
+So here's our douceur right here and right now it's returning an empty array.
+
+02:45.240 --> 02:47.950
+So just empty array no libraries right now.
+
+02:48.210 --> 02:53.400
+So what I'm suggesting here what I'm trying to say is that this array right here should be empty it
+
+02:53.400 --> 02:56.220
+should be like a list of libraries to show to the user.
+
+02:56.400 --> 03:00.920
+So whenever this reduce or runs it will return a list of libraries to show to the user.
+
+03:00.990 --> 03:02.120
+That's that's like the goal here.
+
+03:02.130 --> 03:04.620
+That's our plan.
+
+03:04.620 --> 03:10.080
+Now this is kind of getting to the topic of reduce or design or kind of like what different reducers
+
+03:10.080 --> 03:11.830
+we're going to have in our application.
+
+03:11.830 --> 03:16.800
+So before we just kind of willy nilly throw a list of libraries in here I want have a quick discussion
+
+03:16.890 --> 03:21.540
+about the different types of reducers that we might have in the application that we're building right
+
+03:21.540 --> 03:27.240
+now and we're going to walk through the process of how we decide what reducers to make in the future
+
+03:27.250 --> 03:33.960
+we will repeat this process over and over again of kind of deciding what reducers we want to have.
+
+03:33.990 --> 03:37.120
+So for the first time I walked through it nice and slow.
+
+03:37.860 --> 03:39.510
+So here's the mockup for application.
+
+03:39.540 --> 03:40.410
+Right.
+
+03:40.410 --> 03:41.980
+We're looking at it here.
+
+03:42.240 --> 03:48.000
+And I want to ask you a question I want to ask you what are all the different kind of variables that
+
+03:48.000 --> 03:49.750
+I would have in this application right.
+
+03:49.770 --> 03:51.480
+What are the different like.
+
+03:51.690 --> 03:55.860
+The real question on ask here is what are the different pieces of state that would have an application.
+
+03:55.860 --> 03:59.100
+I don't want to really use the word state I want to say where are the different variables what are the
+
+03:59.100 --> 04:03.390
+different pieces of data they're going to have for this application.
+
+04:03.390 --> 04:07.110
+We have a list of libraries and then a currently selected library right.
+
+04:07.110 --> 04:08.960
+That's kind of how this application works.
+
+04:09.120 --> 04:15.300
+So I'm going to suggest that really we have two separate pieces of state inside this reducer.
+
+04:15.360 --> 04:18.600
+We have a list of libraries to show to the user.
+
+04:18.600 --> 04:21.590
+Right that's one distinct piece of state.
+
+04:21.870 --> 04:26.330
+And then we also have a separate piece of state which is the currently selected library.
+
+04:26.340 --> 04:32.000
+So like the most recent one that the user tapped the the one that the user tapped to select and that's
+
+04:32.000 --> 04:35.790
+the one we want to expand and show with more detail to the user.
+
+04:35.790 --> 04:40.790
+So for this application I'm going to suggest that we have exactly two pieces of state.
+
+04:40.930 --> 04:46.940
+Again a list of libraries currently selected library because I have two pieces of state.
+
+04:47.070 --> 04:54.960
+I will suggest that we make two separate reducers and we'll call maybe one of them we'll call like library
+
+04:54.980 --> 05:01.270
+reducer and then we'll call the other one maybe something like selection reduce or the library reducer
+
+05:01.270 --> 05:05.470
+will be responsible for producing our list of libraries to show to the user.
+
+05:05.500 --> 05:12.370
+So it'll be an array of maybe objects where each object represents a distinct library to show to the
+
+05:12.370 --> 05:13.220
+user.
+
+05:13.540 --> 05:18.860
+It will have properties like ID so like the idea of a library the name of the library.
+
+05:18.940 --> 05:22.990
+And I don't show it here in this text because it would have been really long but it should probably
+
+05:22.990 --> 05:25.060
+also have the description of the library as well.
+
+05:25.090 --> 05:32.510
+So like you know the text to show that further describes that library then on this second reduce search
+
+05:32.610 --> 05:38.050
+and suggest that we have we might have we might call it a selection reducer and you can see in here
+
+05:38.050 --> 05:41.110
+that I just had this very simple value for it of one.
+
+05:41.140 --> 05:42.200
+So what is this right here.
+
+05:42.250 --> 05:44.760
+Well for this selection reduce.
+
+05:45.280 --> 05:50.950
+I'm saying that we will have a producer that's that just keep tracks of what the currently expanded
+
+05:51.250 --> 05:53.180
+library has to show to the user.
+
+05:53.500 --> 06:00.250
+And the way that it's going to work is it will record the id the ID of the library to show more detail
+
+06:00.280 --> 06:02.170
+of the one to expand.
+
+06:02.170 --> 06:08.230
+So right now the selector inducer has a piece of state of one or like a value of 1 that means the user
+
+06:08.260 --> 06:15.380
+wants to expand and see more detail about the library with ID 1 which is the reactor library.
+
+06:15.430 --> 06:19.230
+So that is how were going to kind of piece together the state inside this application.
+
+06:19.240 --> 06:25.540
+We're going to have a library reducer and a selection reducer the library or reduce or produces the
+
+06:25.600 --> 06:30.610
+list of libraries to show the user selects reduce or keeps track of the current library that should
+
+06:30.610 --> 06:32.950
+be expanded to show more detail.
+
+06:33.230 --> 06:34.110
+So that's it.
+
+06:34.180 --> 06:36.770
+That's the goal here.
+
+06:36.910 --> 06:37.760
+I'm talking.
+
+06:37.960 --> 06:39.510
+So let's take a quick break.
+
+06:39.610 --> 06:44.080
+And in the next section we will start implementing our library reducer

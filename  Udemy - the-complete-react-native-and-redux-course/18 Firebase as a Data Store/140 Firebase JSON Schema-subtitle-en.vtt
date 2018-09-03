@@ -1,0 +1,274 @@
+WEBVTT
+
+00:00.750 --> 00:03.100
+I think we're all done with our form right now.
+
+00:03.120 --> 00:06.640
+We've got a name a phone and we can select a shift.
+
+00:06.750 --> 00:12.000
+So as soon as a user enters all these things then we can start to try to take this data and submitted
+
+00:12.000 --> 00:13.860
+off to some location.
+
+00:14.070 --> 00:18.020
+Now the user submits this form we want to persist this data somehow.
+
+00:18.150 --> 00:25.500
+So if the user ever logs out and then logs back in or even installs the app or uses on a different device.
+
+00:25.500 --> 00:26.120
+Right.
+
+00:26.310 --> 00:31.060
+We still want the user to see their list of employees to save our data.
+
+00:31.080 --> 00:33.700
+We're going to be making use of firebase.
+
+00:33.900 --> 00:39.950
+We're already using it for authentication so it makes sense to also use it to store our data as well.
+
+00:40.050 --> 00:44.910
+Firebase was definitely initially known for its data storage capabilities anyways so definitely makes
+
+00:44.910 --> 00:47.520
+sense to use it for this purpose.
+
+00:47.520 --> 00:52.170
+One thing I want to say is a quick reminder remember that the object that we're trying to save right
+
+00:52.170 --> 00:56.050
+here is what we're going to refer to as an employee model.
+
+00:56.400 --> 01:00.560
+It's going to be an object that has a name a phone and a shift.
+
+01:00.780 --> 01:06.350
+And right now that is what our form is producing inside of the employee form reducer the employee former
+
+01:06.350 --> 01:11.220
+douceur is going to end up with a name a phone and a shift to keep that in mind.
+
+01:13.600 --> 01:18.880
+I want to open up the firebase console for a moment so I can open up firebase counsel and then on the
+
+01:18.880 --> 01:27.430
+left hand side of my project going to find the database tab right here here's my database right now
+
+01:27.460 --> 01:31.450
+our database is completely empty so we don't see any data in here whatsoever.
+
+01:31.450 --> 01:40.060
+We can see just you know Menger 2 3 to a B which is the name of my app fire Meece is a song data store.
+
+01:40.100 --> 01:46.130
+So it's not like a sequel database where you have a number of different tables and different rows on
+
+01:46.130 --> 01:47.290
+each of these tables.
+
+01:47.360 --> 01:49.670
+A Jaison data store.
+
+01:49.700 --> 01:53.810
+The easiest way to picture this data is to just or the structure or the data that we're going to put
+
+01:53.810 --> 01:57.600
+in here is to just think of it as a javascript object.
+
+01:57.640 --> 02:01.900
+We're going to have some number of properties and each property has a value.
+
+02:01.970 --> 02:07.880
+You can only spend a little bit of time kind of exploring the data structure of our application and
+
+02:07.880 --> 02:12.140
+how we might structure that inside of our firebase database.
+
+02:12.170 --> 02:17.540
+I really recommend whenever using firebase to spend some time to think about the schema of the data
+
+02:17.540 --> 02:22.390
+that you want to see even here because it's really going to save you some time down the line.
+
+02:22.400 --> 02:27.150
+I've already taken the liberty of putting together a schema for our database.
+
+02:27.520 --> 02:31.360
+So let's go ahead check out the diagram and see what it's going to look like.
+
+02:33.600 --> 02:39.270
+Now this diagram really not that useful.
+
+02:39.390 --> 02:44.120
+It's a nasty little diagram Maybe if this argument doesn't make sense.
+
+02:44.370 --> 02:45.420
+I don't blame you.
+
+02:45.420 --> 02:51.960
+It's really hard to model JS on in a diagram format so we're going to look at it in this kind of diagram
+
+02:51.960 --> 02:54.530
+format and then we'll look at it in plain JS on form as well.
+
+02:54.540 --> 02:57.680
+Maybe that'll be a little bit more useful.
+
+02:57.690 --> 03:02.370
+So first let me start off by telling you that the schema that we're going to use here for this app is
+
+03:02.460 --> 03:09.420
+super generic and common in firebase and I picked this schema on purpose to make sure that you can reuse
+
+03:09.420 --> 03:11.020
+it on your own apps as well.
+
+03:11.040 --> 03:12.310
+Without a lot of change.
+
+03:12.330 --> 03:18.390
+So everything we're going to do right here you can reuse on are a lot of very different types of apps
+
+03:18.390 --> 03:19.650
+and have a lot of luck with it.
+
+03:19.650 --> 03:22.020
+It's going to work out really well for you.
+
+03:22.050 --> 03:24.410
+So let's go over the diagram and we'll look at the Rajai saw.
+
+03:24.420 --> 03:27.090
+I think the J-Zone make a lot more sense.
+
+03:27.090 --> 03:35.290
+The overall blue box is meant to represent just firebase like here's firebase here is our database inside
+
+03:35.290 --> 03:39.510
+of firebase we are going to create a collection of users.
+
+03:39.700 --> 03:45.000
+So we're going to have a number of users and cyder application each user.
+
+03:45.010 --> 03:51.590
+So like user one user to an user or three is going to have their own collection of employees.
+
+03:51.640 --> 04:00.240
+So user one has a collection of ploys that contains employee number one an employee number two at this
+
+04:00.240 --> 04:05.720
+time we are already authenticating users right like users exist on our application.
+
+04:05.850 --> 04:11.490
+But just because we have authentication enabled with firebase does not mean that we automatically get
+
+04:11.490 --> 04:15.770
+all the different users like injected into our data store as well.
+
+04:15.790 --> 04:20.440
+There are really two separate things and firebase you've got authentication and you've got the database.
+
+04:20.730 --> 04:26.520
+They can turn to read data from each other but the database does not inherently have like a separate
+
+04:26.520 --> 04:30.410
+private bucket for each of our users like we have to set up that type of system.
+
+04:30.420 --> 04:33.240
+We want it to.
+
+04:33.310 --> 04:33.970
+All right.
+
+04:34.330 --> 04:36.520
+Maybe I'm not making too much sense here with this diagram.
+
+04:36.520 --> 04:39.310
+Let's check out the sun maybe this will make a little bit more sense.
+
+04:39.310 --> 04:46.180
+So this is essentially the data structure that we're going to see inside of our application at the very
+
+04:46.180 --> 04:47.060
+top level.
+
+04:47.170 --> 04:52.180
+So this is like all data that exists in firebase is everything for all the different users our entire
+
+04:52.180 --> 04:53.230
+application.
+
+04:53.440 --> 04:56.450
+At the very top level we're going to have a collection of users.
+
+04:56.500 --> 05:04.350
+So I literally mean like a user's key that is going to point at an object the keys of that object are
+
+05:04.390 --> 05:06.370
+each of our individual users.
+
+05:06.380 --> 05:15.910
+So like user with ID 4 or 5 6 or user with ID 1 to 3 then each of these users will have a collection
+
+05:15.940 --> 05:17.270
+of employees.
+
+05:17.530 --> 05:19.600
+So here's user 1 2 3.
+
+05:19.600 --> 05:28.420
+They have a collection of employees that contains employee ID 1 an ID 2 and then each employee in turn
+
+05:28.660 --> 05:31.510
+has their own name phone number and shift.
+
+05:31.510 --> 05:31.810
+All right.
+
+05:31.810 --> 05:34.390
+So that's this is the general idea here.
+
+05:34.420 --> 05:39.280
+I really get the feeling that this might not be you know maybe this is making sense to you.
+
+05:39.340 --> 05:39.790
+Definitely.
+
+05:39.790 --> 05:44.560
+Jason Skinner like this is something where it's really a lot more easy if you kind of walk through it
+
+05:44.560 --> 05:48.580
+yourself and get to see the data especially in the firebase cons..
+
+05:48.580 --> 05:55.050
+So let's let's treat this as just kind of a very broad overview of what's going on here and continue.
+
+05:55.050 --> 05:58.390
+And just a little bit and figure out like how do we actually put this thing together.
+
+05:59.790 --> 06:04.760
+Though one last really important thing that I want to point out here is that each user who signs up
+
+06:04.760 --> 06:09.190
+for our app is going to have their own little slice of data right.
+
+06:09.400 --> 06:11.270
+So here is user 1 2 3.
+
+06:11.360 --> 06:16.220
+They're going to have their own little collection of employees right here and we should make sure that
+
+06:16.220 --> 06:21.830
+we implement some type of security in our application to make sure that users cannot hack around in
+
+06:21.830 --> 06:26.480
+our app and somehow read like the employees that user 4 or 5 6 has.
+
+06:26.520 --> 06:31.640
+And so we need to make sure that we have some amount of security in firebase.
+
+06:31.640 --> 06:36.060
+All right let's go into the next section and expand a little bit more on security.

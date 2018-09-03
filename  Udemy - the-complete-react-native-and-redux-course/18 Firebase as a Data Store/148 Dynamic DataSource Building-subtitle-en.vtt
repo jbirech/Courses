@@ -1,0 +1,307 @@
+WEBVTT
+
+00:00.870 --> 00:07.800
+We've now got our employee data we've got it available on our state as state DOT employees and that's
+
+00:07.800 --> 00:10.440
+going to be an object continue all the different employees.
+
+00:10.710 --> 00:13.350
+So it's time to put together a list view.
+
+00:13.440 --> 00:14.300
+We've done this before.
+
+00:14.310 --> 00:18.660
+So we go through the implementation somewhat quickly.
+
+00:18.870 --> 00:21.060
+I'm inside of my employee list component.
+
+00:21.060 --> 00:26.790
+And for a list view remember we have to make a data source object and that data source object is going
+
+00:26.790 --> 00:31.280
+to require us to give it a method to say here's how you render an individual row.
+
+00:31.290 --> 00:33.100
+So again we've done this before.
+
+00:33.180 --> 00:36.230
+We're going to be doing the same exact thing again.
+
+00:36.300 --> 00:42.630
+First thing we'll do is up at Riak native will import the list view component.
+
+00:43.350 --> 00:48.690
+Then we can create a new data source inside of our component will mount right here.
+
+00:48.720 --> 00:51.980
+Now we haven't wired up the reducer to this component just yet.
+
+00:52.050 --> 00:52.290
+Right.
+
+00:52.410 --> 00:56.850
+So we're not receiving that list of employees in here just yet but we can imagine that we will have
+
+00:56.850 --> 01:00.780
+something like this doc prob start employees for a list of employees right.
+
+01:00.780 --> 01:02.980
+That does make sense.
+
+01:03.000 --> 01:10.980
+So let's put together our code for creating our data source say Constance and this is all that data
+
+01:11.000 --> 01:14.280
+source stuff.
+
+01:15.120 --> 01:21.460
+When we add in a row has changed.
+
+01:21.950 --> 01:27.320
+This is what detects whether or not or is the order in which all the records are to be added in here
+
+01:27.800 --> 01:32.060
+and then will assign our data source which is going to the source of data for the list.
+
+01:32.090 --> 01:38.240
+So D.S. dot clone with Rose this stopped prop's DOT employees.
+
+01:38.240 --> 01:42.640
+Now there's just a little something a little bit funny about the coding here that we've got right now.
+
+01:43.010 --> 01:44.350
+Let's let's take a look at it.
+
+01:44.780 --> 01:50.850
+When the component is about to be rendered to our device this component will mount will be called and
+
+01:50.860 --> 01:55.270
+we immediately tell our action creator to go fetch our list of employees.
+
+01:55.280 --> 01:57.620
+So the first Sansing is run into the device.
+
+01:57.620 --> 02:02.450
+We will definitely have no employees available right like no employees have been loaded up yet.
+
+02:02.990 --> 02:08.570
+So as soon as we hit this action creator we go to fetch the employees which is an asynchronous request.
+
+02:08.570 --> 02:15.150
+So it takes like some number of milliseconds or some other seconds to go and fetch that list of employees.
+
+02:15.560 --> 02:22.880
+But then the very next line of code the very next instance we immediately tried to make access or make
+
+02:22.880 --> 02:30.610
+use of this start state employees which I'm going to expect like is me extremely likely that this Propst
+
+02:30.740 --> 02:36.680
+employees will be empty by the time we get to this line of code right here because our actual request
+
+02:36.680 --> 02:41.620
+to fetch a list of employees is probably not going to be complete just yet.
+
+02:42.320 --> 02:46.520
+So because of this problem I'm going to suggest we do a little bit of a factor.
+
+02:46.540 --> 02:48.630
+I want you remember how redux works.
+
+02:48.660 --> 02:49.120
+OK.
+
+02:49.190 --> 02:55.430
+Remember that any time any piece of state updates the connect helper at the bottom will rerun map stage
+
+02:55.460 --> 03:01.520
+props and our component is going to get some new number of props right like we pull off of our state
+
+03:01.520 --> 03:02.730
+object.
+
+03:03.470 --> 03:11.090
+So even though our component might not immediately have some value in this Propst out employees it eventually
+
+03:11.090 --> 03:13.800
+will like Eventually we're gonna get that list of data.
+
+03:14.150 --> 03:22.670
+Now we can get a handle on that value by adding in another lifecycle method called component will receive
+
+03:22.860 --> 03:24.800
+prompts.
+
+03:24.980 --> 03:30.710
+This is another lifecycle method that will be called whenever we are about to receive a new set of props
+
+03:30.710 --> 03:32.570
+to rerun for the component with.
+
+03:32.570 --> 03:40.070
+So inside of here we can again recreate our data source assuming that well this time around we probably
+
+03:40.070 --> 03:43.710
+have access to our employees.
+
+03:43.730 --> 03:48.530
+What's really interesting about this component will receive prop's lifecycle methodis is that it gets
+
+03:48.530 --> 03:54.980
+called with the new set of props that the company is about to be fed and it's captured as the first
+
+03:55.010 --> 03:56.630
+argument to the method.
+
+03:56.630 --> 04:01.400
+So it will be called with something that we by convention call next prompts.
+
+04:01.460 --> 04:12.110
+So inside of here next prop's let's just throw down a comment for it are the next set of props that
+
+04:12.110 --> 04:15.710
+this component will be rendered with.
+
+04:16.130 --> 04:20.120
+And then this dark props is still the old set of props.
+
+04:20.240 --> 04:24.800
+So we get access to both set of props inside of component will receive props.
+
+04:24.800 --> 04:32.150
+It's a nice little method for like reacting to any change in your props object.
+
+04:32.150 --> 04:39.680
+So we can move all of this creation code for creating our data source into this thing and that might
+
+04:39.680 --> 04:41.210
+seem like a very obvious step here.
+
+04:41.210 --> 04:44.420
+I might seem like a very obvious strategy however.
+
+04:44.450 --> 04:48.580
+Well you know maybe that's not entirely the right solution.
+
+04:48.590 --> 04:55.340
+I want to think about one particular use case or one particular like flow threat or application.
+
+04:55.430 --> 05:01.700
+Let's assume that the user logs into our application we show the employee list component.
+
+05:02.090 --> 05:05.090
+As soon as we show it we load up our list of employees.
+
+05:05.090 --> 05:11.210
+Ok so like we lurk list employees eventually they get loaded and then we call component will receive
+
+05:11.210 --> 05:12.030
+prompts.
+
+05:12.050 --> 05:16.930
+So if we add all this code down in here that will be that will accommodate that solution right or that
+
+05:17.020 --> 05:17.600
+flow.
+
+05:17.810 --> 05:23.270
+But what would then happen if the user navigates over to like the employee creation forum.
+
+05:23.300 --> 05:24.340
+Right.
+
+05:24.350 --> 05:30.710
+This component will be unmounted so will not be shown anymore that the user goes over to employee create
+
+05:30.770 --> 05:37.490
+they create their new employee and then they come back to employee list when the user goes to employee
+
+05:37.490 --> 05:38.980
+create this component.
+
+05:38.990 --> 05:41.210
+It gets tossed out the window it's gone.
+
+05:41.210 --> 05:46.280
+It gets thrown away gets garbage when these are not navigates back here they're going to be rendering
+
+05:46.310 --> 05:49.620
+a new instance of employee list.
+
+05:49.670 --> 05:54.000
+So we will hit our component will amount we'll call the action creator again.
+
+05:54.110 --> 05:54.890
+But you know what.
+
+05:54.890 --> 06:00.920
+Like we will fetch the new list of data which is OK but remember we already have loaded up all of our
+
+06:00.920 --> 06:05.270
+employees and they're still sitting in our global state object.
+
+06:05.270 --> 06:10.600
+So even though we could move all this code down into component will receive props.
+
+06:10.720 --> 06:17.000
+It was actually going to kind of benefit us if we make sure that we tried to build our data source both
+
+06:17.000 --> 06:21.890
+when the component first loads up and when it receives new prompts So the solution that we're gonna
+
+06:21.910 --> 06:30.100
+go for here is going to add another helper method in here called create data source and then I'm going
+
+06:30.100 --> 06:33.300
+to expect this thing to be called with a prop's object.
+
+06:33.340 --> 06:38.740
+So like some props whether it be next props or this art props whatever might be.
+
+06:38.740 --> 06:44.430
+So I expect that props object to have a R or a property of employees.
+
+06:44.470 --> 06:50.640
+So I'm going to structure it out of the arguments object and then inside of here I'm going to take all
+
+06:50.650 --> 06:55.870
+this list building stuff and I'm going to do it inside of create data source.
+
+06:56.230 --> 07:01.160
+Then instead of referencing this doc Propst on employees I can reference just employees.
+
+07:01.480 --> 07:08.590
+So now the end result of all of this is that inside of my component will mount I can call this dot create
+
+07:08.630 --> 07:17.380
+data source with this dark props and inside of my lifecycle method I can call this dot create loops
+
+07:20.930 --> 07:24.600
+create data source with next prompts.
+
+07:24.680 --> 07:28.050
+So no matter where I'm coming to this component from it doesn't matter.
+
+07:28.250 --> 07:33.590
+No matter what I will always be attempting to create my data source which is exactly the behavior I
+
+07:33.590 --> 07:36.590
+want to have.
+
+07:37.140 --> 07:41.420
+The last thing I want to point out here I'm going to ask you to please please please double check your
+
+07:41.420 --> 07:46.720
+spelling on component will receive prompts to make sure you've got a lower case i in here.
+
+07:46.880 --> 07:53.370
+And remember I before E except after c so c v e prompts.
+
+07:54.030 --> 07:57.860
+OK I think that our data source is now going to be built up correctly.
+
+07:57.860 --> 08:00.550
+Let's continue working on our list in the next section
