@@ -1,0 +1,256 @@
+WEBVTT
+
+00:00.210 --> 00:01.450
+Hey guys welcome back.
+
+00:01.680 --> 00:03.030
+It's what I did last time is gauer.
+
+00:03.040 --> 00:07.170
+Logan handler working which now means out log in for an average of one.
+
+00:07.170 --> 00:08.970
+Both work as expected.
+
+00:08.970 --> 00:12.290
+The issue at the moment though is that you don't stay logged in.
+
+00:12.300 --> 00:15.340
+What I mean by that is there's nothing keeping track of when you're locked in or not.
+
+00:15.390 --> 00:19.860
+So I'd go to the index page right now indexed obvious B and it works.
+
+00:19.950 --> 00:25.320
+We don't want to allow them to get to this page unless they're locked down right which means we have
+
+00:25.320 --> 00:29.090
+to maintain their log in so we have to remember whether they're logged in or not.
+
+00:29.190 --> 00:34.680
+And as a really really simple but our schomer do now we need something called sessions and Sessions
+
+00:34.680 --> 00:38.060
+lead to save variable values across pages.
+
+00:38.240 --> 00:38.570
+OK.
+
+00:38.620 --> 00:42.420
+So most variables lose value as soon as you graph that page.
+
+00:42.690 --> 00:45.340
+But with session variables they maintain their value.
+
+00:45.510 --> 00:50.580
+So the first thing you need to do and there's not many things to do is none of them a very short list
+
+00:50.580 --> 00:58.390
+of things to do as is right in the conflict up HP file session and as scores start.
+
+00:58.440 --> 01:01.290
+And this enables the use of sessions.
+
+01:01.620 --> 01:03.780
+Okay so without this our sessions won't work.
+
+01:03.780 --> 01:10.610
+So remember this bit of code here session and the score start at end with we nearly don't now always
+
+01:10.640 --> 01:16.160
+have to do is go to your logging handler and then in this part where if is always true.
+
+01:16.170 --> 01:23.100
+So if there logon was successful we're just going to write does science underscore session like that
+
+01:24.450 --> 01:29.460
+and this is going to be user logged in.
+
+01:29.730 --> 01:32.620
+So we're creating the session variable user logged in.
+
+01:32.870 --> 01:39.980
+I'm going to give you the value of the user name which is this one up here the value then in the form.
+
+01:40.050 --> 01:44.490
+So usually then will be set to the user's username and that's it.
+
+01:44.490 --> 01:50.180
+Copy and paste that line that has me do the same for the register handler song and go to register handler
+
+01:50.180 --> 01:51.070
+that BHP.
+
+01:51.330 --> 01:59.040
+And in this by air if laurean was successful pasted a half do before it redirect the user session you've
+
+01:59.040 --> 02:02.480
+logged in equals username which is available here.
+
+02:02.790 --> 02:05.530
+So use London username so that's it we've great session.
+
+02:05.530 --> 02:06.640
+Robles It works.
+
+02:06.840 --> 02:09.900
+All that's left to do now is redirect them from the index page.
+
+02:09.900 --> 02:16.440
+If they're not logged in already so go to the index page open there which is in the root of your website
+
+02:16.440 --> 02:17.490
+folder.
+
+02:17.670 --> 02:19.000
+So index iph.
+
+02:19.050 --> 02:23.510
+Open that up and above all the AC simple code A and BHP tags.
+
+02:23.500 --> 02:26.680
+And this is where we check to see if the session variable is set.
+
+02:26.910 --> 02:39.060
+So we're going to say if it is set aside and the score session and user log
+
+02:41.790 --> 02:49.190
+in like that is use locked down and this needs to match exactly with how you have it here.
+
+02:49.330 --> 02:53.010
+Okay this has to match exactly.
+
+02:53.010 --> 02:54.140
+Next up it should be.
+
+02:54.240 --> 03:02.400
+So if it is set to do is create the be variable use logged in and set it equal to the session variable
+
+03:02.400 --> 03:04.620
+here there.
+
+03:04.630 --> 03:09.570
+So now the green variable called use of the end which contains the user's username because that's what
+
+03:09.570 --> 03:10.380
+we set this to.
+
+03:10.380 --> 03:15.750
+We set the session variable to the user name and asit else.
+
+03:15.780 --> 03:25.590
+So if the session is not set we want to redirect them back to the register page header location cattle
+
+03:26.070 --> 03:29.500
+location registered dot HP.
+
+03:29.610 --> 03:31.680
+Just like that and that is that simple.
+
+03:31.680 --> 03:35.520
+We going have a problem with this at the moment because we don't have the session start Pyaar we have
+
+03:35.580 --> 03:35.910
+here.
+
+03:35.930 --> 03:37.980
+It's in the conflict file or address every need.
+
+03:37.980 --> 03:41.100
+This recession is to work on the index page.
+
+03:41.100 --> 03:42.780
+There is no session start.
+
+03:42.780 --> 03:48.270
+So what are we to do rather than just add sessions start linear add referenced this config file.
+
+03:48.690 --> 03:51.070
+So right at the top there.
+
+03:51.330 --> 03:56.640
+Include includes slash conflict.
+
+03:56.710 --> 03:57.370
+HP.
+
+03:57.510 --> 03:58.090
+And that's it.
+
+03:58.100 --> 04:03.480
+Now our sessions start code will be included on the index page and we can use sessions and it's really
+
+04:03.480 --> 04:04.010
+that simple.
+
+04:04.020 --> 04:04.700
+That's it.
+
+04:04.800 --> 04:06.850
+We've done all we need to do our show.
+
+04:06.850 --> 04:11.630
+I mean if I so if I were trying today indexed up HP page now you'll see it won't let me go there.
+
+04:11.630 --> 04:16.390
+It will redirect me back so I'm back on the net and the range should appear to be page.
+
+04:16.470 --> 04:18.380
+If I log in though.
+
+04:18.740 --> 04:23.120
+Password thing I type that write up that ever.
+
+04:23.130 --> 04:30.320
+Nope typed it wrong so password there.
+
+04:31.370 --> 04:32.850
+Now we can get there.
+
+04:33.380 --> 04:38.300
+So now I can be on the index page because I'm locked down and you should also test out the register
+
+04:38.300 --> 04:38.850
+form.
+
+04:38.950 --> 04:44.120
+So you should test it here as well to measure when you read it successfully redirects you to the next
+
+04:44.120 --> 04:47.940
+page if you want to read if you want to manually log out though.
+
+04:48.420 --> 04:52.140
+We need to do is include this code on the page.
+
+04:52.370 --> 04:55.950
+So just write session destroyed.
+
+04:56.450 --> 04:58.770
+So we have an absolute includer a log out.
+
+04:58.760 --> 04:59.480
+Byrne Yeah.
+
+04:59.510 --> 05:06.740
+So until we implement log aaba And if you ever want to log out manually just include this code and then
+
+05:07.580 --> 05:09.820
+nothing unless it's very page.
+
+05:10.520 --> 05:15.410
+Okay so my session has been destroyed and I'll read it refresh and then it takes me back.
+
+05:15.620 --> 05:20.900
+Okay so session a story is just a log now so common that out measure you're only uncommented if you
+
+05:20.900 --> 05:25.420
+need to use it because if you forget to comment it out again it will laqueur every time.
+
+05:25.430 --> 05:26.660
+You might not know why.
+
+05:26.830 --> 05:33.200
+So only include sessions story when you want to log out manually and it's only temporary until we actually
+
+05:33.200 --> 05:34.570
+include log albertan.

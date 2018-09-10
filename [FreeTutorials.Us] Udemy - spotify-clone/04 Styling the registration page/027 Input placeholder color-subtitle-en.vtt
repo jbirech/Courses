@@ -1,0 +1,148 @@
+WEBVTT
+
+00:00.400 --> 00:05.340
+A big as welcome back to last time we had our input feels will set up with the style and now we're going
+
+00:05.340 --> 00:10.800
+to continue with this and we're going to start by adding some style to this place holder just changed
+
+00:10.800 --> 00:15.190
+the colour the moment this graden the very good it's not easy to see with this background.
+
+00:15.390 --> 00:21.720
+So the way you change the place hold of an input field a slightly different opening tab and just type
+
+00:21.720 --> 00:27.160
+in a place holder colour see SS place holder chalasi Assassin.
+
+00:27.220 --> 00:33.220
+Just do a google search for that and you'll find an answer from Stack Overflow to type answer.
+
+00:33.240 --> 00:36.820
+The top result which explains it pretty well.
+
+00:36.870 --> 00:42.660
+Scroll down to the first answer and you see this user said that there are three ways to do it you can
+
+00:42.660 --> 00:49.170
+use pseudo ermine's or you can use pseudo classes or you can do nothing at all different browsers render
+
+00:49.480 --> 00:53.480
+their place holder slightly differently and different browsers require different code to do it.
+
+00:53.610 --> 00:58.920
+So to change a place of colour for example in Mozilla Firefox version for the version 18 you need to
+
+00:58.920 --> 01:01.690
+do it this way Firefox 19 plus.
+
+01:01.710 --> 01:03.770
+You do it this way with the to go on.
+
+01:03.930 --> 01:06.940
+It's Explorer 10 to 11 you need to do it this way.
+
+01:07.020 --> 01:08.830
+Web Kit applies to go.
+
+01:09.000 --> 01:10.210
+We do it this way.
+
+01:10.230 --> 01:14.940
+So the easiest way rather than me explain it and type all this out is if you come to this question and
+
+01:14.940 --> 01:20.460
+copy and paste paragraphs and copy in base code those that are registered does the SS class and you
+
+01:20.460 --> 01:25.860
+could be a Ribe of the Imbo container one if you want to make despose in the same areas at a pace that
+
+01:26.260 --> 01:27.900
+it just changes colour to everyone.
+
+01:27.900 --> 01:36.720
+We're going to use white so just what f f f can't be in base f f f they're there and there and save
+
+01:36.720 --> 01:40.400
+that now and we should see and refresh our page.
+
+01:40.770 --> 01:44.220
+A white funnel like that they go.
+
+01:44.220 --> 01:46.150
+There's your white front in case of that.
+
+01:46.170 --> 01:50.960
+That was the easiest way for me to explain it rather than me typing all this out as we as we go it's
+
+01:50.970 --> 01:54.940
+easy if you go to that question and copy and paste it and that word user.
+
+01:54.950 --> 01:57.450
+If you read the whole and say explains it all quite well too.
+
+01:57.450 --> 02:00.230
+So he can explain now far better than I would be able to.
+
+02:00.930 --> 02:05.490
+Snacks and movie star the labels which are these parts right here and this is going to be about four
+
+02:05.490 --> 02:06.390
+lines of code.
+
+02:06.450 --> 02:09.240
+So right click on the label click inspect.
+
+02:10.830 --> 02:11.430
+No shortcut.
+
+02:11.440 --> 02:12.190
+You do it all.
+
+02:12.200 --> 02:14.210
+Click on Arrow then select the label.
+
+02:14.540 --> 02:16.370
+It all works.
+
+02:16.390 --> 02:21.100
+An inside dare just put colour and irey have a grey colour.
+
+02:21.110 --> 02:27.290
+So I truly know what that colour value is so I know it's a 0 8 0 8 0 which is socket grey or colour
+
+02:27.320 --> 02:29.040
+and you go that you see.
+
+02:29.150 --> 02:33.500
+But if you change it you click on the square and then he can move around with the colours and see what
+
+02:33.500 --> 02:34.660
+you like best.
+
+02:34.730 --> 02:42.890
+But I know that works well use that for a font size going to be 13 pixels so I get a little bit smaller
+
+02:43.500 --> 02:45.870
+then margin.
+
+02:46.010 --> 02:51.110
+Top is going to be 15 pixels like that.
+
+02:51.290 --> 03:01.810
+Okay and if I copy and paste that and go back to our seats as file and again just per input contain
+
+03:02.050 --> 03:06.910
+a label like that and paste that in.
+
+03:07.070 --> 03:07.960
+Save it.
+
+03:08.090 --> 03:15.080
+Refresh the page you should see that style slide all the label abuse case that they're all about that
+
+03:15.080 --> 03:19.700
+slightly smaller font size now in the same font colour too.
+
+03:19.730 --> 03:20.770
+So there we are.

@@ -1,0 +1,118 @@
+WEBVTT
+
+00:00.320 --> 00:01.600
+Hey guys welcome back.
+
+00:01.650 --> 00:04.970
+We're going to do now is start adding the burdens to our navigation bar.
+
+00:05.070 --> 00:07.150
+So there's a bunch of icons we need to use.
+
+00:07.220 --> 00:12.320
+And if you remember I do use icons 8 which is a very good application for our kind of thousands of my
+
+00:12.320 --> 00:13.200
+cousins in there.
+
+00:13.320 --> 00:18.660
+But of course if you have your own source maybe your website or you already own the icons obviously
+
+00:18.660 --> 00:20.820
+feel free to use those really go.
+
+00:20.880 --> 00:26.310
+You can search for burns maybe a playbook and then you can see all these different styles of things
+
+00:26.310 --> 00:32.940
+to do with play like you've got people playing you've got play burns here you've got these players down
+
+00:32.940 --> 00:35.130
+here which are the ones I've used.
+
+00:35.130 --> 00:39.080
+And also if you go to colour you see different styles for play.
+
+00:39.540 --> 00:46.590
+So different style play buttons Windows 10 style one Windows 8 styled ones.
+
+00:47.080 --> 00:55.230
+I like the IRS icons because they are pretty basic and we can also do is change the colour of your icons
+
+00:55.380 --> 00:57.390
+appear to whatever you want to use.
+
+00:57.490 --> 01:02.700
+And you see that the icons will change colour once it's just loading right now but the icons themselves
+
+01:02.700 --> 01:03.770
+will change colour too.
+
+01:03.890 --> 01:14.040
+If I change again it tax code to think that a lot of use for these is a 0 0 0 and it makes it that grey
+
+01:14.040 --> 01:15.040
+colour.
+
+01:15.480 --> 01:17.790
+So all you do is open up your
+
+01:20.430 --> 01:26.020
+assets images icons folder and then you change the size to where you want.
+
+01:26.020 --> 01:27.800
+Twenty five is fine for a small icon.
+
+01:27.810 --> 01:28.960
+That's okay.
+
+01:29.130 --> 01:30.840
+That's more than enough.
+
+01:30.990 --> 01:36.710
+And then you just drag and drop the icon you want in to that.
+
+01:37.200 --> 01:42.490
+And then you can rename it where you want maybe your name that play or something like that.
+
+01:42.570 --> 01:44.460
+So that's what that's how you use it.
+
+01:44.550 --> 01:49.490
+But what I need to do is take the kinds of values from my site.
+
+01:49.530 --> 01:55.890
+So I've have a window open here and these are the icons I used for this site here.
+
+01:56.090 --> 01:56.690
+OK.
+
+01:56.910 --> 02:00.430
+So what I would do is copy and paste all of those.
+
+02:00.810 --> 02:01.960
+Copy those.
+
+02:02.010 --> 02:08.170
+Copy and paste into my icons folder and I will the same icons I used.
+
+02:08.190 --> 02:14.130
+These will be in the course content obviously so if you want to use these icons too you can either go
+
+02:14.170 --> 02:20.400
+find them yourself in here or you can just download the source file that's attached dyslexia and then
+
+02:20.550 --> 02:23.240
+just copy and paste it completely up to you.
+
+02:23.380 --> 02:25.390
+But this will just save you some time.
+
+02:25.990 --> 02:27.320
+Okay so we have our icons now.
+
+02:27.330 --> 02:28.040
+Great.
+
+02:28.050 --> 02:30.290
+Now let's actually start adding them to the page.

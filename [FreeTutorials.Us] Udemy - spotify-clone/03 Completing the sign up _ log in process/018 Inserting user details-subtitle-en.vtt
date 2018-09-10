@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.520 --> 00:01.570
+Hey guys welcome back.
+
+00:01.620 --> 00:06.250
+So last time we grade config file which allowed us to communicate with our Miles grow our database.
+
+00:06.360 --> 00:10.620
+Now it's time to actually sign using it to insert user details.
+
+00:10.620 --> 00:16.870
+So in the areas of BHP we're going to pass in the common variable here.
+
+00:16.910 --> 00:22.860
+Again action variable when we include the file here to it's passing that com variable into our account
+
+00:22.890 --> 00:26.550
+object so we can use it in our account functions.
+
+00:26.760 --> 00:27.240
+Okay.
+
+00:27.330 --> 00:30.840
+So investors are BHB where we correct this account variable.
+
+00:30.840 --> 00:36.940
+We're going to pass in column like that in the Account class.
+
+00:37.160 --> 00:41.430
+But you need to go up to these constructer here at the top remember the constructors the first thing
+
+00:41.430 --> 00:48.390
+that gets called when you create an object so common because we're passing this in and then we're going
+
+00:48.390 --> 00:55.120
+to just create a variable at top here as well private on that.
+
+00:55.190 --> 01:03.090
+And then in this space just set this can equal to con like that.
+
+01:03.120 --> 01:05.480
+So were passing in the collection very well here.
+
+01:05.940 --> 01:08.290
+So we have it right here and we're signing it.
+
+01:08.300 --> 01:13.530
+The variable in the class like that in our register function remember that when we get to this bar here
+
+01:13.980 --> 01:19.860
+if empty if this error message is empty it means no error messages were inserted when we checked the
+
+01:19.860 --> 01:22.920
+data it means we can go ahead and inserted a database.
+
+01:23.010 --> 01:31.380
+So instead of turning true we're going to return a function we're going to call code insert user details
+
+01:31.920 --> 01:34.040
+so we'll create that function right now.
+
+01:34.050 --> 01:47.170
+Underneath there will say private function insert user details like that right.
+
+01:47.640 --> 01:52.590
+And this function is going to take a user name so you and these are values going to insert into the
+
+01:52.590 --> 02:03.780
+database first name and last name and email and then finally password just paid that way you can actually
+
+02:03.780 --> 02:05.810
+copy the best name of this function here.
+
+02:06.120 --> 02:09.870
+And pretty right there return insert details.
+
+02:09.930 --> 02:15.180
+And inside the prentice's were going to put the first user name first name last name and then password.
+
+02:15.190 --> 02:21.570
+But we can just copy and paste exactly as we have here because we have called on the same names as they
+
+02:21.570 --> 02:26.110
+appear appear username first name last name email and password.
+
+02:26.390 --> 02:29.040
+All right so that's great.
+
+02:29.040 --> 02:32.040
+Now all that's left to do is actually insert the details.
+
+02:32.040 --> 02:40.080
+So go down to our insert news details function and we can just say an encrypted P that we use for encrypted
+
+02:40.080 --> 02:47.770
+password equals 5 which is the encryption method we're using.
+
+02:47.850 --> 02:48.560
+Do we.
+
+02:48.780 --> 02:55.110
+So this modified function takes where a password is encrypts it using the endI 5 method.
+
+02:55.110 --> 02:59.910
+There are many different ways to encrypt passwords but only 5 is a very simple way to get you started
+
+02:59.910 --> 03:01.340
+on encryption.
+
+03:01.520 --> 03:03.100
+It's very easy to understand.
+
+03:03.240 --> 03:08.790
+And for a beginner I recommend using only five but from experience users you can explore other encryption
+
+03:08.790 --> 03:09.960
+options.
+
+03:09.960 --> 03:18.090
+So if we pass in for example password it's going to return some big long string of numbers in letters
+
+03:18.240 --> 03:19.880
+so that we can't see what it is.
+
+03:20.010 --> 03:21.480
+OK.
+
+03:22.110 --> 03:25.920
+You'll see how that works when we actually submit a password to the database.
+
+03:25.980 --> 03:34.940
+So no actual downloads profile pic equals and this can be the link to our profile picture folder.
+
+03:35.220 --> 03:38.170
+We have actually created this file yet so we can create that right now.
+
+03:38.310 --> 03:45.780
+So it's the root folder the one with our pages create a new folder discover to be assets be the folder
+
+03:45.780 --> 03:52.470
+that holds our images our javascript files vss files inside the assets folder create a new folder called
+
+03:52.830 --> 04:03.630
+images and inside the images father create one new folder called profile pics like that and then this
+
+04:03.630 --> 04:06.140
+folder is going contains all of our profile pictures.
+
+04:06.180 --> 04:10.950
+But for now Rogen had one and actually have this profile picture right here.
+
+04:11.070 --> 04:11.760
+Ready.
+
+04:11.940 --> 04:18.480
+It's just a simple picture of a face it's intrinsic pixels by hand in tracing see you can find your
+
+04:18.480 --> 04:23.190
+own profile picture or you can use this one and I'll include it in the in the course content so you
+
+04:23.190 --> 04:25.620
+can say you have access to this.
+
+04:25.650 --> 04:31.000
+So basically I want to use that and drop it into the profile specs folder like that.
+
+04:31.620 --> 04:33.860
+And that should be it.
+
+04:33.930 --> 04:46.360
+So pathways assets images slash profile dash picks like that and then the name of the image was had
+
+04:46.520 --> 04:52.650
+underscore Emerald popinjays copy the name of the school Emerald dot n g like that.
+
+04:52.650 --> 04:54.280
+So that's our over our picture.
+
+04:54.840 --> 04:59.810
+And last thing before we actually set the date a date equals.
+
+05:00.170 --> 05:10.990
+Date that as the premises put uppercase y dash lowercase dash lowercase D like that three year month
+
+05:11.080 --> 05:12.100
+day.
+
+05:12.100 --> 05:18.460
+So we need to use upper case Y and lowercase M indeed because using anything other than that produces
+
+05:18.460 --> 05:22.630
+slightly different results in the way it formats the years the month in the day.
+
+05:22.630 --> 05:25.190
+So for now we're okay with just that.
+
+05:27.700 --> 05:30.710
+And now obtusely is the data result.
+
+05:30.800 --> 05:39.850
+It calls my Escuela by the score query and philine this is your first crew for some of you this might
+
+05:39.850 --> 05:44.380
+be a first query you ever wrote so you might want to watch while you first let me explain it and then
+
+05:44.950 --> 05:46.070
+follow along.
+
+05:46.100 --> 05:52.570
+I can't remember where to use this con because it's a class variable so if we didn't do that and we
+
+05:52.570 --> 05:56.590
+just did it this way we'd get an error because it doesn't know what this is.
+
+05:56.590 --> 05:59.170
+We have to make sure we put this.
+
+06:00.850 --> 06:03.010
+Our common friend like that.
+
+06:03.030 --> 06:03.530
+Right.
+
+06:03.670 --> 06:15.430
+And then the quote itself is the second parameter and that's going to be insert into users values right
+
+06:15.670 --> 06:16.620
+there.
+
+06:16.820 --> 06:20.000
+I'm going to type out the values first and then explain that afterwards.
+
+06:20.010 --> 06:21.510
+I rather expect that I go.
+
+06:21.520 --> 06:28.370
+So watch me type it out first if you want and then I'll explain each parameter afterwards so you can
+
+06:28.750 --> 06:44.690
+that comma single quotes Effendi like that comma single quotes commoner single quotes the single quote
+
+06:45.040 --> 06:56.830
+comma single quote in it to password and go quo comma single quote date single comma and then finally
+
+06:57.200 --> 06:58.950
+a single quote.
+
+07:00.620 --> 07:06.180
+Profile Pic single quote and then print this.
+
+07:06.800 --> 07:15.350
+Okay so what I've done there is this is the part where we insert the values and these parameters matched
+
+07:15.350 --> 07:20.960
+up with our database table so in the users table if I click on structure users table Instructure you
+
+07:20.960 --> 07:22.530
+see this is the structure of it.
+
+07:22.580 --> 07:30.050
+The first column is idae which we put auto in command so it is assigns a value on its own.
+
+07:30.050 --> 07:31.500
+So we left that blank.
+
+07:31.600 --> 07:34.260
+We still have to have this there but we don't have value in there.
+
+07:34.280 --> 07:37.810
+The next one is user name right there.
+
+07:37.830 --> 07:38.540
+You n.
+
+07:38.570 --> 07:46.960
+Next one is first name in Excel and last name many now so first name last name email then we have password
+
+07:46.960 --> 07:51.940
+sign of date and profile pic password sign up date profile pic.
+
+07:52.180 --> 07:55.020
+Okay so you have to be in the order of the columns in the table.
+
+07:55.340 --> 07:59.900
+And one thing you need to know is you need to have single quotes around your variables if you just did
+
+07:59.900 --> 08:01.940
+this.
+
+08:02.270 --> 08:03.060
+You get an error.
+
+08:03.140 --> 08:07.090
+So you have to have single quotes around your variables like that.
+
+08:07.180 --> 08:11.300
+Okay so if you're getting errors when you submit this check that you have single quotes around every
+
+08:11.300 --> 08:15.400
+single value and also check that you have a comma right here.
+
+08:15.710 --> 08:18.890
+Okay you have to have commas between each one as well but not on the last one.
+
+08:18.890 --> 08:24.290
+And then finally just check that you have this last parentheses right here in the string.
+
+08:24.290 --> 08:26.240
+Often I forget to put that.
+
+08:26.260 --> 08:29.640
+So make sure you do have this last parentheses right.
+
+08:29.930 --> 08:31.000
+Going and see it.
+
+08:31.130 --> 08:40.880
+Well you do now is use return return result like that and the reason we do that is because it is my
+
+08:40.880 --> 08:44.470
+Ask your query function returns true or false if it if it works.
+
+08:44.480 --> 08:46.620
+If it didn't work so if this was successful.
+
+08:46.680 --> 08:54.230
+Return true if there was an error time false because if you look closely we return now here and in the
+
+08:54.230 --> 08:56.240
+register handle that BHB.
+
+08:56.600 --> 08:58.820
+We will call this register function.
+
+08:58.850 --> 09:02.730
+We use the value which will be true or false depending whether the query succeeded.
+
+09:02.900 --> 09:08.240
+And then if it was true we go to the index page and that's it.
+
+09:08.280 --> 09:10.500
+Or do analysis test it out.

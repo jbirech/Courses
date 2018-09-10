@@ -1,0 +1,259 @@
+WEBVTT
+
+00:00.300 --> 00:01.430
+A big iceberg and back.
+
+00:01.560 --> 00:03.220
+So continue on with our progress bar.
+
+00:03.240 --> 00:06.450
+We only have two more days to add and then we're done with the structure.
+
+00:06.480 --> 00:09.170
+So is the progress by Dave here.
+
+00:09.180 --> 00:12.930
+Let's create some space between the elements so it'd be easy to see.
+
+00:13.080 --> 00:16.500
+So inside the forest by Dave here just add another day of.
+
+00:16.610 --> 00:25.530
+And this is going to have that class progress bar b.g. for background progress bar background.
+
+00:25.700 --> 00:32.450
+And what this is going to be is a kind of darker grey colour you see here.
+
+00:32.560 --> 00:33.350
+Okay.
+
+00:33.600 --> 00:37.620
+And then in the second element going to add it's going to be the ownness the lighter colour that sits
+
+00:37.620 --> 00:38.720
+on top here.
+
+00:39.060 --> 00:48.480
+So inside that Dave just crave one more day of its going out the class to just progress.
+
+00:48.510 --> 00:51.430
+This is actual progress of the progress bar.
+
+00:51.430 --> 00:52.740
+And we're not going to put anything in here.
+
+00:52.740 --> 00:57.510
+So if you want you can just keep on the same line so we can keep those two on the same on this one because
+
+00:57.510 --> 00:59.840
+nothing's going to go inside this differe here.
+
+00:59.880 --> 01:05.730
+So we have added two divs there the progress bar background our progress div gains are safer.
+
+01:05.750 --> 01:07.400
+And I'll show you.
+
+01:09.890 --> 01:11.650
+We're going to do with them.
+
+01:11.750 --> 01:18.230
+So it's on air we about to Dave's pro barber down in progress and the progress bar hugger said is he
+
+01:18.220 --> 01:20.300
+can have that dark grey colour.
+
+01:20.360 --> 01:24.040
+So let's go ahead and give it that so background colour.
+
+01:24.410 --> 01:29.070
+And I the cologne he uses for 0 4 0 4 0.
+
+01:29.610 --> 01:33.370
+Okay you're a C anything yet because we haven't given you a whit through high yet.
+
+01:33.410 --> 01:36.950
+Does he give us a height of 4 pixels.
+
+01:36.960 --> 01:38.990
+Obviously you can play around that as you like.
+
+01:39.320 --> 01:47.440
+But then we're going to get width of 100 percent and now you see the progress bar background itself.
+
+01:48.020 --> 01:57.070
+So let's get rid of these square corners let's just give the border radius of let's say two pixels because
+
+01:57.110 --> 01:59.260
+it's a fairly small line.
+
+01:59.270 --> 02:04.940
+So with only the whole lot of radius and you see it now is curved on the edges and that's it.
+
+02:05.030 --> 02:07.190
+Sorry it demaree about the fact this not in the centre.
+
+02:07.190 --> 02:07.380
+Yeah.
+
+02:07.400 --> 02:08.380
+That's fine.
+
+02:08.650 --> 02:16.310
+But copy and paste those and then go back to your style as yes s and Member this one's for progress
+
+02:16.310 --> 02:22.480
+bar background so progress bar b g like that.
+
+02:22.580 --> 02:28.940
+I like that paste and they're saving up hurtfully you still see it and there it is.
+
+02:28.940 --> 02:34.500
+So a last thing to do are these two new deaves we added is just to start the progress one.
+
+02:36.110 --> 02:40.920
+And in this room we're going to do background colour.
+
+02:40.970 --> 02:49.880
+Is it going to be a 0 8 0 8 0 which is this cover again this grey that we've used.
+
+02:50.180 --> 02:52.520
+And you won't see anything with this yet again.
+
+02:52.520 --> 02:58.330
+Let's also give this a height of four pixels like that.
+
+02:58.520 --> 03:01.190
+And then when I say width zero.
+
+03:01.360 --> 03:06.900
+David onagawa ANY with the epk is the with these and be decided depending how long is left of the song.
+
+03:07.010 --> 03:08.880
+Okay so with zero.
+
+03:11.060 --> 03:16.350
+And then finally a broader radius is going to be two big cells again.
+
+03:16.580 --> 03:19.680
+Kaser just matches the the background of game.
+
+03:20.240 --> 03:21.020
+And that's it.
+
+03:21.020 --> 03:21.680
+That's it for that.
+
+03:21.680 --> 03:25.390
+And I'm showing in a minute wasco and what is going to do when we change the width.
+
+03:25.410 --> 03:32.780
+So you just got the in place those for now go back to your style at C S S in add a progress style like
+
+03:32.780 --> 03:38.990
+this progress save that refresh the page as measure is still there.
+
+03:39.230 --> 03:41.380
+And you see we still have our style.
+
+03:41.750 --> 03:49.340
+So with this fudges change the high right here so you can see let's say a 10 percent like that you see
+
+03:49.340 --> 03:55.370
+that one we increase the width the progress bond goes along and that's what we won.
+
+03:55.370 --> 04:02.060
+So every time the song moves forward we're going to be updating this width depending on how left.
+
+04:02.060 --> 04:03.970
+So for now just keep it as zero.
+
+04:03.980 --> 04:07.080
+And we will come back to that when we actually have songs to play.
+
+04:07.280 --> 04:07.760
+But that's it.
+
+04:07.760 --> 04:08.930
+We're done with that.
+
+04:09.470 --> 04:16.010
+But it's you can't get this in the centre or you need to do is add some style to this progress bar piira.
+
+04:16.010 --> 04:17.320
+Here is one line.
+
+04:17.360 --> 04:18.830
+Just gonna give you a little bit of margin.
+
+04:18.860 --> 04:27.670
+So margin top at Cisco three pixels in another seeking increases as you like so you can make it five
+
+04:27.680 --> 04:33.320
+pictures if you really want our fingers off top of my head I think I've used three pixels on my actual
+
+04:33.330 --> 04:36.010
+site which you see isn't quite centred here.
+
+04:36.170 --> 04:41.310
+But I'll tell you why we won a used three is because we're going change the font of these.
+
+04:41.630 --> 04:45.970
+And when we changed the fun is going to be a slightly larger or smaller font.
+
+04:46.010 --> 04:51.160
+So we'll keep it three for now we can come back to that if we want to change that later.
+
+04:51.350 --> 04:57.260
+So remember this classical progress bar so they want to hear but we're not just going to add it to the
+
+04:57.260 --> 04:59.050
+progress bar dev right here.
+
+04:59.060 --> 05:05.840
+The reason being we're going to use a similar div when we come to create the volume slider which is
+
+05:05.840 --> 05:10.250
+looks very very similar to this progress slider Okay.
+
+05:10.340 --> 05:12.670
+So really we're a bit more specific with our Selecter.
+
+05:12.680 --> 05:21.630
+We're going to say play back bar space progress bar.
+
+05:22.310 --> 05:24.320
+So mardin top three pixels.
+
+05:24.320 --> 05:29.600
+And the reason we're going to add this part well is so that it only adds the three bits of margin to
+
+05:29.600 --> 05:35.780
+the ones that are within the playback by the playback bar this whole thing right here because the volume
+
+05:35.780 --> 05:38.210
+cida won't have this play by a while.
+
+05:38.330 --> 05:40.550
+So it won't add the three pixel margin.
+
+05:40.790 --> 05:41.270
+Okay.
+
+05:41.330 --> 05:43.740
+And we don't know whether we can add that to the volume or not.
+
+05:43.760 --> 05:46.830
+We can address that when we actually come to implement the volume slider.
+
+05:46.970 --> 05:47.510
+Okay.
+
+05:47.510 --> 05:53.520
+So now just put that in there and we can address the volume slider one as we get to it.
+
+05:53.720 --> 05:56.630
+So save that versus page.
+
+05:56.750 --> 05:58.010
+And that should be it.

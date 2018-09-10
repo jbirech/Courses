@@ -1,0 +1,247 @@
+WEBVTT
+
+00:00.820 --> 00:01.900
+You guys welcome back.
+
+00:02.060 --> 00:06.380
+So it's finally time to get started with our actual music player aspect of the site.
+
+00:06.390 --> 00:08.370
+So this is our index page of the moment.
+
+00:08.370 --> 00:11.710
+Remember we put this here just to test it it worked.
+
+00:11.830 --> 00:17.250
+I'm going to start off with the Now Playing bar at the bottom which looks like this.
+
+00:17.370 --> 00:19.530
+This sort of thing.
+
+00:20.020 --> 00:21.720
+So go ahead and open index up.
+
+00:21.720 --> 00:22.890
+HP It's already open.
+
+00:22.890 --> 00:25.330
+So we're doing with these register phones now.
+
+00:25.500 --> 00:27.210
+The indexed file.
+
+00:27.540 --> 00:30.800
+And you see this is where we have so get rid of that help.
+
+00:30.810 --> 00:31.990
+We don't need that anymore.
+
+00:32.240 --> 00:35.840
+Next one more space and let's jump right into it.
+
+00:35.850 --> 00:37.070
+Let's start with Dave.
+
+00:37.090 --> 00:47.030
+This is going to be the container for our now playing bar so we can give it an idea of now playing bar
+
+00:47.840 --> 00:48.720
+container.
+
+00:48.760 --> 00:53.280
+I know it's a long name but it's a good one because it's descriptive and descriptive names are better
+
+00:53.280 --> 00:58.200
+than short names because if you have to come back to l.a. you can easily see what this elements purposes
+
+00:58.230 --> 01:01.110
+just by reading the idea of you going.
+
+01:01.160 --> 01:05.400
+So now playing a container and what we might do with this is just style as we go.
+
+01:05.400 --> 01:07.230
+So if just added this div onto there.
+
+01:07.260 --> 01:12.690
+Okay save that and refresh the page you won't see any difference except from the helo disappears.
+
+01:12.690 --> 01:14.890
+But inspect 11 on this now.
+
+01:16.790 --> 01:23.780
+And open the body up in the body up again you see our container that we had it and then go to our style
+
+01:23.840 --> 01:25.560
+right here.
+
+01:26.490 --> 01:34.920
+Let's just give this in St. Louis as you see something happening as a 100 percent okay so spans across
+
+01:34.920 --> 01:43.810
+the whole page as a background colour is going to be 2 8 2 8 to 8.
+
+01:44.100 --> 01:48.000
+And I have that colouring down here so I know that's the rally we want but it's just like a slightly
+
+01:48.000 --> 01:50.710
+lighter than completely black.
+
+01:50.950 --> 01:51.190
+OK.
+
+01:51.210 --> 01:54.880
+And the reason we're not seeing anything at the moment is because this doesn't have a height set.
+
+01:54.900 --> 01:59.580
+So if we just say height just to see what happens hundred pixels.
+
+01:59.610 --> 02:00.080
+OK.
+
+02:00.330 --> 02:03.820
+We're going to get rid of this higher actually though so we just cover it high there so.
+
+02:03.870 --> 02:05.440
+Actually see what's happening.
+
+02:05.790 --> 02:08.350
+So high 100 pixels temporarily.
+
+02:08.370 --> 02:10.400
+And then we at this at the bottom of the page.
+
+02:10.440 --> 02:17.520
+So when I say bottom zero like that you won't see at the bottom yet because we have to change the position
+
+02:17.580 --> 02:20.530
+so positions can be fixed like that.
+
+02:20.670 --> 02:23.440
+Okay so now this appears at the bottom.
+
+02:23.580 --> 02:24.690
+It will always at the bottom.
+
+02:24.690 --> 02:30.540
+See in the middle where the bottom is you stay at the bottom and then there's also starts have min width
+
+02:30.620 --> 02:36.970
+so a minimum width of 620 pixels or something like that around that's fine.
+
+02:36.990 --> 02:41.650
+All that means is when you recycled the window this content will only get a scenario has six engine
+
+02:41.660 --> 02:42.860
+20 pixels.
+
+02:43.140 --> 02:48.970
+And as for this gap round here we actually fix this this same sort of thing in the register page which
+
+02:48.970 --> 02:53.460
+is estimate to the h.t. email amman's and the body elements have no margin and no padding.
+
+02:53.460 --> 02:57.220
+So we'll fix that soon so for now just ignore that we'll get to that.
+
+02:57.270 --> 02:59.390
+So this does fine.
+
+02:59.850 --> 03:03.110
+Copy and paste that goes back to here.
+
+03:03.120 --> 03:05.630
+But we don't actually have a style page yet.
+
+03:05.680 --> 03:07.010
+Okay so we have to create one.
+
+03:07.110 --> 03:11.740
+So create a new file command and file new file however you want to do it.
+
+03:12.210 --> 03:14.890
+And this is going to be our style the csx file.
+
+03:15.150 --> 03:19.470
+So say this in assets it's.
+
+03:19.530 --> 03:28.910
+And then just call it style DOS assess save there and then this is now playing bar container.
+
+03:28.920 --> 03:32.140
+So eidy now.
+
+03:32.220 --> 03:36.830
+Now playing bar container.
+
+03:37.170 --> 03:38.810
+Put that in there.
+
+03:39.720 --> 03:40.980
+And it is per comment.
+
+03:40.980 --> 03:44.100
+Next the height so we do remember to remove that so
+
+03:47.070 --> 03:48.960
+remove later.
+
+03:49.090 --> 03:51.580
+Okay just so we need to get rid of that.
+
+03:51.590 --> 03:52.040
+Hi.
+
+03:52.080 --> 03:53.280
+I'll explain that.
+
+03:53.480 --> 03:57.310
+And I explained why we're going to move that later a bit later.
+
+03:57.660 --> 03:58.720
+So save that for an hour.
+
+03:58.860 --> 04:02.710
+And before we check it we have to actually link to this file.
+
+04:03.180 --> 04:10.870
+So in the index appear to be in the head section here and in each title say link press tab.
+
+04:11.160 --> 04:20.780
+And that puts a stylesheet actually in an eight hft just going to be as it's slash csx slash style.
+
+04:20.910 --> 04:26.060
+Yes yes save that and then refresh this page will hopefully still see our style.
+
+04:27.090 --> 04:27.700
+There we go.
+
+04:27.780 --> 04:30.140
+And you see a haslinda our style sheet right here.
+
+04:30.170 --> 04:35.430
+And as far as that gap goes like a sable address that later at that time is now.
+
+04:35.430 --> 04:43.230
+So let's go to our style sheet and do a cmo comma body which means it's been applied to both A's male
+
+04:43.380 --> 04:50.490
+amants and the body elements because you see there's an atrium area here and the body element here and
+
+04:50.490 --> 04:58.000
+then just put padding zero and then margin zero just like that.
+
+04:58.140 --> 05:02.830
+And also height 100 percent like that.
+
+05:03.060 --> 05:03.820
+OK.
+
+05:04.290 --> 05:13.010
+Now first the pay gap will have gone and it has great debt that's now playing by content.
+
+05:13.290 --> 05:15.590
+Next thing to do is stop some component here.
+
+05:15.600 --> 05:18.660
+It's buttons in our sliders.

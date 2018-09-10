@@ -1,0 +1,73 @@
+WEBVTT
+
+00:00.390 --> 00:01.560
+Hey guys welcome back.
+
+00:01.560 --> 00:07.140
+So now that we've finished with this register page it's finally time to get into our main pages of the
+
+00:07.140 --> 00:11.780
+site should you go across to here and show you what the results go look like.
+
+00:11.820 --> 00:14.470
+This is the kind of home page they're on.
+
+00:14.620 --> 00:16.880
+And you can see we've got a now playing by the bong.
+
+00:16.890 --> 00:20.880
+We've got navigation menu on the left and we've got the main content in the middle.
+
+00:20.940 --> 00:24.880
+And what we do is start with this now playing bar.
+
+00:25.330 --> 00:30.040
+But it's worth noting that eventually we will be splitting all this up into the files.
+
+00:30.040 --> 00:35.850
+So for example this now planning by the barn will be inside the filter file and this navigation by the
+
+00:35.850 --> 00:37.130
+left will be in the header.
+
+00:37.230 --> 00:37.730
+Okay.
+
+00:37.770 --> 00:41.270
+That's because those two things will appear every single page.
+
+00:41.310 --> 00:44.380
+Is this content amid all this great change from page to page.
+
+00:44.670 --> 00:45.140
+OK.
+
+00:45.240 --> 00:50.490
+So just to reiterate we will be splitting this up into a more organized structure soon.
+
+00:50.580 --> 00:56.280
+But what we're going to do first is just create all this on one page and then we'll split it up as and
+
+00:56.280 --> 00:57.090
+when we get to it.
+
+00:57.100 --> 01:01.650
+So just so that coding and together and not thinking way why is he doing this why isn't this splitting
+
+01:01.650 --> 01:02.220
+up.
+
+01:02.220 --> 01:04.020
+We will begin to that later on.
+
+01:04.020 --> 01:07.500
+We're just going to do it all on one page first and then we'll break it up.
+
+01:07.620 --> 01:11.970
+So like I said we'll start with this now playing bar because I think that's an interesting one to start
+
+01:11.970 --> 01:12.490
+with.
+
+01:12.510 --> 01:17.150
+It's kind of a fun one to get going and we'll come to this stuff later on.

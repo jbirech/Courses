@@ -1,0 +1,58 @@
+WEBVTT
+
+00:00.510 --> 00:04.470
+So what we do in this video is just fix something I forgot to do before.
+
+00:04.580 --> 00:12.030
+And you know if we try to sign in and we get it wrong it doesn't remember the whose name I forgot to
+
+00:12.030 --> 00:12.760
+add that part.
+
+00:12.810 --> 00:18.090
+So all we do is go back and decide that that deregistered up here be page if you remember we did this
+
+00:18.090 --> 00:20.160
+earlier with our register form.
+
+00:20.280 --> 00:24.180
+All we did is have a value out of you on the text boxes.
+
+00:24.460 --> 00:29.010
+They're called this get input value function that we wrote here.
+
+00:29.310 --> 00:31.400
+So we get in value right here.
+
+00:31.400 --> 00:35.560
+Just takes a name and a guess that post variable with that name.
+
+00:35.740 --> 00:36.340
+Okay.
+
+00:36.750 --> 00:40.750
+So all I need to do is add that to the to the use and just box and that's it.
+
+00:40.950 --> 00:48.780
+So go down to the username text box inside the log in form and then just per value.
+
+00:49.080 --> 00:50.460
+And then what did we call this.
+
+00:50.460 --> 00:55.290
+That should be logged in username caja because member it goes off the name.
+
+00:55.410 --> 00:58.720
+So log in username and that's it.
+
+00:58.740 --> 01:00.600
+Now reverse the page.
+
+01:00.600 --> 01:05.250
+If I resubmit that Form sadeh rescanning then I'll get the password wrong.
+
+01:05.280 --> 01:06.470
+So bring it back to here.
+
+01:06.480 --> 01:08.740
+You should see the username there again.

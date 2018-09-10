@@ -1,0 +1,208 @@
+WEBVTT
+
+00:00.230 --> 00:01.530
+Hey guys welcome back.
+
+00:01.530 --> 00:07.010
+So in this video we're going to our sections so we can have three sessions this now playing bar the
+
+00:07.020 --> 00:10.240
+guard left section centre section and right section.
+
+00:10.270 --> 00:15.780
+And if I go back to here you can see this here is really the left section with the artwork in the name
+
+00:15.780 --> 00:17.430
+of this song and then the artist.
+
+00:17.430 --> 00:23.370
+This centre section is going to be the buttons for a play pause skip and then this bar on the right
+
+00:23.430 --> 00:26.410
+the right section is going to be where the volume brand goes.
+
+00:28.590 --> 00:31.060
+So go back to our next hour BHB file.
+
+00:31.250 --> 00:34.060
+Am I going to add three divs inside of this.
+
+00:34.230 --> 00:37.240
+Now Playing do measured space in there.
+
+00:37.680 --> 00:49.230
+So I make up Dave Dave press tab one of them's going to be Ida now playing left by that copy and paste
+
+00:49.260 --> 00:50.170
+that.
+
+00:50.660 --> 00:57.080
+So paste it below not side pasted below so much you don't paste it inside the now plane left of paste
+
+00:57.090 --> 01:05.500
+underneath and paste it again underneath that this was going to be now playing Shanter it's me now playing.
+
+01:05.580 --> 01:06.290
+Right.
+
+01:06.300 --> 01:10.170
+And then we will go back going stoney's individually there's not much style to apply.
+
+01:10.470 --> 01:17.190
+So inside now playing by should hopefully see your three divs here and the Now Playing left and playing
+
+01:17.190 --> 01:17.580
+right.
+
+01:17.580 --> 01:19.780
+Just one two lines of code.
+
+01:19.920 --> 01:27.490
+They just want a width of 30 percent and then a min width of 180 pixels.
+
+01:27.510 --> 01:33.740
+Don't know when you re size window that would get smaller than 180 pixels if they're larger than 180
+
+01:33.780 --> 01:34.250
+pixels.
+
+01:34.260 --> 01:39.140
+They'll keep shrinking until it gets there and 80 pixels and it won't shrink any further.
+
+01:39.300 --> 01:40.960
+Case you can see Freddy.
+
+01:41.130 --> 01:44.700
+Well it looks like so copy and paste that in.
+
+01:44.730 --> 01:46.380
+Go back to your style sheet.
+
+01:46.380 --> 01:55.500
+Society s s n n underneath there just but now playing the left side there.
+
+01:55.590 --> 01:58.280
+But we also want to do this for now plane right as well.
+
+01:58.410 --> 02:06.420
+So copy that and then paste underneath a comma and paste in an eighth in change left to right.
+
+02:06.420 --> 02:11.240
+So now this code will be applied to our plain left elements and an outline right elements.
+
+02:11.260 --> 02:16.140
+Okay that's because the commas there make sure you don't forget to put the comma there was a won't work.
+
+02:16.150 --> 02:17.600
+But the kind of there.
+
+02:18.520 --> 02:24.630
+If I go back to here to refresh the page you see the Now Playing left has vibes and width in another
+
+02:24.740 --> 02:25.220
+right.
+
+02:25.260 --> 02:29.780
+Also has no problem with now playing centre is actually in between those two.
+
+02:29.780 --> 02:32.170
+You just can't see it because it hasn't got a with yet.
+
+02:32.220 --> 02:38.970
+So yes go ahead and give that with now in there to a width 40 percent like that.
+
+02:39.090 --> 02:45.990
+And then you see those percent there are forks in the centre and 3 percent there say 30 30 40.
+
+02:46.080 --> 02:47.210
+Adding up to 100.
+
+02:47.340 --> 02:49.640
+So we are in total with 100 per cent width.
+
+02:49.710 --> 02:58.810
+We want the max width to be maybe 700 pixels we'll be able to change this when we actually add the content.
+
+02:58.890 --> 03:03.550
+So if we need to increase that we will find algebra 7 and it picks all of that would be fine.
+
+03:03.570 --> 03:06.590
+That means it won't get any larger than the 7 inch pixels.
+
+03:06.630 --> 03:11.850
+It will keep increasing in sizes as long as you resize the screen larger but it won't get any large
+
+03:11.850 --> 03:13.410
+in 700 pixels.
+
+03:13.410 --> 03:16.520
+So the section will have a maximum width of 7 inch of sorts.
+
+03:16.590 --> 03:25.170
+We also want to give this display flaks as well like that and then we want to say flex direction to
+
+03:25.170 --> 03:27.830
+be column.
+
+03:28.360 --> 03:33.560
+And this just says the direction of the flexible items and the column means they'll be displayed like
+
+03:33.570 --> 03:34.390
+columns.
+
+03:34.630 --> 03:36.900
+Okay you can do some more really up on that.
+
+03:36.900 --> 03:41.520
+I do suggest you know when and do some more research on that as some point is a very useful thing to
+
+03:41.520 --> 03:42.090
+know.
+
+03:42.090 --> 03:46.690
+Just Google fleck's Direction column and you'll get a very good list of articles come up.
+
+03:47.100 --> 03:49.140
+I go off and I'll just stick that in there.
+
+03:49.150 --> 03:55.580
+I'm guessing we do is just line up line items centre.
+
+03:55.770 --> 03:57.480
+Okay a line item centre.
+
+03:57.480 --> 04:02.580
+You won't see a change on at the moment but just know that this will make sure all the items inside
+
+04:02.580 --> 04:04.620
+there are aligned in the centre.
+
+04:04.990 --> 04:09.630
+So copy and paste that in to start a sheet at the bottom.
+
+04:09.630 --> 04:19.770
+Do now play King Centre like that paste in there and save it and then when it first the page you should
+
+04:19.770 --> 04:27.820
+see all your sections overshoot then so you should still see your 30 percent 40 percent and you 30 percent.
+
+04:28.050 --> 04:28.930
+I guess so.
+
+04:28.950 --> 04:34.230
+Style has been applied so that the main structure about now playing by know the last couple of videos
+
+04:34.230 --> 04:39.820
+have been pretty boring because always done is out pretty much empty elements that stick with this.
+
+04:39.960 --> 04:44.640
+It's always slow getting started like this because we have to get the basic structure of our 8 year
+
+04:44.700 --> 04:50.670
+old document down so I know the last few years have been quite slow we we've added one element per video
+
+04:50.700 --> 04:56.540
+but now we've done the boy pilot now can get drowsy adding the burns in the cool stuff.
+
+04:56.610 --> 04:58.880
+So these next viewers should be quite interesting.

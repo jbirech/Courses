@@ -1,0 +1,127 @@
+WEBVTT
+
+00:00.680 --> 00:01.740
+Welcome back.
+
+00:01.770 --> 00:07.560
+So in last video we got these checkmarked setter from those restored icons eight icons up what we're
+
+00:07.560 --> 00:10.750
+going to do now is style the error messages that appear.
+
+00:10.800 --> 00:13.150
+For example if I enter the wrong data.
+
+00:14.800 --> 00:19.450
+You'll see that we have this error message but doesn't look very good as just three lines of style Faramir
+
+00:19.450 --> 00:20.200
+correctly.
+
+00:20.290 --> 00:22.840
+So inspect element on that.
+
+00:23.530 --> 00:29.830
+So the error message span right here we're just going to say colour and this is going to be the same
+
+00:29.830 --> 00:31.210
+spot light green.
+
+00:31.210 --> 00:33.670
+And if you don't remember the colour on the go look it up.
+
+00:33.870 --> 00:36.730
+You can just do FFG or any colour you want.
+
+00:36.730 --> 00:37.110
+Right.
+
+00:37.240 --> 00:39.640
+And then click on this bird right here there's a square.
+
+00:39.670 --> 00:44.710
+It'll open this up and then you can move your mouse onto that colour and it would take that colour out
+
+00:44.710 --> 00:45.300
+there.
+
+00:45.580 --> 00:45.870
+Okay.
+
+00:45.880 --> 00:46.880
+Precentor.
+
+00:48.640 --> 00:53.510
+Font size is going to be 12 pixels you want this to be fairly small.
+
+00:53.620 --> 00:58.950
+And then see how this username appears an x ray using a label we just willing make that appear on a
+
+00:58.940 --> 00:59.520
+new line.
+
+00:59.530 --> 01:04.000
+When you say display block like that and that's great.
+
+01:04.000 --> 01:07.060
+Copy and paste that get back to you see yes this file an amber.
+
+01:07.060 --> 01:09.270
+This span is called error message.
+
+01:09.370 --> 01:24.910
+So I mean just say in that container space in an error message paste in there you could just have it
+
+01:24.910 --> 01:26.400
+as error message instead.
+
+01:26.410 --> 01:32.620
+But just to make the deselected a bit more descriptive which is always better is you can put in container
+
+01:32.670 --> 01:38.170
+as well because it falls into the input content like that sorry we've applied the style.
+
+01:38.170 --> 01:46.480
+Now if we save that refresh the page we should still see that so refresh the page and then so the wrong
+
+01:46.480 --> 01:48.210
+data again.
+
+01:50.200 --> 01:52.040
+And you see we have our style.
+
+01:52.070 --> 01:56.230
+We also are going to add some spacing to that label.
+
+01:56.230 --> 01:57.940
+I guess we forgot to do that.
+
+01:58.090 --> 02:01.020
+So when I made this label have some margin on our way.
+
+02:01.030 --> 02:03.280
+We did get enlargen.
+
+02:04.510 --> 02:11.940
+Maybe give this display a block like that and then the margin actually applies and display blocks just
+
+02:11.950 --> 02:16.600
+means that it displays the block element and no items get here on the side.
+
+02:16.660 --> 02:20.210
+And it takes into account the positions of the surrounding elements as well.
+
+02:20.260 --> 02:24.670
+So we added the display block to there and that means the margin we added are actually working now.
+
+02:24.700 --> 02:28.830
+So just make sure you member to copy and paste our display block.
+
+02:28.990 --> 02:32.680
+Go back to redstart see assess and I can see here it's like 74.
+
+02:32.740 --> 02:41.430
+So go to like 74 and just pay stiner by that and then save that scenario.
+
+02:41.560 --> 02:46.900
+We started our messages and then we also added a little bit side to this that we've got to do.

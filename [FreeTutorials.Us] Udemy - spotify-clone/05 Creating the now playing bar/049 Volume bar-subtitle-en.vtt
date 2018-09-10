@@ -1,0 +1,244 @@
+WEBVTT
+
+00:00.360 --> 00:01.590
+Hey guys welcome back.
+
+00:01.590 --> 00:05.240
+We're going to work on today is this volume pie in the bottom right hand corner.
+
+00:05.390 --> 00:08.840
+And I'll show you what's go little like show shouldn't be a volume slider.
+
+00:08.880 --> 00:10.210
+Along with the volume burn right.
+
+00:10.210 --> 00:17.220
+And when you click on this burn it's going to mute the volume for you to head back to your page index
+
+00:17.220 --> 00:18.130
+of BHB.
+
+00:18.210 --> 00:23.640
+Scroll down to this section and we've have the bomb now playing right in there.
+
+00:23.640 --> 00:25.410
+Just put a div.
+
+00:26.310 --> 00:28.620
+And this is going to have the class.
+
+00:30.140 --> 00:39.090
+Volume bar like that says the class volume bar and inside of that if you're going to do a button and
+
+00:39.110 --> 00:42.320
+it's going to be the button the press to meet the song.
+
+00:42.320 --> 00:44.490
+So this is going to have the class.
+
+00:46.060 --> 00:48.930
+Control but and which is our class.
+
+00:48.940 --> 00:51.980
+We have here that we give to all our bones.
+
+00:53.300 --> 01:00.270
+And volume and title is going to be volume.
+
+01:00.520 --> 01:06.040
+But in my case when you hover over the boat and it's going to show volume burn and then in that burn
+
+01:06.050 --> 01:12.710
+which good image taric just like all the other Burns have done and the source is going to be ascites
+
+01:13.070 --> 01:23.240
+slash images slash icons and then slash images at the buttons cord so assets images icons it's going
+
+01:23.240 --> 01:27.810
+to be volume volume up in because we also have one volume mute.
+
+01:27.830 --> 01:29.290
+But this is just complete volume.
+
+01:29.350 --> 01:38.180
+PRNG So volume doppie and G like that save that and then refresh up aging you hopefully see a burn with
+
+01:38.180 --> 01:39.370
+that image.
+
+01:39.410 --> 01:39.980
+So there we go.
+
+01:40.010 --> 01:46.680
+There's a burn out there and we will give our image an old tag which remember is the value of this display
+
+01:46.730 --> 01:48.670
+if this image can't be found for whatever reason.
+
+01:48.680 --> 01:54.840
+Let's say this image is deleted or something or renamed rather than just sharing nothing else.
+
+01:54.860 --> 01:59.480
+It will show volume like that so people still know what the button does.
+
+01:59.480 --> 02:00.820
+Until we fix the problem.
+
+02:01.010 --> 02:02.810
+This doesn't make any difference to the functionality.
+
+02:02.810 --> 02:06.890
+It's just a really good habit to get into an alt attributes to a haemorrhages.
+
+02:07.010 --> 02:08.870
+So I would just leave it like that.
+
+02:09.080 --> 02:18.200
+Okay and now the Zephyr do is the slider part of this actual progress bar that so all we need to do
+
+02:18.590 --> 02:21.260
+is copy and paste the progress bar from above.
+
+02:21.260 --> 02:25.050
+Because remember we really informatic the progress bar for this part.
+
+02:25.100 --> 02:30.910
+We just need to copy and paste this code here so f thing from the class progress bar.
+
+02:31.160 --> 02:35.560
+Copy that from above and paste it underneath this burn here and then that's it.
+
+02:35.750 --> 02:40.550
+Let me just move this back a bit and then if I say that you hopefully see a progress by next to the
+
+02:40.550 --> 02:43.930
+burn area there's a progress bar.
+
+02:43.940 --> 02:46.450
+Obviously it doesn't look great at the moment but there it is.
+
+02:46.760 --> 02:48.400
+So let's go and stylist now.
+
+02:48.430 --> 02:55.130
+So right click inspect element on that and then we'll go to our volume bar to the div that's called
+
+02:55.130 --> 02:56.350
+roll bar.
+
+02:56.600 --> 03:04.970
+Let's give this a style we won't need to do much leches give it a width of the street 180 pixels so
+
+03:04.970 --> 03:06.880
+that's a good width.
+
+03:06.890 --> 03:11.450
+That's also a position absolute.
+
+03:11.720 --> 03:14.540
+And then right is going to be zero.
+
+03:14.790 --> 03:17.830
+Okay that's fine it still doesn't look great but this is okay.
+
+03:18.050 --> 03:19.640
+So copy and paste all that.
+
+03:19.790 --> 03:23.330
+Go back to our style sheet at the bottom.
+
+03:23.330 --> 03:32.360
+Just put forth like that place that in there and then save it and then progress bar.
+
+03:32.390 --> 03:41.190
+Right here we can give this a weight of 25 pixels.
+
+03:41.880 --> 03:42.610
+Yeah that's good.
+
+03:42.770 --> 03:48.320
+One under 25 pixel width and you'll see that we only have progress bar stiring applied here which has
+
+03:48.320 --> 03:53.450
+a with 100 per cent but we want this which to take effect when it is a volume bar.
+
+03:53.480 --> 04:01.400
+So copy and paste that and the way we do that is being a target the by a div that's underneath the volume
+
+04:01.430 --> 04:09.730
+bar case together to start a sheet and then do a volume bar progress bar like that.
+
+04:10.010 --> 04:14.180
+So the process by a device underneath the volume by div an hour an hour refresh.
+
+04:14.180 --> 04:20.750
+This should ideally see the style we did our right now obviously it's still not quite right is still
+
+04:20.750 --> 04:22.370
+too high up in this bar.
+
+04:22.460 --> 04:25.480
+So let's work on moving that down so go on the now playing.
+
+04:25.510 --> 04:30.210
+Right Dave right there and you see we only have two bits of style applied already.
+
+04:30.620 --> 04:40.980
+Let's just go ahead and give this a position relative and then make this have a margin top of 15 pixels.
+
+04:41.180 --> 04:46.030
+Yeah 16 is good and for some reason it's moving that as well.
+
+04:46.040 --> 04:46.990
+I'm not sure why that is.
+
+04:47.000 --> 04:48.470
+As a starter.
+
+04:48.580 --> 04:51.260
+I'm doing in the wrong part that I'm doing in there too.
+
+04:51.280 --> 04:55.110
+This style is being applied to both the Now Playing right and now playing left.
+
+04:55.280 --> 05:01.200
+So we only want to apply to the Now Playing right part to copy inflators two lines and go back to wrga
+
+05:01.310 --> 05:03.680
+and I can see that it's on line 28.
+
+05:03.680 --> 05:07.600
+So go back to line 28 and we have this code right here.
+
+05:07.620 --> 05:12.140
+Is now playing left and now playing right and we just want to do one for only now.
+
+05:12.140 --> 05:16.400
+Playing right like that gay peso's to in there.
+
+05:16.410 --> 05:18.130
+Save that.
+
+05:19.220 --> 05:19.820
+Okay.
+
+05:20.030 --> 05:21.350
+And there's our style.
+
+05:21.380 --> 05:23.840
+See the evidence supplied and it's pretty good right now.
+
+05:23.840 --> 05:24.840
+I'm happy with that.
+
+05:24.890 --> 05:27.180
+So ever but right here doesn't do anything yet.
+
+05:27.260 --> 05:31.860
+Loves it when we click it later and it would change on newburn and we will be able to drag these slides
+
+05:31.880 --> 05:34.240
+to which we can't do at the moment.
+
+05:34.550 --> 05:35.600
+Okay so that's it.

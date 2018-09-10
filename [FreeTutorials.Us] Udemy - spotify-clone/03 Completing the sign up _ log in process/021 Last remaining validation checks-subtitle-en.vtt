@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00.240 --> 00:01.200
+Hey guys welcome back.
+
+00:01.200 --> 00:05.960
+So by now we should hopefully have the values inserting your database correctly if not news let me know
+
+00:06.080 --> 00:07.280
+how happy I with that.
+
+00:07.500 --> 00:14.210
+But what we do now is go back to these parts that we said we do a couple of years ago the check if the
+
+00:14.210 --> 00:16.880
+user name exists and check if females exist.
+
+00:17.100 --> 00:21.720
+We waited until now because we went to went to if I had some information in there to check against.
+
+00:21.750 --> 00:24.670
+So let's go into the now it's really simple.
+
+00:24.690 --> 00:26.280
+There's not much to it.
+
+00:26.280 --> 00:33.150
+I'm going to only move this comment because I mean to do it now all you do is write a check user name
+
+00:33.840 --> 00:38.600
+querying like that check username equals priscu ally.
+
+00:38.790 --> 00:51.420
+Then the score query this like that and the query PA inaudible quote is going to be a select username
+
+00:51.870 --> 00:53.690
+from users.
+
+00:55.140 --> 01:01.030
+Where the user name he calls you end like that you.
+
+01:01.050 --> 01:03.530
+Is this very right here username.
+
+01:03.720 --> 01:05.450
+Don't forget with their last single quote.
+
+01:05.580 --> 01:11.610
+So we are selecting all the user names from the users table which match this which should only be one
+
+01:11.770 --> 01:12.300
+case.
+
+01:12.330 --> 01:20.280
+So some girl on underneath all you do is use an if statement but says if my Escuela underscore none
+
+01:20.420 --> 01:27.970
+and the school rose like that inside there put your check username query that you made above check username
+
+01:27.980 --> 01:28.480
+query.
+
+01:28.500 --> 01:29.700
+Same one goes in there.
+
+01:29.700 --> 01:30.390
+Okay.
+
+01:30.660 --> 01:36.520
+So if my esco I know Rose is not equal to zero.
+
+01:36.770 --> 01:38.990
+If is anything other than zero.
+
+01:39.420 --> 01:47.160
+Dan we're going to array bursch and inside there just like you were doing exactly the same things you
+
+01:47.160 --> 01:48.710
+do with these error messages.
+
+01:48.750 --> 01:53.910
+So this paro Error array like that.
+
+01:54.180 --> 01:56.710
+And then do can't stance.
+
+01:57.110 --> 01:59.610
+And and we haven't created this one yet but we'll create this them.
+
+01:59.910 --> 02:03.940
+And let's just call it user name taken like that.
+
+02:04.110 --> 02:10.050
+So when I pressed this arrange to there and then you can just return you only to return since this is
+
+02:10.050 --> 02:12.420
+the last one to go return after this anyway.
+
+02:12.420 --> 02:15.770
+But you can just put that in there just for some consistency.
+
+02:15.810 --> 02:21.420
+So we have to create this user take on one of our breaks open the Constance folder constants.
+
+02:22.050 --> 02:27.150
+It's in your classes folder and then you have to make a username take and wants to copy and paste one
+
+02:27.150 --> 02:33.760
+of those changes to your user name take it and make sure it matches what you inserted right there.
+
+02:33.780 --> 02:41.810
+Username taken and then we can just write this user name are ready.
+
+02:42.000 --> 02:45.750
+All ready exists like that.
+
+02:45.960 --> 02:47.110
+Okay.
+
+02:47.160 --> 02:51.690
+And then if you remember we also have to insert that here to get down to where we have the username
+
+02:53.220 --> 02:59.580
+copy and paste that and we can do prep using the user name taken like that.
+
+02:59.740 --> 03:00.620
+Okay.
+
+03:01.260 --> 03:04.260
+So that's utzon and it is actually sending e-mail.
+
+03:04.260 --> 03:10.540
+So copy and paste that don't go down to your validate e-mails one replace this comment with that change
+
+03:10.550 --> 03:19.460
+this to check e-mail query and then you'll say well no replace in here two for check e-mail query and
+
+03:19.580 --> 03:28.430
+here we're going to select the email from users where email equals e m like that which is the variable
+
+03:28.430 --> 03:29.940
+here.
+
+03:30.300 --> 03:35.760
+And if Check your macro number those is not equal to zero array perch.
+
+03:36.000 --> 03:43.130
+And this is going to be the email taken by that case go to Constance page and create that one.
+
+03:43.380 --> 03:49.800
+I'll paste it up here where the other e-mail addresses are so we can just call this email taken like
+
+03:49.800 --> 03:50.520
+that.
+
+03:50.520 --> 03:55.550
+This email is already in use.
+
+03:55.680 --> 03:59.650
+This email is already in use and ready.
+
+03:59.670 --> 04:03.420
+This email taken to the Constance glass now go to the register class.
+
+04:03.420 --> 04:04.760
+Scroll down to the email.
+
+04:04.760 --> 04:11.310
+Error messages are a copy and paste one those lines and changes to email taken like that.
+
+04:11.340 --> 04:13.800
+So if we're going to test this out now.
+
+04:15.090 --> 04:19.600
+If I try and use a username it's really taken care of them are in here.
+
+04:19.610 --> 04:20.850
+I also try to use an email.
+
+04:20.860 --> 04:29.950
+Sorry tag and so I think I use this app to email dot com seem calm.
+
+04:30.080 --> 04:33.010
+A password password.
+
+04:34.510 --> 04:35.390
+Password.
+
+04:35.530 --> 04:37.550
+Sign out now.
+
+04:38.380 --> 04:39.770
+This username what exists.
+
+04:39.820 --> 04:42.720
+And this email exists too.
+
+04:42.880 --> 04:43.300
+So there we go.
+
+04:43.310 --> 04:44.170
+It works.

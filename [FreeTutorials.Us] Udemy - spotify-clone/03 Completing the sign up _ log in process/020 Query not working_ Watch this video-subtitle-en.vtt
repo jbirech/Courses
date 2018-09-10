@@ -1,0 +1,244 @@
+WEBVTT
+
+00:00.240 --> 00:01.360
+Hey guys welcome back.
+
+00:01.410 --> 00:06.480
+So in last video I just verified that my information was being inserted in the database correctly which
+
+00:06.480 --> 00:07.200
+it is.
+
+00:07.200 --> 00:08.750
+But this might be the case for you.
+
+00:08.760 --> 00:11.150
+In fact is a very good chance it is your first time doing it.
+
+00:11.150 --> 00:13.580
+That the Days Night inserting and you don't know why.
+
+00:14.040 --> 00:15.170
+That's fine.
+
+00:15.210 --> 00:19.760
+I'll show you a way now that might make it easier for you to figure out what the problem is.
+
+00:19.770 --> 00:25.620
+So the first thing you do is compare the good columns here and make sure you have the right number of
+
+00:25.620 --> 00:26.790
+columns to your queries.
+
+00:26.790 --> 00:29.930
+If I go to microarray a quick this is my query right here.
+
+00:30.120 --> 00:37.750
+This insurgent uses this plies the query and I'll just verify that all of these column names match up.
+
+00:37.800 --> 00:39.730
+So we have a blank on Friday.
+
+00:39.930 --> 00:48.450
+Okay sir I.D. them user name first name last name used name first name last name email password sign
+
+00:48.460 --> 00:53.060
+update email password sign up day and then profile electronically.
+
+00:53.310 --> 00:54.210
+So maybe can't know.
+
+00:54.210 --> 00:55.950
+Make sure you have the right number.
+
+00:55.950 --> 01:01.290
+Second thing to do is to make sure you have single quotes around EVERY SINGLE ONE OF THESE.
+
+01:01.290 --> 01:05.970
+So if I was to do this in Acts then you leave one of the inquiries often outside of my variables.
+
+01:06.060 --> 01:08.180
+The query wouldn't work and it was felt was.
+
+01:08.250 --> 01:12.090
+So make sure you have single quotes around all your variables.
+
+01:12.090 --> 01:15.060
+The next thing you should do is make sure you have the commas.
+
+01:15.360 --> 01:21.690
+Okay if you leave a comma out it's going to work and some idea why Watson is thinking outside is pretty
+
+01:21.690 --> 01:27.210
+obvious but u.b. and you'll be surprised at how easy it is to do that no matter how long you've been
+
+01:27.210 --> 01:27.950
+doing this for.
+
+01:27.960 --> 01:30.620
+I always forget to insert the commas or forget a single quote.
+
+01:30.630 --> 01:31.900
+Happens all the time.
+
+01:32.050 --> 01:36.930
+So just go through and double check single quotes in Yardley commas and the next thing is one of the
+
+01:36.930 --> 01:39.240
+most likely things I do I forget to do.
+
+01:39.240 --> 01:42.120
+Is this closing parentheses right here.
+
+01:42.120 --> 01:47.310
+I always forget to include that so if you got this o'casey of your opening graffitis ebbie don't have
+
+01:47.310 --> 01:48.340
+a closing one now.
+
+01:48.510 --> 01:49.420
+It's not going to work.
+
+01:49.440 --> 01:50.790
+So make sure you have this one.
+
+01:50.790 --> 01:56.310
+This I forget quite often and then of course also make sure that you insert into the right table.
+
+01:56.530 --> 01:56.940
+Missouri.
+
+01:56.970 --> 01:58.270
+I'm certain to use a table.
+
+01:58.270 --> 02:00.390
+You've actually called users.
+
+02:01.220 --> 02:02.950
+If you don't know that you still can't figure it out.
+
+02:02.970 --> 02:06.560
+One thing to do is show you a way to debug this even further.
+
+02:06.570 --> 02:09.150
+So what you do is you take this query.
+
+02:09.150 --> 02:10.330
+Actually what I do.
+
+02:10.500 --> 02:13.500
+I removed that close in parentheses so that this will now fail.
+
+02:13.500 --> 02:14.740
+This crew is going to fail.
+
+02:14.970 --> 02:23.270
+So copy and paste the query like that and we're going to output this to the screen by saying airco.
+
+02:25.200 --> 02:25.700
+That.
+
+02:25.710 --> 02:25.950
+See.
+
+02:25.970 --> 02:31.610
+ECHO your query this way it will print out the query with all the variable values inserted as well.
+
+02:31.840 --> 02:33.840
+Okay so I'll show what that means now.
+
+02:33.950 --> 02:37.130
+So let's go back to my form register.
+
+02:37.170 --> 02:39.660
+It's being save.
+
+02:39.740 --> 02:41.010
+Yeah did.
+
+02:41.290 --> 02:44.690
+Bah bah.
+
+02:44.770 --> 02:45.670
+Oh Bert.
+
+02:45.730 --> 02:51.250
+Bert Simpson then part of the.
+
+02:52.980 --> 02:59.070
+G.m. Dot Com password password password also password.
+
+02:59.220 --> 03:02.560
+I'm going to sign up and remember this is going to fail.
+
+03:02.710 --> 03:06.820
+But what you see is this query echoed on the screen.
+
+03:06.850 --> 03:07.870
+I echo this query.
+
+03:07.900 --> 03:09.770
+So when I submit this now.
+
+03:12.180 --> 03:13.940
+You see the galaxy are busy.
+
+03:13.960 --> 03:16.310
+Here's a query with all the values inserted.
+
+03:16.420 --> 03:21.100
+Yeah all the variables have their values and what you want to do is take this whole thing.
+
+03:23.510 --> 03:26.650
+And insert it into this sequal tab.
+
+03:26.690 --> 03:35.500
+So for me a table is about a we go to go see Siegel and replace it here put it there and click go.
+
+03:35.510 --> 03:37.820
+So this is Tell Me I have an error in my syntax.
+
+03:37.820 --> 03:42.290
+The problem is along with all my columns being incorrect or the table name being correct so I can fix
+
+03:42.290 --> 03:45.770
+that if my error is different up or down then make it valid again.
+
+03:45.790 --> 03:48.800
+If my error is different less I forgot to include this.
+
+03:48.800 --> 03:53.540
+I forgot to name the table correctly I was trying to insert into user input of users.
+
+03:53.540 --> 03:55.300
+I'll skip this now.
+
+03:55.400 --> 03:59.050
+You see table user doesn't exist.
+
+03:59.120 --> 04:02.270
+So this tells me that the tables run.
+
+04:02.390 --> 04:04.610
+If I had one too many parameters.
+
+04:04.610 --> 04:09.470
+For example if I had an extra parameter here with something in there okay and I tried to insert this
+
+04:09.470 --> 04:10.350
+now.
+
+04:11.950 --> 04:13.110
+Column count as a match.
+
+04:13.110 --> 04:16.970
+I know what's on one too many or too little number of columns.
+
+04:17.110 --> 04:23.390
+So to summarize by echoing the query part not all this part just the query part.
+
+04:23.950 --> 04:29.860
+It shows on screen what the quote looks like with the variables inserted in OED copy and paste that
+
+04:30.400 --> 04:35.640
+into a sequel tab right here and click go and it will tell you in more detail what the errors are.

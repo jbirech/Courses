@@ -1,0 +1,70 @@
+WEBVTT
+
+00:00.300 --> 00:00.720
+Hey guys.
+
+00:00.720 --> 00:01.470
+Welcome back.
+
+00:01.620 --> 00:06.180
+So what we did last time is make it so that the user can show and hide this long form depending on what
+
+00:06.180 --> 00:07.490
+they want to do.
+
+00:07.530 --> 00:11.400
+So if they want to log in they can log in here if they want to register they can click on this part
+
+00:11.400 --> 00:14.360
+down here and it will reveal the rest of form.
+
+00:14.490 --> 00:19.140
+Why does forget to do those just one little bit of code that makes it so that when you hover over this
+
+00:19.140 --> 00:24.030
+down at the bottom it will change the mouse to a pointer which lets you know you can click click like
+
+00:24.030 --> 00:26.210
+this has the momeni hover over it.
+
+00:26.210 --> 00:29.900
+I don't see that pointer and this is really simple to do.
+
+00:29.910 --> 00:34.650
+We actually did it early on the course but you might remember all you do is go to spallone which is
+
+00:34.670 --> 00:35.430
+by here.
+
+00:35.580 --> 00:40.750
+And just give it a CSI style of cursor pointer like that.
+
+00:40.950 --> 00:41.320
+Okay.
+
+00:41.320 --> 00:43.960
+And now when you have over that you'll see the mouse pointer.
+
+00:44.280 --> 00:44.920
+That's it.
+
+00:45.090 --> 00:48.620
+So copy and paste like I did go back to a C as S. file.
+
+00:48.690 --> 00:49.870
+Scroll down to the button.
+
+00:49.890 --> 00:57.840
+We have this has a count text span part place that in there save the page and then you see when you
+
+00:57.840 --> 01:02.130
+refresh the page or close it down to hover over that part.
+
+01:02.130 --> 01:07.600
+Now we get the mouse cursor change to a pointer which lets the user know they can click on it.
+
+01:07.650 --> 01:13.800
+So just one quick thing that was just a bit of a usability improvement to make things a little bit clearer
+
+01:13.800 --> 01:14.920
+for the user.

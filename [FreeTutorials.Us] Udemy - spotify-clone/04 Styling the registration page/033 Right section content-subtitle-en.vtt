@@ -1,0 +1,205 @@
+WEBVTT
+
+00:00.240 --> 00:01.540
+Hey you guys welcome back.
+
+00:01.590 --> 00:02.530
+It's what we did last time.
+
+00:02.540 --> 00:07.560
+Just had this little bit of code to make it so that when we hover over this bar here that mouse changes
+
+00:07.560 --> 00:08.620
+to a pointer.
+
+00:08.850 --> 00:12.250
+So what we're going do now is just work on this part of.
+
+00:12.430 --> 00:13.650
+Some text there.
+
+00:13.710 --> 00:18.780
+So if I go to my finished version of the site you see that on the right we have this text here and this
+
+00:18.780 --> 00:20.730
+is what we're going to be having today.
+
+00:21.570 --> 00:26.710
+So go back to your text editor and you show something else as well if you're using a blind text.
+
+00:26.750 --> 00:30.080
+You can also do so as you file open.
+
+00:30.240 --> 00:32.780
+And then instead of choosing a file you want to open.
+
+00:32.790 --> 00:40.740
+If instead you choose the folder so choose my folder that contains my website here Okay so choose a
+
+00:40.740 --> 00:42.830
+folder that contains your website.
+
+00:42.840 --> 00:44.760
+It will open all of the fires within.
+
+00:44.760 --> 00:50.820
+On the side here and that's useful because you can click on it and you can see each file rather than
+
+00:50.910 --> 00:56.040
+having to open the new file every single time and you can just click on this by the right and you can
+
+00:56.050 --> 00:59.800
+seal all the files in it and modify them from there.
+
+00:59.820 --> 01:05.280
+Okay just low trip for you if you use and supplied text so only registers appear to be paid if not already
+
+01:05.280 --> 01:05.920
+open.
+
+01:06.120 --> 01:07.610
+And one last thing on this.
+
+01:07.620 --> 01:08.940
+If you did do this.
+
+01:08.940 --> 01:11.700
+If you click on it one time it previews it for you.
+
+01:11.730 --> 01:15.280
+If you double click on it it will keep it in the tab for you.
+
+01:15.330 --> 01:21.030
+Even if I click on The File now redstart BHP stays there.
+
+01:22.590 --> 01:24.110
+So the rest is is to be paid.
+
+01:24.110 --> 01:30.060
+Scroll down to the barn and we would add this after our input container gives you access to this device.
+
+01:30.060 --> 01:31.750
+Here is where I went at it.
+
+01:31.890 --> 01:37.500
+So if I scroll down here I can see that this is did have the closes the input container element.
+
+01:37.830 --> 01:43.050
+So we want to add it after here is of hard to find out which div closes which element.
+
+01:43.110 --> 01:44.360
+If you go to the top here.
+
+01:44.470 --> 01:48.670
+As long as you've indented it properly like this is click on this arrow right.
+
+01:48.680 --> 01:50.610
+Then you close it down for you.
+
+01:50.700 --> 01:52.020
+See it collapse.
+
+01:52.020 --> 01:53.580
+This pile right here.
+
+01:53.580 --> 01:59.070
+If I opened it again you see it opens up all this div anyway.
+
+01:59.160 --> 02:01.700
+As to the interconnect it is where I want to put this code.
+
+02:01.910 --> 02:04.530
+Okay so that's this part here.
+
+02:05.340 --> 02:06.090
+And what do you do.
+
+02:06.090 --> 02:15.670
+It's actually pretty simple just div and this kind of have the idea of luggin text like that.
+
+02:17.090 --> 02:22.800
+And then in there just to h one an fp closing age one time too.
+
+02:23.000 --> 02:29.340
+And inside this heading alignment we're going to do get page music favourites.
+
+02:29.360 --> 02:32.930
+JS This text as you like right now like that.
+
+02:33.040 --> 02:36.400
+Save that and then really have another heading target Tony.
+
+02:36.400 --> 02:42.360
+So if you want to use copy and paste that underneath and change this to to be a slightly smaller header
+
+02:42.800 --> 02:51.740
+and then here we're just going to put something like listen to loads of songs for free like that.
+
+02:51.940 --> 02:52.660
+Okay.
+
+02:52.810 --> 02:56.200
+And you see that this pipe here served this part.
+
+02:56.230 --> 02:57.510
+How was said in this part.
+
+02:57.550 --> 02:58.870
+Others have to do now.
+
+02:59.200 --> 03:06.780
+Is this buyer here and the way we do that is we're going to do it list and we just do unordered list
+
+03:06.790 --> 03:08.020
+so you L..
+
+03:08.240 --> 03:13.170
+Okay so you L stands for an ordered list and this is how you do it.
+
+03:13.180 --> 03:15.640
+Bullet point list if you didn't know that.
+
+03:15.640 --> 03:18.930
+So inside the U L were going to have L..
+
+03:18.960 --> 03:24.120
+I elements okay and these stats aren't for a list item.
+
+03:24.260 --> 03:25.780
+You'll see how this works.
+
+03:26.110 --> 03:32.080
+But basically every hour we do it is a different bullet point if you want.
+
+03:32.560 --> 03:39.360
+So in here we can put whatever you want to do just discover music.
+
+03:39.490 --> 03:43.230
+You all fall in love with.
+
+03:47.270 --> 03:48.350
+PACE those below.
+
+03:48.350 --> 03:54.050
+I think we have three in ours and then one of these was create our own playlists and follow artist keyword
+
+03:54.110 --> 03:54.850
+today.
+
+03:55.070 --> 04:03.840
+So this can be create your own playlists and then.
+
+04:05.430 --> 04:15.030
+Follow test to keep up to date like that and I realize a misspelled that was probably really annoying
+
+04:15.030 --> 04:23.400
+some of you praying that I noticed that and then again say that and you see when you go back to refresh
+
+04:23.400 --> 04:25.470
+its page it will look great.
+
+04:25.980 --> 04:28.470
+But we have the main text we want again.
+
+04:28.620 --> 04:30.400
+Now this effort to use your style.

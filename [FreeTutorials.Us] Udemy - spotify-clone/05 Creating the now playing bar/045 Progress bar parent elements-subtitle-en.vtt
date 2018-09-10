@@ -1,0 +1,217 @@
+WEBVTT
+
+00:00.180 --> 00:01.420
+Hey guys welcome back.
+
+00:01.420 --> 00:04.200
+So now we're going to get side on our progress bar at the bottom.
+
+00:04.200 --> 00:05.810
+The one that looks like this.
+
+00:05.990 --> 00:08.830
+This progress by here and where we do it.
+
+00:08.850 --> 00:11.750
+This is naturally too complicated.
+
+00:11.790 --> 00:18.240
+Go better indexed our BHP and say this stuff here which belongs to this class.
+
+00:18.240 --> 00:19.430
+Byrnes one.
+
+00:19.950 --> 00:24.650
+So right here underneath that we're going to say div.
+
+00:24.780 --> 00:35.280
+And it's going to have a class of flavour far gazer class playback bar and this is going to be the div
+
+00:35.280 --> 00:40.090
+that houses our whole progress bar including the time parts right here.
+
+00:41.100 --> 00:46.420
+So the first thing you do is create a span which will hold that time that the time is currently on.
+
+00:46.560 --> 00:50.890
+So it creates an element and then give that class of.
+
+00:52.980 --> 00:58.520
+Progress tying like that in any other class for current.
+
+00:58.580 --> 01:05.310
+Okay so let's go two classes then do 0 0 0 because we're going to start the site of course and then
+
+01:05.670 --> 01:09.100
+copy that I'm going to paste it again below like that.
+
+01:09.100 --> 01:11.350
+And this is going to be time Progress time.
+
+01:11.470 --> 01:16.380
+And the second class is not going to be covering is going to be remaining this going be the time left
+
+01:16.380 --> 01:22.830
+in the song so save that and win it keep this 0 0 0 as well because it won't matter because as soon
+
+01:22.830 --> 01:28.530
+as the song plays this will obey on its own anyway so it doesn't matter that 0 0 for now and then in
+
+01:28.530 --> 01:33.400
+between those two credit of and skip this class.
+
+01:34.480 --> 01:38.950
+Of progress bar like that.
+
+01:38.950 --> 01:39.610
+Right.
+
+01:39.910 --> 01:41.870
+So how do you now save that.
+
+01:42.100 --> 01:47.060
+And you see that when you refresh the page you are having to look to great Sidonia.
+
+01:47.770 --> 01:52.130
+So style so right click I expect to learn on those.
+
+01:53.730 --> 01:56.290
+And then on span elements.
+
+01:56.550 --> 01:58.970
+So first of all let's change the colour so I can actually see it.
+
+01:59.160 --> 02:06.780
+Let's say colour and then let's do 8 0 8 0 8 0.
+
+02:06.820 --> 02:09.580
+Know that's the grey we use for these bones too.
+
+02:09.900 --> 02:18.510
+Okay so now you actually see the colour font size is going to be 11 pixels.
+
+02:19.140 --> 02:23.360
+And June 10th make it 11 pixels.
+
+02:23.360 --> 02:28.710
+It was again saying min width is going to be 40 pixels and you see that.
+
+02:28.710 --> 02:29.540
+Do anything yet.
+
+02:29.550 --> 02:33.310
+But we will when we add the actual process by itself.
+
+02:33.510 --> 02:35.760
+Text a line is going East Centre.
+
+02:35.880 --> 02:38.710
+Again you're actually anything with this yet but I know we need it.
+
+02:38.730 --> 02:42.110
+Susie read the progress bar and that's actually I think.
+
+02:42.120 --> 02:43.150
+Yeah that's it.
+
+02:43.220 --> 02:50.380
+Okay so just those for copy and paste that go back to our style yes s Scott Scott the barn and were
+
+02:50.380 --> 02:55.530
+going to add Progress time which is the class we gave it.
+
+02:55.530 --> 03:02.650
+Member save that school about how many should see both of them still have the same style that I now
+
+03:02.680 --> 03:07.060
+ask you some style did actual progress by itself and we haven't actually done anything with this.
+
+03:07.110 --> 03:09.980
+Can't see anything in the DIV yet but we can still style it.
+
+03:10.170 --> 03:14.740
+So firstly warning of this a width of 100 percent.
+
+03:14.820 --> 03:17.190
+Like that again you won't see anything yet.
+
+03:17.350 --> 03:27.300
+Who is next going of a height of 12 pixels and then with a say display in line flaks and the flexi hours
+
+03:27.300 --> 03:29.170
+are why I talked about in the previous lectures.
+
+03:29.170 --> 03:32.790
+And I said they're really worth looking into if you remember because they are quite useful if you know
+
+03:32.790 --> 03:33.950
+how to use them.
+
+03:34.110 --> 03:37.650
+And then finally with this cursor of pointer.
+
+03:37.650 --> 03:40.020
+So when we hover over it you'll see a change to a pointer.
+
+03:40.020 --> 03:41.240
+I really can't see anything.
+
+03:41.460 --> 03:42.320
+And the by itself.
+
+03:42.330 --> 03:45.270
+Yet you can see that the mouse is changing to a pointer.
+
+03:45.550 --> 03:49.470
+Everyone knows because there eventually the user going to add a drag along on this to move the song
+
+03:49.470 --> 03:50.860
+forward and backwards every one of them.
+
+03:50.940 --> 03:56.460
+They can click on this and you know at the moment obviously the bias in between those two were more
+
+03:56.550 --> 04:00.980
+when really we want it to be in the middle of them and the way we do that is by giving this play back
+
+04:00.980 --> 04:02.030
+bar here.
+
+04:02.190 --> 04:04.240
+Our display of flack's.
+
+04:05.420 --> 04:06.230
+Why that.
+
+04:06.570 --> 04:07.100
+OK.
+
+04:07.380 --> 04:11.890
+Those two things allowed me to add this display fleck's to this playback bar and then mostly to copy
+
+04:11.890 --> 04:16.370
+and paste the style and add this to the progress bar div.
+
+04:16.390 --> 04:20.790
+It's only styled at C S S with the progress bar first progress.
+
+04:22.570 --> 04:25.420
+Far that they say in there.
+
+04:26.250 --> 04:31.960
+And then we also want to do the display flex on the playback bar.
+
+04:35.290 --> 04:38.710
+So we can put that but vashi ONE KEY IS ONE OF comes first.
+
+04:38.720 --> 04:47.700
+So play back bar like that Pacer and then display fleck's an hour with save and refresh the page will
+
+04:47.710 --> 04:50.690
+hopefully still see the same styles.
+
+04:50.770 --> 04:51.770
+Great There it is.
+
+04:51.970 --> 04:55.080
+So we have our progress bar although it has nothing in there.

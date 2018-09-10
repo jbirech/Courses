@@ -1,0 +1,391 @@
+WEBVTT
+
+00:00.400 --> 00:01.380
+Hey guys welcome back.
+
+00:01.380 --> 00:06.630
+So last time we applied this code here to give our page a background image so we can continue styling
+
+00:06.630 --> 00:07.530
+this now.
+
+00:07.860 --> 00:13.080
+And first thing we do is get rid of this border around the image and as reason we do go back to here
+
+00:13.080 --> 00:19.110
+and we'll put this right at the top because it's going to be the code base code just but h.t. AML comma
+
+00:19.700 --> 00:20.430
+body.
+
+00:20.690 --> 00:25.650
+And what the column means is it applies to this and it also applies to that right so that we're applying
+
+00:25.650 --> 00:28.680
+this code to the A C mail We're also flying to the body.
+
+00:28.680 --> 00:33.660
+If you look in here if you didn't know already the 8th email tags arounds are a whole a c of our document.
+
+00:33.690 --> 00:34.850
+Okay right there.
+
+00:35.010 --> 00:36.490
+So goes top to bottom.
+
+00:36.750 --> 00:43.130
+So inside there we just kind of put padding zero.
+
+00:43.290 --> 00:47.900
+That margin is zero.
+
+00:48.340 --> 00:53.030
+And then height 100 percent.
+
+00:53.230 --> 01:00.900
+That and if ivester page now you see that's got rid of our border I guess because by default the astm
+
+01:00.900 --> 01:03.270
+outtake has some padding it has a margin risk.
+
+01:03.300 --> 01:06.580
+Absolutely a space between the elements and the borders.
+
+01:06.630 --> 01:08.560
+Okay so we just got rid of that.
+
+01:08.700 --> 01:12.420
+So the other thing these asml properties is there's a lot of them.
+
+01:12.480 --> 01:15.640
+So I won't be able to explain every single one in detail as we go.
+
+01:15.640 --> 01:17.020
+It is take far too long.
+
+01:17.190 --> 01:20.070
+So what I'll do is are trying to win them as best I can as I type.
+
+01:20.070 --> 01:25.430
+But if you have a little bit more information you can ask me some questions or just google search it
+
+01:25.440 --> 01:29.240
+and there's this so many pages explaining these things in a lot of detail.
+
+01:29.280 --> 01:35.970
+So if you don't understand something ask me questions follow along and I really think you understand
+
+01:35.970 --> 01:40.290
+as you move forward or just take a little Google search on your own and you'll find what you looking
+
+01:40.290 --> 01:40.640
+for.
+
+01:40.690 --> 01:41.350
+Okay.
+
+01:41.820 --> 01:44.160
+But I will try our best to explain as I go.
+
+01:44.610 --> 01:52.140
+So we know Blossom's more started this page now and we'll go back to read stoppie HP and then in between
+
+01:52.140 --> 01:58.500
+the background div and the input contain a Or between there really create one more div around.
+
+01:58.740 --> 02:00.650
+So this was Ruby div.
+
+02:00.830 --> 02:07.030
+It's good to have that idae of log in container.
+
+02:07.710 --> 02:08.760
+Okay.
+
+02:09.570 --> 02:11.460
+And as the last time.
+
+02:11.670 --> 02:18.520
+Get the devinder NEED THEM be a tab it along to the right one space so go all the way down to here.
+
+02:19.200 --> 02:23.950
+Right there that's the closing date for that says left all of that press tab and move it along on one
+
+02:23.970 --> 02:29.190
+space and then underneath that put you closing did one for the did you just created.
+
+02:29.510 --> 02:33.970
+So there's the closing div for this lauring contain a div right.
+
+02:34.560 --> 02:38.400
+And the reason we do that is because this logging container Dave is going to surround all of the code
+
+02:38.400 --> 02:40.090
+on this page.
+
+02:40.240 --> 02:44.790
+All right this input contain do is only going to surround the input because later on we're going to
+
+02:44.790 --> 02:50.140
+have another day of outside of this div which will have some information which looks like this.
+
+02:50.160 --> 02:53.470
+So later I'm going have this live as well.
+
+02:53.820 --> 02:58.870
+So this long time today is going to just surround all the codes and surround all of this.
+
+03:00.070 --> 03:01.600
+So what is it about it that save it.
+
+03:01.600 --> 03:03.500
+Go back to our stage.
+
+03:05.490 --> 03:13.800
+And then create that idea to the power symbol log in container and then press star.
+
+03:13.890 --> 03:17.580
+So logging container start and the star means all.
+
+03:17.580 --> 03:22.830
+So this code will be applied to everything in the logging container this kind of way you can put your
+
+03:22.830 --> 03:27.780
+base Cola use your default font size and fonts type with colours and stuff.
+
+03:27.990 --> 03:34.240
+So this is going to be all the default code you want to be applied with everything in this div rena's
+
+03:34.260 --> 03:36.660
+a colour.
+
+03:38.070 --> 03:43.680
+I say that and you should see white font colour.
+
+03:43.870 --> 03:47.740
+And in fact we're going to continue styling this code from the browser right here.
+
+03:47.770 --> 03:49.600
+So I guess you see you're changed as you type.
+
+03:49.600 --> 03:52.730
+So reichlin inspect element.
+
+03:53.530 --> 03:57.880
+And if you click on this our a top allows choose which element you want to just choose one of these
+
+03:57.880 --> 04:01.660
+with the white styling applied then you can see this code right here.
+
+04:01.660 --> 04:06.550
+This logic container code if you wanted to you could click on this registered or see assess link right
+
+04:06.550 --> 04:11.560
+here and it would show you your registered or see assessed file to this file matches exactly with the
+
+04:11.560 --> 04:12.890
+value here.
+
+04:13.090 --> 04:17.940
+And if you want you can add you styling this way we can give this a better looking font.
+
+04:17.940 --> 04:21.750
+Now this is a font family.
+
+04:22.630 --> 04:30.100
+And then in there we can use but Helvetica near you I don't and you say that by now this is the I want
+
+04:30.100 --> 04:31.180
+to use.
+
+04:31.290 --> 04:34.000
+Helvetica Can you see something.
+
+04:34.150 --> 04:35.490
+Oh no.
+
+04:35.620 --> 04:38.660
+So that's the new double quotes comma.
+
+04:38.800 --> 04:42.090
+And put another font which you just Helvetica.
+
+04:42.670 --> 04:45.290
+After that more double quotes.
+
+04:45.670 --> 04:54.460
+Arielle and and after that sans serf like that and use what you do in age you specified backup fonts
+
+04:54.460 --> 04:57.040
+of this font doesn't work you use that one of that doesn't work.
+
+04:57.040 --> 04:59.720
+You use that one to D does it back at once.
+
+05:01.270 --> 05:03.830
+So how that's occurred knew you were you.
+
+05:03.970 --> 05:05.490
+Is the one we're going to using again.
+
+05:05.650 --> 05:06.740
+I'm sure that's so.
+
+05:06.820 --> 05:11.350
+So go underneath them we're going to say find a way.
+
+05:11.380 --> 05:18.370
+This is a normal fun way is just how thick you want the text to be which is but normal there and then
+
+05:18.430 --> 05:24.450
+the line height is going to be one e m.
+
+05:24.710 --> 05:29.110
+And what I am is is is a scalable unit of measurement for the font size.
+
+05:29.200 --> 05:32.440
+So one of them is just whatever the font size currently is.
+
+05:32.440 --> 05:37.880
+So if the current one size is 12 pixels and you say on one EM It means this will be 12 pixels.
+
+05:38.020 --> 05:43.680
+If you said to me it means the line would be 24 pixels be two times 12 pixels.
+
+05:43.790 --> 05:48.810
+So EMG takes whether the font size is and goes off that really is looking a little way better.
+
+05:48.850 --> 05:49.500
+Does it look grey.
+
+05:49.510 --> 05:54.440
+But again get there and then we'll one more thing in there just a box sizing.
+
+05:54.760 --> 05:59.960
+And in that border box and you won't really see any changes to that yet.
+
+05:59.980 --> 06:02.640
+But I know we want to put that one on the border box.
+
+06:02.650 --> 06:08.170
+Does is it means that when you specify a wit for something it should take into account the padding in
+
+06:08.170 --> 06:08.960
+the margins.
+
+06:09.010 --> 06:14.320
+So I just put that in there the moment and that that will help you as you go forward and then we'll
+
+06:14.320 --> 06:15.840
+put another thing underneath that.
+
+06:15.850 --> 06:18.850
+So underneath lovick container Starr put
+
+06:21.670 --> 06:24.730
+another log in container.
+
+06:24.860 --> 06:26.320
+Taina like that.
+
+06:26.470 --> 06:28.990
+And then this comes just like luggin containerize.
+
+06:28.990 --> 06:32.460
+So no other attributes afterwards is out there.
+
+06:34.030 --> 06:36.880
+80 percent.
+
+06:37.680 --> 06:39.490
+So this logging contained it did.
+
+06:39.490 --> 06:46.980
+Now if I go out to the elements tab you'll see this logging container div has a width of 80 per cent
+
+06:46.980 --> 06:49.830
+see the blue part is 80 percent of the page width.
+
+06:50.040 --> 06:52.030
+So go out to sources.
+
+06:52.150 --> 06:59.400
+Those are is 80 percent margin no say zero and then Auto.
+
+06:59.520 --> 07:04.050
+And what that does is it means the top and bottom we're to have zero.
+
+07:04.050 --> 07:07.360
+And the left and right are going to have an auto margin.
+
+07:07.890 --> 07:15.090
+So to show you what that means is I go out to here and go out a long container that container out there
+
+07:15.340 --> 07:18.500
+you see the the orange part is the margin.
+
+07:18.510 --> 07:19.920
+The blue buys out container.
+
+07:19.920 --> 07:21.610
+See how centred it in the middle now.
+
+07:21.810 --> 07:26.850
+So we said no margin the top and bottom which is why the blue bar goes right to the top but left and
+
+07:26.850 --> 07:29.900
+right is auto and auto actually centred it by default.
+
+07:30.000 --> 07:32.750
+Okay so this is in the middle now.
+
+07:33.480 --> 07:43.860
+Go back to sources say a position relative and that means it positions it relative to its parent and
+
+07:43.860 --> 07:45.170
+then Max.
+
+07:45.410 --> 07:49.420
+We're going to be ten twenty four pixels.
+
+07:49.560 --> 07:55.100
+So no matter how big your screen is don't let this get any bigger than ten twenty four pixels gay.
+
+07:55.140 --> 07:56.110
+You don't have several.
+
+07:56.110 --> 07:58.980
+This mean that it will just keep getting bigger and bigger.
+
+07:59.010 --> 08:00.890
+As long as they have a screen big enough.
+
+08:01.070 --> 08:01.720
+I see this.
+
+08:01.740 --> 08:03.220
+Don't let it get any bigger.
+
+08:03.590 --> 08:10.660
+One doesn't 24 pixels and that's actually for Logan Utena so ready we have a little bit better looking
+
+08:11.340 --> 08:12.630
+better looking.
+
+08:12.830 --> 08:13.930
+Page right there.
+
+08:14.040 --> 08:16.620
+But remember we haven't actually saying that code.
+
+08:16.740 --> 08:17.680
+So we actually have.
+
+08:17.880 --> 08:25.950
+So we do have to go and copy and paste this into our file or so copy all that new code and paste it
+
+08:25.950 --> 08:26.770
+into their archives.
+
+08:26.780 --> 08:32.930
+I tried this paste it there and save that now means when you refresh this page you should see your changes.

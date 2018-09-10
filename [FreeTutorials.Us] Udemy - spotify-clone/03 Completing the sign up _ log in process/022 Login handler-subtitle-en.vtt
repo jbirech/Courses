@@ -1,0 +1,259 @@
+WEBVTT
+
+00:00.340 --> 00:01.410
+Hey guys welcome back.
+
+00:01.410 --> 00:04.240
+So now we've completely done with our registered form.
+
+00:04.260 --> 00:07.500
+We've done on the foundations and we've made sure it works.
+
+00:07.500 --> 00:08.830
+Our emphasis is great.
+
+00:09.060 --> 00:13.830
+Now you don't do is fix the log in from because we haven't done anything with this at the moment so
+
+00:13.830 --> 00:18.180
+long informally just a really really simple nullah register form there was where there was a lot for
+
+00:18.180 --> 00:20.820
+us to do in the long form is pretty simple.
+
+00:21.080 --> 00:22.920
+Much like we have the register handed up here.
+
+00:22.950 --> 00:26.860
+But we only have the log in handle and up here it's been we made that a while ago.
+
+00:26.940 --> 00:37.200
+So if we open our and our site is open file open then go to includes then handlers and then log in handler
+
+00:37.210 --> 00:38.170
+right here.
+
+00:38.220 --> 00:41.750
+So this is the moment all it does is recognize when the log boom boom was press.
+
+00:41.850 --> 00:45.150
+So this is really really simple this isn't really not much to do.
+
+00:45.150 --> 00:50.770
+All you need do is just get the two values from the log in form the username and password.
+
+00:51.000 --> 00:56.280
+Remember we use the names to reference them so we need to use log in username and log in password to
+
+00:56.280 --> 00:57.420
+reference them.
+
+00:57.420 --> 01:04.950
+So go back to log in handler in all you say is user name equals sign and a score post by this group.
+
+01:04.980 --> 01:13.740
+This is how we get these very walls and inside their in username I write and then copy and paste up
+
+01:13.740 --> 01:22.850
+alone it's going to be password password this is going to be logmein Password right.
+
+01:22.900 --> 01:26.190
+Member they need to match here logon password.
+
+01:26.680 --> 01:27.360
+That's it.
+
+01:27.440 --> 01:31.780
+So don't have this on the form letter do is call our logon function which we haven't actually read.
+
+01:31.800 --> 01:32.130
+Yeah.
+
+01:32.220 --> 01:35.680
+So this would be our logging function.
+
+01:36.030 --> 01:42.210
+So let's write that function now to go in to a not BHB create a new function.
+
+01:42.210 --> 01:50.220
+Maybe the top of one right here the public function sharing log in like that.
+
+01:50.420 --> 01:50.620
+OK.
+
+01:50.640 --> 01:52.160
+It's going to take two parameters.
+
+01:52.230 --> 01:54.600
+They use a name so you end in their password.
+
+01:54.630 --> 02:02.580
+Peter what you know right now what we do is we're going to first encrypt the password so we say Peter
+
+02:02.580 --> 02:03.000
+will you.
+
+02:03.000 --> 02:06.120
+He goes m.d. FIVE.
+
+02:07.150 --> 02:09.840
+DO YOU LIKE THAT IS GONNA encrypt the password keys.
+
+02:09.850 --> 02:13.800
+Remember I told you that in the uses table the passwords appear like this.
+
+02:13.920 --> 02:14.790
+We're going encrypted.
+
+02:14.820 --> 02:20.280
+We're going to peck compare the password but this reads encrypt it first because if we type in this
+
+02:20.280 --> 02:25.250
+one here's password if we type in password it will output exactly the same string as at.
+
+02:25.380 --> 02:29.990
+So we in it endi five if the strings are the same we use the same password.
+
+02:30.030 --> 02:34.970
+So first we encrypt the password and then also have to do is check if it exists in as they will.
+
+02:35.070 --> 02:40.740
+So query he calls my escrow line and the score query like that.
+
+02:40.820 --> 02:47.190
+And this is going to be this arrow Khan connection variable and the query.
+
+02:47.190 --> 02:54.260
+He's just going to be select all from users where.
+
+02:55.370 --> 03:03.450
+The user name he calls you an I that read me saying quote See the side and.
+
+03:04.720 --> 03:05.630
+Password.
+
+03:05.670 --> 03:07.540
+He calls her quotes.
+
+03:07.560 --> 03:09.330
+Peter you like that.
+
+03:09.580 --> 03:10.010
+Okay.
+
+03:10.030 --> 03:11.370
+That's it.
+
+03:11.380 --> 03:12.620
+That's our query.
+
+03:12.670 --> 03:17.690
+And also tattoos check if they have a correct number of rows so check if it was successful or not.
+
+03:17.860 --> 03:18.850
+So if.
+
+03:20.630 --> 03:21.570
+May I ask you're alive.
+
+03:21.610 --> 03:27.810
+And the scorn rose and put a query in there like that.
+
+03:28.060 --> 03:37.510
+He calls one service one result found matching this username and password then just return true else
+
+03:38.810 --> 03:40.120
+it's false.
+
+03:40.120 --> 03:43.770
+Like that is a return true origin false.
+
+03:43.790 --> 03:44.840
+It defines one row.
+
+03:44.860 --> 03:46.650
+Return true for successful.
+
+03:46.720 --> 03:49.620
+If it finds anything other than one return false.
+
+03:49.750 --> 03:55.780
+But we also want to our one error message to say we're just going to side here put a ray in a score
+
+03:55.810 --> 04:02.510
+push just like we did below this error array like that.
+
+04:03.070 --> 04:11.980
+And then the m s going to be constants logmein failed like that would help create this one now so cravin
+
+04:11.980 --> 04:17.890
+could log in failed to go to constants class copy and paste one of these olmec from space below because
+
+04:17.890 --> 04:21.220
+these are our register error messages so this will be a log in error message.
+
+04:21.330 --> 04:34.020
+So log in failed and then rename this to your user name or password was in correct.
+
+04:34.060 --> 04:38.150
+Like that I write save an enneking just go to output this now.
+
+04:38.290 --> 04:45.520
+So copying basically the code lines we used to update the message below and paste that above the user
+
+04:45.530 --> 04:47.230
+name part of the log in form.
+
+04:47.350 --> 04:55.690
+Change this to write a new one we just created log in fail like that to log in failed and that should
+
+04:55.690 --> 04:57.000
+be it.
+
+04:57.130 --> 05:02.310
+Log in function is done was left to do now is check if it was correct and redirect them.
+
+05:02.410 --> 05:09.910
+But before we do that we do have to call this function Ohso result he calls a count which is a variable
+
+05:09.910 --> 05:11.840
+we created in the register file.
+
+05:11.880 --> 05:20.880
+Here count our own log in and then pass in the user name and also pass in the password like that says
+
+05:20.890 --> 05:24.380
+the function we just created and then reassembly.
+
+05:24.400 --> 05:28.620
+If result it holds true.
+
+05:28.720 --> 05:31.000
+Remember I told you you'd actually need to add this is true.
+
+05:31.000 --> 05:35.850
+That's fine but to be a bit more explicit we'll just say was all equal true.
+
+05:35.950 --> 05:37.270
+We're just going to redirect them.
+
+05:37.310 --> 05:45.630
+Header location indexed stop the HP And that's it.
+
+05:45.820 --> 05:49.020
+That's all I can do is go back and check this work now.
+
+05:50.940 --> 05:56.140
+So I try and log in with rescanning my password was password like that.
+
+05:56.160 --> 05:59.020
+If it redirects me it worked great.
+
+05:59.040 --> 06:00.930
+And this just check out our addresses worked.
+
+06:00.960 --> 06:03.940
+Scroll log in with the wrong user name and the wrong passwords.
+
+06:03.950 --> 06:07.610
+Well then there's our message.

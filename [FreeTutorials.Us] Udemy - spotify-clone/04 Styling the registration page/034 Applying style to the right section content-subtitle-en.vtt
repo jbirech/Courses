@@ -1,0 +1,232 @@
+WEBVTT
+
+00:00.230 --> 00:01.710
+Hey guys welcome back.
+
+00:01.710 --> 00:07.260
+So last time we started work on this tax story here and we see how it looking like this a moment because
+
+00:07.260 --> 00:09.010
+we don't have a style applied to it.
+
+00:09.090 --> 00:11.480
+So that's what we do in this valeria's is style.
+
+00:11.490 --> 00:17.790
+So it looks like this in the end and there is a whole lot of style to do you suspect elements.
+
+00:17.790 --> 00:19.910
+You can see what we're actually dealing with.
+
+00:20.250 --> 00:25.350
+And we'll start with this logon text content right here which is the container around all of this text
+
+00:25.350 --> 00:27.620
+here and running it had two lies.
+
+00:27.630 --> 00:32.900
+This all we do is just drop padding as forty five pixels.
+
+00:32.950 --> 00:39.450
+And of course feel free to play around these values as you like and we should say display table cell
+
+00:39.480 --> 00:46.020
+like that and that just makes it behave like a table cell element which is you know TDR like that.
+
+00:46.420 --> 00:51.270
+I by that much more now because we'll use it later on in the Course area become a lot clearer to you
+
+00:51.270 --> 00:52.080
+then.
+
+00:52.140 --> 00:55.950
+So for now just put those two there in logon text out an ad like this.
+
+00:55.950 --> 00:58.410
+So copy paste has two lines of code.
+
+00:58.410 --> 01:00.190
+Go back to a S file.
+
+01:00.330 --> 01:02.310
+So I need to open it.
+
+01:02.420 --> 01:04.990
+So YES YES YES YES YES.
+
+01:05.070 --> 01:06.030
+Scroll down.
+
+01:06.120 --> 01:14.920
+And would it get to an I.D. the log in text like and just pesos two lines in there case over.
+
+01:15.030 --> 01:18.410
+Then we add some style to these headed tags right here.
+
+01:18.450 --> 01:24.310
+So at age one I mean this is that green one we're going to say cola which is the text colour.
+
+01:24.360 --> 01:27.700
+And I know what colour this is I've written down here so just copy along.
+
+01:27.700 --> 01:31.160
+3 1 0 7 d.
+
+01:31.500 --> 01:33.200
+1 5 9.
+
+01:33.210 --> 01:33.640
+Like that.
+
+01:33.650 --> 01:35.410
+You see it turns to that green colour.
+
+01:35.580 --> 01:38.840
+Of course if you look now you can play around with any of these colours you like.
+
+01:39.360 --> 01:43.200
+But that's the code we use as the Spotify screen.
+
+01:43.260 --> 01:48.030
+Next one is a font size 60 pixels like that.
+
+01:48.030 --> 01:54.300
+And then which can make it bold by saying font weight bold like that.
+
+01:54.800 --> 01:55.480
+Okay.
+
+01:55.620 --> 01:58.380
+Obviously you can play around with these rallies as you like.
+
+01:59.040 --> 02:00.150
+So that's fine.
+
+02:00.180 --> 02:05.830
+Copy those three lines go back to here underneath there just do the same again.
+
+02:05.850 --> 02:10.240
+Log in log in sext and then do a one.
+
+02:10.260 --> 02:13.780
+So the 81 one that falls in the log in text Outman.
+
+02:14.010 --> 02:22.110
+They say that and he has a copy and paste a line below and changes to h to get rid of these three lines
+
+02:22.110 --> 02:22.530
+of code.
+
+02:22.540 --> 02:25.070
+These were only those Yeah during the H to.
+
+02:25.100 --> 02:26.700
+And I go out here and show you.
+
+02:26.710 --> 02:34.630
+So I click on age 2 and we give this a margin so margins go to be thirty five pixels and zero.
+
+02:34.930 --> 02:35.580
+Okay.
+
+02:35.610 --> 02:42.630
+So what that means is thirty pictures on top and bottom and nothing on the left and right.
+
+02:42.660 --> 02:45.990
+So if I hover over you can see the margin there.
+
+02:46.540 --> 02:47.100
+Okay.
+
+02:47.190 --> 02:47.670
+That's it.
+
+02:47.670 --> 02:50.490
+So copy that paste that into there.
+
+02:50.640 --> 02:59.060
+And we are done with that save it and then we're going to do the an ordered list element the element.
+
+02:59.070 --> 03:03.840
+And this is you have one thing as Mission B padding zero.
+
+03:03.960 --> 03:05.690
+So no padding on that.
+
+03:06.060 --> 03:07.680
+And that that's it.
+
+03:07.680 --> 03:09.830
+So scroll back to here.
+
+03:12.300 --> 03:13.380
+Log in.
+
+03:13.380 --> 03:21.570
+Text you all like that so that you L. That falls in a log in text elliman paddings 0 and then the last
+
+03:21.570 --> 03:25.830
+one to do is just d list item elements the allies.
+
+03:25.840 --> 03:27.170
+So click on one of those.
+
+03:27.390 --> 03:32.360
+And they're going to say font size.
+
+03:34.360 --> 03:39.710
+And I can play around of these values chagny 14 bressant Opened Alferez to find a value.
+
+03:39.720 --> 03:43.190
+I like it see I used here.
+
+03:43.190 --> 03:57.020
+So it's kind of I think a little bit bigger as do 20 pixels list style type like this and you see if
+
+03:57.020 --> 04:02.750
+I scroll down to read through this you can see the bullet point changing in this would be the actual
+
+04:02.750 --> 04:04.280
+bullet point that it would use.
+
+04:04.280 --> 04:08.620
+So we're just going to say no no we don't need any of those.
+
+04:08.710 --> 04:10.750
+See if it makes this disappear.
+
+04:10.850 --> 04:13.990
+And then finally just give us some padding.
+
+04:16.860 --> 04:18.840
+And then you're used here.
+
+04:18.990 --> 04:21.580
+So we are a bit of space between them.
+
+04:22.910 --> 04:23.940
+Padding.
+
+04:26.080 --> 04:32.410
+Just say no 10 pixels will like maybe 15.
+
+04:32.690 --> 04:34.590
+I'll leave it time for now and come back and change.
+
+04:34.590 --> 04:44.230
+I actually want to buy anyway copy and paste that in to log in text L..
+
+04:44.240 --> 04:54.160
+I like that paste in there and say it and I refresh the page now and should see all this style applied
+
+04:54.170 --> 04:55.000
+still.
+
+04:58.660 --> 05:03.260
+So the other thing we haven't done is actually give these the check marks that you see right here.
+
+05:03.440 --> 05:07.690
+And the reason we haven't done that right now is because in the next video we show you where I get those
+
+05:07.700 --> 05:09.880
+I come from and how you can do that.

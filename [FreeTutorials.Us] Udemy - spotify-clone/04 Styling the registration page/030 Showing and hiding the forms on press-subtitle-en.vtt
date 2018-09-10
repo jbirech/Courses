@@ -1,0 +1,361 @@
+WEBVTT
+
+00:00.660 --> 00:01.760
+Guys welcome back.
+
+00:01.950 --> 00:06.080
+So last time we had this text and here but this doesn't do anything yet so we're going to take you so
+
+00:06.080 --> 00:09.790
+that when you click on it it will show or hide the relevant form.
+
+00:10.020 --> 00:12.540
+And the way to do that is just with a little where javascript.
+
+00:12.540 --> 00:22.500
+So go back to your text editor and create a new file and say this is so we say this in the ascites folder
+
+00:22.560 --> 00:30.240
+so ascites big brand new falvey inside of the assets folder so called this J S for jobs.
+
+00:30.690 --> 00:39.130
+So now in the Asus fandom have a jazz folder and save the file inside the gess folder as Register.
+
+00:39.260 --> 00:42.270
+Yes that save it and they go.
+
+00:42.270 --> 00:43.800
+There's our javascript file.
+
+00:44.160 --> 00:48.910
+I'm actually going to be using j.crew for this in the moment we don't have Jayco every hour project
+
+00:48.920 --> 00:50.930
+so we have to add a reference to that.
+
+00:51.460 --> 00:54.480
+So go back to register BHP scroll to the top.
+
+00:54.690 --> 00:59.150
+And inside this head tag right here is where the reference to the j.crew library is going to go.
+
+00:59.230 --> 01:03.920
+Of those that don't know Jay queries just the javascript library which for the most part just provides
+
+01:03.920 --> 01:09.690
+some useful abstraction which allow you to do things in a lot less lines and it will take doing that
+
+01:09.690 --> 01:11.230
+with purely javascript.
+
+01:11.790 --> 01:16.640
+So go to any tab and just type in Jay Query Oh STD.
+
+01:17.970 --> 01:24.080
+And then click on the first one from Google and then you'll see this spyware here.
+
+01:24.090 --> 01:32.490
+This script copy and paste that and then go back to your registered AP hpb Agent paste that in there
+
+01:33.150 --> 01:39.560
+in Google hosted discharged and Google have hosted this j.crew library for us to use so just by including
+
+01:39.570 --> 01:41.770
+that we can now use jaquie.
+
+01:41.790 --> 01:44.460
+So now we've got Jay Query referenced and we can use it.
+
+01:44.460 --> 01:48.450
+Go back to our Reggie did our James file and it's your first time using J.
+
+01:48.450 --> 01:50.010
+Crew or Javascript.
+
+01:50.190 --> 01:52.670
+Then you might find some of the syntax confusing.
+
+01:52.670 --> 01:53.120
+No idea.
+
+01:53.130 --> 01:57.300
+When I started out with an invalid it took me a while to come to grips with it and to really feel comfortable
+
+01:57.300 --> 01:58.380
+with it.
+
+01:58.530 --> 02:03.720
+I suggest just carry on with it just get through it and you will like everything else I seem to say
+
+02:03.720 --> 02:05.930
+in this cause you'll become a lot more familiar.
+
+02:05.940 --> 02:07.040
+The more you use it.
+
+02:07.410 --> 02:09.930
+So even if you don't fully understand it yet that's fine.
+
+02:09.930 --> 02:13.380
+Just go with it and you'll be absolutely fine in due course.
+
+02:13.380 --> 02:17.730
+And as always if you have a question just ask me and I'll get back to you real soon.
+
+02:18.270 --> 02:19.790
+So explain this where I type it out.
+
+02:19.800 --> 02:28.850
+But for now just file on a dollar sign document dart ready and inside the parentheses.
+
+02:28.860 --> 02:31.540
+We're going to put function.
+
+02:31.720 --> 02:37.190
+Spread the suits there and then the curly brace like that put a semicolon the end of that too.
+
+02:37.410 --> 02:38.890
+And what this does is this.
+
+02:38.910 --> 02:44.160
+We execute this code as soon as the document is ready and it basically means when the page is ready
+
+02:44.160 --> 02:46.430
+in all is dependencies loaded.
+
+02:46.920 --> 02:52.730
+So were going to do is write dollar sign with the parentheses s other premises in double quotes.
+
+02:52.770 --> 02:56.040
+Put dot Hi log in.
+
+02:57.890 --> 03:01.050
+Which is this one right here.
+
+03:01.390 --> 03:02.650
+Spam tag.
+
+03:02.930 --> 03:13.870
+So I blog in Dopp click like that and in parentheses inside the browser is put function like that with
+
+03:13.880 --> 03:21.110
+curly braces that way and put a semicolon in the of that too inside of there just per dollar sign in
+
+03:21.110 --> 03:26.230
+parentheses and then pound sign for I.D. log in form.
+
+03:27.780 --> 03:37.870
+Hide like that and then copy and paste that below it is Che's log in form to register the form for this
+
+03:38.050 --> 03:39.010
+show.
+
+03:39.400 --> 03:40.280
+So form.
+
+03:40.300 --> 03:42.540
+Show the register form.
+
+03:42.850 --> 03:48.540
+Best I guess Wayne is in a minute demaree Copy and paste below and just all we do is do the exact opposite.
+
+03:48.760 --> 03:50.870
+So is there a hive in we hide.
+
+03:50.990 --> 03:52.490
+Register like that.
+
+03:52.540 --> 03:58.270
+This is going to be this stay as long form but change this to show and change this one to hide.
+
+03:58.420 --> 03:59.100
+Okay and that's it.
+
+03:59.110 --> 04:00.200
+We're done with this.
+
+04:00.370 --> 04:03.100
+So let me just explain what this is.
+
+04:03.100 --> 04:03.550
+This.
+
+04:03.550 --> 04:09.390
+Dollar sign with double coincide inside and then their class all idea should be.
+
+04:09.490 --> 04:10.360
+This is a..
+
+04:10.360 --> 04:14.490
+Jay Query object and we're creating a jaquie object here with this site.
+
+04:14.950 --> 04:20.890
+And was saying when this element is clicked do this and were hiding this element is showing this outman
+
+04:21.600 --> 04:24.490
+alternately when this Salamon is great.
+
+04:24.790 --> 04:30.400
+Show this one and hide this one and I just realized this should actually be an I.D. So it should be
+
+04:30.500 --> 04:32.060
+propounds sign or hash tag.
+
+04:32.110 --> 04:36.460
+Some of you should be like that because if you go back to registered up HP you see that we even use
+
+04:36.490 --> 04:38.300
+I.D. for this game.
+
+04:38.770 --> 04:43.390
+So save that and you see when I refreshes page now providing I did everything right.
+
+04:43.540 --> 04:49.690
+One of these show and high when I click on it so I go on that and it's not working and I realize why
+
+04:49.900 --> 04:53.170
+we haven't actually linked this javascript far yet.
+
+04:53.230 --> 04:54.570
+So go back to regicide up.
+
+04:55.470 --> 05:00.300
+I need to actually add a reference to this javascript file about someone great in space underneath just
+
+05:00.360 --> 05:07.500
+to separate this year says files with the javascript files and underneath the J query library there.
+
+05:07.650 --> 05:14.410
+Maybe you do underneath you don't do above do underneath typescript and then press tab to add this for
+
+05:14.410 --> 05:14.920
+you.
+
+05:14.920 --> 05:19.060
+I would actually need this part so you can even get rid of that if you want as a regime or 5 you no
+
+05:19.060 --> 05:21.520
+longer need to have type text javascript.
+
+05:21.550 --> 05:28.390
+Yes you get rid of that just regular it's simpler and inside this first script out in DOS SA sirc he
+
+05:28.420 --> 05:36.950
+calls and inside there just put ascites slash J S slash register.
+
+05:38.330 --> 05:39.540
+Yes like that.
+
+05:39.560 --> 05:41.290
+Save that and that should be good.
+
+05:41.300 --> 05:43.480
+Now fresh this.
+
+05:43.490 --> 05:48.020
+Now click on one of these and you see patterns here.
+
+05:48.170 --> 05:54.110
+And if I took on this it is you error out there.
+
+05:54.560 --> 05:57.490
+So I would outworks if it still isn't working for you.
+
+05:57.490 --> 06:03.440
+You might just want to go back to your redshirted Yes file and put love print statements in there that
+
+06:04.460 --> 06:06.830
+just let you know which things are actually been executed.
+
+06:06.860 --> 06:08.940
+So for example you might be one in here.
+
+06:08.960 --> 06:19.400
+Consol dog I know say a document is ready right and if when you refresh your page you see this in the
+
+06:19.400 --> 06:20.260
+console.
+
+06:20.360 --> 06:22.840
+You know that this was executed successfully.
+
+06:22.970 --> 06:24.460
+So if I refresh the page now.
+
+06:25.910 --> 06:27.650
+And go to my console.
+
+06:27.780 --> 06:32.130
+So expect element go to console and I see this which is good.
+
+06:32.130 --> 06:38.240
+If you don't see that it means that this code isn't even executing So one of two things is going on.
+
+06:38.250 --> 06:39.120
+You have this wrong.
+
+06:39.120 --> 06:45.110
+Maybe you've spelled something wrong or something or you might be linked to this file successfully.
+
+06:45.110 --> 06:49.460
+So this link here each added might not be correct.
+
+06:49.680 --> 06:52.580
+So once you see this you know that this is fine.
+
+06:52.860 --> 07:01.200
+You can then move that to inside of here by that and then just change it to something like logging was
+
+07:01.380 --> 07:09.450
+pressed and they can't even copy and paste one into the one below that and it changes to register was
+
+07:09.450 --> 07:11.160
+pressed.
+
+07:11.160 --> 07:15.270
+Then go back to here and then when you press one of these.
+
+07:15.450 --> 07:20.480
+You should see a women with breast or register with breast.
+
+07:20.490 --> 07:26.800
+If you don't see those you know that the click handler isn't working it's most likely that this selective
+
+07:26.820 --> 07:27.920
+wrong so just make sure you're not.
+
+07:27.930 --> 07:29.580
+You haven't used a dot here.
+
+07:29.640 --> 07:35.220
+Instead of a symbol make sure this is spelled correctly with the right case you out the lowercase L
+
+07:35.220 --> 07:37.870
+then it should be in uppercase.
+
+07:38.190 --> 07:38.600
+So yeah.
+
+07:38.610 --> 07:43.050
+That's just a little way to debug if it's not working any problems just let me know in an hour.
+
+07:43.070 --> 07:44.620
+You aren't going.
+
+07:45.420 --> 07:45.990
+So that's it.
+
+07:45.990 --> 07:47.310
+We have it working.
+
+07:47.310 --> 07:50.040
+The only thing we're not doing the moment is show.
+
+07:50.040 --> 07:51.400
+Hiding one by default.
+
+07:51.420 --> 07:53.140
+So when the paid loads are both shown.
+
+07:53.160 --> 07:55.450
+But that's not a problem we'll figure out the next video.

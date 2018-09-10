@@ -1,0 +1,175 @@
+WEBVTT
+
+00:00.840 --> 00:02.060
+Guys welcome back.
+
+00:02.060 --> 00:03.970
+So we're going to carry on with our styling now.
+
+00:03.970 --> 00:06.490
+I am going to move on to the burn that is right here.
+
+00:06.490 --> 00:07.960
+I'll show you what it's going to look like.
+
+00:08.380 --> 00:11.110
+So when we're done it's going to look something like this.
+
+00:11.410 --> 00:12.740
+And this is pretty simple.
+
+00:12.910 --> 00:17.800
+If you open these Spectre so right click inspect element and then select the button.
+
+00:17.800 --> 00:19.030
+So click on this thing right there.
+
+00:19.030 --> 00:23.790
+Click the burn like that and we can have the s here so we can see it.
+
+00:23.980 --> 00:34.560
+So yes a background colour is going to be transparent background colour transparent where we can say
+
+00:35.060 --> 00:36.620
+the border.
+
+00:36.660 --> 00:40.280
+She's going to be one Picaxe solid.
+
+00:40.510 --> 00:48.550
+And the colour is going to be white so therefore if the border radius which is going to be how round
+
+00:48.550 --> 00:49.780
+the corners are.
+
+00:49.780 --> 00:56.710
+So the radius we're going to do a fairly large number just but to June 50 pixels like that just so we
+
+00:56.710 --> 00:57.910
+know it stays around.
+
+00:57.910 --> 01:04.150
+You can change this jab if I'd put a five pixels so five x ray There you see.
+
+01:04.150 --> 01:06.550
+The board is only slightly rounded.
+
+01:06.640 --> 01:09.910
+Another as I increase it over I press the barrier to increase this.
+
+01:09.910 --> 01:13.550
+You see the more I do the more round it gets red.
+
+01:13.780 --> 01:20.450
+So we want to be completely round at the corners so just put some large number of whiskers a to 50 pixels.
+
+01:20.560 --> 01:26.020
+You don't need to do a number that large I guess but let's just go with that colour which is the text
+
+01:26.020 --> 01:29.570
+colour is going to be white on is already white the moment.
+
+01:29.570 --> 01:33.650
+But is there to be bit more explicit display.
+
+01:33.790 --> 01:36.400
+Block which means he'll appear on his own line.
+
+01:36.400 --> 01:38.910
+Nothing will appear alongside it.
+
+01:38.980 --> 01:50.130
+Font size font size is going to be a say 14 pixel as Try that letter spacing which is going to be the
+
+01:50.140 --> 01:56.320
+spacing between each letter and as you probably guess say two pixels a bit too much Losee one pixel
+
+01:56.580 --> 01:57.870
+this is slight gap.
+
+01:57.940 --> 01:59.970
+If I change at zero you see how it looks.
+
+01:59.980 --> 02:01.430
+See the letters are close together.
+
+02:01.510 --> 02:06.140
+If I made that to Windows or now you'll see the letters spaceball about bit.
+
+02:06.210 --> 02:14.380
+But some margin on this margin is going to be 20 pixels on top and bottom and then let's say Porto for
+
+02:14.380 --> 02:15.430
+the left and right.
+
+02:15.460 --> 02:22.030
+And also if you remember me saying before purchasing the centre of its container height we're going
+
+02:22.030 --> 02:30.180
+to put 41 pixels like that width is going to be 100 percent.
+
+02:30.180 --> 02:32.830
+We won't state the whole with the container again.
+
+02:33.250 --> 02:36.540
+And do there's a burn survivor about the here statue.
+
+02:36.640 --> 02:41.440
+This one's got slightly thicker border so if things go back to the border right here and change from
+
+02:41.440 --> 02:45.370
+one pixel to two pixels or something does go with that.
+
+02:45.370 --> 02:48.440
+So copy and paste all this I want to go to to our success file.
+
+02:49.420 --> 02:50.740
+So go back to here.
+
+02:50.830 --> 02:58.600
+And the bottom just put in foot container and then space.
+
+02:58.630 --> 03:02.570
+But since this is all the burns it's the input container is what is our target.
+
+03:02.750 --> 03:04.860
+They sign there save it.
+
+03:04.870 --> 03:07.900
+We also do something when we hover over the bottom goes at the moment.
+
+03:07.910 --> 03:14.230
+If you look at this my cursor know the mouse pointer doesn't change so what I want to do is make it
+
+03:14.260 --> 03:15.950
+so it becomes a pointer.
+
+03:15.970 --> 03:20.940
+For example if a hover over this button you see the maskers changes to the pointer.
+
+03:21.070 --> 03:23.880
+So we don't do that when you hover over it change them out.
+
+03:24.270 --> 03:29.020
+And that's really easy copying basis Barbare because I'm too lazy to grab.
+
+03:29.050 --> 03:29.850
+Yeah.
+
+03:30.400 --> 03:34.800
+So there and then after the burn part do colon hover.
+
+03:34.810 --> 03:36.300
+Are going to target the button.
+
+03:36.310 --> 03:44.040
+But when it's hovered over so when you hover over it we're just going to say cursor pointer like that.
+
+03:44.050 --> 03:50.470
+And now for our freshest page you'll see the magic is a Gaza.
+
+03:50.860 --> 03:51.420
+You see this.
+
+03:51.430 --> 03:56.360
+The bomb Burns also style and that's it real simple.

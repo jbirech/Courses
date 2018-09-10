@@ -1,0 +1,244 @@
+WEBVTT
+
+00:00.540 --> 00:01.570
+Hey guys welcome back.
+
+00:01.650 --> 00:05.060
+So I'm going to do now is make a start on this album artwork Square.
+
+00:05.060 --> 00:06.630
+It's going to be in the bottom left corner.
+
+00:06.810 --> 00:09.390
+So if I go back through this tab you see what's gone look like.
+
+00:09.390 --> 00:12.170
+So look something like this.
+
+00:12.510 --> 00:13.640
+This is fairly simple.
+
+00:13.650 --> 00:19.400
+Go back to our index of the HP page and we're going to be working in this now playing left div now game.
+
+00:19.420 --> 00:23.520
+So go to and now playing left live inside of that a new div.
+
+00:23.670 --> 00:28.670
+And it's going to have that class of content which we've already made the style for.
+
+00:28.840 --> 00:36.990
+So content you see here this clash here is if I show you right here you see content.
+
+00:37.020 --> 00:38.360
+Is this one.
+
+00:38.400 --> 00:41.610
+See the blue square like that.
+
+00:42.480 --> 00:47.220
+And you can see here we've given it a whipped 100 per cent against this content div. detects a wit of
+
+00:47.230 --> 00:49.100
+100 per.
+
+00:49.560 --> 00:50.210
+So.
+
+00:51.890 --> 00:53.980
+So add that to the Now Playing left.
+
+00:54.440 --> 00:59.100
+And inside of that we're just going to put our spam element by that.
+
+00:59.130 --> 01:08.310
+So Chris spann and the class for this is going to be album link like that album link.
+
+01:08.420 --> 01:10.480
+And last thing is you stick an image in here.
+
+01:10.520 --> 01:12.220
+So I only pressed tab.
+
+01:12.230 --> 01:17.010
+There's the image tag and the siac for source is going to be the link to the image.
+
+01:17.030 --> 01:21.020
+Obviously we don't have any images yet and we can't link it to some because you don't actually have
+
+01:21.020 --> 01:22.720
+any songs in our DirecTV yet.
+
+01:22.880 --> 01:30.800
+So all we do is just go and find as a filler image for now buy what we want to be a square as rock as
+
+01:30.800 --> 01:33.290
+album album.
+
+01:33.380 --> 01:34.880
+Our work here uses a square.
+
+01:34.880 --> 01:39.080
+So go back to here and take any of them.
+
+01:39.080 --> 01:41.520
+I'll take this one right here.
+
+01:41.650 --> 01:47.750
+He's going to his image so I copy and paste the URL for that image case to find any image because it's
+
+01:47.780 --> 01:52.190
+not really important because this is just a filler image so we can see what we're actually doing.
+
+01:52.280 --> 01:57.760
+And pasero own there and save that and you'll see hopefully an image.
+
+01:57.770 --> 02:00.890
+Obviously the stylings may be wrong the moment so that's fine.
+
+02:00.890 --> 02:04.240
+The fact that we're seeing something is good although it doesn't look very good right now.
+
+02:04.460 --> 02:05.430
+So in.
+
+02:05.660 --> 02:08.460
+So waistcoat has more style to this now to make this look better.
+
+02:08.600 --> 02:11.650
+So go down to where we have our image shot.
+
+02:11.710 --> 02:19.850
+I just inspect on that and then find this image piira Yes you go to the image we just added and then
+
+02:19.850 --> 02:22.420
+put height.
+
+02:22.750 --> 02:30.380
+One hundred percent like that's high 100 percent and already looks a lot better than a max width of
+
+02:30.500 --> 02:36.670
+fifty seven pixels so this means that memory size is page as you said 100 percent right.
+
+02:36.680 --> 02:42.360
+It will take a huge percent of however much this container is which will give you a max width of 57
+
+02:42.370 --> 02:46.310
+because all of me won't ever get wider than fifty seven pixels.
+
+02:46.350 --> 02:48.690
+We have this a margin on the right now.
+
+02:48.800 --> 02:50.660
+So margin right.
+
+02:50.800 --> 02:57.020
+And I still say 15 pixels go down and you see four hover over let's see the orange bar next to it is
+
+02:57.020 --> 02:59.240
+here the orange right that's the margin.
+
+02:59.270 --> 03:04.760
+So we've added a little margin because when we have our text we want a gap between the text in the image.
+
+03:04.910 --> 03:10.400
+So this this margin just creates of space between the text or where the text is going to go and the
+
+03:10.400 --> 03:11.090
+image.
+
+03:11.090 --> 03:18.740
+And then we just want to say float left because this will mean the text will flow alongside it.
+
+03:19.010 --> 03:25.930
+So copy and paste all that go back to see is our style sheet and then go to the barn and just Purt.
+
+03:26.090 --> 03:27.210
+Now Playing.
+
+03:27.200 --> 03:32.890
+Left and then what do we call the class of this image mujhe.
+
+03:32.930 --> 03:36.250
+Oh we don't actually give you a class yet so don't give this a class.
+
+03:36.320 --> 03:43.080
+So on the image tag just add the class album art work.
+
+03:43.100 --> 03:43.500
+Okay.
+
+03:43.520 --> 03:46.750
+So and the class alamar work worked the image.
+
+03:47.020 --> 03:47.480
+Right.
+
+03:47.510 --> 03:52.630
+And then in here just to drop the album art work like that.
+
+03:52.760 --> 03:59.210
+So we have now played left our Walmart work and then paste that carried that we just did in there right
+
+03:59.270 --> 04:02.630
+now when our refreshes page you should still see the sanco.
+
+04:05.740 --> 04:07.120
+Something else we can put in there.
+
+04:07.120 --> 04:08.160
+He's more like Carrie.
+
+04:08.170 --> 04:09.150
+Let's try.
+
+04:09.710 --> 04:15.320
+But ground size and then cover.
+
+04:15.730 --> 04:18.030
+And what does background size cover does.
+
+04:18.040 --> 04:20.850
+It's going to scale the image to be the largest size it can.
+
+04:21.010 --> 04:25.320
+As long as all of their space is covered so we have this square for our image.
+
+04:25.420 --> 04:31.690
+If we for example of loading an image for this artwork which is not square is a rectangle and it wouldn't
+
+04:31.690 --> 04:35.610
+fit in here rather than having just a rectangle shape.
+
+04:35.630 --> 04:40.320
+It would resize the image so it fills all of the available space.
+
+04:40.420 --> 04:43.170
+So that just makes sure that the whole space limage is covered.
+
+04:43.240 --> 04:44.610
+Okay so just stick around there.
+
+04:44.680 --> 04:47.910
+And then of course copying pace out back in the code right here.
+
+04:48.160 --> 04:54.070
+And I think it's one more thing I'm just saying it doesn't look quite the right height then go to the
+
+04:54.070 --> 04:55.370
+content div..
+
+04:55.750 --> 04:58.630
+And I think this actually needs a high it should be.
+
+04:58.660 --> 05:05.970
+I think it was 57 pixels we decided yeah this content did not age the height of the container.
+
+05:06.010 --> 05:12.980
+Okay so we're at this height fifty seven pixels to this now playing bar content bar a financial playing
+
+05:12.980 --> 05:20.780
+by a content so here and paste in there that's over and we're done.
+
+05:20.980 --> 05:23.220
+So there's there our bomar work.

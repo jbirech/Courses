@@ -1,0 +1,232 @@
+WEBVTT
+
+00:00.390 --> 00:01.490
+Hey guys welcome back.
+
+00:01.590 --> 00:06.190
+So last time we wrote this a function which allows us to remember the values from the previous forms
+
+00:06.230 --> 00:06.900
+mission.
+
+00:06.900 --> 00:11.950
+This is space use and to type out the names or use an image again if there's a problem with them.
+
+00:12.000 --> 00:16.670
+Now we're ready to move on to the database side of things including our users table.
+
+00:16.680 --> 00:22.220
+So go ahead the new tab and go to local host slash HP.
+
+00:22.220 --> 00:25.650
+My admin pay HP my admin.
+
+00:25.680 --> 00:26.990
+Now this is the front end for us.
+
+00:27.030 --> 00:29.750
+I ask you our database so go to that.
+
+00:29.790 --> 00:31.800
+If this doesn't work for you you can't see it.
+
+00:31.800 --> 00:36.580
+Make sure you have the my escarole database running OK.
+
+00:36.630 --> 00:44.160
+This needs to be running zengota new and then in here the Cray database we'll put the Davis name is
+
+00:44.160 --> 00:45.710
+whatever you call it it doesn't matter.
+
+00:45.710 --> 00:52.980
+Just I'll call it slow to fire I guess that's my name with the Get name of my website so Spotify he
+
+00:53.130 --> 00:54.560
+can call it whatever you want.
+
+00:54.890 --> 00:59.520
+OK now go and find this new them right here and you'll see there's no tables in there so it's give me
+
+00:59.520 --> 01:01.000
+the option to correct a will.
+
+01:01.170 --> 01:07.780
+So is I here type users were asking me the name of our table and go ahead and give this 8 columns.
+
+01:08.110 --> 01:12.260
+Okay A columns so we have a column templates here.
+
+01:12.290 --> 01:17.400
+This is how we create a table so the first column is going to have the name I.D. The type is going to
+
+01:17.400 --> 01:18.450
+stays in it.
+
+01:18.630 --> 01:24.660
+And then scroll along to the right and you see this a Irae here which stands for auto increment and
+
+01:24.660 --> 01:29.620
+change in the drop down to the left of it to primary primary key.
+
+01:29.700 --> 01:35.860
+And what this means the auto inkerman means that this value right here in this column that idea e what
+
+01:35.880 --> 01:39.430
+increment automatically every single time a new value was added.
+
+01:39.480 --> 01:45.420
+For example the first user to be entered into a state raised table will have the idea of 1 The second
+
+01:45.420 --> 01:47.100
+use will have the idea of 2.
+
+01:47.410 --> 01:50.580
+Okay this means we don't have to manually assign a value.
+
+01:50.580 --> 01:56.820
+For example if we got 50 people in the users table and our own is a new value I won't have to go and
+
+01:56.820 --> 01:59.210
+check to see how many values are to give it.
+
+01:59.220 --> 02:04.440
+The idea 51 it will automatically take the next number of cases which makes it a little bit easier for
+
+02:04.440 --> 02:04.760
+us.
+
+02:04.800 --> 02:09.960
+So you ought to increment and in the primary key means that this is going to be a unique value in the
+
+02:09.960 --> 02:10.620
+table.
+
+02:10.620 --> 02:12.680
+We know that this value can.
+
+02:12.690 --> 02:14.280
+You can never have the same idea.
+
+02:14.290 --> 02:17.100
+So you never have a user with the idea of 7 and another user.
+
+02:17.100 --> 02:20.720
+Also with the idea sabran there always have a unique idae.
+
+02:20.830 --> 02:23.540
+Okay so that's all you need to know about that for now.
+
+02:23.550 --> 02:28.100
+That will probably become a bit clearer as we start using this but the next column is going to be user
+
+02:28.100 --> 02:34.800
+name and the type of this is going to be varchar and then the length is going to be how many characters
+
+02:34.800 --> 02:35.690
+we allow them to have.
+
+02:35.700 --> 02:39.250
+So 25 characters for a username is probably good.
+
+02:39.250 --> 02:42.670
+And then next column is going to be first name like this.
+
+02:42.690 --> 02:50.340
+And there's also varchar varchar of text value and then the length of this let's say 15 because 50 sounds
+
+02:50.700 --> 02:51.180
+good.
+
+02:51.230 --> 02:57.430
+Aren't for a first name last name and then varchar 50 again.
+
+02:57.540 --> 03:02.390
+Feel free to adjust these values as you like email.
+
+03:02.460 --> 03:07.700
+I don't know what the good value would be for the email so we can just say no to Andrew.
+
+03:07.700 --> 03:18.550
+Just to be safe and password now the password is going to be a varchar 32 and the reason it's me thirsty
+
+03:18.590 --> 03:23.310
+is because we're going to encrypt this password before we put it into the database and the encryption
+
+03:23.310 --> 03:27.800
+method we're using is going to keep any encryption method we're using is going.
+
+03:27.810 --> 03:32.850
+Transform the password into a 32 character long string that probably won't make sense as some of you
+
+03:32.850 --> 03:33.480
+from now.
+
+03:33.480 --> 03:41.640
+But just 32 in there and explain that as we get there and then we have the sign up date so they signed
+
+03:41.640 --> 03:44.990
+up and this is going to be a date time not date.
+
+03:45.150 --> 03:51.720
+Date time which is a little bit further down their date time only differences date would just set the
+
+03:51.720 --> 03:57.960
+date and time will also take the time so date argued at length in there and the same at the top of that
+
+03:57.960 --> 03:58.640
+to say you don't have to.
+
+03:58.640 --> 04:00.340
+Better late than never in either.
+
+04:00.600 --> 04:06.930
+So length sent you don't need and length your date time should only be there for varchar you do.
+
+04:06.930 --> 04:12.300
+And then the last one is going to be a profile page which you read the link to their profile picture
+
+04:12.330 --> 04:18.720
+which you can assign to them via char and then just put 500 Finan because you don't know how it's going
+
+04:18.720 --> 04:19.160
+to be.
+
+04:19.170 --> 04:24.500
+The key is going to be the path to the file and we don't know how many carries will you have in that.
+
+04:24.680 --> 04:29.730
+And it's worth noting that if you use five hundred and all of these you won't use extra memory because
+
+04:29.730 --> 04:31.750
+it will only use as much memories it needs.
+
+04:31.770 --> 04:37.400
+For example if I put 250 in there it wouldn't use any more memory than if I put 25.
+
+04:37.410 --> 04:41.550
+All it means is you restricted from putting in that many characters so I can't but twice six characters
+
+04:41.550 --> 04:44.160
+in here only uses as much memory as the text.
+
+04:44.160 --> 04:46.950
+This is at the field so it doesn't use any more memory.
+
+04:46.950 --> 04:47.780
+They ask.
+
+04:48.110 --> 04:48.660
+And that's it.
+
+04:48.660 --> 04:52.260
+Go ahead and click save and that is our users table Don.
+
+04:53.120 --> 04:54.270
+So click on use as well.
+
+04:54.300 --> 04:55.990
+You can see there's no results in here yet.
+
+04:56.160 --> 04:58.080
+But that's that's it.

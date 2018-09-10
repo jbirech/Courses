@@ -1,0 +1,340 @@
+WEBVTT
+
+00:00.300 --> 00:01.530
+Hey guys welcome back.
+
+00:01.800 --> 00:06.290
+So last time we got this text set up so that when you click show are the relevant form.
+
+00:06.300 --> 00:11.780
+The problem is when the page loads both the log in form and the register forms showing swimming a while
+
+00:11.780 --> 00:12.400
+ago.
+
+00:12.660 --> 00:13.730
+So we're going to change that now.
+
+00:13.740 --> 00:20.790
+So they only show one where the page loads inside registered appear to be in the body element.
+
+00:20.930 --> 00:24.240
+Chris script tag pure script and press tab.
+
+00:24.450 --> 00:27.030
+And like I said before you cannot get rid of this if you want to.
+
+00:27.140 --> 00:27.930
+You have to.
+
+00:28.030 --> 00:30.280
+It just makes things a little bit cleaner.
+
+00:30.480 --> 00:36.160
+So inside the script tyred we're going to put the camera that's just so show and hide the relevant form.
+
+00:36.250 --> 00:38.060
+I think about Arrested our PSP.
+
+00:38.250 --> 00:41.020
+We only have the code that shows or hides one of the forms.
+
+00:41.030 --> 00:48.470
+So copy paste all of that go back to our script tag pasted in there and I'll even select all this impressed
+
+00:48.480 --> 00:53.820
+tower would move it along just get the spacing correct and then we only want these two lines of code.
+
+00:53.830 --> 00:55.520
+So take those.
+
+00:55.530 --> 00:59.790
+So copy in that I'm going to get rid of all of this stuff.
+
+01:00.030 --> 01:04.450
+So keep the document ready and then just paste those two lines now.
+
+01:05.010 --> 01:10.210
+Right now if I say that refresh the page now you'll see only the registe form.
+
+01:10.210 --> 01:10.800
+Sharing.
+
+01:10.800 --> 01:11.330
+Great.
+
+01:11.370 --> 01:13.470
+What if we get the log in form to show.
+
+01:13.470 --> 01:22.790
+So if we change this to that show and this sworn hi and refresh that page now you'll see and log in
+
+01:22.800 --> 01:28.440
+form shows that we do get a little glimpse of the register form when we the page so we can fix it pretty
+
+01:28.440 --> 01:29.280
+easily.
+
+01:29.520 --> 01:31.410
+Just go and get the idea of the reges form.
+
+01:31.440 --> 01:34.450
+So register for an idea right there.
+
+01:34.560 --> 01:42.120
+Go to use the SS file at the bottom just to pounce on your I.D. just the form and just display none
+
+01:42.420 --> 01:43.540
+like that.
+
+01:43.630 --> 01:46.540
+Now on to refresh the page you see we don't get there.
+
+01:46.560 --> 01:48.470
+Register form Sharon.
+
+01:48.720 --> 01:56.330
+If I click on this now you see it does show the register form of a card that hides which I form.
+
+01:56.400 --> 01:57.570
+Great.
+
+01:57.720 --> 01:59.000
+There is a slight problem though.
+
+01:59.130 --> 02:02.100
+So like I just said blog inform showing.
+
+02:02.150 --> 02:02.830
+Sorry if I know.
+
+02:02.880 --> 02:06.430
+Sign up or click on this and I'll fill this out now.
+
+02:06.540 --> 02:07.680
+So if I fill this out.
+
+02:07.680 --> 02:10.320
+All right.
+
+02:10.750 --> 02:19.290
+So I just typed the e-mail in there and now time the email like that so these obviously don't match.
+
+02:19.560 --> 02:20.610
+But a password.
+
+02:20.790 --> 02:24.610
+And then password if I met this form now.
+
+02:25.560 --> 02:29.620
+You see the log in form is show and because the page is refreshed and if I actually going to see that
+
+02:29.620 --> 02:34.670
+there are messes I have to click on this just to see the error messages and that's not what they do.
+
+02:34.680 --> 02:38.220
+They don't have to refresh the page then click on that to see the rows of the form again.
+
+02:38.250 --> 02:39.180
+So what you do.
+
+02:39.330 --> 02:42.720
+If they've just submitted the register for show the register form.
+
+02:42.750 --> 02:46.740
+If they haven't then show the log in form and that's actually really easy to do.
+
+02:46.840 --> 02:50.660
+We need to do is to check whether they pressed the register burn or the log in burn.
+
+02:50.670 --> 02:57.410
+So go back to here and into registered of HP and the code here that we used to show and hide it.
+
+02:57.900 --> 03:03.060
+So we basically have these same two lines just reverse this form with hiding this will show need to
+
+03:03.060 --> 03:09.150
+do is write something that lets us know whether the register but must press the log in bogus breast.
+
+03:09.150 --> 03:14.060
+The problem is javascript can't tell when that page PSP bermas pressed.
+
+03:14.220 --> 03:15.890
+We can ideologue's BP.
+
+03:16.140 --> 03:21.750
+So what we're going to do is some PSP which checks whether the register brand was pressed and if it
+
+03:21.750 --> 03:26.590
+was worn out put the relevant script make more sense to you.
+
+03:26.620 --> 03:33.060
+Once you see me do it so open appears people are outside of the script out so that's out of the scope
+
+03:33.090 --> 03:36.520
+of conveying people for any sign of up is being blocked.
+
+03:36.570 --> 03:37.060
+Just do.
+
+03:37.080 --> 03:37.890
+If.
+
+03:39.570 --> 03:40.940
+Is it.
+
+03:43.100 --> 03:48.010
+And then docusign underscore the post register.
+
+03:48.470 --> 03:51.440
+BURTON Like that power.
+
+03:51.970 --> 03:54.810
+And just to show you are can you say airco.
+
+03:55.300 --> 03:57.410
+Hello to say see.
+
+03:57.520 --> 04:05.430
+So go out here and fill up the password and then press sinop and you'll see hello top because of the
+
+04:05.450 --> 04:06.040
+Britain's was press.
+
+04:06.040 --> 04:07.100
+That's how we know.
+
+04:07.250 --> 04:10.390
+Okay so this always happens when they wrenched the breast breast.
+
+04:10.390 --> 04:14.750
+So if the register bomb was pressed we're going to outplay a science group.
+
+04:14.920 --> 04:17.960
+So take this and we're going to print this out.
+
+04:18.290 --> 04:18.800
+Okay.
+
+04:18.850 --> 04:20.280
+You'll see what I mean now.
+
+04:20.560 --> 04:28.120
+So we would say Echo is still in the PSP part of this airco and put a single quote and then paste that
+
+04:28.120 --> 04:32.920
+script into there if you want you can move it along just so it's easier for you to see and then Press
+
+04:33.250 --> 04:34.530
+sandercoe.
+
+04:34.900 --> 04:37.160
+So we're printing this script out.
+
+04:37.560 --> 04:41.830
+The reason we used single closely because we really use double quotes inside here so we can't you can't
+
+04:41.830 --> 04:43.570
+used that quote.
+
+04:44.170 --> 04:53.800
+So if the register was breast akko this one and then we can just say ELDs copy all that pases and the
+
+04:53.800 --> 04:55.680
+again just reversed.
+
+04:56.380 --> 05:01.070
+So hide and then show that.
+
+05:02.800 --> 05:06.470
+And now to argue about it here and submit this again.
+
+05:06.480 --> 05:07.840
+So just talk with.
+
+05:08.130 --> 05:09.110
+Submit this.
+
+05:10.860 --> 05:14.360
+You'll see the log in for I suppose let me just check out those.
+
+05:14.430 --> 05:20.460
+The correct way round several register Burns press when I show that they go over there on higher ground.
+
+05:20.520 --> 05:26.400
+So you wonder if the rest of us press you to hide the log in form and show the on and down here.
+
+05:26.460 --> 05:33.160
+If the rosabel wasn't pressed we want to show the log in form and hide the register form.
+
+05:33.280 --> 05:34.640
+Go about it here.
+
+05:34.830 --> 05:37.730
+So submit that form again.
+
+05:37.770 --> 05:38.940
+Some MIT.
+
+05:40.530 --> 05:42.730
+And you'll see the rest of your shows.
+
+05:43.290 --> 05:46.640
+And you did see though it flickers.
+
+05:47.990 --> 05:53.180
+So you see the log in one first and then switch this and a way round that is just to do the same thing
+
+05:53.180 --> 05:57.100
+we did for the Reds to force down here the veggies for me but display none.
+
+05:57.200 --> 05:58.830
+You just do exactly the same.
+
+05:58.820 --> 05:59.820
+The log in form.
+
+06:00.080 --> 06:04.590
+So just put in form that way as well.
+
+06:04.690 --> 06:10.000
+Maybe the comma has to apply to both of them edges form and the laurian form both have display none.
+
+06:10.190 --> 06:11.320
+So just save that.
+
+06:11.420 --> 06:18.600
+And this is just basically saying hi both of them and then let our javascript show the correct one.
+
+06:18.680 --> 06:20.430
+So I submit that.
+
+06:23.810 --> 06:24.900
+And there you go.
+
+06:24.930 --> 06:26.670
+Now we don't see the long form at all.
+
+06:26.940 --> 06:27.980
+When we submit the form.
+
+06:29.880 --> 06:34.460
+So if I go about to log in for now by press.
+
+06:35.340 --> 06:36.330
+Log in.
+
+06:38.370 --> 06:39.900
+We see a lot in form.
+
+06:40.350 --> 06:42.950
+And there you go is that easy.
+
+06:42.990 --> 06:48.630
+So just to reiterate we're using pagg here to determine whether we're going to put this on a page the
+
+06:48.630 --> 06:50.160
+script on the page or where it went.
+
+06:50.160 --> 06:55.680
+But this script on the page any question it's all just in an honest way it works for you.

@@ -1,0 +1,127 @@
+WEBVTT
+
+00:00.390 --> 00:01.600
+Hey guys welcome back.
+
+00:01.690 --> 00:06.090
+So we're going to continue with our now playing bar here at the bottom and we're going to do now is
+
+00:06.090 --> 00:09.110
+make this play burn slightly bigger than the rest of the bones.
+
+00:09.150 --> 00:14.670
+If I show you my finish site you see that the blaber and down here is larger than the other burns that
+
+00:14.670 --> 00:16.140
+stands out a bit more.
+
+00:16.140 --> 00:17.860
+So we're going to do the same thing.
+
+00:17.860 --> 00:19.030
+So that's pretty simple.
+
+00:19.140 --> 00:22.650
+All you do is give a width and a height of thirty two pixels.
+
+00:22.920 --> 00:28.950
+So if I just show you in here way it look like width thirty two pixels.
+
+00:28.950 --> 00:32.130
+And then also height say two pixels.
+
+00:32.250 --> 00:34.420
+You see it looks slightly larger and stands out.
+
+00:34.590 --> 00:38.910
+And this is where that vertical and middle comes in.
+
+00:38.910 --> 00:39.890
+This one here you see here.
+
+00:39.900 --> 00:43.000
+Notice how they're all aligned in the middle vertically.
+
+00:43.140 --> 00:45.930
+If I delete that you see they'll go to the bottom.
+
+00:45.930 --> 00:47.380
+So that's what they're lines for.
+
+00:47.580 --> 00:50.920
+But anyway so all here do is add height and width.
+
+00:50.960 --> 00:55.500
+Is it because caputo's to go back to styled us.
+
+00:55.500 --> 00:56.490
+Yes yes.
+
+00:56.880 --> 01:03.270
+And underneath control both an image will go into a new one control button and then this is going to
+
+01:03.270 --> 01:06.350
+be play image.
+
+01:06.510 --> 01:12.000
+And what this study does is it is same as that although it looks for something with the class play as
+
+01:12.030 --> 01:13.740
+well as the class control burn.
+
+01:13.860 --> 01:18.450
+Because if you look back at our 8 year old structure you'll notice we gave them two classes.
+
+01:18.510 --> 01:23.190
+So now he's looking for controlled burn is also looking for the class play as well because this one
+
+01:23.190 --> 01:29.010
+he has two bones but we want this code to also apply to the pause button too because if I show you again
+
+01:29.010 --> 01:33.740
+and here you'll see that if I press play it change to a pause button so the pause button needs to be
+
+01:33.750 --> 01:35.120
+the same size as well.
+
+01:35.400 --> 01:42.480
+Okay and that's resemble all we ever do is copy and paste alive again for a comma and then change this
+
+01:42.630 --> 01:46.430
+to pause and that will now apply to the pause button.
+
+01:46.680 --> 01:49.170
+And inside there it was just width.
+
+01:49.170 --> 01:50.580
+Thirty two pixels.
+
+01:50.580 --> 01:59.100
+And then also height say theta pixels are I give a safe refresh page and hopefully you'll still see
+
+01:59.100 --> 02:02.580
+the playwear and with their slightly larger height than the rest of the burns.
+
+02:02.580 --> 02:07.470
+So one thing I do with these buttons is make it so that when your mouse hovers over them the mouse changes
+
+02:07.470 --> 02:08.370
+to a pointer.
+
+02:08.430 --> 02:10.530
+You probably remember doing this in earlier videos.
+
+02:10.670 --> 02:11.720
+And it's really simple.
+
+02:11.820 --> 02:18.120
+Oh we do say control burn coal on hover like that.
+
+02:18.270 --> 02:27.180
+And so their cursor pointer like that so that when you're first page you'll see that when you hover
+
+02:27.180 --> 02:31.020
+over the buttons now you get this pointer and that's it.
+
+02:31.040 --> 02:32.170
+Reassemble.

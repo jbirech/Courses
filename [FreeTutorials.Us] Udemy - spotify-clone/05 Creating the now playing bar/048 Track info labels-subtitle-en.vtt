@@ -1,0 +1,310 @@
+WEBVTT
+
+00:00.450 --> 00:01.500
+Guys welcome back.
+
+00:01.500 --> 00:05.820
+So now I'm going to work on putting some text next to this album artwork part now.
+
+00:06.030 --> 00:07.760
+So the way we do that is pretty simple.
+
+00:07.770 --> 00:11.330
+Go back to our indexable BHP page inside of this.
+
+00:11.520 --> 00:18.960
+Now Playing left div guys out of the content parr's well and just underneath our link there just underneath
+
+00:18.960 --> 00:21.360
+that span element is where were going to put the text.
+
+00:21.510 --> 00:28.650
+So underneath there we can just say div revenues but class equals track info.
+
+00:28.720 --> 00:35.070
+Dictionaries contain information about the track that's playing pin in their Wisco say span and this
+
+00:35.070 --> 00:37.470
+is going to be glass.
+
+00:37.500 --> 00:42.310
+He calls track name by that.
+
+00:42.420 --> 00:42.740
+Right.
+
+00:42.740 --> 00:45.470
+And in one more span in there just an empty span for an answer.
+
+00:45.480 --> 00:47.480
+But that got the in place that.
+
+00:49.380 --> 00:51.570
+Below like that so we have those two in a row.
+
+00:51.720 --> 00:59.910
+But change this track name class to artist's name right inside these spans being just put some text
+
+00:59.910 --> 01:00.630
+for to it.
+
+01:00.650 --> 01:03.560
+Is this the name of the song so is Kobe.
+
+01:03.560 --> 01:05.050
+Happy birthday.
+
+01:05.160 --> 01:08.980
+And then my name is the artist.
+
+01:09.180 --> 01:10.040
+Okay.
+
+01:10.050 --> 01:14.760
+Just so you can see what we have on the screen and you can actually see it right there.
+
+01:14.760 --> 01:16.560
+It's just the wrong colour.
+
+01:16.570 --> 01:18.320
+So Alex actually style this.
+
+01:18.590 --> 01:27.600
+So Claire come inspect alone on those and then find they're the new elements we added you right here.
+
+01:27.720 --> 01:30.920
+So the versing very well indeed make it so that we can see this text.
+
+01:31.020 --> 01:36.510
+But what I realized what we also didn't do a point is say a default font style so you can see that this
+
+01:36.510 --> 01:38.280
+font isn't very good right now.
+
+01:38.490 --> 01:45.290
+So we know better or C S S file and are going to create a default style for our text croston whole Web
+
+01:45.290 --> 01:46.070
+site.
+
+01:46.890 --> 01:51.540
+So put the star which means all so this style and apply to all attributes.
+
+01:51.540 --> 01:58.880
+Now everything and we won't put a font family in there and fund families how you specify which fund
+
+01:58.880 --> 01:59.860
+to use.
+
+02:00.020 --> 02:02.770
+And we do a quick Google search for font family.
+
+02:03.000 --> 02:12.620
+So fund family Cisco ebtekar like that font family of Attica State the top link.
+
+02:12.930 --> 02:15.370
+And you can just take this part right here.
+
+02:15.390 --> 02:20.130
+So the reason I've just searched for this is because it will provide some very good backup fonts that
+
+02:20.130 --> 02:20.640
+are used.
+
+02:20.640 --> 02:22.050
+If this run can be found.
+
+02:22.050 --> 02:25.950
+So if a browser didn't support this fonthill Try that font and if it can't do that when you try that
+
+02:25.950 --> 02:26.520
+fine.
+
+02:26.730 --> 02:34.880
+So just copy and paste that into our code so copy that and paste it into are all style right there.
+
+02:35.250 --> 02:40.410
+So that means you save that I'll show you if that means that when we refresh this page you'll see that
+
+02:40.410 --> 02:43.510
+this font styles change like that.
+
+02:43.680 --> 02:46.040
+And he even has fun here for these numbers.
+
+02:46.150 --> 02:48.220
+So already that was lower better.
+
+02:52.170 --> 02:58.500
+So because the specifier default colour Frank text on our website by saying colour their first half
+
+02:58.500 --> 03:03.210
+which is white right now if you're fresh debate should see Texaco white.
+
+03:03.420 --> 03:08.820
+So right now we've specified that if we don't say otherwise all text on our website is going to use
+
+03:08.820 --> 03:09.540
+this.
+
+03:09.540 --> 03:13.040
+So now we've done indeed far we can scroll down and override this if you want to.
+
+03:13.150 --> 03:18.520
+So inspect aliment on the track name before we do that we're not going to track info Dave.
+
+03:18.540 --> 03:25.430
+So go to the track info part and when give this a style of display table.
+
+03:25.710 --> 03:32.240
+And this just means that this trackin faux pas will behave like it's a table element.
+
+03:32.450 --> 03:34.840
+So is one of these table estimate elements.
+
+03:34.960 --> 03:39.150
+And if you haven't used those before I do suggest looking into those as well.
+
+03:39.150 --> 03:43.440
+And since this is an aid intro to Asia e-mail course I'm not going to go into a whole lot of detail
+
+03:43.440 --> 03:48.640
+about those about each acor element in this course because it slows things down for people who have
+
+03:48.750 --> 03:49.130
+seen it.
+
+03:49.130 --> 03:53.730
+So if you do need to see those you ask me a question or you can just search online because there's tons
+
+03:53.730 --> 04:00.030
+of good resources to learn about different astm elopements so display table is fine for that so tracking
+
+04:00.190 --> 04:07.610
+up display it will do it here and for track info display table.
+
+04:07.780 --> 04:10.770
+And let's go to the track name span right here.
+
+04:11.070 --> 04:12.290
+And this style this.
+
+04:12.570 --> 04:21.860
+So we have starboard you know margin of six pixels on top and bottom and zero on left and right.
+
+04:22.260 --> 04:26.860
+So there are a margin on top and bottom of six pixels but nothing on the left and right.
+
+04:27.720 --> 04:36.340
+So display in line BLOCK So this means you'll behave like an inline element but also a block element.
+
+04:36.660 --> 04:37.830
+So example of an in limit.
+
+04:37.860 --> 04:42.890
+So an example of an inline ellerman is a span an example of a block element is a P tag.
+
+04:42.900 --> 04:44.150
+The paragraph tag.
+
+04:44.490 --> 04:51.270
+So underneath that just pure width 100 percent like that and you'll see that now we have a text on different
+
+04:51.270 --> 04:52.140
+lines.
+
+04:52.650 --> 04:53.610
+So that's good now.
+
+04:53.710 --> 04:58.060
+Copy and paste that go and then go and put it into your C as s.a.g.
+
+04:58.110 --> 05:01.860
+So now playing left.
+
+05:03.110 --> 05:11.750
+Track in info track name by that than pay sign there say we could really specify this now playing left
+
+05:12.050 --> 05:13.180
+above this.
+
+05:13.180 --> 05:18.080
+It's always better if you specify the selectors in as much detail as you can because it means you are
+
+05:18.080 --> 05:20.760
+less likely to accidentally override something in future.
+
+05:20.780 --> 05:22.420
+So this would work.
+
+05:22.430 --> 05:23.750
+But this also works.
+
+05:23.750 --> 05:29.570
+It just is just better if you add more detail to it so it doesn't really matter too much but it is a
+
+05:29.570 --> 05:30.860
+good habit to get into.
+
+05:30.860 --> 05:33.570
+So this right here would work just as well.
+
+05:33.620 --> 05:37.900
+But we're going to specify in detail save that.
+
+05:37.950 --> 05:42.320
+The last thing to do is just give this gift from style to the artist name.
+
+05:42.320 --> 05:48.470
+So go down to the artist named Dave spann Sari's an idea it's a span and I believe this is only going
+
+05:48.470 --> 05:56.060
+to have two things which to specify as a font size to make it slightly smaller 10 pixels 11 12 lascaux
+
+05:56.090 --> 06:00.050
+12 pixels and then colour.
+
+06:00.170 --> 06:08.170
+Just be this grey that was used a 0 8 0 8 0 which because Ed is this great colour right here.
+
+06:08.690 --> 06:13.730
+And I just realize we need to actually apply this to the span below so cobbin base out you can't see
+
+06:13.730 --> 06:14.500
+anything yet.
+
+06:14.540 --> 06:20.330
+It used to go to Español element underneath so paste in there and you see it change colour.
+
+06:20.480 --> 06:20.980
+Okay.
+
+06:21.050 --> 06:22.760
+So that's it.
+
+06:22.760 --> 06:24.870
+Take those two styles that we just did.
+
+06:24.980 --> 06:31.230
+Go back to here and then we going to say now playing left.
+
+06:32.960 --> 06:37.430
+Track info artsiest name and inspan.
+
+06:37.440 --> 06:40.500
+By that baseline there and that's it.
+
+06:40.950 --> 06:45.810
+And like I said you don't actually have to go into this much detail you could even leave track in four
+
+06:45.810 --> 06:46.830
+hours or something.
+
+06:46.910 --> 06:51.460
+But the more detail you're into the less likely you are to accidentally overwrite something.
+
+06:51.470 --> 06:56.040
+So refresh the air and you hopefully see exactly the same style applied.
+
+06:56.360 --> 06:56.940
+Okay.

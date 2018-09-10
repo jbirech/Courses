@@ -1,0 +1,169 @@
+WEBVTT
+
+00:00.280 --> 00:01.440
+Hey guys welcome back.
+
+00:01.530 --> 00:06.690
+So we're going to continue with our now playing bar so go back to our index page and add another element
+
+00:06.690 --> 00:09.520
+inside the Now Playing barkentine.
+
+00:09.570 --> 00:12.830
+So in here do div first tab.
+
+00:12.900 --> 00:19.180
+And this is going to have I.D. of now playing bar.
+
+00:19.560 --> 00:25.280
+So is that actual now playing bar and say that again we can go and style this inside here.
+
+00:25.590 --> 00:33.560
+So refresh the page and then when you expand the play market taney SHOULD SEE NOW plant bar inside there.
+
+00:33.670 --> 00:41.890
+So let's go ahead and style this and we're going to say display flex and what flex is.
+
+00:41.960 --> 00:45.960
+It literally is just a flexible display actually.
+
+00:46.140 --> 00:51.670
+And if you just Google Display flex.
+
+00:53.200 --> 00:55.970
+There's a very good guide to flex box right here.
+
+00:55.980 --> 00:58.410
+Doug Rizzo a complete guide to flex blocks.
+
+01:02.090 --> 01:07.760
+Complete with diagrams to make it easier for you to understand but if you expand background you get
+
+01:07.760 --> 01:10.310
+this explanation right here.
+
+01:10.310 --> 01:15.180
+And Lucky says the Flex box layout is really just to make it as flexible as possible.
+
+01:15.260 --> 01:21.140
+In a sense it's going to alter its width and height in order to fill all available space so make it
+
+01:21.140 --> 01:22.520
+bigger make it smaller.
+
+01:22.520 --> 01:25.370
+It really is just a flexible display attribute.
+
+01:25.530 --> 01:28.760
+So you got to have a really valuable time.
+
+01:28.760 --> 01:32.660
+So for an hour just display flex and we're also going to set a higher should be.
+
+01:32.780 --> 01:39.380
+But before we do that we don't remove that high part from here like we discussed so I'll remove it from
+
+01:39.380 --> 01:39.800
+that.
+
+01:39.830 --> 01:42.640
+Now playing bar container and it will disappear.
+
+01:42.680 --> 01:43.620
+Okay that's fine.
+
+01:43.640 --> 01:48.140
+Go back to our playing bar and inside there.
+
+01:48.160 --> 01:52.080
+Do height 90 six and they go.
+
+01:52.100 --> 01:54.670
+So now we actually have that container with a high again.
+
+01:54.840 --> 02:02.470
+We are going to have some padding no padding can be 16 pixels and then this is pretty big right now
+
+02:02.480 --> 02:09.710
+so are going to say box sizing and then board the box and what that does it means that the height is
+
+02:09.710 --> 02:12.340
+going to take into account 16 pixel padding.
+
+02:12.440 --> 02:18.750
+So it's going to be 90 pixels and over 90 pixels it's including the 16 pixels papping.
+
+02:18.830 --> 02:26.370
+So if we disable that it's adiga 90 books with a height with a 16 pixel padding on all sides which means
+
+02:26.370 --> 02:29.220
+that the actual height comes to 122.
+
+02:29.570 --> 02:38.630
+So by an by adding box sizing border box it means Make it 90 pixels including these 16 bits with padding.
+
+02:39.130 --> 02:40.060
+That's it.
+
+02:40.150 --> 02:42.620
+Copy those lines go back to us.
+
+02:42.620 --> 02:43.670
+Yes as file.
+
+02:43.810 --> 02:50.580
+So this is going to be now for aying bar and peso's in there.
+
+02:51.640 --> 02:54.260
+And it refers to days.
+
+02:54.280 --> 02:55.860
+We should hopefully still see that.
+
+02:56.090 --> 03:01.100
+I notice I've called it now playing bars and outlaying bar.
+
+03:01.160 --> 03:04.810
+It should be within the page.
+
+03:06.430 --> 03:07.610
+And it's still not right.
+
+03:07.630 --> 03:15.400
+Oh I remember I didn't actually remove this high this high 100 pixels I removed in the browser but not
+
+03:15.400 --> 03:15.640
+there.
+
+03:15.640 --> 03:19.770
+So make sure you emptied the this high one and your pics okay.
+
+03:19.900 --> 03:26.860
+Delete this so you can go save that and the first page.
+
+03:27.300 --> 03:28.270
+And there we go.
+
+03:28.270 --> 03:30.430
+It doesn't look like we've done much.
+
+03:30.430 --> 03:34.360
+The reason we've done that is because this PA is going to be the whole bar.
+
+03:34.370 --> 03:39.280
+If you look at what is doing it up this now playing barkentine it is the whole luggage says container
+
+03:39.310 --> 03:43.080
+for an plane bar an outlet bar underneath it.
+
+03:43.090 --> 03:44.770
+The blue section.
+
+03:44.800 --> 03:49.810
+See the blue rectangle above and that's where the components are going to go inside that little blue
+
+03:49.810 --> 03:50.260
+square.
+
+03:50.260 --> 03:52.260
+This year blue rectangle.

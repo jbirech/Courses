@@ -1,0 +1,469 @@
+WEBVTT
+
+00:00.360 --> 00:01.450
+You guys welcome back.
+
+00:01.500 --> 00:05.270
+So we have our icons we actually start adding these burns to our now.
+
+00:05.280 --> 00:11.170
+Bar So go back to our indexed our BHB and inside the Now Playing centre.
+
+00:11.400 --> 00:16.050
+Because remember this is our centre of the burns are going to go.
+
+00:16.210 --> 00:17.650
+Just dear.
+
+00:17.810 --> 00:18.770
+Press tab.
+
+00:18.930 --> 00:25.690
+And it's going to have the class of content make sure that's not I.D. It is classic.
+
+00:25.950 --> 00:27.430
+Not I.D. class.
+
+00:27.630 --> 00:35.160
+And we're going to be a second class code player controls so this defers to classes content and player
+
+00:35.160 --> 00:40.980
+controls and this content class and the style that comes with it is going to be applied in the deaves
+
+00:40.980 --> 00:44.090
+that we put inside these two sections later on.
+
+00:44.100 --> 00:48.430
+So this idea has two classes content and player controls.
+
+00:48.630 --> 00:51.200
+So there's contact lacerda have as one style.
+
+00:51.320 --> 00:55.920
+And I know those off top my head's discourteous style but yes yes we may as well add that while we're
+
+00:55.920 --> 00:58.570
+here and just do now.
+
+00:58.680 --> 01:07.350
+Playing far dark content so the idea of not playing bar and the content class within it and just pome
+
+01:07.350 --> 01:13.050
+with one hundred per cent that's all the sigga have and this the reason we are doing that is because
+
+01:13.380 --> 01:20.800
+we want this this bar down here to span across the whole width of the centre container.
+
+01:21.270 --> 01:25.680
+So just put that in there for now that you won't see much about that at the moment but just put it there
+
+01:25.680 --> 01:31.970
+for now save your job going forward and then back in index or BHB create some more space there and do
+
+01:32.010 --> 01:32.620
+div.
+
+01:32.700 --> 01:39.420
+And this is going to have the class Button's class he calls buttons like that.
+
+01:39.420 --> 01:42.720
+And then inside and this is actually where the birds are going to go.
+
+01:42.840 --> 01:50.040
+So we just put a button there to test it out for an hour just areti sees something just for helo or
+
+01:50.040 --> 01:56.160
+something and they're just saying see it actually happen to save that and go back to your page refresher
+
+01:56.350 --> 02:01.890
+and issue the helo burn there inside the centre div and where this style of the burns.
+
+02:01.920 --> 02:09.560
+Now so inspect element go to the burns div here and then really give this style of margin.
+
+02:09.570 --> 02:11.700
+It's going to be zero on the top.
+
+02:11.850 --> 02:16.020
+An auto on the left and right in you'll see what that means in a minute.
+
+02:16.530 --> 02:19.860
+Yes a display table.
+
+02:19.860 --> 02:26.860
+They go so the display table makes has behave like a table tag.
+
+02:27.000 --> 02:29.650
+If you haven't used table out before they're pretty useful.
+
+02:29.650 --> 02:31.280
+And this would be quite long.
+
+02:31.290 --> 02:32.310
+We do go into that now.
+
+02:32.310 --> 02:39.210
+So I recommend you look it up and now do seem to toro's on that or just send ask me a question the Q
+
+02:39.210 --> 02:41.490
+and essentially macnabb explain things a bit better.
+
+02:41.490 --> 02:46.800
+But for the purpose of keeping the video sure I won't go into details about the table tag now and going
+
+02:46.800 --> 02:47.970
+back to the margin part.
+
+02:47.970 --> 02:52.270
+You see that the auto gives it an automatic margin on the left and right.
+
+02:52.290 --> 02:55.380
+So we have zero on top automatic on the left and right.
+
+02:55.560 --> 03:01.830
+And there was mattick margin as it centres it pretty much set automatically sent it and applied a margin
+
+03:02.190 --> 03:04.040
+based on the width of the container.
+
+03:04.500 --> 03:05.010
+Okay.
+
+03:05.010 --> 03:13.350
+And that's it's a copy of pesos Lyons copier and going to put it in the SS file at the bottom three
+
+03:13.380 --> 03:24.900
+and new Select player controls space buttons like that and remember the player controls div is this
+
+03:24.900 --> 03:26.190
+one we created here.
+
+03:26.340 --> 03:33.660
+So Blair controls burns and is good to have that margin auto right there.
+
+03:33.810 --> 03:36.310
+Okay we're finally onto the buttons now.
+
+03:37.560 --> 03:40.290
+So we're not going use hello anymore for the burns.
+
+03:40.280 --> 03:42.090
+We actually add the images we want.
+
+03:42.090 --> 03:44.070
+So get rid of hello there.
+
+03:44.340 --> 03:48.380
+Get rid of an actual space below and inside the burn.
+
+03:48.390 --> 03:49.590
+We're going to do an image tax.
+
+03:49.620 --> 03:55.950
+I mge press tab and siac is the link to the image and you were the relative You are L to the file.
+
+03:56.130 --> 04:08.330
+So our image we use I should say icon is asit slash images slash icons slash sure full of PRNG is give
+
+04:08.340 --> 04:15.110
+me the shuffle button and that comes from RC Its images icons.
+
+04:15.480 --> 04:17.130
+Shuffle up in G.
+
+04:17.160 --> 04:21.060
+Peer shuffled up in G as I am using again.
+
+04:23.020 --> 04:31.270
+So if I refresh the page I'm sorry I look very good but I should hopefully see the outline.
+
+04:31.390 --> 04:41.620
+So give this burn a class of control button and this control burn class is going to be present on all
+
+04:41.620 --> 04:47.140
+of our burns but were going to give it a second class of shuffle and this shuffle class began to be
+
+04:47.140 --> 04:50.520
+used for the javascript later on right.
+
+04:50.620 --> 04:52.020
+So for now just put it away.
+
+04:52.030 --> 04:58.210
+Like I said before and some things you won't see much about that now but later on looking to use this
+
+04:58.330 --> 05:01.010
+when we use a javascript to handle the bow and presses.
+
+05:01.010 --> 05:07.610
+Okay so a title is going to be shuffle but turn like that.
+
+05:07.630 --> 05:09.880
+Again the title is when you hover over itself.
+
+05:09.880 --> 05:16.610
+I go back to here now and refresh the page you see because of that title to be used see when a hover
+
+05:16.610 --> 05:21.580
+over it appears and actually have spokes for wrong so go in at that f there.
+
+05:21.730 --> 05:23.680
+And then last thing on the image tab.
+
+05:23.680 --> 05:25.960
+Just do it out like that.
+
+05:26.020 --> 05:32.200
+All of course means alternate and just put a shuffle in there and what that means is if for some reason
+
+05:32.200 --> 05:36.500
+this image can't be found is going to add the should word shuffle.
+
+05:36.520 --> 05:40.110
+For example if I change that to S So this is wrong now.
+
+05:40.150 --> 05:41.610
+So the image won't be found.
+
+05:41.650 --> 05:43.300
+You'll see.
+
+05:43.570 --> 05:44.580
+Adds shovel.
+
+05:44.650 --> 05:46.750
+It just lets this burn still be useful.
+
+05:46.810 --> 05:50.920
+If the if the image can't be found so I'll change this back back to the correct image.
+
+05:50.920 --> 05:53.470
+Now save that and go back to was.
+
+05:55.120 --> 05:59.970
+Right now we're just style this burn to make it look a bit better so inspect Ellen on and on the burn.
+
+06:00.690 --> 06:05.440
+And then we can say background colour.
+
+06:05.520 --> 06:07.250
+It's going be transparent.
+
+06:07.290 --> 06:08.800
+Don't wear background colour there.
+
+06:08.820 --> 06:12.690
+We only want the icon there border is going to be known.
+
+06:12.690 --> 06:13.520
+Get rid of that.
+
+06:13.590 --> 06:17.430
+And then vertical a line middle.
+
+06:17.430 --> 06:21.600
+You only really see which about that number when we start adding all the best together you see wide
+
+06:21.600 --> 06:23.180
+vertical line middle as needed.
+
+06:23.250 --> 06:26.650
+So Copy that.
+
+06:27.000 --> 06:33.620
+Go back to see us as file and just do control like that.
+
+06:34.210 --> 06:37.950
+They're so controlled burn.
+
+06:38.270 --> 06:44.470
+And if you wanted to you could do a more descriptive one so you could just do like burns job.
+
+06:44.500 --> 06:51.300
+And but during matter that would be fine and just make sure that we observe our frezza age they go.
+
+06:51.300 --> 06:52.340
+So we still have it.
+
+06:52.380 --> 06:55.660
+And the last thing to do is just to make it smaller.
+
+06:55.680 --> 07:00.250
+So on the image measure it actually is not this burn here on the image.
+
+07:00.420 --> 07:07.060
+To wit 20 peaks and emken to say height 20 P X right.
+
+07:07.290 --> 07:08.700
+And that is it.
+
+07:08.700 --> 07:10.460
+So copy and paste those two.
+
+07:10.710 --> 07:15.310
+And then underneath control burn would disco do control.
+
+07:15.510 --> 07:19.200
+But again but this one has an image.
+
+07:19.440 --> 07:24.480
+They're going so controlled burn energy within high 20.
+
+07:24.890 --> 07:27.220
+Flatow page and make sure it's still there.
+
+07:27.340 --> 07:28.680
+And it is.
+
+07:28.680 --> 07:30.530
+So there's our shuffle burn.
+
+07:30.610 --> 07:30.900
+OK.
+
+07:30.930 --> 07:31.530
+Didn't do anything.
+
+07:31.530 --> 07:32.480
+Moment of course.
+
+07:32.490 --> 07:37.050
+But now when we had the others copy paste those lines.
+
+07:37.050 --> 07:41.930
+So we are one two three four five Burns there so I'll copy and paste.
+
+07:41.940 --> 07:43.450
+Make sure it appears five times so.
+
+07:43.460 --> 07:48.650
+One two three four five they're around.
+
+07:48.700 --> 07:54.080
+So we have previous burn the place burn the next and then the repeat burn.
+
+07:54.210 --> 07:55.300
+Okay.
+
+07:56.040 --> 07:58.240
+Now you just checked the names.
+
+07:58.260 --> 08:02.500
+We have previews next.
+
+08:04.860 --> 08:06.010
+Play.
+
+08:06.660 --> 08:10.740
+And then just repeat case change these names so we have.
+
+08:10.830 --> 08:17.380
+This was the previous play next.
+
+08:18.750 --> 08:22.550
+Repeat like that and then change these classes here also.
+
+08:22.650 --> 08:28.500
+So it can be previous play.
+
+08:28.500 --> 08:37.600
+Next a repeat like that and then change the changes to previous never it.
+
+08:37.600 --> 08:41.280
+The title is what when you hover over the edge what the text says.
+
+08:41.450 --> 08:47.050
+Play next and then repeat like that.
+
+08:47.070 --> 08:50.890
+Save that and then oh actually you need to do that to me.
+
+08:50.920 --> 08:59.250
+It will still work without it but imagine what I do here hear previous play next.
+
+09:02.000 --> 09:02.580
+Next.
+
+09:02.610 --> 09:04.940
+And repeat like that.
+
+09:05.010 --> 09:06.100
+Save that.
+
+09:06.420 --> 09:08.800
+Now we should see all five burns on there.
+
+09:08.820 --> 09:10.620
+And there we go.
+
+09:10.620 --> 09:12.290
+Perfect.
+
+09:12.360 --> 09:16.070
+But Reggie can add one more burden to that to show by the play burn.
+
+09:16.170 --> 09:18.530
+Copy and paste the play button.
+
+09:18.590 --> 09:19.160
+It's going to be.
+
+09:19.180 --> 09:25.570
+Pause So it changes to pause this again pause in this moment.
+
+09:25.620 --> 09:26.370
+He pauses.
+
+09:26.370 --> 09:32.010
+Well we have in an hour called porth or PFG and you see when I refresh their page now easy the pause
+
+09:32.040 --> 09:39.000
+button added there but then we're going to make sure that this at the moment this by default is set
+
+09:39.000 --> 09:39.880
+to display.
+
+09:39.900 --> 09:40.310
+None.
+
+09:40.380 --> 09:45.000
+So style equals display none.
+
+09:45.050 --> 09:50.880
+And style if you haven't seen this before is just a way of adding style to elements in line in what
+
+09:50.910 --> 09:54.880
+inline means is just there without using a C Ss file again.
+
+09:55.410 --> 09:56.450
+So style.
+
+09:56.940 --> 09:58.420
+And then you'll see that disappears.
+
+09:58.460 --> 10:02.170
+And the reason we did that is because we were in a shop start by hiding this.
+
+10:02.250 --> 10:08.210
+So when they refresh the page the sun won't be playing so hard the boys burn and when they press play.
+
+10:08.220 --> 10:14.380
+Eventually we'll hide the play button and show the pause button instead.
+
+10:14.520 --> 10:18.290
+So when pressed play it changes to a pause button when they pause it.
+
+10:18.300 --> 10:19.980
+Change to Labour Day.
+
+10:20.370 --> 10:24.450
+So your shows your Harv's the burned depending what they want you use asset.
+
+10:24.450 --> 10:26.780
+We have albums now.
+
+10:27.120 --> 10:28.510
+There are some slight changes to do.
+
+10:28.510 --> 10:31.320
+I can see some slight differences but we'll get to those soon.

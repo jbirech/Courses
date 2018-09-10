@@ -1,0 +1,166 @@
+WEBVTT
+
+00:00.300 --> 00:01.430
+Hey guys welcome back.
+
+00:01.530 --> 00:07.140
+In the last video we got this inside uses is our function set up and now it's time to just make sure
+
+00:07.140 --> 00:13.360
+that this actually works window to our rest is up BHB form and just test this out and hope that it works.
+
+00:13.430 --> 00:19.070
+So go out and fill in our user names so I'll use that as my username I type my name.
+
+00:19.110 --> 00:28.280
+Reese Kenny outdo each g.m. can't reach an email.
+
+00:28.440 --> 00:30.480
+Khan It's not my actual email.
+
+00:30.480 --> 00:40.110
+By the way before even tries to email it and password Cisco password and then passwords again and sign
+
+00:40.110 --> 00:44.000
+up if it's successful we should be taken to the index page.
+
+00:44.550 --> 00:45.770
+So sign up.
+
+00:47.660 --> 00:49.320
+Okay so called underfire function.
+
+00:49.330 --> 00:51.190
+Insert user details.
+
+00:51.250 --> 01:00.920
+Am twenty one and we just check when out is a line twenty one and find function insert details I see.
+
+01:00.970 --> 01:03.710
+So I need to add this.
+
+01:03.820 --> 01:07.310
+This goes back to why I said earlier if you don't add this keyword it won't know.
+
+01:07.420 --> 01:14.400
+This refers to this class instance slept just say VAT and then I refresh the page.
+
+01:14.710 --> 01:19.180
+If you remember one of my earlier videos I briefly mention this confirmed formerie submission window
+
+01:19.510 --> 01:24.340
+and this basically means if you refresh the page if I click Continue it will resubmit the form with
+
+01:24.340 --> 01:26.320
+the exact same details added before.
+
+01:26.320 --> 01:27.160
+So is Emmy type.
+
+01:27.150 --> 01:32.310
+All our garages Click Continue and you'll see it worked.
+
+01:32.690 --> 01:38.280
+So unguessed go make sure the ante and it now so users.
+
+01:38.680 --> 01:44.520
+And there's my information you make sure it's okay so email there's the encrypted password or stockham
+
+01:44.520 --> 01:48.970
+else where I entered the password password and this is what changes it into.
+
+01:49.120 --> 01:53.230
+So it's encrypted it so even if I look in them demos I don't know what that password is.
+
+01:53.640 --> 01:56.750
+Sign up day it's fine and profile pic.
+
+01:56.770 --> 01:57.280
+Great.
+
+01:57.310 --> 02:03.160
+So all the all the information is added perfectly and s.r.l. out in ulladulla when you see the addy
+
+02:03.160 --> 02:05.500
+for this one was worn and one add a new user.
+
+02:05.500 --> 02:08.280
+You'll see the ideas too so I'll go back now.
+
+02:08.310 --> 02:12.900
+Area let's go back to up HP then I'll add.
+
+02:12.970 --> 02:15.390
+I'll do no honest go donkey kong.
+
+02:15.390 --> 02:21.090
+I go kicking donkey for a last name Kong email.
+
+02:21.130 --> 02:23.290
+K at ya who knows.
+
+02:23.310 --> 02:25.450
+Calm the K.
+
+02:25.680 --> 02:26.200
+Ya.
+
+02:26.320 --> 02:31.560
+Who's calm and then do passwords.
+
+02:31.570 --> 02:38.200
+Well actually I do password one once or changed one character just to show how it all changes.
+
+02:38.200 --> 02:41.400
+So the password is password 1 so I'll sign up now.
+
+02:41.410 --> 02:43.180
+It should be taken to index page.
+
+02:43.420 --> 02:45.090
+Okay it worked.
+
+02:45.220 --> 02:50.070
+Let me show you the user are refreshes table and you'll see automatically given the idea to.
+
+02:50.080 --> 02:52.470
+We don't have to do that.
+
+02:52.960 --> 02:54.440
+Let's go to here.
+
+02:54.610 --> 02:56.550
+Passwords So this was password.
+
+02:56.650 --> 03:00.360
+This was password one not so even changing from letter.
+
+03:00.370 --> 03:03.330
+The whole string changes completely.
+
+03:03.600 --> 03:08.410
+OK that's good because it makes it difficult to try and guess you know if this was password and if I
+
+03:08.410 --> 03:11.310
+changed one character it only changed slightly.
+
+03:11.340 --> 03:12.470
+You know it might be easy to guess.
+
+03:12.490 --> 03:17.530
+But the fact that if you change one character changes the outcome completely and later a little bit
+
+03:17.530 --> 03:24.510
+safer data that works in an next view I'll do is show you a really easy way of debugging something if
+
+03:24.520 --> 03:25.180
+it's gone wrong.
+
+03:25.180 --> 03:28.320
+So if you're trying to insert your data and it's not working you don't know why.
+
+03:28.360 --> 03:29.480
+What's next for the owner.
+
+03:29.500 --> 03:32.510
+I'll try and show you some easy ways to debug this out.

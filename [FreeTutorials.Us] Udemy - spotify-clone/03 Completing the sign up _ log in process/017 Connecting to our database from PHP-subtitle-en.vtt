@@ -1,0 +1,217 @@
+WEBVTT
+
+00:00.650 --> 00:01.920
+Hey guys welcome back.
+
+00:02.060 --> 00:06.560
+So last time we created our users table which of course has no values at the moment so there's you see
+
+00:06.560 --> 00:07.660
+any results in there.
+
+00:07.820 --> 00:12.890
+But now we're going to do is actually prepare to insert the values the user enters in the form into
+
+00:12.890 --> 00:13.840
+the users table.
+
+00:13.970 --> 00:14.580
+OK.
+
+00:14.780 --> 00:19.340
+Before we do that though we need to set up the configuration file which allow us to actually talk to
+
+00:19.350 --> 00:21.410
+them secure our database.
+
+00:21.740 --> 00:28.100
+And this is actually really really easy and just create a new file and then save this and we save it
+
+00:28.100 --> 00:29.160
+and include.
+
+00:29.330 --> 00:33.640
+And then just call it config dot the h be like that.
+
+00:33.650 --> 00:40.220
+So in the includes voda configure BHP now opening peter out like that.
+
+00:41.040 --> 00:46.360
+And at the top we're going to say our and the score start like that.
+
+00:46.490 --> 00:52.100
+And the school staff and what this does it turns on output buffering which you don't know a whole lot
+
+00:52.100 --> 00:56.100
+about at the moment if you just dine out of BHP primps ignore this.
+
+00:56.340 --> 01:02.150
+And basically what it does is one of the BHP page loads it will send this to the server in pieces.
+
+01:02.360 --> 01:06.030
+This just means way until we have all the data for sending it to the server.
+
+01:06.320 --> 01:08.070
+Like I said you don't know a whole lot about this.
+
+01:08.070 --> 01:09.670
+You can look it up if you want more information.
+
+01:09.680 --> 01:13.640
+But in my experience having this here makes me a little bit easier to work with insaf.
+
+01:13.650 --> 01:19.130
+It might save you some problems in future but if you don't stand that juice just write down anyway it
+
+01:19.130 --> 01:20.610
+doesn't matter too much.
+
+01:20.720 --> 01:22.850
+I guess it underscore or start.
+
+01:23.030 --> 01:25.880
+And then we'll just put timezone.
+
+01:26.720 --> 01:34.310
+We have to set the time zone because date and the score default time zone is set.
+
+01:34.310 --> 01:40.770
+That should be set date and this a default underscore time zone underscore set and then hey convert
+
+01:40.820 --> 01:44.220
+whatever you want but I'm going to put Europe.
+
+01:46.010 --> 01:48.330
+London like that.
+
+01:48.570 --> 01:55.980
+Are you going find your own timezone and you can just put the HP times like that.
+
+01:57.210 --> 02:00.400
+And you get lists of supported timezones right here.
+
+02:00.900 --> 02:01.250
+OK.
+
+02:01.260 --> 02:04.740
+So we go see all the time zones and you can just choose one.
+
+02:04.740 --> 02:06.730
+So click on Europe for example.
+
+02:07.270 --> 02:08.680
+Then you get all of them here.
+
+02:09.000 --> 02:11.430
+So I chose Europe London right here.
+
+02:11.430 --> 02:14.820
+Feel free to choose whatever you want and then you just put it down there.
+
+02:14.820 --> 02:19.480
+And this just sets in and this is just you say that when we store times in the database we get there.
+
+02:19.520 --> 02:24.940
+We have a good time and I'm going to pull our connection very well from my escarole database so we'll
+
+02:24.960 --> 02:30.750
+call it Khan and you'll see that we use this for free range everything we do going forward in say my
+
+02:30.750 --> 02:43.050
+escarole I underscore connect them in brackets Purt local host which is your server and then per route
+
+02:43.080 --> 02:48.180
+which is a user name and it's a default username could we ever say username yet so just call it rude
+
+02:48.750 --> 02:50.550
+and then an empty string.
+
+02:50.550 --> 02:54.660
+This is password by default we don't have a password in our database.
+
+02:54.660 --> 02:58.350
+And then what have you called your my Ask your old database.
+
+02:58.350 --> 03:02.140
+So I called mine Slotter 5 right here somewhere right.
+
+03:02.640 --> 03:04.320
+Spotify in there.
+
+03:04.440 --> 03:04.870
+Right.
+
+03:04.950 --> 03:13.740
+So of the 7 we have the user name the password and then the database name all going to an outage output
+
+03:13.740 --> 03:16.090
+an error message if it didn't work.
+
+03:16.320 --> 03:18.690
+So it failed to connect the database.
+
+03:18.690 --> 03:26.230
+So my Esker alive and the score connect e r n no error.
+
+03:26.250 --> 03:29.230
+No it's just basically there.
+
+03:29.370 --> 03:33.360
+So the error will be stored in the in this copy copying base in that part right there.
+
+03:33.450 --> 03:44.730
+And then if there's an error we're going to say airco fail to act like that and then append the arrested.
+
+03:44.730 --> 03:48.060
+With this the dart in BHP appends strings together.
+
+03:48.060 --> 03:53.730
+So this strength appended with the actual error message around and to test if this works we would have
+
+03:53.730 --> 03:55.520
+to create a reference to this file.
+
+03:55.620 --> 04:04.200
+So go back to registered up BHP at the top here the very first line underneath the BHP tag Purt include
+
+04:05.250 --> 04:10.180
+in there includes slash config dock.
+
+04:10.200 --> 04:17.010
+The HP just like that or I save that and refresh the page.
+
+04:17.460 --> 04:20.680
+If you don't see any error messages you should be okay.
+
+04:20.700 --> 04:22.230
+So this worked.
+
+04:23.850 --> 04:28.410
+If for example I changed the name of this database now to something which doesn't exist and then go
+
+04:28.410 --> 04:29.290
+back refresh the page.
+
+04:29.290 --> 04:30.740
+I should see an error message.
+
+04:31.560 --> 04:32.010
+Yeah.
+
+04:32.130 --> 04:32.410
+See.
+
+04:32.400 --> 04:35.360
+Unknown database with that name I see.
+
+04:35.370 --> 04:36.750
+We know that he's calling this.
+
+04:36.810 --> 04:39.470
+So change it back now to whatever your date is called.
+
+04:39.570 --> 04:42.600
+So you shouldn't see any errors and that's it.
+
+04:42.600 --> 04:46.410
+Now we can finally communicate with my escarole their race.

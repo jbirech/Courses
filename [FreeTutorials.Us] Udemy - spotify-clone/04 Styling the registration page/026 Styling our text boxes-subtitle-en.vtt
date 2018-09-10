@@ -1,0 +1,304 @@
+WEBVTT
+
+00:00.210 --> 00:01.560
+Hey guys welcome back.
+
+00:01.560 --> 00:05.000
+So we're going to continue adding our style to this page now.
+
+00:05.280 --> 00:10.620
+So we do it in the browser so we can see our changes live and I would say if you ever want to move this
+
+00:10.620 --> 00:14.910
+to the side you can click on these buttons up here and click on this side button and it bursts over
+
+00:14.910 --> 00:15.450
+to the right.
+
+00:15.450 --> 00:19.530
+This race you don't have to have it underneath this is somewhere I like to have it so.
+
+00:19.910 --> 00:22.670
+But underneath if you want to or move to the side.
+
+00:23.280 --> 00:25.990
+And what we do now is style the in book container.
+
+00:26.080 --> 00:28.300
+You click on your elements bar and then go.
+
+00:28.350 --> 00:34.350
+Extend this background one not you Dana you see input container in the in the container is what holds
+
+00:34.350 --> 00:38.310
+all of our input fields or forms for logging in the forms for register.
+
+00:38.310 --> 00:40.760
+So we're going to solve this logging container now.
+
+00:41.040 --> 00:46.500
+So if you go to the right and click on this registered or csx class here it will take you to the file.
+
+00:46.590 --> 00:50.690
+So he is a registered does the S S Class exactly as it matches right here.
+
+00:51.300 --> 00:55.520
+And then underneath logging container just per pound symbol.
+
+00:55.800 --> 01:01.050
+And then in Purt container like that.
+
+01:01.720 --> 01:06.190
+And in there we're going to say width is only 400 peaks.
+
+01:06.240 --> 01:07.800
+We have said that are a fixed width.
+
+01:07.980 --> 01:13.260
+And in fact are actually stole this in the elements tab so it just should decision an a way of doing
+
+01:13.260 --> 01:13.550
+it.
+
+01:13.680 --> 01:16.350
+So you see there's the width four hundred we just row.
+
+01:16.490 --> 01:20.010
+And if you click on that right now you can type of thing underneath.
+
+01:20.070 --> 01:27.120
+So we'll say padding forty five pixels and 45 pixels.
+
+01:27.120 --> 01:31.530
+You see the green part are in there the green is the padding to the padding is the space around your
+
+01:31.530 --> 01:32.000
+element.
+
+01:32.060 --> 01:32.530
+OK.
+
+01:32.700 --> 01:39.450
+So 45 pixels padding the different frame padding in mah-jong is padding the space inside of your example.
+
+01:39.450 --> 01:46.560
+This input container box the padding is the spacing inside of it where the margin would be padding outside
+
+01:46.560 --> 01:47.080
+of it.
+
+01:47.250 --> 01:53.100
+So the padding is inside the container and the margin is outside but you'll become more familiar with
+
+01:53.130 --> 01:55.300
+both those as we move forward.
+
+01:56.160 --> 02:01.620
+So is it having now this poor fellow at and left.
+
+02:01.950 --> 02:03.860
+It just keeps everything to the left.
+
+02:03.870 --> 02:05.450
+You won't see any changes yet.
+
+02:05.580 --> 02:08.250
+And then it's also say border.
+
+02:08.670 --> 02:09.690
+Right.
+
+02:09.690 --> 02:14.740
+So it's going to apply a board on the right one Picaxe solid.
+
+02:15.150 --> 02:15.660
+So there you go.
+
+02:15.660 --> 02:17.990
+There's a 1 1 pixel border.
+
+02:18.000 --> 02:19.200
+Solid.
+
+02:19.200 --> 02:25.040
+And then the colour is going to be pounds 9 9 9 9 like that.
+
+02:25.060 --> 02:29.460
+So it's kind of a grey curve I already know that colour beforehand so if you want a change colour you
+
+02:29.450 --> 02:34.440
+can click on that whole square and you can change this in see where it looks like red there.
+
+02:34.560 --> 02:39.120
+But I know that 9 9 9 the works are really really that.
+
+02:39.320 --> 02:43.950
+The reason we use solid is because you can have other things I'd dotted for example and there's light
+
+02:43.950 --> 02:49.810
+dots as well but with degrees solid I'm going to change back and that's it for that part.
+
+02:50.160 --> 02:53.090
+So copy and paste work code.
+
+02:53.250 --> 02:56.260
+Copy Paste in that's of copied it moved back to here.
+
+02:56.520 --> 03:02.940
+Paste underneath and save it and I'm going to apply some style to these header tags.
+
+03:03.180 --> 03:11.830
+So in the registrar C S S class which is in the source's tab you can just per input container.
+
+03:11.950 --> 03:13.250
+H to.
+
+03:13.590 --> 03:14.860
+Because h to.
+
+03:15.000 --> 03:19.410
+If you look right here if I click on this arrow I can click on this element there and you see it's in
+
+03:19.410 --> 03:20.730
+H to tag.
+
+03:20.970 --> 03:22.380
+So go at the sources.
+
+03:22.530 --> 03:26.130
+So input contain 8 to and all you're saying is one thing in here.
+
+03:26.190 --> 03:32.790
+Just text or line centre and it moves the H two tags into the centre.
+
+03:32.820 --> 03:41.320
+So copy and paste that one and it needs like that so that there are changes and you don't have to style
+
+03:41.320 --> 03:42.020
+this in the browser.
+
+03:42.030 --> 03:44.840
+If you just want you want to do all completely here that's fine.
+
+03:44.850 --> 03:49.300
+The only thing is if you get to see what you're doing as you typing and get to play around with it.
+
+03:49.860 --> 03:52.260
+So we're not flies and start or input feels right now.
+
+03:52.320 --> 03:54.980
+So click on this one right here.
+
+03:54.990 --> 04:01.340
+This arrow in select one of your inputs and then click on element style and this element style pietist
+
+04:01.350 --> 04:07.350
+allows us to apply started this specific thing and see what it looks like so we can just say display
+
+04:08.250 --> 04:08.990
+block.
+
+04:09.010 --> 04:14.580
+By this you were actually the change on the rest of me because this element style only applies to this
+
+04:14.670 --> 04:15.870
+element we're currently on.
+
+04:16.080 --> 04:21.720
+Okay so display block or display block does it means this element will be in its own line.
+
+04:21.750 --> 04:25.130
+See how the label has gone to its the line above this element.
+
+04:25.130 --> 04:31.500
+Now takes up the whole lines and nothing will be alongside it as Display blockaders because a background
+
+04:32.070 --> 04:37.960
+colour is it good to be transparent that ICC has gone transparent.
+
+04:38.480 --> 04:42.340
+Border 0 no border to give.
+
+04:42.360 --> 04:44.140
+Gets rid of the border.
+
+04:44.230 --> 04:48.480
+Borders zero border.
+
+04:48.480 --> 04:52.220
+Bottom line we will put a border on the bottom.
+
+04:52.560 --> 04:59.890
+Say one p x solid and then go make a white border which is just f f f.
+
+04:59.960 --> 05:07.320
+That said one p x solid F F F G We have a water underneath now and then we can give this input a high
+
+05:07.320 --> 05:16.820
+now so hight is going to be twenty seven pixels and then line height is going to be twenty seven pixels
+
+05:16.820 --> 05:24.950
+or so and then width is going to be 100 percent so the input field now takes up the whole width of the
+
+05:25.370 --> 05:28.490
+of the space it has out there and that's it.
+
+05:28.490 --> 05:29.410
+Let's go once.
+
+05:29.470 --> 05:33.380
+Copy and paste this now because Lacazette this is only applying it to one field.
+
+05:33.380 --> 05:34.940
+So copy based on that code.
+
+05:35.060 --> 05:39.820
+Go back to your residency SS file and we're going to apply it to the
+
+05:42.920 --> 05:54.890
+input container and then the input square brackets type he calls text like this.
+
+05:54.890 --> 05:56.180
+Place that in there.
+
+05:56.180 --> 06:02.140
+And what this is doing is applying this code to all the input field that have the type text.
+
+06:02.260 --> 06:06.420
+There also is ibin but contain save that you see.
+
+06:08.690 --> 06:16.670
+Fresh off the page and you should see all of these text field have this same style.
+
+06:16.770 --> 06:22.140
+The reason these ones don't see is these have the type e-mail and these that the type password they
+
+06:22.140 --> 06:23.410
+don't have the type text.
+
+06:23.490 --> 06:25.990
+We only target it the ones with the type text.
+
+06:26.130 --> 06:28.450
+So if we really do for the password an e-mail once as well.
+
+06:28.590 --> 06:32.800
+Just copy and paste that changed this one to email.
+
+06:33.050 --> 06:39.390
+That is the comma in between you need the comma and then comma paste all the time and do a password
+
+06:39.390 --> 06:40.460
+like that.
+
+06:41.130 --> 06:44.830
+Save that and all the others should have that same style.
+
+06:44.830 --> 06:46.680
+Now right there.
+
+06:46.710 --> 06:48.360
+All these have the same style.
+
+06:48.360 --> 06:54.110
+Now when you type you see the Imber goes all the way across the space it has.
