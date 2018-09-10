@@ -1,0 +1,229 @@
+WEBVTT
+
+00:00.240 --> 00:01.420
+Hey guys welcome back.
+
+00:01.530 --> 00:05.940
+So last I read these three functions up here which sanitize our data for us.
+
+00:06.210 --> 00:09.960
+Now we're very drastically do something with that data before we do that.
+
+00:09.990 --> 00:13.940
+We're going to just separate this page up a little bit and make a little bit more organized.
+
+00:14.020 --> 00:18.470
+The moment appears quite long with all these functions in these handlers right here in violation of
+
+00:18.470 --> 00:19.310
+our code.
+
+00:19.320 --> 00:22.570
+This would only grow if we continue doing everything on one page.
+
+00:22.800 --> 00:27.810
+So we're going to take this whole PSP blocks around from the very first line down to the closing of
+
+00:27.810 --> 00:29.750
+the HP tag right here.
+
+00:29.850 --> 00:35.430
+Copy that or kirti I should say and create a new file so command then control n you've got a Windows
+
+00:35.430 --> 00:41.190
+machine or just go to file new file and then paste will end there.
+
+00:41.520 --> 00:45.290
+And we saved this in here but we're going to create a new folder.
+
+00:45.300 --> 00:49.080
+This is our route folder is see there's you register bagian you next page.
+
+00:49.130 --> 00:51.730
+So us create a new folder in here.
+
+00:51.750 --> 00:56.220
+This code includes code and you follow that.
+
+00:56.310 --> 01:00.930
+But then we create one more new form of inside of the includes folder so includes folder click new folder
+
+01:00.930 --> 01:05.480
+again and then it's going to be handlers save that.
+
+01:05.580 --> 01:08.070
+And then within the service file into the handles folder.
+
+01:08.460 --> 01:16.980
+So save it as Register handler doppie HP of course you free to call ever you want to answer call and
+
+01:16.980 --> 01:19.080
+register handle up HP and save it.
+
+01:19.080 --> 01:26.820
+Like I said in the handling folder and took safe go that and that message and just go and you get this
+
+01:26.820 --> 01:27.400
+métis.
+
+01:27.450 --> 01:33.390
+Poppy quite a lot from supplying techs but asking you to buy a licence but this click cancel or go and
+
+01:33.390 --> 01:34.610
+buy a licence.
+
+01:34.680 --> 01:38.860
+So this page I hear is going to handle our register form submission.
+
+01:38.880 --> 01:40.440
+That's why we call it register handler.
+
+01:40.500 --> 01:46.860
+So this log in here doesn't belong in this page so cut that occurring and make a new file just while
+
+01:46.860 --> 01:49.800
+we're doing this but create a new one for the logon handler too.
+
+01:49.950 --> 01:58.450
+So we have to create new BHP tags so thp and then close you HP dies off inside there just paste that.
+
+01:58.780 --> 01:59.030
+OK.
+
+01:59.050 --> 02:03.090
+And would I do anything with that code right now so just save this file madjid done with this for a
+
+02:03.090 --> 02:03.610
+little bit.
+
+02:03.720 --> 02:09.990
+So in the same folder the handlers folder saved this as luggin handler on page bit.
+
+02:10.420 --> 02:10.850
+Okay.
+
+02:10.860 --> 02:13.790
+And like I said we're done with this for a bit so you can even close out different.
+
+02:13.800 --> 02:15.650
+We only log in hambly.
+
+02:16.410 --> 02:21.150
+So they go we have a dedicated file for the register forms submission.
+
+02:21.180 --> 02:25.470
+Now we need to make sure we reference this with the moment I register page doesn't know anything about
+
+02:25.470 --> 02:28.860
+that form so we can add a reference to that file.
+
+02:28.920 --> 02:32.550
+Like so open gageby tags.
+
+02:33.350 --> 02:37.650
+And inside there which can say include this.
+
+02:37.670 --> 02:41.120
+This is going to be the link to the file you want to include in the page.
+
+02:41.150 --> 02:47.070
+So we say include and the folder was called includes slash.
+
+02:48.110 --> 02:49.060
+Handlers.
+
+02:49.310 --> 02:50.480
+Slash.
+
+02:51.210 --> 02:55.770
+Register handle doppie HP.
+
+02:55.770 --> 02:57.080
+Just like that.
+
+02:59.620 --> 03:03.120
+And you know you've got this right because when you save this and our bills are safe for us to have
+
+03:03.140 --> 03:08.860
+that BHB when you say and refresh the page if you see an error it's probably an error saying that you
+
+03:08.860 --> 03:10.140
+can't find the file.
+
+03:10.540 --> 03:14.550
+So refresh this or then I don't see any errors.
+
+03:14.650 --> 03:18.490
+So if I couldn't find your file you'd have an error message at the top saying they can't find it.
+
+03:18.550 --> 03:20.360
+So if you don't see anything you know it's worked.
+
+03:20.470 --> 03:27.310
+And what include does it basically takes this whole file and copies and pastes a code into your page
+
+03:27.370 --> 03:28.540
+when the website loads.
+
+03:28.660 --> 03:36.400
+So saying include this file is exactly the same as if you just took all this text and use Harry all
+
+03:36.400 --> 03:40.030
+appear like that because that's essentially what it does.
+
+03:40.040 --> 03:45.760
+One when this page is loading it very first thing it does goes to this file here takes all the code
+
+03:45.760 --> 03:49.270
+from there and paste it into your page.
+
+03:49.400 --> 03:50.690
+Yes you do that obviously.
+
+03:50.700 --> 03:52.830
+But that's essentially all it does.
+
+03:53.210 --> 03:53.590
+OK.
+
+03:53.620 --> 03:58.840
+And the last thing about this include I tell you is that it starts in whatever phone you're in so we're
+
+03:58.840 --> 04:00.910
+in the registered iph P file.
+
+04:00.910 --> 04:05.030
+It starts from whichever folder they're registered up HP file is in.
+
+04:05.350 --> 04:09.940
+And if you look at our files to a chair we have rested up to be far which is where we are now that our
+
+04:09.940 --> 04:14.650
+current location and that's why we started with include because just from there we go into the includes
+
+04:14.650 --> 04:15.320
+folder.
+
+04:15.630 --> 04:15.990
+Okay.
+
+04:16.030 --> 04:16.810
+And that's it.
+
+04:16.900 --> 04:18.350
+That's really all there is to it.
+
+04:18.350 --> 04:21.000
+It is a bit more organized.
+
+04:21.190 --> 04:25.680
+You can see instead of all that BHP kotite Now we just are 80 malco.
+
+04:25.840 --> 04:28.480
+So here we'll just do the log in hambly as well.
+
+04:28.480 --> 04:34.320
+Like I said we are doing anything with logging handler yet but you can just include that too while we're
+
+04:34.330 --> 04:39.770
+here so don't forget and give us a front just make sure there's no errors when you refresh the page.

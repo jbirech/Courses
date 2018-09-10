@@ -1,0 +1,379 @@
+WEBVTT
+
+00:01.170 --> 00:02.430
+Guys welcome back.
+
+00:02.500 --> 00:05.040
+So now that we have our error messages out incorrectly.
+
+00:05.250 --> 00:10.260
+I said we're going to make the form remember your values so that if you improve your e-mail for example
+
+00:10.310 --> 00:14.790
+and there's a problem with it you won't have to start from scratch in interpreting again it will remember
+
+00:14.790 --> 00:16.730
+your value from the previous submission.
+
+00:16.800 --> 00:21.480
+Before we do that though we're going to fix one problem and briefly addressed in a last video at the
+
+00:21.480 --> 00:23.480
+moment with the error messages.
+
+00:23.490 --> 00:29.010
+If you make a small change to this you have to remember to go and change it in in the register handler
+
+00:29.040 --> 00:31.500
+class on the edge of each class.
+
+00:31.500 --> 00:38.420
+I mean because they use names you look for must match exactly with the user name you put into the area.
+
+00:38.790 --> 00:44.050
+So we're going to fix that because the best way to do it would be if this only existed in one place.
+
+00:44.070 --> 00:47.320
+So that way if you made change we wouldn't have to go and change it elsewhere.
+
+00:47.450 --> 00:49.140
+It's a really simple thing to do.
+
+00:49.140 --> 00:51.660
+Just create a new class so new file.
+
+00:51.810 --> 00:52.810
+Click save.
+
+00:53.020 --> 01:00.750
+And we can save it in the classis folder so includes classes and then save it as a constant stop BHP
+
+01:00.780 --> 01:02.800
+Constance with an open case.
+
+01:03.470 --> 01:04.390
+Okay.
+
+01:04.410 --> 01:12.210
+Click save and our kreeger page pre-tax and then inside that class constants.
+
+01:12.500 --> 01:12.940
+And that's it.
+
+01:12.960 --> 01:14.780
+There's no constructer in this class.
+
+01:14.940 --> 01:17.240
+So this is kind of all we need to do.
+
+01:17.430 --> 01:23.710
+This is going to contain all of our message strings so we can just say public static.
+
+01:23.760 --> 01:26.910
+Explain what this means in a minute let's call this.
+
+01:27.390 --> 01:31.310
+Passwords do not match.
+
+01:33.460 --> 01:34.360
+Equals.
+
+01:34.440 --> 01:37.990
+And then this is going to be the rest for a passwords do not match.
+
+01:37.990 --> 01:41.430
+So go into account our BHP and go validate passwords.
+
+01:41.570 --> 01:44.870
+And this is the this is the is for when your passwords don't match.
+
+01:44.930 --> 01:46.690
+So passwords do not match.
+
+01:46.850 --> 01:47.400
+Right.
+
+01:47.540 --> 01:51.230
+And what this does this public means is available from outside the class.
+
+01:51.310 --> 01:54.810
+The static means you don't have to create an instance of the class first.
+
+01:54.830 --> 01:59.800
+What that means is with Account class when we are into called the functions for example when we when
+
+01:59.800 --> 02:03.870
+we would call the register function we have to create an instance of the Account class.
+
+02:03.870 --> 02:04.240
+Right.
+
+02:04.240 --> 02:08.960
+This account equals new account like that.
+
+02:09.120 --> 02:14.950
+That's that's called Creating an instant with static functions in a static members we don't have to
+
+02:14.950 --> 02:16.960
+create instances of those classes.
+
+02:17.110 --> 02:22.780
+So you'll see how that works when we use it before and just copy and paste it again probably have a
+
+02:22.780 --> 02:26.350
+bunch more time because we have all these error messages we have put in there.
+
+02:26.420 --> 02:30.020
+So let's go with it on the passwords one copy and paste this.
+
+02:30.040 --> 02:35.910
+And this is for password contain names of letters.
+
+02:36.190 --> 02:48.130
+So let's call this one password not offer a numeric cellphone America's What do the checking for pay
+
+02:48.130 --> 02:50.090
+say in our next one.
+
+02:54.840 --> 02:59.500
+Speyside the next line down passwords must be between 5 and 10 characters.
+
+02:59.660 --> 03:03.050
+So can you say password.
+
+03:04.920 --> 03:06.250
+Characters.
+
+03:06.810 --> 03:11.590
+Okay next one email is invalid Constance.
+
+03:11.660 --> 03:14.180
+Next one down.
+
+03:15.990 --> 03:18.450
+E-mail is valid.
+
+03:20.410 --> 03:22.170
+E-mails don't match.
+
+03:24.070 --> 03:25.780
+Yes yes in there.
+
+03:28.390 --> 03:34.750
+All this e-mails will split right emails do not matter.
+
+03:37.490 --> 03:38.060
+A date.
+
+03:38.080 --> 03:39.190
+Last name.
+
+03:41.340 --> 03:43.040
+You can do is call this.
+
+03:45.430 --> 03:52.640
+The last name carried two is the same for first name.
+
+04:00.040 --> 04:03.790
+First name characters.
+
+04:05.770 --> 04:08.230
+And finally the user name.
+
+04:11.640 --> 04:12.000
+Pace.
+
+04:12.010 --> 04:17.120
+Then there are four user name characters.
+
+04:17.840 --> 04:18.960
+I think that's it for now.
+
+04:18.960 --> 04:22.540
+We of obviously we do have these two checks we still need to do.
+
+04:22.710 --> 04:24.830
+So we'll have two more our messages to output.
+
+04:24.930 --> 04:28.190
+But for now that's to get rid of these last three women too many.
+
+04:28.440 --> 04:36.180
+And that's the case now instead of manually typing the string in we can get it from here.
+
+04:36.190 --> 04:37.990
+Can you share the word now.
+
+04:38.370 --> 04:45.100
+So firstly we have to include this constans file to go back to registers up HP at the top underneath
+
+04:45.100 --> 04:46.140
+the.
+
+04:46.740 --> 04:49.350
+This part we're going to include classes.
+
+04:49.410 --> 04:58.110
+It should be punsters stop HP in this will our stressfully use it and then the accounts class instead
+
+04:58.110 --> 05:07.050
+of inserting this string here are actually going to insert constants in double colon and then what do
+
+05:07.050 --> 05:11.790
+we call it for the username e username characters.
+
+05:13.460 --> 05:20.430
+So where we're here they'll assign username characters to Sly that this is how we're going to call it.
+
+05:20.900 --> 05:22.460
+But that's also how to check for it.
+
+05:22.460 --> 05:25.760
+So I we check for that error message instead of checking for this.
+
+05:26.000 --> 05:27.930
+We'll check for this.
+
+05:28.670 --> 05:34.750
+So in both cases when insur And when we try and look for the error we're checking for the variable and
+
+05:34.760 --> 05:37.460
+the variable points to this.
+
+05:37.520 --> 05:43.550
+So if we change this now to six characters or twenty six characters then we won't have to go on a date
+
+05:43.550 --> 05:44.810
+anywhere else.
+
+05:44.810 --> 05:47.770
+So already is a much needed a way of doing it.
+
+05:48.680 --> 05:53.850
+So just to make sure that worked before you and all the others will just check it out here.
+
+05:53.990 --> 05:56.810
+So do a username that's too small.
+
+05:56.840 --> 06:01.180
+Fill these in.
+
+06:01.490 --> 06:04.170
+See there's a message.
+
+06:04.190 --> 06:09.320
+So now this is a case of going through and completing those for the rest of them.
+
+06:09.370 --> 06:12.600
+So same thing here.
+
+06:14.350 --> 06:18.210
+Constance colon Caroline and the double colon by the way.
+
+06:18.220 --> 06:19.200
+Just like the Arrow.
+
+06:19.300 --> 06:22.120
+So when a register handler we use an arrow to call the function.
+
+06:22.210 --> 06:27.220
+The arrow is when you have an instance of the class whereas double cones when you don't have an instance
+
+06:27.250 --> 06:28.380
+because it's static.
+
+06:28.480 --> 06:29.870
+This is static.
+
+06:29.890 --> 06:32.580
+We don't need to create an instance of this class to use these.
+
+06:32.890 --> 06:33.340
+Okay.
+
+06:33.400 --> 06:39.200
+That doesn't mean that you don't worry about dialect confuse you or we need to know is if the functional
+
+06:39.270 --> 06:40.270
+memory is static.
+
+06:40.270 --> 06:42.990
+We use this double koan to call it.
+
+06:44.570 --> 06:46.950
+So we changed all of these now.
+
+06:47.690 --> 06:57.310
+First name characters of first and characters and copy that put it in to read see stood up HP.
+
+07:00.460 --> 07:05.210
+There is a saying for last name counters.
+
+07:05.250 --> 07:09.790
+Copy and paste that and I would just call that last name.
+
+07:09.810 --> 07:14.350
+Practices change after last name characters.
+
+07:15.270 --> 07:16.790
+Same here.
+
+07:20.160 --> 07:27.000
+Man this is going to be emails don't match which seems do not match.
+
+07:27.200 --> 07:34.160
+So replace the name of that copy and paste all this and put it into account of HP as well.
+
+07:34.160 --> 07:35.870
+Your e-mails don't match.
+
+07:35.870 --> 07:37.910
+Next one is e-mail is invalid.
+
+07:37.910 --> 07:46.850
+So pay samier changed the name to email invalid account the HP email invalid copy that.
+
+07:48.270 --> 07:50.040
+Paste in here.
+
+07:50.670 --> 07:53.620
+Okay next one is and is your passwords don't match.
+
+07:53.640 --> 07:55.150
+Paste that in there.
+
+07:55.160 --> 08:06.940
+Change this to passwords do not match their copy of S and paste it in here as well.
+
+08:06.960 --> 08:08.730
+Two more to go.
+
+08:08.790 --> 08:10.440
+So paste this there.
+
+08:10.440 --> 08:20.250
+This is the one for them and critters so passwords now from Iraq a site that copy this is a bit repetitive
+
+08:20.250 --> 08:27.280
+I know but bear with me nearly done and one more there.
+
+08:27.660 --> 08:36.570
+And this is going to be password characters password characters and then finally put that in here as
+
+08:36.570 --> 08:37.060
+well.
+
+08:37.260 --> 08:39.720
+And that is it.
+
+08:39.720 --> 08:44.000
+So no different result for a visual perspective it does exactly the same things it did before.
+
+08:44.020 --> 08:49.380
+But this is a much cleaner way because we're no longer checking for the strings manually We are using
+
+08:49.380 --> 08:54.330
+their static numbers which contain no strings which means if we do ever one to make change to the wording
+
+08:54.330 --> 08:58.620
+slightly or having to change the message at all then we have to do in one place now.

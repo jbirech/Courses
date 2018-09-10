@@ -1,0 +1,469 @@
+WEBVTT
+
+00:00.430 --> 00:01.650
+Hey guys welcome back.
+
+00:01.830 --> 00:07.150
+So last time we are showing you a little demo of how we can recognize when one of the buttons is pressed
+
+00:07.160 --> 00:09.410
+So for example our register Burns pressed.
+
+00:09.510 --> 00:14.780
+Nothing you do is show you how you can actually get the values that users put into these text boxes.
+
+00:15.030 --> 00:20.130
+Obviously with the Redstone form we want to take the user name first name last name or this and say
+
+00:20.130 --> 00:21.240
+I would do that.
+
+00:21.240 --> 00:24.950
+If you scroll down to where you created You're a steam a steam elements.
+
+00:25.050 --> 00:30.300
+You see we have these name attributes here in the name too which of what we use to access the data in
+
+00:30.300 --> 00:31.590
+the text areas.
+
+00:31.590 --> 00:35.190
+So for example to get a user name use this name equals usernames.
+
+00:35.220 --> 00:42.720
+Copy that scroll up to our block here for when the register Burns pressed not a log in one.
+
+00:42.750 --> 00:47.970
+And it brings the buttons pressed and will create a variable in BHB which is done with the dollar sign
+
+00:48.000 --> 00:50.410
+so we can say user name.
+
+00:50.430 --> 00:57.350
+So if you see a dollar sign that means it's a variable same in some other language you might have seen
+
+00:57.520 --> 00:58.660
+far Great ever.
+
+00:58.710 --> 01:01.070
+So my looks then like your VaR username.
+
+01:01.330 --> 01:01.910
+OK.
+
+01:02.150 --> 01:03.780
+Or some languages.
+
+01:03.840 --> 01:10.130
+You say the type So you'd say lock string user name in dhp you just say a dollar sign.
+
+01:10.210 --> 01:11.730
+There's no other word than that.
+
+01:12.210 --> 01:18.580
+So a great username variable and this is an equal dollar sign and the score post.
+
+01:18.910 --> 01:23.940
+And inside the square brackets you put the names the name in my example was using him so I'll use that.
+
+01:24.120 --> 01:29.270
+And just to show you a word that I actually echo which Remember that means print username.
+
+01:29.280 --> 01:35.440
+Now if I go back to here across the page and I will actually submit this form.
+
+01:35.460 --> 01:39.050
+So it's our race.
+
+01:39.200 --> 01:46.050
+Can you go for some other values in an active member these need to be filled in for it to actually submit
+
+01:46.050 --> 01:47.440
+the form.
+
+01:47.440 --> 01:57.660
+So in the past where did the matter WHAT it is and click sign up and you see at the top airco the username
+
+01:57.750 --> 02:02.450
+the value because I'm using a field which was access like this.
+
+02:02.790 --> 02:03.030
+OK.
+
+02:03.070 --> 02:04.850
+And this is really that simple.
+
+02:04.890 --> 02:07.090
+That is how we get new data from the fields.
+
+02:07.090 --> 02:10.220
+Now we do is process the data.
+
+02:10.260 --> 02:13.410
+So we have to make sure it's clean and I'll show you what that means very soon.
+
+02:13.470 --> 02:19.030
+But we have to look at processing the data before we can insert it into the database.
+
+02:19.350 --> 02:21.640
+So get rid of this Ekers block right here.
+
+02:21.640 --> 02:26.790
+And this show the couple of things we we're going to do to the user name to make sure we're happy with
+
+02:26.790 --> 02:27.320
+the way it is.
+
+02:27.320 --> 02:34.390
+Before we send it to the database so we're going to do this type username again so exactly the same
+
+02:35.600 --> 02:39.410
+and three equals drip.
+
+02:40.260 --> 02:45.290
+Tax strip tax is a psap function and I'll show what that means in a minute.
+
+02:45.300 --> 02:51.950
+Use the name so Strip tags strips all the extra amounts that might be within a string.
+
+02:51.960 --> 02:59.280
+So if a string if there if they put this in the username and some decks maybe but they also put something
+
+02:59.280 --> 03:05.370
+like this like a burn or something like that sized elements it will get rid of these cases we don't
+
+03:05.370 --> 03:09.290
+want them to eliminate him elements to the database because people can manipulate your site.
+
+03:09.300 --> 03:13.130
+They can essentially insert their own elements to your page.
+
+03:13.350 --> 03:14.290
+So we stripped down.
+
+03:14.310 --> 03:16.620
+But we're going to do something similar.
+
+03:16.620 --> 03:23.990
+One more thing is user those same variable equals ustr and a score of place.
+
+03:24.210 --> 03:29.890
+So string replace and replace all spaces so do double quotes.
+
+03:29.900 --> 03:34.370
+Space comma and then empty quotes.
+
+03:34.440 --> 03:41.020
+So in two single grates there and the third round just use your name.
+
+03:41.040 --> 03:46.470
+So what is going to do is look for all the spaces that appear in his name and replace it with an empty
+
+03:46.470 --> 03:47.150
+string.
+
+03:47.250 --> 03:51.960
+This string replace function takes webs in the first round to find all occurrences of this.
+
+03:51.960 --> 03:58.410
+So if we if we did a Replace All the curtains would be they would take every single A find the place
+
+03:58.410 --> 03:59.210
+it would be.
+
+03:59.430 --> 04:04.680
+We're going to take every single space we find in their name and replace it with an empty string.
+
+04:04.710 --> 04:06.060
+Nothing.
+
+04:06.060 --> 04:10.840
+That means if they enter a username like this it will get replaced.
+
+04:11.230 --> 04:12.690
+And that can we don't them.
+
+04:12.690 --> 04:15.310
+Some men use names with spaces to base.
+
+04:16.080 --> 04:18.960
+And that's all the sanitising we're going to do for these in them.
+
+04:19.370 --> 04:22.740
+So we're going to do the same for the rest of the values for first name last name.
+
+04:22.860 --> 04:25.000
+So you can essentially copy and paste this again.
+
+04:25.010 --> 04:27.320
+So what username is this space underneath.
+
+04:27.580 --> 04:34.290
+Do this for first name like that and the name for first name of call the first name.
+
+04:34.350 --> 04:41.310
+Take your name put in there for post first name and the place or the user name variables here with a
+
+04:41.460 --> 04:42.490
+first name.
+
+04:42.990 --> 04:47.630
+I'm going to do one more thing with this which is just uppercase the first letter of the string.
+
+04:48.090 --> 04:51.710
+So you can just say first name the equals.
+
+04:51.720 --> 04:59.510
+You see first name the function you see first is all in lowercase and then inside that but S.T. are
+
+05:00.240 --> 05:02.060
+to lower.
+
+05:02.460 --> 05:05.390
+And then in side they're to a first name.
+
+05:07.200 --> 05:12.410
+So this will uppercase the first character so they enter this for their name that the first character
+
+05:12.440 --> 05:17.190
+would be a case and then it being set its data into a database like that.
+
+05:17.270 --> 05:23.480
+So this part in the middle though s TR to lower string to lower converts all the string to lowercase
+
+05:23.510 --> 05:28.940
+first reason we're doing that is because if we didn't do the string to lower part and they entered this
+
+05:29.210 --> 05:34.310
+with an uppercase C maybe like that the first carriage would be a case that would be left with that.
+
+05:34.310 --> 05:39.990
+So before we were case first character we make all the rest of the string lowercase circle circumvent
+
+05:40.090 --> 05:43.640
+all cultures lowercase and then we have became the first character.
+
+05:43.860 --> 05:45.070
+Mister what that is.
+
+05:45.350 --> 05:46.480
+And that's it.
+
+05:46.550 --> 05:50.570
+We basically do that the same for the rest of the fields.
+
+05:50.790 --> 05:55.450
+But instead of doing this for every single one we could copy and paste this for every single one so
+
+05:55.450 --> 05:57.810
+I do the same for last name email.
+
+05:58.100 --> 05:59.840
+But we'd be repeating a lot of the code.
+
+05:59.990 --> 06:05.240
+So to say this repeating code that's something we don't want to do we can just create function at top
+
+06:05.250 --> 06:06.530
+of the disease for us.
+
+06:06.530 --> 06:14.510
+So create a function which is something we can call over and over again and call this sanitize form
+
+06:14.770 --> 06:17.420
+using name brackets.
+
+06:17.420 --> 06:21.610
+It's going to take one parameter which is input text.
+
+06:21.680 --> 06:27.980
+If you haven't done functions before bed with this because you learn about functions as we go from just
+
+06:27.980 --> 06:32.990
+by doing this so even if you don't understand what fonz's are yet no doubt you'll learn about these
+
+06:32.990 --> 06:34.070
+as we go.
+
+06:34.080 --> 06:38.240
+And if you really want you can go and look it up online there's loads of resources for it but you'd
+
+06:38.240 --> 06:42.710
+be finding carry on and you'll you'll understand how these work just by doing these examples so bear
+
+06:42.710 --> 06:44.560
+with it even if you don't know what this is.
+
+06:44.990 --> 06:51.470
+So we've created this what's called sanitized form username and you can basically copy and paste these
+
+06:51.470 --> 06:54.050
+two lines here.
+
+06:54.290 --> 07:01.220
+So put them inside there and then input text is the text we're going to be performing their sanitisation
+
+07:01.240 --> 07:02.200
+on.
+
+07:02.330 --> 07:05.180
+So we will take whatever they whatever they pass into this function.
+
+07:05.190 --> 07:11.780
+We know strip the dog's And then we're going to replace all the spaces with an edgy character and then
+
+07:11.780 --> 07:19.970
+just return input text by that and why we've done that is now instead of having those lines built over
+
+07:19.970 --> 07:27.210
+the years and then we can just call this functions with that name we call the function like this size
+
+07:27.230 --> 07:29.900
+form user name and in brackets passiveness.
+
+07:29.990 --> 07:34.430
+So instead of having all those that those that are having like three lines below user name which we
+
+07:34.430 --> 07:39.430
+just had we now only of the warn and we could do the same for the rest of the string.
+
+07:39.430 --> 07:45.710
+So copy and paste this function is slightly different for username because we don't uppercase the first
+
+07:45.710 --> 07:50.300
+character but change the user name to string.
+
+07:50.300 --> 07:56.250
+This would just be a generic string sanitisation one as opposed to a username sanitisation function.
+
+07:56.390 --> 08:02.710
+So these are strings out ization function and we can basically copy those lines from below those three
+
+08:03.240 --> 08:07.570
+right and then put those in there and to keep the return part.
+
+08:07.910 --> 08:14.240
+Keep the return impact text and copy in place and replace first name with input text.
+
+08:14.360 --> 08:18.320
+All these places and that's it.
+
+08:18.830 --> 08:20.450
+So three forms.
+
+08:20.690 --> 08:27.260
+So the sartaj form string function and the same as usernames stripped down and replaces their spaces
+
+08:27.260 --> 08:28.990
+with the empty character.
+
+08:29.000 --> 08:34.970
+They also posted the first letter and now we can just call this function in a similar way.
+
+08:34.970 --> 08:35.830
+Brackets.
+
+08:37.500 --> 08:41.850
+That and get rid of that.
+
+08:41.890 --> 08:46.000
+Now is down four lines at least for every single field.
+
+08:46.140 --> 08:48.360
+We can just have the one line for all of them.
+
+08:48.420 --> 08:58.050
+So the do last name here last name and this is going to be last name what else is there.
+
+08:58.050 --> 09:04.980
+There's our email so you can just call this email and this can be email.
+
+09:05.000 --> 09:05.860
+I know I know.
+
+09:05.930 --> 09:08.090
+I remember the names that we used for these.
+
+09:08.250 --> 09:10.880
+This would be emailed to me because remember I have two of them.
+
+09:10.920 --> 09:18.600
+For them to control and every now and then two more lines for password password is going to be its own
+
+09:18.600 --> 09:20.790
+functions can be very similar.
+
+09:20.790 --> 09:25.340
+It's just a very short once I copy one of these does matter which is create a new function.
+
+09:25.340 --> 09:30.240
+This is going to sanitize form password and this is a simpler one.
+
+09:30.240 --> 09:32.050
+All we do in this is just strip the tags.
+
+09:32.070 --> 09:35.780
+We don't replace any spaces or anything because they can have spaces in their password if they want.
+
+09:36.060 --> 09:36.840
+And that's it.
+
+09:36.840 --> 09:41.220
+So we have a new function sometimes one password which only strips detax.
+
+09:41.520 --> 09:41.830
+OK.
+
+09:41.910 --> 09:48.990
+So copy and paste the name of the startime form password function and was set to do the same thing as
+
+09:48.990 --> 09:50.210
+you did above.
+
+09:50.760 --> 09:58.260
+So password equals sanitized form password and in brackets just docusign and the score post you could
+
+09:58.260 --> 10:06.000
+just copy and paste this I know but we type it out to password like that and copy and base out one line
+
+10:06.000 --> 10:12.210
+below in issuing the password to and then you go just like that we've cleared the data and it's in a
+
+10:12.210 --> 10:17.790
+very neat inefficient way because without doing the functions this way we have had all of these lines
+
+10:17.790 --> 10:19.310
+repeated for every single input.
+
+10:19.320 --> 10:22.890
+So this is a much neater way of doing it much more organized way.
+
+10:23.160 --> 10:24.340
+So that's it.
+
+10:24.360 --> 10:30.410
+We now handle the flon submission and we clean the data now ready to actually do something with it.
+
+10:31.050 --> 10:35.190
+So if you want to go and test it out you can go back to here type something in.
+
+10:35.190 --> 10:36.580
+Doesn't matter what.
+
+10:40.500 --> 10:45.160
+Just fill it just fill these out space where there's no errors when we submit the form.
+
+10:45.570 --> 10:47.320
+OK.
+
+10:48.050 --> 10:49.630
+So you shouldn't see anything.
+
+10:49.630 --> 10:51.560
+No our message is hopefully there.
+
+10:51.620 --> 10:56.130
+So the fact we didn't see anything is good if we saw a billion messages in here that's for you know
+
+10:56.210 --> 10:57.090
+be a problem.

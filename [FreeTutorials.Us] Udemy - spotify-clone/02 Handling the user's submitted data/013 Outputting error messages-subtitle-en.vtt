@@ -1,0 +1,409 @@
+WEBVTT
+
+00:00.320 --> 00:01.520
+Hey guys welcome back.
+
+00:01.600 --> 00:04.230
+It's that we've pretty much completed our evaluation functions.
+
+00:04.230 --> 00:08.970
+It's time to actually do something with those hours because at the moment we create areas if their input
+
+00:09.000 --> 00:09.940
+is invalid.
+
+00:09.960 --> 00:11.930
+But we don't actually do anything with it yet.
+
+00:11.940 --> 00:16.600
+So now going actually output this to the user so they can correct their mistakes.
+
+00:16.620 --> 00:23.610
+So what we want to do in registered up HP we will be outputting the error messages next to their respective
+
+00:23.610 --> 00:24.220
+field.
+
+00:24.270 --> 00:28.870
+For example if the first name has a problem with the output the error message by the first name field
+
+00:29.610 --> 00:34.590
+so we get to create a function in a count of HP is a real small function.
+
+00:34.590 --> 00:38.080
+And all this wonk's is going to do is check to see if we have any errors.
+
+00:38.190 --> 00:41.000
+So underneath the register function we can just create in of the function.
+
+00:41.010 --> 00:45.260
+Good public is going to be look because we're going to call this from out of our class.
+
+00:45.600 --> 00:54.660
+So a Public Function get error and this is going to take a parameter which is just going to be the anthraces
+
+00:54.660 --> 00:56.390
+to look for in the error.
+
+00:56.520 --> 00:59.160
+So you can just pull this error if you like.
+
+00:59.520 --> 01:04.440
+And like I said real simple all this focus is going to do is check the error rate in this class to see
+
+01:04.440 --> 01:07.060
+if that error message we pass in exists.
+
+01:07.060 --> 01:07.390
+You'll see.
+
+01:07.400 --> 01:15.180
+I mean now so we can say if not remember the exclamation point not in the score array.
+
+01:15.220 --> 01:23.120
+So in underscore array and inside there put error because this is what's going to look for the array
+
+01:23.130 --> 01:32.820
+it's going to look for in is this error array like that and what the enery function does is it just
+
+01:32.820 --> 01:36.760
+checks to see if the given parameter exists in this array.
+
+01:36.810 --> 01:39.770
+So we're checking to see if error exists in error.
+
+01:40.020 --> 01:47.550
+And if it doesn't because this is not Remember So if it doesn't we can just change the error to an empty
+
+01:47.550 --> 01:48.270
+string.
+
+01:48.330 --> 01:49.610
+So researching something.
+
+01:49.620 --> 01:54.310
+So we might pass into this and maybe we pass in this.
+
+01:54.310 --> 01:58.160
+This current base is passed into the array like that then looking for this.
+
+01:58.560 --> 02:01.790
+And if it doesn't find it it will set this to just an empty string.
+
+02:01.800 --> 02:09.000
+And you see why now the very last line of this rule is going to do return in a similar fashion so span
+
+02:09.750 --> 02:19.680
+class equals error message like that close are spun off and then put closing spanton on there are now
+
+02:19.710 --> 02:21.510
+and should be a slash at the front of that.
+
+02:21.510 --> 02:23.710
+So this is what your closing tag looks like.
+
+02:24.150 --> 02:28.510
+And inside of that span tag which is good but our error string.
+
+02:28.530 --> 02:32.520
+So just put error like that and that's it.
+
+02:32.520 --> 02:36.550
+So now here we have to use single quotes because of way early inside of a string.
+
+02:36.690 --> 02:40.110
+If we use doublecross there it will end the string.
+
+02:40.110 --> 02:41.860
+See how this is outside of the string now.
+
+02:42.150 --> 02:46.290
+So if you're using quotes within string you of course have to use single quotes.
+
+02:47.720 --> 02:50.460
+And so that and that should be it for that function.
+
+02:50.460 --> 02:51.900
+So all this is checked to see.
+
+02:51.920 --> 02:54.250
+The area we pass in is in the array.
+
+02:56.140 --> 02:57.070
+And then reassemble.
+
+02:57.070 --> 03:02.440
+Just go back to read stoppage B class and this is where we output the messages if there are any.
+
+03:02.500 --> 03:11.050
+So above the label tag pre-package P blocks remember call X mph be code by Echo account which is the
+
+03:11.050 --> 03:20.560
+variable we created up here so I can count arrow get error by that K which is the function we just created.
+
+03:20.560 --> 03:26.890
+But if you mean we need to add a parameter to this so we're going to check for a certain error message.
+
+03:26.920 --> 03:32.200
+This is for the user names are going to get to a where you did the username validation here and validate
+
+03:32.280 --> 03:35.670
+username and this is their error messages will be pushing into the array.
+
+03:35.680 --> 03:41.470
+If there's an error with the user name so just copy that and paste that in there like that.
+
+03:42.360 --> 03:45.440
+Let's see that work before we go and put the others in there let's go see if that works.
+
+03:45.580 --> 03:49.690
+So this error message is send the user they must move to 5 125 characters so we're going to go and submit
+
+03:49.690 --> 03:55.230
+this form now with our username which is less than 5 characters and we should see in our message.
+
+03:55.480 --> 03:58.740
+So I use an agent a letter to fill all this in.
+
+03:58.860 --> 04:01.520
+I now fill this in now.
+
+04:01.540 --> 04:07.010
+Put a password in there and click sign up and we should hopefully see an error message.
+
+04:07.300 --> 04:12.250
+Whose names were between 5 and 25 characters obviously revellers style this yet so ignore the fact they
+
+04:12.270 --> 04:15.970
+have his on the same line when we style this will look nice in.
+
+04:16.150 --> 04:16.960
+But for now this is good.
+
+04:16.960 --> 04:18.540
+This is what I want to get going.
+
+04:18.550 --> 04:22.030
+If I were if I refreshes page the message goes away of course.
+
+04:22.030 --> 04:25.500
+So that's we know it works now it's just a case of going through and putting those in for everything
+
+04:25.510 --> 04:25.860
+else.
+
+04:25.900 --> 04:32.130
+So just copy where I've done that and how here is do we have the first name so first name and last name
+
+04:32.140 --> 04:35.830
+we only have one error message that can possibly be up.
+
+04:36.790 --> 04:38.970
+So put that in there.
+
+04:39.100 --> 04:44.130
+Put that in there we go and many to change these error messages now so for the first name the message
+
+04:44.140 --> 04:45.340
+is like this.
+
+04:45.340 --> 04:46.420
+So Copy that.
+
+04:48.020 --> 04:49.860
+And paste it here.
+
+04:51.030 --> 04:53.570
+Like that and the last name.
+
+04:55.900 --> 04:56.730
+Like that.
+
+04:59.610 --> 05:00.790
+A storm there.
+
+05:01.020 --> 05:02.690
+NATO these neat.
+
+05:02.690 --> 05:05.090
+You need to check for the exact same message.
+
+05:05.100 --> 05:13.920
+So if for example I changed this for some reason I changed it to 26 characters and I forget to change
+
+05:13.920 --> 05:14.980
+it here.
+
+05:15.020 --> 05:18.540
+It's still going we're looking for the 25 character their message so it won't find it.
+
+05:18.540 --> 05:22.890
+So you need to make sure that this matches the one you have that you're checking for.
+
+05:22.900 --> 05:24.420
+So this needs to match that.
+
+05:24.420 --> 05:26.100
+Exactly.
+
+05:26.400 --> 05:31.160
+Once we get this work in our show a better way of doing this and what we'll do is we'll store these
+
+05:31.160 --> 05:35.880
+strings somewhere and we'll just call a reference to a string so we'll only have this string stored
+
+05:35.880 --> 05:38.630
+in one place in it in a separate file.
+
+05:38.640 --> 05:43.110
+And it means that if we have a change if we were to go and change over us they were well out for an
+
+05:43.110 --> 05:43.930
+hour show then.
+
+05:43.950 --> 05:44.820
+In the coming videos.
+
+05:44.820 --> 05:46.530
+But for now just do it like this.
+
+05:46.550 --> 05:49.220
+And remember these need to be exactly the same.
+
+05:49.260 --> 05:51.170
+They need to match what you have here.
+
+05:51.780 --> 05:54.110
+So that's a username first name and last name.
+
+05:54.110 --> 05:55.620
+Does let's do the same for e-mail.
+
+05:55.680 --> 05:56.540
+Thank you email.
+
+05:56.550 --> 06:00.900
+We have two of them and we will eventually have three because we have things to do here but for now
+
+06:00.900 --> 06:02.930
+we have two error messages possible.
+
+06:03.090 --> 06:12.030
+So paste one page two and then the first woman check and four is your emails don't match.
+
+06:12.030 --> 06:13.620
+Paste that in there.
+
+06:15.990 --> 06:19.280
+The second one is email is invalid.
+
+06:22.430 --> 06:25.470
+Okay and then password we have three.
+
+06:25.570 --> 06:27.910
+So I'll copy paste both of those.
+
+06:28.450 --> 06:34.750
+And we're not going to the addresses by that confirm email because we only do have it next to one we
+
+06:34.750 --> 06:37.060
+don't need them by both of them.
+
+06:37.220 --> 06:43.330
+So above password is put those email sent We knew a third one so copy and paste one more and then changed
+
+06:43.330 --> 06:50.080
+them into the password error messages sent from the password validation function and copy those.
+
+06:50.230 --> 06:58.030
+Copy this one to and then finally copy this one and then that is it.
+
+06:58.060 --> 07:03.580
+We are done so now when you submit your form.
+
+07:03.730 --> 07:06.550
+If there are any errors within me just say this.
+
+07:06.790 --> 07:09.010
+You will see if we don't correctly.
+
+07:09.120 --> 07:11.650
+Some some nice error messages.
+
+07:12.100 --> 07:13.990
+So let's go put up a username.
+
+07:13.990 --> 07:15.120
+It's too long this time.
+
+07:15.160 --> 07:18.160
+I think 25 cats it has got to have 25 characters.
+
+07:18.370 --> 07:24.790
+Our first name that's less than Deum our characters and same with email.
+
+07:25.140 --> 07:31.560
+I'll put an email that passes the validation of the text field I talked about but without the dot com
+
+07:32.060 --> 07:33.650
+I do the same here.
+
+07:36.540 --> 07:41.970
+In fact I will make sure they match a password.
+
+07:42.210 --> 07:50.150
+Is going to be a bunch of question marks because it shouldn't lay in case of not an alphanumeric character.
+
+07:50.160 --> 07:51.620
+Actually I make sure they match as well.
+
+07:51.620 --> 07:56.400
+One two three four five six seven one two three four five six seven.
+
+07:56.770 --> 07:57.550
+Okay.
+
+07:57.780 --> 08:03.840
+So let's see what we get so used MASC between 5 and 25 characters because we had one letter in there.
+
+08:03.840 --> 08:05.910
+Same for that last name.
+
+08:06.120 --> 08:12.560
+Same for that e-mail is invalid because it did we didn't have to dot com all over the place were counting
+
+08:12.570 --> 08:16.100
+numbers or letters because I had a password that only had question marks.
+
+08:16.320 --> 08:19.240
+Okay so let's put something else in there.
+
+08:19.240 --> 08:23.960
+That is phil. he's in our do a valid email but I'll make it.
+
+08:23.980 --> 08:25.810
+I make it so they don't match.
+
+08:26.080 --> 08:27.960
+It's their.
+
+08:29.400 --> 08:32.250
+So they don't match search should Pretty's a different area now.
+
+08:32.610 --> 08:38.420
+And now do passwords that don't match that you only contain alphanumeric characters.
+
+08:38.490 --> 08:39.900
+So sign up.
+
+08:40.140 --> 08:46.320
+See emails don't match and passwords don't match and so they're That's where our checks are working
+
+08:46.950 --> 08:51.180
+so the next thing we should probably do is you know how when you submit this form when your values go
+
+08:51.180 --> 08:56.160
+away we can make it so remember that the value you had never fauzi works title out again.
+
+08:56.340 --> 08:58.380
+So I think that would be a good thing to do next.

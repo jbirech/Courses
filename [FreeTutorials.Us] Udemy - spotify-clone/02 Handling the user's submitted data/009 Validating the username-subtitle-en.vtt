@@ -1,0 +1,286 @@
+WEBVTT
+
+00:00.480 --> 00:01.680
+Hey guys welcome back.
+
+00:01.680 --> 00:07.110
+So last time we like Account class setup and we even called this function and just made sure these were
+
+00:07.110 --> 00:08.270
+actually working.
+
+00:08.400 --> 00:13.890
+So we're going to continue work on this account class now and it's I saw these I remember when we tested
+
+00:13.890 --> 00:17.870
+dysfunctional function there's all those errors on the page because of these variables and the fine.
+
+00:17.880 --> 00:18.250
+Yeah.
+
+00:18.270 --> 00:23.710
+So we need to pass these variables which come from our form into the register class.
+
+00:24.150 --> 00:29.520
+So this register function is actually going to take some parameters it's going to take a username parameter
+
+00:30.150 --> 00:34.330
+so we can just say you end for user name and then change to you.
+
+00:34.380 --> 00:38.060
+And it's also going to take a first name parameter.
+
+00:38.070 --> 00:42.900
+So f n n agenda from to f n it's going to be a last name parameter.
+
+00:42.960 --> 00:49.360
+So Ellen and Jane just to Ellen as they email an email to parameters.
+
+00:49.430 --> 00:50.930
+So.
+
+00:51.690 --> 00:54.600
+And then also easom to buy that.
+
+00:54.870 --> 00:58.110
+And then this can just be an it's me too.
+
+00:58.320 --> 00:59.910
+And the same thing for passwords.
+
+01:00.060 --> 01:03.490
+So p.w. and Peter were you two.
+
+01:03.770 --> 01:07.890
+I'm in these variable names could otherwise if we the whole name would be a pretty long line.
+
+01:07.890 --> 01:11.530
+So Peter we and Peter we need to change out to be do you.
+
+01:11.700 --> 01:15.040
+And then finally people are you too right.
+
+01:15.110 --> 01:19.840
+So I go back to our registered our BHB page where we called this rest function and remove that.
+
+01:19.920 --> 01:21.780
+Just cut it or copy for an hour.
+
+01:21.900 --> 01:26.700
+We don't want to call it there because from here we actually have access to the field so we can't get
+
+01:26.700 --> 01:28.290
+the data from the text boxes.
+
+01:28.440 --> 01:32.380
+So that's going to call the Reds to function from the register handler up HP code.
+
+01:32.410 --> 01:34.030
+But keep this code here.
+
+01:34.080 --> 01:39.960
+This can say going to create the camera from here so that we can use it in this page.
+
+01:39.960 --> 01:44.730
+But also we can use on this page I'll show you why we need to use on this page later on.
+
+01:44.730 --> 01:51.150
+For now just leave that there go to register handler doppie HP code and then in here underneath where
+
+01:51.150 --> 01:58.740
+you do use sanitisation functions call your account arrow register so use on your camera which we still
+
+01:58.740 --> 02:05.910
+have access to because this was declared above this class because remember I said when you include it
+
+02:05.910 --> 02:10.220
+it basically copies all the code and then paste it below.
+
+02:10.230 --> 02:13.120
+So doing that is essentially just like that remember.
+
+02:13.230 --> 02:17.010
+So we created the rebel here where access is it underneath.
+
+02:17.040 --> 02:21.530
+So this variable is able to be access in this code which is why we can call it here.
+
+02:21.630 --> 02:25.030
+So our account register we call the reddest function.
+
+02:25.030 --> 02:30.320
+But remember we just added these parameters so we actually need to add the parameter values.
+
+02:30.390 --> 02:36.220
+So if you use a name first name these are these variables here by the way.
+
+02:36.640 --> 02:46.310
+And we have last name and we also have email or email and then we have email to them.
+
+02:46.320 --> 02:51.010
+Finally we have password and password too.
+
+02:51.830 --> 02:52.670
+Okay.
+
+02:53.250 --> 02:59.100
+So now when you press the register Bernie or sad dies the data will call the register function it's
+
+02:59.190 --> 03:02.360
+the register function we're going to validate the information they've added.
+
+03:02.610 --> 03:06.210
+So we're start by our validating username because the first function we're calling.
+
+03:06.210 --> 03:07.350
+So we'll start there.
+
+03:07.470 --> 03:11.170
+And the very first check we going to do on this versing move this line we don't need that.
+
+03:11.280 --> 03:17.040
+The first thing we do on this user name validation is to check the length of and make sure it's a suitable
+
+03:17.040 --> 03:17.680
+length.
+
+03:17.760 --> 03:21.320
+So we're going to say if S.T. Len.
+
+03:21.650 --> 03:22.890
+So string length.
+
+03:22.890 --> 03:24.730
+This means the length of a string.
+
+03:24.960 --> 03:27.760
+So you end which is the proud to hear.
+
+03:27.760 --> 03:34.480
+So if the length of Username this return the length of character so if you if your username is cat in
+
+03:34.500 --> 03:35.640
+return three is the length.
+
+03:35.640 --> 03:37.610
+This is three characters long.
+
+03:37.950 --> 03:46.930
+So Esti our lan string length is greater than 25 characters or double pipes in all the pipes and we'll
+
+03:47.130 --> 03:58.260
+look for any keyboard just a big line down so or SDR are LAN u.n. again or if the length of a user name
+
+03:58.410 --> 04:01.210
+variable is less than 5.
+
+04:01.740 --> 04:08.690
+Then we don't want to allow them to register because then this means if the length of use and there
+
+04:08.700 --> 04:14.010
+was great in 25 characters or if the length of the use in a row is less than five characters.
+
+04:14.190 --> 04:18.300
+This means a username has to be between 25 and 5 characters.
+
+04:18.540 --> 04:19.560
+Right.
+
+04:19.680 --> 04:26.340
+So if it's not so if any of these are true it means that they're using is not within the length we want.
+
+04:26.340 --> 04:28.860
+We're going to add an error to the error.
+
+04:28.950 --> 04:30.390
+We don't actually have the error rate at.
+
+04:30.440 --> 04:32.950
+So at the top we actually create that.
+
+04:33.150 --> 04:41.390
+We have a say private area a rate just like that and that's it.
+
+04:41.490 --> 04:45.960
+But then inside the construct remember the construct I said is the first thing that gets called the
+
+04:45.960 --> 04:49.820
+first bit a curry that gets executed when you create an object of this class.
+
+04:49.860 --> 04:56.670
+We're going to just say this arrow British member down here when I explain this this refers to the instance
+
+04:56.670 --> 04:57.510
+of this class.
+
+04:57.570 --> 04:59.930
+Just follow along for an hour if you still don't understand it.
+
+05:00.090 --> 05:04.690
+A while to get the hang of that so just know that you have to call this in order to access this variable.
+
+05:04.740 --> 05:10.350
+So this error rate equals Irae.
+
+05:10.470 --> 05:16.920
+So when we create a variable of type account like we do here in the registered of each class the very
+
+05:16.920 --> 05:19.490
+first thing that happens is it will do this code here.
+
+05:19.530 --> 05:24.200
+In this case we set our error a variable to be an empty array.
+
+05:24.390 --> 05:30.080
+OK and then going back to this bar the username function we can just add an error message to the eraser.
+
+05:30.080 --> 05:37.740
+If they use names out of the ballons we one we can just put a ray and the score bursch and then inside
+
+05:37.740 --> 05:40.840
+there this.
+
+05:42.900 --> 05:49.850
+Ray this is the era we're going to put the value into the value going to put into your day is the message
+
+05:50.030 --> 06:02.160
+so it can be your username must be it five and 25 characters just like that.
+
+06:02.180 --> 06:09.420
+So if they're using too long or too short then we'll put this error message into the air.
+
+06:10.250 --> 06:10.690
+Okay.
+
+06:10.700 --> 06:16.460
+And then we'll just return and we don't want to continue excuse this function if we find any errors
+
+06:16.460 --> 06:16.790
+at all.
+
+06:16.800 --> 06:19.480
+The registration will be unsuccessful so we'll just return there.
+
+06:19.610 --> 06:21.980
+So yes but return and that's it for that.
+
+06:22.100 --> 06:24.500
+So if they use them is a suitable length.
+
+06:24.500 --> 06:30.830
+The only way to do is check that the username doesn't already exist.
+
+06:30.830 --> 06:34.330
+So we have actually created the user table yet so we can't do that at the moment.
+
+06:34.430 --> 06:35.990
+So for an hour just leave a comment.
+
+06:36.020 --> 06:45.430
+So we know we have to come back to it to do that and we can just say check if user name persists.
+
+06:45.530 --> 06:49.000
+So we'll come back to this when we have the user table set up and that's it.
+
+06:49.010 --> 06:51.640
+That's the only check we're going to do on the username for now.

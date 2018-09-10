@@ -1,0 +1,319 @@
+WEBVTT
+
+00:00.290 --> 00:01.310
+Hey guys welcome back.
+
+00:01.350 --> 00:07.130
+So last time we declared all our functions are going to validate the input for us.
+
+00:07.380 --> 00:12.630
+But we're going change this slightly now that you've seen how it works how many are functions where
+
+00:12.720 --> 00:16.360
+you take these functions and we're going to move them into their own class.
+
+00:16.410 --> 00:21.840
+So when you create a class called Account right in this account class is going to handle all of the
+
+00:22.050 --> 00:25.520
+validation of the input and the log in the registration.
+
+00:25.530 --> 00:30.540
+So for some of you this might be your first exposure to classes but if you've never seen them before
+
+00:30.540 --> 00:33.600
+don't worry still follow along because you will pick it up fast.
+
+00:33.600 --> 00:35.310
+They're actually really simple.
+
+00:35.550 --> 00:39.050
+If you do have any questions Remember you can always ask me I'm happy to help.
+
+00:39.050 --> 00:42.090
+So any questions at all just let me know.
+
+00:42.090 --> 00:48.240
+But we'll go ahead and create this class now so great new file command and control and whatever you
+
+00:48.330 --> 00:49.180
+have.
+
+00:49.740 --> 00:57.420
+And this is going to be class but going to save it into that includes folder so dirty includes folder
+
+00:58.230 --> 01:01.240
+and then create a new following site of the includes folder.
+
+01:01.380 --> 01:09.320
+So a new folder called classes say now inside the enclosed body of a other folder and annalise's folder.
+
+01:09.360 --> 01:12.670
+So this classes folder is for the classes you guessed it.
+
+01:12.810 --> 01:20.850
+So we create a count not the hpn classes by convention have an uppercase letter for their first character.
+
+01:20.970 --> 01:23.530
+We call this account and with the case.
+
+01:23.700 --> 01:27.320
+So this is going to be our account class to say that.
+
+01:27.530 --> 01:33.580
+And this idea of a page B class we open a puppyish beads like that and then write.
+
+01:33.620 --> 01:38.760
+Class account with upper case A like that.
+
+01:39.030 --> 01:40.390
+And then that's it.
+
+01:40.410 --> 01:46.350
+Now we create a constructor and a constructor is just something that's called as soon as the class is
+
+01:46.350 --> 01:47.220
+initialise.
+
+01:47.220 --> 01:52.060
+So as soon as you create a variable of this class this current of about right will be called.
+
+01:52.090 --> 01:59.550
+You say this works as we go so that we're right if you understand that so function underscore underscore
+
+02:00.360 --> 02:06.420
+constructor's to underscores their parentheses like that and then you curly braces.
+
+02:06.480 --> 02:07.290
+There are about this.
+
+02:07.290 --> 02:13.050
+This looks a bit of a horrible way to write something but we you know we did double in the scores but
+
+02:13.050 --> 02:14.880
+just write it like that.
+
+02:14.890 --> 02:16.450
+You deal with this again.
+
+02:16.490 --> 02:17.330
+We're typing this out.
+
+02:17.330 --> 02:22.530
+So I just typed that out as you see it and oh you need to know is this code right here is called as
+
+02:22.530 --> 02:25.140
+soon as the variable of this class is created.
+
+02:25.470 --> 02:27.510
+And as such earlier we have our class now.
+
+02:27.950 --> 02:34.110
+So you can go ahead and take all these functions from the register register handle the page Sorry get
+
+02:34.110 --> 02:41.550
+rid of those from there and move them into this account class like that which is let them on the press
+
+02:41.580 --> 02:46.540
+tab to move them along and then make these private.
+
+02:46.800 --> 02:51.880
+So we add fries on the front of these functions like this.
+
+02:52.260 --> 02:58.520
+And what that does is it means that these can only be called from within this class.
+
+02:58.560 --> 03:02.650
+This is best practice over these functions can't be called from outside this class.
+
+03:02.790 --> 03:05.890
+You'll see other words very soon now because you will write a public function.
+
+03:05.890 --> 03:10.560
+We're also going to write private functions so you will see what the differences are and so that probably
+
+03:10.560 --> 03:15.420
+won't mean a whole lot to you if you've only just started with classes but just just continue follow
+
+03:15.420 --> 03:17.770
+along and it will become clearer.
+
+03:17.850 --> 03:24.090
+So I'm going to try one more function at the top asking the register function and this can be a public
+
+03:24.090 --> 03:24.600
+one.
+
+03:24.600 --> 03:33.620
+Like I said all along you'll see how this works public function register and then save that and go to
+
+03:33.640 --> 03:34.550
+you register handler.
+
+03:34.560 --> 03:40.500
+Remember Down here we call all of these functions where now since we move these once we take that code
+
+03:40.500 --> 03:43.330
+so get rid of that from there move into the account one.
+
+03:43.350 --> 03:49.300
+I'm going to put inside of this register function like that's a highlight or those and have those cross.
+
+03:50.040 --> 03:53.300
+So the registry function is going to be the one function call.
+
+03:53.310 --> 03:57.360
+And this first one is going to call a bunch of other functions from within it.
+
+03:57.360 --> 04:02.520
+This is why we call this public and these are the private the public one is one we're going to manually
+
+04:02.550 --> 04:03.110
+call.
+
+04:03.130 --> 04:08.430
+We're going to say register and then the register funking is going to call these from within itself
+
+04:08.580 --> 04:10.050
+which is why they're private.
+
+04:10.050 --> 04:14.560
+Because the register phone it can access private ones it is within his own Glatt.
+
+04:14.750 --> 04:17.730
+I want to call this fonz's we actually have the person from the front.
+
+04:17.730 --> 04:23.360
+We have to say does sign this and then arrow and what this does.
+
+04:23.610 --> 04:28.570
+It basically says this instance of the class this function.
+
+04:28.930 --> 04:33.600
+Again one of the things I'm saying today it will become clear to you as you go and as you start using
+
+04:33.600 --> 04:40.180
+this stuff as soon as I Splenda before you've seen as a user it's going to be pretty confusing for you.
+
+04:40.230 --> 04:45.840
+So I'm not sure Larry how long the x-ray Explanations for now because just by using them we as you see
+
+04:45.840 --> 04:48.440
+us use them you really understand how it works.
+
+04:48.450 --> 04:56.280
+So now when we call this one function it calls all of these functions and we get to test they're being
+
+04:56.360 --> 04:59.470
+call and we can just put something in here in the valley.
+
+04:59.530 --> 05:00.080
+Use a name.
+
+05:00.080 --> 05:08.040
+Just test out there is that's to call in this week is a user name from Shehan called temporarily and
+
+05:08.040 --> 05:11.760
+then we'll go back to our reds to handle the code down here.
+
+05:11.760 --> 05:13.850
+So any We're going to create our account variable.
+
+05:13.860 --> 05:16.980
+I'm going to call this register function.
+
+05:17.250 --> 05:26.340
+So the way we operate is by saying account equals new count like that of the member the uppercase A.
+
+05:26.790 --> 05:28.350
+And that's it.
+
+05:28.350 --> 05:31.300
+We're going of a problem then because we haven't actually added a reference to this.
+
+05:31.320 --> 05:33.600
+It knows nothing about the account class.
+
+05:33.600 --> 05:40.390
+We have to include the account or CHP code just like we did include the handler code right here.
+
+05:40.390 --> 05:45.660
+So essential things if you want you can just copy and paste one of those includes there and we could
+
+05:45.660 --> 05:48.510
+go and add this to the top of this file at this register.
+
+05:48.510 --> 05:50.520
+HANDLER 1 but we're not going to do that.
+
+05:50.520 --> 05:54.200
+We're actually going to add it to the registered updates Pekoe.
+
+05:54.480 --> 06:00.520
+So both of these two came with energies added include.
+
+06:00.720 --> 06:09.730
+This is going to be includes slash classes slash account of BHP kind of BHP just like that.
+
+06:10.110 --> 06:10.810
+Okay.
+
+06:11.100 --> 06:15.510
+And then because we have the reference here we can just carry our camera well here.
+
+06:15.540 --> 06:17.450
+So copy and paste this code from here.
+
+06:17.460 --> 06:18.620
+We're I'm going to have in there.
+
+06:18.660 --> 06:24.620
+Move it to the Reds did up the HP carried like that.
+
+06:24.990 --> 06:32.120
+So account equals no account and then widget and call that register function so count.
+
+06:33.710 --> 06:35.690
+Register just like that.
+
+06:35.750 --> 06:39.740
+And we're going to see some areas because this race is different she is calling this code right here.
+
+06:39.740 --> 06:44.330
+But these variables that you have values like this is an undefined variable right now but we'll just
+
+06:44.330 --> 06:46.230
+call it and just see what happens.
+
+06:46.310 --> 06:51.750
+Just so you can actually see it is actually working in a undefined variables there.
+
+06:52.100 --> 06:57.850
+But you can see this part that we added this string use a function call in the account appear to be
+
+06:57.860 --> 06:58.230
+people.
+
+06:58.250 --> 06:59.460
+This part that we echo.
+
+06:59.660 --> 07:04.040
+So just buckle on this one function it called all the rest of the functions.
+
+07:04.080 --> 07:04.630
+Okay.
+
+07:04.940 --> 07:06.160
+So ignore those error messages.
+
+07:06.160 --> 07:09.910
+For now this is just to demonstrate to you how we're going to call the rest of function which you're
+
+07:09.910 --> 07:12.650
+going to call all these other functions.
+
+07:12.810 --> 07:18.260
+I guess they get a very quick set of carapace PE class and there's some of you a first introduction
+
+07:18.260 --> 07:19.250
+to classes.

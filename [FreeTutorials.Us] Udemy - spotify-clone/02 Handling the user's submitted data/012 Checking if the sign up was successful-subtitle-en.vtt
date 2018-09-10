@@ -1,0 +1,133 @@
+WEBVTT
+
+00:00.450 --> 00:01.620
+Hey guys welcome back.
+
+00:01.620 --> 00:06.090
+Tonight we're done with our validation functions with the exception of these two dudes of course which
+
+00:06.090 --> 00:07.620
+we still haven't done yet.
+
+00:07.740 --> 00:11.730
+We can go ahead and decide whether we actually want to insert the data into a database.
+
+00:11.940 --> 00:17.850
+So in the register function underneath where you do your validations we're going to have if Damon says
+
+00:17.910 --> 00:23.470
+if empty with the parentheses there and inside the parentheses.
+
+00:23.490 --> 00:31.320
+But this narrow array just like that.
+
+00:32.250 --> 00:34.660
+So if empty this error.
+
+00:34.890 --> 00:39.570
+So this is as you can probably guess checking whether the error rate is actually empty or not.
+
+00:39.570 --> 00:44.190
+This empty function is going to return True or false depending on whether there are actually any values
+
+00:44.220 --> 00:45.610
+inside this array.
+
+00:45.630 --> 00:49.990
+So this is the same as saying if this is is it was true.
+
+00:50.130 --> 00:52.840
+So that's fine too if you want to have Eagles true they're fine.
+
+00:52.840 --> 00:55.050
+But it's exactly the same as if you don't know that.
+
+00:55.230 --> 00:58.770
+But if you're just starting out with all this and you want to be a bit more explicit whether you can
+
+00:58.770 --> 01:01.670
+just but true like that.
+
+01:02.110 --> 01:02.740
+Okay.
+
+01:03.180 --> 01:11.430
+If it is empty we know there were no errors inserted and we can go ahead and insert in to dbe Davis
+
+01:12.090 --> 01:19.250
+elves which means this didn't evaluate to true which means there are valleys is the error.
+
+01:19.530 --> 01:26.250
+It means that somewhere one of these things post a value into the array which means that one of the
+
+01:26.250 --> 01:27.680
+conditions failed.
+
+01:28.020 --> 01:28.720
+Okay.
+
+01:29.100 --> 01:36.210
+So here we can just return false that here for now we can just return true.
+
+01:36.570 --> 01:42.340
+This will change later Oby for analogist but return true and here put return false and then insulting
+
+01:42.360 --> 01:46.140
+a register handler that BHP class where we call this function.
+
+01:46.290 --> 01:48.510
+This is where we call the register function.
+
+01:48.930 --> 01:52.610
+We actually give the result of this call to a variable.
+
+01:52.770 --> 01:57.740
+So you just say dollar sign was successful by that.
+
+01:58.050 --> 01:59.090
+Equals Yes.
+
+01:59.130 --> 02:03.550
+So remember this is going to turn true or false depending on whether there are any errors in the error
+
+02:03.550 --> 02:04.300
+rate.
+
+02:04.740 --> 02:11.370
+So it can be to if I wasn't going to sign into this was successful variable underneath that we could
+
+02:11.370 --> 02:21.300
+very simply say if I was successful equals true again like I said before you can leave the Eagles to
+
+02:21.300 --> 02:26.820
+off if you want to zakia Same but for the people are just starting out programming where they've been
+
+02:26.820 --> 02:28.090
+more explicit in his sleeve.
+
+02:28.290 --> 02:30.690
+Equals equals true like that.
+
+02:30.870 --> 02:37.120
+So if it is true we're going to redirect them to the index page.
+
+02:37.170 --> 02:46.830
+So we have a brand This is an ember location with a capital L location code on index stop HP like that.
+
+02:46.830 --> 02:51.180
+And what this head location is it literally just takes them to where the baby.
+
+02:51.240 --> 02:53.370
+So in this case I'll take you to the index page.
+
+02:53.400 --> 02:59.460
+So if the registration is successful I'm going to take off the index page and that's all we do.
+
+02:59.460 --> 03:04.890
+We're ready now to go and test that these validation functions actually work because we have to test
+
+03:04.890 --> 03:05.490
+this year.
+
+03:05.550 --> 03:07.230
+So we're ready to do that now.

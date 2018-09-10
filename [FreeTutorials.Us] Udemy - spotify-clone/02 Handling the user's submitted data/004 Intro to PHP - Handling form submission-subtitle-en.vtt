@@ -1,0 +1,226 @@
+WEBVTT
+
+00:00.150 --> 00:00.870
+As a go.
+
+00:00.990 --> 00:05.880
+Last time we created our register form so now we have both our log in form and our registered form on
+
+00:05.880 --> 00:07.020
+this page.
+
+00:07.020 --> 00:10.240
+What we're going to do now is just a brief interruption to BHP.
+
+00:10.260 --> 00:16.630
+So at the top right above the HP email tag makes from space and then going to open up a p-h people OK.
+
+00:16.650 --> 00:18.850
+And we do that like this.
+
+00:19.710 --> 00:24.600
+So those tags create a page people log in all up here Pekoe can go inside of here.
+
+00:24.630 --> 00:26.850
+So anything on each page on your website.
+
+00:26.970 --> 00:29.080
+You can just put these BHP blocks.
+
+00:29.310 --> 00:31.290
+It doesn't matter where you put these.
+
+00:31.380 --> 00:34.240
+As long as you put that out in there you could put some BHP anywhere.
+
+00:34.500 --> 00:35.930
+So I could put it down here for example.
+
+00:35.940 --> 00:38.380
+Don't copy this just show works.
+
+00:38.450 --> 00:39.520
+Echo.
+
+00:40.230 --> 00:41.040
+Hello.
+
+00:41.040 --> 00:41.910
+I like that.
+
+00:42.190 --> 00:44.770
+And I can do that.
+
+00:45.150 --> 00:46.970
+Save it for the page.
+
+00:47.110 --> 00:51.680
+And you see hello there because all echo does is a PSP term for print.
+
+00:51.690 --> 00:53.700
+So this just prints something to the screen.
+
+00:53.860 --> 00:54.330
+Okay.
+
+00:54.510 --> 00:57.500
+So I'll just remove that and go back to the top here.
+
+00:58.200 --> 01:00.180
+So I would have the same page p code in here.
+
+01:00.180 --> 01:04.920
+All you do is write a code that detects when our log bone is pressed.
+
+01:05.160 --> 01:07.400
+So we're going to do an if statement.
+
+01:07.530 --> 01:08.040
+Okay.
+
+01:08.160 --> 01:17.050
+And inside the prentice's we're going to say if it is set parentheses again dollar signs underscore
+
+01:17.070 --> 01:25.710
+post in all capitals square brackets single quotes and then inside here is the name of the input so
+
+01:25.710 --> 01:26.940
+the name of the bone.
+
+01:28.220 --> 01:31.140
+So we're going to say laurian burn which is the name remember.
+
+01:31.160 --> 01:32.190
+So log in.
+
+01:32.270 --> 01:33.690
+Copy the name there.
+
+01:33.690 --> 01:34.740
+Paste line.
+
+01:34.850 --> 01:40.690
+So if is does underscore post inside square brackets locking button.
+
+01:40.840 --> 01:44.220
+But the argument has to go inside single quotes as well.
+
+01:44.220 --> 01:48.470
+And this is saying if the log in Burton has been pressed do something.
+
+01:48.590 --> 01:58.000
+So if it has we're just going to say airco again but was pressed like that.
+
+01:58.120 --> 01:58.420
+Right.
+
+01:58.420 --> 02:03.760
+So when I press this page you won't see anything because the log in and hasn't been pressed.
+
+02:03.920 --> 02:08.960
+If I press like no member off to fill these in because it required fields process log Amber and now
+
+02:09.980 --> 02:12.090
+you'll see log in and was pressed.
+
+02:12.320 --> 02:16.200
+So that's how we're going to know that they've submitted a form they've tried to log in.
+
+02:16.220 --> 02:21.470
+They tried to register so nice inside here you can leave a comment if you want.
+
+02:21.470 --> 02:26.940
+By doing two slashes he can just say bargain button was pressed.
+
+02:27.080 --> 02:30.350
+Maybe helps you understand what's going on.
+
+02:30.410 --> 02:34.220
+I'm going to do another one for the register button and copy and paste that.
+
+02:34.390 --> 02:39.890
+Now this is going to be the register button.
+
+02:40.050 --> 02:41.570
+Changes to register if you want.
+
+02:41.830 --> 02:46.570
+So Register phone was pressed and in here you can just just make sure it works.
+
+02:46.670 --> 02:50.170
+The register was pressed.
+
+02:50.480 --> 02:53.180
+Save that refresh.
+
+02:53.180 --> 02:57.440
+When you try and refresh a form you get a confirmation dialogue or pair asking if you want to reset
+
+02:57.560 --> 02:59.800
+for resubmit the form.
+
+02:59.810 --> 03:01.020
+This is a browser thing.
+
+03:01.030 --> 03:05.820
+It is not a problem but I'll show you a way round this so that that doesn't happen later on.
+
+03:05.820 --> 03:07.120
+For now don't worry about that.
+
+03:07.220 --> 03:11.220
+Just first a page we have to know about that is if you did.
+
+03:11.330 --> 03:17.050
+If you did click confirm on that dialogue it would just resubmit the form with exactly the same values
+
+03:17.060 --> 03:18.290
+you submitted it last time.
+
+03:18.340 --> 03:22.420
+Okay so it's not a problem at all but I'll show you how to get around that later on.
+
+03:22.970 --> 03:25.160
+So we're going to add some values into here.
+
+03:25.160 --> 03:29.660
+Now none of these are required fields so in order to test it that button works we have to make sure
+
+03:29.660 --> 03:30.920
+they all have values.
+
+03:30.930 --> 03:33.290
+So just give them some values.
+
+03:33.410 --> 03:34.600
+Click sign up.
+
+03:34.910 --> 03:37.370
+Because these are our type email.
+
+03:37.520 --> 03:42.690
+You see our former Here we have for the e-mail inputs we have time equals email.
+
+03:42.800 --> 03:51.000
+It's expecting an at sign like that person thing and then it was for us.
+
+03:51.100 --> 03:55.670
+Now sign up and you see register burm was pressed.
+
+03:55.910 --> 03:56.730
+Okay great.
+
+03:56.740 --> 03:57.090
+That's it.
+
+03:57.100 --> 04:00.780
+So that's it is a very brief introduction on unpatched B.
+
+04:00.830 --> 04:03.970
+You won't need much more of an introduction because you'll learn it all as we go.
+
+04:03.980 --> 04:09.430
+So even if you've never seen or heard of page B before you'll be absolutely fine in this course.
+
+04:09.440 --> 04:10.080
+Don't worry.

@@ -1,0 +1,151 @@
+WEBVTT
+
+00:01.510 --> 00:02.710
+Hey guys welcome back.
+
+00:02.710 --> 00:08.770
+So last time we separate our register handle the code from our registered page be page and the same
+
+00:08.770 --> 00:09.830
+for logging handler.
+
+00:10.090 --> 00:13.280
+Just make things a little bit easier to work with a little bit neater.
+
+00:13.330 --> 00:18.910
+Now we've done that we can actually continue with our registered burn handler actually prepare to insert
+
+00:18.910 --> 00:20.910
+the data into the database.
+
+00:21.010 --> 00:27.030
+So I'm just quickly going to remove the spaces between these just so keeps things together.
+
+00:27.400 --> 00:29.520
+And we're going to mention space underneath that.
+
+00:29.830 --> 00:34.850
+So there's a bunch of checks me doing these things for example which change the user name is long enough
+
+00:34.850 --> 00:41.230
+for their first name is long enough that the emails match to each other their passwords match the password
+
+00:41.250 --> 00:43.950
+then contain a cast down to contain.
+
+00:44.050 --> 00:47.830
+So yeah there's a bunch of checks which you do on these things so we're going to do this stuff right
+
+00:47.830 --> 00:52.390
+here and we're going to create functions that do this for us instead of run all the code in this space
+
+00:52.390 --> 00:52.980
+here.
+
+00:53.000 --> 00:57.880
+All right functions here we'll just call the functions very similar to how we did here with the sanitized
+
+00:57.880 --> 00:59.130
+functions.
+
+00:59.320 --> 01:06.010
+So underneath these functions here we'll create our validation functions which is going to validate
+
+01:06.010 --> 01:09.470
+the input so function.
+
+01:09.510 --> 01:17.230
+This can be validated username like that validate the user name and it's going to take a user name.
+
+01:17.560 --> 01:21.750
+So you can just you end if you want user name right.
+
+01:21.780 --> 01:30.270
+And actually copy that copy paste that and this will validate first name first name.
+
+01:30.350 --> 01:33.870
+And this can just be the first name.
+
+01:33.880 --> 01:35.830
+Same thing for last name.
+
+01:35.830 --> 01:38.680
+So eveillard Day last name.
+
+01:38.680 --> 01:41.170
+This can be 11.
+
+01:41.370 --> 01:46.110
+And then we only have to offer to create here the moment it's going to be one is going to be validate
+
+01:46.200 --> 01:56.680
+emails e-mails plural e-mails because we have two e-mails moments here and then comma and do two and
+
+01:56.680 --> 01:59.690
+then the last one is it for me for the passwords.
+
+01:59.920 --> 02:08.400
+So copy basically validate e-mails one is give me validate passwords passwords and what can be done
+
+02:08.410 --> 02:12.010
+with a password and then double you too and that's it.
+
+02:12.010 --> 02:18.340
+Now we should call those functions to copy the name of the Valar that username function and down here
+
+02:18.350 --> 02:23.330
+just call it and pass in user name like that.
+
+02:23.860 --> 02:24.390
+Okay.
+
+02:24.520 --> 02:27.960
+Copy and paste that I made.
+
+02:27.970 --> 02:30.110
+We have one two three four five.
+
+02:30.240 --> 02:36.580
+So one two three four five and just take the names of these file name.
+
+02:36.580 --> 02:43.530
+This is be first name change the variable to first name then move our date last name right.
+
+02:43.570 --> 02:46.570
+There are changes to last name.
+
+02:46.570 --> 02:55.150
+Validate e-mails and change this to our email and email too.
+
+02:55.610 --> 03:01.810
+OK in the last one involved a password validate passwords like that and then.
+
+03:03.020 --> 03:07.310
+Password and then password too and that's it.
+
+03:07.310 --> 03:12.530
+We call all of our nation functions call obviously they have a thing in them yet but we've called them
+
+03:12.800 --> 03:17.550
+and we don't want to do anything with them so these won't return any things around to get any data from
+
+03:17.550 --> 03:22.790
+then we'd have to do something like resolved because the result of this call because there will be no
+
+03:22.790 --> 03:23.320
+result.
+
+03:23.480 --> 03:27.840
+So we don't have to actually do anything with the we just have to call these because all these functions
+
+03:27.840 --> 03:33.740
+are going to do is check that they're okay if they're not it's going to insert some error messages into
+
+03:33.830 --> 03:34.530
+an error message.
+
+03:34.550 --> 03:37.650
+Ray I will explain that now you'll see how that works as we go.
+
+03:37.660 --> 03:39.600
+But that's all we need to do for now.

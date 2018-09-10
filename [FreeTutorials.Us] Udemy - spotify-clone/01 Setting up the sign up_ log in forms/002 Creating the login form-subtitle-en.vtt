@@ -1,0 +1,409 @@
+WEBVTT
+
+00:00.220 --> 00:01.320
+Hey guys.
+
+00:01.470 --> 00:06.630
+So last summer we did as we installed our webs installed so blind text which text editor.
+
+00:06.960 --> 00:08.420
+And now we're ready to make a start.
+
+00:08.580 --> 00:13.640
+So what we doing now is create our register page and it's going to be whether users sign up or log in.
+
+00:14.040 --> 00:19.110
+But just quickly before I do that will explain something about this index page for those you don't know
+
+00:19.480 --> 00:22.810
+the index pages the default page website goes to.
+
+00:23.040 --> 00:28.470
+So for example if you go to your local house and you type in you go to your website to get to your index
+
+00:28.470 --> 00:33.570
+page you could type indexed BHP or you could leave off this index up here.
+
+00:33.680 --> 00:38.960
+You don't have to add that because by default if you don't specify a page it will go to your index page.
+
+00:39.120 --> 00:39.530
+OK.
+
+00:39.780 --> 00:41.440
+So this is something we're quick to know about.
+
+00:41.670 --> 00:49.080
+The index page leaving the indexed page out of the URL is exactly the same as if you did that.
+
+00:49.200 --> 00:51.810
+You don't have to include it.
+
+00:52.290 --> 00:56.210
+So with your head now qurei our registered iph age.
+
+00:56.670 --> 01:04.550
+So you really have to open up a blind text and then you save this and save it into the folder wherever
+
+01:04.560 --> 01:12.170
+you're zammit Web server is h.t. Docs and then find your website you created.
+
+01:12.170 --> 01:14.610
+So this forms called slot's find this example.
+
+01:14.640 --> 01:20.580
+So there's our index of a.p. page we created last time was going to save this in the same place.
+
+01:20.690 --> 01:26.570
+So Register doppie HP this in the same follows of red as the index page.
+
+01:26.850 --> 01:33.130
+And remember you can still see e-mail press tab and you get the e-mail structure and we can just write
+
+01:34.150 --> 01:38.390
+to something like that where you want it now.
+
+01:38.700 --> 01:44.100
+And just to make sure it works this is just our age.
+
+01:44.360 --> 01:51.420
+And as I go across and make sure that worked so hard just go to the register page paper make sure you
+
+01:51.420 --> 01:53.890
+spell it right.
+
+01:53.940 --> 01:55.920
+This is a case so we know we have the right page.
+
+01:55.920 --> 01:56.550
+Great.
+
+01:56.750 --> 01:58.870
+And when we get right into it so we get rid of that now.
+
+01:58.890 --> 02:00.810
+Now we know it works.
+
+02:00.890 --> 02:07.740
+And just create a div So you have it just right div and press tab like that because like I said last
+
+02:07.740 --> 02:10.620
+time supplying text auto completes for you.
+
+02:10.620 --> 02:16.410
+So if you type the name of a tag and then press tab it will auto complete it for you if Usenet extended
+
+02:16.410 --> 02:22.170
+that didn't autocomplete obviously just write that out manually it will give this div and I gave it
+
+02:22.230 --> 02:29.570
+an identifier and the idea is going to be in that container just like that one word.
+
+02:29.570 --> 02:36.060
+And for those you don't know what these things are divs and I.D. there's a good chance you'll understand
+
+02:36.060 --> 02:41.040
+what they mean just by doing this so the more we go through this course you will get a very good understanding
+
+02:41.040 --> 02:42.020
+of how they work.
+
+02:42.270 --> 02:46.680
+But if you still don't understand you can just do a quick Google search.
+
+02:46.680 --> 02:49.470
+There's so many resources out there to learn this from.
+
+02:49.560 --> 02:52.080
+Or ask me a question and I'll answer it.
+
+02:52.410 --> 02:58.380
+So inside this div form tied a game games for one press tab and complete it for you.
+
+02:58.650 --> 03:06.240
+And this form is to have the idea of log in form a form is basically how we send dates to another page
+
+03:06.990 --> 03:13.700
+so action is going to be registered up HP which is the page run now.
+
+03:13.710 --> 03:16.920
+This action part is what page you want to send the data to.
+
+03:16.920 --> 03:18.180
+So we're going to send it to the page.
+
+03:18.180 --> 03:24.810
+We are currently on which is ready to appear to be an F for peak calls post.
+
+03:24.840 --> 03:27.510
+This is just the method in which the data is sent.
+
+03:27.630 --> 03:33.290
+You will use post for this whole course so you won't ever do anything other than post for this cause
+
+03:34.100 --> 03:34.730
+than inside.
+
+03:34.740 --> 03:39.900
+Here we're going to put an H to tag and the H tags headers.
+
+03:39.900 --> 03:41.690
+You have h one age to age 3.
+
+03:41.700 --> 03:44.480
+The number corresponds to the size of it.
+
+03:44.610 --> 03:45.870
+You'll see how that works now.
+
+03:45.930 --> 03:52.380
+We'll put the log in to your account.
+
+03:52.560 --> 03:58.350
+Save that and we'll go back to here and just make sure we're seeing this refresh this page and you should
+
+03:58.350 --> 04:00.540
+see all the into your account.
+
+04:00.570 --> 04:01.810
+This is a slightly larger fund.
+
+04:01.800 --> 04:08.010
+This is your age to tack so I will carry on going to an input to set out in a press tab and you get
+
+04:08.010 --> 04:08.470
+this.
+
+04:08.550 --> 04:09.900
+There's only one tab for this.
+
+04:09.900 --> 04:15.150
+You don't have a closing input so you won't have this sort of thing you get that with input.
+
+04:15.270 --> 04:16.360
+You only have to 1.
+
+04:18.160 --> 04:30.180
+Eidy Equals Let's call this luggin a user name just like that name is going to be just in username again.
+
+04:30.440 --> 04:34.680
+Name is how this is of reference how I can get the data from this field.
+
+04:34.690 --> 04:37.300
+You'll see how that works soon.
+
+04:37.300 --> 04:42.700
+Type it calls text like that which is the type of input we're going to put in this field.
+
+04:42.700 --> 04:45.970
+This is a text box to save that we'll see how it works.
+
+04:46.240 --> 04:49.530
+You'll see there's a text box on this field that you can type into.
+
+04:50.860 --> 04:52.960
+But we also give us a place holder so there's an app.
+
+04:52.960 --> 04:54.370
+This is an empty box at the moment.
+
+04:54.400 --> 04:58.050
+When you give it a place hold now so type place holder.
+
+04:58.050 --> 05:03.520
+He calls and we can say e.g. Bart.
+
+05:05.560 --> 05:08.190
+Simpson like that or something.
+
+05:08.200 --> 05:09.490
+First page.
+
+05:09.890 --> 05:13.440
+Then you see a place holder now and then when I type in this it goes away.
+
+05:13.450 --> 05:17.080
+I mean and last thing.
+
+05:17.230 --> 05:21.770
+Just put the required like that.
+
+05:21.830 --> 05:25.870
+This means it won't let you submit the form unless this has a value because we always want the username
+
+05:25.870 --> 05:27.240
+field to have a value.
+
+05:27.590 --> 05:35.320
+OK so copy that whole input and just make this full screen so you can see Obis you copy the whole input
+
+05:35.320 --> 05:41.140
+line and paste it in below and this will always change the user name.
+
+05:41.140 --> 05:44.460
+This is going to be password like that.
+
+05:44.680 --> 05:51.040
+Okay copy that paste it and then we don't want a place holder on the password field because we don't
+
+05:51.280 --> 05:56.320
+have a suggestion for that so it's a sleeve lever place holder out of that and also change this type
+
+05:56.350 --> 05:58.920
+people text to type password.
+
+05:58.960 --> 06:02.670
+Because let me show you real quick if we had text typed it was text.
+
+06:02.800 --> 06:03.890
+So use your second field here.
+
+06:03.910 --> 06:07.120
+If I had type it was actually we had to see it your password as you're typing.
+
+06:07.170 --> 06:10.240
+But if you change it to type because password.
+
+06:11.830 --> 06:17.920
+You'll see that when I type in their hidden hidden or seeing that these actually appear on the same
+
+06:17.920 --> 06:21.790
+line and we obviously don't want that we want them to appear on separate lines so we could use a bit
+
+06:21.790 --> 06:23.630
+of CSI s to do that it be really easy.
+
+06:23.650 --> 06:31.570
+But what we're going to do is separate these even further into their own components so we can have a
+
+06:31.570 --> 06:37.030
+paragraph tag right here and those who don't know the paragraph tags always appear on separate lines
+
+06:37.180 --> 06:39.300
+just copy and paste is a quote Don't copy this.
+
+06:39.310 --> 06:43.200
+Just watch to see that 5 2 paragraphs tags like that.
+
+06:43.220 --> 06:45.100
+There are literally separate lines.
+
+06:45.100 --> 06:47.330
+See several I did out of here next to each other.
+
+06:47.470 --> 06:52.290
+So we're going to use the paragraph tags now to make our input superior to separate lines.
+
+06:52.360 --> 06:59.670
+So get your paragraph tag and move one of these inputs into there like that.
+
+06:59.680 --> 07:01.600
+Now do the same for this input.
+
+07:01.690 --> 07:07.850
+So Create Your paragraph tag copy the password one into that and you'll see just by doing that.
+
+07:10.000 --> 07:11.740
+They now pay our separate lines.
+
+07:13.250 --> 07:19.210
+And then the very last thing we're going to do is put a label tacked a type label pressed tab and the
+
+07:19.210 --> 07:22.440
+label is just going to be easy for you to see how this works.
+
+07:22.440 --> 07:23.780
+I just write a user name.
+
+07:24.670 --> 07:30.250
+You also write for copy and paste that into there.
+
+07:31.480 --> 07:35.230
+Save that you show share outlooks.
+
+07:35.320 --> 07:39.640
+And you see we have a label next to our textbooks now.
+
+07:40.000 --> 07:46.530
+So we'll do the same thing for passwords so that type of label press tab password.
+
+07:46.990 --> 07:52.080
+And then for copy paste that into there.
+
+07:52.570 --> 07:55.930
+And this four attribute has to correspond to the I.D..
+
+07:56.170 --> 08:02.060
+So this has to match that I.D. of whichever input it corresponds to.
+
+08:02.200 --> 08:03.520
+And this doesn't really do a whole lot.
+
+08:03.520 --> 08:09.570
+The labels tag all it does this means if I click on the label itself.
+
+08:11.100 --> 08:12.630
+It activates the field.
+
+08:12.750 --> 08:16.950
+So instead of having to click on the field if I click on this label you'll see it puts my input into
+
+08:16.950 --> 08:17.250
+the feel.
+
+08:17.250 --> 08:18.460
+That's pretty much it.
+
+08:18.480 --> 08:26.530
+Aside from given a little visual as well to what the field is clicking on it also allows you to activate
+
+08:26.530 --> 08:32.200
+the field and then the very last thing you to do is create our submit burn now.
+
+08:32.730 --> 08:40.030
+So outside of those pyecraft tags just type person press tab and then this is going to be tight.
+
+08:40.080 --> 08:48.500
+He calls so Mitt because it submits our form and the name is going to be long again.
+
+08:48.660 --> 08:50.490
+BURTON like that.
+
+08:50.580 --> 08:56.590
+And then here you can just write walk in and then reverse that and you say.
+
+08:57.420 --> 08:58.550
+I log in.
+
+08:58.800 --> 08:59.020
+OK.
+
+08:59.070 --> 09:01.350
+I remember how I said this was a required field.
+
+09:01.350 --> 09:05.080
+So this is what I mean if I don't submit a value in here work let me submit the form.
+
+09:05.270 --> 09:06.870
+It's up something in there.
+
+09:07.430 --> 09:09.440
+This is also requires really put something in there too.
+
+09:09.480 --> 09:13.500
+If I type something in both of them and press that it submits.
+
+09:14.260 --> 09:17.580
+It's admits the form and that's it.
+
+09:17.580 --> 09:18.690
+That is our log in form.
+
+09:18.690 --> 09:23.370
+Obviously it's not styled yet and it doesn't do anything but that is all our logging form is going to
+
+09:23.370 --> 09:24.330
+consist of.
+
+09:24.480 --> 09:28.390
+Our register form is something very similar just with some extra fields.

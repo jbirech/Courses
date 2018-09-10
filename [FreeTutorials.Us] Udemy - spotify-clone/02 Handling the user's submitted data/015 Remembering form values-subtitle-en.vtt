@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00.340 --> 00:01.590
+Hey guys welcome back.
+
+00:01.800 --> 00:06.390
+So what we did last time is just implement this Constance class which just made it a little bit easier
+
+00:06.390 --> 00:11.070
+for us to maintain the messages that we output while we're going through now is something I mentioned
+
+00:11.100 --> 00:17.770
+briefly a couple of videos ago which is to remember the values of this form when you submit.
+
+00:17.820 --> 00:23.100
+So if for example if I submit this form and I have the user name isn't valid and it doesn't successfully
+
+00:23.100 --> 00:28.950
+register it's going to bring us back to this page is it shows the messages it would be nice if it remembered
+
+00:28.950 --> 00:32.350
+the values you entered last time so he wouldn't have to re-enter it again.
+
+00:32.370 --> 00:36.180
+So we're going to do that this video and said really really simple.
+
+00:36.180 --> 00:45.600
+All you do is add a value to these improv elements because you see for example if I added a value to
+
+00:45.600 --> 00:46.590
+this embellishment.
+
+00:46.710 --> 00:49.760
+So help save that.
+
+00:49.800 --> 00:55.750
+You'll see that we have the value inside the embattlement like this.
+
+00:56.070 --> 01:01.800
+So we want to do is just put whatever they entered last time into this string right here.
+
+01:01.800 --> 01:02.960
+And how do we get the value.
+
+01:02.970 --> 01:05.770
+Well if you look in register handle add up to SB.
+
+01:05.820 --> 01:10.390
+We take the values from the form using these post with the square brackets.
+
+01:10.410 --> 01:13.280
+So this is the value that they entered.
+
+01:13.530 --> 01:17.790
+So we need to do is put this variable into the value.
+
+01:17.790 --> 01:22.630
+So we do a lot less because p p variable we the page p tags in there.
+
+01:22.770 --> 01:25.290
+So inside the value double quotes.
+
+01:25.530 --> 01:27.500
+Page p tags like that.
+
+01:27.630 --> 01:35.250
+And then just put echo and then does assign in a score post square brackets single quotes and then whatever
+
+01:35.250 --> 01:36.640
+the name is of this field.
+
+01:36.640 --> 01:39.500
+So this is use a name like that.
+
+01:39.650 --> 01:40.510
+Right.
+
+01:40.980 --> 01:45.260
+And so in a very long and close the page p tags off.
+
+01:45.330 --> 01:51.570
+The problem with this you see right now is that this isn't always set if we haven't submitted the form.
+
+01:51.570 --> 01:53.850
+It would be an error in there you'll see right here.
+
+01:53.850 --> 01:59.230
+This is actually an error our parade is going to say something along lines of undefined index username
+
+01:59.250 --> 02:03.000
+because we haven't actually submitted the form yet so this didn't actually have a value.
+
+02:03.060 --> 02:08.340
+But you'll see if I do submit this form so I'll release.
+
+02:08.520 --> 02:10.930
+You'll see that once we submit this.
+
+02:11.100 --> 02:15.810
+Okay I'll make sure the master match.
+
+02:19.520 --> 02:20.820
+So you see.
+
+02:22.870 --> 02:25.040
+If Remember the valley from last time.
+
+02:25.040 --> 02:28.230
+But if I just refresh its page now goes away because it isn't.
+
+02:28.280 --> 02:30.470
+And this is no longer set.
+
+02:30.500 --> 02:34.280
+So what we do is only use this if it's been set.
+
+02:34.280 --> 02:39.590
+Now a very simple way to do this is instead of putting this up there you just create a very short function
+
+02:39.590 --> 02:40.230
+of here.
+
+02:40.280 --> 02:41.290
+Really simple.
+
+02:41.420 --> 02:49.330
+Just say the function get input value like that right in this area.
+
+02:49.340 --> 03:00.710
+Take a name it should be the name of the input and we can just do this if it is set sign and the score
+
+03:00.800 --> 03:04.790
+post and then this would be the name
+
+03:07.190 --> 03:14.380
+then echo to our sign the school post with name and that is it.
+
+03:14.480 --> 03:15.410
+That's the function.
+
+03:15.410 --> 03:18.470
+So now what this does is it takes a name.
+
+03:18.470 --> 03:24.340
+So for example your name of your field for example using names a name user name.
+
+03:24.620 --> 03:30.480
+And usually we do something like does underscore post and then use a name like that don't we.
+
+03:30.590 --> 03:31.900
+But spelled correctly.
+
+03:32.030 --> 03:33.340
+Now we're just passing this.
+
+03:33.350 --> 03:39.560
+Use this name pas into this function like that and we put it inside the post roble like that.
+
+03:39.560 --> 03:43.010
+So you'll see we call this function on copy paste the name of the function.
+
+03:43.130 --> 03:49.760
+And I'm going to go back down here and then we're just going to say inside the page p tags like that
+
+03:50.310 --> 03:54.080
+we'd have to echo anything just just at present inside the function we are correct.
+
+03:54.080 --> 03:56.670
+So we don't need to echo like that.
+
+03:56.840 --> 03:58.630
+So get em to a value.
+
+03:58.730 --> 04:05.770
+And then I just put the name of this input field which in this case is even a name like that.
+
+04:05.780 --> 04:08.970
+Now this will only use a value if it's been set.
+
+04:09.260 --> 04:10.590
+So refresh this page.
+
+04:10.700 --> 04:11.940
+The error goes away.
+
+04:12.110 --> 04:19.220
+But if I give this value they submit this from.
+
+04:20.890 --> 04:21.870
+He's there.
+
+04:21.980 --> 04:27.660
+He says you'll see this time around it remembers this so we don't have any more messages.
+
+04:27.670 --> 04:32.210
+And the journey it takes the value if it's been set so that's it.
+
+04:32.350 --> 04:34.290
+I told you simple it's really really easy.
+
+04:34.480 --> 04:37.760
+So I'll just copy and paste this again and we'll put it until these ones now.
+
+04:37.790 --> 04:42.600
+So value and this is going to be the first name.
+
+04:42.790 --> 04:47.290
+Remember taking the name part and now we have the name exactly the same as the idb.
+
+04:47.290 --> 04:49.200
+You don't have to do that.
+
+04:50.480 --> 04:52.090
+So paste it into there.
+
+04:52.090 --> 05:01.170
+And this one's going to be the last name and then will paste this one in here in the mail and this one
+
+05:01.180 --> 05:05.730
+is going to be e mail to that.
+
+05:05.740 --> 05:07.090
+And we're not going to do it for passwords.
+
+05:07.090 --> 05:08.400
+We all remember those.
+
+05:08.680 --> 05:10.120
+And then that's it.
+
+05:10.120 --> 05:13.200
+So let's refresh this page and fill in the form.
+
+05:13.210 --> 05:14.970
+She remembers the values there.
+
+05:15.280 --> 05:17.350
+It reads like that.
+
+05:17.350 --> 05:19.310
+And then Kenny.
+
+05:19.920 --> 05:22.780
+I mean and there.
+
+05:22.830 --> 05:24.950
+I make sure these passwords don't match.
+
+05:24.990 --> 05:27.160
+So we get to see the error messages.
+
+05:28.170 --> 05:28.570
+There.
+
+05:28.590 --> 05:31.980
+So it's rumbaed all these values and then we have a message.
+
+05:31.980 --> 05:36.440
+And if if there's something wrong with this we could just correct it now.
+
+05:36.900 --> 05:37.750
+But that's it.
+
+05:37.770 --> 05:39.540
+That you really is simple.
+
+05:39.690 --> 05:42.830
+And if you reverse the page you get start over.
+
+05:43.110 --> 05:48.250
+So when you submit the form it remembers values when you just refresh the page it goes away.

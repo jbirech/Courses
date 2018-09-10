@@ -1,0 +1,427 @@
+WEBVTT
+
+00:00.550 --> 00:02.340
+Edgar guys who work the course.
+
+00:02.400 --> 00:07.130
+Let me take the time firstly to thank you for rolling in this cause and secondly to let you know that
+
+00:07.140 --> 00:10.400
+if you run into any problems along the way as you move through this course.
+
+00:10.500 --> 00:11.420
+Just let me know.
+
+00:11.520 --> 00:12.270
+I'm here to help.
+
+00:12.270 --> 00:17.910
+So if you have any issues or bugs or you're not working just ask me a question or send me a message
+
+00:17.910 --> 00:20.820
+and I'll get back to you within a couple of hours.
+
+00:20.850 --> 00:24.420
+It's also worth noting that this is not an introduction to h.t. email course.
+
+00:24.450 --> 00:29.280
+And all I mean by that is while we do go over the basics particularly at the start of the course we
+
+00:29.280 --> 00:33.030
+don't go over them in this same amount of detail as you would find in an instruction to programming
+
+00:33.030 --> 00:33.550
+course.
+
+00:33.630 --> 00:34.050
+OK.
+
+00:34.230 --> 00:36.930
+So all that means is if you've never program before.
+
+00:36.930 --> 00:39.430
+Just ask me some questions if you need some more explanations.
+
+00:39.450 --> 00:43.650
+Are we happy to spend as much time as you need going through things with you and the very last thing
+
+00:43.650 --> 00:47.150
+before you get started with this is just when you feel the time is right.
+
+00:47.160 --> 00:51.780
+If you could leave this course a positive review I'd really really appreciate it because as instructors
+
+00:51.780 --> 00:54.120
+the positive reviews are all we have to go off.
+
+00:54.270 --> 00:57.340
+So I'm really really thankful for all the positive reviews I get.
+
+00:57.550 --> 01:00.290
+Okay well I've said everything I need to say.
+
+01:00.510 --> 01:01.700
+Let's get started.
+
+01:02.100 --> 01:04.090
+So we get started now.
+
+01:04.320 --> 01:10.640
+The first lecture is the most boring one we just have to set up our web server and our text editor.
+
+01:10.820 --> 01:14.940
+This is the only time in the course you have to actually download things and set things up so just bear
+
+01:14.940 --> 01:16.140
+with me through this video.
+
+01:16.200 --> 01:17.940
+And after that we'll be onto the good stuff.
+
+01:18.690 --> 01:21.950
+So the first thing to install is sublime text.
+
+01:21.990 --> 01:25.770
+This is just so a text editor and you're free to use any text editor you want.
+
+01:25.770 --> 01:28.160
+If you have a favourite in mind.
+
+01:28.200 --> 01:35.490
+Maybe you use like using Notepad you can use any text editor you want but this is a very typical programming
+
+01:36.000 --> 01:38.690
+text editor particularly for h.t. AML.
+
+01:38.760 --> 01:40.730
+So this is a very good one to go with.
+
+01:40.830 --> 01:45.150
+So if you just google a blind text and click on the first link you will take you to this website and
+
+01:45.150 --> 01:48.370
+you can just click download on a Mac so it's faux sex.
+
+01:48.390 --> 01:54.590
+But you know it is available on all operating system so you have no problems with that.
+
+01:54.630 --> 01:57.340
+So I've already downloaded it so I'm not going to click save.
+
+01:57.360 --> 02:01.900
+But the set up is pretty simple so I want you to run you through that.
+
+02:02.700 --> 02:08.390
+So this is what the text looks like at the moment it just looks like a blank screen is not much to it.
+
+02:08.420 --> 02:10.160
+You just like to type code.
+
+02:10.620 --> 02:12.760
+And that's really all you need to know.
+
+02:12.780 --> 02:14.440
+It's a really simple thing.
+
+02:14.450 --> 02:22.020
+Okay so the next thing will be install is our web server and the web server just allows us to test our
+
+02:22.020 --> 02:25.820
+code locally without having to buy hosting or anything.
+
+02:26.020 --> 02:29.040
+Okay so just type in Zambia just like that.
+
+02:29.160 --> 02:32.710
+Because that's the name of the website we're going to use and click on the first link.
+
+02:34.930 --> 02:37.180
+From there you will see the difference.
+
+02:37.190 --> 02:39.850
+Our brain system is available on so go ahead and click yours.
+
+02:39.850 --> 02:42.220
+Like I said I'm on a Maxo outlook this one.
+
+02:44.320 --> 02:47.010
+And then you should see the installer appear.
+
+02:47.310 --> 02:51.650
+So click Save I'm saying that whatever you want I have already downloaded it ahead of time.
+
+02:51.660 --> 02:58.300
+Just try and speed things up a little bit so I won't say it again but once you've saved that.
+
+02:58.890 --> 03:04.590
+Open it up and click on the file you just downloaded and that will start the installer.
+
+03:05.490 --> 03:10.880
+So on a Mac it looks like this obviously looks slightly different on your operating system.
+
+03:11.640 --> 03:13.300
+So just go ahead and open that up.
+
+03:13.350 --> 03:16.750
+I need to add to my password with just a password for my computer.
+
+03:16.760 --> 03:19.700
+But you may or may not need to do this.
+
+03:22.200 --> 03:23.540
+Go ahead and click okay.
+
+03:27.030 --> 03:28.540
+And you see the wizard appear.
+
+03:28.930 --> 03:30.280
+And this is pretty simple.
+
+03:30.360 --> 03:31.130
+Just click through.
+
+03:31.140 --> 03:34.860
+Like I said it looks slightly different if you are on a Windows operating system or something but for
+
+03:34.860 --> 03:36.770
+the most part it is the same.
+
+03:37.020 --> 03:43.350
+Okay I think on the windows one you have a bunch of different things you can install down here but just
+
+03:43.350 --> 03:48.600
+leave the defaults and then click next and then click next again.
+
+03:48.600 --> 03:50.660
+It will install.
+
+03:51.090 --> 03:53.450
+Like I said I really install this way we actually do this.
+
+03:53.460 --> 03:56.470
+But click next and it will begin the installation.
+
+03:56.820 --> 04:00.750
+So once you have that install you will go ahead and open it up so go to location that you installed
+
+04:00.790 --> 04:04.570
+at siamak it would be in applications most likely.
+
+04:04.680 --> 04:07.480
+And scroll down to stamp down.
+
+04:07.800 --> 04:14.490
+Open that folder and then you have this right here in a Mac it's called manager OSX but it might because
+
+04:14.520 --> 04:16.690
+something slightly different for you.
+
+04:16.690 --> 04:22.110
+Maybe our control plan is something and this is the eigen so double click on that and you tend to add
+
+04:22.110 --> 04:23.420
+password again.
+
+04:27.910 --> 04:29.680
+And then you see it's opened.
+
+04:29.700 --> 04:30.430
+Here we go.
+
+04:30.720 --> 04:34.080
+So there's really not much you need to do here.
+
+04:34.110 --> 04:36.620
+Just go across to on a Mac anyway.
+
+04:36.630 --> 04:46.090
+Manage servers and make sure that my skewl database is running an Apache web servers running okay on
+
+04:46.100 --> 04:47.150
+a Windows computer.
+
+04:47.160 --> 04:50.190
+If I remember correctly there's a there's a couple more options here.
+
+04:50.190 --> 04:53.850
+You have files ala Mercury a tom cat.
+
+04:54.120 --> 05:00.100
+But all I need to do is make sure Apache is running and then my obscure old database is running again.
+
+05:00.120 --> 05:02.000
+So just Bob Apache as well.
+
+05:02.040 --> 05:03.400
+Everything else you could ignore.
+
+05:03.450 --> 05:07.790
+These may or may not be running when you start for the first time but most likely they're not.
+
+05:07.800 --> 05:10.760
+So just hit start on them back on them start again.
+
+05:10.970 --> 05:11.750
+That's it.
+
+05:12.090 --> 05:16.000
+Leave that running Don't close down anything and check it worked.
+
+05:16.000 --> 05:20.800
+You can just go to any browser just type in local host like that.
+
+05:20.950 --> 05:26.010
+Just type in local host and you should hopefully see a screen similar to this.
+
+05:26.010 --> 05:29.400
+If you see a screen with a bunch of languages underneath just click on your language.
+
+05:29.400 --> 05:32.430
+It should take you to this screen if you dont see this.
+
+05:32.430 --> 05:35.330
+It means that you don't have the set up correctly.
+
+05:35.440 --> 05:38.880
+Okay but just by having them running you should see this.
+
+05:40.310 --> 05:41.720
+And that's it for us do it.
+
+05:41.720 --> 05:45.080
+That's all the insulation you need to do throughout the whole course.
+
+05:45.350 --> 05:49.350
+So we're going to write a very quick test page now to make sure that works.
+
+05:49.360 --> 05:51.490
+Open up a blind text which is our text editor.
+
+05:51.500 --> 05:52.880
+You just download it.
+
+05:53.270 --> 05:58.100
+Go out and say that and we're going to save that to the location that you installed your web server
+
+05:58.100 --> 06:01.360
+too so go to wherever you just saved azam too.
+
+06:01.490 --> 06:06.600
+So in my case applications zantop and h.t. docs is the Foley one.
+
+06:06.680 --> 06:09.450
+80 docs is where all your web page is going to go.
+
+06:09.550 --> 06:09.860
+OK.
+
+06:09.880 --> 06:12.670
+Because when you type in local host it takes you to this folder.
+
+06:12.770 --> 06:13.000
+OK.
+
+06:13.070 --> 06:15.220
+Logo's you just a go to this folder.
+
+06:15.710 --> 06:18.690
+So you're going to create a new website in this folder.
+
+06:20.080 --> 06:28.960
+So inside a detox folder and a quick new folder and give a name for your project on and call it slots
+
+06:28.960 --> 06:34.410
+of Fi that Spotify and click create.
+
+06:34.450 --> 06:39.340
+So I've got quite a bunch of websites in here but you can see the slifer website I've just created.
+
+06:41.090 --> 06:46.800
+And then we have save this file in there as Index Doc BHP.
+
+06:48.230 --> 06:49.970
+KS your first bid to be file.
+
+06:50.060 --> 06:56.920
+Click save and the good thing about cymbeline is it can auto complete for you as you're typing.
+
+06:57.110 --> 07:04.700
+But we can just type in htl and click tab and it fill in the structure of a basic AIST email page OK.
+
+07:04.910 --> 07:05.830
+And to check it worked.
+
+07:05.840 --> 07:06.900
+We're just going to.
+
+07:07.370 --> 07:09.010
+Hello right there.
+
+07:09.140 --> 07:11.030
+Save that mystery save it.
+
+07:11.030 --> 07:12.730
+Go back to your web browser.
+
+07:12.740 --> 07:20.840
+Type in local host local host and then slash web your folder was called for your website.
+
+07:20.840 --> 07:23.730
+So I called it Spotify going.
+
+07:23.960 --> 07:27.740
+Hit enter and you should see hello which is why we had in here.
+
+07:27.800 --> 07:34.550
+If you see that it works and it is a very very brief introduction into a teaser for those of absolute
+
+07:34.550 --> 07:35.630
+beginners.
+
+07:35.630 --> 07:39.650
+The body section right here is where all your content is and go free website.
+
+07:39.680 --> 07:47.380
+The head section between these two is where you going to say what jobs get files to include or what's
+
+07:47.380 --> 07:52.340
+the files which you are storing files and inside this title tag right here.
+
+07:52.340 --> 07:57.450
+We can say I've gone too far to fly or whatever you want to put.
+
+07:57.500 --> 08:01.350
+And you see that that appears in the tab right here right there.
+
+08:01.430 --> 08:04.120
+Okay so whatever you type in the title tag appears here.
+
+08:06.050 --> 08:10.100
+So that was just a very quickly your action to the h.t. Email structure for those absolute beginners
+
+08:10.100 --> 08:12.020
+out there and that's it.
+
+08:12.020 --> 08:18.310
+So in this lesson we stored our text editor our web server and we write a little test page and we know
+
+08:18.330 --> 08:19.460
+works.
+
+08:19.490 --> 08:23.520
+Remember if you have any problems at all with this just write me a message I usually respond within
+
+08:23.540 --> 08:24.610
+a couple of hours.
+
+08:25.190 --> 08:26.000
+So that's it.
+
+08:26.000 --> 08:29.360
+That's actually all the insulation you need to do throughout this whole course.
+
+08:29.480 --> 08:31.120
+So you've made it through the boring part.
+
+08:31.130 --> 08:32.720
+Now onto the good stuff.

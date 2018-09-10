@@ -1,0 +1,193 @@
+WEBVTT
+
+00:00.360 --> 00:01.460
+Hey guys welcome back.
+
+00:01.560 --> 00:08.100
+So last time we even started writing the usually bad days in function we left a to do because we haven't
+
+00:08.190 --> 00:11.530
+actually set up by using day we can't check if the username exists.
+
+00:11.550 --> 00:17.030
+We'll come back to that part but we'll just copy and paste this part of the validate username function
+
+00:17.130 --> 00:22.470
+and paste it into the valet first then unveiled their last name function because we're going to do the
+
+00:22.470 --> 00:23.640
+same thing there.
+
+00:23.670 --> 00:29.520
+So copy and paste into there and then for the valdai first name we will make sure the name is not less
+
+00:29.520 --> 00:33.180
+than two characters because a change is this error message.
+
+00:33.180 --> 00:40.790
+To your first name must be between 2 and 25 characters right.
+
+00:40.790 --> 00:44.160
+And do the same sorting below for the last name.
+
+00:44.160 --> 00:55.070
+So to your last last name must read between 2 and 25 characters but we also need to change the parameters
+
+00:55.080 --> 01:01.200
+because now we say u.n. units in this function and we just change it to offend F and there and there
+
+01:01.230 --> 01:06.400
+and this one is L. and so copy that paste l.a. and then Ellen just like that.
+
+01:06.620 --> 01:10.170
+Ah and that is all the validation will to do for the first name and last name.
+
+01:10.170 --> 01:16.920
+There's nothing to do there so I just remove it from space and that and the first that they first name
+
+01:16.930 --> 01:18.710
+by last name front is are done.
+
+01:19.080 --> 01:24.380
+So we only have two more functions to do and us the validate emails and Monday passwords 1 so validate
+
+01:24.390 --> 01:24.830
+emails.
+
+01:24.850 --> 01:33.930
+We're going to do three checks so the first one is going to be if he is not equal to each to is real
+
+01:33.930 --> 01:34.350
+simple.
+
+01:34.350 --> 01:34.760
+If the U.
+
+01:34.800 --> 01:36.980
+If the e-mails leave entered aren't the same.
+
+01:37.200 --> 01:40.710
+We're going to copy and paste this array pushpa.
+
+01:41.510 --> 01:49.110
+And just change the message to simply your emails don't match.
+
+01:49.130 --> 01:52.420
+Just like there and then return.
+
+01:52.950 --> 01:55.630
+I get that one of three jacks done.
+
+01:55.760 --> 02:00.110
+Second chair were going to do it just to make sure it's in the correct format.
+
+02:00.170 --> 02:04.240
+So if not which is a summation point.
+
+02:04.280 --> 02:11.770
+So if this is not true filter and the score var and just copy out I'll explain this once.
+
+02:11.810 --> 02:20.990
+Once I've typed it up I am in the second around to have that function is 0 cups filled in a score valid
+
+02:20.990 --> 02:21.810
+day.
+
+02:21.960 --> 02:30.330
+Oh valid date and the school email filter and the score validate and the school email I like.
+
+02:30.390 --> 02:33.300
+But what this does.
+
+02:33.500 --> 02:39.620
+This checks whether this is in the correct format so this is this knows what format and email should
+
+02:39.620 --> 02:40.120
+be in.
+
+02:40.160 --> 02:43.500
+And it checks if if e am.
+
+02:43.520 --> 02:46.800
+The variable is not in the correct format.
+
+02:47.060 --> 02:52.970
+Then we can just copy paste those two lines of both paste in there and change this error message to
+
+02:53.810 --> 02:56.830
+email is invalid.
+
+02:57.020 --> 02:59.860
+Just like that and then return as well.
+
+03:00.040 --> 03:02.470
+Get some of you might be wondering why we need this.
+
+03:02.480 --> 03:09.410
+Because if you look at the email feel itself you see time equals email and you probably think in there
+
+03:09.410 --> 03:14.390
+that means that it will check it out for us so fresh is that there are messages.
+
+03:14.390 --> 03:17.330
+Last time I missed the first page.
+
+03:17.580 --> 03:27.400
+And yes all of you are thinking that the typed email stops us from entering a string.
+
+03:27.400 --> 03:28.130
+This not only now.
+
+03:28.130 --> 03:32.930
+So if I try submit this you'll see that it does allow submit the form it says Please include an at in
+
+03:32.930 --> 03:33.650
+e-mail.
+
+03:33.860 --> 03:37.150
+So the problem is only checks for an at will have a text afterwards.
+
+03:37.260 --> 03:41.660
+Okay if I don't have that text that would still know it's invalid but if I have a little weird text
+
+03:41.660 --> 03:46.460
+after it thinks that's a valid email so the form submitted.
+
+03:46.460 --> 03:52.190
+The reason is because technically you don't need the dot com or anything parvin email the extension
+
+03:52.870 --> 03:54.860
+for it to be an invalid email.
+
+03:54.860 --> 03:58.210
+Technically this is a valid email.
+
+03:58.400 --> 04:05.210
+So we need to check manually ourself that is valid and what this check headers make is make sure that
+
+04:05.210 --> 04:11.720
+it contains the dot com part Duckery k whatever is all right so this just basically is a second check
+
+04:11.720 --> 04:13.490
+to make sure it's a valid email.
+
+04:13.490 --> 04:17.030
+So the last thing to do is just to check that the email hasn't already been used.
+
+04:17.060 --> 04:22.020
+And like I said earlier would actually have the uses table set up yet so we can't do that yet so we'll
+
+04:22.040 --> 04:32.470
+just say to do check that username has already been used.
+
+04:32.950 --> 04:34.060
+Okay and that's it.
+
+04:34.190 --> 04:38.010
+So so far we've done the user name the first and last name on emails.
+
+04:38.030 --> 04:41.420
+Obviously we do have some to dos here but we'll come back in days later.
+
+04:41.420 --> 04:44.990
+The only thing left to do is give out their passwords one.
